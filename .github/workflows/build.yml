@@ -1,0 +1,54 @@
+name: Compile Latex and create output
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install LaTeX and dependencies
+        run: |
+          sudo apt-get update && sudo apt-get install -y \
+          latexmk \
+          texlive \
+          texlive-latex-extra \
+          texlive-lang-italian
+
+      - name: Debug file structure
+        run: |
+          echo "=== File structure ==="
+          find . -name "*.tex" -o -name "*.py" | head -20
+          echo "=== src contents ==="
+          ls -la src/Candidatura/
+
+      - name: Run main.py script
+        run: |
+          python .github/workflows/main.py
+
+      - name: Check if output was created
+        run: |
+          echo "=== Checking output ==="
+          find . -name "*.pdf" | head -10
+          ls -la output/ 2>/dev/null || echo "Output folder not found"
+
+      - name: Add, commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Automated PDF compilation update" || echo "No changes to commit"
+          git push origin main

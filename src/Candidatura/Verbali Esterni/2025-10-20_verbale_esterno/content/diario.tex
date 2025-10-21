@@ -1,0 +1,37 @@
+\section{Diario della riunione}
+Discussione con l'azienda proponente riguardo il progetto SmartOrder guidata dalle nostre domande su diversi ambiti del progetto.
+\\
+\section*{Resoconto}
+\subsection{Tecniche di tokenizzazione}
+È stato richiesto un approfondimento sul funzionamento delle tecniche di tokenizzazione nell'ambito del progetto.\\
+L'azienda ha spiegato che nel contesto degli LLM tutti i testi vengono tokenizzati, ovvossia suddivisi in sottoinsiemi di stringhe più piccole. \\
+Questo processo consente di rappresentare qualsiasi tipo di dato in formato testuale, che gli LLM possono elaborare efficacemente.\\
+La tokenizzazione permette quindi di scomporre frasi e testi in unità elementari gestibili dal modello e rappresenta il primo passaggio nell'interpretazione delle richieste del cliente finalizzata alla creazione di ordini strutturati.
+\subsection{Database vettoriali}
+Il gruppo ha richiesto un approfondimento sui database vettoriali e sul loro utilizzo nel progetto.\\
+L'azienda ha chiarito che nell'ambito degli LLM viene affiancato un database vettoriale per la memorizzazione dei token che sono rappresentati come vettori numerici.\\
+Quando viene effettuata una richiesta, il sistema la trasforma in token identificando le corrispondenze più simili. 
+L'azienda ha precisato che la scelta del database vettoriale dipende dal particolare LLM utilizzato, in quanto esistono soluzioni più o meno ottimali in base al modello implementato.
+
+\subsection{Gestione di incompletezza e ambiguità dei dati}
+L'azienda proponente ha chiarito che la gestione dell'ambiguità dei dati avverrà mediante l'interfaccia web dell'applicazione. Il sistema elaborerà una proposta e, qualora non riesca a identificare con certezza il prodotto richiesto, presenterà al cliente un resoconto della situazione tramite la web app. L'interfaccia permetterà al cliente di visualizzare e modificare il carrello proposto. Nei casi più complessi, sarà possibile richiedere l'intervento di un operatore umano per fornire assistenza nella risoluzione del problema.
+
+\subsection{Vincoli di sicurezza e protezione dei dati sensibili}
+Considerando che il sistema dovrà gestire ordini e dati potenzialmente sensibili, sono state richieste informazioni circa i vincoli di sicurezza da rispettare, le misure di protezione dei dati e gli aspetti relativi alla privacy.\\
+L'azienda ha specificato che tutte le comunicazioni in ingresso e in uscita dal sistema dovranno essere protette mediante protocollo HTTPS. Tutti i dati sensibili saranno gestiti in modo da proteggere i dati personali garantendo la riservatezza e l'integrità delle informazioni dell'utente.
+
+\subsection{Test}
+Per il progetto SmartOrder l'azienda proponente ha confermato che verranno forniti i dati necessari per effettuare test di stress della piattaforma, inclusi scenari simili a un carico elevato di richieste (ad esempio test tipo DDoS).
+Tali test potranno essere eseguiti anche autonomamente.
+
+\subsection{Hosting e deployment}
+È stato richiesto di chiarire le modalità di hosting e messa in produzione della piattaforma, in particolare se fossero necessari server dedicati, container Docker o servizi cloud.\\
+L'azienda ha specificato che la piattaforma dovrà essere sviluppata utilizzando Docker per garantire la portabilità del sistema. 
+
+\subsection{Formazione}
+Per quanto riguarda la progettazione e l’architettura, l’azienda ha dichiarato che offrirà supporto durante le fasi di sviluppo.\\
+Sono già disponibili modelli e strutture di esempio che possono essere consultate per il progetto oltre che ai dataset forniti.\\
+Inoltre, l'azienda si è resa disponibile sull'assistenza su diversi aspetti tecnici, inclusa la struttura Docker della piattaforma (front-end, back-end, intelligenza artificiale e database).
+
+\subsection{Altro}
+L'azienda ha chiarito che il sistema dovrà essere utilizzato solamente online ed che non è necessario il supporto e la gestione di lingue diverse dall'italiano.
