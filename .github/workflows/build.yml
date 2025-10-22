@@ -1,4 +1,4 @@
-name: Compile Latex, create output and modify website
+name: Compile LaTeX and create output
 
 on:
   push:
@@ -13,27 +13,46 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: Install LaTeX and dependencies
+      # Cache dei pacchetti APT
+      - name: Cache APT packages
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt/archives
+          key: apt-cache-${{ runner.os }}
+          restore-keys: |
+            apt-cache-
+
+      # Cache di TeX Live (riduce tempi di compilazione)
+      - name: Cache TeX Live
+        uses: actions/cache@v4
+        with:
+          path: ~/.texlive
+          key: texlive-${{ runner.os }}-${{ hashFiles('**/*.tex') }}
+          restore-keys: |
+            texlive-${{ runner.os }}-
+
+      - name: Install minimal LaTeX
         run: |
-          sudo apt-get update && sudo apt-get install -y \
-          latexmk \
-          texlive \
-          texlive-latex-extra \
-          texlive-lang-italian
+          sudo apt-get update
+          sudo apt-get install -y \
+            latexmk \
+            texlive-latex-recommended \
+            texlive-lang-italian
+          sudo apt-get clean
 
       - name: Debug file structure
         run: |
           echo "=== File structure ==="
           find . -name "*.tex" -o -name "*.py" | head -20
           echo "=== src contents ==="
-          ls -la src/Candidatura/
+          ls -la src/Candidatura/ || true
 
       - name: Run main.py script
         run: |
@@ -52,3 +71,4 @@ jobs:
           git add .
           git commit -m "Automated PDF compilation update" || echo "No changes to commit"
           git push origin main
+
