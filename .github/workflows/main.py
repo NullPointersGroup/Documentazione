@@ -26,7 +26,7 @@ def format_filename(filename):
         date_str = f"{dt.day} {MONTH_IT[dt.month]} {dt.year}"
     else:
         date_str = None
-    title = " ".join(part.title() for part in parts)
+    title = " ".join(part.capitalize() for part in parts)
     if date_str:
         title = f"{title} {date_str}"
     return title
@@ -114,7 +114,7 @@ def generate_html(node, level=2, indent=0):
                 html.append(f'{space}<{tag}><a href="./{rel}" target="_blank">{name}</a></{tag}>')
         else:
             tag = f"h{min(level, 4)}"
-            section_id = key.lower().replace(" ", "-") if level == 2 else None
+            section_id = key.lower() if level == 2 else None
             if level == 2:
                 html.append(f'{space}<section id="{section_id}">')
             html.append(f'{space}<{tag}>{key}</{tag}>')
