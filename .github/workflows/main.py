@@ -38,7 +38,7 @@ def clear_output_folder():
 def cleanup_source_pdf():
     for root, dirs, files in os.walk(SRC_DIR):
         for file in files:
-            if file.endswith((".pdf", ".log", ".aux", ".fls", ".out", ".fdb_latexmk", ".synctex.gz", ".toc")):
+            if file.endswith((".pdf", ".log", ".aux", ".fls", ".out", ".fdb_latexmk", ".synctex.gz", ".toc", ".nav", ".snm")):
                 try:
                     os.remove(os.path.join(root, file))
                 except:
@@ -114,8 +114,11 @@ def generate_html(node, level=2, indent=0):
                 html.append(f'{space}<{tag}><a href="./{rel}" target="_blank">{name}</a></{tag}>')
         else:
             tag = f"h{min(level, 4)}"
-            section_id = key.lower() if level == 2 else None
             if level == 2:
+                if key == "Diario Di Bordo":
+                    section_id = "diario"
+                else:
+                    section_id = key.lower().replace(" ", "-")
                 html.append(f'{space}<section id="{section_id}">')
             html.append(f'{space}<{tag}>{key}</{tag}>')
             html.append(generate_html(node[key], level + 1, indent + 1))
@@ -130,7 +133,6 @@ def update_index_html():
 
     html_text = INDEX_HTML_PATH.read_text(encoding="utf-8")
 
-    # Preserve Contatti
     start_idx = html_text.find('<section id="contatti"')
     if start_idx == -1:
         contatti_html = ""
@@ -142,15 +144,17 @@ def update_index_html():
     tree = build_tree(OUTPUT_DIR)
     generated_html = generate_html(tree)
 
-    # Ensure nav <li> for all sections
     nav_pattern = re.compile(r'<ul id="nav-navigation">(.*?)</ul>', re.DOTALL)
     match = nav_pattern.search(html_text)
     if match:
-        nav_content = match.group(1)
         new_nav = ""
         for sec in SECTION_ORDER + ["Contatti"]:
             folder_exists = sec.lower() in (k.lower() for k in tree.keys())
-            li = f'<li><a href="#{sec.lower()}">{sec}</a></li>'
+            if sec == "Diario Di Bordo":
+                nav_id = "diario"
+            else:
+                nav_id = sec.lower().replace(" ", "-")
+            li = f'<li><a href="#{nav_id}">{sec}</a></li>'
             if sec == "Contatti" or folder_exists:
                 new_nav += f"{li}\n"
             else:

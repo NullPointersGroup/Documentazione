@@ -204,7 +204,7 @@ main section {
 
 #rtb::before,
 #pb::before,
-#diario-di-bordo::before,
+#diario::before,
 #candidatura::before {
     content: '';
     width: var(--content-bar-width);
@@ -218,7 +218,7 @@ main section {
 
 #rtb *:not(h2)::before,
 #pb *:not(h2)::before,
-#diario-di-bordo *:not(h2)::before,
+#diario *:not(h2)::before,
 #candidatura *:not(h2)::before {
     content: '';
     position: absolute;
