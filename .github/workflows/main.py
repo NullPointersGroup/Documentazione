@@ -26,7 +26,7 @@ def format_filename(filename):
         date_str = f"{dt.day} {MONTH_IT[dt.month]} {dt.year}"
     else:
         date_str = None
-    title = " ".join(part.capitalize() for part in parts)
+    title = " ".join(part.title() for part in parts)
     if date_str:
         title = f"{title} {date_str}"
     return title
