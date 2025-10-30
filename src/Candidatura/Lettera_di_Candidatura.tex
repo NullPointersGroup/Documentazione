@@ -1,0 +1,87 @@
+% Configurazione
+\documentclass{article}
+
+\usepackage{titling} % Required for inserting the subtitle
+\usepackage{graphicx} % Required for inserting images
+\usepackage{tabularx} % Per l'ambiente tabularx (tabelle)
+\usepackage{calc} % Sempre per le tabelle
+\usepackage[hidelinks]{hyperref} % Per i collegamenti ipertestuali, ad esempio sulla table of contents
+\usepackage{xcolor} % Per colorare il testo
+\usepackage{colortbl} % Per colorare le celle delle tabelle
+\usepackage{lipsum} % Per generare lorem ipsum
+\usepackage[normalem]{ulem} % Per sottolineare il testo
+\usepackage{array} % Per la visualizzazione fluttuante di array di domande e risposte
+\usepackage{ragged2e} % Pacchetto necessario per \justifying che giustifica il testo di tabelle
+\usepackage{placeins}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+
+\newcommand{\ulhref}[2]{\href{#1}{\uline{#2}}} % Nuovo comando per sottolineare i link
+\newcommand{\ulref}[1]{\uline{\ref{#1}}} % Nuovo comando per sottolineare i collegamenti a immagini
+\setlength{\parindent}{0pt} % Rimuove il rientro automatico dei paragrafi
+
+\graphicspath{ {immagini/} {../shared/images} }
+
+% Struttura
+\begin{document}
+	\pagestyle{empty}
+	\begin{minipage}{0.4\textwidth}
+		\includegraphics[width=0.6\textwidth]{logo_gruppo}
+	\end{minipage}
+	\begin{minipage}{0.55\textwidth}
+		\textbf{NullPointers Group} \\
+		\textsf{nullpointersg@gmail.com}
+	\end{minipage}
+	
+	\vspace{2cm}
+	
+	{
+		\centering
+		\Huge\bfseries Candidatura Capitolato C8\par
+		\vspace{0.5cm}
+	}
+	
+	\begin{center}
+		\begin {minipage}{1.0\textwidth}
+			Destinatari:\\
+			Prof. Vardanega Tullio,\\
+			Prof. Cardin Riccardo.\\
+		\end{minipage}
+	\end{center}
+	Egregi Professori Vardanega e Cardin,\\
+	con il presente documento il team \textbf{"NullPointers Group"} desidera formalizzare la propria candidatura per la realizzazione del  capitolato del progetto \textbf{C8}:\\
+	\begin{center}
+		\textbf{SmartOrder}
+	\end{center}
+	proposto dall'azienda \textbf{Ergon Informatica Srl}.\\
+	Le principali motivazioni che ci hanno portato a scegliere il presente capitolato sono le seguenti:
+	\begin {itemize}
+		\item Riscontro positivo dell'incontro con l'azienda Ergon, che si è resa disponibile a rispondere ai quesiti del gruppo e ha dimostrato interesse nell'affiancarci nelle fasi progettuali più complesse.
+		\item Il capitolato si è distinto per l'uso più vasto degli LLM portando interesse spontaneo da parte del gruppo.
+		\item Apprezzamento della flessibilità tecnologica consentendo la scelta di linguaggi più familiari per il gruppo.
+	\end {itemize} 
+	Per maggiori dettagli si rimanda al documento di \underline{\href{https://nullpointersgroup.github.io/Documentazione/output/Candidatura/Valutazione_capitolati.pdf}{Valutazione dei Capitolati}}.\\
+
+	Come discusso nel documento di \underline{\href{https://nullpointersgroup.github.io/Documentazione/output/Candidatura/Preventivo_Costi.pdf}{Preventivo Costi}} abbiamo preventivato un costo complessivo per la realizzazione del progetto di \textbf{11.440€}, fissando come termine ultimo per il completamento il \textbf{30 Aprile 2026}.\\
+	
+	Tutta la documentazione redatta dal gruppo è pubblicamente disponibile nel seguente \underline{\href{https://nullpointersgroup.github.io/Documentazione}{sito ufficiale}} e nella \underline{\href{https://github.com/NullPointersGroup/Documentazione}{repository}} dedicata.\\
+	NullPointers Group è composto dai seguenti membri:\newline
+	
+	\begin{tabular}{|p{0.33\textwidth}|p{0.33\textwidth}|p{0.33\textwidth}|}
+		\hline
+		\rowcolor{red!10!blue!20}
+		\textbf{Nome} & \textbf{Cognome} & \textbf{Matricola} \\
+		\hline
+		Laura & Pieripolli & 2048057 \\ \hline
+		Lisa & Casagrande & 2116440 \\ \hline
+		Luca & Marcuzzo & 2113198 \\ \hline
+		Marco & Brunello & 2110997 \\ \hline
+		Matteo & Mazzaretto & 2111005 \\\hline
+		Tommaso & Ceron & 2101045 \\ \hline
+	\end{tabular} \\
+	
+	\vskip 0.2in
+	Cordiali Saluti, \\
+	NullPointers Group.
+\end{document}
