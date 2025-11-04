@@ -20,16 +20,27 @@ MONTH_IT = {
 def format_filename(filename):
     name, ext = os.path.splitext(filename)
     parts = name.split("_")
-    if re.match(r"^\d{4}-\d{2}-\d{2}$", parts[0]):
-        date_part = parts.pop(0)
-        dt = datetime.strptime(date_part, "%Y-%m-%d")
-        date_str = f"{dt.day} {MONTH_IT[dt.month]} {dt.year}"
-    else:
-        date_str = None
-    title = " ".join(part.title() for part in parts)
-    if date_str:
-        title = f"{title} {date_str}"
-    return title
+    first = parts[0]
+
+    # caso con data YYYY-MM-DD
+    if re.match(r"^\d{4}-\d{2}-\d{2}$", first):
+        date = first  # mantieni trattini
+
+        # file che contengono "VE" nel nome → Verbale Esterno
+        if "est" in name.lower():
+            return f"{date}_VE"
+
+        # file che contengono "VI" nel nome → Verbale Interno
+        if "int" in name.lower():
+            return f"{date}_VI"
+
+        # nessuna etichetta → solo data
+        return date
+
+    # nessuna data → restituisci nome base
+    return name
+
+
 
 def clear_output_folder():
     if OUTPUT_DIR.exists() and OUTPUT_DIR.is_dir():
@@ -38,7 +49,7 @@ def clear_output_folder():
 def cleanup_source_pdf():
     for root, dirs, files in os.walk(SRC_DIR):
         for file in files:
-            if file.endswith((".pdf", ".log", ".aux", ".fls", ".out", ".fdb_latexmk", ".synctex.gz", ".toc", ".nav", ".snm")):
+            if file.endswith((".pdf", ".log", ".aux", ".fls", ".out", ".fdb_latexmk", ".synctex.gz", ".toc")):
                 try:
                     os.remove(os.path.join(root, file))
                 except:
@@ -89,8 +100,32 @@ def build_tree(path: Path, depth=0, max_depth=MAX_DEPTH):
     node = {}
     if not path.exists() or not path.is_dir():
         return {}
+    
+    def _extract_date(path):
+        m = re.match(r"^(\d{4})-(\d{2})-(\d{2})", path.name)
+        if not m:
+            return 0
+        return int(m.group(1)) * 10000 + int(m.group(2)) * 100 + int(m.group(3))
 
-    pdfs = sorted([f for f in path.iterdir() if f.is_file() and f.suffix.lower() == ".pdf"])
+    pdfs = [f for f in path.iterdir() if f.is_file() and f.suffix.lower() == ".pdf"]
+
+    # separa file datati da non-datati
+    dated = []
+    plain = []
+
+    for f in pdfs:
+        if re.match(r"^\d{4}-\d{2}-\d{2}", f.stem):
+            dated.append(f)
+        else:
+            plain.append(f)
+
+    # ordina solo i datati in ordine decrescente
+    dated.sort(key=_extract_date, reverse=True)
+
+    # ricompone: prima i datati (recenti→vecchi), poi gli altri mantenendo ordine originale
+    pdfs = dated + sorted(plain, key=lambda x: x.name.lower())
+
+
     if pdfs:
         node["_files"] = [(format_filename(f.name), str(f)) for f in pdfs]
 
@@ -114,11 +149,8 @@ def generate_html(node, level=2, indent=0):
                 html.append(f'{space}<{tag}><a href="./{rel}" target="_blank">{name}</a></{tag}>')
         else:
             tag = f"h{min(level, 4)}"
+            section_id = key.lower() if level == 2 else None
             if level == 2:
-                if key == "Diario Di Bordo":
-                    section_id = "diario"
-                else:
-                    section_id = key.lower().replace(" ", "-")
                 html.append(f'{space}<section id="{section_id}">')
             html.append(f'{space}<{tag}>{key}</{tag}>')
             html.append(generate_html(node[key], level + 1, indent + 1))
@@ -133,6 +165,7 @@ def update_index_html():
 
     html_text = INDEX_HTML_PATH.read_text(encoding="utf-8")
 
+    # Preserve Contatti
     start_idx = html_text.find('<section id="contatti"')
     if start_idx == -1:
         contatti_html = ""
@@ -144,17 +177,15 @@ def update_index_html():
     tree = build_tree(OUTPUT_DIR)
     generated_html = generate_html(tree)
 
+    # Ensure nav <li> for all sections
     nav_pattern = re.compile(r'<ul id="nav-navigation">(.*?)</ul>', re.DOTALL)
     match = nav_pattern.search(html_text)
     if match:
+        nav_content = match.group(1)
         new_nav = ""
         for sec in SECTION_ORDER + ["Contatti"]:
             folder_exists = sec.lower() in (k.lower() for k in tree.keys())
-            if sec == "Diario Di Bordo":
-                nav_id = "diario"
-            else:
-                nav_id = sec.lower().replace(" ", "-")
-            li = f'<li><a href="#{nav_id}">{sec}</a></li>'
+            li = f'<li><a href="#{sec.lower()}">{sec}</a></li>'
             if sec == "Contatti" or folder_exists:
                 new_nav += f"{li}\n"
             else:
