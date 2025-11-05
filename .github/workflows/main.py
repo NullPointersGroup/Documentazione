@@ -223,7 +223,8 @@ def update_index_html(
         new_nav = ""
         for sec in section_order + ["Contatti"]:
             folder_exists = sec.lower() in (k.lower() for k in tree.keys())
-            li = f'<li><a href="#{sec.lower()}">{sec}</a></li>'
+            section_id = sec.lower().split()[0]
+            li = f'<li><a href="#{section_id}">{sec}</a></li>'
 
             # Keep visible only sections that actually exist, keep Contatti always visible
             if sec == "Contatti" or folder_exists:
