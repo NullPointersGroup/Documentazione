@@ -36,7 +36,7 @@ def format_filename(filename: str) -> str:
     """Formatta il nome file secondo le regole specificate nel codice originale.
 
     - se il nome inizia con YYYY-MM-DD: mantiene la data come prefisso
-    - aggiunge _VE se contiene "est" (verbale esterno) o _VI se contiene "int" (verbale interno)
+    - aggiunge _VE se contiene "est" (verbale esterno), _VI se contiene "int" (verbale interno), DB se contiene "diario" (diario di bordo)
     - altrimenti restituisce il nome base (senza estensione)
     """
     name, _ext = os.path.splitext(filename)
@@ -50,6 +50,8 @@ def format_filename(filename: str) -> str:
             return f"{date}_VE"
         if "int" in lower_name:
             return f"{date}_VI"
+        if "diario" in lower_name:
+            return f"{date}_DB"
         return date
 
     return name
@@ -58,7 +60,7 @@ def format_filename(filename: str) -> str:
 @maybe_beartype
 def cleanup_source_pdf(src_dir: Path = SRC_DIR) -> None:
     """Rimuove file generati temporanei nella sorgente (.pdf, .log, .aux, ...)."""
-    patterns = (".pdf", ".log", ".aux", ".fls", ".out", ".fdb_latexmk", ".synctex.gz", ".toc")
+    patterns = (".pdf", ".log", ".aux", ".fls", ".out", ".fdb_latexmk", ".synctex.gz", ".toc", ".snm", ".nav")
     for root, _dirs, files in os.walk(src_dir):
         for file in files:
             if file.endswith(patterns):
@@ -183,7 +185,7 @@ def generate_html(node: Dict[str, Any], level: int = 2, indent: int = 0) -> str:
         else:
             tag = f"h{min(level,4)}"
             if level == 2:
-                section_id = key.lower()
+                section_id = key.lower().split()[0]
                 html_lines.append(f'{space}<section id="{section_id}">')
             html_lines.append(f'{space}<{tag}>{key}</{tag}>')
             html_lines.append(generate_html(node[key], level + 1, indent + 1))
