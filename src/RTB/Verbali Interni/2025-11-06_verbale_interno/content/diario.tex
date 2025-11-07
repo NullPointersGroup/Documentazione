@@ -1,0 +1,42 @@
+\section{Diario della riunione}
+
+\subsection{Assegnazione ruoli e primi compiti}
+Nella riunione di oggi sono stati stabiliti i primi ruoli, a partire da oggi fino al 17-11-2025 compreso.\\
+\begin{center}
+	Laura Pieripolli $\to$ Responsabile$_G$ \\
+	Marco Brunello, Tommaso Ceron, Matteo Mazzaretto $\to$ Amministratore$_G$ \\
+	Lisa Casagrande, Luca Marcuzzo $\to$ Analista$_G$ \\
+	Matteo Mazzaretto sarà il redattore$_G$ di questo verbale, assieme a Tommaso Ceron definirà la prima versione, unicamente in PDF, del glossario\\
+	Marco Brunello gestirà l'infrastruttura$_G$ di GitHub con delle nuove \textit{GitHub action}$_G$, per attuare i branch$_G$ alternativi (sottosezione dedicata). Inoltre sarà il verificatore$_G$ dei documenti.\\
+\end{center}
+\subsection{Nuovi codici per decisioni e azioni}
+Oltre ai codici VI, VE, TD associati alle decisioni prese nei rispettivi \textit{Verbali Interni}, \textit{Verbali Esterni} e alle \textit{attività future}, abbiamo due nuovi codici: SM$\#$ e SMD$\#$.\\
+SM indica un'attività, con un issue$_G$ in GitHub, presente nella repository \href{https://gtihub.com/nullpointersgroup/smartorder}{SmartOrder} per indicare un'attività da svolgere relativa al progetto e al PoC$_G$.\\
+SMD indica un'attività, anch'essa con un issue, presente nella repository \href{https://gtihub.com/nullpointersgroup/documentazione}{di Documentazione} per indicare un'attività da svolgere riguardante la documentazione a supporto del progetto.\\
+Entrambi i codici sono seguiti da un \#, ovvero un numero incrementale che permette di distinguere in modo univoco la decisione$_G$/azione$_G$.\\
+A seguito di decisione del gruppo, i codici VI e VE non indicano issue presenti nelle repository$_G$ siccome sono decisioni effettuate in quel momento senza necessità di issue. Il codice TD invece indica l'attività futura semplice, come una verifica di un documento, che non necessita di una issue, a differenza della redazione di un documento.
+\subsection{Branch alternativi}
+È stato deciso che, nella repository della Documentazione, per ogni documento nuovo o aggiornamento di documento viene caricato su un branch di feature.\\
+Ad esempio la redazione di questo stesso verbale interno verrà caricata sul branch feature/verbint1106 il quale verrà cancellato al momento dell'approvazione dal verificatore.\\
+Successivamente si effettua un merge$_G$ verso il branch main e si cancella il branch creato in precedenza, tutto questo con un'automazione$_G$.
+\subsection{Scelta standard Analisi Requisiti}
+È stato scelto come struttura del documento dell'\textit{Analisi dei Requisiti}$_G$ lo standard ISO/IEC/IEEE 29148:2018
+\subsection{Nuovo sistema di versionamento documentazione}
+Abbiamo scelto di inserire un sistema più aggiornato e documentato rispetto al precedente relativo al versionamento$_G$ dei documenti.\\
+Adesso ogni documento, in ogni fase della sua vita, avrà un codice x.y.z, che indica: \\\\
+
+\begin{tabular}{|p{0.2\textwidth}|p{0.1\textwidth}|p{0.6\textwidth}|}
+	\hline
+	Cambiamento & Lettera & Descrizione \\
+	\hline
+	\textbf{Major}$_G$ & x & Indica approvazione finale del documento. Rispetto alla precedente versione x.y.z, la nuova versione$_G$ verrà identificata come (x+1).0.0 \\
+	\hline
+	\textbf{Minor}$_G$ & y & Indica aggiunta di sezione nel documento o modifiche sostanziali. Rispetto alla precedente versione x.y.z, la versione verificata diventerà x.(y+1).0\\
+	\hline
+	\textbf{Patch}$_G$ & z & Indica una correzione semplice, come la correzione di un typo$_G$ o di errori grammaticali/strutturali. Rispetto alla precedente versione x.y.z, la versione verificata verrà segnata come x.y.(z+1)\\
+	\hline
+\end{tabular}
+
+\subsection{Organizzazione incontro con azienda}
+Il team ha deciso di inviare una mail per il primo incontro.\\
+Desideriamo avere il primo incontro in presenza in azienda per definire eventuali altri metodi di comunicazione ulteriori alla posta elettronica e discutere i primi requisiti$_G$ trovati
