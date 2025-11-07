@@ -1,13 +1,12 @@
-name: Compile Latex and create output
+name: Test.yml
 on:
   push:
     branches:
-      - main
+      - feature/test.yml
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: ghcr.io/xu-cheng/texlive-full:latest
     permissions:
       contents: write
 
