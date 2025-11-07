@@ -2,7 +2,7 @@ name: Test.yml
 on:
   push:
     branches:
-      - feature/test.yml
+      - main
 
 jobs:
   build:
