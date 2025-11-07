@@ -1,0 +1,27 @@
+name: Crea PR da feature a main
+
+on:
+  push:
+    branches:
+      - feature/*
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  create_pr:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create pull request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: ${{ github.ref_name }}
+          destination_branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_title: "Pull Request Automatica - ${{ github.ref_name }} → main"
+          pr_body: "PR automatica generata dal push su ${{ github.ref_name }}"
