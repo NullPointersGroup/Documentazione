@@ -1,36 +1,35 @@
-name: Compile Latex and create output
-
+name: Compile LaTeX and create output
 on:
   push:
-    branches:
-      - main
-
+    branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest
     container: ghcr.io/xu-cheng/texlive-full:latest
-    permissions:
-      contents: write
-
+    permissions: {}
     steps:
+      - name: Generate GitHub App Token
+        uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
         with:
-          python-version: "3.x"
+          token: ${{ steps.app-token.outputs.token }}
+          ref: main
+          persist-credentials: true
 
       - name: Compile
         run: python .github/workflows/main.py
 
-      - name: Mark repo as safe
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-
       - name: Commit and push PDFs
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub App"
+          git config --global user.email "noreply@github.com"
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git add .
-          git commit -m "Automated PDF compilation update"
+          git commit -m "Auto: PDF compilati" || exit 0
           git push origin main
