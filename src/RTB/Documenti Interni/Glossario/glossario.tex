@@ -1,0 +1,119 @@
+
+% Configurazione
+\documentclass{article}
+
+\usepackage{titling} % Required for inserting the subtitle
+\usepackage{graphicx} % Required for inserting images
+\usepackage{tabularx} % Per l'ambiente tabularx (tabelle)
+\usepackage{calc} % Sempre per le tabelle
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\usepackage[colorlinks=true,
+linkcolor=black,
+urlcolor=blue,
+citecolor=blue]{hyperref}
+% Per i collegamenti ipertestuali, ad esempio sulla table of contents
+\usepackage{xcolor} % Per colorare il testo
+\usepackage{colortbl} % Per colorare le celle delle tabelle
+\usepackage{lipsum} % Per generare lorem ipsum
+\usepackage[normalem]{ulem} % Per sottolineare il testo
+\usepackage{array} % Per la visualizzazione fluttuante di array di domande e risposte
+\usepackage{ragged2e} % Pacchetto necessario per \justifying che giustifica il testo di tabelle
+
+\newcommand{\ulhref}[2]{\href{#1}{\uline{#2}}} % Nuovo comando per sottolineare i link
+\newcommand{\ulref}[1]{\uline{\ref{#1}}} % Nuovo comando per sottolineare i collegamenti a immagini
+\setlength{\parindent}{0pt} % Rimuove il rientro automatico dei paragrafi
+
+\graphicspath{ {immagini/} {../../../shared/images/} }
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrule}{\vspace{-1pt}\hrule height 0.4pt width \headwidth}
+\renewcommand{\footrule}{\vspace{-1pt}\hrule height 0.4pt width \headwidth}
+
+
+\fancyhead[L]{NullPointers Group}
+\fancyhead[R]{Glossario\\Versione 0.1.0}
+\fancyfoot[C]{Pagina \thepage\ di \pageref{LastPage}}
+
+
+% Struttura
+\begin{document}
+% Parte costante
+\input{content/heading}
+\input{content/title}
+\input{content/table}
+\newpage
+% variabile, prima dell'indice
+\input{content/modifiche}
+\newpage
+\hypersetup{linkcolor=black}
+\begin{center}
+\renewcommand{\contentsname}{Indice}
+\tableofcontents
+\end{center}
+
+\newpage
+
+\hypersetup{linkcolor=blue}
+% Parte variabile
+\input{content/introduzione}
+\newpage
+\input{content/letters/a}
+\newpage
+\input{content/letters/b}
+\newpage
+\input{content/letters/c}
+\newpage
+\input{content/letters/d}
+\newpage
+\input{content/letters/e}
+\newpage
+\input{content/letters/f}
+\newpage
+\input{content/letters/g}
+\newpage
+\input{content/letters/h}
+\newpage
+\input{content/letters/i}
+\newpage
+\input{content/letters/j}
+\newpage
+\input{content/letters/k}
+\newpage
+\input{content/letters/l}
+\newpage
+\input{content/letters/m}
+\newpage
+\input{content/letters/n}
+\newpage
+\input{content/letters/o}
+\newpage
+\input{content/letters/p}
+\newpage
+\input{content/letters/q}
+\newpage
+\input{content/letters/r}
+\newpage
+\input{content/letters/s}
+\newpage
+\input{content/letters/t}
+\newpage
+\input{content/letters/u}
+\newpage
+\input{content/letters/v}
+\newpage
+\input{content/letters/w}
+\newpage
+\input{content/letters/x}
+\newpage
+\input{content/letters/y}
+\newpage
+\input{content/letters/z}
+
+\end{document}
