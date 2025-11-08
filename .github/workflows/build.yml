@@ -1,12 +1,17 @@
-name: Compile LaTeX and create output
+name: Compila LaTeX e aggiorna PDF
+
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches: [main]
+
 jobs:
-  build:
+  build-and-merge:
+    if: github.event.pull_request.merged == true # ← Esegue action solo se la PR è stata MERGATA sul main
     runs-on: ubuntu-latest
     container: ghcr.io/xu-cheng/texlive-full:latest
     permissions: {}
+
     steps:
       - name: Generate GitHub App Token
         uses: actions/create-github-app-token@v1
@@ -15,17 +20,17 @@ jobs:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
 
-      - name: Checkout
+      - name: Checkout (post-merge)
         uses: actions/checkout@v4
         with:
           token: ${{ steps.app-token.outputs.token }}
           ref: main
           persist-credentials: true
 
-      - name: Compile
+      - name: Compile LaTeX
         run: python .github/workflows/main.py
 
-      - name: Commit and push PDFs
+      - name: Commit and Push PDFs
         run: |
           git config --global user.name "GitHub App"
           git config --global user.email "noreply@github.com"
