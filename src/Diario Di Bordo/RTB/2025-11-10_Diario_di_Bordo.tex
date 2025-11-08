@@ -1,0 +1,78 @@
+\documentclass[11pt]{beamer}
+\usetheme{CambridgeUS}
+
+%-----------------------------------------------------------------------
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+%-----------------------------------------------------------------------
+% Package customization
+\definecolor{links}{HTML}{FC0D30}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+%-----------------------------------------------------------------------
+% Commands
+\renewcommand{\emph}[1]{\textbf{#1}}
+\graphicspath{ {immagini/} {../../shared/images/} }
+
+%-----------------------------------------------------------------------
+% Headings
+\author{NullPointers Group}
+\title{Diario di Bordo}
+\setbeamercovered{transparent} 
+\setbeamertemplate{navigation symbols}{}
+\logo{%
+	\makebox[0.95\paperwidth]{%  <-- Larghezza totale quasi quanto la slide
+		\includegraphics[width=0.05\textwidth]{logo_unipd}\hfill
+		\includegraphics[width=0.05\textwidth]{logo_gruppo}% ← secondo logo
+	}%
+}
+\institute{Università di Padova} 
+\date{10 Novembre 2025}
+
+%-----------------------------------------------------------------------
+% Document
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Risultati}
+	Nel corso del periodo considerato abbiamo raggiunto i seguenti risultati:
+	\begin{itemize}
+		\item Miglioramento della repository: organizzazione interna e parte pubblica;
+		\item Contatto con l'azienda per un primo incontro;
+		\item Assegnazione dei ruoli.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Dubbi e problemi}
+	I principali dubbi e difficoltà riscontrati sono stati:
+	\begin{itemize}
+		\item Dubbi riguardanti il ruolo associato alla redazione dei verbali;
+		\item Difficoltà incontrate durante l'automazione della repository.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Conclusione}
+ Per ogni domanda:
+ \begin{itemize}
+  \item email: \href{mailto:nullpointersg@gmail.com}{nullpointersg@gmail.com}
+ \end{itemize}
+ 
+ \begin{columns}
+  \begin{column}{0.15\textwidth}
+   \includegraphics[width=0.99\textwidth]{logo_github}
+  \end{column}
+  \begin{column}{0.85\textwidth}
+   La nostra repository è disponibile al seguente link: \url{https://github.com/NullPointersGroup/Documentazione}
+  \end{column}
+ \end{columns}
+\end{frame}
+
+\end{document}
