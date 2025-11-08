@@ -52,15 +52,19 @@ def format_filename(filename: str) -> str:
             return f"{date}_VI"
         if "diario" in lower_name:
             return f"{date}_DB"
+        if "rtb" in lower_name:
+            return f"{date}_RTB"
+        if "rtb" in lower_name:
+            return f"{date}_PB"
         return date
 
-    return name
+    return name.replace("_", " ")
 
 
 @maybe_beartype
 def cleanup_source_pdf(src_dir: Path = SRC_DIR) -> None:
     """Rimuove file generati temporanei nella sorgente (.pdf, .log, .aux, ...)."""
-    patterns = (".pdf", ".log", ".aux", ".fls", ".out", ".fdb_latexmk", ".synctex.gz", ".toc", ".snm", ".nav")
+    patterns = (".pdf", ".lof", ".lot", ".log", ".aux", ".fls", ".out", ".fdb_latexmk", ".synctex.gz", ".toc", ".snm", ".nav")
     for root, _dirs, files in os.walk(src_dir):
         for file in files:
             if file.endswith(patterns):
