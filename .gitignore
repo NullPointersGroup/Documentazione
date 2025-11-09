@@ -9,3 +9,5 @@
 *.fls
 *.nav
 *.snm
+*.lof
+*.lot
