@@ -1,0 +1,36 @@
+#nav-navigation {
+   gap: 0;
+   justify-content: space-between;
+   padding: .5em 1.5em;
+}
+
+#nav-navigation a {
+   padding: .5rem 1rem;
+   text-align: center;
+}
+
+header {
+   max-height: 100vh;
+   overflow: hidden;
+}
+
+dl {
+   display: grid;
+   grid-template-columns: 1fr 2fr;
+   row-gap: 2.5em;
+}
+
+dt {
+   font-size: 1.3em;
+   font-weight: bold;
+}
+
+h2 {
+   text-align: center;
+   margin-bottom: 2em;
+}
+
+main section {
+   margin: 0 20%;
+   padding: var(--section-top-padding) 0 var(--section-bottom-padding) 0;
+}
