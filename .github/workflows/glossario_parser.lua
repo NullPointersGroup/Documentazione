@@ -81,6 +81,11 @@ local function parse_terms(content)
 			})
 		end
 	end
+
+	--Sorting alfabetico dei termini di una singola lettera
+	table.sort(terms, function(a, b)
+		return a.term:lower() < b.term:lower()
+	end)
 	return terms
 end
 
@@ -92,25 +97,14 @@ local function generate_html(all_terms)
 <head>
     <meta charset="UTF-8">
     <title>Glossario</title>
+    <link rel="stylesheet" href="styles.css"
     <link rel="stylesheet" href="glossario.css"
+    <script src="script.js"></script>
     </head>
 <body>
-<nav class="">
-  <div class="">
-    <a class="" href=".">
-    <img
-      src="./website/images/logo.svg"
-      alt="Logo del gruppo"
-      width="30"
-      height="30"
-    />
-    <span class="navTitle" style="margin-left: 15px">NullPointers Group</span>
-    </a>
-    </div>
-    </nav>
-
-    <h1>Glossario</h1>
-    <nav>
+  <header>
+    <nav aria-label="Navigazione principale">
+    <ul id="nav-navigation">
     <a href="index.html" id="currentlink">Torna alla home</a>
   ]],
 	}
@@ -119,7 +113,7 @@ local function generate_html(all_terms)
 	for _, letter in ipairs(LETTERS) do
 		local upper = letter:upper()
 		if all_terms[upper] and #all_terms[upper] > 0 then
-			table.insert(html, string.format('            <a href="#%s">%s</a>\n', upper, upper))
+			table.insert(html, string.format('            <li><a href="#%s">%s</a></li>\n', upper, upper))
 		end
 	end
 
@@ -133,21 +127,18 @@ local function generate_html(all_terms)
 	-- Generazione sezioni per lettera
 	for _, letter in ipairs(LETTERS) do
 		local upper = letter:upper()
-		if all_terms[upper] and #all_terms[upper] > 0 then
-			table.insert(html, string.format("        <dl>\n"))
+		table.insert(html, string.format('    <section id="%s">\n', letter))
+		table.insert(html, string.format("	<h2>%s</h2>\n", upper))
+		if all_terms[upper] then
+			table.insert(html, string.format("	  <dl>\n"))
 
 			for _, term_data in ipairs(all_terms[upper]) do
-				table.insert(
-					html,
-					string.format("                <dt>%s</dt>\n", convert_latex_to_html(term_data.term))
-				)
-				table.insert(
-					html,
-					string.format("                <dd>%s</dd>\n", convert_latex_to_html(term_data.definition))
-				)
+				table.insert(html, string.format("	      <dt>%s</dt>\n", convert_latex_to_html(term_data.term)))
+				table.insert(html, string.format("	      <dd>%s</dd>\n\n", convert_latex_to_html(term_data.definition)))
 			end
-			table.insert(html, "        </dl>\n\n")
+			table.insert(html, "        </dl>\n")
 		end
+		table.insert(html, "    </section\n\n")
 	end
 	table.insert(
 		html,
