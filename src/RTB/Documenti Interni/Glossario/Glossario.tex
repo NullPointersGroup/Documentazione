@@ -42,8 +42,17 @@ citecolor=blue]{hyperref}
 \fancyfoot[C]{Pagina \thepage\ di \pageref{LastPage}}
 
 
-% Struttura
+% --- Solo piè di pagina per la prima pagina ---
+\fancypagestyle{firstpage}{
+	\fancyhf{}
+	\fancyfoot[C]{Pagina \thepage{} di \pageref{LastPage}}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0.4pt}
+}
+
+%struttura
 \begin{document}
+\thispagestyle{firstpage} % Copertina con solo piè di pagina
 % Parte costante
 \input{content/heading}
 \input{content/title}
