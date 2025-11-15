@@ -1,0 +1,80 @@
+#nav-navigation {
+   gap: 0;
+   justify-content: space-between;
+   padding: .5em 1.5em;
+}
+
+#nav-navigation a {
+   padding: .5rem 1rem;
+   text-align: center;
+}
+
+ul {
+   max-height: 100vh;
+   overflow: hidden;
+}
+
+dl {
+   display: grid;
+   grid-template-columns: 1fr 2fr;
+   row-gap: 2.5em;
+}
+
+dt {
+   font-size: 1.3em;
+   font-weight: bold;
+}
+
+h2 {
+   text-align: center;
+   margin-bottom: 2em;
+}
+
+main section {
+   margin: 0 20%;
+   padding: var(--section-top-padding) 0 var(--section-bottom-padding) 0;
+}
+
+main  {
+   position: relative; 
+}
+
+#home {
+   position: absolute;
+   text-decoration: none;
+   background-color: rgba(var(--verde-rgb), .2);
+   padding: .5em 1.5em;
+   right: 1em; 
+   top: 1em;
+   border-radius: 5px;
+   border: 2px solid var(--verde-hex)
+}
+
+@media (max-width: 768px) {
+   dl {
+      grid-template-columns: 1fr;
+      row-gap: 0;
+   }
+
+   dt {
+      margin-top: 1.5em;
+      margin-bottom: .3em;
+   }
+
+   main {
+      overflow: auto;
+   }
+
+   header {
+      position: sticky;
+      top: 0;
+      background-color: var(--bg-primario-hex);
+      z-index: 1;
+   }
+
+   /*  Questo serve per far si she quando viene cliccata una lettera sulla navbar 
+     la stessa non copra l'h2 della lettera */
+   html {
+      scroll-padding-top: 5em;
+   }
+}

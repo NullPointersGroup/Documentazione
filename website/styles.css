@@ -96,7 +96,6 @@ nav {
     height: 100%;
     position: relative;
     gap: 10vh;
-    position: sticky;
 }
 
 nav::after {
