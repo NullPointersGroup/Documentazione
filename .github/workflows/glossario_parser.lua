@@ -97,29 +97,34 @@ local function generate_html(all_terms)
 <head>
     <meta charset="UTF-8">
     <title>Glossario</title>
-    <link rel="stylesheet" href="styles.css"
-    <link rel="stylesheet" href="glossario.css"
-    <script src="script.js"></script>
+	<link rel="icon" href="../images/logo.png" type="image/x-icon">
+   <link rel="stylesheet" href="../styles.css">
+   <link rel="stylesheet" href="glossario.css">
+   <script src="../script.js" defer></script>
     </head>
 <body>
   <header>
     <nav aria-label="Navigazione principale">
     <ul id="nav-navigation">
-    <a href="index.html" id="currentlink">Torna alla home</a>
   ]],
 	}
 
 	-- Generazione navigazione lettere
 	for _, letter in ipairs(LETTERS) do
 		local upper = letter:upper()
+		-- Se si deciderà di mettere tutte le lettere nella navbar allora basta commentare questo if qua
 		if all_terms[upper] and #all_terms[upper] > 0 then
-			table.insert(html, string.format('            <li><a href="#%s">%s</a></li>\n', upper, upper))
+			table.insert(html, string.format('            <li><a href="#%s">%s</a></li>\n', letter, upper))
 		end
 	end
 
 	table.insert(
 		html,
 		[[        </nav>
+				</header>
+			
+				<main>
+				<a href="../../index.html" id="home">Home</a>
 
 ]]
 	)
@@ -138,7 +143,7 @@ local function generate_html(all_terms)
 			end
 			table.insert(html, "        </dl>\n")
 		end
-		table.insert(html, "    </section\n\n")
+		table.insert(html, "    </section>\n\n")
 	end
 	table.insert(
 		html,
