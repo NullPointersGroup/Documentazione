@@ -9,7 +9,7 @@
    text-align: center;
 }
 
-header {
+ul {
    max-height: 100vh;
    overflow: hidden;
 }
@@ -33,4 +33,48 @@ h2 {
 main section {
    margin: 0 20%;
    padding: var(--section-top-padding) 0 var(--section-bottom-padding) 0;
+}
+
+main  {
+   position: relative; 
+}
+
+#home {
+   position: absolute;
+   text-decoration: none;
+   background-color: rgba(var(--verde-rgb), .2);
+   padding: .5em 1.5em;
+   right: 1em; 
+   top: 1em;
+   border-radius: 5px;
+   border: 2px solid var(--verde-hex)
+}
+
+@media (max-width: 768px) {
+   dl {
+      grid-template-columns: 1fr;
+      row-gap: 0;
+   }
+
+   dt {
+      margin-top: 1.5em;
+      margin-bottom: .3em;
+   }
+
+   main {
+      overflow: auto;
+   }
+
+   header {
+      position: sticky;
+      top: 0;
+      background-color: var(--bg-primario-hex);
+      z-index: 1;
+   }
+
+   /*  Questo serve per far si she quando viene cliccata una lettera sulla navbar 
+     la stessa non copra l'h2 della lettera */
+   html {
+      scroll-padding-top: 5em;
+   }
 }
