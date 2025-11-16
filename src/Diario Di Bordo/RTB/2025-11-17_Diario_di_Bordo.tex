@@ -1,0 +1,212 @@
+\documentclass[11pt]{beamer}
+
+% --- Codifica e font ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+% --- Colori ---
+\usepackage{xcolor}
+\definecolor{Teal}{HTML}{2EAFC0}
+\definecolor{Green}{HTML}{88C084}
+\definecolor{Purple}{HTML}{6A2E7A}
+\definecolor{Pink}{HTML}{CF8AA6}
+\definecolor{Yellow}{HTML}{F0D78A}
+\definecolor{Cream}{HTML}{FFF8F0}
+\definecolor{LightGray}{HTML}{F5F5F5}
+
+% --- TikZ per sfondi ---
+\usepackage{tikz}
+\usetikzlibrary{calc,backgrounds,positioning}
+\usepackage{graphicx}
+\graphicspath{{./}{../../shared/images/}}
+
+% --- Pacchetto per link cliccabili ---
+\usepackage{hyperref}
+
+% --- Tema base Beamer ---
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{frametitle}{fg=black}
+
+% Template del frametitle semplificato
+\setbeamertemplate{frametitle}{%
+  \vspace{1.2cm}
+  \centering
+  \insertframetitle%
+}
+
+% --- Template ---
+\newcommand{\BaseBackground}[1]{%
+  \setbeamertemplate{background}{%
+    \begin{tikzpicture}[remember picture,overlay]
+      % Sfondo principale bianco con nuance
+      \fill[#1!5!white] (current page.south west) rectangle (current page.north east);
+      
+      % Pattern geometrico sottile
+      \foreach \x in {0,2,...,12} {
+        \foreach \y in {0,2,...,8} {
+          \fill[#1!8!white, rotate=45] 
+            ($(current page.south west)+(\x cm + 0.5cm, \y cm + 0.5cm)$) 
+            rectangle +($(0.3cm,0.3cm)$);
+        }
+      }
+      
+      % Header 
+      \fill[#1!15!white] 
+        (current page.north west) rectangle ($(current page.north east)+(0,-2.5cm)$);
+      
+      % Barra colorata nell'header
+      \fill[#1] 
+        ($(current page.north west)+(0,-2.3cm)$) rectangle 
+        ($(current page.north west)+(4cm,-2.5cm)$);
+      
+      % Logo gruppo
+      \coordinate (logocenter) at ($(current page.north east)+(-1.5cm,-1.2cm)$);
+      \node at (logocenter) {\includegraphics[height=1.5cm]{logo_gruppo_.png}};
+      
+      % Footer
+      \fill[#1!10!white] 
+        (current page.south west) rectangle ($(current page.south east)+(0,1.2cm)$);
+      
+      \node[anchor=west] (unipdlogo) at ($(current page.south west)+(0.8cm,0.6cm)$)
+        {\includegraphics[height=0.9cm]{logo_unipd_.png}};
+      
+      % Numero slide
+      \node[anchor=south east, text=#1!70!black, font=\bfseries, inner sep=3pt] 
+        at ($(current page.south east)+(-0.5cm,0.4cm)$) 
+        {\insertframenumber/\inserttotalframenumber};
+    \end{tikzpicture}%
+  }%
+  % Imposta anche i colori del testo per questa sezione
+  \setbeamercolor{normal text}{fg=black,bg=white}
+  \setbeamercolor{frametitle}{fg=#1!80!black}
+}
+
+% --- Background ---
+\newcommand{\SetTitleBackground}{%
+  \setbeamertemplate{background}{%
+    \begin{tikzpicture}[remember picture,overlay]
+      % Sfondo titolo con gradiente
+      \path[shade, left color=Purple!30!white, right color=Teal!30!white]
+        (current page.south west) rectangle (current page.north east);
+      
+      % Logo gruppo
+      \coordinate (logocenter) at ($(current page.north east)+(-1.3cm,-1.3cm)$);
+      \node at (logocenter) {\includegraphics[height=2.0cm]{logo_gruppo_.png}};
+      
+      % Fondo con logo UniPD
+      \fill[color=Cream!50, opacity=0.25] 
+        ($(current page.south west)$) rectangle ($(current page.south east)+(0,1.5cm)$);
+      \node[anchor=west] (unipdlogo) at ($(current page.south west)+(0.5cm,0.75cm)$)
+        {\includegraphics[height=1.3cm]{logo_unipd_.png}};
+      
+      % Numero slide
+      \node[anchor=south east, text=gray, font=\bfseries, inner sep=3pt] 
+        at ($(current page.south east)+(-0.4cm,0.3cm)$) 
+        {\insertframenumber/\inserttotalframenumber};
+    \end{tikzpicture}%
+  }%
+  \setbeamercolor{normal text}{fg=black,bg=white}
+  \setbeamercolor{frametitle}{fg=black}
+}
+
+\newcommand{\ResetToNormalBackground}{\BaseBackground{Teal}}
+\newcommand{\SetSectionBackground}[1]{\BaseBackground{#1}}
+
+% --- Colori liste ---
+\newcommand{\SetListItemColor}[1]{%
+  \setbeamertemplate{itemize item}{\color{#1!70!black}$\bullet$}%
+  \setbeamertemplate{itemize subitem}{\color{#1!60!black}$\circ$}%
+}
+
+% --- Stili testo ---
+\setbeamerfont{title}{size=\Huge, series=\bfseries}
+\setbeamerfont{frametitle}{size=\Large, series=\bfseries}
+\setlength{\leftmargini}{1.5em}
+
+% --- Rimuove il piedipagina  ---
+\setbeamertemplate{footline}{}
+
+% --- Info presentazione ---
+\title{Diario di Bordo}
+\author{NullPointers Group}
+\subtitle{Ingegneria del Software}
+\institute{Università degli Studi di Padova}
+\date{17 Novembre 2025}
+
+% === DOCUMENTO ===
+\begin{document}
+
+% --- SLIDE TITOLO ---
+\SetTitleBackground
+\begin{frame}[plain]
+  \vspace{2cm}
+  \centering
+  {\usebeamerfont{title}\color{black}\inserttitle\par}
+  \vspace{0.8cm}
+  {\Large\color{black}\insertauthor\par}
+  \vspace{0.5cm}
+  {\large\color{black}\insertsubtitle\par} 
+  \vspace{0.5cm}
+  {\color{black}\insertdate\par}
+\end{frame}
+
+% --- SLIDE NORMALI ---
+\ResetToNormalBackground
+
+%-------------------------------------------------------- MODIFICA DA QUI -------------------------------------------------------
+
+% --- SEZIONE 1: INTRODUZIONE ---
+\section{Decisioni}
+\SetSectionBackground{Teal}
+\SetListItemColor{Teal}
+\begin{frame}{Decisioni}
+\vspace*{-0.5cm}
+  \begin{itemize}
+    \setlength\itemsep{1.0em}
+    \item Continuazione stesura del Glossario;
+    \item Inizio scrittura documento Norme di Progetto;
+    \item Selezione delle domande da porre all’azienda nel primo incontro.
+  \end{itemize}
+\end{frame}
+
+% --- SEZIONE 2: SVILUPPO ---
+\section{Problematiche riscontrate}
+\SetSectionBackground{Purple}
+\SetListItemColor{Purple}
+\begin{frame}{Problematiche riscontrate}
+  \begin{itemize}
+    \setlength\itemsep{1.0em}
+    \item Difficoltà nello sviluppo dello script per la conversione da PDF a HTML;
+    \item Dubbio sulla necessità di versionare il glossario.
+
+  \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------- FINO A QUI -------------------------------------------------------
+
+% --- SLIDE FINALE ---
+\SetSectionBackground{Teal}
+\SetListItemColor{Teal}
+\begin{frame}[plain]
+  \vspace{1.5cm}
+  \centering
+  {\Huge\textbf{Grazie per l'attenzione!}\par}
+  \vspace{1.0cm}
+  
+  % Contatti e repository
+  \begin{tabular}{c}
+    \href{mailto:nullpointersg@gmail.com}{\large nullpointersg@gmail.com} \\
+    \vspace{0.3cm} \\
+    \href{https://github.com/NullPointersGroup/Documentazione.git}{
+      \begin{tabular}{@{}c@{}}
+        \includegraphics[height=1.0cm]{logo_github_.png}
+        \hspace{0.3cm}
+        \raisebox{0.3cm}{Visita il nostro repository}
+      \end{tabular}
+    }
+  \end{tabular}
+\end{frame}
+
+\end{document}
