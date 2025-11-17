@@ -1,0 +1,184 @@
+\section{Processi di Supporto}
+\subsection{Documentazione}
+    Il processo di documentazione è un elemento cardine di tutti i processi primari. Il suo output è fondamentale per tracciare le decisioni$^{G}$ prese e per facilitare il lavoro asincrono, 
+    che nel nostro contesto si rivela notevolmente più produttivo di quello sincrono. \\
+    Nello specifico, questo processo si occupa di registrare le informazioni generate da ciascuna attività o processo del ciclo di vita del prodotto; comprende quindi tutte le operazioni di pianificazione$^{G}$, 
+    progettazione$^{G}$, sviluppo$^{G}$, produzione$^{G}$, modifica$^{G}$, distribuzione$^{G}$ e manutenzione$^{G}$ dei documenti destinati a tutti i soggetti coinvolti.
+
+\subsubsection{Linguaggio di Markup}
+    Per la redazione dei documenti il gruppo ha deciso di utilizzare \textbf{LaTeX}$^{G}$ ovvero un linguaggio di markup consolidato e ampiamente utilizzato per la stesura di documenti tecnici e scientifici. LaTeX consente 
+    di mantenere un’elevata qualità tipografica e di gestire in modo efficiente la struttura del documento.\\
+    NullPointers Group utilizza LaTeX per la produzione di tutta la documentazione, facendo uso di pacchetti e template appositamente sviluppati dai membri del gruppo.
+
+\subsubsection{Versionamento}
+    Il gruppo utilizza \textbf{GitHub}$^{G}$ come piattaforma principale per la gestione del versionamento$^{G}$ e della collaborazione nella redazione dei documenti.
+    Attraverso il sistema di controllo di versione Git, è possibile mantenere uno storico completo di tutte le modifiche, garantendo tracciabilità, ordine e coordinamento tra i membri del gruppo.
+
+\subsubsection{Caricamento in Repository}
+    Ogni volta che si inserisce un nuovo documento o si effettua una modifica nel Repository$^{G}$ si utilizza un ramo feature/* personalizzato.\\
+    Una volta creato un commit nel branch$^{G}$ una GitHub Action$^{G}$ si occupa di creare una pull request$^{G}$ automaticamente la quale deve essere approvata dai Verificatori$^{G}$.
+
+\subsubsection{Struttura base dei documenti}
+\begin{center}
+\textbf{Intestazione}
+\end{center}
+\vspace{-0.5em}
+La prima pagina funge da intestazione del documento e contiene i seguenti elementi:
+\begin{itemize}[itemsep=0pt, parsep=1pt, label=$\scriptstyle\bullet$]
+        \item Logo dell'Università degli Studi di Padova;
+        \item Logo NullPointers Group;
+        \item \textbf{Nome del documento};
+        \item \textbf{Stato}: se il documento è stato Approvato o se è ancora In Approvazione;
+        \item \textbf{Versione}: ultima versione verificata o approvata del documento;
+        \item \textbf{Data ultima modifica}: ultima data in cui è stato modificato il documento (se ritenuta necessaria);
+        \item \textbf{Redattori}: coloro che hanno partecipato alla redazione del documento;
+        \item \textbf{Verificatori}: coloro che hanno partecipato alla verifica$^{G}$ di parti del documento (presente in documenti diversi da Verbali);
+        \item \textbf{Partecipanti}: coloro che partecipano alla riunione, interna o esterna che sia (presente solo nei Verbali);
+        \item \textbf{Destinatari} del documento, ovvero a chi è rivolto.
+    \end{itemize}
+
+\begin{center}
+\textbf{Registro delle modifiche}
+\end{center}
+\vspace{-0.5em}
+Segue il Registro delle modifiche in forma tabellare che consente la tracciabilità delle modifiche apportate al documento, nel quale viene specificato: 
+    \begin{itemize}[itemsep=0pt, parsep=1pt, label=$\scriptstyle\bullet$]
+        \item \textbf{Versione}: numero della versione del documento (identificativo unico);
+        \item \textbf{Data}: data di approvazione della versione del documento;
+        \item \textbf{Autore}: persona che ha apportato modifiche;
+        \item \textbf{Verificatore}: persona che ha approvato le modifiche;
+        \item \textbf{Descrizione}: breve descrizione delle modifiche apportate al documento.
+    \end{itemize}
+
+\begin{center}
+\textbf{Contents}
+\end{center}
+\vspace{-0.5em}
+Nella pagina successiva al registro delle modifiche è presente l'indice generale, nel quale vengono elencate tutte le sezioni che compongono il documento.
+
+\begin{center}
+\textbf{Indice delle tabelle e delle immagini}
+\end{center}
+\vspace{-0.5em}
+Successivamente all'indice, qualora il documento contenga elementi grafici o tabellari, vengono riportati l'indice delle immagini e l'indice delle tabelle. 
+Tali indici descrivono il contenuto di ciascun elemento e ne specificano la collocazione all'interno del documento.
+
+\begin{center}
+\textbf{Contenuto principale}
+\end{center}
+\vspace{-0.5em}
+Il contenuto del documento è strutturato in modo gerarchico per organizzare al meglio i contenuti:
+\begin{itemize}[itemsep=0pt, parsep=1pt, label=$\scriptstyle\bullet$]
+    \item \textbf{Capitoli}: rappresentano le macro-aree tematiche;
+    \item \textbf{Sezioni}: suddividono i capitoli in argomenti specifici;
+    \item \textbf{Sottosezioni}: se necessarie, approfondiscono i dettagli di ogni argomento.
+\end{itemize}
+\vspace{0.1em}
+
+\subsubsubsection{Verbali Interni}
+Il contenuto principale dei verbali interni segue una struttura standardizzata composta dai seguenti elementi: \vspace{-0.5em}
+
+    \begin{enumerate}[label=\arabic*., itemsep=0pt, parsep=1pt, leftmargin=*]
+        \item \textbf{Informazioni generali}
+        \begin{itemize}[label=--, itemsep=0pt, parsep=1pt, leftmargin=1.5em]
+            \item Tipo di riunione: Interna;
+            \item Luogo della riunione: in presenza o sulla piattaforma Discord;
+            \item Data della riunione;
+            \item Orario di inizio; 
+            \item Orario di fine;
+            \item Scriba, ovvero il nome di chi si occupa di redigere il Verbale.
+        \end{itemize}
+        \item \textbf{Ordine del giorno} 
+    \end{enumerate}
+
+    \vspace{-0.5em}
+    Ha lo scopo di delineare in modo strutturato e puntuale gli argomenti che verranno discussi durante la riunione.
+
+    \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
+        \item \textbf{Diario della riunione}
+    \end{enumerate}
+
+    \vspace{-0.5em}
+    Documenta in modo sintetico ma completo lo svolgimento della riunione, registrando le discussioni principali, le decisioni prese e le attività concordate.
+
+    \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
+        \item \textbf{Decisioni e Azioni}
+    \end{enumerate}
+
+    \vspace{-0.5em}
+    Ha lo scopo di registrare in modo formale e strutturato tutte le deliberazioni e i compiti emersi durante l'incontro. La tabella funge da riferimento ufficiale e chiaro per tutto il gruppo, 
+    riassumendo cosa è stato stabilito e quali attività devono essere svolte.\\
+    Queste informazioni non rimangono confinate al documento, ma vengono integrate e tracciate all'interno del nostro sistema di ticketing. Ciò garantisce che ogni elemento sia documentato per riferimento futuro e attivo per la sua esecuzione, 
+    collegando direttamente la decisione al task.
+
+\vspace{0.7em}
+\subsubsubsection{Verbali Esterni}
+I verbali esterni sono documenti che registrano ufficialmente gli incontri avvenuti con soggetti esterni al gruppo di lavoro, in particolare con l'ente proponente del progetto o con i committenti. Tali documenti hanno lo scopo di tracciare le discussioni, 
+le decisioni concordate e gli impegni assunti da entrambe le parti durante la riunione.
+    \begin{enumerate}[label=\arabic*., itemsep=0pt, parsep=1pt, leftmargin=*]
+        \item \textbf{Informazioni generali}
+        \begin{itemize}[label=--, itemsep=0pt, parsep=1pt, leftmargin=1.5em]
+            \item Tipo di riunione: Esterna;
+            \item Luogo della riunione: concordato con il proponente;
+            \item Data della riunione;
+            \item Orario di inizio; 
+            \item Orario di fine;
+            \item Scriba, ovvero il nome di chi si occupa di redigere il Verbale;
+            \item Partecipanti: ovvero i referenti dell'azienda proponente con i quali viene svolto l'incontro. 
+        \end{itemize}
+        \item \textbf{Ordine del giorno} 
+    \end{enumerate}
+
+    \vspace{-0.5em}
+    L'ordine del giorno ha lo scopo di delineare ciò che verrà discusso durante la riunione, con particolare riferimento a chiarimenti dei dubbi emersi e 
+    alle domande sollevate dal gruppo in preparazione dell'incontro con l'azienda.
+
+    \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
+        \item \textbf{Diario della riunione}
+    \end{enumerate}
+
+    \vspace{-0.5em}
+    Documenta in modo sintetico ma completo lo svolgimento dell'incontro, registrando le discussioni principali, le decisioni prese e le attività concordate. Fornisce un resoconto strutturato degli argomenti trattati, mantenendo traccia di tutti gli aspetti rilevanti emersi durante il confronto.
+
+    \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
+        \item \textbf{Approvazione esterna}
+    \end{enumerate}
+
+    \vspace{-0.5em}
+    È l'ultima sezione del documento che attesta che i relativi verbali esterni siano approvati dal committente tramite firma ed eventuale timbro del rappresentante.
+
+\vspace{0.7em}
+\subsubsubsection{Diari di Bordo}
+    I diari di bordo sono presentazioni utilizzate durante gli incontri settimanali con l'obiettivo di verificare in modo condiviso lo stato di avanzamento di ciascun gruppo ammesso al I lotto.\\
+    La struttura tipica di un diario di bordo comprende le seguenti sezioni:
+    \begin{itemize}[itemsep=0pt, parsep=1pt, label=$\scriptstyle\bullet$]
+        \item \textbf{Risultati}: descrive le attività completate nel periodo corrente e le confronta con quanto inizialmente pianificato;
+        \item \textbf{Problematiche riscontrate}: consente di illustrare le problematiche affrontate e i dubbi ancora irrisolti, sono volti alla richiesta di supporto o chiarimenti;
+        \item \textbf{Attività future}: elenca i compiti da svolgere nel prossimo intervallo di lavoro.
+    \end{itemize}
+
+\vspace{0.3em}
+\subsubsubsection{Altri documenti}
+Di seguito sono elencati tutti i documenti redatti e mantenuti durante l'intero ciclo di vita del progetto ciascuno dei quali risponde a uno scopo specifico, contribuendo alla tracciabilità, alla gestione e alla comunicazione delle attività di progetto 
+La struttura iniziale di tali documenti corrisponde con quanto definito al punto 3.1.4:
+    \begin{itemize}[itemsep=0pt, parsep=1pt, label=$\scriptstyle\bullet$]
+        \item \textbf{Valutazione dei capitolati};
+        \item \textbf{Dichiarazione degli impegni};
+        \item \textbf{Lettera di presentazione};
+        \item \textbf{Norme di progetto};
+        \item \textbf{Analisi dei requisiti};
+        \item \textbf{Piano di progetto};
+        \item \textbf{Piano di qualifica};
+        \item \textbf{Glossario};
+        \item \textbf{Specifica Tecnica};
+        \item \textbf{Manuale Utente}.
+    \end{itemize}
+
+
+\subsection{Gestione della Configurazione}
+
+\subsection{Gestione della Qualità}
+
+\subsection{Verifica}
+
+\subsection{Validazione}

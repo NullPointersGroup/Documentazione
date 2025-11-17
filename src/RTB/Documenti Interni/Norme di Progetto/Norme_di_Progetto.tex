@@ -1,0 +1,122 @@
+% Configurazione
+\documentclass{article}
+
+\usepackage{titling} % Required for inserting the subtitle
+\usepackage{graphicx} % Required for inserting images
+\usepackage{tabularx} % Per l'ambiente tabularx (tabelle)
+\usepackage{calc} % Sempre per le tabelle
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\usepackage[hidelinks]{hyperref} % Per i collegamenti ipertestuali, ad esempio sulla table of contents
+\usepackage{xcolor} % Per colorare il testo
+\usepackage{colortbl} % Per colorare le celle delle tabelle
+\usepackage{lipsum} % Per generare lorem ipsum
+\usepackage[normalem]{ulem} % Per sottolineare il testo
+\usepackage{array} % Per la visualizzazione fluttuante di array di domande e risposte
+\usepackage{ragged2e} % Pacchetto necessario per \justifying che giustifica il testo di tabelle
+\usepackage{placeins} % Impedisce a figure e tabelle di andare oltre le barriere definite
+\usepackage{fancyhdr} % Intestazioni e piè di pagina
+\usepackage{lastpage} % Per contare il numero totale di pagine
+\usepackage{enumitem} 
+\usepackage{amssymb} %per personalizzare gli elenchi
+
+\newcommand{\ulhref}[2]{\href{#1}{\underline{#2}}} % Sottolineatura
+\newcommand{\ulref}[1]{\uline{\ref{#1}}} % Sottolinea riferimenti a figure
+\setlength{\parindent}{0pt} % Nessun rientro dei paragrafi
+
+\graphicspath{ {immagini/} {../../../shared/images/} }
+
+% --- Impostazioni intestazione e piè di pagina ---
+\pagestyle{fancy}
+\fancyhf{}
+% Intestazione standard
+\fancyhead[L]{NullPointers Group}
+\fancyhead[R]{Norme di Progetto}
+\renewcommand{\headrulewidth}{0.4pt}
+% Piè di pagina
+\fancyfoot[C]{Pagina \thepage{} di \pageref{LastPage}}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% --- Ridefinizione dello stile plain per gli indici ---
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[L]{NullPointers Group}
+  \fancyhead[R]{Norme di Progetto}
+  \fancyfoot[C]{Pagina \thepage{} di \pageref{LastPage}}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
+% --- Solo piè di pagina per la prima pagina ---
+\fancypagestyle{firstpage}{
+  \fancyhf{}
+  \fancyfoot[C]{Pagina \thepage{} di \pageref{LastPage}}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
+% --- Creazione livello 4 (subsubsubsection) ---
+\usepackage{titlesec}
+
+\titleclass{\subsubsubsection}{straight}[\subsubsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsubsubsection}{0.5em}{}
+
+\titlespacing*{\subsubsubsection}{0pt}{1ex}{1ex}
+
+% --- Registrazione livello 4 per tocloft ---
+\makeatletter
+\newcommand{\l@subsubsubsection}{\@dottedtocline{4}{7.0em}{3.7em}}
+\makeatother
+
+% --- Toc depth ---
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+%struttura
+\begin{document}
+\thispagestyle{firstpage} % Copertina con solo piè di pagina
+
+%parte costante
+\input{content/heading}
+\input{content/title}
+\input{content/table}
+\newpage
+	
+%variabile prima dell'indice
+\input{content/modifiche}
+\newpage
+\hypersetup{linkcolor=black}
+
+% Indice generale
+\tableofcontents
+
+\newpage
+% Indice delle tabelle
+\listoftables
+
+\newpage
+% Indice delle immagini
+\listoffigures
+
+%parte variabile
+\newpage
+\input{content/introduzione}
+
+\newpage
+\input{content/processi_primari}
+
+\newpage
+\input{content/processi_supporto}
+
+\newpage
+\input{content/processi_organizzativi}
+
+%da continuare...
+
+\end{document}
