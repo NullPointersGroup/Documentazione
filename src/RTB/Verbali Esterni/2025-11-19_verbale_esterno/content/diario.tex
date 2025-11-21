@@ -1,0 +1,109 @@
+\section{Diario della riunione}
+\subsection{Presentazione Aziendale}
+L'incontro si è aperto con la presentazione della struttura di Ergon Informatica Srl, caratterizzata da una storia quarantennale e da due divisioni principali: una dedicata allo sviluppo$^{G}$ del gestionale 
+proprietario ``Interspacing'' e l'altra specializzata in infrastrutture IT, sicurezza e servizi cloud, operando principalmente su tecnologie Microsoft.\\
+Successivamente, l'incontro ha introdotto il tema del progetto di intelligenza artificiale$^{G}$, citando sistemi di raccomandazione e modelli previsionali. È stato posto l'accento sulla sfida centrale 
+legata agli assistenti virtuali: mitigare il fenomeno delle ``allucinazioni'' dei modelli linguistici, che generano risposte errate ma plausibili.\\
+
+Abbiamo quindi esposto i nostri quesiti, ai quali abbiamo ricevuto risposte esaurienti. Di seguito il dettaglio.
+
+\subsection{Comunicazione con l'Azienda}
+    \begin{enumerate}[label=\arabic*., itemsep=0pt, parsep=1pt, leftmargin=*]
+        \item Frequenza dei \textbf{Meeting} con l'azienda.
+    \end{enumerate} \vspace{-0.5em}
+    Abbiamo concordato di effettuare Meeting all'occorrenza, possibilmente con un preavviso di quache giorno.\\
+    Qualora l’incontro si svolga telematicamente, verrà utilizzata la piattaforma \textbf{Google Meet}$^{G}$.
+
+    \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
+        \item Canale di Comunicazione
+    \end{enumerate} \vspace{-0.5em}
+    Abbiamo concordato l'utilizzo di \textbf{WhatsApp}$^{G}$ come canale di comunicazione.
+
+\subsection{Gestione del codice e Versioning}
+    \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
+        \item Flusso di lavoro \textbf{Git}$^{G}$ consigliato per il progetto e se il metodo \textbf{GitFlow}$^{G}$, attualmente adottato, risulta valido oppure se ne conoscono o utilizzano uno più valido.
+    \end{enumerate} \vspace{-0.5em}
+    I referenti ci hanno confermato che il flusso Git adottato dal loro team è sostanzialmente allineato a una variante del GitFlow. Anche per loro esiste un branch$^{G}$ main, 
+    che contiene sempre il codice in produzione$^{G}$, e un branch develop, in cui viene integrato il codice pronto per il testing. Ogni nuova funzionalità viene sviluppata in 
+    un branch dedicato (ad esempio feature/nome-funzionalità) e il merge$^{G}$ avviene tramite pull request$^{G}$, che attiva il processo di revisione e verifica$^{G}$.\\
+    A differenza del nostro repository$^{G}$, che elimina automaticamente i branch feature dopo il merge, il loro non prevede una pulizia automatica; tuttavia non erano contrari a questa pratica e 
+    l’hanno considerata una gestione valida e utile per mantenere la repository ordinata.
+    In conclusione, i referenti hanno confermato che la strategia da noi descritta è corretta e pienamente compatibile con il loro flusso di lavoro.
+    
+    \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
+        \item Come si devono gestire i \textbf{conflitti di merge} in un team di più persone e quale sia la procedura corretta quando, mentre si lavora su una funzionalità, 
+        qualcun altro modifica$^{G}$ la stessa parte di codice.
+    \end{enumerate} \vspace{-0.5em}
+    È stata fatta luce sul fatto che la miglior prevenzione dei conflitti di merge è una buona organizzazione del lavoro: suddividere le funzionalità in modo che ciascun membro del team operi su parti 
+    di codice il più possibile indipendenti riduce notevolmente il rischio di sovrapposizioni.\\
+    La procedura operativa standard per la gestione dei conflitti è chiara: prima di iniziare lo sviluppo e, soprattutto, prima di effettuare un push, è fondamentale eseguire un git pull per allineare 
+    la copia locale con le modifiche presenti nel branch remoto. 
+    Qualora Git segnali un conflitto, è necessario risolverlo manualmente, decidendo quale porzione di codice mantenere o come combinarle correttamente. Una volta risolti tutti i conflitti, si procede 
+    con un git add dei file aggiornati e si completa il merge tramite git commit.\\
+    È stato inoltre sottolineato che i conflitti non rappresentano un errore, ma una componente normale e fisiologica dello sviluppo collaborativo. Ciò che conta è affrontarli correttamente, seguendo 
+    con attenzione il processo di pull e merge prima di proseguire con il proprio lavoro.
+
+\subsection{Organizzazione e Pianificazione del Progetto}
+    \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
+        \item In che modo è possibile organizzare al meglio scadenze e obiettivi e se viene adottato un metodo specifico per la gestione delle \textbf{milestone}$^{G}$.
+    \end{enumerate} \vspace{-0.5em}
+    I referenti hanno confermato che la pianificazione$^{G}$ parte da una stima dell'impegno e dalla suddivisione del progetto in attività più piccole e gestibili.
+    Sebbene in azienda queste attività siano guidate da Project Manager o Team Leader, noi dovremo autogestirci, creando una task$^{G}$ list, assegnando le attività ai membri del team e definendo scadenze interne.\\
+    In pratica, abbiamo \textbf{libertà di organizzare} il lavoro come riteniamo più efficace$^{G}$.
+
+    \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
+        \item Licenza del Repository
+    \end{enumerate} \vspace{-0.5em}
+    Ci è stato consigliato di utilizzare una Licenza MIT$^{G}$, in qualsiasi caso se non viene indicata la Licenza di fatto si applica quella più restrittiva, dunque a prescindere nessuno potrebbe utilizzare il materiale.
+
+\subsection{Tecnologie, Formazione e Infrastruttura}
+    \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
+        \item Quali tra le \textbf{tecnologie} elencate nel capitolato$^{G}$ ci \textbf{consigliano} personalmente e, in particolare, quale modello di linguaggio è più indicato.
+    \end{enumerate} 
+    \begin{itemize}[itemsep=0pt, parsep=1pt, label=--]
+        \item \textbf{Front-end}$^{G}$ (Interfaccia Utente): \textbf{React}$^{G}$, scelto per la sua ampia diffusione e le ottime potenzialità nella creazione di interfacce utente dinamiche;
+        \item \textbf{Back-end}$^{G}$ (Logica e AI): \textbf{Python}$^{G}$, ambiente ideale per lo sviluppo di modelli di intelligenza artificiale e machine learning;
+        \item \textbf{Database}: consigliato \textbf{PostgreSQL}$^{G}$.
+        \item \textbf{Modello di Linguaggio} (LLM)$^{G}$: \textbf{GPT}$^{G}$ di \textbf{OpenAI}$^{G}$, attualmente il modello più performante e affidabile per questo tipo di applicazioni. Le alternative open-source, come \textbf{LlaMA}$^{G}$, possono essere utili 
+              in scenari specifici (ad esempio per eseguire il modello in locale o offline per motivi di privacy o costi), ma le loro performance sono generalmente inferiori.
+        \item \textbf{Analisi di Immagini}: per il riconoscimento di oggetti nelle foto, si possono utilizzare servizi come \textbf{GPT-4V} (con capacità visive) o strumenti specializzati come \textbf{Google Vision}$^{G}$. 
+              È importante ricordare che questi modelli non sono sempre deterministici: fornendo la stessa immagine più volte, le risposte potrebbero variare leggermente.
+        \item \textbf{Trascrizione Vocale}: sempre \textbf{OpenAI} o \textbf{Whisper}$^{G}$. 
+        \item \textbf{OCR}$^{G}$: consigliato \textbf{EasyOCR}$^{G}$ per le funzionalità$^{G}$ di riconoscimento ottico dei caratteri (OCR).
+        \item \textbf{Creazione di UML}: ci è stato consigliato l'utilizzo di \textbf{Draw.io}$^{G}$, in qualsiasi caso resta a nostra discrezione.
+    \end{itemize}
+
+    \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
+        \item Organizzazione di \textbf{sessioni di formazione} sulle tecnologie non conosciute, come Docker$^{G}$ o React.
+    \end{enumerate} \vspace{-0.5em}
+    Per supportarci nell'acquisire familiarità con tecnologie fondamentali possiamo organizzare dei \textbf{mini-corsi} o delle \textbf{sessioni introduttive} su tecnologie specifiche come Docker.
+    Inoltre, possono indicarci risorse e guide mirate, come appunto l'utilizzo di Docker che ad oggi è una pratica comune, e online esistono molti materiali ben fatti che possiamo sfruttare per consolidare le nostre competenze.
+
+    \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
+        \item Utilizzo di un database di test$^{G}$ per le verifiche
+    \end{enumerate} \vspace{-0.5em}
+    Ci è stato ragionevolmente suggerito di non lavorare mai su un database di produzione, ma piuttosto utilizzare \textbf{database di test}, che sono una copia più o meno completa del database reale, contenente dati coerenti ma non sensibili. 
+    Avrà la stessa struttura e conterrà i cataloghi prodotti, gli storici ordini dei clienti (fittizi) e tutte le entità necessarie per testare il sistema.
+
+\subsection{Riscontro su Casi d'Uso e Requisiti}
+    Per concludere, abbiamo richiesto un riscontro sugli attori$^{G}$ principali e secondari, procedendo poi alla verifica e alla valutazione dei ``\textbf{Casi d’Uso}''$^{G}$, dei ``\textbf{Requisiti Funzionali}''$^{G}$, dei ``\textbf{Requisiti Non Funzionali}''$^{G}$ e dei ``\textbf{Requisiti di Vincolo}''$^{G}$ precedentemente abbozzati dal gruppo in un documento non ufficiale.\\
+    L’obiettivo era quello di poter successivamente redigere in modo più ordinato e completo l’Analisi dei Requisiti.\\
+    Nel corso di questa revisione sono emerse alcune osservazioni rilevanti, particolarmente utili per la stesura della documentazione finale; tra le più significative si possono evidenziare le seguenti:
+    \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
+        \item Chiarimento sul flusso di validazione$^{G}$. L'utente convalida ogni singolo prodotto o l'intero ordine alla fine?
+    \end{enumerate} \vspace{-0.5em}
+    Il sistema propone, l'utente dispone. La validazione umana è un requisito di sicurezza non negoziabile.\\
+    Ci sono due approcci possibili:\vspace{-0.1em}
+    \begin{itemize}[itemsep=0pt, parsep=1pt, label=$\scriptstyle\bullet$]
+	    \item \textbf{Validazione a Singolo Prodotto}: \\Il sistema analizza la richiesta e, per ogni prodotto identificato, propone un match (es. ``Coca Cola Lattina da 33cl''). L'utente deve confermare o correggere ogni singola voce prima che venga aggiunta all'ordine.
+	    \item \textbf{Validazione dell'Ordine Completo}: \\Il sistema interpreta l'intera richiesta e genera un ``carrello'' o un'anteprima dell'ordine completo. L'utente visualizza l'elenco di tutti i prodotti, le quantità e le unità di misura proposte, e ha la possibilità di modificarlo prima di confermare l'invio definitivo.
+	\end{itemize}
+    L'idea di Ergon era più simile alla seconda opzione, ovvero visualizzare l'anteprima dell'ordine e confermarlo esplicitamente. Tuttavia, la scelta implementativa finale può essere discussa. L'importante è che l'utente abbia l'ultima parola sull'intero ordine prima che venga processato.
+
+    \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
+        \item Come deve comportarsi il sistema con \textbf{prodotti ambigui}? Ad esempio, se un cliente scrive solo "due Coca", come facciamo a sapere se intende lattine o bottiglie?
+    \end{enumerate} \vspace{-0.5em}
+    Il sistema deve essere intelligente e consultare lo storico ordini di quel specifico cliente. Se il cliente ha ordinato il 90\% delle volte ``Coca Cola in bottiglia'', il sistema può proporre quella come opzione primaria.\\
+    Nei casi di \textbf{ambiguità}, il sistema non deve indovinare. Deve invece \textbf{proporre} all'utente una scelta. Ad esempio, potrebbe visualizzare: ``Quale prodotto intendevi?'' ed elencare le opzioni più probabili (``Coca Cola Lattina'', ``Coca Cola Bottiglia'').\\
+    L'utente, nella fase di validazione, selezionerà l'opzione corretta. Questo meccanismo di ``disambiguazione'' è una funzionalità chiave per rendere il sistema affidabile.
+
