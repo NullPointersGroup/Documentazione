@@ -87,8 +87,20 @@ main {
     max-height: 100vh;
     width: 100%;
     overflow-y: scroll;
+    position: relative;
 }
 
+#glossario {
+    position: absolute;
+    text-decoration: none;
+    background-color: rgba(var(--verde-rgb), .2);
+    padding: .5em 1.5em;
+    right: 1em; 
+    top: 1em;
+    border-radius: 5px;
+    border: 2px solid var(--verde-hex);
+    z-index: 1;
+}
 
 nav {
     display: flex;
