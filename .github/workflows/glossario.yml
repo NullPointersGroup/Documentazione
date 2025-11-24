@@ -33,6 +33,8 @@ jobs:
           git config --global user.name "GitHub App"
           git config --global user.email "noreply@github.com"
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          git add src/(RTB|PB)/Documenti\ Interni/Glossario/content/letters/*.tex ../../website/glossario/*.html
+          git add src/RTB/Documenti\ Interni/Glossario/content/letters/*.tex
+          git add src/PB/Documenti\ Interni/Glossario/content/letters/*.tex
+          git add website/glossario/glossario/*.html
           git commit -m "Auto: Glossario aggiornato e HTML rigenerato" || exit 0
           git push origin $GITHUB_REF_NAME
