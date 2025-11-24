@@ -33,8 +33,9 @@ jobs:
           git config --global user.name "GitHub App"
           git config --global user.email "noreply@github.com"
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          git add src/RTB/Documenti\ Interni/Glossario/content/letters/*.tex
-          git add src/PB/Documenti\ Interni/Glossario/content/letters/*.tex
-          git add website/glossario/glossario/*.html
+          # aggiunge solo se le cartelle esistono
+          [ -d src/RTB/Documenti\ Interni/Glossario/content/letters ] && git add src/RTB/Documenti\ Interni/Glossario/content/letters/*.tex
+          [ -d src/PB/Documenti\ Interni/Glossario/content/letters ] && git add src/PB/Documenti\ Interni/Glossario/content/letters/*.tex
+          [ -d ../../website/glossario ] && git add ../../website/glossario/*.html
           git commit -m "Auto: Glossario aggiornato e HTML rigenerato" || exit 0
-          git push origin $GITHUB_REF_NAME
+          git push origin "$GITHUB_REF_NAME"
