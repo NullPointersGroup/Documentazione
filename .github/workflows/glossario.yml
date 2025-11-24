@@ -20,14 +20,13 @@ jobs:
 
       - name: Controlla modifiche Glossario e genera HTML
         run: |
-          echo "$DIFF_FILES" | grep -qE "src/(RTB|PB)/Documenti Interni/Glossario/" 
-          if [ $? -eq 0 ]; then
+          if echo "$DIFF_FILES" | grep -qE "src/(RTB|PB)/Documenti Interni/Glossario/"; then
             echo "Glossario modificato, eseguo parser"
             lua .github/workflows/glossario_parser.lua
           else
             echo "Nessuna modifica in Glossario, skip"
-            exit 0
           fi
+
 
       - name: Commit e Push Glossario aggiornato
         run: |
