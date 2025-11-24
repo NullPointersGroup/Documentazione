@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - 'feature/*'
+    paths:
+      - 'src/RTB/Documenti Interni/Glossario/**'
+      - 'src/PB/Documenti Interni/Glossario/**'
 
 jobs:
   update-glossario:
@@ -20,12 +23,7 @@ jobs:
 
       - name: Controlla modifiche Glossario e genera HTML
         run: |
-          if echo "$DIFF_FILES" | grep -qE "src/(RTB|PB)/Documenti Interni/Glossario/"; then
-            echo "Glossario modificato, eseguo parser"
-            lua .github/workflows/glossario_parser.lua
-          else
-            echo "Nessuna modifica in Glossario, skip"
-          fi
+          lua .github/workflows/glossario_parser.lua
 
 
       - name: Commit e Push Glossario aggiornato
