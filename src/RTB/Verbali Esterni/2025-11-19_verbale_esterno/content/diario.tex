@@ -23,27 +23,27 @@ Abbiamo quindi esposto i nostri quesiti, ai quali abbiamo ricevuto risposte esau
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
         \item Flusso di lavoro \textbf{Git}$^{G}$ consigliato per il progetto e se il metodo \textbf{GitFlow}$^{G}$, attualmente adottato, risulta valido oppure se ne conoscono o utilizzano uno più valido.
     \end{enumerate} \vspace{-0.5em}
-    I referenti ci hanno confermato che il flusso Git adottato dal loro team è sostanzialmente allineato a una variante del GitFlow. Anche per loro esiste un branch$^{G}$ main, 
-    che contiene sempre il codice in produzione$^{G}$, e un branch develop, in cui viene integrato il codice pronto per il testing. Ogni nuova funzionalità viene sviluppata in 
-    un branch dedicato (ad esempio feature/nome-funzionalità) e il merge$^{G}$ avviene tramite pull request$^{G}$, che attiva il processo di revisione e verifica$^{G}$.\\
-    A differenza del nostro repository$^{G}$, che elimina automaticamente i branch feature dopo il merge, il loro non prevede una pulizia automatica; tuttavia non erano contrari a questa pratica e 
-    l’hanno considerata una gestione valida e utile per mantenere la repository ordinata.
+    I referenti ci hanno confermato che il flusso Git$^G$ adottato dal loro team è sostanzialmente allineato a una variante del GitFlow. Anche per loro esiste un branch$^{G}$ main, 
+    che contiene sempre il codice in produzione$^{G}$, e un branch$^G$ develop, in cui viene integrato il codice pronto per il testing. Ogni nuova funzionalità$^G$ viene sviluppata in 
+    un branch$^G$ dedicato (ad esempio feature/nome-funzionalità) e il merge$^{G}$ avviene tramite pull request$^{G}$, che attiva il processo di revisione e verifica$^{G}$.\\
+    A differenza del nostro repository$^{G}$, che elimina automaticamente i branch$^G$ feature dopo il merge, il loro non prevede una pulizia automatica; tuttavia non erano contrari a questa pratica e 
+    l’hanno considerata una gestione valida e utile per mantenere la repository$^G$ ordinata.
     In conclusione, i referenti hanno confermato che la strategia da noi descritta è corretta e pienamente compatibile con il loro flusso di lavoro.
     
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
         \item Come si devono gestire i \textbf{conflitti di merge} in un team di più persone e quale sia la procedura corretta quando, mentre si lavora su una funzionalità, 
         qualcun altro modifica$^{G}$ la stessa parte di codice.
     \end{enumerate} \vspace{-0.5em}
-    È stata fatta luce sul fatto che la miglior prevenzione dei conflitti di merge è una buona organizzazione del lavoro: suddividere le funzionalità in modo che ciascun membro del team operi su parti 
+    È stata fatta luce sul fatto che la miglior prevenzione dei conflitti di merge$^G$ è una buona organizzazione del lavoro: suddividere le funzionalità$^G$ in modo che ciascun membro del team operi su parti 
     di codice il più possibile indipendenti riduce notevolmente il rischio di sovrapposizioni.\\
-    La procedura operativa standard per la gestione dei conflitti è chiara: prima di iniziare lo sviluppo e, soprattutto, prima di effettuare un push, è fondamentale eseguire un git pull per allineare 
-    la copia locale con le modifiche presenti nel branch remoto. 
-    Qualora Git segnali un conflitto, è necessario risolverlo manualmente, decidendo quale porzione di codice mantenere o come combinarle correttamente. Una volta risolti tutti i conflitti, si procede 
-    con un git add dei file aggiornati e si completa il merge tramite git commit.\\
-    È stato inoltre sottolineato che i conflitti non rappresentano un errore, ma una componente normale e fisiologica dello sviluppo collaborativo. Ciò che conta è affrontarli correttamente, seguendo 
-    con attenzione il processo di pull e merge prima di proseguire con il proprio lavoro.
+    La procedura operativa standard per la gestione dei conflitti è chiara: prima di iniziare lo sviluppo$^G$ e, soprattutto, prima di effettuare un push, è fondamentale eseguire un git$^G$ pull per allineare 
+    la copia locale con le modifiche presenti nel branch$^G$ remoto. 
+    Qualora Git$^G$ segnali un conflitto, è necessario risolverlo manualmente, decidendo quale porzione di codice mantenere o come combinarle correttamente. Una volta risolti tutti i conflitti, si procede 
+    con un git$^G$ add dei file aggiornati e si completa il merge$^G$ tramite git$^G$ commit.\\
+    È stato inoltre sottolineato che i conflitti non rappresentano un errore, ma una componente normale e fisiologica dello sviluppo$^G$ collaborativo. Ciò che conta è affrontarli correttamente, seguendo 
+    con attenzione il processo di pull e merge$^G$ prima di proseguire con il proprio lavoro.
 
-\subsection{Organizzazione e Pianificazione del Progetto}
+\subsection{Organizzazione e Pianificazione$^G$ del Progetto}
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
         \item In che modo è possibile organizzare al meglio scadenze e obiettivi e se viene adottato un metodo specifico per la gestione delle \textbf{milestone}$^{G}$.
     \end{enumerate} \vspace{-0.5em}
@@ -62,7 +62,7 @@ Abbiamo quindi esposto i nostri quesiti, ai quali abbiamo ricevuto risposte esau
     \end{enumerate} 
     \begin{itemize}[itemsep=0pt, parsep=1pt, label=--]
         \item \textbf{Front-end}$^{G}$ (Interfaccia Utente): \textbf{React}$^{G}$, scelto per la sua ampia diffusione e le ottime potenzialità nella creazione di interfacce utente dinamiche;
-        \item \textbf{Back-end}$^{G}$ (Logica e AI): \textbf{Python}$^{G}$, ambiente ideale per lo sviluppo di modelli di intelligenza artificiale e machine learning;
+        \item \textbf{Back-end}$^{G}$ (Logica e AI): \textbf{Python}$^{G}$, ambiente ideale per lo sviluppo$^G$ di modelli di intelligenza artificiale$^G$ e machine learning;
         \item \textbf{Database}: consigliato \textbf{PostgreSQL}$^{G}$.
         \item \textbf{Modello di Linguaggio} (LLM)$^{G}$: \textbf{GPT}$^{G}$ di \textbf{OpenAI}$^{G}$, attualmente il modello più performante e affidabile per questo tipo di applicazioni. Le alternative open-source, come \textbf{LlaMA}$^{G}$, possono essere utili 
               in scenari specifici (ad esempio per eseguire il modello in locale o offline per motivi di privacy o costi), ma le loro performance sono generalmente inferiori.
@@ -77,7 +77,7 @@ Abbiamo quindi esposto i nostri quesiti, ai quali abbiamo ricevuto risposte esau
         \item Organizzazione di \textbf{sessioni di formazione} sulle tecnologie non conosciute, come Docker$^{G}$ o React.
     \end{enumerate} \vspace{-0.5em}
     Per supportarci nell'acquisire familiarità con tecnologie fondamentali possiamo organizzare dei \textbf{mini-corsi} o delle \textbf{sessioni introduttive} su tecnologie specifiche come Docker.
-    Inoltre, possono indicarci risorse e guide mirate, come appunto l'utilizzo di Docker che ad oggi è una pratica comune, e online esistono molti materiali ben fatti che possiamo sfruttare per consolidare le nostre competenze.
+    Inoltre, possono indicarci risorse e guide mirate, come appunto l'utilizzo di Docker$^G$ che ad oggi è una pratica comune, e online esistono molti materiali ben fatti che possiamo sfruttare per consolidare le nostre competenze.
 
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
         \item Utilizzo di un database di test$^{G}$ per le verifiche
@@ -86,17 +86,17 @@ Abbiamo quindi esposto i nostri quesiti, ai quali abbiamo ricevuto risposte esau
     Avrà la stessa struttura e conterrà i cataloghi prodotti, gli storici ordini dei clienti (fittizi) e tutte le entità necessarie per testare il sistema.
 
 \subsection{Riscontro su Casi d'Uso e Requisiti}
-    Per concludere, abbiamo richiesto un riscontro sugli attori$^{G}$ principali e secondari, procedendo poi alla verifica e alla valutazione dei ``\textbf{Casi d’Uso}''$^{G}$, dei ``\textbf{Requisiti Funzionali}''$^{G}$, dei ``\textbf{Requisiti Non Funzionali}''$^{G}$ e dei ``\textbf{Requisiti di Vincolo}''$^{G}$ precedentemente abbozzati dal gruppo in un documento non ufficiale.\\
+    Per concludere, abbiamo richiesto un riscontro sugli attori$^{G}$ principali e secondari, procedendo poi alla verifica$^G$ e alla valutazione dei ``\textbf{Casi d’Uso}''$^{G}$, dei ``\textbf{Requisiti Funzionali}''$^{G}$, dei ``\textbf{Requisiti Non Funzionali}''$^{G}$ e dei ``\textbf{Requisiti di Vincolo}''$^{G}$ precedentemente abbozzati dal gruppo in un documento non ufficiale.\\
     L’obiettivo era quello di poter successivamente redigere in modo più ordinato e completo l’Analisi dei Requisiti.\\
     Nel corso di questa revisione sono emerse alcune osservazioni rilevanti, particolarmente utili per la stesura della documentazione finale; tra le più significative si possono evidenziare le seguenti:
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
         \item Chiarimento sul flusso di validazione$^{G}$. L'utente convalida ogni singolo prodotto o l'intero ordine alla fine?
     \end{enumerate} \vspace{-0.5em}
-    Il sistema propone, l'utente dispone. La validazione umana è un requisito di sicurezza non negoziabile.\\
+    Il sistema propone, l'utente dispone. La validazione$^G$ umana è un requisito di sicurezza non negoziabile.\\
     Ci sono due approcci possibili:\vspace{-0.1em}
     \begin{itemize}[itemsep=0pt, parsep=1pt, label=$\scriptstyle\bullet$]
-	    \item \textbf{Validazione a Singolo Prodotto}: \\Il sistema analizza la richiesta e, per ogni prodotto identificato, propone un match (es. ``Coca Cola Lattina da 33cl''). L'utente deve confermare o correggere ogni singola voce prima che venga aggiunta all'ordine.
-	    \item \textbf{Validazione dell'Ordine Completo}: \\Il sistema interpreta l'intera richiesta e genera un ``carrello'' o un'anteprima dell'ordine completo. L'utente visualizza l'elenco di tutti i prodotti, le quantità e le unità di misura proposte, e ha la possibilità di modificarlo prima di confermare l'invio definitivo.
+	    \item \textbf{Validazione$^G$ a Singolo Prodotto}: \\Il sistema analizza la richiesta e, per ogni prodotto identificato, propone un match (es. ``Coca Cola Lattina da 33cl''). L'utente deve confermare o correggere ogni singola voce prima che venga aggiunta all'ordine.
+	    \item \textbf{Validazione$^G$ dell'Ordine Completo}: \\Il sistema interpreta l'intera richiesta e genera un ``carrello'' o un'anteprima dell'ordine completo. L'utente visualizza l'elenco di tutti i prodotti, le quantità e le unità di misura proposte, e ha la possibilità di modificarlo prima di confermare l'invio definitivo.
 	\end{itemize}
     L'idea di Ergon era più simile alla seconda opzione, ovvero visualizzare l'anteprima dell'ordine e confermarlo esplicitamente. Tuttavia, la scelta implementativa finale può essere discussa. L'importante è che l'utente abbia l'ultima parola sull'intero ordine prima che venga processato.
 
@@ -105,5 +105,5 @@ Abbiamo quindi esposto i nostri quesiti, ai quali abbiamo ricevuto risposte esau
     \end{enumerate} \vspace{-0.5em}
     Il sistema deve essere intelligente e consultare lo storico ordini di quel specifico cliente. Se il cliente ha ordinato il 90\% delle volte ``Coca Cola in bottiglia'', il sistema può proporre quella come opzione primaria.\\
     Nei casi di \textbf{ambiguità}, il sistema non deve indovinare. Deve invece \textbf{proporre} all'utente una scelta. Ad esempio, potrebbe visualizzare: ``Quale prodotto intendevi?'' ed elencare le opzioni più probabili (``Coca Cola Lattina'', ``Coca Cola Bottiglia'').\\
-    L'utente, nella fase di validazione, selezionerà l'opzione corretta. Questo meccanismo di ``disambiguazione'' è una funzionalità chiave per rendere il sistema affidabile.
+    L'utente, nella fase di validazione, selezionerà l'opzione corretta. Questo meccanismo di ``disambiguazione'' è una funzionalità$^G$ chiave per rendere il sistema affidabile.
 
