@@ -1,0 +1,23 @@
+name: Aggiorna Glossario su feature
+
+on:
+  push:
+    branches:
+      - 'feature/*'
+
+jobs:
+  update-glossario:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # necessario per poter usare git diff con commit precedenti
+
+      - name: Controlla modifiche Glossario
+        run: |
+          if git diff --name-only HEAD^ HEAD | grep -qE "src/(RTB|PB)/Documenti Interni/Glossario/"; then
+            echo "Glossario modificato, eseguo parser"
+            lua .github/workflows/glossario_parser.lua
+          else
+            echo "Nessuna modifica in Glossario, skip"
+          fi
