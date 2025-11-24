@@ -31,6 +31,6 @@ jobs:
           # aggiunge solo se le cartelle esistono
           [ -d src/RTB/Documenti\ Interni/Glossario/content/letters ] && git add src/RTB/Documenti\ Interni/Glossario/content/letters/*.tex
           [ -d src/PB/Documenti\ Interni/Glossario/content/letters ] && git add src/PB/Documenti\ Interni/Glossario/content/letters/*.tex
-          [ -d ../../website/glossario ] && git add website/glossario/glossario.html
+          [ -d website/glossario ] && git add website/glossario/glossario.html
           git commit -m "Auto: Glossario aggiornato e HTML rigenerato" || exit 0
           git push origin "$GITHUB_REF_NAME"
