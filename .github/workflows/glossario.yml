@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - 'feature/*'
-    paths:
-      - 'src/RTB/Documenti Interni/Glossario/**'
-      - 'src/PB/Documenti Interni/Glossario/**'
 
 jobs:
   update-glossario:
