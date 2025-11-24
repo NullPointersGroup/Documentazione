@@ -5,7 +5,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG, format='%(levelname)s | %(message)s')
 
 SRC_DIR = Path("src")
-EXCLUDE_DIRS = {"Candidatura", "Diario di Bordo", "Glossario"}
+EXCLUDE_DIRS = {"Candidatura", "Diario Di Bordo", "Glossario"}
 IGNORE_FILENAMES = {"heading.tex", "table.tex", "title.tex", "modifiche.tex"}
 
 def find_glossary():

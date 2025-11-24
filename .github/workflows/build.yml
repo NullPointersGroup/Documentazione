@@ -26,6 +26,7 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           ref: main
           persist-credentials: true
+          fetch-depth: 0
 
       - name: Esegui glossario_parser.lua solo se file in Glossario modificato
         run: |
