@@ -26,17 +26,6 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           ref: main
           persist-credentials: true
-          fetch-depth: 0
-
-      - name: Esegui glossario_parser.lua solo se file in Glossario modificato
-        run: |
-          apt-get update && apt-get install -y lua5.3
-          if git diff --name-only HEAD^ HEAD | grep -Eq "src/(RTB|PB)/Documenti Interni/Glossario/"; then
-            lua .github/workflows/glossario_parser.lua
-          else
-            echo "Nessun file in Glossario modificato, skip"
-          fi
-
           
       - name: Inserisci termini Glossario 
         run: python .github/workflows/glossario.py
