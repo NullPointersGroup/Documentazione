@@ -24,7 +24,7 @@ def maybe_beartype(func):
 INDEX_HTML_PATH = Path("index.html")
 SRC_DIR = Path("src")
 OUTPUT_DIR = Path("output")
-SECTION_ORDER = ["RTB", "PB", "Candidatura", "Diario Di Bordo"]
+SECTION_ORDER = ["PB", "RTB", "Candidatura", "Diario Di Bordo"]
 MAX_DEPTH = 2
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
@@ -108,8 +108,10 @@ def compile_tex_to_pdf(
                 cwd=str(tex_dir),
                 capture_output=True,
                 text=True,
+                encoding='latin-1',  # <--- aggiungi questo
                 timeout=timeout_sec,
             )
+
             if res.returncode != 0:
                 logger.warning(f"latexmk failed for {tex_file}: {res.stderr.strip()}")
                 continue
@@ -240,7 +242,7 @@ def update_index_html(
     copyright_line = '<p id="copyright">Copyright© 2025 by NullPointers Group - All rights reserved</p>'
     main_start = html_text.find('<main>')
     main_end = html_text.find('</main>', main_start) + len('</main>')
-    new_main = f"<main>\n{generated_html}\n{contatti_html}\n{copyright_line}\n</main>"
+    new_main = f'<main>\n<a href="website/glossario/glossario.html" id="glossario">Glossario</a>\n{generated_html}\n{contatti_html}\n{copyright_line}\n</main>'
     html_text = html_text[:main_start] + new_main + html_text[main_end:]
 
     index_path.write_text(html_text, encoding="utf-8")

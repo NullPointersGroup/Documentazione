@@ -1,5 +1,5 @@
-local INPUT_DIR = "../../src/RTB/Documenti Interni/Glossario/content/letters/"
-local OUTPUT_FILE = "../../website/glossario/glossario.html"
+local INPUT_DIR = "src/RTB/Documenti Interni/Glossario/content/letters/"
+local OUTPUT_FILE = "website/glossario/glossario.html"
 local LETTERS = {
 	"a",
 	"b",
