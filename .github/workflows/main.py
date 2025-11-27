@@ -1,5 +1,6 @@
 import os
 import re
+import sys
 import shutil
 import subprocess
 import logging
@@ -24,6 +25,7 @@ def maybe_beartype(func):
 INDEX_HTML_PATH = Path("index.html")
 SRC_DIR = Path("src")
 OUTPUT_DIR = Path("output")
+IGNORE_DIR = Path("src/Candidatura")
 SECTION_ORDER = ["PB", "RTB", "Candidatura", "Diario Di Bordo"]
 MAX_DEPTH = 2
 
@@ -43,22 +45,23 @@ def format_filename(filename: str) -> str:
     parts = name.split("_")
     first = parts[0]
 
+    versione_tmp = re.search(r"-\d+\.\d+\.\d+$", name)
+    versione = versione_tmp.group(0) if versione_tmp else ""
+    name = name[: -len(versione)] if versione else name
+    v = f" v{versione}" if versione else ""
+
     if re.match(r"^\d{4}-\d{2}-\d{2}$", first):
         date = first
         lower_name = name.lower()
         if "est" in lower_name:
-            return f"{date}_VE"
+            return f"{date}_VE{v}"
         if "int" in lower_name:
-            return f"{date}_VI"
+            return f"{date}_VI{v}"
         if "diario" in lower_name:
             return f"{date}_DB"
-        if "rtb" in lower_name:
-            return f"{date}_RTB"
-        if "rtb" in lower_name:
-            return f"{date}_PB"
         return date
 
-    return name.replace("_", " ")
+    return name.replace("_", " ") + v
 
 
 @maybe_beartype
@@ -78,9 +81,9 @@ def cleanup_source_pdf(src_dir: Path = SRC_DIR) -> None:
 def compile_tex_to_pdf(
     src_dir: Path = SRC_DIR,
     output_dir: Path = OUTPUT_DIR,
+    ignore_dir: Path = IGNORE_DIR,
     max_depth: Optional[int] = MAX_DEPTH,
     latexmk_cmd: str = "latexmk",
-    timeout_sec: int = 60,
 ) -> None:
     """Compila file .tex trovati nella cartella src e copia i PDF generati in output/.
 
@@ -90,6 +93,8 @@ def compile_tex_to_pdf(
 
     tex_files: List[Path] = []
     for tex_path in src_dir.rglob("*.tex"):
+        if ignore_dir in tex_path.parents or tex_path == ignore_dir:
+            continue
         try:
             with open(tex_path, "r", encoding="utf-8", errors="ignore") as f:
                 head = f.read(4096)
@@ -97,24 +102,24 @@ def compile_tex_to_pdf(
                     tex_files.append(tex_path)
         except Exception:
             logger.debug(f"Skipped unreadable tex file: {tex_path}")
+            raise RuntimeError(f"Skipped unreadable tex file: {tex_path}")
 
     for tex_file in tex_files:
         tex_dir = tex_file.parent
         tex_name = tex_file.name
         try:
-            #logger.info(f"Compiling {tex_file}...")
+            logger.info(f"Compiling {tex_file}...")
             res = subprocess.run(
                 [latexmk_cmd, "-pdf", "-interaction=nonstopmode", "-f", tex_name],
                 cwd=str(tex_dir),
                 capture_output=True,
                 text=True,
-                encoding='latin-1',  # <--- aggiungi questo
-                timeout=timeout_sec,
+                encoding='latin-1',
             )
 
             if res.returncode != 0:
                 logger.warning(f"latexmk failed for {tex_file}: {res.stderr.strip()}")
-                continue
+                raise RuntimeError(f"latexmk failed for {tex_file}: {res.stderr.strip()}")
 
             pdf_name = tex_file.stem + ".pdf"
             pdf_path = tex_dir / pdf_name
@@ -130,6 +135,7 @@ def compile_tex_to_pdf(
             logger.warning(f"Compilation timed out for {tex_file}")
         except Exception as e:
             logger.exception(f"Error processing {tex_file}: {e}")
+            raise RuntimeError(f"Error processing {tex_file}: {e}")
 
     # Pulizia dei file temporanei generati nella cartella src
     cleanup_source_pdf(src_dir)
@@ -249,7 +255,13 @@ def update_index_html(
     logger.info("index.html updated correctly")
 
 
-if __name__ == "__main__":
+def main():
     # Compila i .tex e aggiorna index.html
     compile_tex_to_pdf()
     update_index_html()
+
+try:
+    main()
+except Exception as e:
+    logger.debug(f"Errore durante la compilazione: {e}")
+    sys.exit(1)

@@ -12,10 +12,11 @@ def find_glossary():
     pb_gloss = SRC_DIR / "PB/Documenti Interni/Glossario/Glossario.tex"
     rtb_gloss = SRC_DIR / "RTB/Documenti Interni/Glossario/Glossario.tex"
     if pb_gloss.exists():
+        EXCLUDE_DIRS.add("RTB")
         logging.info(f"Glossario trovato in PB: {pb_gloss}")
         return pb_gloss
     if rtb_gloss.exists():
-        #logging.info(f"Glossario trovato in RTB: {rtb_gloss}")
+        logging.info(f"Glossario trovato in RTB: {rtb_gloss}")
         return rtb_gloss
     logging.error("Nessun glossario trovato in PB o RTB")
     return None
@@ -64,7 +65,7 @@ def build_patterns(termini):
 def should_skip(tex_file: Path):
     # esclude per cartelle specifiche
     if any(part in EXCLUDE_DIRS for part in tex_file.parts):
-        #logging.debug(f"Escluso per cartella: {tex_file}")
+        logging.debug(f"Escluso per cartella: {tex_file}")
         return True
     # esclude nomi di file specifici
     if tex_file.name in IGNORE_FILENAMES:

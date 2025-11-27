@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - 'feature/*'
+    paths:
+      - 'src/RTB/Documenti Interni/Glossario/**'
+      - 'src/PB/Documenti Interni/Glossario/**'
+      - '.github/workflows/glossario_parser.lua'
 
 jobs:
   update-glossario:
