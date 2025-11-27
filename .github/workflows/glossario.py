@@ -65,7 +65,7 @@ def build_patterns(termini):
 def should_skip(tex_file: Path):
     # esclude per cartelle specifiche
     if any(part in EXCLUDE_DIRS for part in tex_file.parts):
-        logging.debug(f"Escluso per cartella: {tex_file}")
+        #logging.debug(f"Escluso per cartella: {tex_file}")
         return True
     # esclude nomi di file specifici
     if tex_file.name in IGNORE_FILENAMES:
@@ -103,9 +103,8 @@ def apply_tags_to_text(text: str, patterns, tex_file: Path):
             return matched + "$^G$"
 
         new_text, n = pat.subn(repl, new_text)
-        # opzionale: log se vuoi
-        # if n:
-        #     logging.info(f"  -> {n} sostituzioni per termine '{term}'")
+        if n:
+            logging.info(f"  -> {n} sostituzioni per termine '{term}'")
     return new_text
 
 
