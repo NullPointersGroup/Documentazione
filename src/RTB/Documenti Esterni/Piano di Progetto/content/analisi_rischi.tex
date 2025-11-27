@@ -1,144 +1,150 @@
 \section{Analisi e gestione dei rischi}
 In questa sezione il gruppo descrive l'analisi dei potenziali rischi associati al progetto.\\
 Per mitigare tali rischi, abbiamo scelto di adottare un consuntivo$^G$ più contenuto all'inizio di ogni sprint, in particolare nelle fasi iniziali del progetto quando la padronanza delle metodologie di lavoro è minore.\\
-Ogni rischio è stato identificato ed analizzato, in seguito sono state inserite delle possibili tecniche di mitigazione e di controllo.\\
-Siccome la maggior parte dei rischi può appartenere a più categorie, ovvero individuale, di gruppo oppure legata a fattori esterni, è stato deciso di descrivere ogni rischio con un unico codice: \textbf{R\#}, dove \# è un identificatore incrementale che indica il numero del rischio.\\
-Ogni rischio possiede una frequenza probabile di avvenimento e una ripercussione, le quali appartengono all'insieme \{Molto basso, Basso, Medio, Elevato, Molto elevato\}.
+Ogni rischio è stato identificato ed analizzato, e sono state definite apposite strategie di mitigazione e controllo.\\
+I rischi possono appartenere a tre macro–categorie: 
+\begin{itemize}[itemsep=5pt, parsep=1pt, label=$\scriptstyle\bullet$]
+    \item \textbf{RE}(Rischi Economici): rischi che influenzano tempi, costi, produttività o impegno orario del gruppo.
+    \item \textbf{RP}(Rischi Personali): rischi legati ai singoli membri, alle loro attività, disponibilità, competenze e condizioni individuali.
+    \item \textbf{RA}(Rischi Ambientali): rischi dovuti a fattori esterni, imprevisti o condizioni non controllabili direttamente dal gruppo.
+\end{itemize} 
+Ciascun rischio è identificato tramite un codice che ne identifica la categoria e un numero incrementale  \#.\\ (es. \textbf{RE\#}, \textbf{RP\#}, \textbf{RA\#}).\\
+Ogni rischio possiede una frequenza probabile di avvenimento e un impatto, espressi su una scala: \{Molto basso, Basso, Medio, Elevato, Molto elevato\}.
 
-\subsection{R1: Rischi da altre attività universitarie}
-
+\subsection{RE1: Rischi tecnologici}
 \vspace{2mm}
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.15}
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|>{\bfseries}m{0.25\textwidth}|m{0.65\textwidth}|}
+			\hline
+			\multicolumn{1}{|c|}{\textbf{Tipologia Dato}} & \multicolumn{1}{c|}{\textbf{Descrizione}} \\ \hline
+			Codice & RE1 \\ \hline
+			Nome & Tecnologie \\ \hline
+			Descrizione & Il gruppo non ha esperienza in progetti di queste dimensioni con front-end$^G$ e back-end$^G$ complessi e tecnologie eterogenee. Sono inclusi possibili errori e lunghe sessioni di debugging$^G$. \\ \hline
+			Mitigazione & All'inizio di ogni sprint$^G$ si valuta il livello di conoscenza delle tecnologie, riducendo le ore produttive previste per includere il tempo di apprendimento. \\ \hline
+			Frequenza \newline probabile di \newline avvenimento & Elevata \\ \hline
+			Ripercussioni & Elevate \\ \hline
+	\end{tabular}}
+	\caption{Informazioni sul rischio RE1}
+\end{table}
 
-\begin{table}[h]
+\subsection{RE2: Sovraccarico o stima errata del lavoro}
+\vspace{2mm}
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.15}
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|>{\bfseries}m{0.25\textwidth}|m{0.65\textwidth}|}
+			\hline
+			\multicolumn{1}{|c|}{\textbf{Tipologia Dato}} & \multicolumn{1}{c|}{\textbf{Descrizione}} \\ \hline
+			Codice & RE2 \\ \hline
+			Nome & Stima errata delle attività \\ \hline
+			Descrizione & Le task possono richiedere più tempo del previsto, causando ritardi negli sprint e sovraccarico dei membri del gruppo. \\ \hline
+			Mitigazione & Pianificare task realistiche e suddividere task grandi in sotto-task. \\ \hline
+			Frequenza \newline probabile di \newline avvenimento & Media \\ \hline
+			Ripercussioni & Elevate \\ \hline
+	\end{tabular}}
+	\caption{Informazioni sul rischio RE2}
+\end{table}
+
+
+
+\subsection{RP1: Attività universitarie}
+\vspace{2mm}
+\begin{table}[H]
 	\centering
 	\renewcommand{\arraystretch}{1.15}
 	\begin{tabular}{|>{\bfseries}m{0.25\textwidth}|m{0.65\textwidth}|}
 		\hline
-		\multicolumn{1}{|c|}{\textbf{Tipologia Dato}} & \multicolumn{1}{c|}{\textbf{Descrizione}} \\
-		\hline
-		Codice & R1 \\
-		\hline
-		Nome & Attività universitarie. \\
-		\hline
-		Descrizione & Tutti i componenti del gruppo hanno almeno un altro esame oltre a questo corso di Ingegneria del Software. \\
-		\hline
-		Mitigazione & All'inizio di ogni sprint$^G$ si tiene conto di quanto si è impegnati con lo studio di altri corsi, riducendo il consuntivo$^G$ orario per renderlo più realistico. \\
-		\hline
-		Frequenza \newline probabile di \newline avvenimento & Media \\
-		\hline
-		Ripercussioni & Elevate \\
-		\hline
+		\multicolumn{1}{|c|}{\textbf{Tipologia Dato}} & \multicolumn{1}{c|}{\textbf{Descrizione}} \\ \hline
+		Codice & RP1 \\ \hline
+		Nome & Attività universitarie \\ \hline
+		Descrizione & Tutti i componenti del gruppo hanno almeno un altro esame oltre a questo corso di Ingegneria del Software. \\ \hline
+		Mitigazione & All'inizio di ogni sprint$^G$ si tiene conto dell'impegno richiesto da altri corsi, riducendo il consuntivo$^G$ orario per renderlo più realistico. \\ \hline
+		Frequenza \newline probabile di \newline avvenimento & Media \\ \hline
+		Ripercussioni & Elevate \\ \hline
 	\end{tabular}
-	\caption{Analisi del rischio - Attività universitarie}
-	\label{tab:rischio-universitario}
+	\caption{Informazioni sul rischio RP1}
 \end{table}
 
-\subsection{R2: Rischi da altre attività extra-universitarie}
-
+\subsection{RP2: Attività extra-universitarie}
 \vspace{2mm}
-
 \begin{table}[H]
 	\centering
+	\renewcommand{\arraystretch}{1.15}
 	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|>{\bfseries}m{0.25\textwidth}|m{0.65\textwidth}|}
-			\hline
-			\multicolumn{1}{|c|}{\textbf{Tipologia Dato}} & \multicolumn{1}{c|}{\textbf{Descrizione}} \\
-			\hline
-			\textbf{Codice} & R2 \\
-			\hline
-			\textbf{Nome} & Attività extra-universitarie. \\
-			\hline
-			\textbf{Descrizione} & Essendo un gruppo ad intensità media, le nostre attività extra-universitarie sono elevate, come lavoro, sport praticati o altri impegni personali.\\
-			\hline
-			\textbf{Mitigazione} & All'inizio di ogni sprint$^G$ si tiene conto di quanto si è impegnati con altre attività, riducendo il consuntivo$^G$ orario per renderlo più realistico. \\
-			\hline
-			\textbf{Frequenza probabile di avvenimento} & Elevata \\
-			\hline
-			\textbf{Ripercussioni} & Medie, grazie alla nostra intensità dichiarata \\
-			\hline
+	\begin{tabular}{|>{\bfseries}m{0.25\textwidth}|m{0.65\textwidth}|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Tipologia Dato}} & \multicolumn{1}{c|}{\textbf{Descrizione}} \\ \hline
+		Codice & RP2 \\ \hline
+		Nome & Attività extra-universitarie \\ \hline
+		Descrizione & Essendo un gruppo a intensità media, le nostre attività extra-universitarie (lavoro, sport, impegni personali) sono frequenti. \\ \hline
+		Mitigazione & All'inizio di ogni sprint$^G$ si tiene conto degli impegni extra, riducendo il consuntivo$^G$ orario per renderlo coerente alla disponibilità reale. \\ \hline
+		Frequenza \newline probabile di \newline avvenimento & Elevata \\ \hline
+		Ripercussioni & Medie \\ \hline
 	\end{tabular}}
-	\caption{Informazioni sul rischio R2}
+	\caption{Informazioni sul rischio RP2}
 \end{table}
 
-\subsection{R3: Rischi da imprevisti}
-
+\subsection{RP3: Incomprensioni}
 \vspace{2mm}
-
 \begin{table}[H]
 	\centering
+	\renewcommand{\arraystretch}{1.15}
 	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|>{\bfseries}m{0.25\textwidth}|m{0.65\textwidth}|}
-			\hline
-			\multicolumn{1}{|c|}{\textbf{Tipologia Dato}} & \multicolumn{1}{c|}{\textbf{Descrizione}} \\
-			\hline
-			\textbf{Codice} & R3 \\
-			\hline
-			\textbf{Nome} & Da imprevisti. \\
-			\hline
-			\textbf{Descrizione} & Abbiamo deciso di inserire questo rischio poiché è naturale che qualcuno possa avere un imprevisto di qualunque tipo, che sia universitario, familiare o di qualsiasi altra natura.\\
-			\hline
-			\textbf{Mitigazione} & La persona che ha un imprevisto è tenuta ad avvisare subito gli altri componenti del gruppo per permettere la suddivisione del suo lavoro fra gli altri membri. \\
-			\hline
-			\textbf{Frequenza probabile di avvenimento} & Bassa \\
-			\hline
-			\textbf{Ripercussioni} & Molto elevate \\
-			\hline
+	\begin{tabular}{|>{\bfseries}m{0.25\textwidth}|m{0.65\textwidth}|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Tipologia Dato}} & \multicolumn{1}{c|}{\textbf{Descrizione}} \\ \hline
+		Codice & RP3 \\ \hline
+		Nome & Incomprensioni \\ \hline
+		Descrizione & Un membro può svolgere male una task$^G$ per incomprensioni o una definizione poco chiara del compito. \\ \hline
+		Mitigazione & Il gruppo deve concordare task sempre chiare e ogni membro deve verificare di aver compreso correttamente cosa deve fare. \\ \hline
+		Frequenza \newline probabile di \newline avvenimento & Molto bassa \\ \hline
+		Ripercussioni & Elevate \\ \hline
 	\end{tabular}}
-	\caption{Informazioni sul rischio R3}
+	\caption{Informazioni sul rischio RP3}
 \end{table}
 
-\subsection{R4: Rischi tecnologici}
 
+
+\subsection{RA1: Imprevisti}
 \vspace{2mm}
-
 \begin{table}[H]
 	\centering
+	\renewcommand{\arraystretch}{1.15}
 	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|>{\bfseries}m{0.25\textwidth}|m{0.65\textwidth}|}
-			\hline
-			\multicolumn{1}{|c|}{\textbf{Tipologia Dato}} & \multicolumn{1}{c|}{\textbf{Descrizione}} \\
-			\hline
-			\textbf{Codice} & R4 \\
-			\hline
-			\textbf{Nome} & Da tecnologie. \\
-			\hline
-			\textbf{Descrizione} & Nessun componente del gruppo ha mai lavorato a progetti di queste dimensioni con front-end$^G$ e back-end$^G$ così complessi, con tecnologie eterogenee fra di loro.\newline
-			Sono considerati anche i potenziali errori nel codice, i quali possono portare ad una sessione di debugging$^G$ molto lunga e complessa portando via molto tempo produttivo.\\
-			\hline
-			\textbf{Mitigazione} & All'inizio di ogni Sprint$^G$ si considera il livello di conoscenza delle tecnologie coinvolte, riducendo di conseguenza le ore produttive previste, poiché gran parte del tempo sarà dedicata ad acquisire le competenze necessarie per svolgere le task$^G$ dello Sprint. \\
-			\hline
-			\textbf{Frequenza probabile di avvenimento} & Elevata \\
-			\hline
-			\textbf{Ripercussioni} & Elevate \\
-			\hline
+	\begin{tabular}{|>{\bfseries}m{0.25\textwidth}|m{0.65\textwidth}|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Tipologia Dato}} & \multicolumn{1}{c|}{\textbf{Descrizione}} \\ \hline
+		Codice & RA1 \\ \hline
+		Nome & Imprevisti \\ \hline
+		Descrizione & È naturale che possano verificarsi imprevisti di tipo universitario, familiare o personale, che influenzano la produttività. \\ \hline
+		Mitigazione & La persona coinvolta deve avvisare tempestivamente il gruppo per permettere una ridistribuzione del lavoro. \\ \hline
+		Frequenza \newline probabile di \newline avvenimento & Bassa \\ \hline
+		Ripercussioni & Molto elevate \\ \hline
 	\end{tabular}}
-	\caption{Informazioni sul rischio R4}
+	\caption{Informazioni sul rischio RA1}
 \end{table}
 
-\subsection{R5: Rischi da incomprensione}
-
+\subsection{RA2: Rischi legati ai requisiti}
 \vspace{2mm}
-
 \begin{table}[H]
 	\centering
+	\renewcommand{\arraystretch}{1.15}
 	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|>{\bfseries}m{0.25\textwidth}|m{0.65\textwidth}|}
-			\hline
-			\multicolumn{1}{|c|}{\textbf{Tipologia Dato}} & \multicolumn{1}{c|}{\textbf{Descrizione}} \\
-			\hline
-			\textbf{Codice} & R5 \\
-			\hline
-			\textbf{Nome} & Da incomprensioni. \\
-			\hline
-			\textbf{Descrizione} & Ogni individuo incaricato può svolgere male il proprio compito a causa di un'incomprensione della task$^G$ o di una sua definizione poco chiara.\\
-			\hline
-			\textbf{Mitigazione} & Ogni componente del gruppo deve essere sicuro di ciò che sta per fare e il gruppo deve definire in maniera chiara e precisa le task. \\
-			\hline
-			\textbf{Frequenza probabile di avvenimento} & Molto bassa \\
-			\hline
-			\textbf{Ripercussioni} & Elevate \\
-			\hline
+	\begin{tabular}{|>{\bfseries}m{0.25\textwidth}|m{0.65\textwidth}|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Tipologia Dato}} & \multicolumn{1}{c|}{\textbf{Descrizione}} \\ \hline
+		Codice & RA2 \\ \hline
+		Nome & Requisiti instabili o incompleti \\ \hline
+		Descrizione & I requisiti possono essere interpretati in modo errato o modificati durante il progetto, causando ritardi e lavoro non coerente con le aspettative. \\ \hline
+		Mitigazione & Effettuare incontri chiarificatori con il proponente, validare i requisiti dopo ogni sprint e produrre documentazione condivisa. \\ \hline
+		Frequenza \newline probabile di \newline avvenimento & Media \\ \hline
+		Ripercussioni & Elevate \\ \hline
 	\end{tabular}}
-	\caption{Informazioni sul rischio R5}
+	\caption{Informazioni sul rischio RA2}
 \end{table}
+
 
