@@ -25,43 +25,12 @@ def maybe_beartype(func):
 INDEX_HTML_PATH = Path("index.html")
 SRC_DIR = Path("src")
 OUTPUT_DIR = Path("output")
-IGNORE_DIR = Path("src/Candidatura")
+IGNORE_DIR = {Path("Candidatura")}
 SECTION_ORDER = ["PB", "RTB", "Candidatura", "Diario Di Bordo"]
 MAX_DEPTH = 2
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
-
-
-@maybe_beartype
-def format_filename(filename: str) -> str:
-    """Formatta il nome file secondo le regole specificate nel codice originale.
-
-    - se il nome inizia con YYYY-MM-DD: mantiene la data come prefisso
-    - aggiunge _VE se contiene "est" (verbale esterno), _VI se contiene "int" (verbale interno), DB se contiene "diario" (diario di bordo)
-    - altrimenti restituisce il nome base (senza estensione)
-    """
-    name, _ext = os.path.splitext(filename)
-    parts = name.split("_")
-    first = parts[0]
-
-    versione_tmp = re.search(r"-\d+\.\d+\.\d+$", name)
-    versione = versione_tmp.group(0) if versione_tmp else ""
-    name = name[: -len(versione)] if versione else name
-    v = f" v{versione}" if versione else ""
-
-    if re.match(r"^\d{4}-\d{2}-\d{2}$", first):
-        date = first
-        lower_name = name.lower()
-        if "est" in lower_name:
-            return f"{date}_VE{v}"
-        if "int" in lower_name:
-            return f"{date}_VI{v}"
-        if "diario" in lower_name:
-            return f"{date}_DB"
-        return date
-
-    return name.replace("_", " ") + v
 
 
 @maybe_beartype
@@ -81,19 +50,19 @@ def cleanup_source_pdf(src_dir: Path = SRC_DIR) -> None:
 def compile_tex_to_pdf(
     src_dir: Path = SRC_DIR,
     output_dir: Path = OUTPUT_DIR,
-    ignore_dir: Path = IGNORE_DIR,
+    ignore_dir: set[Path] = IGNORE_DIR,
     max_depth: Optional[int] = MAX_DEPTH,
     latexmk_cmd: str = "latexmk",
-) -> None:
-    """Compila file .tex trovati nella cartella src e copia i PDF generati in output/.
-
-    Nota: non cancella l'intera cartella output per evitare rimozioni accidentali. Sovrascrive i PDF trovati.
-    """
+) -> Dict[Path, str]:
+    #Compila i .tex e copia i PDF in output, restituendo una mappa PDF -> table.tex
     output_dir.mkdir(parents=True, exist_ok=True)
+    
+    if (src_dir / "PB").exists():
+        ignore_dir.add(src_dir / "RTB")
 
     tex_files: List[Path] = []
     for tex_path in src_dir.rglob("*.tex"):
-        if ignore_dir in tex_path.parents or tex_path == ignore_dir:
+        if any(p.name == ignored.name for p in tex_path.parents for ignored in ignore_dir):
             continue
         try:
             with open(tex_path, "r", encoding="utf-8", errors="ignore") as f:
@@ -103,6 +72,8 @@ def compile_tex_to_pdf(
         except Exception:
             logger.debug(f"Skipped unreadable tex file: {tex_path}")
             raise RuntimeError(f"Skipped unreadable tex file: {tex_path}")
+
+    pdf_to_tex_content: Dict[Path, str] = {}
 
     for tex_file in tex_files:
         tex_dir = tex_file.parent
@@ -129,23 +100,72 @@ def compile_tex_to_pdf(
                     relative_parts = relative_parts[:max_depth]
                 dest_dir = output_dir.joinpath(*relative_parts)
                 dest_dir.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(pdf_path, dest_dir / pdf_name)
-                #logger.info(f"Copied {pdf_path} -> {dest_dir / pdf_name}")
-        except subprocess.TimeoutExpired:
-            logger.warning(f"Compilation timed out for {tex_file}")
+                dest_pdf_path = dest_dir / pdf_name
+                shutil.copy2(pdf_path, dest_pdf_path)
+
+                # Legge il contenuto del table.tex relativo
+                table_tex_path = tex_dir / "content/table.tex"
+                tex_content = ""
+                if table_tex_path.exists():
+                    with open(table_tex_path, "r", encoding="utf-8", errors="ignore") as tf:
+                        tex_content = tf.read()
+
+                pdf_to_tex_content[dest_pdf_path] = tex_content
+                
         except Exception as e:
             logger.exception(f"Error processing {tex_file}: {e}")
             raise RuntimeError(f"Error processing {tex_file}: {e}")
 
-    # Pulizia dei file temporanei generati nella cartella src
     cleanup_source_pdf(src_dir)
+
+    return pdf_to_tex_content
+
 
 
 @maybe_beartype
-def build_tree(path: Path, depth: int = 0, max_depth: Optional[int] = MAX_DEPTH) -> Dict[str, Any]:
+def format_filename(filename: str, tex_content: str = "") -> str:
+    """
+    Format del nome file con prefissi e versione.
+
+    - Se il nome inizia con YYYY-MM-DD: mantiene la data come prefisso
+    - Aggiunge _VE se contiene "est" (verbale esterno), _VI se contiene "int" (verbale interno), _DB se contiene "diario"
+    - Aggiunge la versione se disponibile in tex_content e non è un diario
+    """
+    name = os.path.splitext(filename)[0]
+    parts = name.split("_")
+    first = parts[0]
+
+    versione = None
+    if tex_content and not re.search(r"diario", name, re.IGNORECASE):
+        match = re.search(r"Versione\s*&\s*([\d\.]+)\s*\\\\", tex_content)
+        if match:
+            versione = match.group(1)
+    v = f" v{versione}" if versione else ""
+
+    if re.match(r"^\d{4}-\d{2}-\d{2}$", first):
+        date = first
+        lower_name = name.lower()
+        if "est" in lower_name:
+            return f"{date}_VE{v}"
+        if "int" in lower_name:
+            return f"{date}_VI{v}"
+        if "diario" in lower_name:
+            return f"{date}_DB"
+        return date
+
+    return name.replace("_", " ") + v
+
+
+@maybe_beartype
+def build_tree(
+    path: Path,
+    pdf_to_tex_content: Optional[Dict[Path, str]] = None,
+    depth: int = 0,
+    max_depth: Optional[int] = MAX_DEPTH
+) -> Dict[str, Any]:
     node: Dict[str, Any] = {}
-    if not path.exists() or not path.is_dir():
-        return {}
+    if pdf_to_tex_content is None:
+        pdf_to_tex_content = {}
 
     def _extract_date(name: str) -> int:
         m = re.match(r"^(\d{4})-(\d{2})-(\d{2})", name)
@@ -168,16 +188,21 @@ def build_tree(path: Path, depth: int = 0, max_depth: Optional[int] = MAX_DEPTH)
     pdfs_sorted = dated + sorted(plain, key=lambda x: x.name.lower())
 
     if pdfs_sorted:
-        node["_files"] = [(format_filename(f.name), str(f)) for f in pdfs_sorted]
+        files_with_versions = []
+        for f in pdfs_sorted:
+            tex_content = pdf_to_tex_content.get(f, "")
+            files_with_versions.append((format_filename(f.name, tex_content), str(f)))
+        node["_files"] = files_with_versions
 
     for d in sorted([d for d in path.iterdir() if d.is_dir()]):
         if max_depth is not None and depth + 1 > max_depth:
             continue
-        child = build_tree(d, depth + 1, max_depth)
+        child = build_tree(d, pdf_to_tex_content, depth + 1, max_depth)
         if child:
             node[d.name] = child
 
     return node
+
 
 
 @maybe_beartype
@@ -211,6 +236,7 @@ def update_index_html(
     index_path: Path = INDEX_HTML_PATH,
     output_dir: Path = OUTPUT_DIR,
     section_order: List[str] = SECTION_ORDER,
+    pdf_to_tex_content: Optional[Dict[Path, str]] = None,
 ) -> None:
     if not index_path.exists():
         logger.error("index.html not found")
@@ -226,7 +252,7 @@ def update_index_html(
         contatti_html = html_text[start_idx:end_idx]
         html_text = html_text[:start_idx] + html_text[end_idx:]
 
-    tree = build_tree(output_dir)
+    tree = build_tree(output_dir, pdf_to_tex_content)
     generated_html = generate_html(tree)
 
     nav_pattern = re.compile(r'<ul id="nav-navigation">(.*?)</ul>', re.DOTALL)
@@ -255,10 +281,10 @@ def update_index_html(
     logger.info("index.html updated correctly")
 
 
-def main():
-    # Compila i .tex e aggiorna index.html
-    compile_tex_to_pdf()
-    update_index_html()
+def main() -> None:
+    pdf_to_tex_content = compile_tex_to_pdf()
+    update_index_html(pdf_to_tex_content=pdf_to_tex_content)
+
 
 try:
     main()
