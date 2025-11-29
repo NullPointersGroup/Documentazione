@@ -1,9 +1,9 @@
 \section{Diario della riunione}
 \subsection{Presentazione Aziendale}
 L'incontro si è aperto con la presentazione della struttura di Ergon Informatica Srl, caratterizzata da una storia quarantennale e da due divisioni principali: una dedicata allo sviluppo$^{G}$ del gestionale 
-proprietario ``Interspacing'' e l'altra specializzata in infrastrutture IT, sicurezza e servizi cloud, operando principalmente su tecnologie Microsoft.\\
+proprietario \vr{Interspacing} e l'altra specializzata in infrastrutture IT, sicurezza e servizi cloud, operando principalmente su tecnologie Microsoft.\\
 Successivamente, l'incontro ha introdotto il tema del progetto di intelligenza artificiale$^{G}$, citando sistemi di raccomandazione e modelli previsionali. È stato posto l'accento sulla sfida centrale 
-legata agli assistenti virtuali: mitigare il fenomeno delle ``allucinazioni'' dei modelli linguistici, che generano risposte errate ma plausibili.\\
+legata agli assistenti virtuali: mitigare il fenomeno delle \vr{allucinazioni} dei modelli linguistici, che generano risposte errate ma plausibili.\\
 
 Abbiamo quindi esposto i nostri quesiti, ai quali abbiamo ricevuto risposte esaurienti. Di seguito il dettaglio.
 
@@ -86,7 +86,7 @@ Abbiamo quindi esposto i nostri quesiti, ai quali abbiamo ricevuto risposte esau
     Avrà la stessa struttura e conterrà i cataloghi prodotti, gli storici ordini dei clienti (fittizi) e tutte le entità necessarie per testare il sistema.
 
 \subsection{Riscontro su Casi d'Uso e Requisiti}
-    Per concludere, abbiamo richiesto un riscontro sugli attori$^{G}$ principali e secondari, procedendo poi alla verifica$^G$ e alla valutazione dei ``\textbf{Casi d’Uso}''$^{G}$, dei ``\textbf{Requisiti Funzionali}''$^{G}$, dei ``\textbf{Requisiti Non Funzionali}''$^{G}$ e dei ``\textbf{Requisiti di Vincolo}''$^{G}$ precedentemente abbozzati dal gruppo in un documento non ufficiale.\\
+    Per concludere, abbiamo richiesto un riscontro sugli attori$^{G}$ principali e secondari, procedendo poi alla verifica$^G$ e alla valutazione dei vr{\textbf{Casi d’Uso}}$^{G}$, dei vr{\textbf{Requisiti Funzionali}}$^{G}$, dei vr{\textbf{Requisiti Non Funzionali}}$^{G}$ e dei vr{\textbf{Requisiti di Vincolo}}$^{G}$ precedentemente abbozzati dal gruppo in un documento non ufficiale.\\
     L’obiettivo era quello di poter successivamente redigere in modo più ordinato e completo l’Analisi dei Requisiti.\\
     Nel corso di questa revisione sono emerse alcune osservazioni rilevanti, particolarmente utili per la stesura della documentazione finale; tra le più significative si possono evidenziare le seguenti:
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
@@ -95,15 +95,15 @@ Abbiamo quindi esposto i nostri quesiti, ai quali abbiamo ricevuto risposte esau
     Il sistema propone, l'utente dispone. La validazione$^G$ umana è un requisito di sicurezza non negoziabile.\\
     Ci sono due approcci possibili:\vspace{-0.1em}
     \begin{itemize}[itemsep=0pt, parsep=1pt, label=$\scriptstyle\bullet$]
-	    \item \textbf{Validazione$^G$ a Singolo Prodotto}: \\Il sistema analizza la richiesta e, per ogni prodotto identificato, propone un match (es. ``Coca Cola Lattina da 33cl''). L'utente deve confermare o correggere ogni singola voce prima che venga aggiunta all'ordine.
-	    \item \textbf{Validazione$^G$ dell'Ordine Completo}: \\Il sistema interpreta l'intera richiesta e genera un ``carrello'' o un'anteprima dell'ordine completo. L'utente visualizza l'elenco di tutti i prodotti, le quantità e le unità di misura proposte, e ha la possibilità di modificarlo prima di confermare l'invio definitivo.
+	    \item \textbf{Validazione$^G$ a Singolo Prodotto}: \\Il sistema analizza la richiesta e, per ogni prodotto identificato, propone un match (es. vr{Coca Cola Lattina da 33cl}). L'utente deve confermare o correggere ogni singola voce prima che venga aggiunta all'ordine.
+	    \item \textbf{Validazione$^G$ dell'Ordine Completo}: \\Il sistema interpreta l'intera richiesta e genera un vr{carrello} o un'anteprima dell'ordine completo. L'utente visualizza l'elenco di tutti i prodotti, le quantità e le unità di misura proposte, e ha la possibilità di modificarlo prima di confermare l'invio definitivo.
 	\end{itemize}
     L'idea di Ergon era più simile alla seconda opzione, ovvero visualizzare l'anteprima dell'ordine e confermarlo esplicitamente. Tuttavia, la scelta implementativa finale può essere discussa. L'importante è che l'utente abbia l'ultima parola sull'intero ordine prima che venga processato.
 
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
-        \item Come deve comportarsi il sistema con \textbf{prodotti ambigui}? Ad esempio, se un cliente scrive solo "due Coca", come facciamo a sapere se intende lattine o bottiglie?
+        \item Come deve comportarsi il sistema con \textbf{prodotti ambigui}? Ad esempio, se un cliente scrive solo \vr{due Coca}, come facciamo a sapere se intende lattine o bottiglie?
     \end{enumerate} \vspace{-0.5em}
-    Il sistema deve essere intelligente e consultare lo storico ordini di quel specifico cliente. Se il cliente ha ordinato il 90\% delle volte ``Coca Cola in bottiglia'', il sistema può proporre quella come opzione primaria.\\
-    Nei casi di \textbf{ambiguità}, il sistema non deve indovinare. Deve invece \textbf{proporre} all'utente una scelta. Ad esempio, potrebbe visualizzare: ``Quale prodotto intendevi?'' ed elencare le opzioni più probabili (``Coca Cola Lattina'', ``Coca Cola Bottiglia'').\\
-    L'utente, nella fase di validazione, selezionerà l'opzione corretta. Questo meccanismo di ``disambiguazione'' è una funzionalità$^G$ chiave per rendere il sistema affidabile.
+    Il sistema deve essere intelligente e consultare lo storico ordini di quel specifico cliente. Se il cliente ha ordinato il 90\% delle volte \vr{Coca Cola in bottiglia}, il sistema può proporre quella come opzione primaria.\\
+    Nei casi di \textbf{ambiguità}, il sistema non deve indovinare. Deve invece \textbf{proporre} all'utente una scelta. Ad esempio, potrebbe visualizzare: \vr{Quale prodotto intendevi?} ed elencare le opzioni più probabili (\vr{Coca Cola Lattina}, vr{Coca Cola Bottiglia}).\\
+    L'utente, nella fase di validazione, selezionerà l'opzione corretta. Questo meccanismo di \vr{disambiguazione} è una funzionalità$^G$ chiave per rendere il sistema affidabile.
 
