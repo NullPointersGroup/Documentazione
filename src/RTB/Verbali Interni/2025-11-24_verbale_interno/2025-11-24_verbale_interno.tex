@@ -17,10 +17,13 @@ citecolor=blue]{hyperref}
 \usepackage{array} % Per la visualizzazione fluttuante di array di domande e risposte
 \usepackage{ragged2e} % Pacchetto necessario per \justifying che giustifica il testo di tabelle
 \usepackage{makecell}%Per l'altezza delle tabelle
+\usepackage[T1]{fontenc} %per {} come ""
 
 \newcommand{\ulhref}[2]{\href{#1}{\uline{#2}}} % Nuovo comando per sottolineare i link
 \newcommand{\ulref}[1]{\uline{\ref{#1}}} % Nuovo comando per sottolineare i collegamenti a immagini
 \setlength{\parindent}{0pt} % Rimuove il rientro automatico dei paragrafi
+\newcommand{\vr}[1]{\textquotedblleft#1\textquotedblright}% per " "
+\newcommand{\vrs}[1]{\textquoteleft#1\textquoteright}% per ' '
 
 \graphicspath{ {immagini/} {../../../shared/images/} }
 
