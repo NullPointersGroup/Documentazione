@@ -230,3 +230,46 @@
 		\item \textbf{Rilascio e Distribuzione}: consegna delle funzionalità$^G$ approvate e della documentazione associata.
 	\end{enumerate}
 	Queste attività sono cicliche e iterativamente aggiornate ad ogni sprint, permettendo un progresso costante e la tracciabilità di tutte le decisioni.
+
+	\subsubsection{Analisi dei Requisiti}
+	L’analisi dei requisiti è un processo che ha lo scopo di identificare in maniera univoca tutte le esigenze funzionali ed i requisiti che il sistema software dovrà soddisfare.\\
+	Il risultato di questo processo viene formalizzato nell’apposito documento di \ulhref{}{Analisi dei Requisiti} il quale costituisce la base per le successive fasi di progettazione, codifica e test. %da aggiungere il link quando si carica il documento di analisi dei reqiisiti
+	Espone nel dettaglio i casi d’uso e i requisiti che compongono gli elementi fondamentali per lo sviluppo del progetto.
+		\subsubsubsection{Casi d'uso}
+		Per la definizione e codifica dei casi d’uso è stata adottata la seguente nomenclatura:
+		\begin{center} UC\_Principale.Secondario \end{center}
+		dove:
+		\begin{itemize}
+			\item \textbf{UC} è l’acronimo di User Case (Caso d’Uso);
+			\item  \textbf{Principale} è un numero intero, incrementale che identifica univocamente il caso d’uso principale;
+			\item \textbf{Secondario} è un numero intero, incrementale che identifica un caso d’uso derivato dal caso d’uso principale.
+		\end{itemize}
+		Nel caso in cui un caso d’uso non presenti sotto-casi verrà utilizzato il formato:
+		\begin{center} UC\_Principale \end{center}
+		I casi d’uso principali sono univoci all’interno del sistema: non possono esistere due casi d’uso con lo stesso valore Principale.\\
+		È invece possibile che casi d’uso secondari condividano il medesimo indice Secondario, purché appartengano a casi d’uso principali differenti.\\
+		Questa convenzione ha lo scopo di garantire l’univocità e la tracciabilità di ciascun Caso d’Uso. Ad ogni identificatore inoltre è associato un nome ed una breve descrizione che riassume in maniera concisa lo scopo del caso d’uso.
+		\subsubsubsection{Requisiti}
+		Per la definizione e la codifica dei Requisiti è stata adottata la seguente nomenclatura:
+		\begin{center} RTipologia-Priorità\_\# \end{center}
+		dove:
+		\begin{itemize}
+			\item \textbf{R} è l'abbreviazione di Requisito;
+			\item \textbf{Tipologia} identifica la tipologia del requisito, le possibili tipologie sono:
+				\begin{itemize}
+					\item \textbf{F}: Requisito Funzionale;
+					\item \textbf{N}: Requisito Non Funzionale;
+					\item \textbf{V}: Requisito di Vincolo.
+				\end{itemize}
+			\item \textbf{Priorità} identifica la priorità di sviluppo del requisito, le possibili tipologie sono:
+				\begin{itemize}
+					\item \textbf{OB}: che indica Obbligatorio;
+					\item \textbf{DE}: che indica Deriderabile;
+					\item \textbf{OP}: che indica Opzionale.
+				\end{itemize}
+			\item \textbf{\#} è un numero intero incrementale che identifica univocamente il requisito all’interno della sua tipologia e priorità.
+		\end{itemize}
+		Per maggiore chiarezza sui casi d’uso ed i requisiti si consiglia la lettura del documento di \ulhref{}{Analisi dei Requisiti}. %da aggiungere il link quando si carica il documento di analisi dei reqiisiti
+	\subsubsection{Codifica (Proof of Concept)}
+	L’attività di codifica, limitata al Proof of Concept, è destinata a mostrare come il gruppo NullPointers Group ha intenzione di sfruttare le tecnologie  che verranno poi impiegate per la codifica effettiva del capitolato.
+

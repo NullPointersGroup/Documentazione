@@ -19,7 +19,9 @@
 \usepackage{lastpage} % Per contare il numero totale di pagine
 \usepackage{enumitem} 
 \usepackage{amssymb} %per personalizzare gli elenchi
+\usepackage[T1]{fontenc} %per {} come ""                  
 
+\newcommand{\vr}[1]{\textquotedblleft#1\textquotedblright}% comando per le virgolette     \vr{testo}
 \newcommand{\ulhref}[2]{\href{#1}{\underline{#2}}} % Sottolineatura
 \newcommand{\ulref}[1]{\uline{\ref{#1}}} % Sottolinea riferimenti a figure
 \setlength{\parindent}{0pt} % Nessun rientro dei paragrafi
@@ -77,6 +79,27 @@
 % --- Toc depth ---
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
+
+% --- Creazione livello 5 (subsubsubsubsection) 
+\titleclass{\subsubsubsubsection}{straight}[\subsubsubsection]
+
+\newcounter{subsubsubsubsection}[subsubsubsection]
+\renewcommand{\thesubsubsubsubsection}{\thesubsubsubsection.\arabic{subsubsubsubsection}}
+
+\titleformat{\subsubsubsubsection}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsubsubsubsection}{0.5em}{}
+
+\titlespacing*{\subsubsubsubsection}{0pt}{1ex}{1ex}
+
+\makeatletter
+\newcommand{\l@subsubsubsubsection}{\@dottedtocline{5}{10em}{4.5em}}
+\makeatother
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+
 
 %struttura
 \begin{document}
