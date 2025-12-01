@@ -1,0 +1,77 @@
+\section{Diario della riunione}
+\subsection{Rotazione ruoli}
+In questo sprint, fino al 15/12/2025, i ruoli saranno i seguenti: \\
+\begin{center}
+	Matteo Mazzaretto $\rightarrow$ Responsabile \\
+	Lisa Casagrande, Luca Marcuzzo $\rightarrow$ Amministratore \\
+	Marco Brunello, Tommaso Ceron, Laura Pieripolli $\rightarrow$ Analista
+\end{center}
+È comunque prevista una sessione di analisi dei requisiti del gruppo, da effettuare prima del 10/12 per l'incontro la proponente.
+
+\subsection{Definizione issue}
+In questo sprint vengono definite le issue per il diario di bordo del 15/12, per l'inizio della stesura del Piano di Qualifica e per la prosecuzione della stesura delle Norme di Progetto. Tutto il resto del lavoro sarà in documenti non condivisi col pubblico perché bozze di scenari da discutere con la proponente.
+
+\subsection{Definizione milestone}
+È stato deciso di definire due milestone: una per il completamento della documentazione e una per il completamento del \vrs{Proof of Concept}. \\
+Entrambe avranno la stessa data di termine, ma servono per suddividere le attività. \\
+Ogni documento avrà la issue finale di approvazione da parte del responsabile.
+
+\subsection{Definizione nomenclatura branch e nomenclatura issue}
+È stata definita la nomenclatura corretta per i branch nella repo Documentazione. \\
+Tutti i branch saranno sempre di tipo feature/* come prima, ma abbiamo una più chiara definizione dei nomi:
+\begin{center}
+	\begin{tabular}{|c|c|}
+		\hline
+		Nome documento & Branch \\
+		\hline
+		Analisi dei Requisiti & feature/analisi-requisiti \\
+		\hline
+		Norme di Progetto & feature/norme-progetto \\
+		\hline
+		Piano di Progetto & feature/piano-progetto \\
+		\hline
+		Glossario & feature/glossario \\
+		\hline
+		Piano di Qualifica & feature/piano-qualifica \\
+		\hline
+		Specifica Tecnica & feature/specifica-tecnica \\
+		\hline
+		Manuale Utente & feature/manuale-utente \\
+		\hline
+	\end{tabular}
+\end{center}
+È stato deciso che le issue non avranno nomenclatura particolare, l'importante è che il nome e la descrizione siano sintetiche e concise.
+
+\subsection{Definizione metriche di qualifica}
+Sono stati definiti i codici per le metriche di qualifica. \\
+MQC\_\# per \vrs{Metriche Qualità Processo} \\
+MQD\_\# per \vrs{Metrice Qualità Prodotto} \\
+\# indica un numero incrementale.
+Le metriche di qualifica individuate sono:
+\begin{itemize}
+	\item MQC\_01: Completeness Issue.
+	\item MQC\_02: Budget Value.
+	\item MQC\_03: Earned Value.
+	\item MQC\_04: Planned Value.
+	\item MQC\_05: Actual Cost.
+	\item MQC\_06: Cost Performance Index.
+	\item MQC\_07: Schedule Performance Index.
+	\item MQC\_08: Estimate At Completition.
+	\item MQC\_09: Estimate To Complete.
+	\item MQC\_10: Time Estimate At Completition.
+	\item MQC\_11: Indice di Gulpease.
+	\item MQC\_12: Code Coverage.
+	\item MQC\_13: Test Success Rate.
+	\item MQC\_14: Quality Metrics Satisfied.
+	\item MQD\_01: Requisiti Obbligatori Sodisfatti.
+	\item MQD\_02: Requisiti Opzionali Soddisfatti.
+	\item MQD\_03: Requisiti Desiderabili Soddisfatti.
+	\item MQD\_04: Branch Coverage.
+	\item MQD\_05: Statement Coverage.
+	\item MQD\_06: Time on Task.
+	\item MQD\_07: Response Time.
+	\item MQD\_08: Code Smells.
+	\item MQD\_09: Coupling Coefficient.
+	\item MQD\_10: Cyclomatic Complexity.
+\end{itemize}
+Ogni metrica è definita in maniera rigorosa nelle Norme di Progetto
