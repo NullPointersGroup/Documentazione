@@ -54,6 +54,8 @@ local function convert_latex_to_html(text)
 		return "<i>" .. content .. "</i>"
 	end)
 
+	text = text:gsub("\\vr%s*%{(.-)%}", "“%1”")
+    text = text:gsub("\\vrs%s*%{(.-)%}", "‘%1’")
 	text = text:gsub("&", "&amp;")
 	text = text:gsub("<([^i/])", "&lt;%1")
 	text = text:gsub("<$", "&lt;")

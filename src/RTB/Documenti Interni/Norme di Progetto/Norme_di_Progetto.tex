@@ -19,12 +19,14 @@
 \usepackage{lastpage} % Per contare il numero totale di pagine
 \usepackage{enumitem} 
 \usepackage{amssymb} %per personalizzare gli elenchi
-\usepackage[T1]{fontenc} %per {} come ""                  
+\usepackage[T1]{fontenc} %per {} come ""
 
-\newcommand{\vr}[1]{\textquotedblleft#1\textquotedblright}% comando per le virgolette     \vr{testo}
+
 \newcommand{\ulhref}[2]{\href{#1}{\underline{#2}}} % Sottolineatura
 \newcommand{\ulref}[1]{\uline{\ref{#1}}} % Sottolinea riferimenti a figure
 \setlength{\parindent}{0pt} % Nessun rientro dei paragrafi
+\newcommand{\vr}[1]{\textquotedblleft#1\textquotedblright}% per " "
+\newcommand{\vrs}[1]{\textquoteleft#1\textquoteright}% per ' '
 
 \graphicspath{ {immagini/} {../../../shared/images/} }
 
