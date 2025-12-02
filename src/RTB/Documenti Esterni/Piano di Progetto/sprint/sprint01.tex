@@ -75,7 +75,7 @@ Le risorse effettivamente utilizzate sono nella seguente tabella:\\
 	\begin{tabular}{p{0.2\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}}
 		& \rotatebox{45}{\textbf{Responsabile}} &
 		\rotatebox{45}{\textbf{Amministratore}} & \rotatebox{45}{\textbf{Analista}} &
-		\rotatebox{45}{\textbf{Progettista}} & \rotatebox{45}{\textbf{Verificatore}} & \rotatebox{45}{\textbf{Programmatore}} \\
+		\rotatebox{45}{\textbf{Programmatore}} & \rotatebox{45}{\textbf{Verificatore}} & \rotatebox{45}{\textbf{Progettista}} \\
 	\end{tabular}
 	
 	\vspace{0.2cm} % Piccolo spazio tra le due tabelle
@@ -83,12 +83,12 @@ Le risorse effettivamente utilizzate sono nella seguente tabella:\\
 	% Seconda tabella con i dati e i bordi
 	\begin{tabular}{|p{0.2\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|}
 		\hline
-		M. Mazzaretto & - & 4 & - & - & 1 & - \\ \hline
-		T. Ceron      & - & 3.5 & - & - & 1 & - \\ \hline
-		L. Pieripolli & 3 & - & - & - & 1 & - \\ \hline
-		L. Marcuzzo   & - & - & 2.5 & - & - & - \\ \hline
-		M. Brunello   & - & 5.5 & - & - & 1 & - \\ \hline
-		L. Casagrande & - & - & 5 & - & - & - \\ \hline
+		M. Mazzaretto & - & 4 \textcolor{green}{(-2)} & - & - & 1 & - \\ \hline
+		T. Ceron      & - & 3.5 \textcolor{green}{(-2.5)} & - & - & 1 & - \\ \hline
+		L. Pieripolli & 3 \textcolor{green}{(-1)} & - & - & - & 1 & - \\ \hline
+		L. Marcuzzo   & - & - & 2.5 \textcolor{green}{(-1.5)} & - & - & - \\ \hline
+		M. Brunello   & - & 5.5 \textcolor{green}{(-0.5)} & - & - & 1 & - \\ \hline
+		L. Casagrande & - & - & 5 \textcolor{green}{(-1)} & - & - & - \\ \hline
 	\end{tabular}
 	\caption{Sprint$^G$ 1: Consuntivo}
 \end{table}
@@ -109,19 +109,30 @@ C'è stata una sovrastima delle ore produttive causate dal continuo studio della
 		\hline
 		\rowcolor{gray!25}
 		Ruolo & Costo & Ore & Costo \newline effettivo & Ore \newline rimanenti & Budget \newline rimanente \\ \hline
-		Responsabile$^G$   & 30(€/h) & 3 & 90 & 47 (-3) & 1410 (-90) \\ \hline
-		Amministratore$^G$ & 20(€/h) & 13 & 260 & 29 (-13) & 580 \newline (-260) \\ \hline
-		Analista$^G$       & 25(€/h) & 7.5 & 187.5 & 87.5 (-7.5) & 2187.5 \newline (-187.5) \\ \hline
+		Responsabile$^G$   & 30(€/h) & 3 & 90 & 47 \textcolor{red}{(-3)} & 1410 \textcolor{red}{(-90)} \\ \hline
+		Amministratore$^G$ & 20(€/h) & 13 & 260 & 29 \textcolor{red}{(-13)} & 580 \newline \textcolor{red}{(-260)} \\ \hline
+		Analista$^G$       & 25(€/h) & 7.5 & 187.5 & 87.5 \textcolor{red}{(-7.5)} & 2187.5 \newline \textcolor{red}{(-187.5)} \\ \hline
 		Progettista$^G$    & 25(€/h) & - & - & 125 & 3125 \\ \hline
-		Verificatore$^G$   & 15(€/h) & 4 & 60 & 111 (-4) & 1665 (-60) \\ \hline
+		Verificatore$^G$   & 15(€/h) & 4 & 60 & 111 \textcolor{red}{(-4)} & 1665 \textcolor{red}{(-60)} \\ \hline
 		Programmatore  & 15(€/h) & - & - & 125 & 1875 \\ \hline
-		Totale         & - & 27.5 & 597.5 & 524.5 (-27.5) & 10842.5 \newline (-597.5) \\ \hline
+		Totale         & - & 27.5 & 597.5 & 524.5 \textcolor{red}{(-27.5)} & 10842.5 \newline \textcolor{red}{(-597.5)} \\ \hline
 	\end{tabular}
 	\caption{Sprint$^G$ 1: Aggiornamento risorse}
 \end{table}
 
 \subsubsubsection{Rischi incontrati}
-Sono stati incontrati i rischi RP1 ed RE, già definiti nei rischi attesi.
+Sono stati incontrati i rischi RP1 ed RE1, già definiti nei rischi attesi. \\
+Infatti, il primo rischio era di sicuro avvenimento in quanto lo studio per il parziale non era rimandabile.\\
+Il secondo rischio invece è stato incontrato in quanto l'implementazione della Branch Protection è stata molto più complessa del previsto.
+
+\subsubsubsection{Efficacia delle strategie di gestione di mitigazione dei rischi}
+Per il rischio RP1, si è deciso di tenere questa strategia di abbassamento di carico di lavoro per i componenti abbassando la difficoltà da svolgere delle attività per tutti i membri del gruppo per impedire il non completamento a fine Sprint, inserendo attività troppo grosse e impossibili da svolgere con componenti in meno.\\
+Per il rischio RE1, essendo la prima volta che ci cimentavamo in questa complessità, si è deciso di approfondire la tecnologia richiesta per facilitare l'implementazione nella repository del codice sorgente del prodotto.
+
+\subsubsubsection{Migliorie da attuare per le attività future}
+In questo sprint ci si è molto focalizzati sul miglioramento degli script utilizzati dalle GitHub Action e sull'implementazione della Branch Protection.\\
+Queste attività sono mirate a facilitare il lavoro futuro, compreso lo script che inserisce la G all'apice dei termini presenti nel glossario, non inizialmente definito nelle attività ma svolto nell'interesse del gruppo.\\
+Nei prossimi sprint c'è l'obiettivo di iniziare a scrivere i documenti rimanenti e di migliorare quelli già presenti.
 
 \subsubsubsection{Retrospettiva}
-Al termine dello Sprint, è stata confermata la chiusura di tutte le attività.
+Al termine dello Sprint, è stata confermata la chiusura di tutte le attività inserite nelle attività da svolgere con l'aggiunta dello script menzionato precedentemente.

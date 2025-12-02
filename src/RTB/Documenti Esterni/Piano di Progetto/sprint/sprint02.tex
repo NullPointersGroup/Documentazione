@@ -76,12 +76,12 @@ In questo sprint$^G$ sono state utilizzate le seguenti risorse:
 	% Seconda tabella con i dati e i bordi
 	\begin{tabular}{|p{0.2\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|}
 		\hline
-		M. Mazzaretto & - & 2.5 & 5 & - & 1 & - \\ \hline
-		T. Ceron      & - & - & 5 & - & 0.5 & - \\ \hline
-		L. Pieripolli & - & 3 & - & - & 0.5 & - \\ \hline
-		L. Marcuzzo   & - & - & 5 & - & 0.5 & - \\ \hline
-		M. Brunello   & - & 3.5 & - & - & 0.5 & - \\ \hline
-		L. Casagrande & 3 & - & - & - & 1 & - \\ \hline
+		M. Mazzaretto & - & 2.5 \textcolor{green}{(-0.5)} & 5 \textcolor{red}{(+2)} & - & 1 & - \\ \hline
+		T. Ceron      & - & - & 5 \textcolor{green}{(-1)} & - & 0.5 \textcolor{green}{(-0.5)} & - \\ \hline
+		L. Pieripolli & - & 3 \textcolor{green}{(-2)} & - & - & 0.5 \textcolor{green}{(-0.5)} & - \\ \hline
+		L. Marcuzzo   & - & - & 5 \textcolor{green}{(-1)} & - & 0.5 \textcolor{green}{(-0.5)} & - \\ \hline
+		M. Brunello   & - & 3.5 \textcolor{green}{(-1.5)} & - & - & 0.5 \textcolor{red}{(+0.5)} & - \\ \hline
+		L. Casagrande & 3 \textcolor{green}{(-1)} & - & - & - & 1 \textcolor{red}{(+1)} & - \\ \hline
 	\end{tabular}
 	\caption{Sprint$^G$ 2: Consuntivo}
 \end{table}
@@ -102,19 +102,29 @@ Si evidenzia come il processo di verifica$^G$ sia migliorato, nonostante ciò è
 		\hline
 		\rowcolor{gray!25}
 		Ruolo & Costo & Ore & Costo \newline effettivo & Ore \newline rimanenti & Budget \newline rimanente \\ \hline
-		Responsabile$^G$   & 30(€/h) & 3 & 90 & 44 (-3) & 1320 (-90) \\ \hline
-		Amministratore$^G$ & 20(€/h) & 9 & 180 & 20 (-9) & 400 \newline (-180) \\ \hline
-		Analista$^G$       & 25(€/h) & 15 & 375 & 72.5 (-15) & 1812.5 \newline (-375) \\ \hline
+		Responsabile$^G$   & 30(€/h) & 3 & 90 & 44 \textcolor{red}{(-3)} & 1320 \textcolor{red}{(-90)} \\ \hline
+		Amministratore$^G$ & 20(€/h) & 9 & 180 & 20 \textcolor{red}{(-9)} & 400 \newline \textcolor{red}{(-180)} \\ \hline
+		Analista$^G$       & 25(€/h) & 15 & 375 & 72.5 \textcolor{red}{(-15)} & 1812.5 \newline \textcolor{red}{(-375)} \\ \hline
 		Progettista$^G$    & 25(€/h) & - & - & 125 & 3125 \\ \hline
-		Verificatore$^G$   & 15(€/h) & 4 & 60 & 107 (-4) & 1605 (-60) \\ \hline
+		Verificatore$^G$   & 15(€/h) & 4 & 60 & 107 \textcolor{red}{(-4)} & 1605 \textcolor{red}{(-60)} \\ \hline
 		Programmatore  & 15(€/h) & - & - & 125 & 1875 \\ \hline
-		Totale         & - & 31 & 705 & 493.5 (-31) & 10137.5 \newline (-705) \\ \hline
+		Totale         & - & 31 & 705 & 493.5 \textcolor{red}{(-31)} & 10137.5 \newline \textcolor{red}{(-705)} \\ \hline
 	\end{tabular}
 	\caption{Sprint$^G$ 2: Aggiornamento risorse}
 \end{table}
 
 \subsubsubsection{Rischi incontrati}
-Non è stato incontrato nessun rischio.
+Non è stato incontrato alcun rischio.
+
+\subsubsubsection{Efficacia delle strategie di gestione di mitigazione dei rischi}
+La strategia di migliorare gli script e le GitHub Action si è rivelata efficace, non ci sono stati problemi nella verifica dei documenti e ogni componente ha svolto il suo ruolo al meglio delle sue possibilità.\\
+È stato implementato un altro significativo miglioramento negli script, che ora ritornano un'eccezione se falliscono permettendo un controllo immediato dell'errore e impedendo l'inserimento in remoto di file compromessi oppure non compilabili.\\
+Questa strategia sarà utile anche per il futuro, perché sarà una base di partenza per la scrittura del PoC e in generale del codice.
+
+\subsubsubsection{Migliorie da attuare per le attività future}
+Nella prossima fase, il gruppo dovrà affrontare la definizione chiara e concisa su cosa inserire nel documento \vrs{Analisi dei Requisiti}.\\
+Per questo motivo, è stato deciso di inserire nel preventivo molte più ore alla figura dell'\vrs{Analista} poiché ci sarà bisogno di molto tempo da dedicare.\\
+Inoltre, dato che ormai tutti noi abbiamo studiato al meglio la scrittura dei documenti, sono state dedicate meno ore alla figura dell'\vrs{Amministratore} poiché si prevede che la scrittura sarà più veloce e fluida e meno tempo dedicato per lo studio dei documenti.
 
 \subsubsubsection{Retrospettiva}
 Sono state completate tutte le attività definite, seppur una di queste è stata continuata solo in un documento condiviso non pubblico, per questo non è ancora stato pubblicato in repo il risultato.
