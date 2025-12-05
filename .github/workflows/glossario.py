@@ -80,34 +80,42 @@ def should_skip(tex_file: Path):
 
 def apply_tags_to_text(text: str, patterns, tex_file: Path):
     """
-    Applica i patterns su `text`. Aggiunge '$^G$' solo se:
-      - subito dopo il match non c'è già '$^G$'
-      - e il carattere immediatamente successivo è uno spazio o non esiste (fine stringa)
-    Se il carattere successivo è QUALSIASI COSA DIVERSA DALLA ' ' (spazio),
-    il termine NON viene marcato.
+    Applica i patterns su `text` aggiungendo $^G$ solo se:
+      - subito dopo il match non c'è già $^G$
+      - il match NON è all'interno di un titolo (section, subsection, subsubsection, ...)
+      - il carattere successivo è spazio o fine stringa
+    Rimuove prima eventuali tag esistenti.
     """
     new_text = text
-    for term, pat in patterns:
-        def repl(m):
+
+    title_ranges = []
+    for m in re.finditer(r'\\(?:sub)*section\{(.*?)\}', new_text, flags=re.MULTILINE):
+        start, end = m.start(1), m.end(1)
+        title_ranges.append((start, end))
+
+    def in_title(pos):
+        return any(start <= pos < end for start, end in title_ranges)
+
+    # Raccoglie tutti gli inserimenti insieme al match per debug
+    inserts = []
+    for _, pat in patterns:
+        for m in pat.finditer(new_text):
+            start, end = m.start(1), m.end(1)
             matched = m.group(1)
-            # caratteri subito dopo il match nella stringa corrente
-            after = new_text[m.end(): m.end() + 4]   # controllo rapido per $^G$
-            if after.startswith("$^G$"):
-                return matched
-            # singolo carattere subito dopo (vuoto se fine stringa)
-            after_char = new_text[m.end(): m.end() + 1]
-            # se esiste un carattere e NON è spazio -> non marcare
-            if after_char and after_char != " ":
-                return matched
-            # altrimenti (spazio o fine stringa) aggiungi tag
-            return matched + "$^G$"
+            if in_title(start):
+                continue
+            after_char = new_text[end:end+1]
+            after_tag = new_text[end:end+4]
+            if after_tag.startswith("$^G$") or (after_char and after_char != " "):
+                continue
+            inserts.append((end, "$^G$", matched))
 
-        new_text, n = pat.subn(repl, new_text)
-        if n:
-            logging.info(f"  -> {n} sostituzioni per termine '{term}'")
+    # Ordina in ordine decrescente e inserisce
+    for pos, insert_text, matched in sorted(inserts, key=lambda x: x[0], reverse=True):
+        new_text = new_text[:pos] + insert_text + new_text[pos:]
+        logging.debug(f"Aggiunto $^G$ a '{matched}' in file {tex_file}")
+
     return new_text
-
-
 
 def process_all_tex(root_dir: Path, patterns):
     for tex_file in root_dir.rglob("*.tex"):
