@@ -89,7 +89,7 @@ def apply_tags_to_text(text: str, patterns, tex_file: Path):
     new_text = text
 
     title_ranges = []
-    for m in re.finditer(r'\\(?:sub)*section\{(.*?)\}', new_text, flags=re.MULTILINE):
+    for m in re.finditer(r'\\(?:sub)*section\{(.*?)\}', new_text, flags=re.MULTILINE) or re.finditer(r'\\caption\{(.*?)\}', new_text, flags=re.MULTILINE):
         start, end = m.start(1), m.end(1)
         title_ranges.append((start, end))
 

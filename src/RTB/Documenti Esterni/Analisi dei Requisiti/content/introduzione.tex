@@ -2,7 +2,7 @@
 	\subsection{Scopo del documento}
 	Il presente documento di \vr{Analisi dei Requisiti} definisce in modo formale, completo e strutturato i requisiti funzionali e non funzionali del sistema software \textbf{SmartOrder}, da sviluppare nell'ambito del progetto didattico del corso di Ingegneria del Software.
 	Il documento descrive i casi d'uso principali del sistema, corredati da diagrammi UML per visualizzare le interazioni tra attori e funzionalità.
-	Rappresenta il fondamento per le successive fasi di progettazione, implementazione, testing e validazione, garantendo l'allineamento del prodotto finale con le specifiche del proponente \textbf{Ergon Informatica Srl} e con gli obiettivi delineati nel capitolato$^G$ C8.
+	Rappresenta il fondamento per le successive fasi di progettazione, implementazione, testing e validazione, garantendo l'allineamento del prodotto finale con le specifiche del proponente \textbf{Ergon Informatica Srl} e con gli obiettivi delineati nel capitolato C8.
 
 	I requisiti identificati sono classificati secondo le seguenti priorità:
 	\vspace{-0.3em}
@@ -18,20 +18,20 @@
 	\vspace{-0.3em}
 	\begin{itemize}
 	    \setlength\itemsep{-0.1em}
-	    \item il \textbf{Committente} (Ergon Informatica Srl), per la verifica$^G$ della corretta interpretazione delle richieste;
-	    \item il \textbf{Team di Sviluppo} come linea guida per la progettazione$^G$ architetturale e la codifica;
-	    \item il \textbf{Team di Verifica} per la definizione delle strategie di test$^G$ e validazione.
+	    \item il \textbf{Committente} (Ergon Informatica Srl), per la verifica della corretta interpretazione delle richieste;
+	    \item il \textbf{Team di Sviluppo} come linea guida per la progettazione architetturale e la codifica;
+	    \item il \textbf{Team di Verifica} per la definizione delle strategie di test e validazione.
 	\end{itemize}
 
     Il documento è inoltre destinato ad altre figure professionali coinvolte nello sviluppo, quali Amministratori e Responsabili di Progetto, per consentire loro di acquisire una piena comprensione delle specifiche di Sistema.
 
 	\subsection{Prospettiva del prodotto}
 	SmartOrder si propone come una piattaforma intelligente e multimodale per l'interpretazione automatica di ordini di acquisto provenienti da canali eterogenei – quali testo (email, chat), audio (chiamate, messaggi vocali) e immagini (foto, documenti) – e la loro trasformazione in ordini strutturati pronti per l'inserimento in sistemi gestionali ERP.
-    Il sistema è progettato secondo un'\textbf{architettura modulare} e \textbf{scalabile}, in grado di integrare modelli avanzati di intelligenza artificiale$^G$ (LLM, visione artificiale, speech-to-text) e di adattarsi a volumi elevati di dati mantenendo elevate prestazioni.
-	L'obiettivo è ridurre drasticamente l'intervento umano in attività ripetitive e a basso valore aggiunto, minimizzando gli errori di interpretazione e migliorando l'efficienza$^G$ operativa e la soddisfazione del cliente finale.
+    Il sistema è progettato secondo un'\textbf{architettura modulare} e \textbf{scalabile}, in grado di integrare modelli avanzati di intelligenza artificiale (LLM, visione artificiale, speech-to-text) e di adattarsi a volumi elevati di dati mantenendo elevate prestazioni.
+	L'obiettivo è ridurre drasticamente l'intervento umano in attività ripetitive e a basso valore aggiunto, minimizzando gli errori di interpretazione e migliorando l'efficienza operativa e la soddisfazione del cliente finale.
 	
 	\subsection{Funzioni del prodotto}
-	Il sistema dovrà offrire le seguenti funzionalità$^G$ principali:
+	Il sistema dovrà offrire le seguenti funzionalità principali:
 	\begin{itemize}
 	    \setlength\itemsep{-0.1em}
 	    \item Acquisizione di input multimodali (testo, audio, immagini) da molteplici canali;
@@ -39,7 +39,7 @@
 	    \item Validazione, arricchimento semantico e normalizzazione dei dati estratti;
 	    \item Fusione multimodale per un'interpretazione contestuale coerente;
 	    \item Generazione di ordini strutturati in formati standard (JSON, XML) compatibili con ERP;
-	    \item Integrazione con database aziendali tramite API$^G$ REST;
+	    \item Integrazione con database aziendali tramite API REST;
 	    \item Interfaccia web per il monitoraggio, la gestione e il feedback dei processi;
 	    \item Meccanismi di logging e apprendimento continuo per il miglioramento del sistema.
 	\end{itemize}
@@ -49,11 +49,11 @@
 	Il sistema si rivolge principalmente a:
 	\begin{itemize}
 	    \setlength\itemsep{-0.1em}
-	    \item \textbf{Operatori aziendali} addetti all'inserimento e alla validazione$^G$ degli ordini;
-	    \item \textbf{Amministratori di sistema} per il monitoraggio, la configurazione e la manutenzione$^G$ della piattaforma;
+	    \item \textbf{Operatori aziendali} addetti all'inserimento e alla validazione degli ordini;
+	    \item \textbf{Amministratori di sistema} per il monitoraggio, la configurazione e la manutenzione della piattaforma;
 	    \item \textbf{Clienti finali} che inviano ordini tramite canali non strutturati (es. email, WhatsApp).
 	\end{itemize}
-	Non sono richieste competenze tecniche avanzate per l'utilizzo delle funzionalità$^G$ base, mentre la configurazione avanzata e il monitoraggio sono riservati a utenti con ruolo amministrativo.
+	Non sono richieste competenze tecniche avanzate per l'utilizzo delle funzionalità base, mentre la configurazione avanzata e il monitoraggio sono riservati a utenti con ruolo amministrativo.
 
 	\subsection{Definizioni, acronimi e abbreviazioni}
 	Per tutti i termini tecnici, gli acronimi e le definizioni utilizzate nel documento si rimanda al \underline{\href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documentazione_interna/Glossario.pdf}{Glossario}}, disponibile come documento separato. \\
@@ -64,7 +64,7 @@
 
 	\subsection{Riferimenti}
 	\subsubsection{Riferimenti normativi}
-	\underline{\href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato$^G$ d’appalto C8 – SmartOrder: Analisi multimodale per la creazione automatica di ordini}} \\[0.5em]
+	\underline{\href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato d’appalto C8 – SmartOrder: Analisi multimodale per la creazione automatica di ordini}} \\[0.5em]
 	
 	\subsubsection{Riferimenti informativi}
 	\underline{\href{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T05.pdf}{Dispense ''Analisi dei requisiti'', relative alla quinta lezione del professor Tullio}} \\[0.5em]
