@@ -1,0 +1,127 @@
+\section{Qualità di Prodotto}
+La qualità del prodotto rappresenta la capacità del software di soddisfare in modo completo e affidabile i requisiti funzionali e non funzionali stabiliti.\\
+Per garantire un monitoraggio continuo e oggettivo, il gruppo ha definito un insieme di metriche che consentono di valutare diversi aspetti del prodotto finale.
+Le metriche selezionate si ispirano ai principi degli standard internazionali per la qualità del software e permettono di misurare il livello qualitativo raggiunto.\\
+Le categorie considerate sono: Funzionalità, Affidabilità, Usabilità, Efficienza e Manutenibilità.
+
+\subsection{Funzionalità}
+La funzionalità descrive la capacità del software di offrire tutte le funzioni richieste e di rispondere correttamente alle esigenze esplicitate nei requisiti. 
+\begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.15}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|>{\centering\arraybackslash}p{0.13\textwidth}|
+                          >{\centering\arraybackslash}p{0.3\textwidth}|
+                          >{\centering\arraybackslash}p{0.26\textwidth}|
+                          >{\centering\arraybackslash}p{0.26\textwidth}|}
+            \hline
+            \rowcolor[gray]{0.9}
+            \textbf{Metrica} & \textbf{Nome} & \textbf{Valore accettabile} & \textbf{Valore ottimo} \\
+            \hline
+            MQD\_01 & Requisiti obbligatori soddisfatti &  100\% & 100\% \\
+            \hline
+            MQD\_02 & Requisiti desiderabili soddisfatti  &  $\geq 30\%$ & 100\% \\
+            \hline
+            MQD\_03 & Requisiti opzionali soddisfatti & $\geq 0\%$ & $\geq 70\%$ \\
+            \hline
+        \end{tabular}
+    }
+    \vspace{-0.3cm}
+    \caption{Funzionalità del prodotto}
+\end{table}
+
+\subsection{Affidabilità}
+L’affidabilità rappresenta la capacità del prodotto software di operare in modo corretto e continuo nel tempo, riducendo al minimo guasti, malfunzionamenti o comportamenti imprevisti.
+\begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.15}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|>{\centering\arraybackslash}p{0.13\textwidth}|
+                          >{\centering\arraybackslash}p{0.3\textwidth}|
+                          >{\centering\arraybackslash}p{0.26\textwidth}|
+                          >{\centering\arraybackslash}p{0.26\textwidth}|}
+            \hline
+            \rowcolor[gray]{0.9}
+            \textbf{Metrica} & \textbf{Nome} & \textbf{Valore accettabile} & \textbf{Valore ottimo} \\
+            \hline
+            MQD\_04 & Code Coverage & $\geq 80\%$ & 100\% \\
+            \hline
+            MQD\_05 & Branch Coverage  & $\geq 60\%$ & $\geq 80\%$ \\
+            \hline
+            MQD\_06 & Statement Coverage & $\geq 70\%$ & $\geq 90\%$ \\
+            \hline
+        \end{tabular}
+    }
+    \vspace{-0.3cm}
+    \caption{Affidabilità del prodotto}
+\end{table}
+
+\subsection{Usabilità}
+L’usabilità valuta quanto il software sia semplice da comprendere, apprendere e utilizzare per l’utente finale. 
+\begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.15}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|>{\centering\arraybackslash}p{0.13\textwidth}|
+                          >{\centering\arraybackslash}p{0.3\textwidth}|
+                          >{\centering\arraybackslash}p{0.26\textwidth}|
+                          >{\centering\arraybackslash}p{0.26\textwidth}|}
+            \hline
+            \rowcolor[gray]{0.9}
+            \textbf{Metrica} & \textbf{Nome} & \textbf{Valore accettabile} & \textbf{Valore ottimo} \\
+            \hline
+            MQD\_07 & Time on Task & $\leq 60$ secondi & $\leq 30$ secondi \\
+            \hline
+        \end{tabular}
+    }
+    \vspace{-0.3cm}
+    \caption{Usabilità del prodotto}
+\end{table}
+
+\subsection{Efficienza}
+L’efficienza indica la capacità del software di utilizzare in modo ottimale le risorse disponibili, garantendo prestazioni adeguate in termini di tempi di risposta, consumo di memoria, utilizzo della CPU e gestione del carico.
+\begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.15}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|>{\centering\arraybackslash}p{0.13\textwidth}|
+                          >{\centering\arraybackslash}p{0.3\textwidth}|
+                          >{\centering\arraybackslash}p{0.26\textwidth}|
+                          >{\centering\arraybackslash}p{0.26\textwidth}|}
+            \hline
+            \rowcolor[gray]{0.9}
+            \textbf{Metrica} & \textbf{Nome} & \textbf{Valore accettabile} & \textbf{Valore ottimo} \\
+            \hline
+            MQD\_08 & Response time & $\leq 2$ secondi & $\leq 1$ secondo \\
+            \hline
+        \end{tabular}
+    }
+    \vspace{-0.3cm}
+    \caption{Efficienza del prodotto}
+\end{table}
+
+\subsection{Manutenibilità}
+La manutenibilità esprime la facilità con cui il software può essere modificato, corretto, ampliato o migliorato nel tempo.
+\begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.15}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|>{\centering\arraybackslash}p{0.13\textwidth}|
+                          >{\centering\arraybackslash}p{0.3\textwidth}|
+                          >{\centering\arraybackslash}p{0.26\textwidth}|
+                          >{\centering\arraybackslash}p{0.26\textwidth}|}
+            \hline
+            \rowcolor[gray]{0.9}
+            \textbf{Metrica} & \textbf{Nome} & \textbf{Valore accettabile} & \textbf{Valore ottimo} \\
+            \hline
+            MQD\_09 & Code Smells per KLOC & $\leq 10$ & $\leq 5$ \\
+            \hline
+            MQD\_10 & Coefficient of Coupling & $\leq 0.4$ & $\leq 0.2$ \\
+            \hline
+            MQD\_11 & Cyclomatic Complexity & $\leq 20$ & $\leq 10$ \\
+            \hline
+        \end{tabular}
+    }
+    \vspace{-0.3cm}
+    \caption{Manutenibilità del prodotto}
+\end{table}
