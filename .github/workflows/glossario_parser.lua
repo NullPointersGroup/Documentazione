@@ -156,6 +156,26 @@ local function generate_html(all_terms)
 	return table.concat(html)
 end
 
+local function write_terms_file(path, terms, letter)
+    local file = io.open(path, "w")
+    if not file then
+        error("Impossibile riscrivere il file: " .. path)
+    end
+
+    local upper = letter:upper()
+
+    file:write(string.format("\\begin{center}\\section*{%s}\\end{center}\n", upper))
+    file:write(string.format("\\addcontentsline{toc}{section}{%s}\n\n", upper))
+
+    for _, t in ipairs(terms) do
+        file:write(string.format("\\term{%s}%s\n", t.term, t.definition))
+    end
+
+	 print(string.format("Sto scrivendo in %s",path))
+
+    file:close()
+end
+
 local function main()
 	local all_terms = {}
 	local tot_terms = 0
@@ -167,9 +187,12 @@ local function main()
 		if content then
 			local terms = parse_terms(content)
 			if #terms > 0 then
+				write_terms_file(filename, terms, letter)
 				local upper = letter:upper()
 				all_terms[upper] = terms
 				tot_terms = tot_terms + #terms
+			else
+				print(string.format("0 termini in %s.tex",letter))
 			end
 		end
 	end
