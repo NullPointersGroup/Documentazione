@@ -2,7 +2,7 @@
 La qualità del prodotto software dipende direttamente dai processi usati per svilupparlo.\\  
 Misurare e monitorare questi processi (con metriche adatte) permette di trovare problemi prima che si trasformino 
 in difetti nel software finale, risparmiando tempo e risorse.\\
-In base allo standard ISO/IEC 12207:1995, le metriche di qualità di processo possono essere suddivise nelle seguenti tre categorie:
+In base allo standard ISO/IEC 12207:1995, le metriche di qualità di processo$^G$ possono essere suddivise nelle seguenti tre categorie:
 \begin{itemize}[itemsep=0pt, parsep=1pt, label=$\scriptstyle\bullet$]
         \item \textbf{Processi primari};
         \item \textbf{Processi di supporto};
@@ -27,21 +27,21 @@ Le metriche associate misurano l’efficacia$^G$ dell’intero ciclo di vita del
             \rowcolor[gray]{0.9}
             \textbf{Metrica} & \textbf{Nome} & \textbf{Valore accettabile} & \textbf{Valore ottimo} \\
             \hline
-            MQC\_01 & Earned Value & $\geq$ PV*0.8 & $\geq PV$ \\
+            MQC\_01 & Earned Value$^G$ & $\geq$ PV*0.8 & $\geq PV$ \\
             \hline
-            MQC\_02 & Planned Value & $\geq 0$ & $\leq$ BAC \\
+            MQC\_02 & Planned Value$^G$ & $\geq 0$ & $\leq$ BAC$^G$ \\
             \hline
-            MQC\_03 & Actual Cost & $\geq$ EV e $\leq$ EV*1.1 & $\leq$ EV \\
+            MQC\_03 & Actual Cost$^G$ & $\geq$ EV$^G$ e $\leq$ EV*1.1 & $\leq$ EV$^G$ \\
             \hline
             MQC\_04 & Cost Performance Index & $\geq 0.9$ & $\geq 1.0$ \\
             \hline
             MQC\_05 & Schedule Performance Index & $\geq 0.9$ & $\geq 1.0$ \\
             \hline
-            MQC\_06 & Estimate At Completion & entro $\pm 10\%$ del BAC & entro $\pm 5\%$ del BAC \\
+            MQC\_06 & Estimate At Completion$^G$ & entro $\pm 10\%$ del BAC$^G$ & entro $\pm 5\%$ del BAC$^G$ \\
             \hline
-            MQC\_07 & Estimate To Complete & $\leq$ (BAC - AC)*1.05 & $\leq$ (BAC - AC) \\
+            MQC\_07 & Estimate To Complete & $\leq$ (BAC$^G$ - AC)*1.05 & $\leq$ (BAC$^G$ - AC) \\
             \hline
-            MQC\_08 & Time Estimate At Completion & entro $\pm 5\%$ del tempo pianificato & $\leq$ 2 settimane rispetto al tempo pianificato \\
+            MQC\_08 & Time Estimate At Completion$^G$ & entro $\pm 5\%$ del tempo pianificato & $\leq$ 2 settimane rispetto al tempo pianificato \\
             \hline
         \end{tabular}
     }
