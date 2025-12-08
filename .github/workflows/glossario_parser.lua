@@ -168,7 +168,7 @@ local function write_terms_file(path, terms, letter)
     file:write(string.format("\\addcontentsline{toc}{section}{%s}\n\n", upper))
 
     for _, t in ipairs(terms) do
-        file:write(string.format("\\term{%s}%s\n", t.term, t.definition))
+        file:write(string.format("\\term{%s}\n%s\n\n", t.term, t.definition))
     end
 
 	 print(string.format("Sto scrivendo in %s",path))
