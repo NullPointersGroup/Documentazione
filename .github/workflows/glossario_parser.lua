@@ -164,7 +164,7 @@ local function write_terms_file(path, terms, letter)
 
     local upper = letter:upper()
 
-    file:write(string.format("\\begin{center}\\section*{%s}\\end{center}\n", upper))
+    file:write(string.format("\\begin{center}\n\\section*{%s}\n\\end{center}\n", upper))
     file:write(string.format("\\addcontentsline{toc}{section}{%s}\n\n", upper))
 
     for _, t in ipairs(terms) do
