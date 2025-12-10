@@ -31,7 +31,7 @@ Si è discusso successivamente di una parte dei requisiti funzionali.\\
 	\item È stata discussa l'obbligatorietà della registrazione dei log completi e tracciamento delle fasi di elaborazione, confermando l'obbligo di questo.
 	Potrebbero essere interessanti le informazioni come timestamp, invio utente.
 	\item Il sistema deve essere in grado di scalare fra ordini specifici e meno specifici per permettere a tutti gli utenti di completare l'ordine.
-	\item Il formato audio deve avere una durata massima di 2 minuti, accettare solo audio con dimensione massima 10MB, supportare la codifica di UTF-8 e supporto dei formati .mp3, .m4a, .wav. Oltretutto dentro la chat deve essere permessa la registrazione per non scomodare l'utente con i limiti mantenuti precedentemente.
+	\item Il formato audio deve avere una durata massima di 2 minuti, accettare solo audio con dimensione massima 10MB, supporto dei formati .mp3, .m4a, .wav. Oltretutto dentro la chat deve essere permessa la registrazione per non scomodare l'utente con i limiti mantenuti precedentemente. La trascrizione dell'audio deve essere in codifica utf-8.
 	\item È stato deciso di non occuparsi di eventuale indisponibilità dei prodotti.
 \end{enumerate}
 \subsubsection{Requisiti funzionali desiderabili}
@@ -91,7 +91,7 @@ Si è discusso successivamente di una parte dei requisiti funzionali.\\
 	\item Utilizzo di un database relazionale.
 	\item La documentazione deve essere conforme.
 	\item Il sistema deve adottare un'architettura modulare.
-	\item Il sistema deve esporre interfacce di integrazione tramite API REST documentate.
+	\item Il sistema deve esporre interfacce di integrazione documentate tramite API REST.
 	\item Il progetto deve utilizzare un sistema di versionamento del codice.
 	\item I formati di scambio dati devono essere strutturati in un formato compatibile con il database gestionale.
 	\item Utilizzo di un database vettoriale.
