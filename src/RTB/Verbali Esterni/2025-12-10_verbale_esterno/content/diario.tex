@@ -1,0 +1,111 @@
+\section{Diario della riunione}
+\subsection{Formato TOON oppure formato JSON}
+È attualmente in corso un ampio dibattito sull'argomento. Sicuramente è utilissimo per risparmiare token, però i modelli attuali, essendo stati addestrati su JSON o CSV potrebbero avere difficoltà a comprenderlo.  consiglia comunque di rimanere sul JSON.
+\subsection{API REST, quale tecnologia lo implementa e suggerimenti a riguardo}
+API REST è il passaggio fra front-end e backend. Una tecnologia consigliata è FastAPI su Python, molto utilizzato al giorno d'oggi.
+\subsection{Il sistema di machine learning è a carico nostro o ci sono delle parti non controllate pienamente da noi?}
+Non si va a modificare il modello con tutti i parametri, lo si addestra sui nostri dati nel senso che si fanno conoscere i dati che abbiamo ma deve imparare a gestirlo. Semplicemente si passano informazioni aggiuntive.
+\subsection{Come funziona il caricamento dei dati?}
+Langchain, framework Python per caricare i dati (modello e versione). Tramite questa serie di API c'è la possibilità di passare il contesto su cui noi vogliamo operare. Si passa il dataset.
+\subsection{Scenario dei casi d'uso}
+Abbiamo discusso dei vari scenari. Il primo scenario trovato è la registrazione, che comprende sia il caso di utente già registrato che in registrazione.\\
+Questo porta direttamente all'autenticazione con il caso d'uso di autenticazione non riuscita.\\
+Successivamente si è discusso dello scenario di invio dell'ordine, che può essere inviato tramite input testuale, immagine e audio.\\
+Per quanto riguarda lo scenario dell'ordine, dopo l'inserimento si può visualizzare l'anteprima dell'ordine, confermare o non confermare quello che si è generato, chiedere l'intervento di un operatore, selezionare l'opzione corretta fra le ambiguità. Ma l'utente non può scrivere una form ed inserire prodotti manualmente. Si può inserire una conversazione fra utente e chatbot, sia separata che stesso flusso. È stato chiarito che per "gestione delle ambiguità" si intende la scelta del prodotto corretto oppure questa chat. L'azienda ha confermato come obbligatoria la scelta da parte dell'utente del prodotto corretto ma opzionale l'implementazione del chatbot. Lo scenario termina con la conferma e l'invio dell'ordine.\\
+È stato discusso lo scenario di invio dati da parte dell'admin per il training, l'esportazione del log degli ordini per analisi esterne, il consulto dello  ordini, sia da parte dell'admin relativamente a tutti i clienti sia da parte del cliente per il suo storico. Questo caso d'uso si soddisfa con una pagina relativa.\\
+L'admin può inoltre verificare lo stato dei servizi AI, creare nuovi utenti, cambiare i permessi di questi ultimi.\\
+Lo scenario del logout è facilmente comprensivo del caso d'uso del logout dall'utente.\\
+Ci è stato detto dall'azienda che visualizzare o terminare le sessioni attive è un caso d'uso che si può tranquillamente trascurare perché non molto sensato.\\
+Il caso d'uso di duplicazione ordine è stato confermato, poiché utile per alcuni utenti che ordinano buona parte delle volte gli stessi prodotti.\\
+Il filtro degli ordini è stato mantenuto, che può essere per periodo (da giorno x a giorno y), dei mesi, oppure per prezzo (crescente o decrescente).
+L'admin può inoltre scaricare il log della pipeline di un ordine, addestrare manualmente il modello AI, pianificare retraining automatizzato, configurare integrazione ERP, pulire i dati nel training (rimozione di dati rumorosi nel dataset), testare connessione ERP, monitorare utilizzo modelli AI.\\
+Il gruppo ha anche proposto lo scenario di gestione notifiche, sia da parte dell'admin sia da parte del cliente.\\
+Gli ultimi scenari di cui abbiamo discusso sono l'eliminazione dell'account, visualizzare l'help e la documentazione e segnalazione di un bug.
+\subsection{Requisiti funzionali}
+\subsubsection{Requisiti funzionali obbligatori}
+Si è discusso successivamente di una parte dei requisiti funzionali.\\
+\begin{enumerate}
+	\item È stato confermato l'obbligatorietà di invio input tramite testo oppure audio eseguendo una fase di pre-processing.
+	\item L'ordine deve essere generato in formato JSON solo dopo la conferma dell'ordine.
+	\item Nel caso di mancata quantità il chatbot richiede il numero di colli voluti dal cliente, nel caso di ambiguità si richiede la scelta.
+	\item È stata discussa l'obbligatorietà della registrazione dei log completi e tracciamento delle fasi di elaborazione, confermando l'obbligo di questo.
+	Potrebbero essere interessanti le informazioni come timestamp, invio utente.
+	\item Il sistema deve essere in grado di scalare fra ordini specifici e meno specifici per permettere a tutti gli utenti di completare l'ordine.
+	\item Il formato audio deve avere una durata massima di 2 minuti, accettare solo audio con dimensione massima 10MB, supporto dei formati .mp3, .m4a, .wav. Oltretutto dentro la chat deve essere permessa la registrazione per non scomodare l'utente con i limiti mantenuti precedentemente. La trascrizione dell'audio deve essere in codifica utf-8.
+	\item È stato deciso di non occuparsi di eventuale indisponibilità dei prodotti.
+\end{enumerate}
+\subsubsection{Requisiti funzionali desiderabili}
+\begin{enumerate}
+	\item Fusione multimodale avanzata tramite embedding unificati, ovvero possibilità di invio ordine con più modalità. È stato detto che è effettivamente complessa come cosa.
+	\item Confidence score per ogni entità e ordine totale.
+	\item Arricchimento automatico delle informazioni mancanti.
+	\item Interfaccia con chatbot.
+	\item Supporto al caricamento di dataset aziendali per test o benchmarking.
+	\item Sincronizzazione periodica con ERP per catalogo prodotti e stati ordine.
+	\item Consultazione storico attività: ordini processati, errori, ambiguità risolte.
+\end{enumerate}
+\subsubsection{Requisiti funzionali opzionali}
+\begin{enumerate}
+	\item Supporto multilingua, integrazione con canali aggiuntivi (WhatsApp, Telegram).
+	\item Dashboard avanzata per l'admin.
+	\item Retraining automatico basato sul feedback degli utenti (stile ChatGPT).
+	\item Riconoscimento avanzato delle immagini come barcode, etichette, QR.
+	\item Notifiche automatiche in caso di errori.
+	\item OCR obbligatorio se la modalità immagine è attiva.
+	\item Modalità simulazione/sandbox senza inserimento in ERP.
+	\item Esportazione log/ordini in CSV/JSON per analisi esterne.
+	\item Cambio modelli AI (GPT4, GPT5, Gemini ecc).
+	\item Connettori plug-in per input da email/chat.
+	\item Supporto multi-tenant (dati e cataloghi separati per cliente). Comunque è centrale nel progetto il DB iniziale e non necessario separare i cataloghi.
+	\item Per quanto riguarda l'invio d'immagine l'azienda ha accettato l'invio di .png, .jpg, .jpeg, ma è stato chiesto di modificare il limite dei 5MB a 15MB e una risoluzione pari o superiore a 800x600 pixel.
+\end{enumerate}
+\subsection{Requisiti non funzionali}
+\subsubsection{Requisiti non funzionali obbligatori}
+\begin{enumerate}
+	\item Il sistema deve essere scalabile.
+	\item Deve garantire affidabilità.
+	\item Deve garantire manutenibilità con strumenti come i log e mantenendo la separazione delle componenti nel codice.
+	\item È stato chiesto se ha senso mantenere l'audit trail, è stato suggerito di trasferirlo come opzionale oppure di cancellarlo.
+	\item Tempi di risposta rapidi di minore di 2 sec e 1 sec. Ci è stato suggerito di alzare la soglia a 8 secondi per l'accettabile e 4 secondi per l'ottimo.
+	\item Garantire la sicurezza dei dati trattati, chiaramente le password non devono essere trasmesse in chiaro. Se tutti i collegamenti fra API vengono gestite con HTTPS la sicurezza è garantita.
+	\item Garantire la disponibilità 24/24 7/7 del servizio. Il sistema deve quindi gestire correttamente errori e fallimenti della pipeline tramite meccanismi di recovery.
+	\item Hashing per password.
+\end{enumerate}
+\subsubsection{Requisiti non funzionali desiderabili}
+\begin{enumerate}
+	\item Latenza ridotta anche sotto carichi elevati.
+	\item Strumenti di monitoring dei componenti.
+	\item Supporto a meccanismi di caching per ridurre tempi di risposta.
+	\item Logging distribuito e centralizzato.
+	\item Supporto a sistemi di alerting automatici.
+	\item Deve supportare backup e ripristino dei dati e delle configurazioni critiche, già fatto da GitHub.
+\end{enumerate}
+\subsubsection{Requisiti non funzionali opzionali}
+\begin{enumerate}
+	\item Ottimizzazione avanzata per la riduzione dei costi computazionali.
+	\item Sistema di throttling intelligente per evitare sovraccarichi in input massivi. In questo caso si impedisce al chatbot di rispondere in immediato ma si aspetta.
+\end{enumerate}
+\subsection{Requisiti di vincolo}
+\subsubsection{Requisiti di vincolo obbligatori}
+\begin{enumerate}
+	\item Utilizzo di un database relazionale.
+	\item La documentazione deve essere conforme.
+	\item Il sistema deve adottare un'architettura modulare.
+	\item Il sistema deve esporre interfacce di integrazione documentate tramite API REST.
+	\item Il progetto deve utilizzare un sistema di versionamento del codice.
+	\item I formati di scambio dati devono essere strutturati in un formato compatibile con il database gestionale.
+	\item Utilizzo di un database vettoriale.
+	\item È necessario costruire un'interfaccia web.
+	\item UI completamente responsive e mobile first.
+	\item Containerizzazione.
+\end{enumerate}
+\subsubsection{Requisiti di vincolo desiderabili}
+\begin{enumerate}
+	\item Adozione di API REST anche per comunicazione interne tra moduli.
+	\item Separazione netta tra frontend, backend e motore AI per maggiore manutenibilità.
+	\item Utilizzo di un formato standard per il logging (JSON logging).
+\end{enumerate}
+\subsubsection{Requisiti di vincolo opzionali}
+\begin{enumerate}
+	\item Utilizzo di un middleware per separare ulteriormente la comunicazione tra i componenti oppure attraverso connettori standard come una fonte dati ODBC.
+\end{enumerate}
