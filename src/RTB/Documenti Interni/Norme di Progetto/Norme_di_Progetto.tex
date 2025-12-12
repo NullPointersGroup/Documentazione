@@ -20,13 +20,17 @@
 \usepackage{enumitem} 
 \usepackage{amssymb} %per personalizzare gli elenchi
 \usepackage[T1]{fontenc} %per {} come ""
-
+\usepackage{float} % Per l'opzione [H] nelle tabelle
+\usepackage{longtable}
+\usepackage[all]{hypcap}%per puntare ai titoli delle sezioni (titolo inizio finestra)
+\usepackage{amsmath}%per le formule nelle metriche
 
 \newcommand{\ulhref}[2]{\href{#1}{\underline{#2}}} % Sottolineatura
 \newcommand{\ulref}[1]{\uline{\ref{#1}}} % Sottolinea riferimenti a figure
 \setlength{\parindent}{0pt} % Nessun rientro dei paragrafi
 \newcommand{\vr}[1]{\textquotedblleft#1\textquotedblright}% per " "
-\newcommand{\vrs}[1]{\textquoteleft#1\textquoteright}% per ' '
+\newcommand{\vrs}[1]{\textquoteleft#1\textquoteright}% per ' 
+\definecolor{green}{HTML}{008080}
 
 \graphicspath{ {immagini/} {../../../shared/images/} }
 
@@ -127,11 +131,6 @@
 \renewcommand{\listtablename}{Elenco delle Tabelle}
 \listoftables
 
-\newpage
-% Indice delle immagini
-\renewcommand{\listfigurename}{Elenco delle Immagini}
-\listoffigures
-
 %parte variabile
 \newpage
 \input{content/introduzione}
@@ -144,6 +143,12 @@
 
 \newpage
 \input{content/processi_organizzativi}
+
+\newpage
+\input{content/standard_progetto}
+
+\newpage
+\input{content/metriche_qualita}
 
 %da continuare...
 
