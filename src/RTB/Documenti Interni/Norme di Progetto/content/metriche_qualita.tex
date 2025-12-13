@@ -12,7 +12,7 @@ Per garantire chiarezza e coerenza interna, ogni metrica è classificata secondo
 %              6.2 METRICHE DI PROCESSO
 % ============================================================
 \subsection{Metriche di qualità di Processo}
-Le metriche qui definite consentono di monitorare l’andamento dei processi primari e di supporto, permettendo di verificare l’aderenza alla pianificazione, l’efficacia delle attività svolte e la qualità complessiva del ciclo di sviluppo.
+Le metriche qui definite consentono di monitorare l’andamento dei processi primari e di supporto, permettendo di verificare l’aderenza alla pianificazione, l’efficacia$^G$ delle attività svolte e la qualità complessiva del ciclo di sviluppo.
 % --------------------- 6.2.1 Processi Primari ---------------------
 \subsubsection{Processi Primari}
 \begin{itemize}
@@ -24,7 +24,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
             \text{Earned Value} =
             \text{Planned Value} \times \text{Completeness Issue}
         \]
-        \item \textbf{Descrizione}: misura il valore del lavoro effettivamente completato rispetto alla pianificazione. Riflette l’avanzamento reale del progetto in termini economici ed è utile per identificare scostamenti precoci rispetto al piano.
+        \item \textbf{Descrizione}: misura il valore del lavoro effettivamente completato rispetto alla pianificazione. Riflette l’avanzamento reale del progetto$^G$ in termini economici ed è utile per identificare scostamenti precoci rispetto al piano.
     \end{itemize}
 
 % MQC_02
@@ -44,7 +44,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
         \[
             \text{Actual Cost} = \text{Consuntivo}
         \]
-        \item \textbf{Descrizione}: rappresenta il costo reale sostenuto fino a una certa data. Confrontato con l’Earned Value consente di valutare l’efficienza economica del progetto.
+        \item \textbf{Descrizione}: rappresenta il costo reale sostenuto fino a una certa data. Confrontato con l’Earned Value$^G$ consente di valutare l’efficienza$^G$ economica del progetto.
     \end{itemize}
 
 % MQC_04
@@ -56,9 +56,9 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
             \frac{\text{Earned Value}}{\text{Actual Cost}}
         \]
         \item \textbf{Descrizione}: 
-        Misura l'efficienza economica del progetto confrontando il valore realizzato con il costo effettivamente sostenuto.\\
+        Misura l'efficienza$^G$ economica del progetto$^G$ confrontando il valore realizzato con il costo effettivamente sostenuto.\\
         Un valore maggiore di 1 indica che il lavoro è stato svolto a un costo inferiore al previsto (sotto budget), un valore uguale a 1 indica che i costi sono in linea con le previsioni, mentre un valore inferiore a 1 segnala che il costo supera il previsto (sopra budget). \\
-        Valori persistentemente inferiori a 1 richiedono interventi correttivi per riallineare il progetto al budget.
+        Valori persistentemente inferiori a 1 richiedono interventi correttivi per riallineare il progetto$^G$ al budget.
     \end{itemize}
 
 % MQC_05
@@ -69,7 +69,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
             \text{Schedule Performance Index} =
             \frac{\text{Earned Value}}{\text{Planned Value}}
         \]
-        \item \textbf{Descrizione}: valuta l’efficacia dell’avanzamento temporale. Un valore pari o superiore a 1 indica che il progetto è in linea con la pianificazione o in anticipo rispetto ad essa.
+        \item \textbf{Descrizione}: valuta l’efficacia$^G$ dell’avanzamento temporale. Un valore pari o superiore a 1 indica che il progetto$^G$ è in linea con la pianificazione$^G$ o in anticipo rispetto ad essa.
     \end{itemize}
 
 % MQC_06
@@ -101,7 +101,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
             \text{Time Estimate at Completion} =
             \frac{\text{Tempo previsto}}{\text{Schedule Performance Index}}
         \]
-        \item \textbf{Descrizione}: indica la data stimata di completamento del progetto sulla base dell’andamento attuale. È utile per valutare possibili ritardi e adottare misure correttive.
+        \item \textbf{Descrizione}: indica la data stimata di completamento del progetto$^G$ sulla base dell’andamento attuale. È utile per valutare possibili ritardi e adottare misure correttive.
     \end{itemize}
 
 % MQC_09
@@ -110,9 +110,9 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
         \item \textbf{Formula}:
         \[
             \text{Completeness Issue} =
-            \frac{\text{Issue chiuse}}{\text{Issue totali}}
+            \frac{\text{Issue$^G$ chiuse}}{\text{Issue$^G$ totali}}
         \]
-        \item \textbf{Descrizione}: misura il grado di completamento delle attività pianificate, considerando il rapporto tra le issue chiuse e quelle registrate. Un valore elevato indica un buon avanzamento delle attività di sviluppo.
+        \item \textbf{Descrizione}: misura il grado di completamento delle attività pianificate, considerando il rapporto tra le issue$^G$ chiuse e quelle registrate. Un valore elevato indica un buon avanzamento delle attività di sviluppo.
     \end{itemize}
 \end{itemize}
 
@@ -131,25 +131,25 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
     \end{itemize}
 
 % MQC_11
-\item \textbf{MQC\_11 - Test Success Rate}:
+\item \textbf{MQC\_11 - Test$^G$ Success Rate}:
     \begin{itemize}
         \item \textbf{Formula}:
         \[
-            \text{Test Success Rate} =
-            \frac{\text{Test superati}}{\text{Test totali}} \times 100
+            \text{Test$^G$ Success Rate} =
+            \frac{\text{Test$^G$ superati}}{\text{Test$^G$ totali}} \times 100
         \]
-        \item \textbf{Descrizione}: indica la percentuale di test automatizzati o manuali che si concludono con esito positivo. Riflette la stabilità delle funzionalità verificate.
+        \item \textbf{Descrizione}: indica la percentuale di test$^G$ automatizzati o manuali che si concludono con esito positivo. Riflette la stabilità delle funzionalità$^G$ verificate.
     \end{itemize}
 
 % MQC_12
-\item \textbf{MQC\_12 - Test Density and Automation}:
+\item \textbf{MQC\_12 - Test$^G$ Density and Automation}:
     \begin{itemize}
         \item \textbf{Formula}:
         \[
-            \text{Test Density and Automation} =
-            \frac{\text{Test automatizzati}}{\text{Test totali}} \times 100
+            \text{Test$^G$ Density and Automation} =
+            \frac{\text{Test$^G$ automatizzati}}{\text{Test$^G$ totali}} \times 100
         \]
-        \item \textbf{Descrizione}: misura il grado di automazione del processo di verifica. Un’elevata densità di test automatizzati migliora l’affidabilità della pipeline di testing e riduce i tempi di validazione.
+        \item \textbf{Descrizione}: misura il grado di automazione$^G$ del processo$^G$ di verifica. Un’elevata densità di test$^G$ automatizzati migliora l’affidabilità della pipeline di testing e riduce i tempi di validazione.
     \end{itemize}
 \end{itemize}
 
@@ -164,7 +164,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
             \text{Quality Metrics Satisfied} =
             \frac{\text{Metriche Rispettate}}{\text{Metriche Totali}} \times 100
         \]
-        \item \textbf{Descrizione}: valuta la percentuale di metriche qualitative che hanno raggiunto il valore accettabile o ottimale. È un indicatore complessivo dell’efficacia del processo di gestione della qualità.
+        \item \textbf{Descrizione}: valuta la percentuale di metriche qualitative che hanno raggiunto il valore accettabile o ottimale. È un indicatore complessivo dell’efficacia$^G$ del processo$^G$ di gestione della qualità.
     \end{itemize}
 \end{itemize}
 
@@ -173,7 +173,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
 % ============================================================
 \subsection{Metriche di qualità di Prodotto}
 
-% --------------------- 6.1.1 Funzionalità ---------------------
+% --------------------- 6.1.1 Funzionalità$^G$ ---------------------
 \subsubsection{Funzionalità}
 \begin{itemize}
 % MQD_01
@@ -201,7 +201,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
                      {\text{Requisiti desiderabili totali}}
             \right) \times 100
         \]
-        \item \textbf{Descrizione}: indica il grado di completamento dei requisiti desiderabili, utili a migliorare l’esperienza d’uso o arricchire il sistema con funzionalità non essenziali.
+        \item \textbf{Descrizione}: indica il grado di completamento dei requisiti desiderabili, utili a migliorare l’esperienza d’uso o arricchire il sistema con funzionalità$^G$ non essenziali.
     \end{itemize}
 
 % MQD_03
@@ -215,7 +215,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
                      {\text{Requisiti opzionali totali}}
             \right) \times 100
         \]
-        \item \textbf{Descrizione}: valuta l’implementazione di funzionalità opzionali che aggiungono valore al sistema ma non influiscono sulla sua correttezza di base.
+        \item \textbf{Descrizione}: valuta l’implementazione di funzionalità$^G$ opzionali che aggiungono valore al sistema ma non influiscono sulla sua correttezza di base.
     \end{itemize}
 \end{itemize}
 
@@ -231,15 +231,15 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
             \frac{\text{LOC testate}}{\text{LOC totali}} \times 100
         \]
 		Dove LOC = Lines of code
-        \item \textbf{Descrizione}: misura la percentuale di linee di codice che risultano coperte da test automatici. Una copertura elevata contribuisce a ridurre la probabilità di malfunzionamenti e garantisce maggiore stabilità nelle fasi di manutenzione.
+        \item \textbf{Descrizione}: misura la percentuale di linee di codice che risultano coperte da test$^G$ automatici. Una copertura elevata contribuisce a ridurre la probabilità di malfunzionamenti e garantisce maggiore stabilità nelle fasi di manutenzione.
     \end{itemize}
 
 % MQD_05
-\item \textbf{MQD\_05 - Branch Coverage}:
+\item \textbf{MQD\_05 - Branch$^G$ Coverage}:
     \begin{itemize}
         \item \textbf{Formula}:
         \[
-            \text{Branch Coverage} =
+            \text{Branch$^G$ Coverage} =
             \frac{\text{Rami coperti}}{\text{Rami totali}} \times 100
         \]
         \item \textbf{Descrizione}: misura la percentuale di rami decisionali testati. È una metrica fondamentale per verificare la robustezza del sistema in condizioni operative variabili.
@@ -253,7 +253,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
             \text{Statement Coverage} =
             \frac{\text{Istruzioni eseguite}}{\text{Istruzioni totali}} \times 100
         \]
-        \item \textbf{Descrizione}: misura la percentuale di istruzioni eseguibili del codice che vengono effettivamente eseguite durante l’esecuzione della suite di test. Essa consente di valutare quanto i test riescano a coprire il flusso operativo del software, identificando eventuali sezioni di codice non esercitate e quindi potenzialmente soggette a difetti non rilevati.
+        \item \textbf{Descrizione}: misura la percentuale di istruzioni eseguibili del codice che vengono effettivamente eseguite durante l’esecuzione della suite di test. Essa consente di valutare quanto i test$^G$ riescano a coprire il flusso operativo del software, identificando eventuali sezioni di codice non esercitate e quindi potenzialmente soggette a difetti non rilevati.
     \end{itemize}
 \end{itemize}
 
@@ -268,13 +268,13 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
         \text{Time on Task} = \frac{\sum_{i=1}^{n} T_i}{n}
     \]
     dove:\\
-    $T_i$ = tempo impiegato dall'utente $i$ per completare il task specifico\\
+    $T_i$ = tempo impiegato dall'utente $i$ per completare il task$^G$ specifico\\
     $n$ = numero di utenti che hanno completato il task
         \item \textbf{Descrizione}: misura quanto tempo, in media, un utente impiega a completare un'attività specifica nel sistema. Serve a capire se l'interfaccia è facile da usare e se ci sono passaggi che rallentano l'utente.
     \end{itemize}
 \end{itemize}
 
-% --------------------- 6.1.4 Efficienza ---------------------
+% --------------------- 6.1.4 Efficienza$^G$ ---------------------
 \subsubsection{Efficienza}
 \begin{itemize}
 % MQD_08
