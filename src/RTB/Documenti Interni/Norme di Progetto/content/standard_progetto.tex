@@ -1,0 +1,67 @@
+\section{Standard di Progetto}
+
+\subsection{Standard ISO/IEC 12207 - 1995}
+\subsubsection{Scopo dello standard}
+Lo standard ISO/IEC 12207 definisce un insieme strutturato di processi, attività e compiti che coprono l’intero ciclo di vita del software.\\
+Fornisce un modello di riferimento per organizzare in modo sistematico le attività di sviluppo, verifica, gestione e manutenzione, garantendo coerenza e tracciabilità in tutte le fasi del progetto.
+
+L’adozione di tale standard consente al gruppo di:
+\begin{itemize}
+    \setlength\itemsep{-0.1em}
+    \item definire responsabilità e flussi operativi chiari;
+    \item assicurare un controllo costante sulla qualità dei processi;
+    \item mantenere allineamento tra pianificazione, sviluppo e verifica;
+    \item favorire la riproducibilità e la trasparenza del lavoro svolto.
+\end{itemize}
+
+\subsubsection{Applicazione nel progetto SmartOrder}
+Per il progetto SmartOrder, lo standard ISO/IEC 12207 definisce un modello di riferimento per l’organizzazione del ciclo di vita del software.\\
+La sua adozione consente di strutturare le attività del progetto in modo controllato e tracciabile, garantendo che ogni fase sia condotta secondo criteri uniformi di qualità.\\
+Lo standard suddivide il ciclo di vita in tre categorie di processi:
+\begin{itemize}
+    \setlength\itemsep{-0.1em}
+    \item \textbf{Processi primari}: rappresentano le attività direttamente legate alla realizzazione del prodotto. Comprendono l’analisi e la definizione dei requisiti, la progettazione dell’architettura, lo sviluppo del software, le attività di verifica e validazione necessarie per garantire che il sistema soddisfi quanto concordato con la proponente. Attraverso questi processi, il progetto avanza in modo controllato verso la costruzione del prodotto finale.
+    \item \textbf{Processi di supporto}: sono attività trasversali che affiancano e sostengono i processi primari. Includono la gestione della configurazione, il controllo della qualità, la produzione della documentazione e le attività di verifica. Il loro ruolo è assicurare ordine, coerenza e affidabilità durante tutte le fasi del progetto.
+    \item \textbf{Processi organizzativi}: regolano la gestione complessiva del progetto, la pianificazione, il coordinamento interno e le attività di miglioramento. Attraverso questi processi vengono definiti i ruoli, le responsabilità, gli obiettivi e le modalità operative del gruppo, garantendo un ambiente di lavoro strutturato e orientato al raggiungimento dei risultati.
+\end{itemize}
+L’utilizzo di ISO/IEC 12207 permette di mantenere un controllo metodico sul ciclo di vita, particolarmente importante in un progetto che integra componenti di intelligenza artificiale, modelli multimodali e pipeline di elaborazione complesse.
+
+\subsection{Standard ISO/IEC 9126}
+\subsubsection{Scopo dello standard}
+Lo standard ISO/IEC 9126 definisce un modello strutturato per valutare la qualità di un prodotto software. Il suo scopo è trasformare il concetto generico di "qualità" in un insieme di caratteristiche misurabili, permettendo valutazioni oggettive e confrontabili.
+
+Il modello identifica sei dimensioni fondamentali della qualità, che sono:
+\begin{itemize}
+    \setlength\itemsep{-0.1em}
+    \item \textbf{Funzionalità:} capacità del sistema di soddisfare requisiti e bisogni specificati.
+    \item \textbf{Affidabilità:} misura la capacità del sistema di funzionare senza interruzioni e di resistere a condizioni anomale o a guasti.
+    \item \textbf{Usabilità:} considera la facilità con cui un utente può imparare a usare il software e interagire con esso in modo efficace.
+    \item \textbf{Efficienza:} si riferisce alle prestazioni del sistema e al suo utilizzo ottimale delle risorse hardware (come tempo di risposta e consumo di memoria).
+    \item \textbf{Manutenibilità:} valuta la facilità con cui il software può essere modificato per correggere errori, migliorarlo o adattarlo a nuove esigenze.
+    \item \textbf{Portabilità:} analizza la capacità del sistema di essere installato e di funzionare in ambienti diversi (ad esempio, su sistemi operativi diversi).
+\end{itemize}
+L'adozione di questo approccio garantisce che la qualità non sia un controllo solo finale, ma una caratteristica intrinseca, costruita e verificata progressivamente in ogni passaggio dello sviluppo.
+
+\subsubsection{Applicazione nel progetto SmartOrder}
+Nel progetto SmartOrder, questo standard costituisce il quadro di riferimento principale per definire gli obiettivi di qualità del prodotto e le relative metriche (dettagliate nella Sezione \ref{sec:metriche-qualita}). Viene applicato per guidare lo sviluppo verso traguardi concreti:
+\begin{itemize}
+    \setlength\itemsep{-0.1em}
+    \item validare la correttezza dell’elaborazione multimodale (testi, immagini, audio);
+    \item garantire robustezza e stabilità all’interno dei moduli di AI e NLP;
+    \item assicurare tempi di risposta adeguati per un’interazione fluida con l’utente;
+    \item preservare la separazione e la modularità tra i componenti, semplificando manutenzione e futuri aggiornamenti;
+    \item offrire un’interfaccia chiara e intuitiva nonostante la complessità architetturale del sistema.
+\end{itemize}
+L'adozione dello standard permette quindi di stabilire criteri di qualità precisi e misurabili, supportando sia la verifica finale che il monitoraggio continuo durante tutto lo sviluppo.
+
+\subsection{Motivazione dell’adozione degli standard}
+La scelta di adottare gli standard ISO/IEC 12207 (per il processo) e ISO/IEC 9126 (per il prodotto) porta dei vantaggi strategici al progetto SmartOrder:
+\begin{itemize}
+    \setlength\itemsep{-0.1em}
+    \item consente di organizzare tutte le attività, dall’analisi iniziale fino al rilascio finale;
+    \item permette di esercitare un controllo accurato e continuo sulla qualità sia del processo di sviluppo sia del prodotto realizzato;
+    \item introduce metriche oggettive, misurabili e verificabili a supporto della valutazione delle prestazioni;
+    \item supporta una gestione metodica di componenti tecnologicamente avanzati, tra cui modelli di intelligenza artificiale e pipeline multimodali;
+    \item garantisce affidabilità, manutenibilità e coerenza nel progetto.
+\end{itemize}
+L’adozione di tali standard costituisce quindi un fondamento essenziale per mantenere coerenza, trasparenza e qualità nello sviluppo di SmartOrder.

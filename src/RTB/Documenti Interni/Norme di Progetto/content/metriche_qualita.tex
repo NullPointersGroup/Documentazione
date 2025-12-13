@@ -1,0 +1,332 @@
+\section{Metriche di Qualità}
+\label{sec:metriche-qualita}
+Le metriche rappresentano uno strumento essenziale per garantire un monitoraggio continuo e oggettivo della qualità del prodotto software e dei processi impiegati per realizzarlo.\\
+Permettono di individuare tempestivamente anomalie, inefficienze o deviazioni dagli standard prefissati, favorendo una gestione consapevole dell’evoluzione del progetto.\\
+Per garantire chiarezza e coerenza interna, ogni metrica è classificata secondo la seguente notazione:
+\begin{itemize}
+    \item MQC\_xx - Metriche di qualità del processo
+    \item MQD\_xx - Metriche di qualità del prodotto
+\end{itemize}
+
+% ============================================================
+%              6.2 METRICHE DI PROCESSO
+% ============================================================
+\subsection{Metriche di qualità di Processo}
+Le metriche qui definite consentono di monitorare l’andamento dei processi primari e di supporto, permettendo di verificare l’aderenza alla pianificazione, l’efficacia delle attività svolte e la qualità complessiva del ciclo di sviluppo.
+% --------------------- 6.2.1 Processi Primari ---------------------
+\subsubsection{Processi Primari}
+\begin{itemize}
+% MQC_01
+\item \textbf{MQC\_01 - Earned Value}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Earned Value} =
+            \text{Planned Value} \times \text{Completeness Issue}
+        \]
+        \item \textbf{Descrizione}: misura il valore del lavoro effettivamente completato rispetto alla pianificazione. Riflette l’avanzamento reale del progetto in termini economici ed è utile per identificare scostamenti precoci rispetto al piano.
+    \end{itemize}
+
+% MQC_02
+\item \textbf{MQC\_02 - Planned Value}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Planned Value} = \text{Costo preventivato}
+        \]
+        \item \textbf{Descrizione}: indica il valore del lavoro che avrebbe dovuto essere completato in un dato momento secondo la pianificazione. È utilizzato come riferimento per confrontare l’avanzamento reale con quello previsto.
+    \end{itemize}
+
+% MQC_03
+\item \textbf{MQC\_03 - Actual Cost}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Actual Cost} = \text{Consuntivo}
+        \]
+        \item \textbf{Descrizione}: rappresenta il costo reale sostenuto fino a una certa data. Confrontato con l’Earned Value consente di valutare l’efficienza economica del progetto.
+    \end{itemize}
+
+% MQC_04
+\item \textbf{MQC\_04 - Cost Performance Index}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Cost Performance Index} =
+            \frac{\text{Earned Value}}{\text{Actual Cost}}
+        \]
+        \item \textbf{Descrizione}: 
+        Misura l'efficienza economica del progetto confrontando il valore realizzato con il costo effettivamente sostenuto.\\
+        Un valore maggiore di 1 indica che il lavoro è stato svolto a un costo inferiore al previsto (sotto budget), un valore uguale a 1 indica che i costi sono in linea con le previsioni, mentre un valore inferiore a 1 segnala che il costo supera il previsto (sopra budget). \\
+        Valori persistentemente inferiori a 1 richiedono interventi correttivi per riallineare il progetto al budget.
+    \end{itemize}
+
+% MQC_05
+\item \textbf{MQC\_05 - Schedule Performance Index}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Schedule Performance Index} =
+            \frac{\text{Earned Value}}{\text{Planned Value}}
+        \]
+        \item \textbf{Descrizione}: valuta l’efficacia dell’avanzamento temporale. Un valore pari o superiore a 1 indica che il progetto è in linea con la pianificazione o in anticipo rispetto ad essa.
+    \end{itemize}
+
+% MQC_06
+\item \textbf{MQC\_06 - Estimate at Completion}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Estimate at Completion} = 
+            \frac{\text{Budget at Completion}}{\text{Cost Performance Index}}
+        \]
+        \item \textbf{Descrizione}: stima il costo totale previsto a completamento. Viene utilizzato per prevedere scostamenti rispetto al budget pianificato e per aggiornare le proiezioni economiche.
+    \end{itemize}
+
+% MQC_07
+\item \textbf{MQC\_07 - Estimate to Complete}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Estimate to Complete} = \text{Estimate at Completion} - \text{Actual Cost}
+        \]
+        \item \textbf{Descrizione}: stima il costo necessario per completare le attività rimanenti. Consente di valutare l’impatto delle performance correnti sul budget finale.
+    \end{itemize}
+
+% MQC_08
+\item \textbf{MQC\_08 - Time Estimate at Completion}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Time Estimate at Completion} =
+            \frac{\text{Tempo previsto}}{\text{Schedule Performance Index}}
+        \]
+        \item \textbf{Descrizione}: indica la data stimata di completamento del progetto sulla base dell’andamento attuale. È utile per valutare possibili ritardi e adottare misure correttive.
+    \end{itemize}
+
+% MQC_09
+\item \textbf{MQC\_09 - Completeness Issue}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Completeness Issue} =
+            \frac{\text{Issue chiuse}}{\text{Issue totali}}
+        \]
+        \item \textbf{Descrizione}: misura il grado di completamento delle attività pianificate, considerando il rapporto tra le issue chiuse e quelle registrate. Un valore elevato indica un buon avanzamento delle attività di sviluppo.
+    \end{itemize}
+\end{itemize}
+
+% --------------------- 6.2.2 Processi di Supporto ---------------------
+\subsubsection{Processi di Supporto}
+\begin{itemize}
+% MQC_10
+\item \textbf{MQC\_10 - Indice di Gulpease}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Indice di Gulpease} =
+            89 + \frac{300 \times \text{frasi} - 10 \times \text{lettere}}{\text{parole}}
+        \]
+        \item \textbf{Descrizione}: valuta la leggibilità dei documenti prodotti. Un indice elevato indica testi più chiari e facilmente comprensibili, migliorando la qualità complessiva della documentazione.
+    \end{itemize}
+
+% MQC_11
+\item \textbf{MQC\_11 - Test Success Rate}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Test Success Rate} =
+            \frac{\text{Test superati}}{\text{Test totali}} \times 100
+        \]
+        \item \textbf{Descrizione}: indica la percentuale di test automatizzati o manuali che si concludono con esito positivo. Riflette la stabilità delle funzionalità verificate.
+    \end{itemize}
+
+% MQC_12
+\item \textbf{MQC\_12 - Test Density and Automation}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Test Density and Automation} =
+            \frac{\text{Test automatizzati}}{\text{Test totali}} \times 100
+        \]
+        \item \textbf{Descrizione}: misura il grado di automazione del processo di verifica. Un’elevata densità di test automatizzati migliora l’affidabilità della pipeline di testing e riduce i tempi di validazione.
+    \end{itemize}
+\end{itemize}
+
+% --------------------- 6.2.3 Processi Organizzativi ---------------------
+\subsubsection{Processi Organizzativi}
+\begin{itemize}
+% MQC_13
+\item \textbf{MQC\_13 - Quality Metrics Satisfied}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Quality Metrics Satisfied} =
+            \frac{\text{Metriche Rispettate}}{\text{Metriche Totali}} \times 100
+        \]
+        \item \textbf{Descrizione}: valuta la percentuale di metriche qualitative che hanno raggiunto il valore accettabile o ottimale. È un indicatore complessivo dell’efficacia del processo di gestione della qualità.
+    \end{itemize}
+\end{itemize}
+
+% ============================================================
+%                 6.1 METRICHE DI PRODOTTO
+% ============================================================
+\subsection{Metriche di qualità di Prodotto}
+
+% --------------------- 6.1.1 Funzionalità ---------------------
+\subsubsection{Funzionalità}
+\begin{itemize}
+% MQD_01
+\item \textbf{MQD\_01 - Requisiti obbligatori soddisfatti}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Requisiti obbligatori soddisfatti} = 
+            \left(
+                \frac{\text{Requisiti obbligatori soddisfatti}}
+                     {\text{Requisiti obbligatori totali}}
+            \right) \times 100
+        \]
+        \item \textbf{Descrizione}: misura la percentuale dei requisiti classificati come obbligatori che risultano implementati e verificati con successo. Una percentuale pari al 100\% è condizione necessaria per garantire la correttezza funzionale minima del prodotto.
+    \end{itemize}
+
+% MQD_02
+\item \textbf{MQD\_02 - Requisiti desiderabili soddisfatti}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+			\text{Requisiti desiderabili soddisfatti} =
+            \left(
+                \frac{\text{Requisiti desiderabili soddisfatti}}
+                     {\text{Requisiti desiderabili totali}}
+            \right) \times 100
+        \]
+        \item \textbf{Descrizione}: indica il grado di completamento dei requisiti desiderabili, utili a migliorare l’esperienza d’uso o arricchire il sistema con funzionalità non essenziali.
+    \end{itemize}
+
+% MQD_03
+\item \textbf{MQD\_03 - Requisiti opzionali soddisfatti}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+			\text{Requisiti opzionali soddisfatti} =
+            \left(
+                \frac{\text{Requisiti opzionali soddisfatti}}
+                     {\text{Requisiti opzionali totali}}
+            \right) \times 100
+        \]
+        \item \textbf{Descrizione}: valuta l’implementazione di funzionalità opzionali che aggiungono valore al sistema ma non influiscono sulla sua correttezza di base.
+    \end{itemize}
+\end{itemize}
+
+% --------------------- 6.1.2 Affidabilità ---------------------
+\subsubsection{Affidabilità}
+\begin{itemize}
+% MQD_04
+\item \textbf{MQD\_04 - Code Coverage}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Code Coverage} =
+            \frac{\text{LOC testate}}{\text{LOC totali}} \times 100
+        \]
+		Dove LOC = Lines of code
+        \item \textbf{Descrizione}: misura la percentuale di linee di codice che risultano coperte da test automatici. Una copertura elevata contribuisce a ridurre la probabilità di malfunzionamenti e garantisce maggiore stabilità nelle fasi di manutenzione.
+    \end{itemize}
+
+% MQD_05
+\item \textbf{MQD\_05 - Branch Coverage}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Branch Coverage} =
+            \frac{\text{Rami coperti}}{\text{Rami totali}} \times 100
+        \]
+        \item \textbf{Descrizione}: misura la percentuale di rami decisionali testati. È una metrica fondamentale per verificare la robustezza del sistema in condizioni operative variabili.
+    \end{itemize}
+
+% MQD_06
+\item \textbf{MQD\_06 - Statement Coverage}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Statement Coverage} =
+            \frac{\text{Istruzioni eseguite}}{\text{Istruzioni totali}} \times 100
+        \]
+        \item \textbf{Descrizione}: misura la percentuale di istruzioni eseguibili del codice che vengono effettivamente eseguite durante l’esecuzione della suite di test. Essa consente di valutare quanto i test riescano a coprire il flusso operativo del software, identificando eventuali sezioni di codice non esercitate e quindi potenzialmente soggette a difetti non rilevati.
+    \end{itemize}
+\end{itemize}
+
+% --------------------- 6.1.3 Usabilità ---------------------
+\subsubsection{Usabilità}
+\begin{itemize}
+% MQD_07
+\item \textbf{MQD\_07 - Time on Task}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+    \[
+        \text{Time on Task} = \frac{\sum_{i=1}^{n} T_i}{n}
+    \]
+    dove:\\
+    $T_i$ = tempo impiegato dall'utente $i$ per completare il task specifico\\
+    $n$ = numero di utenti che hanno completato il task
+        \item \textbf{Descrizione}: misura quanto tempo, in media, un utente impiega a completare un'attività specifica nel sistema. Serve a capire se l'interfaccia è facile da usare e se ci sono passaggi che rallentano l'utente.
+    \end{itemize}
+\end{itemize}
+
+% --------------------- 6.1.4 Efficienza ---------------------
+\subsubsection{Efficienza}
+\begin{itemize}
+% MQD_08
+\item \textbf{MQD\_08 - Response time}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Response time} = \text{Tempo risposta medio}
+        \]
+        \item \textbf{Descrizione}: misura il tempo di risposta del sistema alle interazioni dell’utente. Un valore ridotto è indicatore di un’applicazione performante e reattiva.
+    \end{itemize}
+\end{itemize}
+
+% --------------------- 6.1.5 Manutenibilità ---------------------
+\subsubsection{Manutenibilità}
+\begin{itemize}
+% MQD_09
+\item \textbf{MQD\_09 - Code Smells per KLOC}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Code Smells per KLOC} =
+            \frac{\text{Numero di code smells}}{\text{KLOC}}
+        \]
+        Dove KLOC = Kilo Lines of Code
+        \item \textbf{Descrizione}: valuta la qualità del codice attraverso l’analisi dei “code smell”, ovvero pattern che segnalano complessità o debolezza nella struttura del software. Un numero contenuto favorisce la manutenibilità e la pulizia architetturale.
+    \end{itemize}
+
+% MQD_10
+\item \textbf{MQD\_10 - Coefficient of Coupling}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Coefficient of Coupling} =
+            \frac{\text{Dipendenze esterne}}{\text{Moduli totali}}
+        \]
+        \item \textbf{Descrizione}: misura il livello di accoppiamento tra i moduli del sistema. Un basso accoppiamento è desiderabile perché rende il prodotto più stabile, testabile e semplice da estendere nel tempo.
+    \end{itemize}
+
+% MQD_11
+\item \textbf{MQD\_11 - Cyclomatic Complexity}:
+    \begin{itemize}
+        \item \textbf{Formula}:
+        \[
+            \text{Cyclomatic Complexity} = E - N + 2P
+        \]
+        Dove:
+        \begin{itemize}
+            \item $E$: numero di archi
+            \item $N$: numero di nodi
+            \item $P$: componenti connessi
+        \end{itemize}
+        \item \textbf{Descrizione}: misura la complessità del flusso di controllo del codice contando i percorsi logicamente indipendenti. Valori elevati indicano funzioni difficili da comprendere e testare.
+    \end{itemize}
+\end{itemize}
