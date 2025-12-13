@@ -1,6 +1,7 @@
 \section{Metriche di Qualità}
 \label{sec:metriche-qualita}
-Le metriche rappresentano uno strumento essenziale per garantire un monitoraggio continuo e oggettivo della qualità del prodotto software e dei processi impiegati per realizzarlo. Esse permettono di individuare tempestivamente anomalie, inefficienze o deviazioni dagli standard prefissati, favorendo una gestione consapevole dell’evoluzione del progetto.\\
+Le metriche rappresentano uno strumento essenziale per garantire un monitoraggio continuo e oggettivo della qualità del prodotto software e dei processi impiegati per realizzarlo.\\
+Permettono di individuare tempestivamente anomalie, inefficienze o deviazioni dagli standard prefissati, favorendo una gestione consapevole dell’evoluzione del progetto.\\
 Per garantire chiarezza e coerenza interna, ogni metrica è classificata secondo la seguente notazione:
 \begin{itemize}
     \item MQC\_xx - Metriche di qualità del processo
@@ -229,7 +230,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
             \text{Code Coverage} =
             \frac{\text{LOC testate}}{\text{LOC totali}} \times 100
         \]
-		Dove LOC: Lines of code
+		Dove LOC = Lines of code
         \item \textbf{Descrizione}: misura la percentuale di linee di codice che risultano coperte da test automatici. Una copertura elevata contribuisce a ridurre la probabilità di malfunzionamenti e garantisce maggiore stabilità nelle fasi di manutenzione.
     \end{itemize}
 
@@ -264,7 +265,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
     \begin{itemize}
         \item \textbf{Formula}:
     \[
-        \text{Time on Task}_{\text{task}} = \frac{\sum_{i=1}^{n} T_i}{n}
+        \text{Time on Task} = \frac{\sum_{i=1}^{n} T_i}{n}
     \]
     dove:\\
     $T_i$ = tempo impiegato dall'utente $i$ per completare il task specifico\\
@@ -298,7 +299,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
             \text{Code Smells per KLOC} =
             \frac{\text{Numero di code smells}}{\text{KLOC}}
         \]
-        Dove KLOC: Kilo Lines of Code
+        Dove KLOC = Kilo Lines of Code
         \item \textbf{Descrizione}: valuta la qualità del codice attraverso l’analisi dei “code smell”, ovvero pattern che segnalano complessità o debolezza nella struttura del software. Un numero contenuto favorisce la manutenibilità e la pulizia architetturale.
     \end{itemize}
 

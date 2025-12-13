@@ -12,10 +12,11 @@
     Attraverso il sistema di controllo di versione Git, è possibile mantenere uno storico completo di tutte le modifiche, garantendo tracciabilità, ordine e coordinamento tra i membri del gruppo.
 
 \subsubsection{Caricamento in Repository}
-    Ogni volta che si inserisce un nuovo documento o si effettua una modifica$^G$ nel Repository$^{G}$ si utilizza un branch$^G$ feature/* personalizzato.\\
-    Una volta creato un commit nel branch$^{G}$ una GitHub$^G$ Action$^{G}$ si occupa di creare automaticamente una pull request$^{G}$, la quale deve essere approvata dai Verificatori$^{G}$.
+    Ogni volta che si inserisce un nuovo documento o si effettua una modifica$^G$ nel Repository$^{G}$ si utilizza un branch$^G$ feature/* personalizzato, la cui nomenclatura è definita nella sezione \ref{sec: nomenclatura-branch}.\\
+    Una volta creato un commit nel branch$^{G}$ una GitHub$^G$ Action$^{G}$ si occupa di creare automaticamente una PR, la quale deve essere approvata dai Verificatori$^{G}$.
 
 \subsubsection{Struttura base dei documenti}
+\label{sec: struttura-base-doc}
 \begin{center}
 \textbf{Intestazione}
 \end{center}
@@ -25,7 +26,7 @@ La prima pagina funge da intestazione del documento e contiene i seguenti elemen
         \item Logo dell'Università degli Studi di Padova;
         \item Logo NullPointers Group;
         \item \textbf{Nome del documento};
-        \item \textbf{Stato}: se il documento è stato Approvato o se è ancora In Approvazione;
+        \item \textbf{Stato}: se il documento è stato \vrs{Approvato} o se è ancora \vrs{In Approvazione};
         \item \textbf{Versione}: ultima versione verificata o approvata del documento;
         \item \textbf{Data ultima modifica}: ultima data in cui è stato modificato il documento (se ritenuta necessaria);
         \item \textbf{Redattori}: coloro che hanno partecipato alla redazione del documento;
@@ -76,7 +77,8 @@ Il contenuto del documento è strutturato in modo gerarchico per organizzare al 
 
 \subsubsubsection{Verbali Interni}
 \label{sec:verbali-interni}
-Il contenuto principale dei verbali interni segue una struttura standardizzata composta dai seguenti elementi: \vspace{-0.5em}
+I Verbali Interni seguono la struttura base dei documenti esposta alla sezione \ref{sec: struttura-base-doc} ma diversamente dal resto della documentazione non contengono la sezione del Registro delle modifiche.\\
+Il contenuto principale dei Verbali Interni segue una struttura standardizzata composta dai seguenti elementi: \vspace{-0.5em}
 
     \begin{enumerate}[label=\arabic*., itemsep=0pt, parsep=1pt, leftmargin=*]
         \item \textbf{Informazioni generali}
@@ -86,7 +88,7 @@ Il contenuto principale dei verbali interni segue una struttura standardizzata c
             \item Data della riunione;
             \item Orario di inizio; 
             \item Orario di fine;
-            \item Scriba, ovvero il nome di chi si occupa di redigere il Verbale.
+            \item Scriba, ovvero chi si occupa di redigere il Verbale, che come stabilito nella sezione \ref{sec: verbali-interni} spetta alla figura del Responsabile.
         \end{itemize}
         \item \textbf{Ordine del giorno} 
     \end{enumerate}
@@ -106,13 +108,17 @@ Il contenuto principale dei verbali interni segue una struttura standardizzata c
     \end{enumerate}
 
     \vspace{-0.5em}
-    Ha lo scopo di registrare in modo formale e strutturato tutte le deliberazioni e i compiti emersi durante l'incontro. La tabella funge da riferimento ufficiale e chiaro per tutto il gruppo, riassumendo cosa è stato stabilito e quali attività devono essere svolte.\\
-    Queste informazioni non rimangono confinate al documento, ma vengono integrate e tracciate all'interno del nostro sistema di ticketing. Ciò garantisce che ogni elemento sia documentato per riferimento futuro e attivo per la sua esecuzione, collegando direttamente la decisione$^G$ al task.
+    Ha lo scopo di registrare in modo formale e strutturato tutte le deliberazioni e i compiti emersi durante l'incontro.\\
+    La tabella funge da riferimento ufficiale e chiaro per tutto il gruppo, riassumendo cosa è stato stabilito e quali attività devono essere svolte.\\
+    Alcune di queste informazioni non rimangono confinate al documento, ma vengono integrate e tracciate all'interno del nostro sistema di ticketing.\\
+    Ciò garantisce che ogni elemento sia documentato per riferimento futuro e attivo per la sua esecuzione, collegando direttamente la decisione$^G$ al task.
 
 \vspace{0.7em}
 \subsubsubsection{Verbali Esterni}
 \label{sec:verbali-esterni}
-I verbali esterni sono documenti che registrano ufficialmente gli incontri avvenuti con soggetti esterni al gruppo di lavoro, in particolare con l'ente proponente del progetto. Tali documenti hanno lo scopo di tracciare le discussioni, le decisioni concordate e gli impegni assunti da entrambe le parti durante la riunione.
+I verbali esterni sono documenti che registrano ufficialmente gli incontri avvenuti con soggetti esterni al gruppo di lavoro, in particolare con l'ente proponente del progetto.\\
+Tali documenti hanno lo scopo di tracciare le discussioni, le decisioni concordate e gli impegni assunti da entrambe le parti durante la riunione.\\
+Seguono la struttura base dei documenti esposta alla sezione \ref{sec: struttura-base-doc} ma diversamente dal resto della documentazione non contengono la sezione del Registro delle Modifiche.
     \begin{enumerate}[label=\arabic*., itemsep=0pt, parsep=1pt, leftmargin=*]
         \item \textbf{Informazioni generali}
         \begin{itemize}[label=--, itemsep=0pt, parsep=1pt, leftmargin=1.5em]
@@ -121,26 +127,29 @@ I verbali esterni sono documenti che registrano ufficialmente gli incontri avven
             \item Data della riunione;
             \item Orario di inizio; 
             \item Orario di fine;
-            \item Scriba, ovvero il nome di chi si occupa di redigere il Verbale;
+            \item Scriba, ovvero chi si occupa di redigere il Verbale, che come stabilito nella sezione \ref{sec: verbali-interni} spetta alla figura del Responsabile.;
             \item Partecipanti: ovvero i referenti dell'azienda proponente con i quali viene svolto l'incontro. 
         \end{itemize}
         \item \textbf{Ordine del giorno} 
     \end{enumerate}
-
     \vspace{-0.5em}
     L'ordine del giorno ha lo scopo di delineare ciò che verrà discusso durante la riunione, con particolare riferimento a chiarimenti dei dubbi emersi e alle domande sollevate dal gruppo in preparazione dell'incontro con l'azienda.
 
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
         \item \textbf{Diario della riunione}
     \end{enumerate}
-
     \vspace{-0.5em}
     Documenta in modo sintetico ma completo lo svolgimento dell'incontro, registrando le discussioni principali, le decisioni prese e le attività concordate. Fornisce un resoconto strutturato degli argomenti trattati, mantenendo traccia di tutti gli aspetti rilevanti emersi durante il confronto.
 
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
+        \item \textbf{Decisioni e Azioni}
+    \end{enumerate}
+    \vspace{-0.5em}
+    Questa sezione ha lo scopo di registrare le decisioni e i relativi compiti emersi dall'incontro, fungendo da riferimento ufficiale per il gruppo e permettendo la tracciabilità delle decisioni.\\
+    Eventuali task, se tracciabili, verranno integrati nel sistema di ticketing.
+    \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
         \item \textbf{Approvazione esterna}
     \end{enumerate}
-
     \vspace{-0.5em}
     È l'ultima sezione del documento che attesta che i relativi verbali esterni siano approvati dalla proponente tramite firma ed eventuale timbro del rappresentante.
 
@@ -156,16 +165,16 @@ I verbali esterni sono documenti che registrano ufficialmente gli incontri avven
 
 \vspace{0.3em}
 \subsubsubsection{Altri documenti}
-Di seguito sono elencati tutti i documenti redatti e mantenuti durante l'intero ciclo di vita del progetto ciascuno dei quali risponde a uno scopo specifico, contribuendo alla tracciabilità, alla gestione e alla comunicazione delle attività di progetto 
+Di seguito sono elencati tutti i documenti redatti e mantenuti durante l'intero ciclo di vita del progetto ciascuno dei quali risponde a uno scopo specifico, contribuendo alla tracciabilità, alla gestione e alla comunicazione delle attività di progetto.\\
 La struttura iniziale di tali documenti corrisponde con quanto definito al punto 3.1.4:
     \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
-        \item \textbf{Valutazione dei capitolati};
-        \item \textbf{Dichiarazione degli impegni};
-        \item \textbf{Lettera di presentazione};
-        \item \textbf{Norme di progetto};
-        \item \textbf{Analisi dei requisiti};
-        \item \textbf{Piano di progetto};
-        \item \textbf{Piano di qualifica};
+        \item \textbf{Valutazione dei Capitolati};
+        \item \textbf{Dichiarazione degli Impegni};
+        \item \textbf{Lettera di Presentazione};
+        \item \textbf{Norme di Progetto};
+        \item \textbf{Analisi dei Requisiti};
+        \item \textbf{Piano di Progetto};
+        \item \textbf{Piano di Qualifica};
         \item \textbf{Glossario};
         \item \textbf{Specifica Tecnica};
         \item \textbf{Manuale Utente}.
@@ -175,15 +184,15 @@ La struttura iniziale di tali documenti corrisponde con quanto definito al punto
 \label{sec:stesura-documenti}
 La Redazione di un documento segue i seguenti passaggi: 
 \begin{enumerate}\setlength{\itemsep}{0pt}
-    \item \textbf{Creazione della Issue:} Viene aperta una issue$^G$ su GitHub, assegnandola a uno o più membri in base al ruolo da loro ricoperto (vedi sezione 4.1.2), per tracciare le attività da svolgere.
-    \item \textbf{Stesura del documento:} Coloro a cui è stata assegnata la issue$^G$ avviano o continuano la stesura del documento e procede al caricamento su GitHub$^G$ tramite un branch$^G$ feature/* in base alla funzionalità$^G$ o alla sezione su cui stanno lavorando.
-    \item \textbf{Creazione della Pull Request:} Una volta completato il lavoro sul branch, viene aperta una Pull Request$^G$ con richiesta di verifica$^G$ della nuova sezione da un altro membro del gruppo, segnalato nel Registro delle Modifiche.
-    \item \textbf{Revisione e Approvazione:} Il membro del team designato procede ad esaminare il codice e il contenuto della PR, fornendo feedback e richiedendo modifiche se necessario.
-    \item \textbf{Merge:} Dopo essersi accertato che le modifiche siano conformi, avviene il merge$^G$ con il ramo principale, chiudendo automaticamente la issue$^G$ associata.
+    \item \textbf{Creazione della Issue}: viene aperta una issue$^G$ su GitHub, assegnandola a uno o più membri in base al ruolo da loro ricoperto (vedi sezione 4.1.2), per tracciare le attività da svolgere.
+    \item \textbf{Stesura del documento}: coloro a cui è stata assegnata la issue$^G$ avviano o continuano la stesura del documento e procede al caricamento su GitHub$^G$ tramite un branch$^G$ feature/* in base alla funzionalità$^G$ o alla sezione su cui stanno lavorando.
+    \item \textbf{Creazione della Pull Request}: una volta completato il lavoro sul branch, viene aperta una Pull Request$^G$ con richiesta di verifica$^G$ della nuova sezione da un altro membro del gruppo, segnalato nel Registro delle Modifiche.
+    \item \textbf{Revisione e Approvazione}: il membro del team designato procede ad esaminare il codice e il contenuto della PR, fornendo feedback e richiedendo modifiche se necessario.
+    \item \textbf{Merge:} dopo essersi accertato che le modifiche siano conformi, avviene il merge$^G$ con il ramo principale, chiudendo automaticamente la issue$^G$ associata.
 \end{enumerate}
-Il procedimento che segue si applica solo a verbali o per l’approvazione di Documenti ritenuti definitivi e da Approvare per termini di Baseline:
+Il procedimento che segue si applica solo a verbali o per l’approvazione di Documenti ritenuti definitivi e da approvare per termini di Baseline:
 \begin{enumerate} [resume]
-    \item \textbf{Approvazione e pubblicazione:} A seguito di esito positivo della revisione, il Responsabile$^G$ approva il documento completando la pull request$^G$ e procede al merge$^G$ del branch$^G$ secondario in quello principale. Questa operazione attiva una GitHub$^G$ Action$^G$ che oltre a procedere con la generazione del .pdf dai .tex, aggiorna automaticamente il sito web del progetto con i nuovi documenti approvati.
+    \item \textbf{Approvazione e pubblicazione:} A seguito di esito positivo della revisione, il Responsabile$^G$ approva il documento completando la pull request$^G$ e procede al merge$^G$ del branch$^G$ secondario in quello principale.\\ Questa operazione attiva una GitHub$^G$ Action$^G$ che, oltre a procedere con la generazione del .pdf dai .tex, aggiorna automaticamente il sito web del progetto con i nuovi documenti approvati.
 \end{enumerate}
 
 \subsubsection{Nomenclatura}
@@ -222,7 +231,7 @@ La nomenclatura dei restanti documenti consisterà in:
 \begin{center}
     Titolo\_documento v\#
 \end{center}
-Per le due Baseline$^G$ RTB$^G$ e PB$^G$ verrà indicata la versione attuale di ogni documento con v\# dove \# funge da modificatore di versione, che viene incrementato progressivamente a ogni aggiornamento significativo del documento.
+Inoltre viene indicata la versione attuale di ogni documento con v\# dove \# funge da modificatore di versione, che viene incrementato progressivamente a ogni aggiornamento significativo del documento.
 
 \subsubsection{Manutenzione}
 L'attività di manutenzione$^G$ della documentazione viene attivata ogni qualvolta un documento richiede integrazioni o modifiche per rimanere accurato e allineato allo stato del progetto.\\
@@ -308,13 +317,13 @@ Ogni attività, modifica o produzione di documentazione viene gestita attraverso
 Le issue vengono create inizialmente dal Responsabile, ma possono essere aggiornate da qualsiasi membro qualora emergano nuove informazioni, modifiche o necessità di riformulazione del compito. Ogni aggiornamento deve mantenere chiarezza, coerenza e tracciabilità.\\
 
 Il mantenimento del sistema di Issue Tracking avviene tramite una procedura stabilita:
-\begin{enumerate}[itemsep=2pt, parsep=1pt, leftmargin=*]
+\begin{enumerate}[itemsep=3pt, parsep=1pt, leftmargin=*]
     \item \textbf{Creazione della issue} da parte del Responsabile o del membro che individua la necessità del compito.
     \item \textbf{Aggiornamento continuo della issue} da parte dell’assegnatario quando si presentano cambiamenti o integrazioni.
     \item \textbf{Registrazione dello stato di avanzamento} tramite lo spostamento della issue nella colonna corrispondente della Project Board.
     \item \textbf{Revisione obbligatoria}: ogni attività che comporta una modifica ai file del repository richiede una verifica formale.
     \item Quando un membro effettua un push nel branch relativo alla issue, il sistema genera automaticamente una \textbf{pull request}.
-    \item \textbf{Assegnazione della pull request} al Verificatore designato (specificato nella issue).
+    \item \textbf{Assegnazione della PR} al Verificatore designato.
     \item \textbf{Verifica della PR}: il Verificatore controlla che il contenuto sia conforme agli standard, coerente con la documentazione e privo di errori.
     \item \textbf{Merge nel main}: se la verifica ha esito positivo, il Verificatore effettua il merge e chiude la issue. In caso contrario, richiede ulteriori modifiche.
 \end{enumerate}
@@ -337,12 +346,13 @@ Le board vengono aggiornate:
 Il Responsabile verifica periodicamente la coerenza delle board con le milestone attive.
 
 \subsubsubsection{Labels}
-Per migliorare l’organizzazione, il gruppo utilizza un sistema di etichette che identifica chiaramente la tipologia di lavoro. Per ottimizzare la tracciabilità, abbiamo strutturato un sistema di etichette che funziona su due livelli.\\ 
-Oltre alle consuete etichette di processo, abbiamo introdotto una famiglia dedicata specificamente alla gestione documentale.\\
+Per migliorare l'organizzazione, il gruppo utilizza un sistema di etichette che identifica chiaramente la tipologia di lavoro, introducendo una famiglia dedicata specificamente alla gestione documentale.\\
 Il principio è semplice: viene sempre aggiunta un'etichetta specifica, come \vr{Piano di Progetto} o \vr{Analisi dei Requisiti}, che indica precisamente quale file è coinvolto.\\
-Queste label vengono applicate sia alle issue settimanali, sia alle attività associate alle milestone RTB e PB. Ciò permette di individuare rapidamente quali attività richiedono attenzione e tracciare il carico di lavoro per tipologia di attività oltre che avere una visione completa dell’avanzamento complessivo del progetto.
+Queste label vengono applicate sia alle issue settimanali, sia alle attività associate alle milestone RTB e PB.\\
+Ciò permette di individuare rapidamente quali attività richiedono attenzione e tracciare il carico di lavoro per tipologia di attività oltre che avere una visione completa dell'avanzamento complessivo del progetto.
 
 \subsubsubsection{Nomenclatura dei branch}
+\label{sec: nomenclatura-branch}
 Per garantire uniformità e tracciabilità nella gestione dei branch relativi alla documentazione, è stata adottata la seguente convenzione di denominazione:
 \begin{table}[H]
     \centering
@@ -379,15 +389,7 @@ Per garantire uniformità e tracciabilità nella gestione dei branch relativi al
     \caption{Nomenclatura dei branch}
 \end{table}
 
-\subsubsubsection{Ruoli e permessi}
-Per garantire l'integrità del processo di Controllo della Configurazione sul repository, sono stabiliti i seguenti ruoli con permessi distinti (Teams di GitHub):
-\begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
-    \item \textbf{Responsabile}: Ha il controllo completo del repository.
-    \item \textbf{Verificatori}: Sono gli unici membri, oltre al Responsabile, autorizzati a effettuare il merge delle Pull Request nel branch main, previa approvazione del contenuto.
-    \item \textbf{Redattori} (Membri del Gruppo): Autorizzati a creare feature branch e a inviare Pull Request per le attività assegnate.
-\end{itemize}
-
-\subsubsection{Registrazione dello stato di Configurazione}
+\subsubsection{Registrazione dello Stato di Configurazione}
 L'attività di Registrazione dello Stato di Configurazione è fondamentale per garantire la tracciabilità e la conoscenza storica delle evoluzioni di tutti gli Elementi di Configurazione (codice e documentazione) prodotti dal gruppo.
 
 \subsubsubsection{Documentazione}
@@ -453,16 +455,17 @@ Se emergono problemi, come errori frequenti o metriche insufficienti, si valutan
 \subsection{Verifica}
 \label{sec:verifica}
 \subsubsection{Scopo e descrizione}
-Il processo di verifica è un'attività sistematica che deve essere applicata a tutti i prodotti di progetto (documenti e codice) prima che possano essere considerati completi e rilasciati.\\ 
+Il processo di Verifica è un'attività sistematica che deve essere applicata a tutti i prodotti di progetto (documenti e codice) prima che possano essere considerati completi e rilasciati.\\ 
 Il suo scopo principale è rispondere alla domanda \vr{\textit{Did I build the system right?}}, ovvero assicurare che quanto prodotto sia stato realizzato correttamente, in piena conformità con i vincoli, le regole e gli standard qualitativi definiti nel Piano di Qualifica e nelle Norme di Progetto.\\ 
-Le attività di verifica sono svolte dai verificatori, il cui compito è controllare, correggere e segnalare ogni discrepanza rispetto ai requisiti prestabiliti.
+Le attività di Verifica sono svolte dai Verificatori, il cui compito è controllare, correggere e segnalare ogni discrepanza rispetto ai requisiti prestabiliti.
 
 \subsubsection{Strumenti a supporto}
-Per supportare le attività di verifica descritte, il gruppo utilizza GitHub, imponendo che ogni modifica alla documentazione o al codice venga prima sottoposta a revisione attraverso una Pull Request.\\ 
-Le regole di protezione del ramo principale obbligano che ogni PR sia approvata da almeno un verificatore diverso dall'autore, garantendo un controllo qualità sistematico e tracciabile prima che le modifiche vengano integrate.
+Per supportare le attività di Verifica descritte, il gruppo utilizza GitHub, imponendo che ogni modifica alla documentazione o al codice venga prima sottoposta a revisione attraverso una Pull Request.\\ 
+Le regole di protezione del ramo principale obbligano che ogni PR sia approvata da almeno un Verificatore diverso dall'autore, garantendo un controllo qualità sistematico e tracciabile prima che le modifiche vengano integrate.
 
 \subsubsection{Analisi statica}
-L'analisi statica è una tecnica di verifica che si applica senza eseguire il codice o il prodotto. Il suo scopo è individuare problemi di sintassi, logica o conformità agli standard prima che si manifestino durante l'esecuzione.\\
+L'analisi statica è una tecnica di verifica che si applica senza eseguire il codice o il prodotto.\\
+Il suo scopo è individuare problemi di sintassi, logica o conformità agli standard prima che si manifestino durante l'esecuzione.\\
 Si può eseguire tramite metodi formali (dimostrazioni matematiche) oppure, più frequentemente, tramite metodi di lettura manuali o semi-automatici.
 
 I metodi di lettura più diffusi sono due:
