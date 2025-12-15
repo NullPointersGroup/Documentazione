@@ -35,7 +35,7 @@
 \fancyhead[R]{Analisi dei Requisiti}
 \renewcommand{\headrulewidth}{0.4pt}
 % Piè di pagina
-\fancyfoot[C]{Pagina \thepage{} di \pageref{LastPage}}
+\fancyfoot[C]{Pagina \thepage{} di \pageref*{LastPage}}
 \renewcommand{\footrulewidth}{0.4pt}
 
 % --- Ridefinizione dello stile plain per gli indici ---
@@ -43,7 +43,7 @@
   \fancyhf{}
   \fancyhead[L]{NullPointers Group}
   \fancyhead[R]{Analisi dei Requisiti}
-  \fancyfoot[C]{Pagina \thepage{} di \pageref{LastPage}}
+  \fancyfoot[C]{Pagina \thepage{} di \pageref*{LastPage}}
   \renewcommand{\headrulewidth}{0.4pt}
   \renewcommand{\footrulewidth}{0.4pt}
 }
@@ -51,7 +51,7 @@
 % --- Solo piè di pagina per la prima pagina ---
 \fancypagestyle{firstpage}{
   \fancyhf{}
-  \fancyfoot[C]{Pagina \thepage{} di \pageref{LastPage}}
+  \fancyfoot[C]{Pagina \thepage{} di \pageref*{LastPage}}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0.4pt}
 }
@@ -71,15 +71,27 @@
 \newpage
 \hypersetup{linkcolor=black}
 \renewcommand{\contentsname}{Indice}
-\tableofcontents
+{
+	\hypersetup{linkcolor=black}
+	\tableofcontents
+}
+
 
 \newpage
 \renewcommand{\listtablename}{Elenco delle Tabelle}
-\listoftables
+{
+	\hypersetup{linkcolor=black}
+	\listoftables
+}
+
 
 \newpage
 \renewcommand{\listfigurename}{Elenco delle Immagini}
-\listoffigures
+{
+	\hypersetup{linkcolor=black}
+	\listoffigures
+}
+
 
 %parte variabile
 \newpage
