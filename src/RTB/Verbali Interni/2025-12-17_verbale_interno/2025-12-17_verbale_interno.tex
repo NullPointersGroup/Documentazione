@@ -1,0 +1,59 @@
+% Configurazione
+\documentclass{article}
+
+\usepackage{titling} % Required for inserting the subtitle
+\usepackage{graphicx} % Required for inserting images
+\usepackage{tabularx} % Per l'ambiente tabularx (tabelle)
+\usepackage{calc} % Sempre per le tabelle
+\usepackage{xcolor} % Per colorare il testo
+\usepackage[colorlinks=true,
+linkcolor=blue,
+urlcolor=blue,
+citecolor=blue]{hyperref}
+\usepackage{colortbl} % Per colorare le celle delle tabelle
+\usepackage{lipsum} % Per generare lorem ipsum
+\usepackage[normalem]{ulem} % Per sottolineare il testo
+\usepackage{array} % Per la visualizzazione fluttuante di array di domande e risposte
+\usepackage{ragged2e} % Pacchetto necessario per \justifying che giustifica il testo di tabelle
+\usepackage{makecell}%Per l'altezza delle tabelle
+\usepackage[T1]{fontenc} %per {} come ""
+
+\newcommand{\ulhref}[2]{\href{#1}{\underline{#2}}} % Sottolineatura
+\newcommand{\ulref}[1]{\uline{\ref{#1}}} % Sottolinea riferimenti a figure
+\setlength{\parindent}{0pt} % Nessun rientro dei paragrafi
+\newcommand{\vr}[1]{\textquotedblleft#1\textquotedblright}% per " "
+\newcommand{\vrs}[1]{\textquoteleft#1\textquoteright}% per ' '
+
+\graphicspath{ {immagini/} {../../../shared/images/} }
+
+
+% Variabili
+\newcommand{\data}{17 Dicembre 2025}
+
+
+% Struttura
+\begin{document}
+
+% Parte costante
+\input{content/heading}
+\input{content/title}
+\input{content/table}
+\newpage
+% variabile, prima dell'indice
+\hypersetup{linkcolor=black}
+\renewcommand{\contentsname}{Indice}
+\tableofcontents
+\clearpage
+\newpage
+
+\hypersetup{linkcolor=blue}
+% Parte variabile
+\input{content/info}
+\newpage
+\input{content/odg}
+\newpage
+\input{content/diario}
+\newpage
+\input{content/decisioni_azioni}
+
+\end{document}
