@@ -7,8 +7,13 @@
 \usepackage{calc} % Sempre per le tabelle
 \usepackage{tocloft}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-\usepackage[hidelinks]{hyperref} % Per i collegamenti ipertestuali, ad esempio sulla table of contents
-\usepackage{xcolor} % Per colorare il testo
+\usepackage{xcolor}
+\usepackage[
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=blue,
+	urlcolor=blue
+]{hyperref}
 \usepackage{colortbl} % Per colorare le celle delle tabelle
 \usepackage{lipsum} % Per generare lorem ipsum
 \usepackage[normalem]{ulem} % Per sottolineare il testo
@@ -25,8 +30,6 @@
 \usepackage[all]{hypcap}%per puntare ai titoli delle sezioni (titolo inizio finestra)
 \usepackage{amsmath}%per le formule nelle metriche
 
-\newcommand{\ulhref}[2]{\href{#1}{\underline{#2}}} % Sottolineatura
-\newcommand{\ulref}[1]{\uline{\ref{#1}}} % Sottolinea riferimenti a figure
 \setlength{\parindent}{0pt} % Nessun rientro dei paragrafi
 \newcommand{\vr}[1]{\textquotedblleft#1\textquotedblright}% per " "
 \newcommand{\vrs}[1]{\textquoteleft#1\textquoteright}% per ' 
@@ -42,7 +45,7 @@
 \fancyhead[R]{Norme di Progetto}
 \renewcommand{\headrulewidth}{0.4pt}
 % Piè di pagina
-\fancyfoot[C]{Pagina \thepage{} di \pageref{LastPage}}
+\fancyfoot[C]{Pagina \thepage{} di \pageref*{LastPage}}
 \renewcommand{\footrulewidth}{0.4pt}
 
 % --- Ridefinizione dello stile plain per gli indici ---
@@ -50,7 +53,7 @@
   \fancyhf{}
   \fancyhead[L]{NullPointers Group}
   \fancyhead[R]{Norme di Progetto}
-  \fancyfoot[C]{Pagina \thepage{} di \pageref{LastPage}}
+  \fancyfoot[C]{Pagina \thepage{} di \pageref*{LastPage}}
   \renewcommand{\headrulewidth}{0.4pt}
   \renewcommand{\footrulewidth}{0.4pt}
 }
@@ -58,7 +61,7 @@
 % --- Solo piè di pagina per la prima pagina ---
 \fancypagestyle{firstpage}{
   \fancyhf{}
-  \fancyfoot[C]{Pagina \thepage{} di \pageref{LastPage}}
+  \fancyfoot[C]{Pagina \thepage{} di \pageref*{LastPage}}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0.4pt}
 }
@@ -120,16 +123,24 @@
 %variabile prima dell'indice
 \input{content/modifiche}
 \newpage
-\hypersetup{linkcolor=black}
+
 
 % Indice generale
 \renewcommand{\contentsname}{Indice}
-\tableofcontents
+{
+	\hypersetup{linkcolor=black}
+	\tableofcontents
+}
+
 
 \newpage
 % Indice delle tabelle
 \renewcommand{\listtablename}{Elenco delle Tabelle}
-\listoftables
+{
+	\hypersetup{linkcolor=black}
+	\listoftables
+}
+
 
 %parte variabile
 \newpage
