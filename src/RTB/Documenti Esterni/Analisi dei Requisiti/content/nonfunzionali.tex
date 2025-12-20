@@ -2,100 +2,103 @@
 
 \subsubsection{Requisiti di Qualità obbligatori}
 \renewcommand{\arraystretch}{1.15}
-\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.8\textwidth}|}
+\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}|>{\raggedright\arraybackslash}p{0.25\textwidth}|}
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice} & \textbf{Descrizione} \\
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
     \hline
     \endfirsthead
     
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice} & \textbf{Descrizione} \\
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
     \hline
     \endhead
     
-    RN-OB\_1 & Il sistema deve essere modulare e scalabile per supportare variazioni di carico. \\
+    RQ-OB\_1 & Il sistema deve essere modulare e scalabile per supportare variazioni di carico. & \\
     \hline
-    RN-OB\_2 & Deve garantire affidabilità nell'elaborazione, mantenendo un basso tasso di errori. \\
+    RQ-OB\_2 & Deve garantire affidabilità nell'elaborazione, mantenendo un basso tasso di errori. & \\
     \hline
-    RN-OB\_3 & Deve garantire manutenibilità tramite struttura modulare, logging e separazione dei componenti. \\
+    RQ-OB\_3 & Deve garantire manutenibilità tramite struttura modulare, logging e separazione dei componenti. & \\
     \hline
-    RN-OB\_4 & Deve rispettare tempi di risposta accettabili in relazione al carico previsto (max 8s, min 4s). \\
+    RQ-OB\_4 & Deve rispettare tempi di risposta accettabili in relazione al carico previsto (max 8s, min 4s). & \\
     \hline
-    RN-OB\_5 & Deve garantire sicurezza dei dati trattati (integrità, riservatezza, autenticazione). \\
+    RQ-OB\_5 & Deve garantire alta disponibilità del servizio (operatività 24/7). & \\
     \hline
-    RN-OB\_6 & Deve garantire alta disponibilità del servizio (operatività 24/7). \\
+    RQ-OB\_6 & I microservizi devono poter essere aggiornati senza interrompere l'intero sistema (rolling updates). & \\
     \hline
-    RN-OB\_7 & I microservizi devono poter essere aggiornati senza interrompere l'intero sistema (rolling updates). \\
+    RQ-OB\_7 & È necessario realizzare opportuni Test di Unità & \\
     \hline
-    RN-OB\_8 & Devono essere garantiti meccanismi di autenticazione sicura (password hashing, rate limiting tentativi). \\
+    RQ-OB\_8 & È necessario descrivere i test effettuati nel Piano di Qualifica ver 1.0.0 & \\
     \hline
-    
-    \multicolumn{2}{c}{} \\
-    \caption{Requisiti di Qualità obbligatori}\\
+    RQ-OB\_9 & È necessario raggiungere gli obiettivi posti nel Piano di Qualifica ver 1.0.0 & \\
+    \hline
+    RQ-OB\_10 & È necessario rispettare tutte le norme presenti nel documento Norme di Progetto ver 1.0.0 & \\
+    \hline
+    \multicolumn{3}{c}{} \\
+    \caption{Requisiti di Qualità obbligatori}\label{tab:qualita_obbligatori}\\
 \end{longtable}
 
 \subsubsection{Requisiti di Qualità desiderabili}
 \renewcommand{\arraystretch}{1.15}
-\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.8\textwidth}|}
+\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}|>{\raggedright\arraybackslash}p{0.25\textwidth}|}
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice} & \textbf{Descrizione} \\
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
     \hline
     \endfirsthead
     
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice} & \textbf{Descrizione} \\
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
     \hline
     \endhead
     
-    RN-DE\_1 & Latenza ridotta anche sotto carichi elevati (scaling automatico consigliato). \\
+    RQ-DE\_1 & Latenza ridotta anche sotto carichi elevati (scaling automatico consigliato). & \\
     \hline
-    RN-DE\_2 & Strumenti di monitoring dei componenti (Grafana/Kibana/Prometheus). \\
+    RQ-DE\_2 & Strumenti di monitoring dei componenti con Prometheus. & \\
     \hline
-    RN-DE\_3 & Supporto a meccanismi di caching per ridurre tempi di risposta in operazioni ripetute. \\
+    RQ-DE\_3 & Supporto a meccanismi di caching per ridurre tempi di risposta in operazioni ripetute. & \\
     \hline
-    RN-DE\_4 & Logging distribuito e centralizzato per analisi avanzate. \\
+    RQ-DE\_4 & Logging distribuito e centralizzato per analisi avanzate. & \\
     \hline
-    RN-DE\_5 & Supporto a sistemi di alerting automatici (email, webhook, dashboard). \\
+    RQ-DE\_5 & Supporto a sistemi di alerting automatici (email, webhook, dashboard). & \\
     \hline
-    RN-DE\_6 & Possibilità di benchmark periodici sulle performance dei modelli AI. \\
+    RQ-DE\_6 & Possibilità di benchmark periodici sulle performance dei modelli AI. & \\
     \hline
-    RN-DE\_7 & Pubblicazione di benchmark pubblici sulle performance del sistema. \\
+    RQ-DE\_7 & Pubblicazione di benchmark pubblici sulle performance del sistema. & \\
     \hline
-    RN-DE\_8 & Supporto a backup e ripristino dei dati e delle configurazioni critiche. \\
+    RQ-DE\_8 & Supporto a backup e ripristino dei dati e delle configurazioni critiche. & \\
     \hline
-    RN-DE\_9 & Il sistema deve essere in grado di gestire correttamente errori e fallimenti della pipeline tramite meccanismi di recovery. \\
+    RQ-DE\_9 & Il sistema deve essere in grado di gestire correttamente errori e fallimenti della pipeline tramite meccanismi di recovery. & \\
     \hline
     
-    \multicolumn{2}{c}{} \\
-    \caption{Requisiti di Qualità desiderabili}\\
+    \multicolumn{3}{c}{} \\
+    \caption{Requisiti di Qualità desiderabili}\label{tab:qualita_desiderabili}\\
 \end{longtable}
 
 \subsubsection{Requisiti di Qualità opzionali}
 \renewcommand{\arraystretch}{1.15}
-\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.8\textwidth}|}
+\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}|>{\raggedright\arraybackslash}p{0.25\textwidth}|}
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice} & \textbf{Descrizione} \\
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
     \hline
     \endfirsthead
     
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice} & \textbf{Descrizione} \\
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
     \hline
     \endhead
     
-    RN-OP\_1 & Ottimizzazione avanzata per la riduzione dei costi computazionali. \\
+    RQ-OP\_1 & Ottimizzazione avanzata per la riduzione dei costi computazionali. & \\
     \hline
-    RN-OP\_2 & Sistema di throttling intelligente per evitare sovraccarichi in input massivi. \\
+    RQ-OP\_2 & Sistema di throttling intelligente per evitare sovraccarichi in input massivi. & \\
     \hline
-    RN-OP\_3 & Supporto multi-tenant a livello infrastrutturale (isolamento risorse). \\
+    RQ-OP\_3 & Supporto multi-tenant a livello infrastrutturale (isolamento risorse). & \\
     \hline
     
-    \multicolumn{2}{c}{} \\
-    \caption{Requisiti di Qualità opzionali}\\
+    \multicolumn{3}{c}{} \\
+    \caption{Requisiti di Qualità opzionali}\label{tab:qualita_opzionali}\\
 \end{longtable}

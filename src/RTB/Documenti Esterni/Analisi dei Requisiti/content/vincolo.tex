@@ -2,90 +2,94 @@
 
 \subsubsection{Requisiti di Vincolo obbligatori}
 \renewcommand{\arraystretch}{1.15}
-\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.8\textwidth}|}
+\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}|>{\raggedright\arraybackslash}p{0.25\textwidth}|}
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice} & \textbf{Descrizione} \\
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
     \hline
     \endfirsthead
     
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice} & \textbf{Descrizione} \\
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
     \hline
     \endhead
     
-    RV-OB\_1 & Utilizzo di un database relazionale. \\
+    RV-OB\_1 & Utilizzo di un database relazionale. & \\
     \hline
-    RV-OB\_2 & La documentazione deve essere conforme alle richieste del capitolato, includendo architettura, schema dati (rappresentazione DB), manuale utente e specifica tecnica. \\
+    RV-OB\_2 & La documentazione deve essere conforme alle richieste del capitolato, includendo architettura, schema dati (rappresentazione DB), manuale utente e specifica tecnica. & \\
     \hline
-    RV-OB\_3 & Il sistema deve adottare un'architettura modulare con componenti separati (AI, API, DB), come richiesto dal capitolato. \\
+    RV-OB\_3 & Il sistema deve adottare un'architettura modulare con componenti separati (AI, API, DB), come richiesto dal capitolato. & \\
     \hline
-    RV-OB\_4 & Il sistema deve esporre interfacce di integrazione tramite API REST documentate. \\
+    RV-OB\_4 & Il sistema deve esporre interfacce di integrazione tramite API REST documentate. & \\
     \hline
-    RV-OB\_5 & Il progetto deve utilizzare un sistema di versionamento del codice (Git). \\
+    RV-OB\_5 & Il progetto deve utilizzare un sistema di versionamento del codice. & \\
     \hline
-    RV-OB\_6 & I formati di scambio dati devono essere strutturati in un formato compatibile con il database generale. \\
+    RV-OB\_6 & I formati di scambio dati devono essere strutturati in un formato compatibile con il database generale. & \\
     \hline
-    RV-OB\_7 & Utilizzo di un database vettoriale. \\
+    RV-OB\_7 & Utilizzo di un database vettoriale. & \\
     \hline
-    RV-OB\_8 & Creazione di un'interfaccia web. \\
+    RV-OB\_8 & Creazione di un'interfaccia web. & \\
     \hline
-    RV-OB\_9 & Il prodotto deve essere eseguibile sui browser che supportano JavaScript ECMAScript 2015 (ES6) o superiore e le API web standard. \\
+    RV-OB\_9 & Il prodotto deve essere eseguibile sui browser che supportano JavaScript ECMAScript 2015 (ES6) o superiore e le API web standard. & \\
     \hline
-    RV-OB\_10 & UI completamente responsive e mobile-first. \\
+    RV-OB\_10 & UI completamente responsive e mobile-first. & \\
     \hline
-    RV-OB\_11 & Supporto alla containerizzazione. \\
+    RV-OB\_11 & Supporto alla containerizzazione. & \\
+    \hline
+    RV-OB\_12 & Deve garantire sicurezza dei dati trattati (integrità, riservatezza, autenticazione). & \\
+    \hline
+    RV-OB\_13 & Devono essere garantiti meccanismi di autenticazione sicura (password hashing, rate limiting tentativi). & \\
     \hline
     
-    \multicolumn{2}{c}{} \\
+    \multicolumn{3}{c}{} \\
     \caption{Requisiti di Vincolo obbligatori}\label{tab:vincolo_obbligatori}\\
 \end{longtable}
 
 \subsubsection{Requisiti di Vincolo desiderabili}
 \renewcommand{\arraystretch}{1.15}
-\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.8\textwidth}|}
+\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}|>{\raggedright\arraybackslash}p{0.25\textwidth}|}
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice} & \textbf{Descrizione} \\
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
     \hline
     \endfirsthead
     
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice} & \textbf{Descrizione} \\
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
     \hline
     \endhead
     
-    RV-DE\_1 & Preferenza per l'utilizzo delle tecnologie suggerite (BERT, GPT, ViT, Whisper, React, ecc.). \\
+    RV-DE\_1 & Preferenza per l'utilizzo delle tecnologie suggerite (BERT, GPT, ViT, Whisper, React, ecc.). & \\
     \hline
-    RV-DE\_2 & Adozione di API REST anche per comunicazioni interne tra moduli. \\
+    RV-DE\_2 & Adozione di API REST anche per comunicazioni interne tra moduli. & \\
     \hline
-    RV-DE\_3 & Utilizzo di un formato standard per il logging (es. JSON Logging). \\
+    RV-DE\_3 & Utilizzo di un formato standard per il logging (es. JSON Logging). & \\
     \hline
     
-    \multicolumn{2}{c}{} \\
-    \caption{Requisiti di Vincolo desiderabili}\\
+    \multicolumn{3}{c}{} \\
+    \caption{Requisiti di Vincolo desiderabili}\label{tab:vincolo_desiderabili}\\
 \end{longtable}
 
 \subsubsection{Requisiti di Vincolo opzionali}
 \renewcommand{\arraystretch}{1.15}
-\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.8\textwidth}|}
+\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}|>{\raggedright\arraybackslash}p{0.25\textwidth}|}
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice} & \textbf{Descrizione} \\
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
     \hline
     \endfirsthead
     
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice} & \textbf{Descrizione} \\
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti}  \\
     \hline
     \endhead
     
-    RV-OP\_1 & Utilizzo di un middleware per separare ulteriormente la comunicazione tra i componenti oppure attraverso connettori standard come una fonte dati ODBC. \\
+    RV-OP\_1 & Utilizzo di un middleware per separare ulteriormente la comunicazione tra i componenti oppure attraverso connettori standard come una fonte dati ODBC. & \\
     \hline
     
-    \multicolumn{2}{c}{} \\
-    \caption{Requisiti di Vincolo opzionali}\\
+    \multicolumn{3}{c}{} \\
+    \caption{Requisiti di Vincolo opzionali}\label{tab:vincolo_opzionali}\\
 \end{longtable}
