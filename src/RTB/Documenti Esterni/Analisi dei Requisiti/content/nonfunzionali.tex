@@ -1,92 +1,101 @@
 \subsection{Requisiti di Qualità}
+
 \subsubsection{Requisiti di Qualità obbligatori}
-\begin{table}[h]
-	\centering
-	\renewcommand{\arraystretch}{1.15}
-	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|p{0.15\textwidth}|p{0.7\textwidth}|}
-			\hline
-			\rowcolor[gray]{0.9}
-			\textbf{Codice} & \textbf{Descrizione}\\
-			\hline
-            RN-OB\_1 & Il sistema deve essere modulare e scalabile per supportare
-            variazioni di carico.\\
-            \hline
-            RN-OB\_2 & Deve garantire affidabilità nell'elaborazione, mantenendo un basso tasso di errori. \\
-            \hline
-            RN-OB\_3 & Deve garantire manutenibilità tramite struttura modulare, logging e separazione dei componenti. \\
-            \hline
-            RN-OB\_4 & Deve rispettare tempi di risposta accettabili in relazione al carico previsto (max 8s, min 4s). \\
-            \hline
-            RN-OB\_5 & Deve garantire sicurezza dei dati trattati (integrità, riservatezza, autenticazione). \\
-            \hline
-            RN-OB\_6 & Deve garantire alta disponibilità del servizio (operatività 24/7). \\
-            \hline
-            RN-OB\_7 & I microservizi devono poter essere aggiornati senza interrompere l'intero sistema (rolling updates). \\
-			\hline
-            RN-OB\_8 & Devono essere garantiti meccanismi di autenticazione sicura (password hashing, rate limiting tentativi). \\
-			\hline
-		\end{tabular}
-	}
-	\caption{Requisiti di Qualità obbligatori}
-	\vspace{0.3cm}
-\end{table}
-\FloatBarrier
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.8\textwidth}|}
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice} & \textbf{Descrizione} \\
+    \hline
+    \endfirsthead
+    
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice} & \textbf{Descrizione} \\
+    \hline
+    \endhead
+    
+    RN-OB\_1 & Il sistema deve essere modulare e scalabile per supportare variazioni di carico. \\
+    \hline
+    RN-OB\_2 & Deve garantire affidabilità nell'elaborazione, mantenendo un basso tasso di errori. \\
+    \hline
+    RN-OB\_3 & Deve garantire manutenibilità tramite struttura modulare, logging e separazione dei componenti. \\
+    \hline
+    RN-OB\_4 & Deve rispettare tempi di risposta accettabili in relazione al carico previsto (max 8s, min 4s). \\
+    \hline
+    RN-OB\_5 & Deve garantire sicurezza dei dati trattati (integrità, riservatezza, autenticazione). \\
+    \hline
+    RN-OB\_6 & Deve garantire alta disponibilità del servizio (operatività 24/7). \\
+    \hline
+    RN-OB\_7 & I microservizi devono poter essere aggiornati senza interrompere l'intero sistema (rolling updates). \\
+    \hline
+    RN-OB\_8 & Devono essere garantiti meccanismi di autenticazione sicura (password hashing, rate limiting tentativi). \\
+    \hline
+    
+    \multicolumn{2}{c}{} \\
+    \caption{Requisiti di Qualità obbligatori}\\
+\end{longtable}
 
 \subsubsection{Requisiti di Qualità desiderabili}
-\begin{table}[h]
-	\centering
-	\renewcommand{\arraystretch}{1.15}
-	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|p{0.15\textwidth}|p{0.7\textwidth}|}
-			\hline
-			\rowcolor[gray]{0.9}
-			\textbf{Codice} & \textbf{Descrizione}\\
-			\hline
-            RN-DE\_1 & Latenza ridotta anche sotto carichi elevati (scaling automatico consigliato). \\
-			\hline
-            RN-DE\_2 & Strumenti di monitoring dei componenti (Grafana/Kibana/Prometheus).\\ 
-			\hline
-            RN-DE\_3 & Supporto a meccanismi di caching per ridurre tempi di risposta in operazioni ripetute.\\ 
-			\hline
-            RN-DE\_4 & Logging distribuito e centralizzato per analisi avanzate.\\ 
-			\hline
-            RN-DE\_5 & Supporto a sistemi di alerting automatici (email, webhook, dashboard).\\ 
-			\hline
-            RN-DE\_6 & Possibilità di benchmark periodici sulle performance dei modelli AI.\\ 
-			\hline
-            RN-DE\_7 & Pubblicazione di benchmark pubblici sulle performance del sistema.\\ 
-			\hline
-            RN-DE\_8 & Supporto a backup e ripristino dei dati e delle configurazioni critiche.\\ 
-			\hline
-            RN-DE\_9 & Il sistema deve essere in grado di gestire correttamente errori e fallimenti della pipeline tramite meccanismi di recovery.\\ 
-			\hline
-		\end{tabular}
-	}
-	\caption{Requisiti di Qualità desiderabili}
-	\vspace{0.3cm}
-\end{table}
-\FloatBarrier
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.8\textwidth}|}
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice} & \textbf{Descrizione} \\
+    \hline
+    \endfirsthead
+    
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice} & \textbf{Descrizione} \\
+    \hline
+    \endhead
+    
+    RN-DE\_1 & Latenza ridotta anche sotto carichi elevati (scaling automatico consigliato). \\
+    \hline
+    RN-DE\_2 & Strumenti di monitoring dei componenti (Grafana/Kibana/Prometheus). \\
+    \hline
+    RN-DE\_3 & Supporto a meccanismi di caching per ridurre tempi di risposta in operazioni ripetute. \\
+    \hline
+    RN-DE\_4 & Logging distribuito e centralizzato per analisi avanzate. \\
+    \hline
+    RN-DE\_5 & Supporto a sistemi di alerting automatici (email, webhook, dashboard). \\
+    \hline
+    RN-DE\_6 & Possibilità di benchmark periodici sulle performance dei modelli AI. \\
+    \hline
+    RN-DE\_7 & Pubblicazione di benchmark pubblici sulle performance del sistema. \\
+    \hline
+    RN-DE\_8 & Supporto a backup e ripristino dei dati e delle configurazioni critiche. \\
+    \hline
+    RN-DE\_9 & Il sistema deve essere in grado di gestire correttamente errori e fallimenti della pipeline tramite meccanismi di recovery. \\
+    \hline
+    
+    \multicolumn{2}{c}{} \\
+    \caption{Requisiti di Qualità desiderabili}\\
+\end{longtable}
 
 \subsubsection{Requisiti di Qualità opzionali}
-\begin{table}[h]
-	\centering
-	\renewcommand{\arraystretch}{1.15}
-	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|p{0.15\textwidth}|p{0.7\textwidth}|}
-			\hline
-			\rowcolor[gray]{0.9}
-			\textbf{Codice} & \textbf{Descrizione}\\
-			\hline
-            RN-OP\_1 & Ottimizzazione avanzata per la riduzione dei costi computazionali.\\ 
-            \hline
-            RN-OP\_2 & Sistema di throttling intelligente per evitare sovraccarichi in input massivi.\\ 
-            \hline
-            RN-OP\_3 & Supporto multi-tenant a livello infrastrutturale (isolamento risorse).\\ 
-            \hline
-		\end{tabular}
-	}
-	\caption{Requisiti di Qualità opzionali}
-	\vspace{0.3cm}
-\end{table}
-\FloatBarrier
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.8\textwidth}|}
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice} & \textbf{Descrizione} \\
+    \hline
+    \endfirsthead
+    
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice} & \textbf{Descrizione} \\
+    \hline
+    \endhead
+    
+    RN-OP\_1 & Ottimizzazione avanzata per la riduzione dei costi computazionali. \\
+    \hline
+    RN-OP\_2 & Sistema di throttling intelligente per evitare sovraccarichi in input massivi. \\
+    \hline
+    RN-OP\_3 & Supporto multi-tenant a livello infrastrutturale (isolamento risorse). \\
+    \hline
+    
+    \multicolumn{2}{c}{} \\
+    \caption{Requisiti di Qualità opzionali}\\
+\end{longtable}
