@@ -7,17 +7,26 @@
 \usepackage{calc} % Sempre per le tabelle
 \usepackage{tocloft}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-\usepackage[hidelinks]{hyperref} % Per i collegamenti ipertestuali, ad esempio sulla table of contents
-\usepackage{xcolor} % Per colorare il testo
+\usepackage{xcolor}
+\usepackage[
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=blue,
+	urlcolor=blue
+]{hyperref}
 \usepackage{colortbl} % Per colorare le celle delle tabelle
 \usepackage{lipsum} % Per generare lorem ipsum
 \usepackage[normalem]{ulem} % Per sottolineare il testo
 \usepackage{array} % Per la visualizzazione fluttuante di array di domande e risposte
 \usepackage{ragged2e} % Pacchetto necessario per \justifying che giustifica il testo di tabelle
 \usepackage{placeins} % Impedisce a figure e tabelle di andare oltre le barriere definite
+\usepackage{float} % Per l'opzione [H] nelle tabelle
 \usepackage{fancyhdr} % Intestazioni e piè di pagina
 \usepackage{lastpage} % Per contare il numero totale di pagine
 \usepackage[T1]{fontenc} %per {} come ""
+\usepackage{placeins}
+\usepackage{enumitem}
+\usepackage{longtable}
 
 \newcommand{\ulhref}[2]{\href{#1}{\underline{#2}}} % Sottolineatura
 \newcommand{\ulref}[1]{\uline{\ref{#1}}} % Sottolinea riferimenti a figure
@@ -35,7 +44,7 @@
 \fancyhead[R]{Analisi dei Requisiti}
 \renewcommand{\headrulewidth}{0.4pt}
 % Piè di pagina
-\fancyfoot[C]{Pagina \thepage{} di \pageref{LastPage}}
+\fancyfoot[C]{Pagina \thepage{} di \pageref*{LastPage}}
 \renewcommand{\footrulewidth}{0.4pt}
 
 % --- Ridefinizione dello stile plain per gli indici ---
@@ -43,7 +52,7 @@
   \fancyhf{}
   \fancyhead[L]{NullPointers Group}
   \fancyhead[R]{Analisi dei Requisiti}
-  \fancyfoot[C]{Pagina \thepage{} di \pageref{LastPage}}
+  \fancyfoot[C]{Pagina \thepage{} di \pageref*{LastPage}}
   \renewcommand{\headrulewidth}{0.4pt}
   \renewcommand{\footrulewidth}{0.4pt}
 }
@@ -51,7 +60,7 @@
 % --- Solo piè di pagina per la prima pagina ---
 \fancypagestyle{firstpage}{
   \fancyhf{}
-  \fancyfoot[C]{Pagina \thepage{} di \pageref{LastPage}}
+  \fancyfoot[C]{Pagina \thepage{} di \pageref*{LastPage}}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0.4pt}
 }
@@ -69,17 +78,28 @@
 %variabile prima dell'indice
 \input{content/modifiche}
 \newpage
-\hypersetup{linkcolor=black}
 \renewcommand{\contentsname}{Indice}
-\tableofcontents
+{
+	\hypersetup{linkcolor=black}
+	\tableofcontents
+}
+
 
 \newpage
 \renewcommand{\listtablename}{Elenco delle Tabelle}
-\listoftables
+{
+	\hypersetup{linkcolor=black}
+	\listoftables
+}
+
 
 \newpage
 \renewcommand{\listfigurename}{Elenco delle Immagini}
-\listoffigures
+{
+	\hypersetup{linkcolor=black}
+	\listoffigures
+}
+
 
 %parte variabile
 \newpage
@@ -90,5 +110,17 @@
 
 \newpage
 \input{content/requisiti}
+\newpage
+
+\input{content/funzionali}
+\newpage
+
+\input{content/nonfunzionali}
+\newpage
+
+\input{content/vincolo}
+\newpage
+
+\input{content/riepilogo}
 
 \end{document}
