@@ -19,19 +19,13 @@
     \end{itemize}
     \item \textbf{Post-Condizioni}:
     \begin{itemize}
-        \item L’utente è ora registrato ed è riconosciuto come Cliente
-    \end{itemize}
-    \item \textbf{Scenari Alternativi}:
-    \begin{itemize}
-        \item L'utente ha inserito uno username esistente
-        \item L'utente ha inserito una password che non conforme
-        \item L'utente ha inserito nel campo "conferma password" una password che non coincide con quella inserita precedentemente
+        \item Il cliente è ora registrato ed è riconosciuto come tale
     \end{itemize}
     \item \textbf{Inclusioni}:
     \begin{itemize}
-        \item UC\_01.1(\ref{uc_01.1})
-        \item UC\_01.1(\ref{uc_01.2})
-        \item UC\_01.1(\ref{uc_01.3})
+        \item UC\_01.1 (\ref{uc_01.1})
+        \item UC\_01.1 (\ref{uc_01.2})
+        \item UC\_01.1 (\ref{uc_01.3})
     \end{itemize}
     \item \textbf{Trigger}: Il cliente vuole registrarsi nel Sistema
 \end{itemize}
@@ -42,19 +36,44 @@
     \item \textbf{Attore Principale}: Cliente
     \item \textbf{Scenario Principale}:
     \begin{itemize}
-        \item L'utente inserisce uno username con il quale vuole registrarsi
+        \item Il cliente inserisce uno username con il quale vuole registrarsi
     \end{itemize}
     \item \textbf{Pre-Condizioni}: 
     \begin{itemize}
         \item Il sistema è attivo
         \item Il cliente non è registrato nel Sistema
-        \item Lo username che l'utente inserisce non deve essere già presente nel sistema
+        \item Lo username che Il cliente inserisce non deve essere già presente nel sistema
+
     \end{itemize}
     \item \textbf{Post-Condizioni}:
     \begin{itemize}
         \item Username inserito, pronto per essere registrato
     \end{itemize}
+    \item \textbf{Scenari Alternativi}:
+    \begin{itemize}
+        \item Il cliente ha inserito uno username esistente
+    \end{itemize}
+    \item \textbf{Estensioni}:
+    \begin{itemize}
+        \item UC\_01.1.1 (\ref{uc_01.1.1})
+    \end{itemize}
     \item \textbf{Trigger}: Il cliente vuole registrarsi nel Sistema
+\end{itemize}
+
+\subsubsubsubsection{UC\_01.1.1: Username esiste già}
+\label{uc_01.1.1}
+\begin{itemize}
+    \item \textbf{Attore Principale}: Cliente
+    \item \textbf{Pre-Condizioni}:
+    \begin{itemize}
+        \item Il sistema è attivo
+        \item Il cliente non è registrato nel Sistema
+        \item Il cliente ha inserito uno username già esistene come proprio username
+    \end{itemize}
+    \item \textbf{Post-Condizioni}:
+    \begin{itemize}
+        \item Link HTML per andare alla pagina di login
+    \end{itemize}
 \end{itemize}
 
 \subsubsubsection{UC\_01.2: Inserimento Password}
@@ -63,37 +82,43 @@
     \item \textbf{Attore Principale}: Cliente
     \item \textbf{Scenario Principale}:
     \begin{itemize}
-        \item L'utente inserisce la password, che insieme allo username userà per autenticarsi
+        \item Il cliente inserisce la password, che insieme allo username userà per autenticarsi
     \end{itemize}
     \item \textbf{Pre-Condizioni}: 
     \begin{itemize}
         \item Il sistema è attivo
         \item Il cliente non è registrato nel Sistema
         \item Il sistema non conosce la password
-        \item 
     \end{itemize}
     \item \textbf{Post-Condizioni}:
     \begin{itemize}
         \item Il sistema riceve la password e ne conserva l'hash
     \end{itemize}
+    \item \textbf{Scenari Alternativi}:
+    \begin{itemize}
+        \item Il cliente ha inserito una password che non è conforme
+    \end{itemize}
+    \item \textbf{Estensioni}:
+    \begin{itemize}
+        \item UC\_01.2.1 (\ref{uc_01.2.1})
+    \end{itemize}
     \item \textbf{Trigger}: Il cliente vuole registrarsi nel Sistema
 \end{itemize}
-
-% \subsubsubsubsection{UC\_01.1.1: Utente esiste già}
-% \label{uc_01.1.1}
-% \begin{itemize}
-%     \item \textbf{Attore Principale}: Cliente
-%     \item \textbf{Pre-Condizioni}:
-%     \begin{itemize}
-%         \item Il sistema è attivo
-%         \item L'utente non è registrato nel Sistema
-%         \item L'utente ha inserito uno username già esistene come proprio username
-%     \end{itemize}
-%     \item \textbf{Post-Condizioni}:
-%     \begin{itemize}
-%         \item Messaggio di errore visibile all'utente
-%     \end{itemize}
-% \end{itemize}
+\subsubsubsubsection{UC\_01.2.1: Password non conforme}
+\label{uc_01.2.1}
+\begin{itemize}
+    \item \textbf{Attore Principale}: Cliente
+    \item \textbf{Pre-Condizioni}:
+    \begin{itemize}
+        \item Il sistema è attivo
+        \item Il cliente non è registrato nel Sistema
+        \item Il cliente ha inserito una password e quest'ultima non rispetta i requisiti minimi di sicurezza
+    \end{itemize}
+    \item \textbf{Post-Condizioni}:
+    \begin{itemize}
+        \item Messaggio di errore visibile al cliente
+    \end{itemize}
+\end{itemize}
 
 \subsubsubsection{UC\_01.3: Conferma Password}
 \label{uc_01.3}
@@ -101,7 +126,7 @@
     \item \textbf{Attore Principale}: Cliente
     \item \textbf{Scenario Principale}:
     \begin{itemize}
-        \item L'utente inserisce nuovamente la password nel campo "conferma password"
+        \item Il cliente inserisce nuovamente la password nel campo "conferma password"
     \end{itemize}
     \item \textbf{Pre-Condizioni}:
     \begin{itemize}
@@ -113,5 +138,30 @@
     \begin{itemize}
         \item Password confermata, la registrazione può essere conclusa
     \end{itemize}
+    \item \textbf{Scenari Alternativi}:
+    \begin{itemize}
+        \item Il cliente ha inserito nel campo "conferma password" una password che non coincide con quella inserita precedentemente
+    \end{itemize}
+    \item \textbf{Estensioni}:
+    \begin{itemize}
+        \item UC\_01.3.1 (\ref{uc_01.3.1})
+    \end{itemize}
     \item \textbf{Trigger}: Il cliente vuole registrarsi nel Sistema
+\end{itemize}
+
+\subsubsubsubsection{UC\_01.3.1: Password non coincidono}
+\label{uc_01.3.1}
+\begin{itemize}
+    \item \textbf{Attore Principale}: Cliente
+    \item \textbf{Pre-Condizioni}:
+    \begin{itemize}
+        \item Il sistema è attivo
+        \item Il cliente non è registrato nel sistema
+        \item Il sistema conosce la password inserita in precedenza
+        \item Il cliente ha inserito una password non coincidente con quella inserita precedentemente
+    \end{itemize}
+    \item \textbf{Post-Condizioni}:
+    \begin{itemize}
+        \item Messaggio di errore visibile al cliente
+    \end{itemize}
 \end{itemize}
