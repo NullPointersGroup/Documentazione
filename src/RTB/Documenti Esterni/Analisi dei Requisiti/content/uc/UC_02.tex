@@ -1,0 +1,75 @@
+\subsubsection{UC\_02: Autenticazione}
+\label{uc_02}
+\begin{figure}[H]
+    \centering 
+    \includegraphics[width=1\textwidth]{AnalisiRequisiti/UC_02.png}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Attore Principale}: Utente
+    \item \textbf{Scenario Principale}:
+    \begin{itemize}
+        \item Inserimento username 
+        \item Inserimento password
+    \end{itemize}
+    \item \textbf{Pre-Condizioni}:
+    \begin{itemize}
+        \item Il sistema è attivo
+        \item L'utente non è autenticato nel sistema
+    \end{itemize}
+    \item \textbf{Post-Condizioni}:
+    \begin{itemize}
+        \item L'utente è ora riconosciuto dal sistema
+    \end{itemize}
+    \item \textbf{Inclusioni}:
+    \begin{itemize}
+        \item UC\_02.1 ()
+        \item UC\_02.2 ()
+    \end{itemize}
+    \item \textbf{Estensioni}:
+    \begin{itemize}
+        \item UC\_03 ()
+        \item UC\_04 ()
+    \end{itemize}
+    \item \textbf{Trigger}: L'utente vuole autenticarsi nel sistema
+\end{itemize}
+\subsubsubsection{UC\_02.1: Inserimento Username}
+\begin{itemize}
+    \item \textbf{Attore Principale}: Utente
+    \item \textbf{Scenario Principale}:
+    \begin{itemize}
+        \item L'utente inserisce lo username con il quale vuole autenticarsi
+    \end{itemize}
+    \item \textbf{Pre-Condizioni}:
+    \begin{itemize}
+        \item Il sistema è attivo
+        \item L'utente non è ancora autenticato
+        \item L'utente ha selezionato dal menù la possibilità di autenticarsi nel sistema 
+        \item Il sistema non conosce lo username dell'utente
+    \end{itemize}
+    \item \textbf{Post-Condizioni}:
+    \begin{itemize}
+        \item Il sistema riceve lo username
+    \end{itemize}
+    \item \textbf{Trigger}: L'utente vuole autenticarsi nel sistema
+\end{itemize}
+
+\subsubsubsection{UC\_02.2: Inserimento Password}
+\begin{itemize}
+    \item \textbf{Attore Principale}: Utente
+    \item \textbf{Scenario Principale}:
+    \begin{itemize}
+        \item L'utente inserisce la propria password
+    \end{itemize}
+    \item \textbf{Pre-Condizioni}:
+    \begin{itemize}
+        \item Il sistema è attivo
+        \item L'utente non è ancora autenticato
+        \item L'utente ha selezionato dal menù la possibilità di autenticarsi nel sistema 
+        \item Il sistema non conosce la password dell'utente
+    \end{itemize}
+    \item \textbf{Post-Condizioni}:
+    \begin{itemize}
+        \item Il sistema riceve la password
+    \end{itemize}
+    \item \textbf{Trigger}: L'utente vuole autenticarsi nel sistema
+\end{itemize}
