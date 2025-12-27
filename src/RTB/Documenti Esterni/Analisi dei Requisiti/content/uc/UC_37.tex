@@ -1,19 +1,156 @@
-\subsubsection{UC\_37}
+\subsubsection{UC\_37: Visualizza dettaglio ordine}
 \label{uc_37}
 
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_xx}
-%	\caption{UC_xx: Descrizione}
-%\end{figure}
+L'UC\_37 ha 3 ulteriori inclusioni indicate in figura.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_37}
+	\caption{UC\_37: Visualizza dettaglio ordine }
+\end{figure}
 
 \begin{itemize}
-	\item \textbf{Attore principale}
-	\item \textbf{Scenario principale}
-	\item \textbf{Precondizioni}
-	\item \textbf{Postcondizioni}
-	\item \textbf{Scenari alternativi}
-	\item \textbf{Inclusioni}
-	\item \textbf{Estensioni}
-	\item \textbf{User Story}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{itemize}
+		\item l'Utente clicca su un ordine specifico
+		\item l'Utente visualizza i dettagli di un ordine specifico
+		\item l'Utente visualizza il Cliente dell'ordine specifico. $\rightarrow$ Vedi [UC\_37.1, §\ref{uc_37.1}]
+		\item L'Utente visualizza il Cliente dell'ordine specifico. $\rightarrow$ Vedi [UC\_37.2, §\ref{uc_37.2}]
+		\item l'Utente visualizza il Cliente dell'ordine specifico. $\rightarrow$ Vedi [UC\_37.3, §\ref{uc_37.3}]
+	\end{itemize}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item il Sistema è online
+		\item l'Utente sta visualizzando la pagina dello storico ordini
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item il Sistema mostra la pagina dedicata alla visualizzazione di un ordine
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item $[$UC\_37.1, §\ref{uc_37.1}$]$
+		\item $[$UC\_37.2, §\ref{uc_37.2}$]$
+		\item $[$UC\_37.3, §\ref{uc_37.3}$]$
+	\end{itemize}
+	\item \textbf{Estensioni}:
+	\begin{itemize}
+		\item $[$UC\_38, §\ref{uc_38}$]$
+	\end{itemize}
+	\item \textbf{User Story}: l'Utente vuole visualizzare i dettagli di un ordine specifico
+\end{itemize}
+
+\subsubsubsection{UC\_37.1: Visualizza Cliente}
+\label{uc_37.1}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{itemize}
+		\item l'Utente sta visualizzando il Cliente di quell'ordine
+	\end{itemize}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item il Sistema è online
+		\item l'Utente sta visualizzando i dettagli di un ordine specifico
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item il Sistema sta mostrando il Cliente di quell'ordine
+	\end{itemize}
+	\item \textbf{User Story}: l'Utente vuole visualizzare il Cliente nella pagina dei dettagli di un ordine specifico
+\end{itemize}
+
+\subsubsubsection{UC\_37.2: Visualizza prodotti}
+\label{uc_37.2}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{itemize}
+		\item l'Utente sta visualizzando i prodotti di quell'ordine
+		\item l'Utente visualizza il nome dei prodotti. $\rightarrow$ Vedi [UC\_37.2.1, §\ref{uc_37.2.1}]
+		\item l'Utente sta visualizzando la descrizione dei prodotti. $\rightarrow$ Vedi [UC\_37.2.2, §\ref{uc_37.2.1}]
+	\end{itemize}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item il Sistema è online
+		\item l'Utente sta visualizzando i dettagli di un ordine specifico
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item il Sistema sta mostrando i prodotti di quell'ordine
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item $[$UC\_37.2.1, §\ref{uc_37.2.1}$]$
+		\item $[$UC\_37.2.2, §\ref{uc_37.2.2}$]$
+	\end{itemize}
+	\item \textbf{User Story}: l'Utente vuole visualizzare il Cliente nella pagina dei dettagli di un ordine specifico
+\end{itemize}
+
+\subsubsubsection{UC\_37.2.1: Visualizza nome prodotti}
+\label{uc_37.2.1}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{itemize}
+		\item l'Utente sta visualizzando i prodotti di quell'ordine
+		\item l'Utente visualizza il nome dei prodotti
+	\end{itemize}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item il Sistema è online
+		\item l'Utente sta visualizzando i dettagli di un ordine specifico
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item il Sistema sta mostrando i prodotti di quell'ordine, comprensivo di nome e descrizione
+	\end{itemize}
+	\item \textbf{User Story}: l'Utente vuole visualizzare i prodotti nella pagina dei dettagli di un ordine specifico
+\end{itemize}
+
+\subsubsubsection{UC\_37.2.2: Visualizza descrizione prodotti}
+\label{uc_37.2.2}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{itemize}
+		\item l'Utente sta visualizzando i prodotti di quell'ordine
+		\item l'Utente visualizza la descrizione di quei prodotti
+	\end{itemize}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item il Sistema è online
+		\item l'Utente sta visualizzando i dettagli di un ordine specifico
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item il Sistema sta mostrando i prodotti di quell'ordine, comprensivo di nome e descrizione
+	\end{itemize}
+	\item \textbf{User Story}: l'Utente vuole visualizzare i prodotti nella pagina dei dettagli di un ordine specifico
+\end{itemize}
+
+\subsubsubsection{UC\_37.3: Visualizza data ordine}
+\label{uc_37.3}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{itemize}
+		\item l'Utente sta visualizzando la data di quell'ordine
+	\end{itemize}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item il Sistema è online
+		\item l'Utente sta visualizzando i dettagli di un ordine specifico
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item il Sistema sta mostrando la data di quell'ordine
+	\end{itemize}
+	\item \textbf{User Story}: l'Utente vuole visualizzare la data nella pagina dei dettagli di un ordine specifico
 \end{itemize}

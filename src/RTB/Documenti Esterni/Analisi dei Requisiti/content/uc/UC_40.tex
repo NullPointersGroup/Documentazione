@@ -1,19 +1,99 @@
-\subsubsection{UC\_40}
+\subsubsection{UC\_40: Visualizza pagina statistiche}
 \label{uc_40}
 
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_xx}
-%	\caption{UC_xx: Descrizione}
-%\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_40}
+	\caption{UC\_40: Visualizza pagina statistiche}
+\end{figure}
 
 \begin{itemize}
-	\item \textbf{Attore principale}
-	\item \textbf{Scenario principale}
-	\item \textbf{Precondizioni}
-	\item \textbf{Postcondizioni}
-	\item \textbf{Scenari alternativi}
-	\item \textbf{Inclusioni}
-	\item \textbf{Estensioni}
-	\item \textbf{User Story}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{itemize}
+		\item l'Admin visualizza la sezione statistiche 
+		\item l'Admin visualizza il numero di utenti. $\rightarrow$ Vedi [UC\_40.1, §\ref{uc_40.1}]
+		\item l'Admin visualizza il numero di acquisti completati. $\rightarrow$ Vedi [UC\_40.2, §\ref{uc_40.2}]
+		\item l'Admin visualizza il modello utilizzato. $\rightarrow$ Vedi [UC\_40.3, §\ref{uc_40.3}]
+	\end{itemize}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item il Sistema è online
+		\item l'Admin sta visualizzando la pagina delle performance. $\rightarrow$ Vedi [UC\_25, §\ref{uc_25}]
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item l'Admin sta visualizzando la parte della pagina delle performance dedicata alle statistiche
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item $[$UC\_40.1, §\ref{uc_40.1}$]$
+		\item $[$UC\_40.2, §\ref{uc_40.2}$]$
+		\item $[$UC\_40.3, §\ref{uc_40.3}$]$
+	\end{itemize}
+	\item \textbf{User Story}: l'Admin vuole visualizzare le statistiche della piattaforma
 \end{itemize}
+
+\subsubsubsection{UC\_40.1: Visualizza numero di utenti}
+\label{uc_40.1}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{itemize}
+		\item l'Admin visualizza il numero di utenti.
+	\end{itemize}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item il Sistema è online
+		\item l'Admin sta visualizzando la sezione delle statistiche
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item l'Admin sta visualizzando il numero di utenti nella pagina delle statistiche
+	\end{itemize}
+	\item \textbf{User Story}: l'Admin vuole visualizzare il numero di utenti presenti in quel momento nella piattaforma
+\end{itemize}
+
+\subsubsubsection{UC\_40.2: Visualizza numero di acquisti completati}
+\label{uc_40.2}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{itemize}
+		\item l'Admin visualizza il numero di acquisti completati.
+	\end{itemize}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item il Sistema è online
+		\item l'Admin sta visualizzando la sezione delle statistiche
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item l'Admin sta visualizzando il numero di acquisti completati tramite la piattaforma nella pagina delle statistiche
+	\end{itemize}
+	\item \textbf{User Story}: l'Admin vuole visualizzare il numero di acquisti completati fino a quel momento tramite la piattaforma
+\end{itemize}
+
+\subsubsubsection{UC\_40.3: Visualizza modello utilizzato}
+\label{uc_40.3}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{itemize}
+		\item l'Admin visualizza il modello utilizzato in quel momento.
+	\end{itemize}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item il Sistema è online
+		\item l'Admin sta visualizzando la sezione delle statistiche
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item l'Admin sta visualizzando il modello utilizzato in quel momento
+	\end{itemize}
+	\item \textbf{User Story}: l'Admin vuole visualizzare il modelo utilizzato in quel momento tramite la piattaforma
+\end{itemize}
+

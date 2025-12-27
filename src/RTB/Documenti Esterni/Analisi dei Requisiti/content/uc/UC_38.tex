@@ -1,19 +1,62 @@
-\subsubsection{UC\_38}
+\subsubsection{UC\_38: Duplica ordine}
 \label{uc_38}
 
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_xx}
-%	\caption{UC_xx: Descrizione}
-%\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_38}
+	\caption{UC\_38: Duplica ordine}
+\end{figure}
 
 \begin{itemize}
-	\item \textbf{Attore principale}
-	\item \textbf{Scenario principale}
-	\item \textbf{Precondizioni}
-	\item \textbf{Postcondizioni}
-	\item \textbf{Scenari alternativi}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{itemize}
+		\item l'Utente clicca il tasto per duplicare l'ordine
+		\item l'Utente conferma la duplicazione ordine. $\rightarrow$ Vedi [UC\_38.1, §\ref{uc_38.1}]
+	\end{itemize}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item il Sistema è online
+		\item l'Utente sta visualizzando o la pagina dello storico oppure la pagina di dettaglio ordine
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item il Sistema invia un ordine uguale identico a quello scelto
+	\end{itemize}
+	\item \textbf{Scenari alternativi}:
+	\begin{itemize}
+		\item l'Utente riceve un messaggio di errore duplicazione ordine. $\rightarrow$ Vedi [UC\_39, §\ref{uc_39}]
+	\end{itemize}
 	\item \textbf{Inclusioni}
+	\begin{itemize}
+		\item $[$UC\_38.1, §\ref{uc_38.1}$]$
+	\end{itemize}
 	\item \textbf{Estensioni}
-	\item \textbf{User Story}
+	\begin{itemize}
+		\item $[$UC\_39, §\ref{uc_39}$]$
+	\end{itemize}
+	\item \textbf{User Story}: l'Utente vuole duplicare un ordine specifico, partendo o dalla pagina dello storico ordini oppure partendo dal dettaglio di un ordine specifico
+\end{itemize}
+
+
+\subsubsubsection{UC\_38.1: Conferma duplicazione ordine}
+\label{uc_38.1}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{itemize}
+		\item l'Utente conferma la duplicazione ordine
+	\end{itemize}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item il Sistema è online
+		\item l'Utente sta visualizzando o la pagina dello storico oppure la pagina di dettaglio ordine
+		\item l'Utente clicca il tasto per duplicare l'ordine
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item il Sistema recepisce la conferma di duplicazione ordine e procede a duplicarlo
+	\end{itemize}
+	\item \textbf{User Story}: l'Utente vuole duplicare un ordine specifico, partendo o dalla pagina dello storico ordini oppure partendo dal dettaglio di un ordine specifico
 \end{itemize}
