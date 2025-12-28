@@ -1,0 +1,88 @@
+\subsubsection{UC\_11: Inserimento ordine via immagine}
+\label{uc_11}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_11}
+        \caption{UC\_11: Inserimento ordine via immagine}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+        \begin{itemize}
+            \item L'utente inserisce un ordine tramite immagine
+        \end{itemize}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Il sistema è online
+            \item L'Utente visualizza il pulsante per allegare le immagini
+            \item L'utente visualizza il pulsante d'invio
+        \end{itemize}
+    \item \textbf{Postcondizioni}:
+        \begin{itemize}
+            \item L'immagine viene archiviata
+            \item L'immagine viene inviata all'OCR
+        \end{itemize}
+    \item \textbf{Scenari alternativi}:
+        \begin{itemize}
+            \item L'utente riceve un messaggio di errore per il caricamento dell'immagine. $\rightarrow$ Vedi [UC\_12, §\ref{uc_12}]
+        \end{itemize}
+    \item \textbf{Inclusioni}:
+        \begin{itemize}
+            \item $[$UC\_11.1, §\ref{uc_11.2}$]$
+            \item $[$UC\_11.2, §\ref{uc_11.1}$]$
+        \end{itemize}
+    \item \textbf{Estensioni}:
+    \begin{itemize}
+            \item $[$UC\_12, §\ref{uc_12}$]$
+        \end{itemize}
+    \item \textbf{User Story}: L'Utente vuole inserire un ordine scattando una foto o selezionando un'immagine
+\end{itemize}
+
+
+\subsubsection{UC\_11.1: Scatto foto con fotocamera}
+\label{uc_11.1}
+
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+        \begin{itemize}
+            \item L'Utente ha premuto il pulsante per usare la fotocamera del dispositivo
+        \end{itemize}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item La fotocamera viene attivata
+        \end{itemize}
+    \item \textbf{Postcondizioni}: 
+        \begin{itemize}
+            \item L'immagine viene scattata
+            \item L'immagine viene archiviata
+            \item Il sistema invia l'immagine appena scattata all'OCR   
+        \end{itemize}
+    \item \textbf{User Story}: L'utente vuole inserire un ordine scattando una foto
+\end{itemize}
+
+
+
+\subsubsection{UC\_11.2: Selezionare immagine da dispositivo}
+\label{uc_11.2}
+
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+        \begin{itemize}
+            \item L'Utente ha premuto il pulsante per selezionare un file dal dispositivo
+        \end{itemize}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Viene aperto il dialogo di selezione file del dispositivo
+        \end{itemize}
+    \item \textbf{Postcondizioni}: 
+        \begin{itemize}
+            \item L'immagine viene selezionata
+            \item L'immagine viene archiviata
+            \item Il sistema invia l'immagine appena scattata all'OCR   
+        \end{itemize}
+    \item \textbf{User Story}: L'utente vuole inserire un ordine mediante un'immagine presente nel dispositivo
+\end{itemize}
