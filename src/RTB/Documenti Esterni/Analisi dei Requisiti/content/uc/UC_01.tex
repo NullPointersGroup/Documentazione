@@ -2,7 +2,7 @@
 \label{uc_01}
 \begin{figure}[H]
     \centering 
-    \includegraphics[width=1\textwidth]{AnalisiRequisiti/UC_01.png}
+    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_01.png}
 \end{figure}
 \begin{itemize}
     \item \textbf{Attore Principale}: Cliente
@@ -30,8 +30,13 @@
     \item \textbf{Trigger}: Il cliente vuole registrarsi nel sistema
 \end{itemize}
 
-\subsubsubsection{UC\_01.1: Inserimento Username}
+\subsubsubsection{UC\_01.1: Inserimento username}
 \label{uc_01.1}
+\begin{figure}[H]
+    \centering 
+    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_01.1.png}
+    \caption{Inclusione caso d'uso UC\_01: UC\_01.1}
+\end{figure}
 \begin{itemize}
     \item \textbf{Attore Principale}: Cliente
     \item \textbf{Scenario Principale}:
@@ -76,8 +81,13 @@
     \end{itemize}
 \end{itemize}
 
-\subsubsubsection{UC\_01.2: Inserimento Password}
+\subsubsubsection{UC\_01.2: Inserimento password}
 \label{uc_01.2}
+\begin{figure}[H]
+    \centering 
+    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_01.2.png}
+    \caption{Inclusione caso d'uso UC\_01: UC\_01.2}
+\end{figure}
 \begin{itemize}
     \item \textbf{Attore Principale}: Cliente
     \item \textbf{Scenario Principale}:
@@ -120,8 +130,13 @@
     \end{itemize}
 \end{itemize}
 
-\subsubsubsection{UC\_01.3: Conferma Password}
+\subsubsubsection{UC\_01.3: Conferma password}
 \label{uc_01.3}
+\begin{figure}[H]
+    \centering 
+    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_01.3.png}
+    \caption{Inclusione caso d'uso UC\_01: UC\_01.3}
+\end{figure}
 \begin{itemize}
     \item \textbf{Attore Principale}: Cliente
     \item \textbf{Scenario Principale}:
@@ -163,5 +178,74 @@
     \item \textbf{Post-Condizioni}:
     \begin{itemize}
         \item Messaggio di errore visibile al cliente
+    \end{itemize}
+\end{itemize}
+
+\subsubsubsection{UC\_01.4: Inserimento email}
+\label{uc_01.4}
+\begin{figure}[H]
+    \centering 
+    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_01.4.png}
+    \caption{Inclusione caso d'uso UC\_01: UC\_01.4}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Attore Principale}: Cliente
+    \item \textbf{Scenario Principale}:
+    \begin{itemize}
+        \item Il cliente inserisce la mail che utilizzerà in caso dovesse recuperare la password (vedi UC\_04 $\rightarrow$ \ref{uc_04})
+    \end{itemize}
+    \item \textbf{Pre-Condizioni}:
+    \begin{itemize}
+        \item Il sistema è attivo
+        \item Il cliente non è registrato nel sistema
+        \item Il sistema non conosce l'email
+    \end{itemize}
+    \item \textbf{Post-Condizioni}:
+    \begin{itemize}
+        \item Email inserita, pronta per essere registrata
+    \end{itemize}
+    \item \textbf{Scenari Alternativi}:
+    \begin{itemize}
+        \item Il cliente ha inserito una email non valida
+        \item Il cliente ha inserito una email già presente nel sistema
+    \end{itemize}
+    \item \textbf{Estensioni}:
+    \begin{itemize}
+        \item UC\_01.4.1 (\ref{uc_01.4.1})
+        \item UC\_01.4.2 (\ref{uc_01.4.2})
+    \end{itemize}
+    \item \textbf{Trigger}: Il cliente vuole registrarsi nel sistema
+\end{itemize}
+
+\subsubsubsubsection{UC\_01.4.1: Email non valida}
+\label{uc_01.4.1}
+\begin{itemize}
+    \item \textbf{Attore Principale}: Cliente
+    \item \textbf{Pre-Condizioni}:
+    \begin{itemize}
+        \item Il sistema è attivo
+        \item Il cliente non è registrato nel sistema
+        \item Il cliente ha inserito una email in un formato non corretto
+    \end{itemize}
+    \item \textbf{Post-Condizioni}:
+    \begin{itemize}
+        \item Messaggio visibile al cliente 
+    \end{itemize}
+\end{itemize}
+
+
+\subsubsubsubsection{UC\_01.4.2: Email già presente}
+\label{uc_01.4.2}
+\begin{itemize}
+    \item \textbf{Attore Principale}: Cliente
+    \item \textbf{Pre-Condizioni}:
+    \begin{itemize}
+        \item Il sistema è attivo
+        \item Il cliente non è registrato nel sistema
+        \item Il cliente ha inserito una email già presente nel sistema
+    \end{itemize}
+    \item \textbf{Post-Condizioni}:
+    \begin{itemize}
+        \item Messaggio visibile al cliente 
     \end{itemize}
 \end{itemize}
