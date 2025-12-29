@@ -1,14 +1,23 @@
-\subsubsection{UC\_46 Visualizzare FAQ}
-\label{UC_46}
+\subsubsection{UC\_46 Consultare i comandi disponibili}
+\label{uc_46}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_46.png}
-    \caption{UC\_46: Visualizzare FAQ}
+    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_46.pdf}
+    \caption{UC\_46: Consultare i comandi disponibili}
 \end{figure}
 \begin{itemize}
     \item Attore principale: Utente
-    \item Scenario principale: Viene aperta la pagina dedicata alle FAQ (Frequently Asked Questions). 
-    \item Pre Condizioni: Pagina "FAQ" esistente.
-    \item Post Condizioni: Pagina "FAQ" visualizzata.
-    \item User Story: Un utente desidera visualizzare le FAQ. 
+    \item Scenario principale: 
+        \begin{enumerate}
+            \item Viene visualizzato un elenco dei comandi attualmente supportati, che l'Utente può svolgere
+        \end{enumerate}
+    \item Pre Condizioni: 
+        \begin{itemize}
+            \item Utente ha accesso alla chat
+        \end{itemize}
+    \item Post Condizioni: 
+        \begin{itemize}
+            \item Menù dei comandi visualizzato con un menù a comparsa sopra la chat
+        \end{itemize}
+    \item User Story: Un Utente vuole visualizzare l'elenco dei comandi che attualmente può eseguire
 \end{itemize}

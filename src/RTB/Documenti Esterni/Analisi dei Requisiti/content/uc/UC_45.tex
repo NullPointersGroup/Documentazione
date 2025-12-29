@@ -1,14 +1,24 @@
-\subsubsection{UC\_45 Visualizzare manuale utente}
-\label{UC_45}
+\subsubsection{UC\_45 Visualizzare elenco dei comandi con spiegazione nella chat}
+\label{uc_45}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_45.png}
-    \caption{UC\_45: Visualizzare manuale utente}
+    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_45.pdf}
+    \caption{UC\_45: Visualizzare elenco dei comandi con spiegazione nella chat}
 \end{figure}
 \begin{itemize}
     \item Attore principale: Utente
-    \item Scenario principale: Viene aperta la pagina dedicata al manuale utente. 
-    \item Pre Condizioni: Pagina "Manuale Utente" esistente
-    \item Post Condizioni: Pagina "Manuale Utente" visualizzata
-    \item User Story: Un utente desidera visualizzare il manuale utente. 
+    \item Scenario principale: 
+        \begin{enumerate}
+            \item Viene visualizzato l'elenco dei comandi, con la relativa spiegazione, nella chat digitando "/comandi"
+        \end{enumerate}
+    \item Pre Condizioni: 
+        \begin{itemize}
+            \item Sistema online
+            \item È permesso scrivere nella chat
+        \end{itemize}
+    \item Post Condizioni:
+        \begin{itemize}
+            \item Elenco dei comandi con spiegazione visualizzata nella chat
+        \end{itemize}
+    \item User Story: Un Utente digita "/comandi" nella chat
 \end{itemize}
