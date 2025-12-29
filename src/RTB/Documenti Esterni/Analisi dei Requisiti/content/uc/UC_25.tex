@@ -1,0 +1,77 @@
+\subsubsection{UC\_25: Visualizza statistiche}
+\label{uc_25}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_25}
+	\caption{UC\_25: Visualizza statistiche}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin accede alla pagina web di monitoraggio delle performance
+		\item L'Admin visualizza durata media di risposta del chatbot $\rightarrow$ \hyperref[uc_25.1]{UC\_25.1}
+		\item L'Admin visualizza durata media di permanenza nella web-app $\rightarrow$ \hyperref[uc_25.2]{UC\_25.2}
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item L'Utente è autenticato come Admin.
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item La dashboard delle statistiche viene visualizzata.
+	\end{itemize}
+	\item \textbf{Scenari alternativi}:
+	\begin{itemize}
+		\item Selezione filtro per data $\rightarrow$ Vedi \hyperref[uc_36.1.2]{UC\_36.1.2}
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_40]{UC\_40} $\rightarrow$ Visualizza pagina delle performance
+		\item \hyperref[uc_25.1]{UC\_25.1} $\rightarrow$ Visualizza durata media di risposta del chatbot
+		\item \hyperref[uc_25.2]{UC\_25.2} $\rightarrow$ Visualizza durata media di permanenza nella web-app
+	\end{itemize}
+	\item \textbf{Estensioni}:
+	\begin{itemize}
+		\item \hyperref[uc_36.1.2]{UC\_36.1.2}
+	\end{itemize}
+	\item \textbf{User Story}: l'Admin deve poter visualizzare le metriche di utilizzo del sistema, per valutarne le prestazioni e l'engagement degli utenti.
+\end{itemize}
+
+\subsubsubsection{UC\_25.1: Visualizza durata media di risposta del chatbot}
+\label{uc_25.1}
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin visiona nella dashboard la durata media di risposta del chatbot
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item L'Admin visiona la dashboard delle performance
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item L'Admin visiona la durata media di risposta del chatbot
+	\end{itemize}
+\end{itemize}
+
+\subsubsubsection{UC\_25.2: Visualizza durata media di permanenza nella web-app}
+\label{uc_25.2}
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin visiona nella dashboard la durata media di permanenza degli utenti nella web-app
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item L'Admin visiona la dashboard delle performance
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item L'Admin visiona la durata media di permanenza nella web-app
+	\end{itemize}
+\end{itemize}

@@ -1,0 +1,61 @@
+\subsubsection{UC\_21: Gestione ambiguità prodotto}
+\label{uc_21}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_21&UC_22}
+	\caption{UC\_21: Gestione ambiguità prodotto}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item All'Utente vengono segnalate le ambiguità rilevate dal chatbot 
+		\item L'Utente specifica il prodotto corretto
+		\item L'Utente riceve conferma dell'aggiornamento dell'ordine $\rightarrow$ Vedi \hyperref[uc_21.1]{UC\_21.1}
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item L'utente vuole aggiungere uno o più prodotti all'ordine tramite una forma di input
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item I dati dell'ordine vengono aggiornati e reinviati alla pipeline per la prosecuzione dell'elaborazione
+	\end{itemize}
+	\item \textbf{Scenari alternativi}:
+	\begin{itemize}
+		\item L'utente può decidere di uscire dalla disambiguazione annullandola. $\rightarrow$ Vedi \hyperref[uc_22]{UC\_22}
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_21.1]{UC\_21.1} $\rightarrow$ Visualizza conferma aggiunta articoli
+	\end{itemize}
+	\item \textbf{Estensioni}:
+	\begin{itemize}
+		\item \hyperref[uc_22]{UC\_22}
+	\end{itemize}
+	\item \textbf{User Story}: l'utente, quando effettua una richiesta che risulta ambigua al chatbot, deve risolvere l'ambiguità su proposta del chatbot
+\end{itemize}
+
+\subsubsubsection{UC\_21.1: Visualizza conferma aggiunta articoli}
+\label{uc_21.1}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Utente risolve la disambiguazione
+		\item Il sistema mostra all’utente un messaggio di conferma dell’avvenuta aggiunta dei prodotti al carrello
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item L'Utente ha riformulato l'input (\hyperref[uc_21]{UC\_21}).
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item L'Utente visualizza la conferma dell'aggiunta degli articoli nel carrello
+	\end{itemize}
+	\item \textbf{User Story}: l'Utente ricevere una conferma visiva che gli articoli sono stati aggiunti al carrello
+\end{itemize}

@@ -1,0 +1,31 @@
+\subsubsection{UC\_28: Inizio nuova chat}
+\label{uc_28}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_28}
+	\caption{UC\_28: Inizio nuova chat}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{itemize}
+		\item L'Utente visualizza il pulsante per iniziare una nuova chat
+		\item L'Utente accetta l'inizio di una nuova chat premendo il pulsante
+		\item L'Utente visualizza una nuova sessione di chat
+	\end{itemize}
+	\item \textbf{Scenari alternativi}:
+	\begin{itemize}
+		\item L'Utente decide di non iniziare una nuova chat, la sessione corrente rimane attiva
+	\end{itemize}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item L'Utente ha confermato l'invio di un ordine (\hyperref[uc_26]{UC\_26})
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item L'Utente visualizza una nuova chat con contesto resettato.
+	\end{itemize}
+	\item \textbf{User Story}: l'Utente, dopo aver completato un ordine, deve poter ricominciare da zero con una nuova chat
+\end{itemize}

@@ -1,0 +1,35 @@
+\subsubsection{UC\_15: Aggiunta articoli al carrello}
+\label{uc_15}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_15}
+        \caption{UC\_15: Aggiunta articoli al carrello}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+        \begin{itemize}
+            \item L'Utente inserisce un ordine tramite input testuale
+            \item L'Utente inserisce un ordine tramite immagine
+            \item L'Utente inserisce un ordine tramite audio
+        \end{itemize}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Il sistema è online
+            \item L'Utente ha effettuato l’accesso al sistema
+        \end{itemize}
+    \item \textbf{Postcondizioni}:
+        \begin{itemize}
+            \item Gli articoli vengono aggiunti al carrello
+        \end{itemize}
+    \item \textbf{Scenari alternativi}:
+        \begin{itemize}
+            \item L'utente riceve un messaggio di errore di aggiunta articolo al carrello. $\rightarrow$ Vedi [UC\_16, §\ref{uc_16}]
+        \end{itemize}
+    \item \textbf{Estensioni}:
+    \begin{itemize}
+            \item $[$UC\_16, §\ref{uc_16}$]$
+        \end{itemize}
+    \item \textbf{User Story}: L'utente vuole aggiungere degli articoli al carrello
+\end{itemize}

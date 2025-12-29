@@ -1,0 +1,79 @@
+\subsubsection{UC\_29: Esportare log}
+\label{uc_29}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_29}
+	\caption{UC\_29: Esportare log}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin clicca il bottone relativo all'esportazione dei log
+		\item L'Admin visualizza il file esportato in formato JSON
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item L'Admin è autenticato
+		\item Sono presenti log esportabili
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item File in formato JSON è esportato e reso disponibile all'Admin
+	\end{itemize}
+	\item \textbf{Scenari alternativi}:
+	\begin{itemize}
+		\item Esportazione log filtrato per data $\rightarrow$ Vedi \hyperref[uc_29.1]{UC\_29.1}
+		\item Esportazione log filtrato per cliente $\rightarrow$ Vedi \hyperref[uc_29.2]{UC\_29.2}
+	\end{itemize}
+	\item \textbf{Estensioni}:
+	\begin{itemize}
+		\item \hyperref[uc_29.1]{UC\_29.1}
+		\item \hyperref[uc_29.2]{UC\_29.2}
+	\end{itemize}
+	\item \textbf{User Story}: l'Admin deve poter esportare i log delle attività, per poterli analizzare con strumenti esterni.
+\end{itemize}
+
+\subsubsubsection{UC\_29.1: Esportare log filtrato per data}
+\label{uc_29.1}
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin seleziona un periodo di date
+		\item L'Admin clicca il bottone relativo all'esportazione dei log
+		\item L'Admin visualizza il file esportato in formato JSON
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item L'Admin è autenticato
+		\item Sono presenti log esportabili
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Viene esportato un file JSON contenente solo i log relativi al periodo selezionato
+	\end{itemize}
+\end{itemize}
+
+\subsubsubsection{UC\_29.2: Esportazione log filtrato per cliente}
+\label{uc_29.2}
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin imposta il filtro relativo al cliente
+		\item L'Admin clicca il bottone relativo all'esportazione dei log
+		\item L'Admin visualizza il file esportato in formato JSON
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item L'Admin è autenticato
+		\item Sono presenti log esportabili
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Viene esportato un file JSON contenente solo i log relativi al cliente selezionato
+	\end{itemize}
+\end{itemize}

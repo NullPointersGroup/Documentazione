@@ -1,0 +1,21 @@
+\subsubsection{UC\_27: Visualizza errore per tentato invio di ordine nullo}
+\label{uc_27}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Utente tenta di inviare l'ordine con comando \texttt{/invio}.
+		\item L'Utente visualizza un messaggio di errore che lo informa dell'impossibilità di procedere perché il carrello è vuoto.
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il carrello è vuoto.
+		\item L'Utente digita il comando \texttt{/invio}.
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Viene visualizzato un messaggio di errore per mancanza di articoli nel carrello.
+	\end{itemize}
+	\item \textbf{User Story}: l'Utente deve ricevere un messaggio di errore nel caso in cui cercasse di inviare un ordine nullo
+\end{itemize}
