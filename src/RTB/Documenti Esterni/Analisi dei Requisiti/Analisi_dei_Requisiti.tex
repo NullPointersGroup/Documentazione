@@ -65,6 +65,72 @@
   \renewcommand{\footrulewidth}{0.4pt}
 }
 
+% --- Creazione livello 4 (subsubsubsection) ---
+\usepackage{titlesec}
+
+\titleclass{\subsubsubsection}{straight}[\subsubsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}
+
+\titleformat{\subsubsubsection}
+{\normalfont\normalsize\bfseries}
+{\thesubsubsubsection}{0.5em}{}
+
+\titlespacing*{\subsubsubsection}{0pt}{1ex}{1ex}
+
+% --- Registrazione livello 4 per tocloft ---
+\makeatletter
+\newcommand{\l@subsubsubsection}{\@dottedtocline{4}{6.0em}{3.7em}}
+\makeatother
+
+% --- Toc depth ---
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% --- Creazione livello 5 (subsubsubsubsection) 
+\titleclass{\subsubsubsubsection}{straight}[\subsubsubsection]
+
+\newcounter{subsubsubsubsection}[subsubsubsection]
+\renewcommand{\thesubsubsubsubsection}{\thesubsubsubsection.\arabic{subsubsubsubsection}}
+
+\titleformat{\subsubsubsubsection}
+{\normalfont\normalsize\bfseries}
+{\thesubsubsubsubsection}{0.5em}{}
+
+\titlespacing*{\subsubsubsubsection}{0pt}{1ex}{1ex}
+
+% --- Registrazione livello 5 per tocloft ---
+\makeatletter
+\newcommand{\l@subsubsubsubsection}{\@dottedtocline{5}{8.5em}{4em}}
+\makeatother
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+% --- Creazione livello 6 (subssubsubsubsubsection) 
+\let\subsubsubsubsubsection\relax
+\titleclass{\subsubsubsubsubsection}{straight}[\subsubsubsubsection]
+
+\newcounter{subsubsubsubsubsection}[subsubsubsubsection]
+\renewcommand{\thesubsubsubsubsubsection}
+{\thesubsubsubsubsection.\arabic{subsubsubsubsubsection}}
+
+\titleformat{\subsubsubsubsubsection}
+{\normalfont\normalsize\bfseries}
+{\thesubsubsubsubsubsection}{0.5em}{}
+
+\titlespacing*{\subsubsubsubsubsection}{0pt}{1ex}{1ex}
+
+\makeatletter
+\newcommand{\l@subsubsubsubsubsection}{\@dottedtocline{6}{13em}{4.5em}}
+\makeatother
+
+
+\setcounter{secnumdepth}{6}
+\setcounter{tocdepth}{6}
+
+
 %struttura
 \begin{document}
 \thispagestyle{firstpage} % Copertina con solo piè di pagina

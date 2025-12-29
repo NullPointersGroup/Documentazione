@@ -1,0 +1,91 @@
+\subsubsection{UC\_23: Fornire feedback all'AI}
+\label{uc_23}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_23}
+	\caption{UC\_23: Fornire feedback all'AI}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Utente, tramite il pulsante affianco alla risposta, apre il form per la compilazione del feedback
+		\item L'Utente compila il campo tipologia del feedback $\rightarrow$ Vedi \hyperref[uc_23.1]{UC\_23.1}
+		\item L'Utente comopila il campo descrizione del feedback $\rightarrow$ Vedi \hyperref[uc_23.2]{UC\_23.2}
+        \item L'Utente invia il feedback $\rightarrow$ Vedi \hyperref[uc_23.3]{UC\_23.3}
+        \item L'Utente riceve conferma dell'invio del feedback
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item L'Utente ha ricevuto una risposta dal chatbot AI
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item L'Utente invia il feedback e riceve conferma
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_23.1]{UC\_23.1} $\rightarrow$ Compilazione campo tipologia
+		\item \hyperref[uc_23.2]{UC\_23.2} $\rightarrow$ Compilazione campo descrizione
+		\item \hyperref[uc_23.3]{UC\_23.3} $\rightarrow$ Invio feedback
+	\end{itemize}
+	\item \textbf{User Story}: l'Utente deve poter valutare le risposte del chatbot tramite feedback, per contribuire a migliorarne l'accuratezza
+\end{itemize}
+
+\subsubsubsection{UC\_23.1: Inserimento tipologia feedback}
+\label{uc_23.1}
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Utente compila il campo relativo alla tipologia del feedback
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il modulo di feedback è aperto e il campo tipologia visibile all'Utente
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il campo tipologia del feedback è compilato
+	\end{itemize}
+\end{itemize}
+
+\subsubsubsection{UC\_23.2: Inserimento descrizione feedback}
+\label{uc_23.2}
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Utente compila il campo descrizione del feedback
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il modulo di feedback è aperto e il campo descrizione visibile all'Utente
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il campo descrizione del feedback è compilato
+	\end{itemize}
+\end{itemize}
+
+\subsubsubsection{UC\_23.3: Invio feedback}
+\label{uc_23.3}
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Utente preme il pulsante di invio del feedback
+		\item L'Utente visiona la conferma dell'invio del feedback
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il modulo di feedback è compilato
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il feedback viene inviato al Sistema e l'Utente riceve una conferma dell'avvenuto invio
+	\end{itemize}
+\end{itemize}

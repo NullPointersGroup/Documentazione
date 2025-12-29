@@ -1,0 +1,21 @@
+\subsubsection{UC\_22: Annullamento disambiguazione}
+\label{uc_22}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Utente decide di annullare il processo di disambiguazione
+		\item L'Utente visiona un messaggio di conferma per l'interruzione del processo di disambiguazione
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il processo di disambiguazione (\hyperref[uc_21]{UC\_21}) è attivo
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il processo di disambiguazione viene annullato
+		\item L'ordine rimane nello stato precedente all'ambiguità
+	\end{itemize}
+	\item \textbf{User Story}: l'Utente durante la chiarificazione di un prodotto ambiguo, ha la possibilità di annullare l'operazione di disambiguazione
+\end{itemize}
