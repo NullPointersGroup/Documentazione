@@ -1,0 +1,104 @@
+\subsubsection{UC\_26: Invio Ordine}
+\label{uc_26}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_26&UC_27}
+	\caption{UC\_26: Invio Ordine}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Utente digita il comando \texttt{/invio} nella chat per confermare l'ordine
+		\item L'Utente visiona il riepilogo dell'ordine $\rightarrow$ \hyperref[uc_26.1]{UC\_26.1}
+		\item L'Utente conferma l'invio dell'ordine $\rightarrow$ \hyperref[uc_26.2]{UC\_26.2}
+		\item L'Utente visualizza la conferma dell'acquisto
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il carrello dell'Utente non è vuoto
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item L'ordine viene confermato e inserito nello storico
+		\item L'Utente riceve conferma dell'invio
+	\end{itemize}
+	\item \textbf{Scenari alternativi}:
+	\begin{itemize}
+		\item Annullamento ordine a procedura avviata $\rightarrow$ \hyperref[uc_26.3]{UC\_26.3}
+		\item Tentativo di invio di un ordine nullo $\rightarrow$ \hyperref[uc_27]{UC\_27}
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_26.1]{UC\_26.1} $\rightarrow$ Visualizza riepilogo ordine
+		\item \hyperref[uc_26.2]{UC\_26.2} $\rightarrow$ Conferma ordine $\rightarrow$ 
+	\end{itemize}
+	\item \textbf{Estensioni}:
+	\begin{itemize}
+		\item \hyperref[uc_26.3]{UC\_26.3}
+		\item \hyperref[uc_27]{UC\_27}
+	\end{itemize}
+	\item \textbf{User Story}: l'Utente deve poter confermare e inviare l'ordine con un semplice comando, per completare l'acquisto in modo rapido.
+\end{itemize}
+
+\subsubsubsection{UC\_26.1: Visualizza riepilogo ordine}
+\label{uc_26.1}
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'Utente vede il riepilogo dell'ordine con un numero identificativo.
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
+    \begin{itemize}
+        \item Il carrello non è vuoto.
+        \item L'Utente ha digitato \texttt{/invio}
+    \end{itemize}
+    \item \textbf{Postcondizioni}:
+    \begin{itemize}
+        \item Il riepilogo dell'ordine è visualizzato correttamente.
+    \end{itemize}
+\end{itemize}
+
+\subsubsubsection{UC\_26.2: Conferma ordine}
+\label{uc_26.2}
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'Utente conferma l'invio dell'ordine dal riepilogo.
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
+    \begin{itemize}
+        \item Il carrello non è vuoto.
+        \item Il riepilogo dell'ordine è visualizzato.
+    \end{itemize}
+    \item \textbf{Postcondizioni}:
+    \begin{itemize}
+        \item L'ordine è confermato.
+        \item L'Utente visualizza la conferma dell'invio.
+    \end{itemize}
+\end{itemize}
+
+\subsubsubsection{UC\_26.3: Annullamento ordine}
+\label{uc_26.3}
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'Utente annulla l'ordine tramite comando "annulla".
+        \item L'Utente visiona un messaggio di conferma di annullamento dell'invio dell'ordine
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
+    \begin{itemize}
+        \item Il carrello non è vuoto.
+        \item Il riepilogo dell'ordine è visualizzato.
+    \end{itemize}
+    \item \textbf{Postcondizioni}:
+    \begin{itemize}
+        \item L'ordine non viene inviato.
+        \item Il contenuto del carrello rimane invariato.
+    \end{itemize}
+\end{itemize}

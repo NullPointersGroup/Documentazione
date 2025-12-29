@@ -1,0 +1,36 @@
+\subsubsection{UC\_19: Visualizza anteprima ordine}
+\label{uc_19}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_19&UC_20}
+	\caption{UC\_19: Visualizza anteprima ordine}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Utente digita il comando testuale \verb|/carrello| nella chat
+		\item L'Utente visualizza il riepilogo del carrello
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il Sistema è online
+		\item La sessione chat dell'Utente è attiva
+		\item Sono presenti articoli nel carrello
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item L'Utente visualizza correttamente l'anteprima del proprio carrello
+	\end{itemize}
+	\item \textbf{Scenari alternativi}:
+	\begin{itemize}
+		\item Il carrello è vuoto, l'Utente visualizza un messaggio di avviso specifico. $\rightarrow$ Vedi \hyperref[uc_20]{UC\_20}
+	\end{itemize}
+	\item \textbf{Estensioni}:
+	\begin{itemize}
+		\item \hyperref[uc_20]{UC\_20}
+	\end{itemize}
+    \item \textbf{User Story}: l'Utente vuole visualizzare il riepilogo dell'ordine corrente, per effettuare modifiche o per verificarne il contenuto prima di procedere all'invio
+\end{itemize}
