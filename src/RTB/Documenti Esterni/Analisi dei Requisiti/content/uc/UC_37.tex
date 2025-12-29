@@ -1,44 +1,44 @@
 \subsubsection{UC\_37: Visualizza dettaglio ordine}
 \label{uc_37}
 
-L'UC\_37 ha 3 ulteriori inclusioni indicate in figura.
+L'UC\_37 ha 3 ulteriori inclusioni indicate in figura
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_37}
-	\caption{UC\_37: Visualizza dettaglio ordine }
+	\caption{Inclusioni UC\_37: UC\_37.1, UC\_37.2, UC\_37.3}
 \end{figure}
 
 \begin{itemize}
 	\item \textbf{Attore principale}: Utente
 	\item \textbf{Scenario principale}:
-	\begin{itemize}
-		\item l'Utente clicca su un ordine specifico
-		\item l'Utente visualizza i dettagli di un ordine specifico
-		\item l'Utente visualizza il Cliente dell'ordine specifico. $\rightarrow$ Vedi [UC\_37.1, §\ref{uc_37.1}]
-		\item L'Utente visualizza i prodotti dell'ordine specifico. $\rightarrow$ Vedi [UC\_37.2, §\ref{uc_37.2}]
-		\item l'Utente visualizza la data dell'ordine specifico. $\rightarrow$ Vedi [UC\_37.3, §\ref{uc_37.3}]
-	\end{itemize}
+	\begin{enumerate}
+		\item L'Utente clicca su un ordine specifico
+		\item L'Utente visualizza i dettagli di un ordine specifico
+		\item L'Utente visualizza il Cliente dell'ordine specifico $\rightarrow$ Vedi \hyperref[uc_37.1]{UC\_37.1}
+		\item L'Utente visualizza i prodotti dell'ordine specifico $\rightarrow$ Vedi \hyperref[uc_37.2]{UC\_37.2}
+		\item L'Utente visualizza la data dell'ordine specifico $\rightarrow$ Vedi \hyperref[uc_37.3]{UC\_37.3}
+	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item il Sistema è online
-		\item l'Utente sta visualizzando la pagina dello storico ordini
+		\item Il sistema è online
+		\item L'Utente sta visualizzando la pagina dello storico ordini
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item il Sistema mostra la pagina dedicata alla visualizzazione di un ordine
+		\item Il sistema mostra la pagina dedicata alla visualizzazione di un ordine
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
-		\item $[$UC\_37.1, §\ref{uc_37.1}$]$
-		\item $[$UC\_37.2, §\ref{uc_37.2}$]$
-		\item $[$UC\_37.3, §\ref{uc_37.3}$]$
+		\item \hyperref[uc_37.1]{UC\_37.1}
+		\item \hyperref[uc_37.2]{UC\_37.2}
+		\item \hyperref[uc_37.3]{UC\_37.3}
 	\end{itemize}
 	\item \textbf{Estensioni}:
 	\begin{itemize}
-		\item $[$UC\_38, §\ref{uc_38}$]$
+		\item \hyperref[uc_38]{UC\_38}
 	\end{itemize}
-	\item \textbf{User Story}: l'Utente vuole visualizzare i dettagli di un ordine specifico
+	\item \textbf{User Story}: L'Utente vuole visualizzare i dettagli di un ordine specifico
 \end{itemize}
 
 \subsubsubsection{UC\_37.1: Visualizza Cliente}
@@ -47,19 +47,19 @@ L'UC\_37 ha 3 ulteriori inclusioni indicate in figura.
 \begin{itemize}
 	\item \textbf{Attore principale}: Utente
 	\item \textbf{Scenario principale}:
-	\begin{itemize}
-		\item l'Utente sta visualizzando il Cliente di quell'ordine
-	\end{itemize}
+	\begin{enumerate}
+		\item L'Utente sta visualizzando il Cliente di quell'ordine
+	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item il Sistema è online
-		\item l'Utente sta visualizzando i dettagli di un ordine specifico
+		\item Il sistema è online
+		\item L'Utente sta visualizzando i dettagli di un ordine specifico
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item il Sistema sta mostrando il Cliente di quell'ordine
+		\item Il sistema sta mostrando il Cliente di quell'ordine
 	\end{itemize}
-	\item \textbf{User Story}: l'Utente vuole visualizzare il Cliente nella pagina dei dettagli di un ordine specifico
+	\item \textbf{User Story}: L'Utente vuole visualizzare il Cliente nella pagina dei dettagli di un ordine specifico
 \end{itemize}
 
 \subsubsubsection{UC\_37.2: Visualizza prodotti}
@@ -68,26 +68,26 @@ L'UC\_37 ha 3 ulteriori inclusioni indicate in figura.
 \begin{itemize}
 	\item \textbf{Attore principale}: Utente
 	\item \textbf{Scenario principale}:
-	\begin{itemize}
-		\item l'Utente sta visualizzando i prodotti di quell'ordine
-		\item l'Utente visualizza il nome dei prodotti. $\rightarrow$ Vedi [UC\_37.2.1, §\ref{uc_37.2.1}]
-		\item l'Utente sta visualizzando la descrizione dei prodotti. $\rightarrow$ Vedi [UC\_37.2.2, §\ref{uc_37.2.1}]
-	\end{itemize}
+	\begin{enumerate}
+		\item L'Utente sta visualizzando i prodotti di quell'ordine
+		\item L'Utente visualizza il nome dei prodotti $\rightarrow$ Vedi \hyperref[uc_37.2.1]{UC\_37.2.1}
+		\item L'Utente visualizza la descrizione dei prodotti $\rightarrow$ Vedi \hyperref[uc_37.2.2]{UC\_37.2.2}
+	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item il Sistema è online
-		\item l'Utente sta visualizzando i dettagli di un ordine specifico
+		\item Il sistema è online
+		\item L'Utente sta visualizzando i dettagli di un ordine specifico
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item il Sistema sta mostrando i prodotti di quell'ordine
+		\item Il sistema sta mostrando i prodotti di quell'ordine
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
-		\item $[$UC\_37.2.1, §\ref{uc_37.2.1}$]$
-		\item $[$UC\_37.2.2, §\ref{uc_37.2.2}$]$
+		\item \hyperref[uc_37.2.1]{UC\_37.2.1}
+		\item \hyperref[uc_37.2.2]{UC\_37.2.2}
 	\end{itemize}
-	\item \textbf{User Story}: l'Utente vuole visualizzare il Cliente nella pagina dei dettagli di un ordine specifico
+	\item \textbf{User Story}: L'Utente vuole visualizzare i prodotti nella pagina dei dettagli di un ordine specifico
 \end{itemize}
 
 \subsubsubsection{UC\_37.2.1: Visualizza nome prodotti}
@@ -96,20 +96,20 @@ L'UC\_37 ha 3 ulteriori inclusioni indicate in figura.
 \begin{itemize}
 	\item \textbf{Attore principale}: Utente
 	\item \textbf{Scenario principale}:
-	\begin{itemize}
-		\item l'Utente sta visualizzando i prodotti di quell'ordine
-		\item l'Utente visualizza il nome dei prodotti
-	\end{itemize}
+	\begin{enumerate}
+		\item L'Utente visualizza i prodotti di quell'ordine
+		\item L'Utente visualizza il nome dei prodotti
+	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item il Sistema è online
-		\item l'Utente sta visualizzando i dettagli di un ordine specifico
+		\item Il sistema è online
+		\item L'Utente sta visualizzando i dettagli di un ordine specifico
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item il Sistema sta mostrando i prodotti di quell'ordine, comprensivo di nome e descrizione
+		\item Il sistema sta mostrando i prodotti di quell'ordine, comprensivo di nome e descrizione
 	\end{itemize}
-	\item \textbf{User Story}: l'Utente vuole visualizzare i prodotti nella pagina dei dettagli di un ordine specifico
+	\item \textbf{User Story}: L'Utente vuole visualizzare il nome dei prodotti nella pagina dei dettagli di un ordine specifico
 \end{itemize}
 
 \subsubsubsection{UC\_37.2.2: Visualizza descrizione prodotti}
@@ -118,20 +118,42 @@ L'UC\_37 ha 3 ulteriori inclusioni indicate in figura.
 \begin{itemize}
 	\item \textbf{Attore principale}: Utente
 	\item \textbf{Scenario principale}:
-	\begin{itemize}
-		\item l'Utente sta visualizzando i prodotti di quell'ordine
-		\item l'Utente visualizza la descrizione di quei prodotti
-	\end{itemize}
+	\begin{enumerate}
+		\item L'Utente visualizza i prodotti di quell'ordine
+		\item L'Utente visualizza la descrizione di quei prodotti
+	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item il Sistema è online
-		\item l'Utente sta visualizzando i dettagli di un ordine specifico
+		\item Il sistema è online
+		\item L'Utente sta visualizzando i dettagli di un ordine specifico
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item il Sistema sta mostrando i prodotti di quell'ordine, comprensivo di nome e descrizione
+		\item Il sistema sta mostrando i prodotti di quell'ordine, comprensivo di nome e descrizione
 	\end{itemize}
-	\item \textbf{User Story}: l'Utente vuole visualizzare i prodotti nella pagina dei dettagli di un ordine specifico
+	\item \textbf{User Story}: L'Utente vuole visualizzare la descrizione dei prodotti nella pagina dei dettagli di un ordine specifico
+\end{itemize}
+
+\subsubsubsection{UC\_37.2.3: Visualizza quantità prodotti}
+\label{uc_37.2.3}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Utente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Utente visualizza i prodotti di quell'ordine
+		\item L'Utente visualizza la quantità di quei prodotti
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item L'Utente sta visualizzando i dettagli di un ordine specifico
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il sistema sta mostrando i prodotti di quell'ordine, comprensivo di nome, descrizione e quantità
+	\end{itemize}
+	\item \textbf{User Story}: L'Utente vuole visualizzare la quantità dei prodotti nella pagina dei dettagli di un ordine specifico
 \end{itemize}
 
 \subsubsubsection{UC\_37.3: Visualizza data ordine}
@@ -140,17 +162,17 @@ L'UC\_37 ha 3 ulteriori inclusioni indicate in figura.
 \begin{itemize}
 	\item \textbf{Attore principale}: Utente
 	\item \textbf{Scenario principale}:
-	\begin{itemize}
-		\item l'Utente sta visualizzando la data di quell'ordine
-	\end{itemize}
+	\begin{enumerate}
+		\item L'Utente sta visualizzando la data di quell'ordine
+	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item il Sistema è online
-		\item l'Utente sta visualizzando i dettagli di un ordine specifico
+		\item Il sistema è online
+		\item L'Utente sta visualizzando i dettagli di un ordine specifico
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item il Sistema sta mostrando la data di quell'ordine
+		\item Il sistema sta mostrando la data di quell'ordine
 	\end{itemize}
-	\item \textbf{User Story}: l'Utente vuole visualizzare la data nella pagina dei dettagli di un ordine specifico
+	\item \textbf{User Story}: L'Utente vuole visualizzare la data nella pagina dei dettagli di un ordine specifico
 \end{itemize}
