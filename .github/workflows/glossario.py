@@ -83,6 +83,7 @@ def apply_tags_to_text(text: str, patterns: List[Tuple[str, Pattern]], tex_file:
     """
     new_text: str = re.sub(r'\$\^G\$', '', text)
     title_ranges: List[Tuple[int, int]] = []
+    link_ranges: List[Tuple[int, int]] = []
 
     # Sezioni/subsezioni
     for m in re.finditer(r'\\(?:sub)*section\{(.*?)\}', new_text, flags=re.MULTILINE):
@@ -94,8 +95,36 @@ def apply_tags_to_text(text: str, patterns: List[Tuple[str, Pattern]], tex_file:
         start, end = m.start(1), m.end(1)
         title_ranges.append((start, end))
 
+    # \href{URL}
+    for m in re.finditer(r'\\href\s*\{([^}]*)\}', new_text, flags=re.MULTILINE):
+        start, end = m.start(1), m.end(1)
+        link_ranges.append((start, end))
+    
+    # \ref{URL}
+    for m in re.finditer(r'\\ref\s*\{([^}]*)\}', new_text, flags=re.MULTILINE):
+        start, end = m.start(1), m.end(1)
+        link_ranges.append((start, end))
+    
+    # \url{URL} 
+    for m in re.finditer(r'\\(?:url|path)\s*\{([^}]*)\}', new_text, flags=re.MULTILINE):
+        start, end = m.start(1), m.end(1)
+        link_ranges.append((start, end))
+    
+    # \label{etichetta}
+    for m in re.finditer(r'\\label\s*\{([^}]*)\}', new_text, flags=re.MULTILINE):
+        start, end = m.start(1), m.end(1)
+        link_ranges.append((start, end))
+    
+    # \hyperref[ref]
+    for m in re.finditer(r'\\hyperref\s*\[([^\]]*)\]', new_text, flags=re.MULTILINE):
+        start, end = m.start(1), m.end(1)
+        link_ranges.append((start, end))
+
     def in_title(pos: int) -> bool:
         return any(start <= pos < end for start, end in title_ranges)
+    
+    def in_link(pos: int) -> bool:
+        return any(start <= pos < end for start, end in link_ranges)
 
     occupied: List[Tuple[int, int]] = []
     inserts: List[Tuple[int, str, str]] = []
@@ -107,6 +136,8 @@ def apply_tags_to_text(text: str, patterns: List[Tuple[str, Pattern]], tex_file:
         for m in pat.finditer(new_text):
             start, end = m.start(1), m.end(1)
             if in_title(start):
+                continue
+            if in_link(start):
                 continue
             if overlaps(start, end):
                 continue
@@ -121,7 +152,6 @@ def apply_tags_to_text(text: str, patterns: List[Tuple[str, Pattern]], tex_file:
         logging.debug(f"Aggiunto $^G$ a '{matched}' in file {tex_file}")
 
     return new_text
-
 
 def process_all_tex(root_dir: Path, patterns: List[Tuple[str, Pattern]]) -> None:
     for tex_file in root_dir.rglob("*.tex"):
