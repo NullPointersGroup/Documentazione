@@ -32,25 +32,35 @@
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
-		\item \hyperref[uc_26.1]{UC\_26.1} $\rightarrow$ Visualizza riepilogo ordine
-		\item \hyperref[uc_26.2]{UC\_26.2} $\rightarrow$ Conferma ordine $\rightarrow$ 
+		\item \hyperref[uc_26.1]{UC\_26.1}
+		\item \hyperref[uc_26.2]{UC\_26.2}
 	\end{itemize}
 	\item \textbf{Estensioni}:
 	\begin{itemize}
 		\item \hyperref[uc_26.3]{UC\_26.3}
 		\item \hyperref[uc_27]{UC\_27}
 	\end{itemize}
-	\item \textbf{User Story}: l'Utente deve poter confermare e inviare l'ordine con un semplice comando, per completare l'acquisto in modo rapido.
+	\item \textbf{User Story}: L'Utente deve poter confermare e inviare l'ordine con un semplice comando, per completare l'acquisto in modo rapido.
 \end{itemize}
 
 \subsubsubsection{UC\_26.1: Visualizza riepilogo ordine}
 \label{uc_26.1}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_26.1}
+	\caption{Inclusioni UC\_26: UC\_26.1, UC\_26.2, UC\_26.3}
+\end{figure}
+
 \begin{itemize}
     \item \textbf{Attore principale}: Utente
     \item \textbf{Scenario principale}:
     \begin{enumerate}
         \item L'Utente vede il riepilogo dell'ordine con un numero identificativo.
-    \end{enumerate}
+		\item L'Utente visualizza il prezzo dei prodotti presenti nel carrello $\rightarrow$ Vedi \hyperref[uc_26.1.1]{UC\_26.1.1}
+		\item L'Utente visualizza il nome dei prodotti presenti nel carrello $\rightarrow$ Vedi \hyperref[uc_26.1.2]{UC\_26.1.2}
+		\item L'Utente visualizza la quantità dei prodotti presenti nel carrello $\rightarrow$ Vedi \hyperref[uc_26.1.3]{UC\_26.1.3}
+	\end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il carrello non è vuoto.
@@ -60,7 +70,79 @@
     \begin{itemize}
         \item Il riepilogo dell'ordine è visualizzato correttamente.
     \end{itemize}
+    \item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_26.1.1]{UC\_26.1.1}
+		\item \hyperref[uc_26.1.2]{UC\_26.1.2}
+		\item \hyperref[uc_26.1.3]{UC\_26.1.3}
+	\end{itemize}
+    \item \textbf{User Story}:
+	L'Utente vuole inviare l'ordine ma è necessario che prima visioni il riepilogo, comprensivo di nomi, quantità e prezzi degli articoli, per verificarne il contenuto.
 \end{itemize}
+
+\subsubsubsubsection{UC\_26.1.1: Visualizzazione prezzo articolo}
+\label{uc_26.1.1}
+
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'Utente visualizza il prezzo di ciascun articolo presente nell'ordine
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
+    \begin{itemize}
+        \item Il carrello non è vuoto
+        \item L'Utente ha digitato il comando \texttt{/invio}
+        \item L'Utente visualizza il riepilogo dell'ordine
+    \end{itemize}
+    \item \textbf{Postcondizioni}:
+    \begin{itemize}
+        \item Il prezzo dei singoli articoli è visibile all'Utente
+    \end{itemize}
+\end{itemize}
+
+\subsubsubsubsection{UC\_26.1.2: Visualizzazione nome articolo}
+\label{uc_26.1.2}
+
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'Utente visualizza il nome di ciascun articolo presente nell'ordine
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
+    \begin{itemize}
+        \item Il carrello non è vuoto
+        \item L'Utente ha digitato il comando \texttt{/invio}
+        \item L'Utente visualizza il riepilogo dell'ordine
+    \end{itemize}
+    \item \textbf{Postcondizioni}:
+    \begin{itemize}
+        \item Il nome dei singoli articoli è visibile all'Utente
+    \end{itemize}
+\end{itemize}
+
+\subsubsubsubsection{UC\_26.1.3: Visualizzazione quantità articolo}
+\label{uc_26.1.3}
+
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'Utente visualizza la quantità di ciascun articolo presente nell'ordine
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
+    \begin{itemize}
+        \item Il carrello non è vuoto
+        \item L'Utente ha digitato il comando \texttt{/invio}
+        \item L'Utente visualizza il riepilogo dell'ordine
+    \end{itemize}
+    \item \textbf{Postcondizioni}:
+    \begin{itemize}
+        \item La quantità dei singoli articoli è visibile all'Utente
+    \end{itemize}
+\end{itemize}
+
 
 \subsubsubsection{UC\_26.2: Conferma ordine}
 \label{uc_26.2}
