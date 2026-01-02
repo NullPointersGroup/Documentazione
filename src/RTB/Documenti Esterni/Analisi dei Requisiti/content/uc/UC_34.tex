@@ -1,0 +1,34 @@
+\subsubsection{UC\_34: Duplicazione ordine tramite chatbot}
+\label{uc_34}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_34&UC_35}
+	\caption{Inclusioni/Estensioni UC\_34: UC\_35}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente richiede la duplicazione di un ordine tramite chatbot
+		\item Il Sistema duplica l'ordine richiesto
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item È presente un ordine esistente duplicabile
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item È stato creato un nuovo ordine duplicato
+	\end{itemize}
+	\item \textbf{Scenari alternativi}:
+	\begin{itemize}
+		\item Il Sistema non riesce a duplicare l'ordine e mostra un messaggio di errore $\rightarrow$ Vedi \hyperref[uc_35]{UC\_35}
+	\end{itemize}
+	\item \textbf{Estensioni}:
+	\begin{itemize}
+		\item \hyperref[uc_35]{UC\_35}
+	\end{itemize}
+	\item \textbf{User Story}: Il Cliente vuole duplicare un ordine tramite chatbot.
+\end{itemize}

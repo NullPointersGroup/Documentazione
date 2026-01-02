@@ -1,0 +1,25 @@
+\subsubsection{UC\_33: Notifica creazione utente fallita (con spiegazione errore)}
+\label{uc_33}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Sistema rileva che la creazione del nuovo utente non va a buon fine
+		\item Il Sistema mostra una notifica di creazione fallita con spiegazione dell'errore
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item L'Admin ha inviato una richiesta di creazione nuovo utente $\rightarrow$ Vedi \hyperref[uc_32]{UC\_32}
+		\item La creazione utente fallisce
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item La notifica di errore è visualizzata
+	\end{itemize}
+	\item \textbf{Estensioni}:
+	\begin{itemize}
+		\item Estensione di \hyperref[uc_32]{UC\_32}
+	\end{itemize}
+	\item \textbf{User Story}: L'Admin vuole ricevere una notifica di creazione fallita con spiegazione dell'errore.
+\end{itemize}

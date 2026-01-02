@@ -1,0 +1,27 @@
+\subsubsection{UC\_31: Errore scaricamento (JSON)}
+\label{uc_31}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin richiede lo scaricamento dello storico ordini in formato JSON
+		\item Il Sistema rileva un errore nel caricamento dello storico ordini
+		\item Il Sistema mostra un messaggio di errore all'Admin
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il Sistema è online
+		\item L'Admin è autenticato
+		\item L'Admin ha richiesto l'esportazione dello storico ordini $\rightarrow$ Vedi \hyperref[uc_30]{UC\_30}
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Lo scaricamento del file JSON non è completato
+	\end{itemize}
+	\item \textbf{Estensioni}:
+	\begin{itemize}
+		\item Estensione di \hyperref[uc_30]{UC\_30}
+	\end{itemize}
+	\item \textbf{User Story}: L'Admin vuole essere informato in caso di errore nello scaricamento dello storico ordini.
+\end{itemize}

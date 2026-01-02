@@ -1,0 +1,154 @@
+\subsubsection{UC\_30: Esportare storico ordini}
+\label{uc_30}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_30&UC_31}
+	\caption{UC\_30: Esportazione storico ordini (JSON)}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin richiede l'esportazione dello storico ordini in formato JSON
+		\item L'Admin scarica lo storico ordini in formato JSON
+		\item Il Sistema mostra una notifica di download riuscito $\rightarrow$ Vedi \hyperref[uc_30_2]{UC\_30.2}
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il Sistema è online
+		\item L'Admin è autenticato
+		\item Sono presenti ordini esportabili
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item L'Admin ha scaricato un file JSON contenente lo storico ordini
+	\end{itemize}
+	\item \textbf{Scenari alternativi}:
+	\begin{itemize}
+		\item L'Admin applica almeno un filtro prima dell'esportazione $\rightarrow$ Vedi \hyperref[uc_30_1]{UC\_30.1}
+		\item Si verifica un errore nel caricamento dello storico ordini in formato JSON $\rightarrow$ Vedi \hyperref[uc_31]{UC\_31}
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_30_2]{UC\_30.2}
+	\end{itemize}
+	\item \textbf{Estensioni}:
+	\begin{itemize}
+		\item \hyperref[uc_30_1]{UC\_30.1}
+		\item \hyperref[uc_31]{UC\_31}
+	\end{itemize}
+	\item \textbf{User Story}: L'Admin vuole esportare lo storico ordini in formato JSON.
+\end{itemize}
+
+\subsubsubsection{UC\_30.1: Impostazione filtri}
+\label{uc_30_1}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin seleziona almeno un filtro tra quelli disponibili
+		\item Il Sistema esporta lo storico ordini considerando i filtri impostati
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il Sistema è online
+		\item L'Admin è autenticato
+		\item L'Admin ha richiesto l'esportazione dello storico ordini $\rightarrow$ Vedi \hyperref[uc_30]{UC\_30}
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Lo storico ordini esportato rispetta i filtri selezionati
+	\end{itemize}
+	\item \textbf{Generalizzazioni}:
+	\begin{itemize}
+		\item \hyperref[uc_30_1_1]{UC\_30.1.1}
+		\item \hyperref[uc_30_1_2]{UC\_30.1.2}
+		\item \hyperref[uc_30_1_3]{UC\_30.1.3}
+	\end{itemize}
+	\item \textbf{User Story}: L'Admin vuole esportare lo storico ordini applicando dei filtri.
+\end{itemize}
+
+\subsubsubsection{UC\_30.1.1: Selezione filtri per intervallo di date}
+\label{uc_30_1_1}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin seleziona un intervallo di date
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item L'Admin sta impostando i filtri $\rightarrow$ Vedi \hyperref[uc_30_1]{UC\_30.1}
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il filtro per intervallo di date è impostato
+	\end{itemize}
+	\item \textbf{User Story}: L'Admin vuole esportare solo gli ordini compresi in un intervallo di date selezionato.
+\end{itemize}
+
+\subsubsubsection{UC\_30.1.2: Selezione filtri per cliente}
+\label{uc_30_1_2}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin seleziona un cliente
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item L'Admin sta impostando i filtri $\rightarrow$ Vedi \hyperref[uc_30_1]{UC\_30.1}
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il filtro per cliente è impostato
+	\end{itemize}
+	\item \textbf{User Story}: L'Admin vuole esportare lo storico ordini relativo a un cliente specifico.
+\end{itemize}
+
+\subsubsubsection{UC\_30.1.3: Selezione filtri per prodotto}
+\label{uc_30_1_3}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin seleziona un prodotto
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item L'Admin sta impostando i filtri $\rightarrow$ Vedi \hyperref[uc_30_1]{UC\_30.1}
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il filtro per prodotto è impostato
+	\end{itemize}
+	\item \textbf{User Story}: L'Admin vuole esportare solo gli ordini che contengono un prodotto selezionato.
+\end{itemize}
+
+\subsubsubsection{UC\_30.2: Visualizzazione notifica (download riuscito)}
+\label{uc_30_2}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin completa il download dello storico ordini in formato JSON
+		\item Il Sistema mostra una notifica di download riuscito
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item L'Admin ha richiesto l'esportazione dello storico ordini $\rightarrow$ Vedi \hyperref[uc_30]{UC\_30}
+		\item Il Sistema ha generato correttamente il file JSON
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item La notifica di download riuscito è visualizzata
+	\end{itemize}
+	\item \textbf{User Story}: L'Admin vuole ricevere una conferma visiva del download completato correttamente.
+\end{itemize}
