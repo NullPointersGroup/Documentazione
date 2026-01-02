@@ -1,37 +1,39 @@
 \subsubsection{UC\_07: Visualizza informazioni profilo}
 \label{uc_07}
 
-L'UC\_07 ha 2 ulteriori inclusioni indicate in figura.
+L'UC\_07 ha 3 ulteriori inclusioni indicate in figura.
 
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_07}
-        \caption{UC\_07: Visualizza informazioni profilo}
+        \caption{Inclusioni UC\_07: UC\_07.1, UC\_07.2, UC\_07.3}
 \end{figure}
 
 \begin{itemize}
     \item \textbf{Attore principale}: Utente
     \item \textbf{Scenario principale}: 
-            \begin{itemize}
-                \item L'utente accede alla sezione del profilo
-                \item L'utente visualizza il proprio username $\rightarrow$ Vedi [UC\_07.1, §\ref{uc_07.1}]
-                \item L'utente visualizza la propria ragione sociale $\rightarrow$ Vedi [UC\_07.2, §\ref{uc_07.2}]
-            \end{itemize}
+            \begin{enumerate}
+                \item L'Utente accede alla sezione info del proprio profilo
+                \item L'Utente visualizza il proprio username $\rightarrow$ Vedi \hyperref[uc_07.1]{UC\_07.1}
+                \item L'Utente visualizza la propria ragione sociale $\rightarrow$ Vedi \hyperref[uc_07.2]{UC\_07.2}
+                \item L'Utente visualizza il proprio indirizzo email $\rightarrow$ Vedi \hyperref[uc_07.3]{UC\_07.3}
+            \end{enumerate}
     \item \textbf{Precondizioni}:   
             \begin{itemize}
                 \item Il sistema è online
-                \item L'utente è autenticato
+                \item L'Utente è autenticato
             \end{itemize}      
     \item \textbf{Postcondizioni}: 
             \begin{itemize}
-                \item Il sistema mostra una pagina con le informazioni utente
+                \item Il sistema mostra una pagina HTML con le informazioni Utente
             \end{itemize}
     \item \textbf{Inclusioni}: 
             \begin{itemize}
-                \item $[$UC\_07.1, §\ref{uc_07.1}$]$
-		        \item $[$UC\_07.2, §\ref{uc_07.2}$]$
+                \item \hyperref[uc_07.1]{UC\_07.1}
+		        \item \hyperref[uc_07.2]{UC\_07.2}
+		        \item \hyperref[uc_07.3]{UC\_07.3}
             \end{itemize}
-    \item \textbf{User Story}: L'utente vuole visualizzare i propri dati registrati nel sistema
+    \item \textbf{User Story}: L'Utente vuole visualizzare i propri dati registrati nel sistema
 \end{itemize}
 
 \subsubsubsection{UC\_07.1: Visualizza username}
@@ -39,39 +41,54 @@ L'UC\_07 ha 2 ulteriori inclusioni indicate in figura.
 \begin{itemize}
     \item \textbf{Attore principale}: Utente
     \item \textbf{Scenario principale}:
-            \begin{itemize}
-                \item L'utente sta visualizzando il proprio username
-            \end{itemize}
+            \begin{enumerate}
+                \item L'Utente clicca il pulsante per vedere il proprio profilo
+            \end{enumerate}
     \item \textbf{Precondizioni}:
             \begin{itemize}
                 \item Il sistema è online
-                \item L'utente è autenticato
-                \item L'utente sta visualizzando la pagina del profilo
+                \item L'Utente è autenticato
             \end{itemize}      
     \item \textbf{Postcondizioni}:
             \begin{itemize}
-                \item Il sistema mostra l'username dell'utente
+                \item Il sistema mostra l'username dell'Utente
             \end{itemize}
-    \item \textbf{User Story}: L'utente vuole visualizzare il proprio username registrato nel sistema
-\end {itemize}
+\end{itemize}
 
 \subsubsubsection{UC\_07.2: Visualizza ragione sociale}
 \label{uc_07.2}
 \begin{itemize}
     \item \textbf{Attore principale}: Utente
     \item \textbf{Scenario principale}:
-            \begin{itemize}
-                \item L'utente sta visualizzando la propria ragione sociale
-            \end{itemize}
+            \begin{enumerate}
+                \item L'Utente clicca il pulsante per vedere il proprio profilo
+            \end{enumerate}
     \item \textbf{Precondizioni}:
             \begin{itemize}
                 \item Il sistema è online
-                \item L'utente è autenticato
-                \item L'utente sta visualizzando la pagina del profilo
+                \item L'Utente è autenticato
             \end{itemize}      
     \item \textbf{Postcondizioni}:
             \begin{itemize}
-                \item Il sistema mostra la ragione sociale dell'utente
+                \item Il sistema mostra la ragione sociale dell'Utente
             \end{itemize}
-    \item \textbf{User Story}: L'utente vuole visualizzare la ragione sociale registrata nel sistema
-\end {itemize}
+\end{itemize}
+
+\subsubsubsection{UC\_07.3: Visualizza indirizzo email}
+\label{uc_07.3}
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+            \begin{enumerate}
+                \item L'Utente clicca il pulsante per vedere il proprio profilo
+            \end{enumerate}
+    \item \textbf{Precondizioni}:
+            \begin{itemize}
+                \item Il sistema è online
+                \item L'Utente è autenticato
+            \end{itemize}      
+    \item \textbf{Postcondizioni}:
+            \begin{itemize}
+                \item Il sistema mostra l'indirizzo email dell'Utente
+            \end{itemize}
+\end{itemize}

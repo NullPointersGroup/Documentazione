@@ -1,116 +1,125 @@
 \subsubsection{UC\_04: Segnalazione password dimenticata}
 \label{uc_04}
+
 \begin{figure}[H]
     \centering 
-    \includegraphics[width=1\textwidth]{AnalisiRequisiti/UC_04.png}
-    \caption{Estensione caso d'uso UC\_02: UC\_04}
+    \includegraphics[width=1\textwidth]{AnalisiRequisiti/UC_04}
+    \caption{Inclusioni UC\_04: UC\_04.1, UC\_04.2}
 \end{figure}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente 
     \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item L'Utente seleziona l'opzione \vr{Password dimenticata} nel sistema
+        \item L'Utente rieceve una email con la nuova password $\rightarrow$ Vedi \hyperref[uc_04.1]{UC\_04.1}
+        \item L'Utente inserisce l'email di registrazione per recupreare la password $\rightarrow$ Vedi \hyperref[uc_04.2]{UC\_04.2}
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
     \begin{itemize}
-        \item L'utente seleziona l'opzione "Password dimenticata" nel sistema
-    \end{itemize}
-    \item \textbf{Pre-Condizioni}:
-    \begin{itemize}
+        \item Il sistema è online
         \item Utente non autenticato
         \item Accesso alla pagina di login
     \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
         \item Richiesta di recupero password inviata al sistema
     \end{itemize}
     \item \textbf{Inclusioni}:
     \begin{itemize}
-        \item UC\_04.1 (\ref{uc_04.1})
-        \item UC\_04.2 (\ref{uc_04.2})
+        \item \hyperref[uc_04.1]{UC\_04.1}
+        \item \hyperref[uc_04.2]{UC\_04.2}
     \end{itemize}
-    \item \textbf{Trigger}: L'utente vuole ripristinare la propria password
+    \item \textbf{User story}: L'Utente vuole ripristinare la propria password
 \end{itemize}
 
 \subsubsubsection{UC\_04.1: Ricezione email con nuova password}
 \label{uc_04.1}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
     \item \textbf{Scenario Principale}:
-    \begin{itemize}
-        \item L'utente riceve una email nel cui contenuto è presente la nuova password generata autoamticamente dal sistema
-    \end{itemize}
-    \item \textbf{Pre-Condizioni}:
+    \begin{enumerate}
+        \item L'Utente riceve una email nel cui contenuto è presente la nuova password generata autoamticamente dal sistema
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Utente non autenticato
         \item Procedura di recupero password avviata
         \item Email valida inserita
     \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
         \item Email con nuova password ricevuta
         \item Credenziali aggiornate nel sistema
     \end{itemize}
-    \item \textbf{Trigger}: L'utente vuole ripristinare la propria password
+    \item \textbf{User story}: L'Utente vuole ripristinare la propria password
 \end{itemize}
 
 \subsubsubsection{UC\_04.2: Inserimento email di contatto}
 \label{uc_04.2}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
     \item \textbf{Scenario Principale}:
-    \begin{itemize}
-        \item L'utente inserisce la mail con cui si è registrato
-    \end{itemize}
-    \item \textbf{Pre-Condizioni}:
+    \begin{enumerate}
+        \item L'Utente inserisce la mail con cui si è registrato
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Procedura di recupero password avviata
     \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
         \item Email inserita correttamente
     \end{itemize}
     \item \textbf{Scenari Alternativi}:
     \begin{itemize}
-        \item L'utente ha inserito una email non valida
-        \item L'utente ha inserito una email non presente nel sistema
+        \item L'Utente ha inserito una email non valida $\rightarrow$ Vedi \hyperref[uc_04.2.1]{UC\_04.2.1}
+        \item L'Utente ha inserito una email non presente nel sistema $\rightarrow$ Vedi \hyperref[uc_04.2.2]{UC\_04.2.2}
     \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
-        \item UC\_04.2.1 (\ref{uc_04.2.1})
-        \item UC\_04.2.2 (\ref{uc_04.2.2})
+        \item \hyperref[uc_04.2.1]{UC\_04.2.1}
+        \item \hyperref[uc_04.2.2]{UC\_04.2.2}
     \end{itemize}
-    \item \textbf{Trigger}: L'utente vuole ripristinare la password
+    \item \textbf{User story}: L'Utente vuole ripristinare la password
 \end{itemize}
 UC\_04.2 presenta ulteriori due estensioni, come mostrate in figura:
 \begin{figure}[H]
     \centering 
     \includegraphics[width=1\textwidth]{AnalisiRequisiti/UC_04.2.png}
-    \caption{Estensioni caso d'uso UC\_04.2: UC\_04.2.1, UC\_04.2.2}
+    \caption{Estensioni UC\_04.2: UC\_04.2.1, UC\_04.2.2}
 \end{figure}
 
 \subsubsubsubsection{UC\_04.2.1: Email non valida}
 \label{uc_04.2.1}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
-    \item \textbf{Pre-Condizioni}:
+    \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Procedura di recupero password avviata
-        \item L'utente ha inserito una mail in un formato non corretto
+        \item L'Utente ha inserito una mail in un formato non corretto
     \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Messaggio d'errore visibile all'utente
+        \item Messaggio d'errore visibile all'Utente
     \end{itemize}
 \end{itemize}
 
 \subsubsubsubsection{UC\_04.2.2: Email non presente}
 \label{uc_04.2.2}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
-    \item \textbf{Pre-Condizioni}:
+    \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Procedura di recupero password avviata
-        \item L'utente ha inserito una mail non presente nel sistema
+        \item L'Utente ha inserito una mail non presente nel sistema
     \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Messaggio d'errore visibile all'utente
+        \item Messaggio d'errore visibile all'Utente
     \end{itemize}
 \end{itemize}

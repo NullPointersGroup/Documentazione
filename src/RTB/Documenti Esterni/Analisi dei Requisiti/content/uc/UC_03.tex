@@ -1,19 +1,20 @@
 \subsubsection{UC\_03: Autenticazione non riuscita}
 \label{uc_03}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
     \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item Il sistema ha ricevuto lo username e la password che l'Utente vuole usare per autenticarsi, ma non è riuscito a trovare una corrispondenza valida 
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
     \begin{itemize}
-        \item Il sistema ha ricevuto lo username e la password che l'utente vuole usare per autenticarsi, ma non è riuscito a trovare una corrispondenza valida 
+        \item Il sistema è online
+        \item L'Utente non è registrato nel sistema
+        \item L'Utente ha inserito un username non valido oppure ha inserito una password non corretta
     \end{itemize}
-    \item \textbf{Pre-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Il sistema è attivo
-        \item L'utente non è registrato nel Sistema
-        \item L'utente o ha inserito uno username non valido oppure ha inserito una password non corretta
-    \end{itemize}
-    \item \textbf{Post-Condizioni}:
-    \begin{itemize}
-        \item Il messaggio di errore "Username o passowrd errata" diventa visibile all'utente
+        \item Il messaggio di errore \vr{Username o Passowrd errata} diventa visibile all'utente
     \end{itemize}
 \end{itemize}
