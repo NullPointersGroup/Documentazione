@@ -1,81 +1,88 @@
 \subsubsection{UC\_01: Registrazione}
 \label{uc_01}
+
 \begin{figure}[H]
     \centering 
-    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_01.png}
+    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_01}
+    \caption{UC\_01: Registrazione}
 \end{figure}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Cliente
     \item \textbf{Scenario Principale}: 
+    \begin{enumerate}
+        \item Inserimento dello Username $\rightarrow$ Vedi \hyperref[uc_01.1]{UC\_01.1}
+        \item Inserimento della Password $\rightarrow$ Vedi \hyperref[uc_01.2]{UC\_01.2}
+        \item Inserimento della Password nel campo di \vr{conferma password} $\rightarrow$ Vedi \hyperref[uc_01.3]{UC\_01.3}
+        \item Inserimento della email $\rightarrow$ Vedi \hyperref[uc_01.4]{UC\_01.4}
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
     \begin{itemize}
-        \item Inserimento dello Username
-        \item Inserimento della Password
-        \item Inserimento della Password nel campo di "conferma password"
+        \item Il sistema è online
+        \item Il Cliente non è registrato nel sistema
     \end{itemize}
-    \item \textbf{Pre-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Il sistema è attivo
-        \item Il cliente non è registrato nel sistema
-    \end{itemize}
-    \item \textbf{Post-Condizioni}:
-    \begin{itemize}
-        \item Il cliente è ora registrato ed è riconosciuto come tale
+        \item Il Cliente è ora registrato ed è riconosciuto come tale
     \end{itemize}
     \item \textbf{Inclusioni}:
     \begin{itemize}
-        \item UC\_01.1 (\ref{uc_01.1})
-        \item UC\_01.1 (\ref{uc_01.2})
-        \item UC\_01.1 (\ref{uc_01.3})
+        \item \hyperref[uc_01.1]{UC\_01.1}
+        \item \hyperref[uc_01.2]{UC\_01.2}
+        \item \hyperref[uc_01.3]{UC\_01.3}
+        \item \hyperref[uc_01.4]{UC\_01.4}
     \end{itemize}
-    \item \textbf{Trigger}: Il cliente vuole registrarsi nel sistema
+    \item \textbf{User story}: Il Cliente vuole registrarsi nel sistema
 \end{itemize}
 
 \subsubsubsection{UC\_01.1: Inserimento username}
 \label{uc_01.1}
+
 \begin{figure}[H]
     \centering 
-    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_01.1.png}
-    \caption{Inclusione caso d'uso UC\_01: UC\_01.1}
+    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_01.1}
+    \caption{Estensioni UC\_01.1: UC\_01.1.1}
 \end{figure}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Cliente
     \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item Il Cliente inserisce uno username con il quale vuole registrarsi
+    \end{enumerate}
+    \item \textbf{Precondizioni}: 
     \begin{itemize}
-        \item Il cliente inserisce uno username con il quale vuole registrarsi
+        \item Il sistema è online
+        \item Il Cliente non è registrato nel sistema
+        \item Lo username che Il Cliente inserisce non deve essere già presente nel sistema
     \end{itemize}
-    \item \textbf{Pre-Condizioni}: 
-    \begin{itemize}
-        \item Il sistema è attivo
-        \item Il cliente non è registrato nel sistema
-        \item Lo username che Il cliente inserisce non deve essere già presente nel sistema
-
-    \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
         \item Username inserito, pronto per essere registrato
     \end{itemize}
     \item \textbf{Scenari Alternativi}:
     \begin{itemize}
-        \item Il cliente ha inserito uno username esistente
+        \item Il Cliente ha inserito uno username esistente $\rightarrow$ Vedi \hyperref[uc_01.1.1]{UC\_01.1.1}
     \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
-        \item UC\_01.1.1 (\ref{uc_01.1.1})
+        \item \hyperref[uc_01.1.1]{UC\_01.1.1}
     \end{itemize}
-    \item \textbf{Trigger}: Il cliente vuole registrarsi nel sistema
+    \item \textbf{User story}: Il Cliente vuole registrarsi nel sistema
 \end{itemize}
 
 \subsubsubsubsection{UC\_01.1.1: Errore inserimento username}
 \label{uc_01.1.1}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Cliente
-    \item \textbf{Pre-Condizioni}:
+    \item \textbf{Precondizioni}:
     \begin{itemize}
-        \item Il sistema è attivo
-        \item Il cliente non è registrato nel sistema
-        \item Il cliente ha inserito uno username già esistene come proprio username
+        \item Il sistema è online
+        \item Il Cliente non è registrato nel sistema
+        \item Il Cliente ha inserito uno username già esistente come proprio username
     \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
         \item Link HTML per andare alla pagina di login
     \end{itemize}
@@ -83,169 +90,181 @@
 
 \subsubsubsection{UC\_01.2: Inserimento password}
 \label{uc_01.2}
+
 \begin{figure}[H]
     \centering 
-    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_01.2.png}
-    \caption{Inclusione caso d'uso UC\_01: UC\_01.2}
+    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_01.2}
+    \caption{Estensioni UC\_01.2: UC\_01.2.1}
 \end{figure}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Cliente
     \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item Il Cliente inserisce la password, che insieme allo username userà per autenticarsi
+    \end{enumerate}
+    \item \textbf{Precondizioni}: 
     \begin{itemize}
-        \item Il cliente inserisce la password, che insieme allo username userà per autenticarsi
-    \end{itemize}
-    \item \textbf{Pre-Condizioni}: 
-    \begin{itemize}
-        \item Il sistema è attivo
-        \item Il cliente non è registrato nel sistema
+        \item Il sistema è online
+        \item Il Cliente non è registrato nel sistema
         \item Il sistema non conosce la password
     \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
         \item Il sistema riceve la password e ne conserva l'hash
     \end{itemize}
     \item \textbf{Scenari Alternativi}:
     \begin{itemize}
-        \item Il cliente ha inserito una password che non è conforme
+        \item Il Cliente ha inserito una password che non è conforme $\rightarrow$ Vedi \hyperref[uc_01.2.1]{UC\_01.2.1}
     \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
-        \item UC\_01.2.1 (\ref{uc_01.2.1})
+        \item \hyperref[uc_01.2.1]{UC\_01.2.1}
     \end{itemize}
-    \item \textbf{Trigger}: Il cliente vuole registrarsi nel sistema
+    \item \textbf{User story}: Il Cliente vuole registrarsi nel sistema
 \end{itemize}
+
+
 \subsubsubsubsection{UC\_01.2.1: Errore inserimento password}
 \label{uc_01.2.1}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Cliente
-    \item \textbf{Pre-Condizioni}:
+    \item \textbf{Precondizioni}:
     \begin{itemize}
-        \item Il sistema è attivo
-        \item Il cliente non è registrato nel sistema
-        \item Il cliente ha inserito una password e quest'ultima non rispetta i criteri di sicurezza
+        \item Il sistema è online
+        \item Il Cliente non è registrato nel sistema
+        \item Il Cliente ha inserito una password e quest'ultima non rispetta i criteri di sicurezza
     \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Messaggio di errore visibile al cliente
+        \item Messaggio di errore visibile al Cliente
     \end{itemize}
 \end{itemize}
 
 \subsubsubsection{UC\_01.3: Conferma password}
 \label{uc_01.3}
+
 \begin{figure}[H]
     \centering 
-    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_01.3.png}
-    \caption{Inclusione caso d'uso UC\_01: UC\_01.3}
+    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_01.3}
+    \caption{Estensioni UC\_01.3: UC\_01.3.1}
 \end{figure}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Cliente
     \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item Il Cliente inserisce nuovamente la password nel campo \vr{conferma password}
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
     \begin{itemize}
-        \item Il cliente inserisce nuovamente la password nel campo "conferma password"
-    \end{itemize}
-    \item \textbf{Pre-Condizioni}:
-    \begin{itemize}
-        \item Il sistema è attivo
-        \item Il cliente non è registrato nel sistema
+        \item Il sistema è online
+        \item Il Cliente non è registrato nel sistema
         \item Il sistema conosce la password inserita in precedenza
     \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
         \item Password confermata, la registrazione può essere conclusa
     \end{itemize}
     \item \textbf{Scenari Alternativi}:
     \begin{itemize}
-        \item Il cliente ha inserito nel campo "conferma password" una password che non coincide con quella inserita precedentemente
+        \item Il Cliente ha inserito nel campo \vr{conferma password} una password che non coincide con quella inserita precedentemente $\rightarrow$ Vedi \hyperref[uc_01.3.1]{UC\_01.3.1}
     \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
-        \item UC\_01.3.1 (\ref{uc_01.3.1})
+        \item \hyperref[uc_01.3.1]{UC\_01.3.1}
     \end{itemize}
-    \item \textbf{Trigger}: Il cliente vuole registrarsi nel sistema
+    \item \textbf{User story}: Il Cliente vuole registrarsi nel sistema
 \end{itemize}
 
 \subsubsubsubsection{UC\_01.3.1: Errore conferma password}
 \label{uc_01.3.1}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Cliente
-    \item \textbf{Pre-Condizioni}:
+    \item \textbf{Precondizioni}:
     \begin{itemize}
-        \item Il sistema è attivo
-        \item Il cliente non è registrato nel sistema
+        \item Il sistema è online
+        \item Il Cliente non è registrato nel sistema
         \item Il sistema conosce la password inserita in precedenza
-        \item Il cliente ha inserito una password non coincidente con quella inserita precedentemente
+        \item Il Cliente ha inserito una password non coincidente con quella inserita precedentemente
     \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Messaggio di errore visibile al cliente
+        \item Messaggio di errore visibile al Cliente
     \end{itemize}
 \end{itemize}
 
 \subsubsubsection{UC\_01.4: Inserimento email}
 \label{uc_01.4}
+
 \begin{figure}[H]
     \centering 
-    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_01.4.png}
-    \caption{Inclusione caso d'uso UC\_01: UC\_01.4}
+    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_01.4}
+    \caption{Estensioni UC\_01.4: UC\_01.4.1, UC\_01.4.2}
 \end{figure}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Cliente
     \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item Il Cliente inserisce l'email che utilizzerà in caso dovesse recuperare la password $\rightarrow$ Vedi \hyperref[uc_04]{UC\_04}
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
     \begin{itemize}
-        \item Il cliente inserisce la mail che utilizzerà in caso dovesse recuperare la password (vedi UC\_04 $\rightarrow$ \ref{uc_04})
-    \end{itemize}
-    \item \textbf{Pre-Condizioni}:
-    \begin{itemize}
-        \item Il sistema è attivo
-        \item Il cliente non è registrato nel sistema
+        \item Il sistema è online
+        \item Il Cliente non è registrato nel sistema
         \item Il sistema non conosce l'email
     \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
         \item Email inserita, pronta per essere registrata
     \end{itemize}
     \item \textbf{Scenari Alternativi}:
     \begin{itemize}
-        \item Il cliente ha inserito una email non valida
-        \item Il cliente ha inserito una email già presente nel sistema
+        \item Il Cliente ha inserito una email non valida $\rightarrow$ Vedi \hyperref[uc_01.4.1]{UC\_01.4.1}
+        \item Il Cliente ha inserito una email già presente nel sistema $\rightarrow$ Vedi \hyperref[uc_01.4.2]{UC\_01.4.2}
     \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
-        \item UC\_01.4.1 (\ref{uc_01.4.1})
-        \item UC\_01.4.2 (\ref{uc_01.4.2})
+        \item \hyperref[uc_01.4.1]{UC\_01.4.1}
+        \item \hyperref[uc_01.4.2]{UC\_01.4.2}
     \end{itemize}
-    \item \textbf{Trigger}: Il cliente vuole registrarsi nel sistema
+    \item \textbf{User story}: Il Cliente vuole registrarsi nel sistema
 \end{itemize}
 
 \subsubsubsubsection{UC\_01.4.1: Email non valida}
 \label{uc_01.4.1}
-\begin{itemize}
+
+\begin{itemize} 
     \item \textbf{Attore Principale}: Cliente
-    \item \textbf{Pre-Condizioni}:
+    \item \textbf{Precondizioni}:
     \begin{itemize}
-        \item Il sistema è attivo
-        \item Il cliente non è registrato nel sistema
-        \item Il cliente ha inserito una email in un formato non corretto
+        \item Il sistema è online
+        \item Il Cliente non è registrato nel sistema
+        \item Il Cliente ha inserito una email in un formato non corretto
     \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Messaggio visibile al cliente 
+        \item Messaggio di errore visibile al Cliente 
     \end{itemize}
 \end{itemize}
 
 
 \subsubsubsubsection{UC\_01.4.2: Email già presente}
 \label{uc_01.4.2}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Cliente
-    \item \textbf{Pre-Condizioni}:
+    \item \textbf{Precondizioni}:
     \begin{itemize}
-        \item Il sistema è attivo
-        \item Il cliente non è registrato nel sistema
-        \item Il cliente ha inserito una email già presente nel sistema
+        \item Il sistema è online
+        \item Il Cliente non è registrato nel sistema
+        \item Il Cliente ha inserito una email già presente nel sistema
     \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Messaggio visibile al cliente 
+        \item Messaggio di errore visibile al Cliente 
     \end{itemize}
 \end{itemize}

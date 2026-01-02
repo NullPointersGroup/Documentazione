@@ -1,77 +1,90 @@
 \subsubsection{UC\_02: Autenticazione}
 \label{uc_02}
+
 \begin{figure}[H]
     \centering 
-    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_02.png}
+    \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_02}
+    \caption{Inclusioni e Estensioni UC\_02: UC\_02.1, UC\_02.2, UC\_03}
 \end{figure}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
     \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item Inserimento username $\rightarrow$ Vedi \hyperref[uc_02.1]{UC\_02.1}
+        \item Inserimento password $\rightarrow$ Vedi \hyperref[uc_02.2]{UC\_02.2}
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
     \begin{itemize}
-        \item Inserimento username 
-        \item Inserimento password
+        \item Il sistema è online
+        \item L'Utente non è autenticato nel sistema
     \end{itemize}
-    \item \textbf{Pre-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Il sistema è attivo
-        \item L'utente non è autenticato nel sistema
+        \item L'Utente è ora riconosciuto dal sistema
     \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Scenari Alternativi}:
     \begin{itemize}
-        \item L'utente è ora riconosciuto dal sistema
+        \item L'autenzicazione fallisce $\rightarrow$ Vedi \hyperref[uc_03]{UC\_03}
+        \item L'Utente non ricorda le credenziali di accesso $\rightarrow$ Vedi \hyperref[uc_04]{UC\_04}
     \end{itemize}
     \item \textbf{Inclusioni}:
     \begin{itemize}
-        \item UC\_02.1 (\ref{uc_02.1})
-        \item UC\_02.2 (\ref{uc_02.2})
+        \item \hyperref[uc_02.1]{UC\_02.1}
+        \item \hyperref[uc_02.2]{UC\_02.2}
     \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
-        \item UC\_03 (\ref{uc_03})
-        \item UC\_04 (\ref{uc_04})
+        \item \hyperref[uc_03]{UC\_03}
+        \item \hyperref[uc_04]{UC\_04}
     \end{itemize}
-    \item \textbf{Trigger}: L'utente vuole autenticarsi nel sistema
+    \item \textbf{User story}: L'Utente vuole autenticarsi nel sistema
 \end{itemize}
+
+
 \subsubsubsection{UC\_02.1: Inserimento Username}
 \label{uc_02.1}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
     \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item L'Utente inserisce lo username con il quale vuole autenticarsi
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
     \begin{itemize}
-        \item L'utente inserisce lo username con il quale vuole autenticarsi
+        \item Il sistema è online
+        \item L'Utente non è ancora autenticato
+        \item L'Utente ha selezionato dal menù la possibilità di autenticarsi nel sistema 
+        \item Il sistema non conosce lo username dell'Utente
     \end{itemize}
-    \item \textbf{Pre-Condizioni}:
-    \begin{itemize}
-        \item Il sistema è attivo
-        \item L'utente non è ancora autenticato
-        \item L'utente ha selezionato dal menù la possibilità di autenticarsi nel sistema 
-        \item Il sistema non conosce lo username dell'utente
-    \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
         \item Il sistema riceve lo username
     \end{itemize}
-    \item \textbf{Trigger}: L'utente vuole autenticarsi nel sistema
+    \item \textbf{User story}: L'Utente vuole autenticarsi nel sistema
 \end{itemize}
+
 
 \subsubsubsection{UC\_02.2: Inserimento Password}
 \label{uc_02.2}
+
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
     \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item L'Utente inserisce la propria password
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
     \begin{itemize}
-        \item L'utente inserisce la propria password
+        \item Il sistema è online
+        \item L'Utente non è ancora autenticato
+        \item L'Utente ha selezionato dal menù la possibilità di autenticarsi nel sistema 
+        \item Il sistema non conosce la password dell'Utente
     \end{itemize}
-    \item \textbf{Pre-Condizioni}:
-    \begin{itemize}
-        \item Il sistema è attivo
-        \item L'utente non è ancora autenticato
-        \item L'utente ha selezionato dal menù la possibilità di autenticarsi nel sistema 
-        \item Il sistema non conosce la password dell'utente
-    \end{itemize}
-    \item \textbf{Post-Condizioni}:
+    \item \textbf{Postcondizioni}:
     \begin{itemize}
         \item Il sistema riceve la password
     \end{itemize}
-    \item \textbf{Trigger}: L'utente vuole autenticarsi nel sistema
+    \item \textbf{User story}: L'Utente vuole autenticarsi nel sistema
 \end{itemize}

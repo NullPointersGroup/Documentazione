@@ -3,21 +3,23 @@
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_13}
-        \caption{UC\_13: Inserimento ordine via audio}
+        \caption{Inslusioni e Estensioni UC\_13: UC\_13.1, UC\_13.2 e UC\_14}
 \end{figure}
 
 \begin{itemize}
     \item \textbf{Attore principale}: Utente
     \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente inserisce un ordine tramite audio
-        \end{itemize}
+        \begin{enumerate}
+            \item L'Utente inserisce un ordine tramite audio
+            \item L'Utente registra un messaggio audio $\rightarrow$ Vedi \hyperref[uc_13.1]{UC\_13.1}
+            \item L'Utente seleziona un file audio dal dispositivo $\rightarrow$ Vedi \hyperref[uc_13.2]{UC\_13.2}
+        \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
             \item Il sistema è online
             \item L'Utente visualizza il pulsante per allegare i file audio
             \item LUtente visualizza il pulsante per registrare un messaggio audio
-            \item L'utente visualizza il pulsante d'invio
+            \item L'Utente visualizza il pulsante d'invio
         \end{itemize}
     \item \textbf{Postcondizioni}:
         \begin{itemize}
@@ -26,30 +28,30 @@
         \end{itemize}
     \item \textbf{Scenari alternativi}:
         \begin{itemize}
-            \item L'utente riceve un messaggio di errore per il caricamento dell'audio. $\rightarrow$ Vedi [UC\_14, §\ref{uc_14}]
+            \item L'Utente riceve un messaggio di errore per il caricamento dell'audio $\rightarrow$ Vedi \hyperref[uc_14]{UC\_14}
         \end{itemize}
     \item \textbf{Inclusioni}:
         \begin{itemize}
-            \item $[$UC\_13.1, §\ref{uc_13.2}$]$
-            \item $[$UC\_13.2, §\ref{uc_13.1}$]$
+            \item \hyperref[uc_13.1]{UC\_13.1}
+            \item \hyperref[uc_13.2]{UC\_13.2}
         \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
-            \item $[$UC\_14, §\ref{uc_14}$]$
+            \item \hyperref[uc_14]{UC\_14}
         \end{itemize}
-    \item \textbf{User Story}: L'utente desidera inserire un ordine registrando un audio o selezionandone uno dal dispositivo
+    \item \textbf{User Story}: L'Utente desidera inserire un ordine registrando un audio o selezionandone uno dal proprio dispositivo
 \end{itemize}
 
 
-\subsubsection{UC\_13.1: Registrare file audio}
+\subsubsubsection{UC\_13.1: Registrare file audio}
 \label{uc_13.1}
 
 \begin{itemize}
     \item \textbf{Attore principale}: Utente
     \item \textbf{Scenario principale}:
-        \begin{itemize}
+        \begin{enumerate}
             \item L'Utente ha premuto il pulsante per registrare un audio
-        \end{itemize}
+        \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
             \item La registrazione viene avviata
@@ -62,19 +64,19 @@
             \item L'audio viene archiviato
             \item L'audio viene inviato allo Speech-to-Text
         \end{itemize}
-    \item \textbf{User Story}: L'utente vuole inserire un ordine registrando un messaggio audio
+    \item \textbf{User Story}: L'Utente vuole inserire un ordine registrando un messaggio audio
 \end{itemize}
 
 
-\subsubsection{UC\_13.2: Selezionare file audio}
+\subsubsubsection{UC\_13.2: Selezionare file audio}
 \label{uc_13.2}
 
 \begin{itemize}
     \item \textbf{Attore principale}: Utente
     \item \textbf{Scenario principale}:
-        \begin{itemize}
+        \begin{enumerate}
             \item L'Utente ha premuto il pulsante per selezionare un file dal dispositivo
-        \end{itemize}
+        \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
             \item Viene aperto il dialogo di selezione file del dispositivo
@@ -85,5 +87,5 @@
             \item L'audio viene archiviato
             \item L'audio viene inviato allo Speech-to-Text 
         \end{itemize}
-    \item \textbf{User Story}: L'utente vuole inserire un ordine mediante un file audio presente nel dispositivo
+    \item \textbf{User Story}: L'Utente vuole inserire un ordine mediante un file audio presente nel dispositivo
 \end{itemize}
