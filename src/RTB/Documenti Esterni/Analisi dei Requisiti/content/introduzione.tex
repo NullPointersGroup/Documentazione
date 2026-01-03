@@ -1,6 +1,6 @@
 \section{Introduzione}
 	\subsection{Scopo del documento}
-	Il presente documento di \vr{Analisi dei Requisiti} definisce in modo formale, completo e strutturato i requisiti funzionali e non funzionali del sistema software \textbf{SmartOrder}, da sviluppare nell'ambito del progetto$^G$ didattico del corso di Ingegneria del Software.\\
+	Il presente documento di \vr{Analisi dei Requisiti$^G$} definisce in modo formale, completo e strutturato i requisiti funzionali e non funzionali del sistema software \textbf{SmartOrder}, da sviluppare nell'ambito del progetto$^G$ didattico del corso di Ingegneria del Software.\\
 	Descrive i casi d'uso principali del sistema, corredati da diagrammi UML$^G$ per visualizzare le interazioni tra attori e funzionalità$^G$.\\
 	Rappresenta il fondamento per le successive fasi di progettazione$^G$, implementazione, testing e validazione$^G$, garantendo l'allineamento del prodotto finale con le specifiche del proponente$^G$ \textbf{Ergon Informatica Srl} e con gli obiettivi delineati nel capitolato$^G$ C8.\\
 	I requisiti identificati sono classificati secondo le seguenti priorità:
@@ -17,9 +17,9 @@
 	\vspace{-0.3em}
 	\begin{itemize}
 	    \setlength\itemsep{-0.1em}
-	    \item il \textbf{Committente} (Ergon Informatica Srl), per la verifica$^G$ della corretta interpretazione delle richieste;
-	    \item il \textbf{Team di Sviluppo} come linea guida per la progettazione$^G$ architetturale e la codifica;
-	    \item il \textbf{Team di Verifica} per la definizione delle strategie di test$^G$ e validazione$^G$.
+	    \item il \textbf{Committente$^G$} (Ergon Informatica Srl), per la verifica$^G$ della corretta interpretazione delle richieste;
+	    \item il \textbf{Team di Sviluppo$^G$} come linea guida per la progettazione$^G$ architetturale e la codifica;
+	    \item il \textbf{Team di Verifica$^G$} per la definizione delle strategie di test$^G$ e validazione$^G$.
 	\end{itemize}
 
     Il documento è inoltre destinato ad altre figure professionali coinvolte nello sviluppo$^G$, quali Amministratori e Responsabili di Progetto$^G$, per consentire loro di acquisire una piena comprensione delle specifiche di Sistema.
@@ -37,7 +37,7 @@
 	    \item Estrazione automatica di informazioni tramite pipeline di NLP$^G$, visione artificiale e trascrizione audio;
 	    \item Validazione$^G$, arricchimento semantico e normalizzazione dei dati estratti;
 	    \item Fusione multimodale per un'interpretazione contestuale coerente;
-	    \item Generazione di ordini strutturati in formati standard (JSON$^G$, XML) compatibili con ERP$^G$;
+	    \item Generazione di ordini strutturati in formati standard (JSON$^G$, XML$^G$) compatibili con ERP$^G$;
 	    \item Integrazione con database$^G$ aziendali tramite API$^G$ REST$^G$;
 	    \item Interfaccia web per il monitoraggio, la gestione e il feedback dei processi;
 	    \item Meccanismi di logging e apprendimento continuo per il miglioramento del sistema.
@@ -50,12 +50,12 @@
 	    \setlength\itemsep{-0.1em}
 	    \item \textbf{Operatori aziendali} addetti all'inserimento e alla validazione$^G$ degli ordini;
 	    \item \textbf{Amministratori di sistema} per il monitoraggio, la configurazione e la manutenzione$^G$ della piattaforma;
-	    \item \textbf{Clienti finali} che inviano ordini tramite canali non strutturati (es. email, WhatsApp).
+	    \item \textbf{Clienti finali} che inviano ordini tramite canali non strutturati (es. email, WhatsApp$^G$).
 	\end{itemize}
 	Non sono richieste competenze tecniche avanzate per l'utilizzo delle funzionalità$^G$ base, mentre la configurazione avanzata e il monitoraggio sono riservati a utenti con ruolo amministrativo.
 
 	\subsection{Definizioni, acronimi e abbreviazioni}
-	Per tutti i termini tecnici, gli acronimi e le definizioni utilizzate nel documento si rimanda al \href{https://nullpointersgroup.github$^G$.io/Documentazione/output/RTB/Documentazione_interna/Glossario.pdf}{Glossario}, disponibile come documento separato. \\
+	Per tutti i termini tecnici, gli acronimi e le definizioni utilizzate nel documento si rimanda al \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documentazione_interna/Glossario.pdf}{Glossario}, disponibile come documento separato. \\
 	Ogni parola presente nel Glossario viene segnata come segue:
 	\begin{center}
         termine$^{G}$
@@ -66,7 +66,7 @@
 	\begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
 	
 	\item \textbf{Norme di Progetto$^G$, versione 1.0.0} \\
-	\url{https://nullpointersgroup.github$^G$.io/Documentazione/output/RTB/Documenti\%20Interni/Norme_di_Progetto.pdf}\\[3pt]
+	\url{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documenti\%20Interni/Norme_di_Progetto.pdf}\\[3pt]
 	\textbf{Ultima consultazione: 12 Dicembre 2025}
 	
 	\item \textbf{Capitolato$^G$ C8 - Ergon Informatica Srl - SmartOrder} \\
@@ -78,12 +78,12 @@
 	\subsubsection{Riferimenti informativi}
 	\begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
 	
-	\item \textbf{Lezione del prof. Tullio sull'Analisi dei Requisiti} \\
+	\item \textbf{Lezione del prof. Tullio sull'Analisi dei Requisiti$^G$} \\
 	\url{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T05.pdf}\\[3pt]
 	\textbf{Ultima consultazione: 16 Dicembre 2025}
 	
 	\item \textbf{Standard ISO/IEC 830:1998} \\
-	\url{https://ieeexplore.ieee$^G$.org/document/720574} \\[3pt]
+	\url{https://ieeexplore.ieee.org/document/720574} \\[3pt]
 	\textbf{Ultima consultazione: 16 Dicembre 2025}
 	
 	\item \textbf{Approfondimenti standard ISO/IEC 12207:1995} \\
@@ -91,7 +91,7 @@
 	\textbf{Ultima consultazione: 16 Dicembre 2025}
     
     \item \textbf{Glossario, versione 1.0.0} \\
-    \url{https://nullpointersgroup.github$^G$.io/Documentazione/output/RTB/Documentazione_interna/Glossario.pdf}\\[3pt]
+    \url{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documentazione_interna/Glossario.pdf}\\[3pt]
     \textbf{Ultima consultazione: 16 Dicembre 2025}
     
 	\end{itemize}
