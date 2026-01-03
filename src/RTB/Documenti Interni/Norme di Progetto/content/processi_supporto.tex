@@ -13,7 +13,7 @@
 
 \subsubsection{Caricamento in Repository}
     Ogni volta che si inserisce un nuovo documento o si effettua una modifica$^G$ nel Repository$^G$ si utilizza un branch$^G$ feature/* personalizzato, la cui nomenclatura è definita nella sezione \ref{sec: nomenclatura-branch}.\\
-    Una volta creato un commit nel branch$^G$ una GitHub Action$^G$ si occupa di creare automaticamente una PR$^G$, la quale deve essere approvata dai Verificatori.
+    Una volta creato un commit nel branch$^G$ una GitHub$^G$ Action$^G$ si occupa di creare automaticamente una PR$^G$, la quale deve essere approvata dai Verificatori.
 
 \subsubsection{Struttura base dei documenti}
 \label{sec: struttura-base-doc}
@@ -192,7 +192,7 @@ La Redazione di un documento segue i seguenti passaggi:
 \end{enumerate}
 Il procedimento che segue si applica solo a verbali o per l’approvazione di Documenti ritenuti definitivi e da approvare per termini di Baseline$^G$:
 \begin{enumerate} [resume]
-    \item \textbf{Approvazione e pubblicazione:} A seguito di esito positivo della revisione, il Responsabile$^G$ approva il documento completando la pull request$^G$ e procede al merge$^G$ del branch$^G$ secondario in quello principale.\\ Questa operazione attiva una GitHub Action$^G$ che, oltre a procedere con la generazione del .pdf dai .tex, aggiorna automaticamente il sito web del progetto$^G$ con i nuovi documenti approvati.
+    \item \textbf{Approvazione e pubblicazione:} A seguito di esito positivo della revisione, il Responsabile$^G$ approva il documento completando la pull request$^G$ e procede al merge$^G$ del branch$^G$ secondario in quello principale.\\ Questa operazione attiva una GitHub$^G$ Action$^G$ che, oltre a procedere con la generazione del .pdf dai .tex, aggiorna automaticamente il sito web del progetto$^G$ con i nuovi documenti approvati.
 \end{enumerate}
 
 \subsubsection{Nomenclatura}
@@ -393,7 +393,7 @@ Per garantire uniformità e tracciabilità nella gestione dei branch$^G$ relativ
 L'attività di Registrazione dello Stato di Configurazione è fondamentale per garantire la tracciabilità e la conoscenza storica delle evoluzioni di tutti gli Elementi di Configurazione (codice e documentazione) prodotti dal gruppo.
 
 \subsubsubsection{Documentazione}
-In base a quanto definito nel \href{https://nullpointersgroup.github$^G$.io/Documentazione/output/RTB/Verbali\%20Interni/2025-11-06\_verbale\_interno.pdf}{verbale interno del 6 novembre} per il tracciamento durante il ciclo di vita dei documenti, NullPointers Group ha deciso di utilizzare una politica di versionamento$^G$ basata sulla specifica MAJOR$^G$.MINOR$^G$.PATCH$^G$. Questa specifica riflette lo stato di avanzamento e la validazione$^G$ formale del documento. La sua implementazione avviene come segue:
+In base a quanto definito nel \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Verbali\%20Interni/2025-11-06\_verbale\_interno.pdf}{verbale interno del 6 novembre} per il tracciamento durante il ciclo di vita dei documenti, NullPointers Group ha deciso di utilizzare una politica di versionamento$^G$ basata sulla specifica MAJOR$^G$.MINOR$^G$.PATCH$^G$. Questa specifica riflette lo stato di avanzamento e la validazione$^G$ formale del documento. La sua implementazione avviene come segue:
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
     \item \textbf{MAJOR}: Incrementato solo in seguito all'Approvazione Formale (Approvazione) del file da parte del Responsabile$^G$.
     \item \textbf{MINOR}: Incrementato una volta completato l'intero ciclo di modifica$^G$, che include sia lo sviluppo$^G$ del contenuto sia la verifica$^G$ formale da parte del Verificatore$^G$ designato.

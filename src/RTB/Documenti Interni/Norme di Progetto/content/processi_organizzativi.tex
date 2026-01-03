@@ -116,7 +116,7 @@ Per supportare il lavoro asincrono, la tracciabilità e la qualità dei prodotti
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
     \item Gestione del versionamento$^G$: Git
     \item Piattaforma: GitHub
-    \item Automazione$^G$: GitHub$^G$ Actions, script Python$^G$ e Lua
+    \item Automazione$^G$: GitHub$^G$ Action$^G$, script Python$^G$ e Lua
     \item Comunicazione: Discord$^G$ e Whatsapp
 \end{itemize}
 
@@ -140,7 +140,7 @@ Vengono riportati gli strumenti principali:
     \hline
     Labels GitHub$^G$ & Sono state implementate delle Labels per categorizzare le attività e Milestones per tracciare l’avanzamento del progetto$^G$.\\
     \hline
-    GitHub$^G$ Actions, script Python$^G$ e script Lua$^G$ & Sono state configurate le GitHub$^G$ Actions per l’esecuzione automatica degli script che compilano i file sorgente LaTeX$^G$ ad ogni push garantendo che la versione PDF visibile sul sito sia sempre sincronizzata con l’ultima versione dei documenti. \\
+    GitHub$^G$ Action$^G$, script Python$^G$ e script Lua$^G$ & Sono state configurate le GitHub$^G$ Action$^G$ per l’esecuzione automatica degli script che compilano i file sorgente LaTeX$^G$ ad ogni push garantendo che la versione PDF visibile sul sito sia sempre sincronizzata con l’ultima versione dei documenti. \\
     \hline
 \end{tabular}
 \caption{Strumenti di predisposizione}
@@ -153,23 +153,24 @@ Data la complessità del progetto$^G$ è probabile che l’infrastruttura subisc
 Successivamente verranno illustrate le norme da seguire per mantenere e aggiornare l’infrastruttura affinché il flusso di lavoro non venga spezzato.
 
 \subsubsubsubsection{Git}
-Git$^G$ non ha bisogno di particolari configurazioni, è sufficiente accedere localmente con le credenziali che il membro usa per accedere a Github$^G$.
+Git$^G$ non ha bisogno di particolari configurazioni, è sufficiente accedere localmente con le credenziali che il membro usa per accedere a GitHub$^G$.
 
 \subsubsubsubsection{GitHub}
-Su Github$^G$, l’account di NullPointers Group è gestito come organizzazione, ovvero un account che serve da contenitore per il lavoro condiviso tra membri di un team.\\
+Su GitHub$^G$, l’account di NullPointers Group è gestito come organizzazione, ovvero un account che serve da contenitore per il lavoro condiviso tra membri di un team.\\
 Sono state create 3 repository$^G$ dentro l’organizzazione:
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
     \item \textbf{Documentazione}: repository$^G$ dove viene salvata e versionata tutta la documentazione in merito al capitolato$^G$ SmartOrder e non solo.
+    \item \textbf{PoC}: repository$^G$ dove viene salvato e versionato il codice sorgente per il Proof of Concept$^G$.
     \item \textbf{SmartOrder}: repository$^G$ dove viene salvato e versionato il codice sorgente dell’applicativo SmartOrder.
     \item \textbf{.github}: repository$^G$ che serve a creare il README.md del gruppo, gestire i workflow condivisi fra le varie repository$^G$. In generale, serve a centralizzare configurazioni e contenuti condivisi.
 \end{itemize}
 Affinché le nuove impostazioni vengano effettivamente applicate nelle repository$^G$ di documentazione o di codice sorgente, il verificatore$^G$ dovrà assicurarsi che la nuova infrastruttura proposta superi le metriche di qualità di processo$^G$ definite in seguito.
 
-\subsubsubsubsection{Actions e script ausiliari}
-Nelle repository$^G$ di Documentazione e SmartOrder, si impiegano strumenti di CI messi a disposizione da Github$^G$: le Github$^G$ Actions, le quali vengono definite in un file “.yml” dentro la cartella “.github/workflows”.\\
-Affinché le Github$^G$ Actions potessero assolvere allo scopo per cui sono state configurate, sono stati sviluppati script ausiliari, in Python$^G$ e Lua$^G$, da far eseguire a quest'ultime.\\
-La configurazione di nuove Github$^G$ Actions o la modifica$^G$ di Github Action$^G$ esistenti spetta agli Amministratori.\\
-La creazione di nuove Github$^G$ Actions viene richiesta agli Amministratori dal Responsabile$^G$, sotto comune accordo dai membri del gruppo.\\
+\subsubsubsubsection{Action e script ausiliari}
+Nelle repository$^G$ di Documentazione e SmartOrder, si impiegano strumenti di CI messi a disposizione da GitHub$^G$: le GitHub$^G$ Action$^G$, le quali vengono definite in un file “.yml” dentro la cartella “.github/workflows”.\\
+Affinché le GitHub$^G$ Action$^G$ potessero assolvere allo scopo per cui sono state configurate, sono stati sviluppati script ausiliari, in Python$^G$ e Lua$^G$, da far eseguire a quest'ultime.\\
+La configurazione di nuove GitHub$^G$ o la modifica$^G$ di GitHub$^G$ Action$^G$ esistenti spetta agli Amministratori.\\
+La creazione di nuove GitHub$^G$ Action$^G$ viene richiesta agli Amministratori dal Responsabile$^G$, sotto comune accordo dai membri del gruppo.\\
 
 \subsubsubsubsection{Infrastruttura di Tracking}
 La configurazione e la manutenzione$^G$ ordinaria degli strumenti di GitHub$^G$ (la cui organizzazione è descritta nella sezione \ref{sec:ticketing}) seguono le procedure definite successivamente.\\[1em]
