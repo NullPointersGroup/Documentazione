@@ -1,4 +1,4 @@
-\subsubsection{UC\_25: Visualizza statistiche}
+\subsubsection{UC\_25: Visualizza pagina performance}
 \label{uc_25}
 
 \begin{figure}[H]
@@ -11,17 +11,20 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
+		\item L'Admin schiaccia il tasto per accedere alla pagina web di monitoraggio delle performance
 		\item L'Admin accede alla pagina web di monitoraggio delle performance
-		\item L'Admin visualizza durata media di risposta del chatbot $\rightarrow$ \hyperref[uc_25.1]{UC\_25.1}
-		\item L'Admin visualizza durata media di permanenza nella web-app $\rightarrow$ \hyperref[uc_25.2]{UC\_25.2}
+		\item L'Admin visualizza durata media di risposta del chatbot $\rightarrow$ Vedi \hyperref[uc_25.1]{UC\_25.1}
+		\item L'Admin visualizza durata media di permanenza nella web-app $\rightarrow$ Vedi \hyperref[uc_25.2]{UC\_25.2}
+		\item L'Admin visualizza le statistiche presenti nella pagina delle performance $\rightarrow$ Vedi \hyperref[uc_40]{UC\_40}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item L'Utente è autenticato come Admin.
+		\item Il sistema è online
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item La dashboard delle statistiche viene visualizzata.
+		\item Vengono visualizzate tutte le informazioni riguardanti le performance
 	\end{itemize}
 	\item \textbf{Scenari alternativi}:
 	\begin{itemize}
@@ -46,11 +49,11 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin visiona nella dashboard la durata media di risposta del chatbot
+		\item L'Admin visiona la durata media di risposta del chatbot
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item L'Admin visiona la dashboard delle performance
+		\item L'Admin visiona la pagina web delle performance
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
@@ -64,11 +67,11 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin visiona nella dashboard la durata media di permanenza degli utenti nella web-app
+		\item L'Admin visiona la durata media di permanenza degli utenti nella web-app
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item L'Admin visiona la dashboard delle performance
+		\item L'Admin visiona la pagina web delle performance
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}

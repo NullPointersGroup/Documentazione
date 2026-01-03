@@ -51,16 +51,16 @@ Oltretutto UC\_36 ha un'ulteriore estensione descritta con il seguente diagramma
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
 		\item L'Utente imposta almeno un filtro fra quelli disponibili
-		\item L'Utente visualizza solo gli ordini che rispettano i filtri impostati
+		\item L'Utente visualizza solo gli elementi che rispettano i filtri impostati
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item Il sistema è online
-		\item L'Utente sta visualizzando la pagina dello storico ordini
+		\item L'Utente sta visualizzando la pagina di cui vuole filtrare gli elementi
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'Utente visualizza lo storico ordini filtrato
+		\item L'Utente visualizza gli elementi filtrati
 	\end{itemize}
 	\item \textbf{Generalizzazioni}:
 	\begin{itemize}
@@ -68,10 +68,10 @@ Oltretutto UC\_36 ha un'ulteriore estensione descritta con il seguente diagramma
 		\item \hyperref[uc_36.1.2]{UC\_36.1.2}
 		\item \hyperref[uc_36.1.3]{UC\_36.1.3}
 	\end{itemize}
-	\item \textbf{User Story}: L'Utente vuole visualizzare lo storico ordini filtrando con delle preferenze, possibili scelte di filtro sono per Cliente (accessibile solo dall'Admin), per data o per prodotti
+	\item \textbf{User Story}: L'Utente vuole visualizzare filtrando con delle preferenze, possibili scelte di filtro sono per Cliente (accessibile solo dall'Admin), per data o per prodotti
 \end{itemize}
 
-\subsubsubsubsection{UC\_36.1.1: Seleziona filtro Cliente}
+\subsubsubsubsection{UC\_36.1.1: Seleziona filtro cliente}
 \label{uc_36.1.1}
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
@@ -83,7 +83,7 @@ Oltretutto UC\_36 ha un'ulteriore estensione descritta con il seguente diagramma
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item Il sistema è online
-		\item L'Admin sta visualizzando lo storico ordini completo
+		\item L'Admin sta visualizzando lo storico ordini, filtrato o completo
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
@@ -92,44 +92,44 @@ Oltretutto UC\_36 ha un'ulteriore estensione descritta con il seguente diagramma
 	\item \textbf{User Story}: L'Admin vuole visualizzare lo storico ordini relativo ad un Cliente specifico
 \end{itemize}
 
-\subsubsubsubsection{UC\_36.1.2: Seleziona filtro Data}
+\subsubsubsubsection{UC\_36.1.2: Seleziona filtro data}
 \label{uc_36.1.2}
 \begin{itemize}
 	\item \textbf{Attore principale}: Utente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Utente si trova nella pagina dedicata per la visualizzazione dello storico ordini
+		\item L'Utente si trova in una pagina dedicata per la visualizzazione
 		\item L'Utente imposta il filtro Data
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item Il sistema è online
-		\item L'Utente sta visualizzando lo storico ordini completo
+		\item L'Utente sta visualizzando gli elementi, filtrati o completi
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'Utente visualizza solo gli ordini presenti nello storico compresi nel range temporale scelto
+		\item L'Utente visualizza solo gli elementi compresi nel range temporale scelto
 	\end{itemize}
-	\item \textbf{User Story}: L'Utente vuole visualizzare solo gli ordini compresi in un range temporale scelto
+	\item \textbf{User Story}: L'Utente vuole visualizzare solo gli elementi compresi in un range temporale scelto
 \end{itemize}
 
-\subsubsubsubsection{UC\_36.1.3: Seleziona filtro Prodotto}
+\subsubsubsubsection{UC\_36.1.3: Seleziona filtro prodotto}
 \label{uc_36.1.3}
 \begin{itemize}
 	\item \textbf{Attore principale}: Utente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Utente si trova nella pagina dedicata per la visualizzazione dello storico ordini
+		\item L'Utente si trova in una dedicata per la visualizzazione
 		\item L'Utente imposta il filtro Prodotto
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item Il sistema è online
-		\item L'Utente sta visualizzando lo storico ordini completo
+		\item L'Utente sta visualizzando gli elementi, filtrati o completi
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'Utente visualizza solo gli ordini presenti nello storico che comprendono il prodotto o i prodotti scelti
+		\item L'Utente visualizza gli elementi che comprendono il prodotto o i prodotti scelti, assieme agli altri filtri eventualmente inseriti
 	\end{itemize}
-	\item \textbf{User Story}: L'Utente vuole visualizzare solo gli ordini in cui sono presenti i prodotti scelti
+	\item \textbf{User Story}: L'Utente vuole visualizzare solo gli elementi in cui sono presenti i prodotti scelti, eventualmente già filtrati
 \end{itemize}
