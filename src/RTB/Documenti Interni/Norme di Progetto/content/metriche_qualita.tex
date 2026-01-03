@@ -1,7 +1,7 @@
 \section{Metriche di Qualità}
 \label{sec:metriche-qualita}
 Le metriche rappresentano uno strumento essenziale per garantire un monitoraggio continuo e oggettivo della qualità del prodotto software e dei processi impiegati per realizzarlo.\\
-Permettono di individuare tempestivamente anomalie, inefficienze o deviazioni dagli standard prefissati, favorendo una gestione consapevole dell’evoluzione del progetto.\\
+Permettono di individuare tempestivamente anomalie, inefficienze o deviazioni dagli standard prefissati, favorendo una gestione consapevole dell’evoluzione del progetto$^G$.\\
 Per garantire chiarezza e coerenza interna, ogni metrica è classificata secondo la seguente notazione:
 \begin{itemize}
     \item MQC\_xx - Metriche di qualità del processo
@@ -12,7 +12,7 @@ Per garantire chiarezza e coerenza interna, ogni metrica è classificata secondo
 %              6.2 METRICHE DI PROCESSO
 % ============================================================
 \subsection{Metriche di qualità di Processo}
-Le metriche qui definite consentono di monitorare l’andamento dei processi primari e di supporto, permettendo di verificare l’aderenza alla pianificazione, l’efficacia$^G$ delle attività svolte e la qualità complessiva del ciclo di sviluppo.
+Le metriche qui definite consentono di monitorare l’andamento dei processi primari e di supporto, permettendo di verificare l’aderenza alla pianificazione$^G$, l’efficacia$^G$ delle attività svolte e la qualità complessiva del ciclo di sviluppo$^G$.
 % --------------------- 6.2.1 Processi Primari ---------------------
 \subsubsection{Processi Primari}
 \begin{itemize}
@@ -24,7 +24,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
             \text{Earned Value} =
             \text{Planned Value} \times \text{Completeness Issue}
         \]
-        \item \textbf{Descrizione}: misura il valore del lavoro effettivamente completato rispetto alla pianificazione. Riflette l’avanzamento reale del progetto$^G$ in termini economici ed è utile per identificare scostamenti precoci rispetto al piano.
+        \item \textbf{Descrizione}: misura il valore del lavoro effettivamente completato rispetto alla pianificazione$^G$. Riflette l’avanzamento reale del progetto$^G$ in termini economici ed è utile per identificare scostamenti precoci rispetto al piano.
     \end{itemize}
 
 % MQC_02
@@ -34,7 +34,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
         \[
             \text{Planned Value} = \text{Costo preventivato}
         \]
-        \item \textbf{Descrizione}: indica il valore del lavoro che avrebbe dovuto essere completato in un dato momento secondo la pianificazione. È utilizzato come riferimento per confrontare l’avanzamento reale con quello previsto.
+        \item \textbf{Descrizione}: indica il valore del lavoro che avrebbe dovuto essere completato in un dato momento secondo la pianificazione$^G$. È utilizzato come riferimento per confrontare l’avanzamento reale con quello previsto.
     \end{itemize}
 
 % MQC_03
@@ -44,7 +44,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
         \[
             \text{Actual Cost} = \text{Consuntivo}
         \]
-        \item \textbf{Descrizione}: rappresenta il costo reale sostenuto fino a una certa data. Confrontato con l’Earned Value$^G$ consente di valutare l’efficienza$^G$ economica del progetto.
+        \item \textbf{Descrizione}: rappresenta il costo reale sostenuto fino a una certa data. Confrontato con l’Earned Value$^G$ consente di valutare l’efficienza$^G$ economica del progetto$^G$.
     \end{itemize}
 
 % MQC_04
@@ -112,7 +112,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
             \text{Completeness Issue} =
             \frac{\text{Issue$^G$ chiuse}}{\text{Issue$^G$ totali}}
         \]
-        \item \textbf{Descrizione}: misura il grado di completamento delle attività pianificate, considerando il rapporto tra le issue$^G$ chiuse e quelle registrate. Un valore elevato indica un buon avanzamento delle attività di sviluppo.
+        \item \textbf{Descrizione}: misura il grado di completamento delle attività pianificate, considerando il rapporto tra le issue$^G$ chiuse e quelle registrate. Un valore elevato indica un buon avanzamento delle attività di sviluppo$^G$.
     \end{itemize}
 \end{itemize}
 
@@ -149,7 +149,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
             \text{Test$^G$ Density and Automation} =
             \frac{\text{Test$^G$ automatizzati}}{\text{Test$^G$ totali}} \times 100
         \]
-        \item \textbf{Descrizione}: misura il grado di automazione$^G$ del processo$^G$ di verifica. Un’elevata densità di test$^G$ automatizzati migliora l’affidabilità della pipeline di testing e riduce i tempi di validazione.
+        \item \textbf{Descrizione}: misura il grado di automazione$^G$ del processo$^G$ di verifica$^G$. Un’elevata densità di test$^G$ automatizzati migliora l’affidabilità della pipeline di testing e riduce i tempi di validazione$^G$.
     \end{itemize}
 \end{itemize}
 
@@ -231,7 +231,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
             \frac{\text{LOC$^G$ testate}}{\text{LOC$^G$ totali}} \times 100
         \]
 		Dove LOC$^G$ = Lines of code
-        \item \textbf{Descrizione}: misura la percentuale di linee di codice che risultano coperte da test$^G$ automatici. Una copertura elevata contribuisce a ridurre la probabilità di malfunzionamenti e garantisce maggiore stabilità nelle fasi di manutenzione.
+        \item \textbf{Descrizione}: misura la percentuale di linee di codice che risultano coperte da test$^G$ automatici. Una copertura elevata contribuisce a ridurre la probabilità di malfunzionamenti e garantisce maggiore stabilità nelle fasi di manutenzione$^G$.
     \end{itemize}
 
 % MQD_05
@@ -253,7 +253,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
             \text{Statement Coverage} =
             \frac{\text{Istruzioni eseguite}}{\text{Istruzioni totali}} \times 100
         \]
-        \item \textbf{Descrizione}: misura la percentuale di istruzioni eseguibili del codice che vengono effettivamente eseguite durante l’esecuzione della suite di test. Essa consente di valutare quanto i test$^G$ riescano a coprire il flusso operativo del software, identificando eventuali sezioni di codice non esercitate e quindi potenzialmente soggette a difetti non rilevati.
+        \item \textbf{Descrizione}: misura la percentuale di istruzioni eseguibili del codice che vengono effettivamente eseguite durante l’esecuzione della suite di test$^G$. Essa consente di valutare quanto i test$^G$ riescano a coprire il flusso operativo del software, identificando eventuali sezioni di codice non esercitate e quindi potenzialmente soggette a difetti non rilevati.
     \end{itemize}
 \end{itemize}
 

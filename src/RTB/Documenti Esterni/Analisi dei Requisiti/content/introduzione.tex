@@ -1,13 +1,13 @@
 \section{Introduzione}
 	\subsection{Scopo del documento}
 	Il presente documento di \vr{Analisi dei Requisiti} definisce in modo formale, completo e strutturato i requisiti funzionali e non funzionali del sistema software \textbf{SmartOrder}, da sviluppare nell'ambito del progetto$^G$ didattico del corso di Ingegneria del Software.\\
-	Descrive i casi d'uso principali del sistema, corredati da diagrammi UML$^G$ per visualizzare le interazioni tra attori e funzionalità.\\
-	Rappresenta il fondamento per le successive fasi di progettazione, implementazione, testing e validazione, garantendo l'allineamento del prodotto finale con le specifiche del proponente$^G$ \textbf{Ergon Informatica Srl} e con gli obiettivi delineati nel capitolato$^G$ C8.\\
+	Descrive i casi d'uso principali del sistema, corredati da diagrammi UML$^G$ per visualizzare le interazioni tra attori e funzionalità$^G$.\\
+	Rappresenta il fondamento per le successive fasi di progettazione$^G$, implementazione, testing e validazione$^G$, garantendo l'allineamento del prodotto finale con le specifiche del proponente$^G$ \textbf{Ergon Informatica Srl} e con gli obiettivi delineati nel capitolato$^G$ C8.\\
 	I requisiti identificati sono classificati secondo le seguenti priorità:
 	\vspace{-0.3em}
 	\begin{itemize}
 	    \setlength\itemsep{-0.1em}
-	    \item \textbf{Obbligatori:} essenziali per il funzionamento minimo del sistema e irrinunciabili per il proponente;
+	    \item \textbf{Obbligatori:} essenziali per il funzionamento minimo del sistema e irrinunciabili per il proponente$^G$;
 	    \item \textbf{Desiderabili:} non critici, ma in grado di apportare un valore aggiunto significativo all'utente finale;
 	    \item \textbf{Opzionali:} implementabili in fasi successive o in estensioni future.
 	\end{itemize}
@@ -19,14 +19,14 @@
 	    \setlength\itemsep{-0.1em}
 	    \item il \textbf{Committente} (Ergon Informatica Srl), per la verifica$^G$ della corretta interpretazione delle richieste;
 	    \item il \textbf{Team di Sviluppo} come linea guida per la progettazione$^G$ architetturale e la codifica;
-	    \item il \textbf{Team di Verifica} per la definizione delle strategie di test$^G$ e validazione.
+	    \item il \textbf{Team di Verifica} per la definizione delle strategie di test$^G$ e validazione$^G$.
 	\end{itemize}
 
-    Il documento è inoltre destinato ad altre figure professionali coinvolte nello sviluppo, quali Amministratori e Responsabili di Progetto, per consentire loro di acquisire una piena comprensione delle specifiche di Sistema.
+    Il documento è inoltre destinato ad altre figure professionali coinvolte nello sviluppo$^G$, quali Amministratori e Responsabili di Progetto$^G$, per consentire loro di acquisire una piena comprensione delle specifiche di Sistema.
 
 	\subsection{Prospettiva del prodotto}
-	SmartOrder si propone come una piattaforma intelligente e multimodale per l'interpretazione automatica di ordini di acquisto provenienti da canali eterogenei, quali testo (email, chat), audio (chiamate, messaggi vocali) e immagini (foto, documenti), e la loro trasformazione in ordini strutturati pronti per l'inserimento in sistemi gestionali ERP.\\
-    Il sistema è progettato secondo un'\textbf{architettura modulare} e \textbf{scalabile}, in grado di integrare modelli avanzati di intelligenza artificiale$^G$ (LLM, visione artificiale, speech-to-text) e di adattarsi a volumi elevati di dati mantenendo elevate prestazioni.\\
+	SmartOrder si propone come una piattaforma intelligente e multimodale per l'interpretazione automatica di ordini di acquisto provenienti da canali eterogenei, quali testo (email, chat), audio (chiamate, messaggi vocali) e immagini (foto, documenti), e la loro trasformazione in ordini strutturati pronti per l'inserimento in sistemi gestionali ERP$^G$.\\
+    Il sistema è progettato secondo un'\textbf{architettura modulare} e \textbf{scalabile}, in grado di integrare modelli avanzati di intelligenza artificiale$^G$ (LLM$^G$, visione artificiale, speech-to-text) e di adattarsi a volumi elevati di dati mantenendo elevate prestazioni.\\
 	L'obiettivo è ridurre drasticamente l'intervento umano in attività ripetitive e a basso valore aggiunto, minimizzando gli errori di interpretazione e migliorando l'efficienza$^G$ operativa e la soddisfazione del cliente finale.
 	
 	\subsection{Funzioni del prodotto}
@@ -34,11 +34,11 @@
 	\begin{itemize}
 	    \setlength\itemsep{-0.1em}
 	    \item Acquisizione di input multimodali (testo, audio, immagini) da molteplici canali;
-	    \item Estrazione automatica di informazioni tramite pipeline di NLP, visione artificiale e trascrizione audio;
-	    \item Validazione, arricchimento semantico e normalizzazione dei dati estratti;
+	    \item Estrazione automatica di informazioni tramite pipeline di NLP$^G$, visione artificiale e trascrizione audio;
+	    \item Validazione$^G$, arricchimento semantico e normalizzazione dei dati estratti;
 	    \item Fusione multimodale per un'interpretazione contestuale coerente;
-	    \item Generazione di ordini strutturati in formati standard (JSON, XML) compatibili con ERP;
-	    \item Integrazione con database$^G$ aziendali tramite API$^G$ REST;
+	    \item Generazione di ordini strutturati in formati standard (JSON$^G$, XML) compatibili con ERP$^G$;
+	    \item Integrazione con database$^G$ aziendali tramite API$^G$ REST$^G$;
 	    \item Interfaccia web per il monitoraggio, la gestione e il feedback dei processi;
 	    \item Meccanismi di logging e apprendimento continuo per il miglioramento del sistema.
 	\end{itemize}
@@ -55,7 +55,7 @@
 	Non sono richieste competenze tecniche avanzate per l'utilizzo delle funzionalità$^G$ base, mentre la configurazione avanzata e il monitoraggio sono riservati a utenti con ruolo amministrativo.
 
 	\subsection{Definizioni, acronimi e abbreviazioni}
-	Per tutti i termini tecnici, gli acronimi e le definizioni utilizzate nel documento si rimanda al \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documentazione_interna/Glossario.pdf}{Glossario}, disponibile come documento separato. \\
+	Per tutti i termini tecnici, gli acronimi e le definizioni utilizzate nel documento si rimanda al \href{https://nullpointersgroup.github$^G$.io/Documentazione/output/RTB/Documentazione_interna/Glossario.pdf}{Glossario}, disponibile come documento separato. \\
 	Ogni parola presente nel Glossario viene segnata come segue:
 	\begin{center}
         termine
@@ -65,8 +65,8 @@
 	\subsubsection{Riferimenti normativi}
 	\begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
 	
-	\item \textbf{Norme di Progetto, versione 1.0.0} \\
-	\url{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documenti\%20Interni/Norme_di_Progetto.pdf}\\[3pt]
+	\item \textbf{Norme di Progetto$^G$, versione 1.0.0} \\
+	\url{https://nullpointersgroup.github$^G$.io/Documentazione/output/RTB/Documenti\%20Interni/Norme_di_Progetto.pdf}\\[3pt]
 	\textbf{Ultima consultazione: 12 Dicembre 2025}
 	
 	\item \textbf{Capitolato$^G$ C8 - Ergon Informatica Srl - SmartOrder} \\
@@ -83,7 +83,7 @@
 	\textbf{Ultima consultazione: 16 Dicembre 2025}
 	
 	\item \textbf{Standard ISO/IEC 830:1998} \\
-	\url{https://ieeexplore.ieee.org/document/720574} \\[3pt]
+	\url{https://ieeexplore.ieee$^G$.org/document/720574} \\[3pt]
 	\textbf{Ultima consultazione: 16 Dicembre 2025}
 	
 	\item \textbf{Approfondimenti standard ISO/IEC 12207:1995} \\
@@ -91,7 +91,7 @@
 	\textbf{Ultima consultazione: 16 Dicembre 2025}
     
     \item \textbf{Glossario, versione 1.0.0} \\
-    \url{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documentazione_interna/Glossario.pdf}\\[3pt]
+    \url{https://nullpointersgroup.github$^G$.io/Documentazione/output/RTB/Documentazione_interna/Glossario.pdf}\\[3pt]
     \textbf{Ultima consultazione: 16 Dicembre 2025}
     
 	\end{itemize}
