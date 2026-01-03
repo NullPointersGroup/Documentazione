@@ -12,8 +12,8 @@
     \item \textbf{Scenario Principale}:
     \begin{enumerate}
         \item L'Utente seleziona l'opzione \vr{Password dimenticata} nel sistema
-        \item L'Utente rieceve una email con la nuova password $\rightarrow$ Vedi \hyperref[uc_04.1]{UC\_04.1}
-        \item L'Utente inserisce l'email di registrazione per recupreare la password $\rightarrow$ Vedi \hyperref[uc_04.2]{UC\_04.2}
+        \item L'Utente inserisce l'email di registrazione per recuperare la password $\rightarrow$ Vedi \hyperref[uc_04.1]{UC\_04.1}
+        \item L'Utente rieceve una email con la nuova password $\rightarrow$ Vedi \hyperref[uc_04.2]{UC\_04.2}
     \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
@@ -30,34 +30,11 @@
         \item \hyperref[uc_04.1]{UC\_04.1}
         \item \hyperref[uc_04.2]{UC\_04.2}
     \end{itemize}
-    \item \textbf{User story}: L'Utente vuole ripristinare la propria password
+    \item \textbf{User Story}: L'Utente vuole ripristinare la propria password
 \end{itemize}
 
-\subsubsubsection{UC\_04.1: Ricezione email con nuova password}
+\subsubsubsection{UC\_04.1: Inserimento email di contatto}
 \label{uc_04.1}
-
-\begin{itemize}
-    \item \textbf{Attore Principale}: Utente
-    \item \textbf{Scenario Principale}:
-    \begin{enumerate}
-        \item L'Utente riceve una email nel cui contenuto è presente la nuova password generata autoamticamente dal sistema
-    \end{enumerate}
-    \item \textbf{Precondizioni}:
-    \begin{itemize}
-        \item Utente non autenticato
-        \item Procedura di recupero password avviata
-        \item Email valida inserita
-    \end{itemize}
-    \item \textbf{Postcondizioni}:
-    \begin{itemize}
-        \item Email con nuova password ricevuta
-        \item Credenziali aggiornate nel sistema
-    \end{itemize}
-    \item \textbf{User story}: L'Utente vuole ripristinare la propria password
-\end{itemize}
-
-\subsubsubsection{UC\_04.2: Inserimento email di contatto}
-\label{uc_04.2}
 
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
@@ -75,25 +52,25 @@
     \end{itemize}
     \item \textbf{Scenari Alternativi}:
     \begin{itemize}
-        \item L'Utente ha inserito una email non valida $\rightarrow$ Vedi \hyperref[uc_04.2.1]{UC\_04.2.1}
-        \item L'Utente ha inserito una email non presente nel sistema $\rightarrow$ Vedi \hyperref[uc_04.2.2]{UC\_04.2.2}
+        \item L'Utente ha inserito una email non valida $\rightarrow$ Vedi \hyperref[uc_04.1.1]{UC\_04.1.1}
+        \item L'Utente ha inserito una email non presente nel sistema $\rightarrow$ Vedi \hyperref[uc_04.1.2]{UC\_04.1.2}
     \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
-        \item \hyperref[uc_04.2.1]{UC\_04.2.1}
-        \item \hyperref[uc_04.2.2]{UC\_04.2.2}
+        \item \hyperref[uc_04.1.1]{UC\_04.1.1}
+        \item \hyperref[uc_04.1.2]{UC\_04.1.2}
     \end{itemize}
-    \item \textbf{User story}: L'Utente vuole ripristinare la password
+    \item \textbf{User Story}: L'Utente vuole ripristinare la password
 \end{itemize}
-UC\_04.2 presenta ulteriori due estensioni, come mostrate in figura:
+UC\_04.1 presenta ulteriori due estensioni, come mostrate in figura:
 \begin{figure}[H]
     \centering 
     \includegraphics[width=1\textwidth]{AnalisiRequisiti/UC_04.2.png}
-    \caption{Estensioni UC\_04.2: UC\_04.2.1, UC\_04.2.2}
+    \caption{Estensioni UC\_04.1: UC\_04.1.1, UC\_04.1.2}
 \end{figure}
 
-\subsubsubsubsection{UC\_04.2.1: Email non valida}
-\label{uc_04.2.1}
+\subsubsubsubsection{UC\_04.1.1: Email non valida}
+\label{uc_04.1.1}
 
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
@@ -108,8 +85,8 @@ UC\_04.2 presenta ulteriori due estensioni, come mostrate in figura:
     \end{itemize}
 \end{itemize}
 
-\subsubsubsubsection{UC\_04.2.2: Email non presente}
-\label{uc_04.2.2}
+\subsubsubsubsection{UC\_04.1.2: Email non presente}
+\label{uc_04.1.2}
 
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
@@ -122,4 +99,27 @@ UC\_04.2 presenta ulteriori due estensioni, come mostrate in figura:
     \begin{itemize}
         \item Messaggio d'errore visibile all'Utente
     \end{itemize}
+\end{itemize}
+
+\subsubsubsection{UC\_04.2: Ricezione email con nuova password}
+\label{uc_04.2}
+
+\begin{itemize}
+    \item \textbf{Attore Principale}: Utente
+    \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item L'Utente riceve una email nel cui contenuto è presente la nuova password generata automaticamente dal sistema
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
+    \begin{itemize}
+        \item Utente non autenticato
+        \item Procedura di recupero password avviata
+        \item Email valida inserita
+    \end{itemize}
+    \item \textbf{Postcondizioni}:
+    \begin{itemize}
+        \item Email con nuova password ricevuta
+        \item Credenziali aggiornate nel sistema
+    \end{itemize}
+    \item \textbf{User Story}: L'Utente vuole ripristinare la propria password
 \end{itemize}
