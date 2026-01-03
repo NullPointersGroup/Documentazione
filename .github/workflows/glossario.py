@@ -79,23 +79,52 @@ def apply_tags_to_text(text: str, patterns: List[Tuple[str, Pattern]], tex_file:
       - subito dopo il match non c'è già $^G$
       - il match NON è all'interno di un titolo (section, subsection, subsubsection, ...)
       - il carattere successivo è spazio o fine stringa
-    Rimuove prima eventuali tag esistenti.
+      - non si trova all'interno di comandi come label, url, hyperref, ref ecc...
     """
-    new_text: str = re.sub(r'\$\^G\$', '', text)
+    #text = re.sub(r'\$\^G\$', '', text)
     title_ranges: List[Tuple[int, int]] = []
+    link_ranges: List[Tuple[int, int]] = []
 
     # Sezioni/subsezioni
-    for m in re.finditer(r'\\(?:sub)*section\{(.*?)\}', new_text, flags=re.MULTILINE):
+    for m in re.finditer(r'\\(?:sub)*section\{(.*?)\}', text, flags=re.MULTILINE):
         start, end = m.start(1), m.end(1)
         title_ranges.append((start, end))
 
     # Caption
-    for m in re.finditer(r'\\caption\{(.*?)\}', new_text, flags=re.MULTILINE):
+    for m in re.finditer(r'\\caption\{(.*?)\}', text, flags=re.MULTILINE):
         start, end = m.start(1), m.end(1)
         title_ranges.append((start, end))
 
+    # \href{URL}
+    for m in re.finditer(r'\\href\s*\{([^}]*)\}', text, flags=re.MULTILINE):
+        start, end = m.start(1), m.end(1)
+        link_ranges.append((start, end))
+    
+    # \ref{URL}
+    for m in re.finditer(r'\\ref\s*\{([^}]*)\}', text, flags=re.MULTILINE):
+        start, end = m.start(1), m.end(1)
+        link_ranges.append((start, end))
+    
+    # \url{URL} 
+    for m in re.finditer(r'\\(?:url|path)\s*\{([^}]*)\}', text, flags=re.MULTILINE):
+        start, end = m.start(1), m.end(1)
+        link_ranges.append((start, end))
+    
+    # \label{etichetta}
+    for m in re.finditer(r'\\label\s*\{([^}]*)\}', text, flags=re.MULTILINE):
+        start, end = m.start(1), m.end(1)
+        link_ranges.append((start, end))
+    
+    # \hyperref[ref]
+    for m in re.finditer(r'\\hyperref\s*\[([^\]]*)\]', text, flags=re.MULTILINE):
+        start, end = m.start(1), m.end(1)
+        link_ranges.append((start, end))
+
     def in_title(pos: int) -> bool:
         return any(start <= pos < end for start, end in title_ranges)
+    
+    def in_link(pos: int) -> bool:
+        return any(start <= pos < end for start, end in link_ranges)
 
     occupied: List[Tuple[int, int]] = []
     inserts: List[Tuple[int, str, str]] = []
@@ -104,33 +133,36 @@ def apply_tags_to_text(text: str, patterns: List[Tuple[str, Pattern]], tex_file:
         return any(not (end <= s or start >= e) for s, e in occupied)
 
     for _, pat in patterns:
-        for m in pat.finditer(new_text):
+        for m in pat.finditer(text):
             start, end = m.start(1), m.end(1)
             if in_title(start):
                 continue
+            if in_link(start):
+                continue
             if overlaps(start, end):
                 continue
-            after_char: str = new_text[end:end + 1]
+            if text[end:end + 4] == "$^G$":
+                continue
+            after_char: str = text[end:end + 1]
             if after_char and after_char not in {" ", ".", ",", ";", ":"}:
                 continue
             inserts.append((end, "$^G$", m.group(1)))
             occupied.append((start, end))
 
     for pos, insert_text, matched in sorted(inserts, key=lambda x: x[0], reverse=True):
-        new_text = new_text[:pos] + insert_text + new_text[pos:]
+        text = text[:pos] + insert_text + text[pos:]
         logging.debug(f"Aggiunto $^G$ a '{matched}' in file {tex_file}")
 
-    return new_text
-
+    return text
 
 def process_all_tex(root_dir: Path, patterns: List[Tuple[str, Pattern]]) -> None:
     for tex_file in root_dir.rglob("*.tex"):
         if should_skip(tex_file):
             continue
-        text: str = tex_file.read_text(encoding="utf-8")
-        new_text: str = apply_tags_to_text(text, patterns, tex_file)
-        if new_text != text:
-            tex_file.write_text(new_text, encoding="utf-8")
+        original_text: str = tex_file.read_text(encoding="utf-8")
+        modified_text: str = apply_tags_to_text(original_text, patterns, tex_file)
+        if modified_text != original_text:
+            tex_file.write_text(modified_text, encoding="utf-8")
             logging.info(f"Modificato: {tex_file}")
 
 
