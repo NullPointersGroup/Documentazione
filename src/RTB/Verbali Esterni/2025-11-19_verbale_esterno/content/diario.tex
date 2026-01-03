@@ -9,22 +9,22 @@ Abbiamo quindi esposto i nostri quesiti, ai quali abbiamo ricevuto risposte esau
         \item Frequenza dei \textbf{Meeting} con l'azienda.
     \end{enumerate} \vspace{-0.5em}
     Abbiamo concordato di effettuare Meeting all'occorrenza, possibilmente con un preavviso di quache giorno.\\
-    Qualora l’incontro si svolga telematicamente, verrà utilizzata la piattaforma \textbf{Google Meet}.
+    Qualora l’incontro si svolga telematicamente, verrà utilizzata la piattaforma \textbf{Google Meet$^G$}.
 
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
         \item Canale di Comunicazione
     \end{enumerate} \vspace{-0.5em}
-    Abbiamo concordato l'utilizzo di \textbf{WhatsApp} come canale di comunicazione.
+    Abbiamo concordato l'utilizzo di \textbf{WhatsApp$^G$} come canale di comunicazione.
 
 \subsection{Gestione del codice e Versioning}
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
-        \item Flusso di lavoro \textbf{Git} consigliato per il progetto$^G$ e se il metodo \textbf{GitFlow}, attualmente adottato, risulta valido oppure se ne conoscono o utilizzano uno più valido.
+        \item Flusso di lavoro \textbf{Git$^G$} consigliato per il progetto$^G$ e se il metodo \textbf{GitFlow$^G$}, attualmente adottato, risulta valido oppure se ne conoscono o utilizzano uno più valido.
     \end{enumerate} \vspace{-0.5em}
-    I referenti ci hanno confermato che il flusso Git$^G$ adottato dal loro team è sostanzialmente allineato a una variante del GitFlow$^G$. Anche per loro esiste un branch$^G$ main, che contiene sempre il codice in produzione$^G$, e un branch$^G$ develop, in cui viene integrato il codice pronto per il testing. Ogni nuova funzionalità$^G$ viene sviluppata in un branch$^G$ dedicato (ad esempio feature/nome-funzionalità) e il merge$^G$ avviene tramite pull request$^G$, che attiva il processo$^G$ di revisione e verifica$^G$.\\
+    I referenti ci hanno confermato che il flusso Git$^G$ adottato dal loro team è sostanzialmente allineato a una variante del GitFlow$^G$. Anche per loro esiste un branch$^G$ main, che contiene sempre il codice in produzione$^G$, e un branch$^G$ develop, in cui viene integrato il codice pronto per il testing. Ogni nuova funzionalità$^G$ viene sviluppata in un branch$^G$ dedicato (ad esempio feature/nome-funzionalità$^G$) e il merge$^G$ avviene tramite pull request$^G$, che attiva il processo$^G$ di revisione e verifica$^G$.\\
     A differenza del nostro repository$^G$, che elimina automaticamente i branch$^G$ feature dopo il merge$^G$, il loro non prevede una pulizia automatica; tuttavia non erano contrari a questa pratica e l’hanno considerata una gestione valida e utile per mantenere la repository$^G$ ordinata. In conclusione, i referenti hanno confermato che la strategia da noi descritta è corretta e pienamente compatibile con il loro flusso di lavoro.
     
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
-        \item Come si devono gestire i \textbf{conflitti di merge} in un team di più persone e quale sia la procedura corretta quando, mentre si lavora su una funzionalità$^G$, qualcun altro modifica$^G$ la stessa parte di codice.
+        \item Come si devono gestire i \textbf{conflitti di merge$^G$} in un team di più persone e quale sia la procedura corretta quando, mentre si lavora su una funzionalità$^G$, qualcun altro modifica$^G$ la stessa parte di codice.
     \end{enumerate} \vspace{-0.5em}
     È stata fatta luce sul fatto che la miglior prevenzione dei conflitti di merge$^G$ è una buona organizzazione del lavoro: suddividere le funzionalità$^G$ in modo che ciascun membro del team operi su parti di codice il più possibile indipendenti riduce notevolmente il rischio di sovrapposizioni.\\
     La procedura operativa standard per la gestione dei conflitti è chiara: prima di iniziare lo sviluppo$^G$ e, soprattutto, prima di effettuare un push, è fondamentale eseguire un git$^G$ pull per allineare la copia locale con le modifiche presenti nel branch$^G$ remoto. Qualora Git$^G$ segnali un conflitto, è necessario risolverlo manualmente, decidendo quale porzione di codice mantenere o come combinarle correttamente. Una volta risolti tutti i conflitti, si procede con un git$^G$ add dei file aggiornati e si completa il merge$^G$ tramite git$^G$ commit.\\
@@ -32,13 +32,13 @@ Abbiamo quindi esposto i nostri quesiti, ai quali abbiamo ricevuto risposte esau
 
 \subsection{Organizzazione e Pianificazione del Progetto}
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
-        \item In che modo è possibile organizzare al meglio scadenze e obiettivi e se viene adottato un metodo specifico per la gestione delle \textbf{milestone}.
+        \item In che modo è possibile organizzare al meglio scadenze e obiettivi e se viene adottato un metodo specifico per la gestione delle \textbf{milestone$^G$}.
     \end{enumerate} \vspace{-0.5em}
     I referenti hanno confermato che la pianificazione$^G$ parte da una stima dell'impegno e dalla suddivisione del progetto$^G$ in attività più piccole e gestibili. Sebbene in azienda queste attività siano guidate da Project Manager o Team Leader, noi dovremo autogestirci, creando una task$^G$ list, assegnando le attività ai membri del team e definendo scadenze interne.\\
     In pratica, abbiamo \textbf{libertà di organizzare} il lavoro come riteniamo più efficace.
 
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
-        \item Licenza del Repository
+        \item Licenza del Repository$^G$
     \end{enumerate} \vspace{-0.5em}
     Ci è stato consigliato di utilizzare una Licenza MIT$^G$, in qualsiasi caso se non viene indicata la Licenza di fatto si applica quella più restrittiva, dunque a prescindere nessuno potrebbe utilizzare il materiale.
 
@@ -47,14 +47,14 @@ Abbiamo quindi esposto i nostri quesiti, ai quali abbiamo ricevuto risposte esau
         \item Quali tra le \textbf{tecnologie} elencate nel capitolato$^G$ ci \textbf{consigliano} personalmente e, in particolare, quale modello di linguaggio è più indicato.
     \end{enumerate} 
     \begin{itemize}[itemsep=0pt, parsep=1pt, label=--]
-        \item \textbf{Front-end} (Interfaccia Utente): \textbf{React}, scelto per la sua ampia diffusione e le ottime potenzialità nella creazione di interfacce utente dinamiche;
-        \item \textbf{Back-end} (Logica e AI): \textbf{Python}, ambiente ideale per lo sviluppo$^G$ di modelli di intelligenza artificiale$^G$ e machine learning$^G$;
-        \item \textbf{Database}: consigliato \textbf{PostgreSQL}.
-        \item \textbf{Modello di Linguaggio} (LLM): \textbf{GPT} di \textbf{OpenAI}, attualmente il modello più performante e affidabile per questo tipo di applicazioni. Le alternative open-source, come \textbf{LlaMA}, possono essere utili in scenari specifici (ad esempio per eseguire il modello in locale o offline per motivi di privacy o costi), ma le loro performance sono generalmente inferiori.
-        \item \textbf{Analisi di Immagini}: per il riconoscimento di oggetti nelle foto, si possono utilizzare servizi come \textbf{GPT-4V} (con capacità visive) o strumenti specializzati come \textbf{Google Vision}. È importante ricordare che questi modelli non sono sempre deterministici: fornendo la stessa immagine più volte, le risposte potrebbero variare leggermente.
-        \item \textbf{Trascrizione Vocale}: sempre \textbf{OpenAI} o \textbf{Whisper}. 
-        \item \textbf{OCR}: consigliato \textbf{EasyOCR} per le funzionalità$^G$ di riconoscimento ottico dei caratteri (OCR).
-        \item \textbf{Creazione di UML}: ci è stato consigliato l'utilizzo di \textbf{Draw.io}, in qualsiasi caso resta a nostra discrezione.
+        \item \textbf{Front-end} (Interfaccia Utente): \textbf{React$^G$}, scelto per la sua ampia diffusione e le ottime potenzialità nella creazione di interfacce utente dinamiche;
+        \item \textbf{Back-end} (Logica e AI): \textbf{Python$^G$}, ambiente ideale per lo sviluppo$^G$ di modelli di intelligenza artificiale$^G$ e machine learning$^G$;
+        \item \textbf{Database$^G$}: consigliato \textbf{PostgreSQL$^G$}.
+        \item \textbf{Modello di Linguaggio} (LLM$^G$): \textbf{GPT$^G$} di \textbf{OpenAI$^G$}, attualmente il modello più performante e affidabile per questo tipo di applicazioni. Le alternative open-source, come \textbf{LlaMA$^G$}, possono essere utili in scenari specifici (ad esempio per eseguire il modello in locale o offline per motivi di privacy o costi), ma le loro performance sono generalmente inferiori.
+        \item \textbf{Analisi di Immagini}: per il riconoscimento di oggetti nelle foto, si possono utilizzare servizi come \textbf{GPT-4V} (con capacità visive) o strumenti specializzati come \textbf{Google Vision$^G$}. È importante ricordare che questi modelli non sono sempre deterministici: fornendo la stessa immagine più volte, le risposte potrebbero variare leggermente.
+        \item \textbf{Trascrizione Vocale}: sempre \textbf{OpenAI$^G$} o \textbf{Whisper$^G$}. 
+        \item \textbf{OCR$^G$}: consigliato \textbf{EasyOCR$^G$} per le funzionalità$^G$ di riconoscimento ottico dei caratteri (OCR$^G$).
+        \item \textbf{Creazione di UML$^G$}: ci è stato consigliato l'utilizzo di \textbf{Draw.io$^G$}, in qualsiasi caso resta a nostra discrezione.
     \end{itemize}
 
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
@@ -65,7 +65,7 @@ Abbiamo quindi esposto i nostri quesiti, ai quali abbiamo ricevuto risposte esau
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
         \item Utilizzo di un database$^G$ di test$^G$ per le verifiche
     \end{enumerate} \vspace{-0.5em}
-    Ci è stato ragionevolmente suggerito di non lavorare mai su un database$^G$ di produzione$^G$, ma piuttosto utilizzare \textbf{database$^G$ di test}, che sono una copia più o meno completa del database$^G$ reale, contenente dati coerenti ma non sensibili. Avrà la stessa struttura e conterrà i cataloghi prodotti, gli storici ordini dei clienti (fittizi) e tutte le entità necessarie per testare il sistema.
+    Ci è stato ragionevolmente suggerito di non lavorare mai su un database$^G$ di produzione$^G$, ma piuttosto utilizzare \textbf{database$^G$ di test$^G$}, che sono una copia più o meno completa del database$^G$ reale, contenente dati coerenti ma non sensibili. Avrà la stessa struttura e conterrà i cataloghi prodotti, gli storici ordini dei clienti (fittizi) e tutte le entità necessarie per testare il sistema.
 
 \subsection{Riscontro su Casi d'Uso e Requisiti}
     Per concludere, abbiamo richiesto un riscontro sugli attori principali e secondari, procedendo poi alla verifica$^G$ e alla valutazione dei vr{\textbf{Casi d’Uso}}, dei vr{\textbf{Requisiti Funzionali}}, dei vr{\textbf{Requisiti Non Funzionali}} e dei vr{\textbf{Requisiti di Vincolo}} precedentemente abbozzati dal gruppo in un documento non ufficiale.\\

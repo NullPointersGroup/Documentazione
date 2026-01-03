@@ -129,8 +129,13 @@ def apply_tags_to_text(text: str, patterns: List[Tuple[str, Pattern]], tex_file:
     occupied: List[Tuple[int, int]] = []
     inserts: List[Tuple[int, str, str]] = []
 
-    def overlaps(start: int, end: int) -> bool:
-        return any(not (end <= s or start >= e) for s, e in occupied)
+    def overlaps_or_contained(start: int, end: int) -> bool:
+        """Verifica se il range [start, end) si sovrappone o è contenuto in un range già occupato"""
+        for occ_start, occ_end in occupied:
+            # Controllo se c'è qualsiasi tipo di sovrapposizione
+            if not (end <= occ_start or start >= occ_end):
+                return True
+        return False
 
     for _, pat in patterns:
         for m in pat.finditer(text):
@@ -139,12 +144,12 @@ def apply_tags_to_text(text: str, patterns: List[Tuple[str, Pattern]], tex_file:
                 continue
             if in_link(start):
                 continue
-            if overlaps(start, end):
+            if overlaps_or_contained(start, end):
                 continue
             if text[end:end + 4] == "$^G$":
                 continue
             after_char: str = text[end:end + 1]
-            if after_char and after_char not in {" ", ".", ",", ";", ":"}:
+            if after_char and not (after_char.isspace() or after_char in {".", ",", ";", ":", ")", "]", "}"}):
                 continue
             inserts.append((end, "$^G$", m.group(1)))
             occupied.append((start, end))

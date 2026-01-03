@@ -4,12 +4,12 @@ Le metriche rappresentano uno strumento essenziale per garantire un monitoraggio
 Permettono di individuare tempestivamente anomalie, inefficienze o deviazioni dagli standard prefissati, favorendo una gestione consapevole dell’evoluzione del progetto$^G$.\\
 Per garantire chiarezza e coerenza interna, ogni metrica è classificata secondo la seguente notazione:
 \begin{itemize}
-    \item MQC\_xx - Metriche di qualità del processo
+    \item MQC\_xx - Metriche di qualità del processo$^G$
     \item MQD\_xx - Metriche di qualità del prodotto
 \end{itemize}
 
 % ============================================================
-%              6.2 METRICHE DI PROCESSO
+%              6.2 METRICHE DI PROCESSO$^G$
 % ============================================================
 \subsection{Metriche di qualità di Processo}
 Le metriche qui definite consentono di monitorare l’andamento dei processi primari e di supporto, permettendo di verificare l’aderenza alla pianificazione$^G$, l’efficacia$^G$ delle attività svolte e la qualità complessiva del ciclo di sviluppo$^G$.
@@ -17,32 +17,32 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
 \subsubsection{Processi Primari}
 \begin{itemize}
 % MQC_01
-\item \textbf{MQC\_01 - Earned Value}:
+\item \textbf{MQC\_01 - Earned Value$^G$}:
     \begin{itemize}
         \item \textbf{Formula}:
         \[
-            \text{Earned Value} =
-            \text{Planned Value} \times \text{Completeness Issue}
+            \text{Earned Value$^G$} =
+            \text{Planned Value$^G$} \times \text{Completeness Issue$^G$}
         \]
         \item \textbf{Descrizione}: misura il valore del lavoro effettivamente completato rispetto alla pianificazione$^G$. Riflette l’avanzamento reale del progetto$^G$ in termini economici ed è utile per identificare scostamenti precoci rispetto al piano.
     \end{itemize}
 
 % MQC_02
-\item \textbf{MQC\_02 - Planned Value}:
+\item \textbf{MQC\_02 - Planned Value$^G$}:
     \begin{itemize}
         \item \textbf{Formula}:
         \[
-            \text{Planned Value} = \text{Costo preventivato}
+            \text{Planned Value$^G$} = \text{Costo preventivato}
         \]
         \item \textbf{Descrizione}: indica il valore del lavoro che avrebbe dovuto essere completato in un dato momento secondo la pianificazione$^G$. È utilizzato come riferimento per confrontare l’avanzamento reale con quello previsto.
     \end{itemize}
 
 % MQC_03
-\item \textbf{MQC\_03 - Actual Cost}:
+\item \textbf{MQC\_03 - Actual Cost$^G$}:
     \begin{itemize}
         \item \textbf{Formula}:
         \[
-            \text{Actual Cost} = \text{Consuntivo}
+            \text{Actual Cost$^G$} = \text{Consuntivo$^G$}
         \]
         \item \textbf{Descrizione}: rappresenta il costo reale sostenuto fino a una certa data. Confrontato con l’Earned Value$^G$ consente di valutare l’efficienza$^G$ economica del progetto$^G$.
     \end{itemize}
@@ -53,7 +53,7 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
         \item \textbf{Formula}:
         \[
             \text{Cost Performance Index} =
-            \frac{\text{Earned Value}}{\text{Actual Cost}}
+            \frac{\text{Earned Value$^G$}}{\text{Actual Cost$^G$}}
         \]
         \item \textbf{Descrizione}: 
         Misura l'efficienza$^G$ economica del progetto$^G$ confrontando il valore realizzato con il costo effettivamente sostenuto.\\
@@ -67,18 +67,18 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
         \item \textbf{Formula}:
         \[
             \text{Schedule Performance Index} =
-            \frac{\text{Earned Value}}{\text{Planned Value}}
+            \frac{\text{Earned Value$^G$}}{\text{Planned Value$^G$}}
         \]
         \item \textbf{Descrizione}: valuta l’efficacia$^G$ dell’avanzamento temporale. Un valore pari o superiore a 1 indica che il progetto$^G$ è in linea con la pianificazione$^G$ o in anticipo rispetto ad essa.
     \end{itemize}
 
 % MQC_06
-\item \textbf{MQC\_06 - Estimate at Completion}:
+\item \textbf{MQC\_06 - Estimate at Completion$^G$}:
     \begin{itemize}
         \item \textbf{Formula}:
         \[
-            \text{Estimate at Completion} = 
-            \frac{\text{Budget at Completion}}{\text{Cost Performance Index}}
+            \text{Estimate at Completion$^G$} = 
+            \frac{\text{Budget at Completion$^G$}}{\text{Cost Performance Index}}
         \]
         \item \textbf{Descrizione}: stima il costo totale previsto a completamento. Viene utilizzato per prevedere scostamenti rispetto al budget pianificato e per aggiornare le proiezioni economiche.
     \end{itemize}
@@ -88,28 +88,28 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
     \begin{itemize}
         \item \textbf{Formula}:
         \[
-            \text{Estimate to Complete} = \text{Estimate at Completion} - \text{Actual Cost}
+            \text{Estimate to Complete} = \text{Estimate at Completion$^G$} - \text{Actual Cost$^G$}
         \]
         \item \textbf{Descrizione}: stima il costo necessario per completare le attività rimanenti. Consente di valutare l’impatto delle performance correnti sul budget finale.
     \end{itemize}
 
 % MQC_08
-\item \textbf{MQC\_08 - Time Estimate at Completion}:
+\item \textbf{MQC\_08 - Time Estimate at Completion$^G$}:
     \begin{itemize}
         \item \textbf{Formula}:
         \[
-            \text{Time Estimate at Completion} =
+            \text{Time Estimate at Completion$^G$} =
             \frac{\text{Tempo previsto}}{\text{Schedule Performance Index}}
         \]
         \item \textbf{Descrizione}: indica la data stimata di completamento del progetto$^G$ sulla base dell’andamento attuale. È utile per valutare possibili ritardi e adottare misure correttive.
     \end{itemize}
 
 % MQC_09
-\item \textbf{MQC\_09 - Completeness Issue}:
+\item \textbf{MQC\_09 - Completeness Issue$^G$}:
     \begin{itemize}
         \item \textbf{Formula}:
         \[
-            \text{Completeness Issue} =
+            \text{Completeness Issue$^G$} =
             \frac{\text{Issue$^G$ chiuse}}{\text{Issue$^G$ totali}}
         \]
         \item \textbf{Descrizione}: misura il grado di completamento delle attività pianificate, considerando il rapporto tra le issue$^G$ chiuse e quelle registrate. Un valore elevato indica un buon avanzamento delle attività di sviluppo$^G$.
@@ -261,15 +261,15 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
 \subsubsection{Usabilità}
 \begin{itemize}
 % MQD_07
-\item \textbf{MQD\_07 - Time on Task}:
+\item \textbf{MQD\_07 - Time on Task$^G$}:
     \begin{itemize}
         \item \textbf{Formula}:
     \[
-        \text{Time on Task} = \frac{\sum_{i=1}^{n} T_i}{n}
+        \text{Time on Task$^G$} = \frac{\sum_{i=1}^{n} T_i}{n}
     \]
     dove:\\
     $T_i$ = tempo impiegato dall'utente $i$ per completare il task$^G$ specifico\\
-    $n$ = numero di utenti che hanno completato il task
+    $n$ = numero di utenti che hanno completato il task$^G$
         \item \textbf{Descrizione}: misura quanto tempo, in media, un utente impiega a completare un'attività specifica nel sistema. Serve a capire se l'interfaccia è facile da usare e se ci sono passaggi che rallentano l'utente.
     \end{itemize}
 \end{itemize}
@@ -292,12 +292,12 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
 \subsubsection{Manutenibilità}
 \begin{itemize}
 % MQD_09
-\item \textbf{MQD\_09 - Code Smells per KLOC}:
+\item \textbf{MQD\_09 - Code Smells per KLOC$^G$}:
     \begin{itemize}
         \item \textbf{Formula}:
         \[
-            \text{Code Smells per KLOC} =
-            \frac{\text{Numero di code smells}}{\text{KLOC}}
+            \text{Code Smells per KLOC$^G$} =
+            \frac{\text{Numero di code smells}}{\text{KLOC$^G$}}
         \]
         Dove KLOC$^G$ = Kilo Lines of Code
         \item \textbf{Descrizione}: valuta la qualità del codice attraverso l’analisi dei “code smell”, ovvero pattern che segnalano complessità o debolezza nella struttura del software. Un numero contenuto favorisce la manutenibilità e la pulizia architetturale.
@@ -315,11 +315,11 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
     \end{itemize}
 
 % MQD_11
-\item \textbf{MQD\_11 - Cyclomatic Complexity}:
+\item \textbf{MQD\_11 - Cyclomatic Complexity$^G$}:
     \begin{itemize}
         \item \textbf{Formula}:
         \[
-            \text{Cyclomatic Complexity} = E - N + 2P
+            \text{Cyclomatic Complexity$^G$} = E - N + 2P
         \]
         Dove:
         \begin{itemize}
