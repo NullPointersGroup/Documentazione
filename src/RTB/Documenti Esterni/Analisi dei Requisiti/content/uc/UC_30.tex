@@ -11,8 +11,7 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin richiede l'esportazione dello storico ordini in formato JSON
-		\item Il Sistema genera e rende disponibile il file JSON
+		\item L'Admin visualizza il pulsante per l'esportazione dello storico ordini
 		\item L'Admin scarica lo storico ordini in formato JSON
 		\item Il Sistema mostra una notifica di download riuscito $\rightarrow$ Vedi \hyperref[uc_30_1]{UC\_30.1}
 	\end{enumerate}
@@ -28,7 +27,7 @@
 	\end{itemize}
 	\item \textbf{Scenari alternativi}:
 	\begin{itemize}
-		\item L'Admin applica almeno un filtro prima dell'esportazione $\rightarrow$ Vedi \hyperref[uc_36_1]{UC\_36.1}
+		\item L'Admin applica almeno un filtro prima dell'esportazione $\rightarrow$ Vedi \hyperref[uc_36.1]{UC\_36.1}
 		\item Si verifica un errore nello scaricamento dello storico ordini (JSON) $\rightarrow$ Vedi \hyperref[uc_31]{UC\_31}
 	\end{itemize}
 	\item \textbf{Inclusioni}:
@@ -37,7 +36,7 @@
 	\end{itemize}
 	\item \textbf{Estensioni}:
 	\begin{itemize}
-		\item \hyperref[uc_36_1]{UC\_36.1}
+		\item \hyperref[uc_36.1]{UC\_36.1}
 		\item \hyperref[uc_31]{UC\_31}
 	\end{itemize}
 	\item \textbf{User Story}: L'Admin vuole esportare lo storico ordini in formato JSON.
@@ -50,12 +49,11 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin completa il download dello storico ordini in formato JSON
-		\item Il Sistema mostra una notifica di download riuscito
+		\item L'Admin visualizza una notifica di download riuscito
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item L'Admin ha richiesto l'esportazione dello storico ordini $\rightarrow$ Vedi \hyperref[uc_30]{UC\_30}
+		\item L'Admin ha scaricato lo storico ordini $\rightarrow$ Vedi \hyperref[uc_30]{UC\_30}
 		\item Il file JSON è stato generato correttamente
 	\end{itemize}
 	\item \textbf{Postcondizioni}:

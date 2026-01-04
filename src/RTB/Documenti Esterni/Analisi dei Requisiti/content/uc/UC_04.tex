@@ -12,7 +12,7 @@
     \item \textbf{Scenario Principale}:
     \begin{enumerate}
         \item L'Utente seleziona l'opzione \vr{Password dimenticata} nel sistema
-        \item L'Utente inserisce l'email di registrazione per recuperare la password $\rightarrow$ Vedi \hyperref[uc_04.1]{UC\_04.1}
+        \item L'Utente inserisce l'Email di registrazione per recuperare la password $\rightarrow$ Vedi \hyperref[uc_04.1]{UC\_04.1}
         \item L'Utente rieceve una email con la nuova password $\rightarrow$ Vedi \hyperref[uc_04.2]{UC\_04.2}
     \end{enumerate}
     \item \textbf{Precondizioni}:
@@ -23,7 +23,7 @@
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Richiesta di recupero password inviata al sistema
+        \item L'Utente invia la richiesta di recupero password al sistema
     \end{itemize}
     \item \textbf{Inclusioni}:
     \begin{itemize}
@@ -40,7 +40,7 @@
     \item \textbf{Attore Principale}: Utente
     \item \textbf{Scenario Principale}:
     \begin{enumerate}
-        \item L'Utente inserisce la mail con cui si è registrato
+        \item L'Utente inserisce l'Email con cui si è registrato
     \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
@@ -52,16 +52,17 @@
     \end{itemize}
     \item \textbf{Scenari Alternativi}:
     \begin{itemize}
-        \item L'Utente ha inserito una email non valida $\rightarrow$ Vedi \hyperref[uc_04.1.1]{UC\_04.1.1}
-        \item L'Utente ha inserito una email non presente nel sistema $\rightarrow$ Vedi \hyperref[uc_04.1.2]{UC\_04.1.2}
+        \item L'Utente ha inserito una Email non valida $\rightarrow$ Vedi \hyperref[uc_04.1.1]{UC\_04.1.1}
+        \item L'Utente ha inserito una Email non presente nel sistema $\rightarrow$ Vedi \hyperref[uc_04.1.2]{UC\_04.1.2}
     \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
         \item \hyperref[uc_04.1.1]{UC\_04.1.1}
         \item \hyperref[uc_04.1.2]{UC\_04.1.2}
     \end{itemize}
-    \item \textbf{User Story}: L'Utente vuole ripristinare la password
+    \item \textbf{User Story}: L'Utente vuole inserire l'Email per il recupero password
 \end{itemize}
+
 UC\_04.1 presenta ulteriori due estensioni, come mostrate in figura:
 \begin{figure}[H]
     \centering 
@@ -74,6 +75,10 @@ UC\_04.1 presenta ulteriori due estensioni, come mostrate in figura:
 
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
+    \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item L'Utente visualizza un messaggio di errore per Email non valida
+    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Procedura di recupero password avviata
@@ -90,14 +95,18 @@ UC\_04.1 presenta ulteriori due estensioni, come mostrate in figura:
 
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
+    \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item L'Utente riceve un messaggio di errore per Email non presente nel sistema
+    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Procedura di recupero password avviata
-        \item L'Utente ha inserito una mail non presente nel sistema
+        \item L'Utente ha inserito una Email
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Messaggio d'errore visibile all'Utente
+        \item L'Utente visualizza un messaggio d'errore per Email non presente nel sistema
     \end{itemize}
 \end{itemize}
 
@@ -109,17 +118,17 @@ UC\_04.1 presenta ulteriori due estensioni, come mostrate in figura:
     \item \textbf{Scenario Principale}:
     \begin{enumerate}
         \item L'Utente riceve una email nel cui contenuto è presente la nuova password generata automaticamente dal sistema
+        \item L'Utente visiona la password
     \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Utente non autenticato
         \item Procedura di recupero password avviata
-        \item Email valida inserita
+        \item L'Utente ha inserito una Email valida
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Email con nuova password ricevuta
-        \item Credenziali aggiornate nel sistema
+        \item L'Utente visiona la mail con la nuova password ricevuta
     \end{itemize}
     \item \textbf{User Story}: L'Utente vuole ripristinare la propria password
 \end{itemize}

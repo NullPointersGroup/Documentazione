@@ -16,7 +16,7 @@
 		\item L'Admin inserisce il ruolo $\rightarrow$ Vedi \hyperref[uc_32_2]{UC\_32.2}
 		\item L'Admin inserisce lo username $\rightarrow$ Vedi \hyperref[uc_32_3]{UC\_32.3}
 		\item L'Admin inserisce l'email $\rightarrow$ Vedi \hyperref[uc_32_4]{UC\_32.4}
-		\item Il Sistema mostra una notifica di creazione riuscita $\rightarrow$ Vedi \hyperref[uc_32_5]{UC\_32.5}
+		\item L'Admin visualizza una notifica di creazione Utente riuscita $\rightarrow$ Vedi \hyperref[uc_32_5]{UC\_32.5}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
@@ -25,11 +25,11 @@
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il nuovo utente è stato creato nel Sistema
+		\item Il nuovo Utente è stato creato nel Sistema
 	\end{itemize}
 	\item \textbf{Scenari alternativi}:
 	\begin{itemize}
-		\item La creazione utente fallisce e il Sistema mostra una notifica con spiegazione dell'errore $\rightarrow$ Vedi \hyperref[uc_33]{UC\_33}
+		\item La creazione Utente fallisce e il sistema mostra una notifica con spiegazione dell'errore $\rightarrow$ Vedi \hyperref[uc_33]{UC\_33}
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
@@ -43,7 +43,7 @@
 	\begin{itemize}
 		\item \hyperref[uc_33]{UC\_33}
 	\end{itemize}
-	\item \textbf{User Story}: L'Admin vuole creare un nuovo utente inserendo i dati richiesti.
+	\item \textbf{User Story}: L'Admin vuole creare un nuovo Utente.
 \end{itemize}
 
 \subsubsubsection{UC\_32.1: Visualizzazione pagina gestione utenti}
@@ -54,7 +54,7 @@
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
 		\item L'Admin accede alla sezione di gestione utenti
-		\item Il Sistema visualizza la pagina di gestione utenti
+		\item L'Admin visualizza la pagina di gestione utenti
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
@@ -65,7 +65,7 @@
 	\begin{itemize}
 		\item La pagina di gestione utenti è visualizzata
 	\end{itemize}
-	\item \textbf{User Story}: L'Admin vuole visualizzare la pagina di gestione utenti per poter creare nuovi utenti.
+	\item \textbf{User Story}: L'Admin vuole visualizzare la pagina di gestione utenti per poter creare nuovi Utenti.
 \end{itemize}
 
 \subsubsubsection{UC\_32.2: Inserimento ruolo}
@@ -75,17 +75,17 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin inserisce il ruolo del nuovo utente
+		\item L'Admin inserisce il ruolo del nuovo Utente
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item L'Admin sta creando un nuovo utente $\rightarrow$ Vedi \hyperref[uc_32]{UC\_32}
+		\item L'Admin sta creando un nuovo Utente $\rightarrow$ Vedi \hyperref[uc_32]{UC\_32}
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il ruolo del nuovo utente è stato inserito
+		\item Il ruolo del nuovo Utente è stato inserito
 	\end{itemize}
-	\item \textbf{User Story}: L'Admin vuole impostare il ruolo del nuovo utente.
+	\item \textbf{User Story}: L'Admin vuole impostare il ruolo del nuovo Utente.
 \end{itemize}
 
 \subsubsubsection{UC\_32.3: Inserimento username}
@@ -95,37 +95,37 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin inserisce lo username del nuovo utente
+		\item L'Admin inserisce lo username del nuovo Utente
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item L'Admin sta creando un nuovo utente $\rightarrow$ Vedi \hyperref[uc_32]{UC\_32}
+		\item L'Admin sta creando un nuovo Utente $\rightarrow$ Vedi \hyperref[uc_32]{UC\_32}
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Lo username del nuovo utente è stato inserito
+		\item Lo username del nuovo Utente è stato inserito
 	\end{itemize}
-	\item \textbf{User Story}: L'Admin vuole impostare lo username del nuovo utente.
+	\item \textbf{User Story}: L'Admin vuole impostare lo username del nuovo Utente.
 \end{itemize}
 
-\subsubsubsection{UC\_32.4: Inserimento email}
+\subsubsubsection{UC\_32.4: Inserimento Email}
 \label{uc_32_4}
 
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin inserisce l'email del nuovo utente
+		\item L'Admin inserisce l'Email del nuovo Utente
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item L'Admin sta creando un nuovo utente $\rightarrow$ Vedi \hyperref[uc_32]{UC\_32}
+		\item L'Admin sta creando un nuovo Utente $\rightarrow$ Vedi \hyperref[uc_32]{UC\_32}
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'email del nuovo utente è stata inserita
+		\item L'Email del nuovo Utente è stata inserita
 	\end{itemize}
-	\item \textbf{User Story}: L'Admin vuole impostare l'email del nuovo utente.
+	\item \textbf{User Story}: L'Admin vuole impostare l'Email del nuovo Utente.
 \end{itemize}
 
 \subsubsubsection{UC\_32.5: Notifica creazione riuscita}
@@ -135,15 +135,15 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item Il Sistema mostra una notifica di creazione utente riuscita
+		\item Il Sistema mostra una notifica di creazione Utente riuscita
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item La creazione del nuovo utente va a buon fine
+		\item La creazione del nuovo Utente va a buon fine
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
 		\item La notifica di creazione riuscita è visualizzata
 	\end{itemize}
-	\item \textbf{User Story}: L'Admin vuole ricevere una notifica di creazione utente riuscita.
+	\item \textbf{User Story}: L'Admin vuole ricevere una notifica di creazione Utente riuscita.
 \end{itemize}

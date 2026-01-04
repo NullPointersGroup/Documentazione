@@ -39,7 +39,7 @@
     \begin{itemize}
             \item \hyperref[uc_14]{UC\_14}
         \end{itemize}
-    \item \textbf{User Story}: L'Utente desidera inserire un ordine registrando un audio o selezionandone uno dal proprio dispositivo
+    \item \textbf{User Story}: L'Utente vuole inserire un ordine registrando un audio o selezionandone uno dal proprio dispositivo
 \end{itemize}
 
 
@@ -51,16 +51,16 @@
     \item \textbf{Scenario principale}:
         \begin{enumerate}
             \item L'Utente ha premuto il pulsante per registrare un audio
+            \item L'Utente registra l'audio
+            \item Viene visualizzato il timer del tempo rimanente
+            \item Viene visualizzato il pulsante per fermare la registrazione
         \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
-            \item La registrazione viene avviata
-            \item Viene visualizzato il timer del tempo rimanente
-            \item Viene visualizzato il pulsante per fermare la registrazione
+            \item L'Utente visualizza il pulsante per la registrazione di un audio
         \end{itemize}
     \item \textbf{Postcondizioni}: 
         \begin{itemize}
-            \item L'audio viene registrato
             \item L'audio viene archiviato
             \item L'audio viene inviato allo Speech-to-Text
         \end{itemize}
@@ -76,14 +76,14 @@
     \item \textbf{Scenario principale}:
         \begin{enumerate}
             \item L'Utente ha premuto il pulsante per selezionare un file dal dispositivo
+            \item L'Utente seleziona il file audio da dispositivo
         \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
-            \item Viene aperto il dialogo di selezione file del dispositivo
+            \item L'Utente visualizza il pulsante per allegare file da dispositivo
         \end{itemize}
     \item \textbf{Postcondizioni}: 
         \begin{itemize}
-            \item Il file audio viene selezionato
             \item L'audio viene archiviato
             \item L'audio viene inviato allo Speech-to-Text 
         \end{itemize}
