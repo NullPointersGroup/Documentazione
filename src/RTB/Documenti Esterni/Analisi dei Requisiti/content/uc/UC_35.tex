@@ -2,22 +2,25 @@
 \label{uc_35}
 
 \begin{itemize}
-	\item \textbf{Attore principale}: Utente
+	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Utente visualizza un messaggio di errore di duplicazione dell'ordine
+		\item Il Cliente richiede la duplicazione di un ordine tramite chatbot
+		\item Il Sistema rileva che l'ordine richiesto non esiste
+		\item Il Sistema mostra un messaggio di errore al Cliente
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item L'Utente ha richiesto la duplicazione di un ordine tramite chatbot $\rightarrow$ Vedi \hyperref[uc_34]{UC\_34}
+		\item Il Cliente ha avviato la duplicazione ordine $\rightarrow$ Vedi \hyperref[uc_34]{UC\_34}
+		\item L'ordine richiesto non esiste
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item La duplicazione dell'ordine non è riuscita
+		\item La duplicazione dell'ordine non viene eseguita
 	\end{itemize}
 	\item \textbf{Estensioni}:
 	\begin{itemize}
 		\item Estensione di \hyperref[uc_34]{UC\_34}
 	\end{itemize}
-	\item \textbf{User Story}: L'Utente vuole ricevere un messaggio di errore se la duplicazione tramite chatbot non va a buon fine.
+	\item \textbf{User Story}: Il Cliente vuole ricevere un messaggio di errore se l'ordine da duplicare non esiste.
 \end{itemize}
