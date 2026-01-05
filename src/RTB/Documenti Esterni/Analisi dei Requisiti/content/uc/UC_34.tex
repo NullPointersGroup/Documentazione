@@ -8,27 +8,76 @@
 \end{figure}
 
 \begin{itemize}
-	\item \textbf{Attore principale}: Utente
+	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Utente richiede la duplicazione di un ordine tramite chatbot
-		\item L'Utente visualizza la conferma della duplicazione dell'ordine
+		\item Il Cliente richiede la duplicazione di un ordine tramite chatbot
+		\item Il Sistema duplica l'ordine richiesto
+		\item Il Cliente conferma la duplicazione $\rightarrow$ Vedi \hyperref[uc_34_1]{UC\_34.1}
+		\item Il Sistema mostra una notifica di conferma $\rightarrow$ Vedi \hyperref[uc_34_2]{UC\_34.2}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Esiste l'ordine del quale L'Utente ha richiesto la duplicazione
+		\item Il Sistema è online
+		\item La sessione chat del Cliente è attiva
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item È stato duplicato l'ordine richiesto
+		\item L'ordine è stato duplicato correttamente
 	\end{itemize}
 	\item \textbf{Scenari alternativi}:
 	\begin{itemize}
-		\item Il sistema non riesce a duplicare l'ordine e mostra un messaggio di errore $\rightarrow$ Vedi \hyperref[uc_35]{UC\_35}
+		\item L'ordine non esiste e il Sistema mostra un errore di duplicazione $\rightarrow$ Vedi \hyperref[uc_35]{UC\_35}
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_34_1]{UC\_34.1}
+		\item \hyperref[uc_34_2]{UC\_34.2}
 	\end{itemize}
 	\item \textbf{Estensioni}:
 	\begin{itemize}
 		\item \hyperref[uc_35]{UC\_35}
 	\end{itemize}
-	\item \textbf{User Story}: L'Utente vuole duplicare un ordine tramite chatbot.
+	\item \textbf{User Story}: Il Cliente vuole duplicare un ordine tramite chatbot.
+\end{itemize}
+
+\subsubsubsection{UC\_34.1: Conferma duplicazione}
+\label{uc_34_1}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente conferma la duplicazione dell'ordine richiesto
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il Cliente ha richiesto la duplicazione di un ordine $\rightarrow$ Vedi \hyperref[uc_34]{UC\_34}
+		\item L'ordine richiesto esiste
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item La duplicazione dell'ordine è confermata dal Cliente
+	\end{itemize}
+	\item \textbf{User Story}: Il Cliente vuole confermare la duplicazione dell'ordine richiesto.
+\end{itemize}
+
+\subsubsubsection{UC\_34.2: Notifica conferma}
+\label{uc_34_2}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Sistema mostra al Cliente una notifica di conferma della duplicazione
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il Cliente ha confermato la duplicazione $\rightarrow$ Vedi \hyperref[uc_34_1]{UC\_34.1}
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item La notifica di conferma è visualizzata
+	\end{itemize}
+	\item \textbf{User Story}: Il Cliente vuole ricevere una notifica di conferma dopo aver duplicato un ordine.
 \end{itemize}
