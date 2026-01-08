@@ -1,24 +1,121 @@
-\subsubsection{UC\_41 Visualizzare manuale utente}
+\subsubsection{UC\_41 Visualizzare elenco dei comandi in un'altra pagina}
 \label{uc_41}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_41.png}
-    \caption{UC\_41: Visualizzare manuale utente}
+    \caption{UC\_41: Visualizzare elenco dei comandi in un'altra pagina}
 \end{figure}
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}: 
+        \begin{enumerate}
+            \item L'Utente visualizza l'elenco dei comandi in una pagina separata da quella corrente
+        \end{enumerate}
+    \item \textbf{Precondizioni}: 
+        \begin{itemize}
+            \item Pagina dei comandi esistente
+        \end{itemize}
+    \item \textbf{Postcondizioni}: 
+        \begin{itemize}
+            \item  L'Utente visualizza la pagina dei comandi
+        \end{itemize}
+    \item \textbf{Inclusioni}:
+        \begin{itemize}
+		    \item \hyperref[uc_41.1]{UC\_41.1}
+		    \item \hyperref[uc_41.2]{UC\_41.2}
+		    \item \hyperref[uc_41.3]{UC\_41.3}
+		    \item \hyperref[uc_41.4]{UC\_41.4}
+        \end{itemize}
+    \item \textbf{User Story}: Un Utente vuole visualizzare l'elenco dei comandi
+\end{itemize}
+
+\subsubsubsection{UC\_41.1 Visualizzare comando "/duplica"}
+\label{uc_41.1}
 \begin{itemize}
     \item \textbf{Attore principale}: Utente
     \item \textbf{Scenario principale}:
         \begin{enumerate}
-            \item L'Utente apre la pagina dedicata al manuale utente 
-            \item L'Utente visualizza la pagina \vr{Manuale Utente}
+            \item L'Utente visualizza il comando "/duplica"
         \end{enumerate}
-    \item \textbf{Precondizioni}: 
+    \item \textbf{Precondizioni}:
         \begin{itemize}
-            \item Pagina \vr{Manuale Utente} esistente
+            \item Pagina dei comandi esistente
         \end{itemize}
     \item \textbf{Postcondizioni}:
         \begin{itemize}
-            \item Pagina \vr{Manuale Utente} visualizzata
+            \item L'utente visualizza il comando "/duplica"
         \end{itemize}
-    \item \textbf{User Story}: L'Utente vuole visualizzare il manuale utente 
+    \item \textbf{User Story}: Un utente vuole visualizzare il comando "/duplica" all'interno dell'elenco dei comandi
+\end{itemize}
+\subsubsubsection{UC\_41.2 Visualizzare comando "/duplica"}
+\label{uc_41.2}
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+        \begin{enumerate}
+            \item L'Utente visualizza il comando "/carrello"
+        \end{enumerate}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Pagina dei comandi esistente
+        \end{itemize}
+    \item \textbf{Postcondizioni}:
+        \begin{itemize}
+            \item L'utente visualizza il comando "/carrello"
+        \end{itemize}
+    \item \textbf{User Story}: Un utente vuole visualizzare il comando "/carrello" all'interno dell'elenco dei comandi
+\end{itemize}
+\subsubsubsection{UC\_41.3 Visualizzare comando "/duplica"}
+\label{uc_41.3}
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+        \begin{enumerate}
+            \item L'Utente visualizza il comando "/duplica{xx}"
+        \end{enumerate}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Pagina dei comandi esistente
+        \end{itemize}
+    \item \textbf{Postcondizioni}:
+        \begin{itemize}
+            \item L'utente visualizza il comando "/duplica{xx}"
+        \end{itemize}
+    \item \textbf{User Story}: Un utente vuole visualizzare il comando "/duplica{xx}" all'interno dell'elenco dei comandi
+\end{itemize}
+\subsubsubsection{UC\_41.4 Visualizzare comando "/duplica"}
+\label{uc_41.4}
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+        \begin{enumerate}
+            \item L'Utente visualizza il comando "/invia"
+        \end{enumerate}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Pagina dei comandi esistente
+        \end{itemize}
+    \item \textbf{Postcondizioni}:
+        \begin{itemize}
+            \item L'utente visualizza il comando "/invia"
+        \end{itemize}
+    \item \textbf{User Story}: Un utente vuole visualizzare il comando "/invia" all'interno dell'elenco dei comandi
+\end{itemize}
+\subsubsubsection{UC\_41.5 Visualizzare comando "/annulla"}
+\label{uc_41.5}
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+        \begin{enumerate}
+            \item L'Utente visualizza il comando "/annulla"
+        \end{enumerate}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Pagina dei comandi esistente
+        \end{itemize}
+    \item \textbf{Postcondizioni}:
+        \begin{itemize}
+            \item L'utente visualizza il comando "/annulla"
+        \end{itemize}
+    \item \textbf{User Story}: Un utente vuole visualizzare il comando "/annulla" all'interno dell'elenco dei comandi
 \end{itemize}

@@ -1,23 +1,151 @@
-\subsubsection{UC\_43 Visualizzare elenco dei comandi in un'altra pagina}
+\subsubsection{UC\_43 Visualizza comandi inline} 
 \label{uc_43}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_43.png}
-    \caption{UC\_43: Visualizzare elenco dei comandi in un'altra pagina}
+    \caption{UC\_43: Visualizzare i comandi inline}
 \end{figure}
 \begin{itemize}
     \item \textbf{Attore principale}: Utente
     \item \textbf{Scenario principale}: 
         \begin{enumerate}
-            \item L'Utente visualizza l'elenco dei comandi in una pagina separata da quella corrente
+            \item L'Utente visualizza un prompt inline relativo alla visualizzazione dei comandi nella chat.
         \end{enumerate}
     \item \textbf{Precondizioni}: 
         \begin{itemize}
-            \item Pagina dei comandi esistente
+            \item Utente ha accesso alla chat
+            \item Il sistema è attivo
         \end{itemize}
     \item \textbf{Postcondizioni}: 
         \begin{itemize}
-            \item  L'Utente visualizza la pagina dei comandi
+            \item Menù dei comandi a comparsa visualizzato nella parte superiore della chat
         \end{itemize}
-    \item \textbf{User Story}: Un Utente vuole visualizzare l'elenco dei comandi
+    \item \textbf{Inclusioni}:
+        \begin{itemize}
+		    \item \hyperref[uc_43.1]{UC\_43.1}
+        \end{itemize}
+    \item \textbf{User Story}: L'Utente vuole visualizzare l'elenco dei comandi che può eseguire
+\end{itemize}
+
+\subsubsubsection{UC\_43.1 Visualizza menu a comparsa comandi disponibili} 
+\label{uc_43.1}
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+        \begin{enumerate}
+            \item L'Utente visualizza il menu a comparsa relativo all'elenco dei comandi disponibili"
+        \end{enumerate}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Il sistema è online 
+            \item L'Utente può scrivere nella chat
+        \end{itemize}
+    \item \textbf{Postcondizioni}:
+        \begin{itemize}
+            \item L'utente visualizza il menu a comparsa relativo all'elenco dei comandi disponibili"
+        \end{itemize}
+    \item \textbf{Inclusioni}:
+        \begin{itemize}
+		    \item \hyperref[uc_43.1.1]{UC\_43.1.1}
+		    \item \hyperref[uc_43.1.3]{UC\_43.1.2}
+		    \item \hyperref[uc_43.1.3]{UC\_43.1.3}
+		    \item \hyperref[uc_43.1.4]{UC\_43.1.4}
+		    \item \hyperref[uc_43.1.5]{UC\_43.1.5}
+        \end{itemize}
+    \item \textbf{User Story}: Un utente vuole visualizzare l'elenco dei comandi disponibili 
+\end{itemize}
+\subsubsubsubsection{UC\_43.1.1 Visualizza comando "/duplica"} 
+\label{uc_43.1.1}
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+        \begin{enumerate}
+            \item L'Utente visualizza il comando "duplica" nel menu a comparsa 
+        \end{enumerate}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Il sistema è online 
+            \item L'Utente può scrivere nella chat
+        \end{itemize}
+    \item \textbf{Postcondizioni}:
+        \begin{itemize}
+            \item L'utente visualizza il comando "duplica" nel menu a comparsa
+        \end{itemize}
+    \item \textbf{User Story}: Un utente vuole visualizzare l'elenco dei comandi disponibili 
+\end{itemize}
+\subsubsubsubsection{UC\_43.1.2 Visualizza comando "/carrello"} 
+\label{uc_43.1.2}
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+        \begin{enumerate}
+            \item L'Utente visualizza il comando "carrello" nel menu a comparsa 
+        \end{enumerate}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Il sistema è online 
+            \item L'Utente può scrivere nella chat
+        \end{itemize}
+    \item \textbf{Postcondizioni}:
+        \begin{itemize}
+            \item L'utente visualizza il comando "carrello" nel menu a comparsa
+        \end{itemize}
+    \item \textbf{User Story}: Un utente vuole visualizzare l'elenco dei comandi disponibili 
+\end{itemize}
+\subsubsubsubsection{UC\_43.1.3 Visualizza comando "/duplica{xx}"} 
+\label{uc_43.1.3}
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+        \begin{enumerate}
+            \item L'Utente visualizza il comando "duplica{xx}" nel menu a comparsa 
+        \end{enumerate}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Il sistema è online 
+            \item L'Utente può scrivere nella chat
+        \end{itemize}
+    \item \textbf{Postcondizioni}:
+        \begin{itemize}
+            \item L'utente visualizza il comando "duplica{xx}" nel menu a comparsa
+        \end{itemize}
+    \item \textbf{User Story}: Un utente vuole visualizzare l'elenco dei comandi disponibili 
+\end{itemize}
+\subsubsubsubsection{UC\_43.1.4 Visualizza comando "/invia"} 
+\label{uc_43.1.4}
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+        \begin{enumerate}
+            \item L'Utente visualizza il comando "invia" nel menu a comparsa 
+        \end{enumerate}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Il sistema è online 
+            \item L'Utente può scrivere nella chat
+        \end{itemize}
+    \item \textbf{Postcondizioni}:
+        \begin{itemize}
+            \item L'utente visualizza il comando "invia" nel menu a comparsa
+        \end{itemize}
+    \item \textbf{User Story}: Un utente vuole visualizzare l'elenco dei comandi disponibili 
+\end{itemize}
+\subsubsubsubsection{UC\_43.1.5 Visualizza comando "/annulla"} 
+\label{uc_43.1.5}
+\begin{itemize}
+    \item \textbf{Attore principale}: Utente
+    \item \textbf{Scenario principale}:
+        \begin{enumerate}
+            \item L'Utente visualizza il comando "annulla" nel menu a comparsa 
+        \end{enumerate}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Il sistema è online 
+            \item L'Utente può scrivere nella chat
+        \end{itemize}
+    \item \textbf{Postcondizioni}:
+        \begin{itemize}
+            \item L'utente visualizza il comando "annulla" nel menu a comparsa
+        \end{itemize}
+    \item \textbf{User Story}: Un utente vuole visualizzare l'elenco dei comandi disponibili 
 \end{itemize}
