@@ -68,6 +68,13 @@
 \subsubsubsection{UC\_11.2: Selezionare immagine da dispositivo}
 \label{uc_11.2}
 
+L'UC\_11.2 ha 3 ulteriori generalizzazioni.
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_11.2}
+        \caption{UC\_11: Selezionare immagine da dispositivo}
+\end{figure}
+
 \begin{itemize}
     \item \textbf{Attore principale}: Utente
     \item \textbf{Scenario principale}:
@@ -85,4 +92,67 @@
             \item Il sistema invia l'immagine appena scattata all'OCR   
         \end{itemize}
     \item \textbf{User Story}: L'Utente vuole inserire un ordine mediante un'immagine presente nel dispositivo
+\end{itemize}
+
+\subsubsubsubsection{UC\_11.2.1: Selezionare immagine jpg}
+\label{uc_11.2.1}
+
+\begin{itemize}
+    \item \textbf{Attore Principale:} Untente
+    \item \textbf{Scenario principale}:
+        \begin{enumerate}
+            \item L'Utente ha premuto il pulsante per selezionare un file dal dispositivo
+            \item L'Utente seleziona un file con estensione .jpg
+        \end{enumerate}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Il sistema verifica la compatibilità del formato e predispone il file per l'invio
+            \item L'Utente si trova nella sezione di inserimento ordine tramite file
+        \end{itemize}
+    \item \textbf{Postcondizioni}: 
+        \begin{itemize}
+            \item Il file .jpg è stato correttamente selezionato e caricato nel sistema  
+        \end{itemize}
+\end{itemize}
+
+\subsubsubsubsection{UC\_11.2.2: Selezionare immagine jpeg}
+\label{uc_11.2.2}
+
+\begin{itemize}
+    \item \textbf{Attore Principale:} Untente
+    \item \textbf{Scenario principale}:
+        \begin{enumerate}
+            \item L'Utente ha premuto il pulsante per selezionare un file dal dispositivo
+            \item L'Utente seleziona un file con estensione .jpeg
+        \end{enumerate}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Il sistema verifica la compatibilità del formato e predispone il file per l'invio
+            \item L'Utente si trova nella sezione di inserimento ordine tramite file
+        \end{itemize}
+    \item \textbf{Postcondizioni}: 
+        \begin{itemize}
+            \item Il file .jpeg è stato correttamente selezionato e caricato nel sistema  
+        \end{itemize}
+\end{itemize}
+
+\subsubsubsubsection{UC\_11.2.3: Selezionare immagine png}
+\label{uc_11.2.3}
+
+\begin{itemize}
+    \item \textbf{Attore Principale:} Untente
+    \item \textbf{Scenario principale}:
+        \begin{enumerate}
+            \item L'Utente ha premuto il pulsante per selezionare un file dal dispositivo
+            \item L'Utente seleziona un file con estensione .png
+        \end{enumerate}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Il sistema verifica la compatibilità del formato e predispone il file per l'invio
+            \item L'Utente si trova nella sezione di inserimento ordine tramite file
+        \end{itemize}
+    \item \textbf{Postcondizioni}: 
+        \begin{itemize}
+            \item Il file .png è stato correttamente selezionato e caricato nel sistema  
+        \end{itemize}
 \end{itemize}
