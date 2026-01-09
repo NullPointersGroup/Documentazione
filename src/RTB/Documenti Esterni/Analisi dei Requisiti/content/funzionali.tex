@@ -72,7 +72,7 @@
 	\hline
 	RF-OB\_28 & L'Utente può aggiungere articoli all'ordine tramite comandi testuali o vocali & UC\_15\newline UC\_9\newline UC\_13 \\
 	\hline
-	RF-OB\_29 & L'Utente deve ricevere conferma dell'aggiunta dei prodotti & UC\_15\newline UC\_21.1 \\
+	RF-OB\_29 & Il Cliente deve ricevere conferma dell'aggiunta dei prodotti & UC\_15\newline UC\_21.2 \\
 	\hline
 	RF-OB\_30 & L'Utente deve essere notificato nel caso in cui i prodotti di cui ha richiesto l'inserimento non siano stati trovati nel catalogo o se c'è stato un errore. & UC\_16 \\
 	\hline
@@ -82,71 +82,61 @@
 	\hline
 	RF-OB\_33 & L'Utente deve essere avvisato nel caso in cui i prodotti dei quali ha richiesto la rimozione non fossero presenti nel carrello o se c'è stato un errore. & UC\_18 \\
 	\hline
-	RF-OB\_34 & L'Utente deve poter visualizzare l'anteprima del carrello tramite il comando testuale /carrello. & UC\_19 \\
+	RF-OB\_35 & Il Cliente deve poter inviare il comando testuale \verb|/carrello|. & UC\_19.1 \\
 	\hline
-	RF-OB\_35 & L'Utente riceve l'anteprima dell'ordine in chat tramite un layout che mostra i prodotti con Nome, Quantità e Immagine presente nel catalogo & UC\_19 \\
+	RF-OB\_34 & Il Cliente visualizza l'anteprima del carrello dopo aver inserito il comando testuale \verb|/carrello|. & UC\_19.2 \\
 	\hline
-	RF-OB\_36 & L'Utente visualizza i prezzi di ogni articolo & UC\_19.1\newline UC\_26.1.1 \\
+	RF-OB\_36 & Il Cliente visualizza i prezzi di ogni articolo & UC\_19.2.2\newline UC\_26.2.1 \\
 	\hline
-	RF-OB\_37 & L'Utente visualizza il nome di ogni articolo & UC\_19.2\newline UC\_26.1.2 \\
+	RF-OB\_37 & Il Cliente visualizza il nome di ogni articolo & UC\_19.2.1\newline UC\_26.2.2 \\
 	\hline
-	RF-OB\_38 & L'Utente visualizza la quantità di ogni articolo & UC\_19.3\newline UC\_26.1.3 \\
+	RF-OB\_38 & Il Cliente visualizza la quantità di ogni articolo & UC\_19.2.3\newline UC\_26.2.3 \\
 	\hline
-	RF-OB\_39 & L'Utente se digita /carrello riceve un avviso nel caso in cui nel carrello non ci fossero elementi. & UC\_20 \\
+	RF-OB\_39 & Il Cliente se digita \verb|/carrello| riceve un avviso nel caso in cui nel carrello non ci fossero elementi. & UC\_20 \\
 	\hline
-	RF-OB\_40 & L'Utente deve poter riformulare l'ordine per prodotti ambigui di quantità & UC\_21 \\
+	RF-OB\_40 & Il Cliente deve poter riformulare l'ordine per prodotti ambigui & UC\_21.1 \\
 	\hline
-	RF-OB\_41 & L'Utente deve poter riformulare l'ordine per prodotti ambigui di tipo & UC\_21 \\
+	RF-OB\_43 & Il Cliente può rispondere \vr{annulla} per uscire dalla disambiguazione. & UC\_22.1 \\
 	\hline
-	RF-OB\_42 & L'Utente può rispondere scegliendo, con input testuale o vocale, l'articolo che preferisce & UC\_21 \\
+	RF-OB\_44 & Il Cliente riceve conferma dell'annullamento della disambiguazione & UC\_22.2 \\
 	\hline
-	RF-OB\_43 & L'Utente può rispondere "annulla" per uscire dalla disambiguazione. & UC\_22 \\
+	RF-OB\_46 & Il Cliente deve vedere nella home il tasto \vr{Segnala un problema} & UC\_24 \\
 	\hline
-	RF-OB\_44 & L'Utente riceve conferma dell'annullamento della disambiguazione & UC\_22 \\
+	RF-OB\_47 & Il Cliente cliccando sul pulsante \vr{Segnala un problema} apre in una nuova pagina un modulo dedicato & UC\_24 \\
 	\hline
-	RF-OB\_45 & L'Utente deve poter ricevere risposta affermativa sull'aggiornamento dello stato dell'ordine (carrello). & UC\_21.1 \\
+	RF-OB\_48 & Il Cliente deve visualizzare il dropdown: \vr{Bug}, \vr{Richiesta di supporto}, \vr{Suggerimento} & UC\_24.1 \\
 	\hline
-	RF-OB\_46 & L'Utente deve vedere nella home il tasto Segnala un problema & UC\_24 \\
+	RF-OB\_49 & Il Cliente può selezionare il tipo da dropdown & UC\_24.1 \\
 	\hline
-	RF-OB\_47 & L'Utente cliccando sul pulsante "Segnala un problema" apre in una nuova pagina un modulo dedicato & UC\_24 \\
+	RF-OB\_50 & Il Cliente deve inserire una descrizione in un campo di testo (es. massimo 300 caratteri). & UC\_24.2 \\
 	\hline
-	RF-OB\_48 & L'Utente deve visualizzare il dropdown: "Bug", "Richiesta di supporto", "Suggerimento" & UC\_24.1 \\
+	RF-OB\_51 & Il Cliente può visualizzare il tasto \vr{Invia segnalazione} & UC\_24.3 \\
 	\hline
-	RF-OB\_49 & L'Utente può selezionare il tipo da dropdown & UC\_24.1 \\
+	RF-OB\_52 & Il Cliente può inviare il form cliccando \vr{Invia segnalazione} & UC\_24.3 \\
 	\hline
-	RF-OB\_50 & L'Utente deve inserire una descrizione in un campo di testo (es. massimo 300 caratteri). & UC\_24.2 \\
+	RF-OB\_53 & Il Cliente riceve conferma dell'invio con un messaggio \vr{Ticket creato con successo} & UC\_24.4 \\
 	\hline
-	RF-OB\_51 & L'Utente può visualizzare il tasto "Invia segnalazione" & UC\_24.3 \\
+	RF-OB\_54 & Il Cliente può inserire il comando \verb|/invia| nella chat per avviare la conferma dell'ordine. & UC\_26.1 \\
 	\hline
-	RF-OB\_52 & L'Utente può inviare il form cliccando "Invia segnalazione" & UC\_24.3 \\
+	RF-OB\_55 & Se il carrello è vuoto dopo il comando \verb|/invia| il Cliente visualizza un messaggio di errore che avvisa che il carrello è vuoto. & UC\_27 \\
 	\hline
-	RF-OB\_53 & L'Utente riceve conferma dell'invio con un messaggio "Ticket creato con successo" & UC\_24 \\
+	RF-OB\_56 & Il Cliente deve inviare l'ordine digitando \verb|/invia| nella chat & UC\_26.1 \\
 	\hline
-	RF-OB\_54 & L'Utente può digitare il comando testuale "/invia" nella chat per avviare la conferma dell'ordine. & UC\_26 \\
+	RF-OB\_57 & Il Cliente deve visualizzare il messaggio riepilogativo con i dettagli dell'ordine quando invia /invia nella chat & UC\_26.2 \\
 	\hline
-	RF-OB\_55 & Se il carrello è vuoto il comando /invia mostra errore specificando che il carrello è vuoto. & UC\_27 \\
+	RF-OB\_58 & Il Cliente a seguito del messaggio riepilogativo deve decidere se annullare o confermare l'invio dell'ordine & UC\_26 \\
 	\hline
-	RF-OB\_56 & L'Utente deve inviare l'ordine digitando /invia nella chat & UC\_26 \\
+	RF-OB\_59 & Il Cliente deve poter confermare l'invio dell'ordine con un input & UC\_26.3\newline UC\_34 \\
 	\hline
-	RF-OB\_57 & L'Utente deve visualizzare il messaggio riepilogativo con i dettagli dell'ordine quando invia /invia nella chat & UC\_26.1 \\
+	RF-OB\_61 & Il Cliente deve visualizzare la conferma dell'invio dell'ordine & UC\_26.5\\
 	\hline
-	RF-OB\_58 & Il chatbot deve richiedere alla fine del messaggio riepilogativo se conferma o annulla l'ordine & UC\_26 \\
+	RF-OB\_61 & Il Cliente deve poter annullare l'invio dell'ordine con un input & UC\_26.5\\
 	\hline
-	RF-OB\_59 & L'Utente deve poter confermare l'ordine con un input testuale & UC\_26\newline UC\_26.2\newline UC\_34 \\
+	RF-OB\_63 & Il Cliente a seguito della conferma visualizza un riepilogo con data ordine e un numero d'ordine univoco a livello di sistema & UC\_26\newline UC\_26.2\newline UC\_34 \\ %i sottocasi di 26.2 sono nel 19.qualcosa! (più su)
 	\hline
-	RF-OB\_60 & L'Utente deve poter confermare l'acquisto tramite messaggio vocale. & UC\_26\newline UC\_26.2\newline UC\_34 \\
+	RF-OB\_65 & Il Cliente deve poter vedere il pulsante \vr{nuova chat} per iniziare una nuova sessione (sempre presente) & UC\_28 \\
 	\hline
-	RF-OB\_61 & L'Utente deve poter annullare l'ordine con un input testuale & UC\_26\newline UC\_26.3\newline UC\_34 \\
-	\hline
-	RF-OB\_62 & L'Utente deve poter annullare l'acquisto tramite messaggio vocale. & UC\_26\newline UC\_26.3\newline UC\_34 \\
-	\hline
-	RF-OB\_63 & L'Utente a seguito della conferma visualizza un riepilogo con data ordine e un numero d'ordine univoco a livello di sistema & UC\_26\newline UC\_26.2\newline UC\_34 \\
-	\hline
-	RF-OB\_64 & L'Utente a seguito della conferma e del riepilogo con numero ordine visualizza un messaggio finale: "Ordine confermato! Grazie per l'acquisto." & UC\_26\newline UC\_26.3\newline UC\_34 \\
-	\hline
-	RF-OB\_65 & L'Utente deve poter vedere il pulsante (nuova chat) per iniziare una nuova sessione (sempre presente) & UC\_28 \\
-	\hline
-	RF-OB\_66 & L'Utente deve poter cliccare sul pulsante (nuova chat) per iniziare una nuova sessione eliminando quella vecchia. & UC\_28 \\
+	RF-OB\_66 & L'Utente deve poter cliccare sul pulsante \vr{nuova chat} per iniziare una nuova sessione. & UC\_28 \\
 	\hline
 	RF-OB\_67 & L'Utente richiede la duplicazione al chatbot indicando il codice dell'ordine desiderato preceduto dal comando "/duplica". & UC\_34 \\
 	\hline
@@ -334,39 +324,35 @@
 	\hline
 	RF-DE\_57 & L'Utente cliccando sull'immagine caricata può visionarla a schermo intero. & UC\_11 \\
 	\hline
-	RF-DE\_58 & L'Utente può visualizzare il pulsante a fianco all'ultima risposta "lascia Feedback". & UC\_23 \\
+	RF-DE\_58 & Il Cliente può visualizzare il pulsante a fianco all'ultima risposta \vr{lascia Feedback}. & UC\_23 \\
 	\hline
-	RF-DE\_59 & L'Utente può premere il pulsante affianco ad ogni risposta "lascia Feedback" per fornire feedback all'AI & UC\_23 \\
+	RF-DE\_59 & Il Cliente può premere il pulsante affianco ad ogni risposta \vr{lascia Feedback} per fornire feedback all'AI & UC\_23 \\
 	\hline
-	RF-DE\_60 & L'Utente premendo su "lascia Feedback" deve visualizzare l'apertura di un form in una nuova pagina & UC\_23 \\
+	RF-DE\_60 & Il Cliente premendo su \vr{lascia Feedback} deve visualizzare l'apertura di un form in una nuova pagina & UC\_23 \\
 	\hline
-	RF-DE\_61 & L'Utente deve vedere il dropdown: "Prodotto sbagliato", "Quantità errata", "Non ha capito", "Altro". & UC\_23\newline UC\_23.1 \\
+	RF-DE\_61 & Il Cliente deve vedere il dropdown: \vr{Prodotto sbagliato}, \vr{Quantità errata}, \vr{Incomprensione}, \vr{Altro}. & UC\_23.1 \\
 	\hline
-	RF-DE\_62 & L'Utente deve selezionare obbligatoriamente una categoria: "Prodotto sbagliato", "Quantità errata", "Non ha capito", "Altro". & UC\_23\newline UC\_23.1 \\
+	RF-DE\_62 & Il Cliente deve selezionare obbligatoriamente una categoria: \vr{Prodotto sbagliato}, \vr{Quantità errata}, \vr{Incomprensione}, \vr{Altro}. & UC\_23.1 \\
 	\hline
-	RF-DE\_63 & L'Utente deve inserire obbligatoriamente una descrizione tramite input testuale con un massimo di 300 caratteri. & UC\_23\newline UC\_23.1 \\
+	RF-DE\_63 & Il Cliente deve inserire obbligatoriamente una descrizione tramite input testuale con un massimo di 300 caratteri. & UC\_23.2 \\
 	\hline
-	RF-DE\_64 & L'Utente deve vedere un contatore x/300 vicino al campo di testo & UC\_23\newline UC\_23.1 \\
+	RF-DE\_64 & Il Cliente deve vedere un contatore x/300 vicino al campo di testo & UC\_23.2 \\
 	\hline
-	RF-DE\_65 & Al superamento dei 300 caratteri blocca la possibilità di scrivere nell'input & UC\_23\newline UC\_23.1 \\
+	RF-DE\_65 & Al superamento dei 300 caratteri il Clienite non potrà più scrivere nell'input & UC\_23.2 \\
 	\hline
-	RF-DE\_66 & L'Utente visualizza in fondo alla pagina il pulsante "Invia feedback" & UC\_23\newline UC\_23.2 \\
+	RF-DE\_66 & Il Cliente visualizza in fondo alla pagina il pulsante \vr{Invia feedback} & UC\_23.3 \\
 	\hline
-	RF-DE\_67 & L'Utente deve poter premere il pulsante "Invia feedback" & UC\_23\newline UC\_23.2 \\
+	RF-DE\_67 & Il Cliente deve poter premere il pulsante \vr{Invia feedback} & UC\_23.3 \\
 	\hline
-	RF-DE\_68 & L'Utente cliccando il pulsante "Invia feedback" riceve la conferma dell'invio. & UC\_23\newline UC\_23.2 \\
+	RF-DE\_68 & Il Cliente riceve la conferma dell'invio del feedback. & UC\_23.3 \\
 	\hline
 	RF-DE\_69 & L'Admin deve visualizzare la pagina web delle performance. & UC\_25 \\
 	\hline
-	RF-DE\_70 & L'Admin può visualizzare tramite dropdown le metriche per le performance (tempo risposta, durata media sessione). & UC\_25\newline UC\_25.1\newline UC\_25.2 \\
-	\hline
-	RF-DE\_71 & L'Admin può scegliere quale metrica visualizzare nel grafico (con dropdown: tempo risposta, durata media sessione). & UC\_25\newline UC\_25.1\newline UC\_25.2 \\
+	RF-DE\_70 & L'Admin può visualizzare le metriche per le performance (tempo risposta, durata media sessione). & UC\_25\\
 	\hline
 	RF-DE\_72 & L'Admin può visualizzare il tempo medio di risposta del chatbot & UC\_25.1 \\
 	\hline
 	RF-DE\_73 & L'Admin può visualizzare il tempo medio di permanenza nella web-app & UC\_25.2 \\
-	\hline
-	RF-DE\_74 & L'Admin visualizza nella dashboard l'opzione selezionata, ad es.: "Tempo medio risposta: 123 ms" o "Durata media sessione: MM min SS sec" calcolato nell'intervallo selezionato con grafico temporale (altrimenti in tutto il tempo) & UC\_25\newline UC\_25.1\newline UC\_25.2\newline UC\_36.1.2 \\
 	\hline
 	RF-DE\_75 & L'Admin deve poter visualizzare un bottone relativo all'esportazione del log & UC\_29 \\
 	\hline
@@ -378,7 +364,7 @@
 	\hline
 	RF-DE\_79 & L'Admin deve poter scaricare il file di log in formato JSON nel proprio dispositivo & UC\_29\newline UC\_29.1 \\
 	\hline
-	RF-DE\_80 & L'Admin deve poter esportare il registro ordini filtrando dei Clienti specifici. & UC\_29.2 \\
+	RF-DE\_80 & L'Admin deve poter esportare il registro ordini filtrato per cliente. & UC\_29.2 \\
 	\hline
 	RF-DE\_81 & L'Admin deve poter ottenere il file JSON del registro ordini & UC\_30 \\
 	\hline
@@ -469,6 +455,8 @@
 	RF-DE\_124 & L'Utente deve poter visualizzare il link per la pagina dell'elenco dei comandi in qualsiasi pagina & UC\_43 \\
 	\hline
 	RF-DE\_125 & L'Utente deve poter schiacciare il link per la pagina dell'elenco dei comandi in qualsiasi pagina & UC\_43 \\
+	\hline
+	RF-DE\_125 & L'Utente deve poter schiacciare il link per la pagina dell'elenco dei comandi in qualsiasi pagina & UC\_47.2, \newline UC\_25.1, \newline UC\_25.2\\
 	\hline
 	\multicolumn{3}{c}{} \\
 	\caption{Requisiti Funzionali desiderabili}\label{tab:funzionali_desiderabili}\\

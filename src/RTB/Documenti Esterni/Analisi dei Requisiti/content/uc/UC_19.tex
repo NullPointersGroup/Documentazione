@@ -8,72 +8,96 @@
 \end{figure}
 
 \begin{itemize}
-	\item \textbf{Attore principale}: Utente
+	\item \textbf{Attore principale}: Cliente
     \item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Utente invia il comando testuale \verb|/carrello| nella chat
-		\item L'Utente visualizza il riepilogo del carrello
-		\item L'Utente visualizza il prezzo dei prodotti presenti nel carrello $\rightarrow$ Vedi \hyperref[uc_19.1]{UC\_19.1}
-		\item L'Utente visualizza il nome dei prodotti presenti nel carrello $\rightarrow$ Vedi \hyperref[uc_19.2]{UC\_19.2}
-		\item L'Utente visualizza la quantità dei prodotti presenti nel carrello $\rightarrow$ Vedi \hyperref[uc_19.3]{UC\_19.3}
+		\item Il Cliente invia il comando \verb|/carrello| nella chat $\rightarrow$ Vedi \hyperref[uc_19.1]{UC\_19.1}
+		\item Il Cliente visualizza il riepilogo del carrello $\rightarrow$ Vedi \hyperref[uc_19.2]{UC\_19.2}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item Il sistema è online
-		\item La sessione chat dell'Utente è attiva
+		\item La sessione chat del Cliente è attiva
 		\item Sono presenti articoli nel carrello
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'Utente visualizza correttamente l'anteprima del proprio carrello
+		\item Il Cliente visualizza correttamente l'anteprima del proprio carrello
 	\end{itemize}
 	\item \textbf{Scenari alternativi}:
 	\begin{itemize}
-		\item Il carrello è vuoto, l'Utente visualizza un messaggio di avviso specifico. $\rightarrow$ Vedi \hyperref[uc_20]{UC\_20}
+		\item Il carrello è vuoto, il Cliente visualizza un messaggio di avviso specifico. $\rightarrow$ Vedi \hyperref[uc_20]{UC\_20}
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
 		\item \hyperref[uc_19.1]{UC\_19.1}
 		\item \hyperref[uc_19.2]{UC\_19.2}
-		\item \hyperref[uc_19.3]{UC\_19.3}
 	\end{itemize}
 	\item \textbf{Estensioni}:
 	\begin{itemize}
 		\item \hyperref[uc_20]{UC\_20}
 	\end{itemize}
-    \item \textbf{User Story}:
-	L'Utente vuole visualizzare il riepilogo dell'ordine corrente, comprensivo di nomi, quantità e prezzi degli articoli, per verificarne il contenuto o effettuare eventuali modifiche.
+    \item \textbf{Trigger}:
+	Il Cliente vuole visualizzare il riepilogo dell'ordine corrente, comprensivo di nomi, quantità e prezzi degli articoli, per verificarne il contenuto o effettuare eventuali modifiche.
 \end{itemize}
 
-\subsubsubsection{UC\_19.1: Visualizzazione prezzo articolo}
+\subsubsubsection{UC\_19.1: Inserimento comando}
 \label{uc_19.1}
 \begin{itemize}
-	\item \textbf{Attore principale}: Utente
+	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}: 
 	\begin{enumerate}
-		\item L'Utente visualizza i prezzi dei singoli articoli nel riepilogo \verb|/carrello|
+		\item Il Cliente seleziona il comando \verb|/carrello|
 	\end{enumerate}
 	\item \textbf{Precondizioni}: 
 	\begin{itemize}
-		\item È stato digitato il comando \verb|/carrello|
+		\item Il Cliente si trova nella chat
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il prezzo di ogni articolo è visibile
+		\item Il riepilogo è visibile al Cliente
 	\end{itemize} 
 \end{itemize}
 
-\subsubsubsection{UC\_19.2: Visualizzazione nome articolo}
+\subsubsubsection{UC\_19.2: Visualizza riepilogo carrello}
 \label{uc_19.2}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_19.2}
+	\caption{Inclusioni UC\_19.2: UC\_19.2.1, UC\_19.2.2, UC\_19.2.3}
+\end{figure}
+
 \begin{itemize}
-	\item \textbf{Attore principale}: Utente
+	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}: 
 	\begin{enumerate}
-		\item L'Utente visualizza il nome dei singoli articoli nel riepilogo \verb|/carrello|
+		\item Il Cliente visualizza il riepilogo del carrello
+		\item Il Cliente visualizza il nome dei prodotti presenti nel carrello $\rightarrow$ Vedi \hyperref[uc_19.2.1]{UC\_19.2.1}
+		\item Il Cliente visualizza il prezzo dei prodotti presenti nel carrello $\rightarrow$ Vedi \hyperref[uc_19.2.2]{UC\_19.2.2}
+		\item Il Cliente visualizza la quantità dei prodotti presenti nel carrello $\rightarrow$ Vedi \hyperref[uc_19.2.3]{UC\_19.2.3}
 	\end{enumerate}
 	\item \textbf{Precondizioni}: 
 	\begin{itemize}
-		\item È stato digitato il comando \verb|/carrello|
+		\item È stato inviato correttamente il comando \verb|/carrello|
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item È visibile il riepilogo del carrello
+	\end{itemize} 
+\end{itemize}
+	
+\subsubsubsubsection{UC\_19.2.1: Visualizza nome articolo}
+\label{uc_19.2.1}
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Scenario principale}: 
+	\begin{enumerate}
+		\item Il Cliente visualizza il nome dei singoli articoli nel riepilogo
+	\end{enumerate}
+	\item \textbf{Precondizioni}: 
+	\begin{itemize}
+		\item Il Cliente visualizza il riepilogo
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
@@ -81,17 +105,35 @@
 	\end{itemize} 
 \end{itemize}
 
-\subsubsubsection{UC\_19.3: Visualizzazione quantità articolo}
-\label{uc_19.3}
+\subsubsubsubsection{UC\_19.2.2: Visualizza prezzo articolo}
+\label{uc_19.2.2}
 \begin{itemize}
-	\item \textbf{Attore principale}: Utente
+	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}: 
 	\begin{enumerate}
-		\item L'Utente visualizza la quantità dei singoli articoli nel riepilogo \verb|/carrello|
+		\item Il Cliente visualizza i prezzi dei singoli articoli nel riepilogo
 	\end{enumerate}
 	\item \textbf{Precondizioni}: 
 	\begin{itemize}
-		\item È stato digitato il comando \verb|/carrello|
+		\item Il Cliente visualizza il riepilogo
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il prezzo di ogni articolo è visibile
+	\end{itemize} 
+\end{itemize}
+
+\subsubsubsubsection{UC\_19.2.3: Visualizza quantità articolo}
+\label{uc_19.4}
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Scenario principale}: 
+	\begin{enumerate}
+		\item Il Cliente visualizza la quantità dei singoli articoli nel riepilogo
+	\end{enumerate}
+	\item \textbf{Precondizioni}: 
+	\begin{itemize}
+		\item Il Cliente visualizza il riepilogo
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
