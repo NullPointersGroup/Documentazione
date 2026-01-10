@@ -12,18 +12,21 @@
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
 		\item Il Cliente richiede la duplicazione di un ordine tramite chatbot
-		\item Il sistema duplica l'ordine richiesto
-		\item Il Cliente conferma la duplicazione $\rightarrow$ Vedi \hyperref[uc_34_1]{UC\_34.1}
-		\item Il Sistema mostra una notifica di conferma $\rightarrow$ Vedi \hyperref[uc_34_2]{UC\_34.2}
+		\item Il sistema identifica e propone l'ordine da duplicare
+		\item Il Cliente conferma la duplicazione $\rightarrow$ Vedi \hyperref[uc_34.1]{UC\_34.1}
+		\item Il sistema duplica l'ordine
+		\item Il Sistema mostra una notifica di conferma $\rightarrow$ Vedi \hyperref[uc_34.2]{UC\_34.2}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item Il sistema è online
+		\item Il Cliente è autenticato
 		\item La sessione chat del Cliente è attiva
+		\item Esiste almeno un ordine precedente del Cliente
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'ordine è stato duplicato correttamente
+		\item Una copia dell'ordine selezionato è stata creata nel carrello
 	\end{itemize}
 	\item \textbf{Scenari alternativi}:
 	\begin{itemize}
@@ -31,53 +34,54 @@
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
-		\item \hyperref[uc_34_1]{UC\_34.1}
-		\item \hyperref[uc_34_2]{UC\_34.2}
+		\item \hyperref[uc_34.1]{UC\_34.1}
+		\item \hyperref[uc_34.2]{UC\_34.2}
 	\end{itemize}
 	\item \textbf{Estensioni}:
 	\begin{itemize}
 		\item \hyperref[uc_35]{UC\_35}
 	\end{itemize}
-	\item \textbf{Trigger}: Il Cliente vuole duplicare un ordine tramite chatbot.
+	\item \textbf{Trigger}: Il Cliente vuole duplicare un ordine precedente tramite chatbot
 \end{itemize}
 
 \subsubsubsection{UC\_34.1: Conferma duplicazione}
-\label{uc_34_1}
+\label{uc_34.1}
 
 \begin{itemize}
 	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item Il Cliente conferma la duplicazione dell'ordine richiesto
+		\item Il Cliente conferma la duplicazione dell'ordine proposto
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il Cliente ha richiesto la duplicazione di un ordine $\rightarrow$ Vedi \hyperref[uc_34]{UC\_34}
-		\item L'ordine richiesto esiste
+		\item Il Cliente ha richiesto la duplicazione di un ordine e il sistema ha proposto un ordine valido $\rightarrow$ Vedi \hyperref[uc_34]{UC\_34}
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
 		\item La duplicazione dell'ordine è confermata dal Cliente
 	\end{itemize}
-	\item \textbf{Trigger}: Il Cliente vuole confermare la duplicazione dell'ordine richiesto.
+	\item \textbf{Trigger}: Il sistema richiede conferma per procedere con la duplicazione
 \end{itemize}
 
 \subsubsubsection{UC\_34.2: Notifica conferma}
-\label{uc_34_2}
+\label{uc_34.2}
 
 \begin{itemize}
 	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
 		\item Il sistema mostra al Cliente una notifica di conferma della duplicazione
+		\item Il Cliente visualizza la notifica
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il Cliente ha confermato la duplicazione $\rightarrow$ Vedi \hyperref[uc_34_1]{UC\_34.1}
+		\item Il Cliente ha confermato la duplicazione $\rightarrow$ Vedi \hyperref[uc_34.1]{UC\_34.1}
+		\item Il sistema ha completato la duplicazione dell'ordine
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item La notifica di conferma è visualizzata
+		\item La notifica di conferma è stata visualizzata
 	\end{itemize}
-	\item \textbf{Trigger}: Il Cliente vuole ricevere una notifica di conferma dopo aver duplicato un ordine.
+	\item \textbf{Trigger}: Il sistema ha completato con successo la duplicazione dell'ordine
 \end{itemize}

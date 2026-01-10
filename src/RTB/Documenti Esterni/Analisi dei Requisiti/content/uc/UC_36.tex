@@ -12,10 +12,13 @@
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
 		\item L'Admin clicca il pulsante per visualizzare lo storico ordini
-		\item L'Admin visualizza l'elenco di tutti gli ordini
-		\item L'Admin visualizza il codice ordine $\rightarrow$ Vedi \hyperref[uc_36.1]{UC\_36.1}
-		\item L'Admin visualizza la data dell'ordine $\rightarrow$ Vedi \hyperref[uc_36.2]{UC\_36.2}
-		\item L'Admin visualizza lo username del Cliente $\rightarrow$ Vedi \hyperref[uc_36.3]{UC\_36.3}
+		\item Il sistema carica e visualizza l'elenco di tutti gli ordini
+		\item Per ogni ordine, l'Admin visualizza:
+		\begin{itemize}
+		    \item Il codice ordine $\rightarrow$ Vedi \hyperref[uc_36.1]{UC\_36.1}
+		    \item La data dell'ordine $\rightarrow$ Vedi \hyperref[uc_36.2]{UC\_36.2}
+		    \item Lo username del Cliente $\rightarrow$ Vedi \hyperref[uc_36.3]{UC\_36.3}
+		\end{itemize}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
@@ -24,14 +27,15 @@
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'Admin si trova nella pagina web dedicata alla visualizzazione dello storico ordini
+		\item Lo storico completo degli ordini è stato caricato e visualizzato
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
 		\item \hyperref[uc_36.1]{UC\_36.1}
 		\item \hyperref[uc_36.2]{UC\_36.2}
+		\item \hyperref[uc_36.3]{UC\_36.3}
 	\end{itemize}
-	\item \textbf{Trigger}: L'Admin vuole visualizzare tutto lo storico degli ordini effettuati dai Clienti fino a quel momento
+	\item \textbf{Trigger}: L'Admin vuole visualizzare tutto lo storico degli ordini effettuati dai Clienti
 \end{itemize}
 
 \subsubsubsection{UC\_36.1: Visualizza codice ordine}
@@ -40,56 +44,53 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Utente visualizza i codici ordini
+		\item Il sistema visualizza il codice identificativo dell'ordine
+		\item L'Admin visualizza il codice
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il sistema è online
-		\item L'Admin è autenticato ed autorizzato
+		\item Il sistema sta visualizzando lo storico ordini (UC\_36)
 	\end{itemize}
-	\item \textbf{Postcondizioni}
+	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Vengono visualizzati i codici ordini
+		\item Il codice ordine è visibile
 	\end{itemize}
-	\item \textbf{Trigger}: L'Admin vuole visualizzare i codici ordini degli ordini presenti
 \end{itemize}
 
-\subsubsubsubsection{UC\_36.2: Visualizza data ordine}
+\subsubsubsection{UC\_36.2: Visualizza data ordine}
 \label{uc_36.2}
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Utente visualizza le date degli ordini
+		\item Il sistema visualizza la data di creazione dell'ordine
+		\item L'Admin visualizza la data
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il sistema è online
-		\item L'Admin è autenticato ed autorizzato
+		\item Il sistema sta visualizzando lo storico ordini (UC\_36)
 	\end{itemize}
-	\item \textbf{Postcondizioni}
+	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Vengono visualizzate le date degli ordini
+		\item La data dell'ordine è visibile
 	\end{itemize}
-	\item \textbf{Trigger}: L'Admin vuole visualizzare la data ordine negli ordini presenti
 \end{itemize}
 
-\subsubsubsubsection{UC\_36.3: Visualizza username Cliente}
+\subsubsubsection{UC\_36.3: Visualizza username Cliente}
 \label{uc_36.3}
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Utente visualizza gli username dei Clienti
+		\item Il sistema visualizza lo username del Cliente associato all'ordine
+		\item L'Admin visualizza lo username
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il sistema è online
-		\item L'Admin è autenticato ed autorizzato
+		\item Il sistema sta visualizzando lo storico ordini (UC\_36)
 	\end{itemize}
-	\item \textbf{Postcondizioni}
+	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Vengolo visualizzati gli username dei Clienti
+		\item Lo username del Cliente è visibile
 	\end{itemize}
-	\item \textbf{Trigger}: L'Admin vuole visualizzare lo username dei Clienti negli ordini presenti
 \end{itemize}

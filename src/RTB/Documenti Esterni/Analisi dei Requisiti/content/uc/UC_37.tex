@@ -11,21 +11,25 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Utente clicca su un ordine specifico
-		\item L'Utente visualizza i dettagli di un ordine specifico
-		\item L'Utente visualizza lo username del Cliente dell'ordine specifico $\rightarrow$ Vedi \hyperref[uc_37.1]{UC\_37.1}
-		\item L'Utente visualizza i prodotti dell'ordine specifico $\rightarrow$ Vedi \hyperref[uc_37.2]{UC\_37.2}
-		\item L'Utente visualizza la data dell'ordine specifico $\rightarrow$ Vedi \hyperref[uc_37.3]{UC\_37.3}
-		\item L'Utente visualizza il numero ordine dell'ordine specifico $\rightarrow$ Vedi \hyperref[uc_37.4]{UC\_37.4}
+		\item L'Admin seleziona un ordine specifico dalla lista dello storico
+		\item Il sistema carica e visualizza la pagina di dettaglio dell'ordine
+		\item L'Admin visualizza i dettagli dell'ordine, tra cui:
+		\begin{itemize}
+		    \item Lo username del Cliente $\rightarrow$ Vedi \hyperref[uc_37.1]{UC\_37.1}
+		    \item I prodotti ordinati $\rightarrow$ Vedi \hyperref[uc_37.2]{UC\_37.2}
+		    \item La data dell'ordine $\rightarrow$ Vedi \hyperref[uc_37.3]{UC\_37.3}
+		    \item Il codice ordine $\rightarrow$ Vedi \hyperref[uc_37.4]{UC\_37.4}
+		\end{itemize}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item Il sistema è online
 		\item L'Admin è autenticato ed autorizzato
+		\item Esiste almeno un ordine nello storico
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il sistema mostra la pagina dedicata alla visualizzazione di un ordine
+		\item I dettagli completi dell'ordine selezionato sono stati visualizzati
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
@@ -34,9 +38,10 @@
 		\item \hyperref[uc_37.3]{UC\_37.3}
 		\item \hyperref[uc_37.4]{UC\_37.4}
 	\end{itemize}
-	\item \textbf{Trigger}: L'Admin vuole visualizzare i dettagli di un ordine specifico
+	\item \textbf{Trigger}: L'Admin vuole ispezionare i dettagli completi di un ordine specifico
 \end{itemize}
 
+%--------------------------------------------------------------------
 \subsubsubsection{UC\_37.1: Visualizza username Cliente}
 \label{uc_37.1}
 
@@ -44,21 +49,20 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin sta visualizzando lo username Cliente di un ordine specifico
+		\item Il sistema visualizza lo username del Cliente associato all'ordine
+		\item L'Admin visualizza lo username
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il sistema è online
-		\item L'Admin è autenticato ed autorizzato
-		\item L'Admin sta visualizzando i dettagli di un ordine specifico
+		\item Il sistema sta visualizzando la pagina di dettaglio di un ordine (UC\_37)
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'Utente visualizza lo username del Cliente di un ordine specifico
+		\item Lo username del Cliente è visibile
 	\end{itemize}
-	\item \textbf{Trigger}: L'Utente vuole visualizzare lo username del Cliente nella pagina dei dettagli di un ordine specifico
 \end{itemize}
 
+%--------------------------------------------------------------------
 \subsubsubsection{UC\_37.2: Visualizza prodotti}
 \label{uc_37.2}
 
@@ -66,27 +70,26 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin sta visualizzando i prodotti di un ordine specifico
+		\item Il sistema visualizza l'elenco dei prodotti dell'ordine
+		\item L'Admin visualizza l'elenco
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il sistema è online
-		\item L'Admin è autenticato ed autorizzato
-		\item L'Admin sta visualizzando i dettagli di un ordine specifico
+		\item Il sistema sta visualizzando la pagina di dettaglio di un ordine (UC\_37)
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'Utente visualizza lo username i prodotti di un ordine specifico
+		\item L'elenco dei prodotti è visibile
 	\end{itemize}
-	\item  \textbf{Inclusioni}:
+	\item \textbf{Inclusioni}:
 	\begin{itemize}
 		\item \hyperref[uc_37.2.1]{UC\_37.2.1}
 		\item \hyperref[uc_37.2.2]{UC\_37.2.2}
 		\item \hyperref[uc_37.2.3]{UC\_37.2.3}
 	\end{itemize}
-	\item \textbf{Trigger}: L'Utente vuole visualizzare i prodotti nella pagina dei dettagli di un ordine specifico
 \end{itemize}
 
+%--------------------------------------------------------------------
 \subsubsubsection{UC\_37.3: Visualizza data ordine}
 \label{uc_37.3}
 
@@ -94,21 +97,20 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin visualizza la data di un ordine specifico
+		\item Il sistema visualizza la data di creazione dell'ordine
+		\item L'Admin visualizza la data
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il sistema è online
-		\item L'Admin è autenticato ed autorizzato
-		\item L'Admin sta visualizzando i dettagli di un ordine specifico
+		\item Il sistema sta visualizzando la pagina di dettaglio di un ordine (UC\_37)
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'Admin visualizza la data di un ordine specifico
+		\item La data dell'ordine è visibile
 	\end{itemize}
-	\item \textbf{Trigger}: L'Utente vuole visualizzare la data nella pagina dei dettagli di un ordine specifico
 \end{itemize}
 
+%--------------------------------------------------------------------
 \subsubsubsection{UC\_37.4: Visualizza codice ordine}
 \label{uc_37.4}
 
@@ -116,83 +118,78 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin visualizza il codice di un ordine specifico
+		\item Il sistema visualizza il codice identificativo dell'ordine
+		\item L'Admin visualizza il codice
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il sistema è online
-		\item L'Admin è autenticato ed autorizzato
-		\item L'Admin sta visualizzando i dettagli di un ordine specifico
+		\item Il sistema sta visualizzando la pagina di dettaglio di un ordine (UC\_37)
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'Admin visualizza il codice di un ordine specifico
+		\item Il codice ordine è visibile
 	\end{itemize}
-	\item \textbf{Trigger}: L'Utente vuole visualizzare il codice nella pagina dei dettagli di un ordine specifico
 \end{itemize}
 
-\subsubsubsection{UC\_37.2.1: Visualizza nome prodotti}
+%--------------------------------------------------------------------
+\subsubsubsubsection{UC\_37.2.1: Visualizza nome prodotti}
 \label{uc_37.2.1}
 
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin visualizza il nome dei prodotti di un ordine specifico
+		\item Per ogni prodotto nell'ordine, il sistema visualizza il nome
+		\item L'Admin visualizza i nomi
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il sistema è online
-		\item L'Admin è autenticato ed autorizzato
-		\item L'Admin sta visualizzando i prodotti di un ordine specifico
+		\item Il sistema sta visualizzando l'elenco dei prodotti di un ordine (UC\_37.2)
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'Admin visualizza il nome dei prodotti di un ordine specifico
+		\item Il nome di ciascun prodotto è visibile
 	\end{itemize}
-	\item \textbf{Trigger}: L'Utente vuole visualizzare il nome dei prodotti nella pagina dei dettagli di un ordine specifico
 \end{itemize}
 
-\subsubsubsection{UC\_37.2.2: Visualizza descrizione prodotti}
+%--------------------------------------------------------------------
+\subsubsubsubsection{UC\_37.2.2: Visualizza descrizione prodotti}
 \label{uc_37.2.2}
 
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin visualizza la descrizione dei prodotti di un ordine specifico
+		\item Per ogni prodotto nell'ordine, il sistema visualizza la descrizione
+		\item L'Admin visualizza le descrizioni
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il sistema è online
-		\item L'Admin è autenticato ed autorizzato
-		\item L'Admin sta visualizzando i prodotti di un ordine specifico
+		\item Il sistema sta visualizzando l'elenco dei prodotti di un ordine (UC\_37.2)
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'Admin visualizza la descrizione dei prodotti di un ordine specifico
+		\item La descrizione di ciascun prodotto è visibile
 	\end{itemize}
-	\item \textbf{Trigger}: L'Utente vuole visualizzare la descrizione dei prodotti nella pagina dei dettagli di un ordine specifico
 \end{itemize}
 
-\subsubsubsection{UC\_37.2.3: Visualizza quantità prodotti}
+%--------------------------------------------------------------------
+\subsubsubsubsection{UC\_37.2.3: Visualizza quantità prodotti}
 \label{uc_37.2.3}
 
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin visualizza la quantità dei prodotti di un ordine specifico
+		\item Per ogni prodotto nell'ordine, il sistema visualizza la quantità ordinata
+		\item L'Admin visualizza le quantità
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il sistema è online
-		\item L'Admin è autenticato ed autorizzato
-		\item L'Admin sta visualizzando i prodotti di un ordine specifico
+		\item Il sistema sta visualizzando l'elenco dei prodotti di un ordine (UC\_37.2)
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'Admin visualizza la quantità dei prodotti di un ordine specifico
+		\item La quantità di ciascun prodotto è visibile
 	\end{itemize}
-	\item \textbf{Trigger}: L'Utente vuole visualizzare la quantità dei prodotti nella pagina dei dettagli di un ordine specifico
 \end{itemize}

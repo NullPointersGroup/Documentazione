@@ -7,29 +7,31 @@
 \end{figure}
 
 \begin{itemize}
-    \item \textbf{Attore principale}: Utente
+    \item \textbf{Attore principale}: Cliente
     \item \textbf{Scenario principale}:
-        \begin{enumerate}
-            \item L'Utente rimuove degli articoli tramite input testuale
-            \item L'Utente rimuove degli articoli tramite immagine
-            \item L'Utente rimuove degli articoli tramite audio
-        \end{enumerate}
+    \begin{enumerate}
+        \item Il Cliente invia una richiesta di rimozione tramite input testuale, immagine o audio
+        \item Il sistema elabora l'input, identifica gli articoli e le quantità da rimuovere
+        \item Il sistema rimuove gli articoli identificati dal carrello del Cliente
+        \item Il Cliente visualizza il carrello aggiornato.
+    \end{enumerate}
     \item \textbf{Precondizioni}:
-        \begin{itemize}
-            \item Il sistema è online
-            \item L'Utente ha effettuato l’accesso al sistema
-        \end{itemize}
+    \begin{itemize}
+        \item Il sistema è online
+        \item Il Cliente è autenticato
+        \item Gli articoli che il Cliente intende rimuovere sono presenti nel suo carrello
+    \end{itemize}
     \item \textbf{Postcondizioni}:
         \begin{itemize}
-            \item Gli articoli richiesti vengono rimossi al carrello
+            \item Gli articoli richiesti sono stati rimossi dal carrello
         \end{itemize}
     \item \textbf{Scenari alternativi}:
         \begin{itemize}
-            \item L'Utente riceve un messaggio di errore di rimozione articolo dal carrello $\rightarrow$ Vedi \hyperref[uc_18]{UC\_18}
+            \item Il Cliente riceve un messaggio di errore di rimozione articolo dal carrello $\rightarrow$ Vedi \hyperref[uc_18]{UC\_18}
         \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
             \item \hyperref[uc_18]{UC\_18}
         \end{itemize}
-    \item \textbf{Trigger}: L'Utente vuole rimuovere degli articoli dal carrello mediante uno dei metodi possibili
+    \item \textbf{Trigger}: Il Cliente vuole rimuovere degli articoli dal carrello mediante uno dei metodi possibili
 \end{itemize}

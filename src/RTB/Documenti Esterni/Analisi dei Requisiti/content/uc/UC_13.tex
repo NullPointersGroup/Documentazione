@@ -7,19 +7,20 @@
 \end{figure}
 
 \begin{itemize}
-    \item \textbf{Attore principale}: Utente
+    \item \textbf{Attore principale}: Cliente
     \item \textbf{Scenario principale}:
         \begin{enumerate}
-            \item L'Utente inserisce un ordine tramite audio
-            \item L'Utente registra un messaggio audio $\rightarrow$ Vedi \hyperref[uc_13.1]{UC\_13.1}
-            \item L'Utente seleziona un file audio dal dispositivo $\rightarrow$ Vedi \hyperref[uc_13.2]{UC\_13.2}
+            \item Il Cliente inserisce un ordine tramite audio
+            \item Il Cliente registra un messaggio audio $\rightarrow$ Vedi \hyperref[uc_13.1]{UC\_13.1}
+            \item Il Cliente seleziona un file audio dal dispositivo $\rightarrow$ Vedi \hyperref[uc_13.2]{UC\_13.2}
         \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
             \item Il sistema è online
-            \item L'Utente visualizza il pulsante per allegare i file audio
-            \item L'Utente visualizza il pulsante per registrare un messaggio audio
-            \item L'Utente visualizza il pulsante d'invio
+            \item Il Cliente è autenticato
+            \item Il Cliente visualizza il pulsante per allegare i file audio
+            \item Il Cliente visualizza il pulsante per registrare un messaggio audio
+            \item Il Cliente visualizza il pulsante d'invio
         \end{itemize}
     \item \textbf{Postcondizioni}:
         \begin{itemize}
@@ -28,12 +29,7 @@
         \end{itemize}
     \item \textbf{Scenari alternativi}:
         \begin{itemize}
-            \item L'Utente riceve un messaggio di errore per il caricamento dell'audio $\rightarrow$ Vedi \hyperref[uc_14]{UC\_14}
-        \end{itemize}
-    \item \textbf{Inclusioni}:
-        \begin{itemize}
-            \item \hyperref[uc_13.1]{UC\_13.1}
-            \item \hyperref[uc_13.2]{UC\_13.2}
+            \item Il Cliente riceve un messaggio di errore per il caricamento dell'audio $\rightarrow$ Vedi \hyperref[uc_14]{UC\_14}
         \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
@@ -44,7 +40,7 @@
             \item \hyperref[uc_13.1]{UC\_13.1}
             \item \hyperref[uc_13.2]{UC\_13.2}
         \end{itemize}
-    \item \textbf{Trigger}: L'Utente vuole inserire un ordine registrando un audio o selezionandone uno dal proprio dispositivo
+    \item \textbf{Trigger}: Il Cliente vuole inserire un ordine registrando un audio o selezionandone uno dal proprio dispositivo
 \end{itemize}
 
 
@@ -52,31 +48,31 @@
 \label{uc_13.1}
 
 \begin{itemize}
-    \item \textbf{Attore principale}: Utente
+    \item \textbf{Attore principale}: Cliente
     \item \textbf{Scenario principale}:
         \begin{enumerate}
-            \item L'Utente ha premuto il pulsante per registrare un audio
-            \item L'Utente registra l'audio
+            \item Il Cliente ha premuto il pulsante per registrare un audio
+            \item Il Cliente registra l'audio
             \item Viene visualizzato il timer del tempo rimanente
             \item Viene visualizzato il pulsante per fermare la registrazione
         \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
-            \item L'Utente visualizza il pulsante per la registrazione di un audio
+            \item Il Cliente visualizza il pulsante per la registrazione di un audio
         \end{itemize}
     \item \textbf{Postcondizioni}: 
         \begin{itemize}
             \item L'audio viene archiviato
             \item L'audio viene inviato allo Speech-to-Text
         \end{itemize}
-    \item \textbf{Trigger}: L'Utente vuole inserire un ordine registrando un messaggio audio
+    \item \textbf{Trigger}: Il Cliente vuole inserire un ordine registrando un messaggio audio
 \end{itemize}
 
 
 \subsubsubsection{UC\_13.2: Selezionare file audio}
 \label{uc_13.2}
 
-L'UC\_13.2 ha 4 ulteriori generalizzazioni come mostrate in figura.
+L'UC\_13.2 ha 4 ulteriori generalizzazioni come mostrate in figura
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_13.2}
@@ -85,15 +81,15 @@ L'UC\_13.2 ha 4 ulteriori generalizzazioni come mostrate in figura.
 
 
 \begin{itemize}
-    \item \textbf{Attore principale}: Utente
+    \item \textbf{Attore principale}: Cliente
     \item \textbf{Scenario principale}:
         \begin{enumerate}
-            \item L'Utente ha premuto il pulsante per selezionare un file dal dispositivo
-            \item L'Utente seleziona il file audio da dispositivo
+            \item Il Cliente ha premuto il pulsante per selezionare un file dal dispositivo
+            \item Il Cliente seleziona il file audio da dispositivo
         \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
-            \item L'Utente visualizza il pulsante per allegare file da dispositivo
+            \item Il Cliente visualizza il pulsante per allegare file da dispositivo
         \end{itemize}
     \item \textbf{Postcondizioni}: 
         \begin{itemize}
@@ -107,27 +103,27 @@ L'UC\_13.2 ha 4 ulteriori generalizzazioni come mostrate in figura.
             \item \hyperref[uc_13.2.3]{UC\_13.2.3}
             \item \hyperref[uc_13.2.4]{UC\_13.2.4}
         \end{itemize}
-    \item \textbf{Trigger}: L'Utente vuole inserire un ordine mediante un file audio presente nel dispositivo
+    \item \textbf{Trigger}: Il Cliente vuole inserire un ordine mediante un file audio presente nel dispositivo
 \end{itemize}
 
 \subsubsubsubsection{UC\_13.2.1: Selezionare audio mp3}
 \label{uc_13.2.1}
 
 \begin{itemize}
-    \item \textbf{Attore Principale:} Untente
+    \item \textbf{Attore Principale:} Cliente
     \item \textbf{Scenario principale}:
         \begin{enumerate}
-            \item L'Utente ha premuto il pulsante per selezionare un file dal dispositivo
-            \item L'Utente seleziona un file con estensione .mp3
+            \item Il Cliente ha premuto il pulsante per selezionare un file dal dispositivo
+            \item Il Cliente seleziona un file con estensione .mp3
         \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
-            \item Il sistema verifica la compatibilità del formato e predispone il file per l'invio
-            \item L'Utente si trova nella sezione di inserimento ordine tramite file
+            \item Il formato .mp3 è supportato dal sistema
+            \item Il Cliente si trova nella sezione di inserimento ordine tramite file
         \end{itemize}
     \item \textbf{Postcondizioni}: 
         \begin{itemize}
-            \item Il file .mp3 è stato correttamente selezionato e caricato nel sistema  
+            \item Il file .mp3 è stato correttamente selezionato e caricato nel sistema
         \end{itemize}
 \end{itemize}
 
@@ -135,20 +131,20 @@ L'UC\_13.2 ha 4 ulteriori generalizzazioni come mostrate in figura.
 \label{uc_13.2.2}
 
 \begin{itemize}
-    \item \textbf{Attore Principale:} Untente
+    \item \textbf{Attore Principale:} Cliente
     \item \textbf{Scenario principale}:
         \begin{enumerate}
-            \item L'Utente ha premuto il pulsante per selezionare un file dal dispositivo
-            \item L'Utente seleziona un file con estensione .m4a
+            \item Il Cliente ha premuto il pulsante per selezionare un file dal dispositivo
+            \item Il Cliente seleziona un file con estensione .m4a
         \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
-            \item Il sistema verifica la compatibilità del formato e predispone il file per l'invio
-            \item L'Utente si trova nella sezione di inserimento ordine tramite file 
+            \item Il formato .m4a è supportato dal sistema
+            \item Il Cliente si trova nella sezione di inserimento ordine tramite file
         \end{itemize}
     \item \textbf{Postcondizioni}: 
         \begin{itemize}
-            \item Il file .m4a è stato correttamente selezionato e caricato nel sistema  
+            \item Il file .m4a è stato correttamente selezionato e caricato nel sistema
         \end{itemize}
 \end{itemize}
 
@@ -156,19 +152,19 @@ L'UC\_13.2 ha 4 ulteriori generalizzazioni come mostrate in figura.
 \label{uc_13.2.3}
 
 \begin{itemize}
-    \item \textbf{Attore Principale:} Untente
+    \item \textbf{Attore Principale:} Cliente
     \item \textbf{Scenario principale}:
         \begin{enumerate}
-            \item L'Utente ha premuto il pulsante per selezionare un file dal dispositivo
-            \item L'Utente seleziona un file con estensione .m4p
+            \item Il Cliente ha premuto il pulsante per selezionare un file dal dispositivo
+            \item Il Cliente seleziona un file con estensione .m4p
         \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
-            \item L'Utente si trova nella sezione di inserimento ordine tramite file
+            \item Il formato .m4p è supportato dal sistema
+            \item Il Cliente si trova nella sezione di inserimento ordine tramite file
         \end{itemize}
     \item \textbf{Postcondizioni}: 
         \begin{itemize}
-            \item Il sistema verifica la compatibilità del formato e predispone il file per l'invio
             \item Il file .m4p è stato correttamente selezionato e caricato nel sistema
         \end{itemize}
 \end{itemize}
@@ -177,19 +173,19 @@ L'UC\_13.2 ha 4 ulteriori generalizzazioni come mostrate in figura.
 \label{uc_13.2.4}
 
 \begin{itemize}
-    \item \textbf{Attore Principale:} Untente
+    \item \textbf{Attore Principale:} Cliente
     \item \textbf{Scenario principale}:
         \begin{enumerate}
-            \item L'Utente ha premuto il pulsante per selezionare un file dal dispositivo
-            \item L'Utente seleziona un file con estensione .wav
+            \item Il Cliente ha premuto il pulsante per selezionare un file dal dispositivo
+            \item Il Cliente seleziona un file con estensione .wav
         \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
-            \item Il sistema verifica la compatibilità del formato e predispone il file per l'invio
-            \item L'Utente si trova nella sezione di inserimento ordine tramite file
+            \item Il formato .wav è supportato dal sistema
+            \item Il Cliente si trova nella sezione di inserimento ordine tramite file
         \end{itemize}
     \item \textbf{Postcondizioni}: 
         \begin{itemize}
-            \item Il file .wav è stato correttamente selezionato e caricato nel sistema  
+            \item Il file .wav è stato correttamente selezionato e caricato nel sistema
         \end{itemize}
 \end{itemize}

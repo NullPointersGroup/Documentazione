@@ -13,8 +13,8 @@
 	\begin{enumerate}
 		\item Il Cliente clicca il pulsante per visualizzare lo storico ordini
 		\item Il Cliente visualizza l'elenco di tutti i suoi ordini
-		\item Il Cliente visualizza il codice ordine $\rightarrow$ Vedi \hyperref[uc_44.1]{UC\_44.1}
-		\item Il Cliente visualizza la data dell'ordine $\rightarrow$ Vedi \hyperref[uc_44.2]{UC\_44.2}
+		\item Il Cliente visualizza il codice ordine $\rightarrow$ Vedi \hyperref[uc_44.1.1]{UC\_44.1.1}
+		\item Il Cliente visualizza la data dell'ordine $\rightarrow$ Vedi \hyperref[uc_44.1.2]{UC\_44.1.2}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
@@ -23,18 +23,43 @@
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il Cliente si trova nella pagina web dedicata alla visualizzazione del suo storico ordini
+		\item Il Cliente visualizza la pagina web dedicata alla visualizzazione del suo storico ordini
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
 		\item \hyperref[uc_44.1]{UC\_44.1}
-		\item \hyperref[uc_44.2]{UC\_44.2}
 	\end{itemize}
 	\item \textbf{Trigger}: Il Cliente vuole visualizzare tutto lo storico dei propri ordini effettuati fino a quel momento
 \end{itemize}
 
-\subsubsubsection{UC\_44.1: Visualizza codice ordine}
+\subsubsubsection{UC\_44.1: Visualizza singolo ordine}
 \label{uc_44.1}
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza un singolo ordine dal proprio storico
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item Il Cliente sta visualizzando lo storico ordini
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza un singolo ordine dal proprio storico
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_44.1.1]{UC\_44.1.1}
+		\item \hyperref[uc_44.1.2]{UC\_44.1.2}
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare i dettagli di un singolo ordine
+\end{itemize}
+
+\subsubsubsection{UC\_44.1.1: Visualizza codice ordine}
+\label{uc_44.1.1}
 \begin{itemize}
 	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
@@ -45,16 +70,17 @@
 	\begin{itemize}
 		\item Il sistema è online
 		\item Il Cliente è autenticato
+		\item Il Cliente sta visualizzando un singolo ordine
 	\end{itemize}
-	\item \textbf{Postcondizioni}
+	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Vengono visualizzati i codici dei propri ordini
+		\item Il Cliente visualizza i codici dei propri ordini
 	\end{itemize}
 	\item \textbf{Trigger}: Il Cliente vuole visualizzare i codici ordini dei propri ordini presenti
 \end{itemize}
 
-\subsubsubsubsection{UC\_44.2: Visualizza data ordine}
-\label{uc_44.2}
+\subsubsubsection{UC\_44.1.2: Visualizza data ordine}
+\label{uc_44.1.2}
 \begin{itemize}
 	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
@@ -65,10 +91,11 @@
 	\begin{itemize}
 		\item Il sistema è online
 		\item Il Cliente è autenticato
+		\item Il Cliente sta visualizzando un singolo ordine
 	\end{itemize}
-	\item \textbf{Postcondizioni}
+	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Vengono visualizzate le date dei propri ordini
+		\item Il Cliente visualizza le date dei propri ordini
 	\end{itemize}
 	\item \textbf{Trigger}: Il Cliente vuole visualizzare la data ordine nei propri ordini presenti
 \end{itemize}

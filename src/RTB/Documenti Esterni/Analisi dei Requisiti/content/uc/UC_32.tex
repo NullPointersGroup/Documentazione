@@ -12,11 +12,12 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin visualizza la pagina di gestione utenti $\rightarrow$ Vedi \hyperref[uc_32_1]{UC\_32.1}
-		\item L'Admin inserisce il ruolo $\rightarrow$ Vedi \hyperref[uc_32_2]{UC\_32.2}
-		\item L'Admin inserisce lo username $\rightarrow$ Vedi \hyperref[uc_32_3]{UC\_32.3}
-		\item L'Admin inserisce l'email $\rightarrow$ Vedi \hyperref[uc_32_4]{UC\_32.4}
-		\item L'Admin visualizza una notifica di creazione Utente riuscita $\rightarrow$ Vedi \hyperref[uc_32_5]{UC\_32.5}
+		\item L'Admin visualizza la pagina di gestione utenti $\rightarrow$ Vedi \hyperref[uc_32.1]{UC\_32.1}
+		\item L'Admin inserisce il ruolo $\rightarrow$ Vedi \hyperref[uc_32.2]{UC\_32.2}
+		\item L'Admin inserisce lo username $\rightarrow$ Vedi \hyperref[uc_32.3]{UC\_32.3}
+		\item L'Admin inserisce l'email $\rightarrow$ Vedi \hyperref[uc_32.4]{UC\_32.4}
+		\item L'Admin conferma la creazione del nuovo utente
+		\item Il sistema mostra una notifica di creazione riuscita $\rightarrow$ Vedi \hyperref[uc_32.5]{UC\_32.5}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
@@ -33,27 +34,26 @@
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
-		\item \hyperref[uc_32_1]{UC\_32.1}
-		\item \hyperref[uc_32_2]{UC\_32.2}
-		\item \hyperref[uc_32_3]{UC\_32.3}
-		\item \hyperref[uc_32_4]{UC\_32.4}
-		\item \hyperref[uc_32_5]{UC\_32.5}
+		\item \hyperref[uc_32.1]{UC\_32.1}
+		\item \hyperref[uc_32.2]{UC\_32.2}
+		\item \hyperref[uc_32.3]{UC\_32.3}
+		\item \hyperref[uc_32.4]{UC\_32.4}
+		\item \hyperref[uc_32.5]{UC\_32.5}
 	\end{itemize}
 	\item \textbf{Estensioni}:
 	\begin{itemize}
 		\item \hyperref[uc_33]{UC\_33}
 	\end{itemize}
-	\item \textbf{Trigger}: L'Admin vuole creare un nuovo Utente.
+	\item \textbf{Trigger}: L'Admin vuole creare un nuovo Utente
 \end{itemize}
 
 \subsubsubsection{UC\_32.1: Visualizzazione pagina gestione utenti}
-\label{uc_32_1}
+\label{uc_32.1}
 
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin accede alla sezione di gestione utenti
 		\item L'Admin visualizza la pagina di gestione utenti
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
@@ -65,11 +65,11 @@
 	\begin{itemize}
 		\item La pagina di gestione utenti è visualizzata
 	\end{itemize}
-	\item \textbf{Trigger}: L'Admin vuole visualizzare la pagina di gestione utenti per poter creare nuovi Utenti.
+	\item \textbf{Trigger}: L'Admin vuole visualizzare la pagina di gestione utenti
 \end{itemize}
 
 \subsubsubsection{UC\_32.2: Inserimento ruolo}
-\label{uc_32_2}
+\label{uc_32.2}
 
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
@@ -85,11 +85,11 @@
 	\begin{itemize}
 		\item Il ruolo del nuovo Utente è stato inserito
 	\end{itemize}
-	\item \textbf{Trigger}: L'Admin vuole impostare il ruolo del nuovo Utente.
+	\item \textbf{Trigger}: L'Admin deve specificare il ruolo del nuovo Utente
 \end{itemize}
 
 \subsubsubsection{UC\_32.3: Inserimento username}
-\label{uc_32_3}
+\label{uc_32.3}
 
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
@@ -105,11 +105,11 @@
 	\begin{itemize}
 		\item Lo username del nuovo Utente è stato inserito
 	\end{itemize}
-	\item \textbf{Trigger}: L'Admin vuole impostare lo username del nuovo Utente.
+	\item \textbf{Trigger}: L'Admin deve specificare lo username del nuovo Utente
 \end{itemize}
 
 \subsubsubsection{UC\_32.4: Inserimento email}
-\label{uc_32_4}
+\label{uc_32.4}
 
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
@@ -125,25 +125,26 @@
 	\begin{itemize}
 		\item L'email del nuovo Utente è stata inserita
 	\end{itemize}
-	\item \textbf{Trigger}: L'Admin vuole impostare l'email del nuovo Utente.
+	\item \textbf{Trigger}: L'Admin deve specificare l'email del nuovo Utente
 \end{itemize}
 
 \subsubsubsection{UC\_32.5: Notifica creazione riuscita}
-\label{uc_32_5}
+\label{uc_32.5}
 
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
 		\item Il sistema mostra una notifica di creazione Utente riuscita
+		\item L'Admin visualizza la notifica
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item La creazione del nuovo Utente va a buon fine
+		\item La creazione del nuovo Utente è stata confermata ed elaborata con successo
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item La notifica di creazione riuscita è visualizzata
+		\item La notifica di creazione riuscita è stata visualizzata
 	\end{itemize}
-	\item \textbf{Trigger}: L'Admin vuole ricevere una notifica di creazione Utente riuscita.
+	\item \textbf{Trigger}: Il sistema conferma l'avvenuta creazione del nuovo utente
 \end{itemize}

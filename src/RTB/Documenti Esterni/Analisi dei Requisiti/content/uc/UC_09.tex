@@ -8,27 +8,30 @@
 \end{figure}
 
 \begin{itemize}
-    \item \textbf{Attore principale}: Utente
+    \item \textbf{Attore principale}: Cliente
     \item \textbf{Scenario principale}:
         \begin{enumerate}
-            \item L'Utente inserisce un ordine tramite campo di testo
+            \item Il Cliente inserisce un ordine tramite campo di testo
+            \item Il Cliente invia il testo al sistema
         \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
             \item Il sistema è online
-            \item L'Utente visualizza il campo di testo
+            \item Il Cliente è autenticato
+            \item Il Cliente visualizza il campo di testo per l'inserimento degli ordini
         \end{itemize}
     \item \textbf{Postcondizioni}:
         \begin{itemize}
-            \item Il testo viene inviato al pre-processing
-            \item Il campo di testo viene svuotato dopo l'invio
+            \item Il testo dell'ordine è stato inviato al sistema per l'elaborazione
+            \item Il campo di testo viene svuotato
         \end{itemize}
     \item \textbf{Scenari alternativi}:
         \begin{itemize}
-            \item L'Utente riceve un messaggio di errore per il superamento limite caratteri $\rightarrow$ Vedi \hyperref[uc_10]{UC\_10}
+            \item Il Cliente riceve un messaggio di errore per il superamento del limite di caratteri $\rightarrow$ Vedi \hyperref[uc_10]{UC\_10}
         \end{itemize}
     \item \textbf{Estensioni}:
         \begin{itemize}
             \item \hyperref[uc_10]{UC\_10}
-        \end{itemize}    
+        \end{itemize}   
+    \item \textbf{Trigger}: Il Cliente desidera inviare un ordine tramite chat testuale 
 \end{itemize}

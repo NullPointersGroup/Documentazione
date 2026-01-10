@@ -11,27 +11,27 @@
 	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item Al Cliente vengono segnalate le ambiguità rilevate dal chatbot 
+		\item Al Cliente vengono segnalate le ambiguità rilevate dal chatbot
 		\item Il Cliente riformula i prodotti ambigui $\rightarrow$ Vedi \hyperref[uc_21.1]{UC\_21.1}
-		\item Il Cliente riceve conferma dell'aggiornamento dell'ordine $\rightarrow$ Vedi \hyperref[uc_21.2]{UC\_21.2}
+		\item Il Cliente visualizza la conferma dell'aggiornamento dell'ordine
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item Il sistema è online
-		\item Il Cliente vuole aggiungere uno o più prodotti all'ordine tramite una forma di input
+		\item Il chatbot ha rilevato un'ambiguità in un input fornito dal Cliente
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
 		\item I dati dell'ordine vengono aggiornati e reinviati alla pipeline per la prosecuzione dell'elaborazione
+		\item Il Cliente visualizza la conferma dell'aggiunta
 	\end{itemize}
 	\item \textbf{Scenari alternativi}:
 	\begin{itemize}
-		\item Il Cliente può decidere di uscire dalla disambiguazione annullandola. $\rightarrow$ Vedi \hyperref[uc_22]{UC\_22}
+		\item Il Cliente può decidere di uscire dalla disambiguazione annullandola $\rightarrow$ Vedi \hyperref[uc_22]{UC\_22}
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
 		\item \hyperref[uc_21.1]{UC\_21.1}
-		\item \hyperref[uc_21.2]{UC\_21.2}
 	\end{itemize}
 	\item \textbf{Estensioni}:
 	\begin{itemize}
@@ -47,37 +47,16 @@
 	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item Il Cliente ha riformulato l'input $\rightarrow$ Vedi \hyperref[uc_21]{UC\_21}.
+		\item Il Cliente riscrive il nome del prodotto in modo più specifico
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item Il sistema è online
-		\item Al Cliente viene segnalata almeno una ambiguità
+		\item Al Cliente viene segnalata almeno un'ambiguità
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il Cliente ha riformulato l'input.
+		\item Il Cliente ha riformulato l'input
 	\end{itemize}
-	\item \textbf{Trigger}: Il Cliente riceve una conferma visiva dell'aggiunta degli articoli al carrello
-\end{itemize}
-
-\subsubsubsection{UC\_21.2: Visualizza conferma aggiunta articoli}
-\label{uc_21.2}
-
-\begin{itemize}
-	\item \textbf{Attore principale}: Cliente
-	\item \textbf{Scenario principale}:
-	\begin{enumerate}
-		\item Il Cliente visualizza un messaggio di conferma dell’avvenuta aggiunta dei prodotti al carrello
-	\end{enumerate}
-	\item \textbf{Precondizioni}:
-	\begin{itemize}
-		\item Il Cliente ha riformulato l'input $\rightarrow$ Vedi \hyperref[uc_21.1]{UC\_21.1}.
-		\item La disambiguazione è risolta
-	\end{itemize}
-	\item \textbf{Postcondizioni}:
-	\begin{itemize}
-		\item Il Cliente visualizza la conferma dell'aggiunta degli articoli nel carrello
-	\end{itemize}
-	\item \textbf{Trigger}: Il Cliente riceve una conferma visiva dell'aggiunta degli articoli al carrello
+	\item \textbf{Trigger}: Il chatbot segnala un'ambiguità e richiede un chiarimento
 \end{itemize}

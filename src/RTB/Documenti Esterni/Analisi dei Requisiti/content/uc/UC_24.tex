@@ -15,23 +15,25 @@
 		\item Il Cliente compila la tipologia di segnalazione $\rightarrow$ Vedi \hyperref[uc_24.1]{UC\_24.1}
 		\item Il Cliente compila la descrizione del problema $\rightarrow$ Vedi \hyperref[uc_24.2]{UC\_24.2}
 		\item Il Cliente invia la segnalazione $\rightarrow$ Vedi \hyperref[uc_24.3]{UC\_24.3}
-		\item Il sistema mostra una conferma di avvenuto invio
+		\item Il Cliente riceve conferma dell'invio $\rightarrow$ Vedi \hyperref[uc_24.4]{UC\_24.4}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il sistema è attivo.
+		\item Il sistema è attivo
+		\item Il Cliente è autenticato
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Un ticket di segnalazione viene registrato nel sistema
+		\item Una segnalazione (ticket) è stata registrata nel sistema
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
 		\item \hyperref[uc_24.1]{UC\_24.1}
 		\item \hyperref[uc_24.2]{UC\_24.2}
 		\item \hyperref[uc_24.3]{UC\_24.3}
+		\item \hyperref[uc_24.4]{UC\_24.4}
 	\end{itemize}
-	\item \textbf{Trigger}: Il Cliente vuole segnalare problemi o richiedere supporto, per risolvere eventuali difficoltà incontrate durante l'utilizzo del servizio.
+	\item \textbf{Trigger}: Il Cliente vuole segnalare problemi o richiedere supporto, per risolvere eventuali difficoltà incontrate durante l'utilizzo del servizio
 \end{itemize}
 
 \subsubsubsection{UC\_24.1: Inserimento tipologia segnalazione}
@@ -40,8 +42,7 @@
 	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item Il Cliente visiona il modulo di segnalazione
-		\item Il Cliente compila il campo relativo alla tipologia
+		\item Il Cliente compila il campo relativo alla tipologia di segnalazione
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
@@ -49,7 +50,7 @@
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item La tipologia di segnalazione viene impostata
+		\item La tipologia di segnalazione è stata selezionata/impostata
 	\end{itemize}
 \end{itemize}
 
@@ -59,17 +60,16 @@
 	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item Il Cliente visiona il modulo di segnalazione 
 		\item Il Cliente inserisce una descrizione testuale del problema o della richiesta di supporto
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item Il modulo di segnalazione è aperto
-		\item Campo tipologia completato
+		\item Il campo tipologia è stato compilato
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il Cliente ha inserito correttamente la descrizione del problema nel modulo
+		\item La descrizione del problema è stata inserita nel modulo
 	\end{itemize}
 \end{itemize}
 
@@ -79,7 +79,7 @@
 	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item Il Cliente invia la segnalazione
+		\item Il Cliente preme il pulsante per inviare la segnalazione
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
@@ -87,24 +87,24 @@
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il Cliente riceve una conferma
+		\item La richiesta di invio della segnalazione è stata trasmessa al sistema
 	\end{itemize}
 \end{itemize}
 
 \subsubsubsection{UC\_24.4: Notifica invio segnalazione}
-\label{uc_23.4}
+\label{uc_24.4}
 \begin{itemize}
 	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item Il Cliente riceve la conferma dell'invio della segnalazione
+		\item Il Cliente visualizza la conferma dell'invio della segnalazione
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il Cliente ha premuto il pulsante di invio della segnalazione
+		\item Il Cliente ha inviato la segnalazione (UC\_24.3)
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il Cliente riceve una conferma dell'avvenuto invio
+		\item Il sistema ha confermato l'avvenuta registrazione della segnalazione
 	\end{itemize}
 \end{itemize}

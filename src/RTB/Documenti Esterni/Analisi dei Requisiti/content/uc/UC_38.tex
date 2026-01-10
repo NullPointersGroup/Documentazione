@@ -8,24 +8,27 @@
 \end{figure}
 
 \begin{itemize}
-	\item \textbf{Attore principale}: Utente
+	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Utente clicca il tasto per duplicare l'ordine
-		\item L'Utente conferma la duplicazione ordine $\rightarrow$ Vedi \hyperref[uc_38.1]{UC\_38.1}
+		\item Il Cliente clicca il pulsante per duplicare un ordine dalla pagina del proprio storico o dettaglio ordine
+		\item Il Cliente conferma la duplicazione ordine $\rightarrow$ Vedi \hyperref[uc_38.1]{UC\_38.1}
+		\item Il sistema crea una copia dell'ordine selezionato e la aggiunge al carrello del Cliente
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item Il sistema è online
-		\item L'Utente sta visualizzando o la pagina dello storico oppure la pagina di dettaglio ordine
+		\item Il Cliente è autenticato
+		\item Il Cliente sta visualizzando la pagina del proprio storico ordini o il dettaglio di un proprio ordine
+		\item Esiste almeno un ordine precedente del Cliente
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il sistema invia un ordine identico a quello scelto
+		\item Una copia dell'ordine selezionato è stata aggiunta al carrello del Cliente
 	\end{itemize}
 	\item \textbf{Scenari alternativi}:
 	\begin{itemize}
-		\item L'Utente riceve un messaggio di errore duplicazione ordine $\rightarrow$ Vedi \hyperref[uc_39]{UC\_39}
+		\item Il Cliente riceve un messaggio di errore di duplicazione ordine $\rightarrow$ Vedi \hyperref[uc_39]{UC\_39}
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
@@ -35,27 +38,24 @@
 	\begin{itemize}
 		\item \hyperref[uc_39]{UC\_39}
 	\end{itemize}
-	\item \textbf{Trigger}: L'Utente vuole duplicare un ordine specifico, partendo o dalla pagina dello storico ordini oppure partendo dal dettaglio di un ordine specifico
+	\item \textbf{Trigger}: Il Cliente vuole duplicare un proprio ordine precedente per ripeterlo
 \end{itemize}
 
 \subsubsubsection{UC\_38.1: Conferma duplicazione ordine}
 \label{uc_38.1}
 
 \begin{itemize}
-	\item \textbf{Attore principale}: Utente
+	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Utente conferma la duplicazione ordine
+		\item Il Cliente conferma la volontà di procedere con la duplicazione dell'ordine
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il sistema è online
-		\item L'Utente sta visualizzando o la pagina dello storico oppure la pagina di dettaglio ordine
-		\item L'Utente clicca il tasto per duplicare l'ordine
+		\item Il Cliente ha avviato la procedura di duplicazione (clic sul pulsante in UC\_38)
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il sistema recepisce la conferma di duplicazione ordine e procede a duplicarlo
+		\item La conferma di duplicazione è stata inviata al sistema
 	\end{itemize}
-	\item \textbf{Trigger}: L'Utente vuole confermare la duplicazione di un ordine specifico
 \end{itemize}

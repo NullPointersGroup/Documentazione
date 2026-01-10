@@ -14,7 +14,7 @@
 		\item L'Admin richiede l'esportazione dello storico ordini in formato JSON
 		\item Il Sistema genera e rende disponibile il file JSON
 		\item L'Admin scarica lo storico ordini in formato JSON
-		\item Il Sistema mostra una notifica di download riuscito $\rightarrow$ Vedi \hyperref[uc_30_1]{UC\_30.1}
+		\item Il sistema mostra una notifica di download riuscito $\rightarrow$ Vedi \hyperref[uc_30.1]{UC\_30.1}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
@@ -24,7 +24,8 @@
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'Admin ha scaricato correttamente lo storico ordini in formato JSON
+		\item Il file JSON con lo storico ordini è stato generato e reso disponibile per il download
+		\item L'Admin ha scaricato il file
 	\end{itemize}
 	\item \textbf{Scenari alternativi}:
 	\begin{itemize}
@@ -32,34 +33,33 @@
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
-		\item \hyperref[uc_30_1]{UC\_30.1}
+		\item \hyperref[uc_30.1]{UC\_30.1}
 	\end{itemize}
 	\item \textbf{Estensioni}:
 	\begin{itemize}
 		\item \hyperref[uc_31]{UC\_31}
 	\end{itemize}
-	\item \textbf{Trigger}: L'Admin vuole esportare lo storico ordini in formato JSON.
+	\item \textbf{Trigger}: L'Admin vuole esportare lo storico ordini in formato JSON
 \end{itemize}
 
 \subsubsubsection{UC\_30.1: Visualizzazione notifica (download riuscito)}
-\label{uc_30_1}
+\label{uc_30.1}
 
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin completa il download dello storico ordini in formato JSON
-		\item Il Sistema mostra una notifica di download riuscito
+		\item Il sistema mostra una notifica di download riuscito
+		\item L'Admin visualizza la notifica
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item L'Admin ha richiesto l'esportazione dello storico ordini $\rightarrow$ Vedi \hyperref[uc_30]{UC\_30}
+		\item L'Admin ha completato il download del file JSON (UC\_30, passo 3)
 		\item Il file JSON è stato generato correttamente
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item La notifica di download riuscito è visualizzata
+		\item La notifica di download riuscito è stata visualizzata
 	\end{itemize}
-	\item \textbf{Trigger}: L'Admin vuole ricevere una conferma visiva del download completato correttamente.
+	\item \textbf{Trigger}: Il sistema conferma il completamento dell'operazione di esportazione
 \end{itemize}
-

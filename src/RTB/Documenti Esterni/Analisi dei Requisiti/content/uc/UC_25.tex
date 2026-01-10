@@ -11,59 +11,65 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin accede alla pagina web di monitoraggio delle performance
-		\item L'Admin visualizza durata media di risposta del chatbot $\rightarrow$ Vedi \hyperref[uc_25.1]{UC\_25.1}
-		\item L'Admin visualizza durata media di permanenza nella web-app $\rightarrow$ Vedi \hyperref[uc_25.2]{UC\_25.2}
+		\item L'Admin accede alla pagina web di monitoraggio delle performance.
+		\item L'Admin visualizza la durata media di risposta del chatbot $\rightarrow$ Vedi \hyperref[uc_25.1]{UC\_25.1}
+		\item L'Admin visualizza la durata media di permanenza nella web-app $\rightarrow$ Vedi \hyperref[uc_25.2]{UC\_25.2}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item L'Admin è autenticato come Admin.
+		\item L'Admin è autenticato come Admin
 		\item Il sistema è online
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Vengono visualizzate le metriche di performance
+		\item Le metriche di performance sono state visualizzate
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
 		\item \hyperref[uc_25.1]{UC\_25.1}
 		\item \hyperref[uc_25.2]{UC\_25.2}
 	\end{itemize}
-	\item \textbf{Trigger}: L'Admin deve poter visualizzare le metriche di utilizzo del sistema, per valutarne le prestazioni e l'engagement degli utenti.
+	\item \textbf{Trigger}: L'Admin deve poter visualizzare le metriche di utilizzo del sistema, per valutarne le prestazioni e l'engagement degli utenti
 \end{itemize}
 
+%--------------------------------------------------------------------
 \subsubsubsection{UC\_25.1: Visualizza durata media di risposta del chatbot}
 \label{uc_25.1}
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin visiona la durata media di risposta del chatbot
+		\item Il sistema presenta la metrica (es. in un grafico o valore numerico) relativa alla durata media di risposta del chatbot
+		\item L'Admin visualizza la metrica
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item L'Admin visiona la pagina web delle performance
+		\item L'Admin si trova nella pagina delle performance (UC\_25)
+		\item Il sistema ha dati sufficienti per calcolare la metrica
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'Admin visiona la durata media di risposta del chatbot
+		\item La metrica della durata media di risposta è stata correttamente visualizzata
 	\end{itemize}
 \end{itemize}
 
+%--------------------------------------------------------------------
 \subsubsubsection{UC\_25.2: Visualizza durata media di permanenza nella web-app}
 \label{uc_25.2}
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin visiona la durata media di permanenza degli utenti nella web-app
+		\item Il sistema presenta la metrica (es. in un grafico o valore numerico) relativa alla durata media di permanenza degli utenti
+		\item L'Admin visualizza la metrica
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item L'Admin visiona la pagina web delle performance
+		\item L'Admin si trova nella pagina delle performance (UC\_25)
+		\item Il sistema ha dati sufficienti per calcolare la metrica
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item L'Admin visiona la durata media di permanenza nella web-app
+		\item La metrica della durata media di permanenza è stata correttamente visualizzata
 	\end{itemize}
 \end{itemize}

@@ -2,16 +2,19 @@
 \label{uc_18}
 
 \begin{itemize}
-   \item \textbf{Attore principale}: Utente
+   \item \textbf{Attore principale}: Cliente
    \item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item L'Utente aveva richiesto la rimozione di articoli dal carrello
-		\item Il carrello è vuoto
-		\item Il sistema ha avuto un calo di rete
-		\item Gli articoli di cui viene richiesta la rimozione non sono presenti nel carrello
+		\item Il Cliente ha richiesto la rimozione di articoli dal carrello.
+		\item \textbf{Una delle seguenti condizioni si verifica}:
+		\begin{enumerate}
+		    \item Il carrello è vuoto
+		    \item Gli articoli di cui viene richiesta la rimozione non sono presenti nel carrello
+		\end{enumerate}
     \end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item La rimozione degli articoli dal carrello fallisce
+		\item Il sistema visualizza un messaggio di errore appropriato (carrello vuoto o articoli non presenti)
+		\item Nessun articolo viene rimosso dal carrello
 	\end{itemize}
 \end{itemize}

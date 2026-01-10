@@ -15,7 +15,7 @@
 		\item Il Cliente compila il campo tipologia del feedback $\rightarrow$ Vedi \hyperref[uc_23.1]{UC\_23.1}
 		\item Il Cliente compila il campo descrizione del feedback $\rightarrow$ Vedi \hyperref[uc_23.2]{UC\_23.2}
         \item Il Cliente invia il feedback $\rightarrow$ Vedi \hyperref[uc_23.3]{UC\_23.3}
-        \item Il Cliente riceve conferma dell'invio del feedback
+        \item Il Cliente riceve conferma dell'invio del feedback $\rightarrow$ Vedi \hyperref[uc_23.4]{UC\_23.4}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
@@ -24,13 +24,15 @@
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il Cliente invia il feedback e riceve conferma
+		\item Il feedback è stato registrato nel sistema
+		\item Il Cliente ha ricevuto conferma dell'operazione
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
 		\item \hyperref[uc_23.1]{UC\_23.1}
 		\item \hyperref[uc_23.2]{UC\_23.2}
 		\item \hyperref[uc_23.3]{UC\_23.3}
+		\item \hyperref[uc_23.4]{UC\_23.4}
 	\end{itemize}
 	\item \textbf{Trigger}: Il Cliente vuole valutare le risposte del chatbot tramite feedback, per contribuire a migliorarne l'accuratezza
 \end{itemize}
@@ -45,7 +47,7 @@
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il modulo di feedback è aperto e il campo tipologia visibile alIl Cliente
+		\item Il modulo di feedback è aperto e il campo tipologia è visibile al Cliente
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
@@ -63,7 +65,7 @@
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il modulo di feedback è aperto e il campo descrizione visibile al Cliente
+		\item Il modulo di feedback è aperto e il campo descrizione è visibile al Cliente
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
@@ -78,15 +80,14 @@
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
 		\item Il Cliente preme il pulsante di invio del feedback
-		\item Il Cliente visiona la conferma dell'invio del feedback
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il modulo di feedback è compilato
+		\item Il modulo di feedback è compilato (campi tipologia e descrizione inseriti)
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il Cliente invia il feedback al sistema
+		\item La richiesta di invio del feedback è stata trasmessa al sistema
 	\end{itemize}
 \end{itemize}
 
@@ -96,14 +97,14 @@
 	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item Il Cliente visiona la conferma dell'invio del feedback
+		\item Il Cliente visualizza la conferma dell'invio del feedback
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il Cliente ha premuto il pulsante di invio del feedback
+		\item Il Cliente ha inviato il feedback (UC\_23.3)
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il Cliente riceve una conferma dell'avvenuto invio
+		\item Il sistema ha confermato l'avvenuta registrazione del feedback
 	\end{itemize}
 \end{itemize}
