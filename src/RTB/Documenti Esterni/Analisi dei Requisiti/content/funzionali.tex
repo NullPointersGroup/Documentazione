@@ -94,6 +94,8 @@
 	\hline
 	RF-OB\_39 & Il Cliente se digita \verb|/carrello| riceve un avviso nel caso in cui nel carrello non ci fossero elementi. & UC\_20 \\
 	\hline
+	RF-OB\_40 & Il Cliente deve visualizzare un avviso riguardante l'ambiguità dei prodotti & UC\_21 \\
+	\hline
 	RF-OB\_40 & Il Cliente deve poter riformulare l'ordine per prodotti ambigui & UC\_21.1 \\
 	\hline
 	RF-OB\_43 & Il Cliente può rispondere \vr{annulla} per uscire dalla disambiguazione. & UC\_22.1 \\
@@ -106,9 +108,7 @@
 	\hline
 	RF-OB\_48 & Il Cliente deve visualizzare il dropdown: \vr{Bug}, \vr{Richiesta di supporto}, \vr{Suggerimento} & UC\_24.1 \\
 	\hline
-	RF-OB\_49 & Il Cliente può selezionare il tipo da dropdown & UC\_24.1 \\
-	\hline
-	RF-OB\_50 & Il Cliente deve inserire una descrizione in un campo di testo (es. massimo 300 caratteri). & UC\_24.2 \\
+	RF-OB\_49 & Il Cliente può selezionare il tipo da dropdown & UC\_24.1 \\ %il 24.2 si rifà al 23.2
 	\hline
 	RF-OB\_51 & Il Cliente può visualizzare il tasto \vr{Invia segnalazione} & UC\_24.3 \\
 	\hline
@@ -120,19 +120,19 @@
 	\hline
 	RF-OB\_55 & Se il carrello è vuoto dopo il comando \verb|/invia| il Cliente visualizza un messaggio di errore che avvisa che il carrello è vuoto. & UC\_27 \\
 	\hline
-	RF-OB\_56 & Il Cliente deve inviare l'ordine digitando \verb|/invia| nella chat & UC\_26.1 \\
-	\hline
-	RF-OB\_57 & Il Cliente deve visualizzare il messaggio riepilogativo con i dettagli dell'ordine quando invia /invia nella chat & UC\_26.2 \\
+	RF-OB\_57 & Il Cliente deve visualizzare il messaggio riepilogativo con i dettagli dell'ordine quando invia \verb|/invia| nella chat & UC\_26.2 \\
 	\hline
 	RF-OB\_58 & Il Cliente a seguito del messaggio riepilogativo deve decidere se annullare o confermare l'invio dell'ordine & UC\_26 \\
 	\hline
 	RF-OB\_59 & Il Cliente deve poter confermare l'invio dell'ordine con un input & UC\_26.3\newline UC\_34 \\
 	\hline
-	RF-OB\_61 & Il Cliente deve visualizzare la conferma dell'invio dell'ordine & UC\_26.5\\
+	RF-OB\_61 & Il Cliente deve visualizzare la conferma dell'invio dell'ordine & UC\_26.4\\
 	\hline
 	RF-OB\_61 & Il Cliente deve poter annullare l'invio dell'ordine con un input & UC\_26.5\\
 	\hline
-	RF-OB\_63 & Il Cliente a seguito della conferma visualizza un riepilogo con data ordine e un numero d'ordine univoco a livello di sistema & UC\_26\newline UC\_26.2\newline UC\_34 \\ %i sottocasi di 26.2 sono nel 19.qualcosa! (più su)
+	RF-OB\_61 & Il Cliente visualizza una conferma di non invio dell'ordine & UC\_26.5\\ %si può anche togliere secondo me
+	\hline
+	RF-OB\_63 & Il Cliente a seguito della conferma visualizza un riepilogo dell'ordine & UC\_26\newline UC\_26.2\newline UC\_34 \\ %i sottocasi di 26.2 sono nel 19.qualcosa! (più su)
 	\hline
 	RF-OB\_65 & Il Cliente deve poter vedere il pulsante \vr{nuova chat} per iniziare una nuova sessione (sempre presente) & UC\_28 \\
 	\hline
@@ -334,11 +334,15 @@
 	\hline
 	RF-DE\_62 & Il Cliente deve selezionare obbligatoriamente una categoria: \vr{Prodotto sbagliato}, \vr{Quantità errata}, \vr{Incomprensione}, \vr{Altro}. & UC\_23.1 \\
 	\hline
-	RF-DE\_63 & Il Cliente deve inserire obbligatoriamente una descrizione tramite input testuale con un massimo di 300 caratteri. & UC\_23.2 \\
+	RF-DE\_63 & Il Cliente visualizza l'input testuale della descrizione. & UC\_23.2 \newline UC\_24.2 \\
 	\hline
-	RF-DE\_64 & Il Cliente deve vedere un contatore x/300 vicino al campo di testo & UC\_23.2 \\
+	RF-DE\_63 & Il Cliente deve inserire obbligatoriamente una descrizione. & UC\_23.2 \newline UC\_24.2\\
 	\hline
-	RF-DE\_65 & Al superamento dei 300 caratteri il Clienite non potrà più scrivere nell'input & UC\_23.2 \\
+	RF-DE\_63 & Il Cliente nella descrizione può inserire un massimo di 300 caratteri. & UC\_23.2 \newline UC\_24.2\\
+	\hline
+	RF-DE\_64 & Il Cliente deve vedere un contatore x/300 vicino al campo di testo & UC\_23.2 \newline UC\_24.2\\
+	\hline
+	RF-DE\_65 & Al superamento dei 300 caratteri il Clienite non potrà più scrivere nell'input & UC\_23.2 \newline UC\_24.2\\
 	\hline
 	RF-DE\_66 & Il Cliente visualizza in fondo alla pagina il pulsante \vr{Invia feedback} & UC\_23.3 \\
 	\hline
@@ -358,13 +362,7 @@
 	\hline
 	RF-DE\_76 & L'Admin deve poter schiacciare il bottone relativo all'esportazione del log & UC\_29 \\
 	\hline
-	RF-DE\_77 & L'Admin deve poter ottenere il file di log in formato JSON dell'intero lasso di tempo & UC\_29 \\
-	\hline
-	RF-DE\_78 & L'Admin deve poter ottenere il file di log in formato JSON del lasso di tempo specificato & UC\_29.1 \\
-	\hline
-	RF-DE\_79 & L'Admin deve poter scaricare il file di log in formato JSON nel proprio dispositivo & UC\_29\newline UC\_29.1 \\
-	\hline
-	RF-DE\_80 & L'Admin deve poter esportare il registro ordini filtrato per cliente. & UC\_29.2 \\
+	RF-DE\_77 & L'Admin deve poter ottenere il file di log in formato JSON & UC\_29 \\
 	\hline
 	RF-DE\_81 & L'Admin deve poter ottenere il file JSON del registro ordini & UC\_30 \\
 	\hline
@@ -452,7 +450,9 @@
 	\hline
 	RF-DE\_125 & L'Utente deve poter schiacciare il link per la pagina dell'elenco dei comandi in qualsiasi pagina & UC\_43 \\
 	\hline
-	RF-DE\_125 & L'Utente deve poter schiacciare il link per la pagina dell'elenco dei comandi in qualsiasi pagina & UC\_47.2, \newline UC\_25.1, \newline UC\_25.2\\
+	RF-DE\_125 & L'Admin visualizza i filtri per data & UC\_47.2, \newline UC\_25.1, \newline UC\_25.2\\
+	\hline
+	RF-DE\_125 & L'Admin può impostare i filtri per data & UC\_47.2, \newline UC\_25.1, \newline UC\_25.2\\
 	\hline
 	\multicolumn{3}{c}{} \\
 	\caption{Requisiti Funzionali desiderabili}\label{tab:funzionali_desiderabili}\\
