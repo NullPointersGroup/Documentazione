@@ -21,18 +21,12 @@
 	\end{itemize}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il Cliente ha confermato l'invio di un ordine $\rightarrow$ Vedi \hyperref[uc_26]{UC\_26}
+		\item Il sistema è online
+		\item La sessione chat del Cliente è attiva
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
 		\item Il Cliente visualizza una nuova chat con contesto resettato.
 	\end{itemize}
-	\item \textbf{Trigger}: Il Cliente, dopo aver completato un ordine, vuole ricominciare da zero con una nuova chat
+	\item \textbf{Trigger}: Il Cliente vuole ricominciare da zero con una nuova chat.
 \end{itemize}
-
-Il seguente diagramma di attività descrive in modo più chiaro il flusso delle azioni che il Cliente può compiere per l'invio di un ordine, evidenziando, al termine del flusso, il processo di avvio di una nuova sessione di chat o, in alternativa, il mantenimento della sessione corrente.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{AnalisiRequisiti/DA_UC28}
-	\caption{Diagramma di attività: invio ordine}
-\end{figure}
