@@ -138,17 +138,17 @@
 	\hline
 	RF-OB\_66 & L'Utente deve poter cliccare sul pulsante \vr{nuova chat} per iniziare una nuova sessione. & UC\_28 \\
 	\hline
-	RF-OB\_67 & L'Utente richiede la duplicazione al chatbot indicando il codice dell'ordine desiderato preceduto dal comando "/duplica". & UC\_34 \\
+	RF-OB\_67 & Il Cliente richiede la duplicazione al chatbot indicando il codice dell'ordine desiderato preceduto dal comando "/duplica". & UC\_34 \\
 	\hline
-	RF-OB\_68 & L'Utente deve poter richiedere al chatbot di duplicare l'ultimo ordine effettuato indicando il comando "/duplica" & UC\_34 \\
+	RF-OB\_68 & Il Cliente deve poter richiedere al chatbot di duplicare l'ultimo ordine effettuato indicando il comando "/duplica" & UC\_34 \\
 	\hline
 	RF-OB\_69 & Il chatbot deve inizializzare la procedura di duplicazione dell'ordine. & UC\_34 \\
 	\hline
-	RF-OB\_70 & Il chatbot, a seguito della richiesta di duplicazione di un ordine da parte di un Utente con nessun ordine eseguito, deve informare l'Utente che non è possibile procedere con la richiesta. & UC\_34 \\
+	RF-OB\_70 & Il chatbot, a seguito della richiesta di duplicazione di un ordine da parte di un Cliente con ordine da duplicare non esistente o non disponibile, deve informare il Cliente che non è possibile procedere con la richiesta. & UC\_34 \\
 	\hline
-	RF-OB\_71 & Il chatbot, a seguito della inizializzazione della procedura di duplicazione dell'ordine non completata, deve informare l'Utente che si è verificato un errore & UC\_35 \\
+	RF-OB\_71 & Il chatbot manda il dettaglio riepilogativo dell'ordine desiderato da duplicare e chiede conferma & UC\_34.1 \\
 	\hline
-	RF-OB\_72 & Il chatbot manda il dettaglio riepilogativo dell'ordine desiderato da duplicare e chiede conferma & UC\_34 \\
+	RF-OB\_72 & Il chatbot mostra al Cliente una notifica di conferma della duplicazione. & UC\_34.2 \\
 	\hline
 	RF-OB\_73 & L'Utente deve poter visualizzare un'icona \vr{visualizza storico ordini} & UC\_36 \\
 	\hline
@@ -210,11 +210,11 @@
 	\endhead
 	
 	\hline
-	RF-DE\_01 & Lo username deve essere univoco & UC\_01.1\newline UC\_01.1.1\newline UC\_32.1.2 \\
+	RF-DE\_01 & Lo username deve essere univoco & UC\_01.1\newline UC\_01.1.1\newline UC\_32.3 \\
 	\hline
-	RF-DE\_02 & L'email deve essere univoca & UC\_01.4\newline UC\_01.4.2\newline UC\_32.1.3 \\
+	RF-DE\_02 & L'email deve essere univoca & UC\_01.4\newline UC\_01.4.2\newline UC\_32.4 \\
 	\hline
-	RF-DE\_03 & L'Utente deve poter inserire lo username & UC\_01.1\newline UC\_32.1.2 \\
+	RF-DE\_03 & L'Utente deve poter inserire lo username & UC\_01.1\newline UC\_32.3 \\
 	\hline
 	RF-DE\_04 & L'Utente visualizza una notifica di errore se l'username è già presente nel sistema & UC\_01.1.1 \\
 	\hline
@@ -224,7 +224,7 @@
 	\hline
 	RF-DE\_07 & La password deve avere almeno 1 lettera maiuscola, 1 lettera minuscola, 1 numero, 1 carattere speciale e almeno 8 caratteri & UC\_01.2\newline UC\_01.2.1\newline UC\_08 \\
 	\hline
-	RF-DE\_08 & Lo username deve avere un massimo di 24 caratteri. & UC\_01.2\newline UC\_01.1.1\newline UC\_08\newline UC\_32.1.2 \\
+	RF-DE\_08 & Lo username deve avere un massimo di 24 caratteri. & UC\_01.2\newline UC\_01.1.1\newline UC\_08\newline UC\_32.3 \\
 	\hline
 	RF-DE\_09 & La password deve avere un massimo di 24 caratteri & UC\_01.2\newline UC\_01.2.1\newline UC\_08 \\
 	\hline
@@ -372,11 +372,7 @@
 	\hline
 	RF-DE\_83 & L'Admin deve poter schiacciare il tasto \vr{Esporta} nella pagina dello storico ordini & UC\_30 \\
 	\hline
-	RF-DE\_84 & L'Admin deve vedere la conferma dell'esportazione dello storico ordini & UC\_30.4 \\
-	\hline
-	RF-DE\_85 & L'Admin deve poter ottenere il file JSON del registro ordini filtrato per il Cliente selezionato. & UC\_30.2 \\
-	\hline
-	RF-DE\_86 & L'Admin deve poter scaricare nel proprio dispositivo il file JSON del registro ordini filtrato per il Cliente selezionato. & UC\_30.2 \\
+	RF-DE\_84 & L'Admin deve vedere la conferma dell'esportazione dello storico ordini & UC\_30.1 \\
 	\hline
 	RF-DE\_87 & L'Admin deve poter visualizzare un errore nel caso in cui non fosse stato possibile scaricare nel proprio dispositivo il file JSON relativo allo storico ordini. & UC\_31 \\
 	\hline
@@ -398,33 +394,33 @@
 	\hline
 	RF-DE\_96 & L'Utente deve poter cliccare sull'icona del filtro data & UC\_36.1.2 \\
 	\hline
-	RF-DE\_97 & Il filtro per data deve poter permettere di visualizzare tutti gli ordini antecedenti o uguali ad una data scelta & UC\_29.1\newline UC\_25.1\newline UC\_25.2\newline UC\_30.1\newline UC\_36.1.2 \\
+	RF-DE\_97 & Il filtro per data deve poter permettere di visualizzare tutti gli ordini antecedenti o uguali ad una data scelta & UC\_29.1\newline UC\_25.1\newline UC\_25.2\newline UC\_36.1.2 \\
 	\hline
-	RF-DE\_98 & Il filtro per data deve poter permettere di visualizzare tutti gli ordini successivi o uguali ad una data scelta & UC\_29.1\newline UC\_25.1\newline UC\_25.2\newline UC\_30.1\newline UC\_36.1.2 \\
+	RF-DE\_98 & Il filtro per data deve poter permettere di visualizzare tutti gli ordini successivi o uguali ad una data scelta & UC\_29.1\newline UC\_25.1\newline UC\_25.2\newline UC\_36.1.2 \\
 	\hline
-	RF-DE\_99 & Il filtro per data deve poter permettere di visualizzare tutti gli ordini compresi tra due date scelte & UC\_29.1\newline UC\_25.1\newline UC\_25.2\newline UC\_30.1\newline UC\_36.1.2 \\
+	RF-DE\_99 & Il filtro per data deve poter permettere di visualizzare tutti gli ordini compresi tra due date scelte & UC\_29.1\newline UC\_25.1\newline UC\_25.2\newline UC\_36.1.2 \\
 	\hline
 	RF-DE\_100 & L'Admin deve poter filtrare per Cliente gli ordini presenti nello Storico Ordini & UC\_36.1.1 \\
 	\hline
-	RF-DE\_101 & L'Admin deve poter visualizzare gli ordini di un Cliente specifico & UC\_29.2\newline UC\_30.2\newline UC\_36.1.1 \\
+	RF-DE\_101 & L'Admin deve poter visualizzare gli ordini di un Cliente specifico & UC\_29.2\newline UC\_36.1.1 \\
 	\hline
-	RF-DE\_102 & L'Admin deve poter vedere il campo testuale del filtro Cliente (sia nome che codice) & UC\_29.2\newline UC\_30.2\newline UC\_36.1.1 \\
+	RF-DE\_102 & L'Admin deve poter vedere il campo testuale del filtro Cliente (sia nome che codice) & UC\_29.2\newline UC\_36.1.1 \\
 	\hline
-	RF-DE\_103 & L'Admin deve poter scrivere nel campo testuale del filtro Cliente & UC\_29.2\newline UC\_30.2\newline UC\_36.1.1 \\
+	RF-DE\_103 & L'Admin deve poter scrivere nel campo testuale del filtro Cliente & UC\_29.2\newline UC\_36.1.1 \\
 	\hline
-	RF-DE\_104 & L'Admin, digitando il codice del Cliente, deve poter vedere un riquadro di Clienti presenti che iniziano con quella sequenza di caratteri & UC\_29.2\newline UC\_30.2\newline UC\_36.1.1 \\
+	RF-DE\_104 & L'Admin, digitando il codice del Cliente, deve poter vedere un riquadro di Clienti presenti che iniziano con quella sequenza di caratteri & UC\_29.2\newline UC\_36.1.1 \\
 	\hline
-	RF-DE\_105 & L'Admin, digitando il codice del Cliente, deve poter scegliere dal riquadro dei Clienti presenti L'Utente desiderato & UC\_29.2\newline UC\_30.2\newline UC\_36.1.1 \\
+	RF-DE\_105 & L'Admin, digitando il codice del Cliente, deve poter scegliere dal riquadro dei Clienti presenti L'Utente desiderato & UC\_29.2\newline UC\_36.1.1 \\
 	\hline
-	RF-DE\_106 & L'Admin, digitando lo username del Cliente, deve poter vedere un riquadro di Clienti presenti che contengono quella sequenza di caratteri & UC\_29.2\newline UC\_30.2\newline UC\_36.1.1 \\
+	RF-DE\_106 & L'Admin, digitando lo username del Cliente, deve poter vedere un riquadro di Clienti presenti che contengono quella sequenza di caratteri & UC\_29.2\newline UC\_36.1.1 \\
 	\hline
-	RF-DE\_107 & L'Admin, digitando lo username del Cliente, deve poter scegliere dal riquadro dei Clienti presenti lo username del Cliente desiderato & UC\_29.2\newline UC\_30.2\newline UC\_36.1.1 \\
+	RF-DE\_107 & L'Admin, digitando lo username del Cliente, deve poter scegliere dal riquadro dei Clienti presenti lo username del Cliente desiderato & UC\_29.2\newline UC\_36.1.1 \\
 	\hline
-	RF-DE\_108 & L'Utente, digitando il codice del prodotto, deve poter vedere un riquadro di prodotti presenti che iniziano o sono uguali a quella sequenza di caratteri & UC\_30.3\newline UC\_36.1.3 \\
+	RF-DE\_108 & L'Utente, digitando il codice del prodotto, deve poter vedere un riquadro di prodotti presenti che iniziano o sono uguali a quella sequenza di caratteri &  UC\_36.1.3 \\
 	\hline
-	RF-DE\_109 & L'Utente, digitando il nome del prodotto, deve poter vedere un riquadro dei prodotti presenti che contengono quella sequenza di caratteri & UC\_30.3\newline UC\_36.1.3 \\
+	RF-DE\_109 & L'Utente, digitando il nome del prodotto, deve poter vedere un riquadro dei prodotti presenti che contengono quella sequenza di caratteri & UC\_36.1.3 \\
 	\hline
-	RF-DE\_110 & L'Utente deve poter inserire più filtri nella stessa pagina di esportazione & UC\_30\newline UC\_36 \\
+	RF-DE\_110 & L'Utente deve poter inserire più filtri nella stessa pagina di esportazione & UC\_36 \\
 	\hline
 	RF-DE\_111 & L'Admin deve poter visualizzare le statistiche nella pagina web delle performance & UC\_25\newline UC\_40 \\
 	\hline
@@ -482,25 +478,23 @@
 	\hline
 	RF-OP\_02 & L'Admin deve poter visualizzare la pagina \vr{Gestione} & UC\_32 \\
 	\hline
-	RF-OP\_03 & L'Admin deve poter schiacciare il bottone relativo alla creazione di un nuovo Utente & UC\_32.1 \\
+	RF-OP\_03 & L'Admin deve poter schiacciare il bottone relativo alla creazione di un nuovo Utente & UC\_32 \\
 	\hline
 	RF-OP\_04 & L'Admin deve poter visualizzare un form relativo alla creazione di un nuovo Utente & UC\_32.1 \\
 	\hline
-	RF-OP\_05 & L'Admin, all'interno del form relativo alla creazione di un nuovo Utente, deve poter selezionare il ruolo di quest'ultimo & UC\_32.1.1 \\
+	RF-OP\_05 & L'Admin, all'interno del form relativo alla creazione di un nuovo Utente, deve poter selezionare il ruolo di quest'ultimo & UC\_32.2 \\
 	\hline
-	RF-OP\_06 & L'Admin può selezionare il ruolo Cliente & UC\_32.1.1 \\
+	RF-OP\_06 & L'Admin può selezionare il ruolo Cliente & UC\_32.2 \\
 	\hline
-	RF-OP\_07 & L'Admin può selezionare il ruolo Admin & UC\_32.1.1 \\
+	RF-OP\_07 & L'Admin può selezionare il ruolo Admin & UC\_32.2 \\
 	\hline
-	RF-OP\_08 & L'Admin, all'interno del form relativo alla creazione di un nuovo Utente, deve poter scrivere lo username di quest'ultimo & UC\_32.1.2 \\
+	RF-OP\_08 & L'Admin, all'interno del form relativo alla creazione di un nuovo Utente, deve poter scrivere lo username di quest'ultimo & UC\_32.3 \\
 	\hline
-	RF-OP\_09 & L'Admin deve visualizzare una notifica a schermo che informa dell'errore nel caso di inserimento di username non esistente & UC\_32.1.2 \\
+	RF-OP\_10 & L'Admin deve poter visualizzare una tabella di tutti i Clienti nella pagina "Gestione" & UC\_32.1 \\
 	\hline
-	RF-OP\_10 & L'Admin deve poter visualizzare una tabella di tutti i Clienti nella pagina "Gestione" & UC\_32.2 \\
+	RF-OP\_11 & Deve essere visualizzata una notifica a schermo che informa della corretta creazione dell'Utente & UC\_33\newline UC\_32.5 \\
 	\hline
-	RF-OP\_11 & Deve essere visualizzata una notifica a schermo che informa della corretta creazione dell'Utente & UC\_33\newline UC\_33.1 \\
-	\hline
-	RF-OP\_12 & Successivamente alla mancata creazione di un Utente da parte di un Admin deve essere visualizzata una notifica a schermo che informa sull'errore che ha impedito la creazione dell'Utente & UC\_33\newline UC\_33.2 \\
+	RF-OP\_12 & Successivamente alla mancata creazione di un Utente da parte di un Admin deve essere visualizzata una notifica a schermo che informa sull'errore che ha impedito la creazione dell'Utente & UC\_33\newline UC\_33 \\
 	\hline
 	\multicolumn{3}{c}{} \\
 	\caption{Requisiti Funzionali opzionali}\label{tab:funzionali_opzionali}\\
