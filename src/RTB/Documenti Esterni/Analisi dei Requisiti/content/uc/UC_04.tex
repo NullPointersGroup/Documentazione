@@ -11,8 +11,8 @@
     \item \textbf{Attore Principale}: Utente 
     \item \textbf{Scenario Principale}:
     \begin{enumerate}
-        \item L'Utente seleziona l'opzione \vr{Password dimenticata} nel sistema
-        \item L'Utente inserisce l'Email di registrazione per recuperare la password $\rightarrow$ Vedi \hyperref[uc_04.1]{UC\_04.1}
+        \item L'Utente seleziona l'opzione \vr{password dimenticata} nel sistema
+        \item L'Utente inserisce l'email di registrazione per recuperare la password $\rightarrow$ Vedi \hyperref[uc_04.1]{UC\_04.1}
     \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
@@ -31,7 +31,7 @@
     \begin{itemize}
         \item \hyperref[uc_04.1]{UC\_04.1}
     \end{itemize}
-    \item \textbf{User Story}: L'Utente vuole ripristinare la propria password
+    \item \textbf{Trigger}: L'Utente vuole ripristinare la propria password
 \end{itemize}
 
 \subsubsubsection{UC\_04.1: Inserimento email di contatto}
@@ -41,7 +41,7 @@
     \item \textbf{Attore Principale}: Utente
     \item \textbf{Scenario Principale}:
     \begin{enumerate}
-        \item L'Utente inserisce l'Email con cui si è registrato
+        \item L'Utente inserisce l'email con cui si è registrato
     \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
@@ -49,19 +49,19 @@
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Email inserita correttamente
+        \item email inserita correttamente
     \end{itemize}
     \item \textbf{Scenari Alternativi}:
     \begin{itemize}
-        \item L'Utente ha inserito una Email non valida $\rightarrow$ Vedi \hyperref[uc_04.1.1]{UC\_04.1.1}
-        \item L'Utente ha inserito una Email non presente nel sistema $\rightarrow$ Vedi \hyperref[uc_04.1.2]{UC\_04.1.2}
+        \item L'Utente ha inserito una email non valida $\rightarrow$ Vedi \hyperref[uc_04.1.1]{UC\_04.1.1}
+        \item L'Utente ha inserito una email non presente nel sistema $\rightarrow$ Vedi \hyperref[uc_04.1.2]{UC\_04.1.2}
     \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
         \item \hyperref[uc_04.1.1]{UC\_04.1.1}
         \item \hyperref[uc_04.1.2]{UC\_04.1.2}
     \end{itemize}
-    \item \textbf{User Story}: L'Utente vuole inserire l'Email per il recupero password
+    \item \textbf{Trigger}: L'Utente vuole inserire l'email per il recupero password
 \end{itemize}
 
 UC\_04.1 presenta due ulteriori estensioni, come mostrato in figura:
@@ -71,19 +71,15 @@ UC\_04.1 presenta due ulteriori estensioni, come mostrato in figura:
     \caption{Estensioni UC\_04.1: UC\_04.1.1, UC\_04.1.2}
 \end{figure}
 
-\subsubsubsubsection{UC\_04.1.1: Email non valida}
+\subsubsubsubsection{UC\_04.1.1: email non valida}
 \label{uc_04.1.1}
 
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
-    \item \textbf{Scenario Principale}:
-    \begin{enumerate}
-        \item L'Utente visualizza un messaggio di errore per Email non valida
-    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Procedura di recupero password avviata
-        \item L'Utente ha inserito una Email in un formato non corretto
+        \item L'Utente ha inserito una email in un formato non corretto
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
@@ -91,22 +87,18 @@ UC\_04.1 presenta due ulteriori estensioni, come mostrato in figura:
     \end{itemize}
 \end{itemize}
 
-\subsubsubsubsection{UC\_04.1.2: Email non presente}
+\subsubsubsubsection{UC\_04.1.2: email non presente}
 \label{uc_04.1.2}
 
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
-    \item \textbf{Scenario Principale}:
-    \begin{enumerate}
-        \item L'Utente riceve un messaggio di errore per Email non presente nel sistema
-    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Procedura di recupero password avviata
-        \item L'Utente ha inserito una Email
+        \item L'Utente ha inserito una email
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item L'Utente visualizza un messaggio d'errore per Email non presente nel sistema
+        \item L'Utente visualizza un messaggio d'errore per email non presente nel sistema
     \end{itemize}
 \end{itemize}

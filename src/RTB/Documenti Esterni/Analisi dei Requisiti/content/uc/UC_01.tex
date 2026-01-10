@@ -11,9 +11,9 @@
     \item \textbf{Attore Principale}: Utente
     \item \textbf{Scenario Principale}: 
     \begin{enumerate}
-        \item Inserimento dello Username $\rightarrow$ Vedi \hyperref[uc_01.1]{UC\_01.1}
-        \item Inserimento della Password $\rightarrow$ Vedi \hyperref[uc_01.2]{UC\_01.2}
-        \item Inserimento della Password nel campo di \vr{conferma password} $\rightarrow$ Vedi \hyperref[uc_01.3]{UC\_01.3}
+        \item Inserimento dello username $\rightarrow$ Vedi \hyperref[uc_01.1]{UC\_01.1}
+        \item Inserimento della password $\rightarrow$ Vedi \hyperref[uc_01.2]{UC\_01.2}
+        \item Inserimento della password nel campo di \vr{conferma password} $\rightarrow$ Vedi \hyperref[uc_01.3]{UC\_01.3}
         \item Inserimento della email $\rightarrow$ Vedi \hyperref[uc_01.4]{UC\_01.4}
     \end{enumerate}
     \item \textbf{Precondizioni}:
@@ -32,7 +32,7 @@
         \item \hyperref[uc_01.3]{UC\_01.3}
         \item \hyperref[uc_01.4]{UC\_01.4}
     \end{itemize}
-    \item \textbf{User Story}: L'Utente vuole registrarsi nel sistema
+    \item \textbf{Trigger}: L'Utente vuole registrarsi nel sistema
 \end{itemize}
 
 \subsubsubsection{UC\_01.1: Inserimento username}
@@ -57,7 +57,7 @@
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Username inserito correttamente
+        \item username inserito correttamente
     \end{itemize}
     \item \textbf{Scenari Alternativi}:
     \begin{itemize}
@@ -65,9 +65,9 @@
     \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
-        \item \hyperref[uc_01.1.1]{UC\_01.1.1}
+        \item \hyperref[uc_01.1.1]{UC\_}
     \end{itemize}
-    \item \textbf{User Story}: L'Utente vuole inserire l'username per la registrazione
+    \item \textbf{Trigger}: L'Utente vuole inserire l'username per la registrazione
 \end{itemize}
 
 \subsubsubsubsection{UC\_01.1.1: Errore inserimento username}
@@ -75,10 +75,6 @@
 
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
-    \item \textbf{Scenario Principale}:
-    \begin{enumerate}
-        \item L'Utente visualizza il link per andare alla pagina di login
-    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il sistema è online
@@ -123,7 +119,7 @@
     \begin{itemize}
         \item \hyperref[uc_01.2.1]{UC\_01.2.1}
     \end{itemize}
-    \item \textbf{User Story}: L'Utente vuole inserire la password
+    \item \textbf{Trigger}: L'Utente vuole inserire la password
 \end{itemize}
 
 
@@ -132,10 +128,6 @@
 
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
-    \item \textbf{Scenario Principale}:
-    \begin{enumerate}
-        \item L'Utente vede il messaggio di errore per password non conforme ai vincoli
-    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il sistema è online
@@ -171,7 +163,7 @@
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Password conforme, la registrazione può essere conclusa
+        \item password conforme, la registrazione può essere conclusa
     \end{itemize}
     \item \textbf{Scenari Alternativi}:
     \begin{itemize}
@@ -181,7 +173,7 @@
     \begin{itemize}
         \item \hyperref[uc_01.3.1]{UC\_01.3.1}
     \end{itemize}
-    \item \textbf{User Story}: L'Utente vuole confermare la password
+    \item \textbf{Trigger}: L'Utente vuole confermare la password
 \end{itemize}
 
 \subsubsubsubsection{UC\_01.3.1: Errore conferma password}
@@ -193,7 +185,6 @@
     \begin{itemize}
         \item Il sistema è online
         \item L'Utente non è registrato nel sistema
-        \item Il Cilente 
         \item L'Utente ha inserito una password non coincidente con quella inserita precedentemente
     \end{itemize}
     \item \textbf{Postcondizioni}:
@@ -202,7 +193,7 @@
     \end{itemize}
 \end{itemize}
 
-\subsubsubsection{UC\_01.4: Inserimento Email}
+\subsubsubsection{UC\_01.4: Inserimento email}
 \label{uc_01.4}
 
 \begin{figure}[H]
@@ -215,7 +206,7 @@
     \item \textbf{Attore Principale}: Utente
     \item \textbf{Scenario Principale}:
     \begin{enumerate}
-        \item L'Utente inserisce l’Email che utilizzerà per il recupero della password. $\rightarrow$ Vedi \hyperref[uc_04]{UC\_04}
+        \item L'Utente inserisce l’email che utilizzerà
     \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
@@ -224,35 +215,31 @@
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Email inserita correttamente
+        \item email inserita correttamente
     \end{itemize}
     \item \textbf{Scenari Alternativi}:
     \begin{itemize}
-        \item L'Utente ha inserito una Email non valida $\rightarrow$ Vedi \hyperref[uc_01.4.1]{UC\_01.4.1}
-        \item L'Utente ha inserito una Email già presente nel sistema $\rightarrow$ Vedi \hyperref[uc_01.4.2]{UC\_01.4.2}
+        \item L'Utente ha inserito una email non valida $\rightarrow$ Vedi \hyperref[uc_01.4.1]{UC\_01.4.1}
+        \item L'Utente ha inserito una email già presente nel sistema $\rightarrow$ Vedi \hyperref[uc_01.4.2]{UC\_01.4.2}
     \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
         \item \hyperref[uc_01.4.1]{UC\_01.4.1}
         \item \hyperref[uc_01.4.2]{UC\_01.4.2}
     \end{itemize}
-    \item \textbf{User Story}: L'Utente vuole inserire l'Email
+    \item \textbf{Trigger}: L'Utente vuole inserire l'email
 \end{itemize}
 
-\subsubsubsubsection{UC\_01.4.1: Email non valida}
+\subsubsubsubsection{UC\_01.4.1: email non valida}
 \label{uc_01.4.1}
 
 \begin{itemize} 
     \item \textbf{Attore Principale}: Utente
-    \item \textbf{Scenario Principale}:
-    \begin{enumerate}
-        \item L'Utente visualizza un messaggio di errore per invalidità dell'Email
-    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il sistema è online
         \item L'Utente non è registrato nel sistema
-        \item L'Utente ha inserito una Email in un formato non corretto
+        \item L'Utente ha inserito una email in un formato non corretto
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
@@ -261,20 +248,16 @@
 \end{itemize}
 
 
-\subsubsubsubsection{UC\_01.4.2: Email già presente}
+\subsubsubsubsection{UC\_01.4.2: email già presente}
 \label{uc_01.4.2}
 
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
-    \item \textbf{Scenario Principale}:
-    \begin{enumerate}
-        \item L'Utente visualizza un messaggio di avviso per Email già presente nel sistema
-    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il sistema è online
-        \item Il Utente non è registrato nel sistema
-        \item Il Utente ha inserito una email già presente nel sistema
+        \item L'Utente non è registrato nel sistema
+        \item L'Utente ha inserito un'email già presente nel sistema
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
