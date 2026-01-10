@@ -11,17 +11,17 @@
     \item \textbf{Attore principale}: Cliente
     \item \textbf{Scenario principale}:
         \begin{enumerate}
-            \item L'Utente entra nella sezione del profilo
-            \item L'Utente clicca il tasto per reimpostare la password
-            \item L'Utente inserisce la vecchia password $\rightarrow$ Vedi \hyperref[uc_08.1]{UC\_08.1}
-            \item L'Utente inserisce la nuova password $\rightarrow$ Vedi \hyperref[uc_08.2]{UC\_08.2}
-            \item L'Utente inserisce la conferma della nuova password $\rightarrow$ Vedi \hyperref[uc_08.3]{UC\_08.3}
+            \item Il Cliente entra nella sezione del profilo
+            \item Il Cliente clicca il tasto per reimpostare la password
+            \item Il Cliente inserisce la vecchia password $\rightarrow$ Vedi \hyperref[uc_08.1]{UC\_08.1}
+            \item Il Cliente inserisce la nuova password $\rightarrow$ Vedi \hyperref[uc_08.2]{UC\_08.2}
+            \item Il Cliente inserisce la conferma della nuova password $\rightarrow$ Vedi \hyperref[uc_08.3]{UC\_08.3}
         \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
             \item Il sistema è online
-            \item L'Utente è autenticato
-            \item L'Utente conosce la precedente password
+            \item Il Cliente è autenticato
+            \item Il Cliente conosce la precedente password
         \end{itemize}
     \item \textbf{Postcondizioni}:
         \begin{itemize}
@@ -33,7 +33,7 @@
             \item \hyperref[uc_08.2]{UC\_08.2}
             \item \hyperref[uc_08.3]{UC\_08.3}
         \end{itemize}
-    \item \textbf{Trigger}: L'Utente vuole aggiornare le proprie credenziali di accesso
+    \item \textbf{Trigger}: Il Cliente vuole aggiornare le proprie credenziali di accesso
 \end{itemize}
 
 
@@ -50,26 +50,26 @@
     \item \textbf{Attore principale}: Cliente
     \item \textbf{Scenario principale}:
         \begin{enumerate}
-            \item L'Utente inserisce la vecchia password con cui si era registrato nel sistema
+            \item Il Cliente inserisce la vecchia password con cui si era registrato nel sistema
         \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
             \item Il sistema è online
-            \item L'Utente è autenticato
+            \item Il Cliente è autenticato
         \end{itemize}
     \item \textbf{Postcondizioni}:
         \begin{itemize}
-            \item La password è inserita correttamene
+            \item La password è inserita correttamente
         \end{itemize}
     \item \textbf{Scenari Alternativi}:
         \begin{itemize}
-            \item L'Utente ha inserito una password errata $\rightarrow$ Vedi \hyperref[uc_08.1.1]{UC\_08.1.1}
+            \item Il Cliente ha inserito una password errata $\rightarrow$ Vedi \hyperref[uc_08.1.1]{UC\_08.1.1}
         \end{itemize}
     \item \textbf{Estensioni}:
         \begin{itemize}
             \item \hyperref[uc_08.1.1]{UC\_08.1.1}
         \end{itemize}
-    \item \textbf{Trigger}: L'Utente vuole inserire la vecchia password per cambiare le credenziali d'accesso
+    \item \textbf{Trigger}: Il Cliente vuole inserire la vecchia password per cambiare le credenziali d'accesso
 \end{itemize}
 
 \subsubsubsubsection{UC\_08.1.1: Errore inserimento vecchia password}
@@ -80,12 +80,12 @@
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il sistema è online
-        \item L'Utente è registrato
-        \item L'Utente ha inserito in maniera errata la vecchia password 
+        \item Il Cliente è registrato
+        \item Il Cliente ha inserito in maniera errata la vecchia password 
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item L'Utente deve reinserire la vechia password
+        \item Il sistema visualizza un messaggio di errore e mantiene il campo della vecchia password vuoto per un nuovo inserimento
     \end{itemize}
 \end{itemize}
 
@@ -102,16 +102,16 @@
     \item \textbf{Attore principale}: Cliente
     \item \textbf{Scenario principale}:
         \begin{enumerate}
-            \item L'Utente inserisce la nuova password
+            \item Il Cliente inserisce la nuova password
         \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
             \item Il sistema è online
-            \item L'Utente è autenticato
+            \item Il Cliente è autenticato
         \end{itemize}
     \item \textbf{Postcondizioni}:
         \begin{itemize}
-            \item La password è inserita correttamene
+            \item La password è inserita correttamente
         \end{itemize}
     \item \textbf{Scenari Alternativi}:
         \begin{itemize}
@@ -121,7 +121,7 @@
         \begin{itemize}
             \item \hyperref[uc_08.2.1]{UC\_08.2.1}
         \end{itemize}
-    \item \textbf{Trigger}: L'Utente vuole inserire la nuova password per cambiare le credenziali d'accesso
+    \item \textbf{Trigger}: Il Cliente vuole inserire la nuova password per cambiare le credenziali d'accesso
 \end{itemize}
 
 \subsubsubsubsection{UC\_08.2.1: Errore inserimento nuova password}
@@ -132,12 +132,12 @@
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il sistema è online
-        \item L'Utente è registrato
-        \item L'Utente ha inserito una password che non rispetta i criteri di sicurezza
+        \item Il Cliente è registrato
+        \item Il Cliente ha inserito una password che non rispetta i criteri di sicurezza
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Messaggio di errore visibile all'Utente
+        \item Messaggio di errore visibile alIl Cliente
     \end{itemize}
 \end{itemize}
 
@@ -154,16 +154,16 @@
     \item \textbf{Attore principale}: Cliente
     \item \textbf{Scenario principale}:
         \begin{enumerate}
-            \item L'Utente inserisce la nuova password
+            \item Il Cliente inserisce la nuova password nel campo di conferma
         \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
             \item Il sistema è online
-            \item L'Utente è autenticato
+            \item Il Cliente è autenticato
         \end{itemize}
     \item \textbf{Postcondizioni}:
         \begin{itemize}
-            \item La conferma della password è inserita correttamene
+            \item La conferma della password è inserita correttamente
         \end{itemize}
     \item \textbf{Scenari Alternativi}:
         \begin{itemize}
@@ -173,7 +173,7 @@
         \begin{itemize}
             \item \hyperref[uc_08.3.1]{UC\_08.3.1}
         \end{itemize}
-    \item \textbf{Trigger}: L'Utente vuole inserire la nuova password per cambiare le credenziali d'accesso
+    \item \textbf{Trigger}: Il Cliente vuole inserire la nuova password per cambiare le credenziali d'accesso
 \end{itemize}
 
 \subsubsubsubsection{UC\_08.3.1: Errore conferma nuova password}
@@ -184,11 +184,11 @@
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il sistema è online
-        \item L'Utente è registrato
-        \item La conferma della password non corrisponde alla nuova password inserita dall'Utente
+        \item Il Cliente è registrato
+        \item La conferma della password non corrisponde alla nuova password inserita dal Cliente
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Messaggio di errore visibile all'Utente
+        \item Messaggio di errore visibile al Cliente
     \end{itemize}
 \end{itemize}

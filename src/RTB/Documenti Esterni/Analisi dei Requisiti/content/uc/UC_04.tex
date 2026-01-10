@@ -22,10 +22,8 @@
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item L'Utente invia la richiesta di recupero password al sistema
-        \item Il sistema genera un token di recupero per il ripristino delle credenziali
-        \item Il sistema ha inviato una password temporanea all'indirizzo email inserito dall'utente
-        \item I dati di accesso dell'Utente sono aggiornati con la nuova password temporanea
+        \item L'Utente ha inviato una richiesta di recupero password valida.
+        \item Il sistema ha registrato la richiesta e generato le credenziali temporanee per il ripristino.
     \end{itemize}
     \item \textbf{Inclusioni}:
     \begin{itemize}
@@ -95,7 +93,7 @@ UC\_04.1 presenta due ulteriori estensioni, come mostrato in figura:
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Procedura di recupero password avviata
-        \item L'Utente ha inserito una email
+        \item L'Utente ha inserito una email 
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
