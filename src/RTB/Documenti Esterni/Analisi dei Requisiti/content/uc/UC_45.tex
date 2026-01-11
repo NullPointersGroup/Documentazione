@@ -1,21 +1,20 @@
-\subsubsection{UC\_45: Visualizza dettaglio ordine Cliente}
+\subsubsection{UC\_45: Visualizza storico ordini personale}
 \label{uc_45}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_45}
-	\caption{UC\_45: Visualizza dettaglio ordine Cliente}
+	\caption{UC\_45: Visualizza storico ordini personale}
 \end{figure}
 
 \begin{itemize}
 	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item Il Cliente clicca su un proprio ordine specifico
-		\item Il Cliente visualizza i dettagli di un proprio ordine specifico
-		\item Il Cliente visualizza i prodotti del proprio ordine specifico $\rightarrow$ Vedi \hyperref[uc_45.1]{UC\_45.1}
-		\item Il Cliente visualizza la data del proprio ordine specifico $\rightarrow$ Vedi \hyperref[uc_45.2]{UC\_45.2}
-		\item Il Cliente visualizza il numero del proprio ordine specifico $\rightarrow$ Vedi \hyperref[uc_45.3]{UC\_45.3}
+		\item Il Cliente clicca il pulsante per visualizzare lo storico ordini
+		\item Il Cliente visualizza l'elenco di tutti i suoi ordini
+		\item Il Cliente visualizza il codice ordine $\rightarrow$ Vedi \hyperref[uc_45.1.1]{UC\_45.1.1}
+		\item Il Cliente visualizza la data dell'ordine $\rightarrow$ Vedi \hyperref[uc_45.1.2]{UC\_45.1.2}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
@@ -24,151 +23,79 @@
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il Cliente visualizza la pagina dedicata alla visualizzazione di un ordine personale
+		\item Il Cliente visualizza la pagina web dedicata alla visualizzazione del suo storico ordini
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
 		\item \hyperref[uc_45.1]{UC\_45.1}
-		\item \hyperref[uc_45.2]{UC\_45.2}
-		\item \hyperref[uc_45.3]{UC\_45.3}
 	\end{itemize}
-	\item \textbf{Trigger}: Il Cliente vuole visualizzare i dettagli di un proprio ordine specifico
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare tutto lo storico dei propri ordini effettuati fino a quel momento
 \end{itemize}
 
-\subsubsubsection{UC\_45.1: Visualizza prodotti}
+\subsubsubsection{UC\_45.1: Visualizza singolo ordine}
 \label{uc_45.1}
-
 \begin{itemize}
 	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item Il Cliente visualizza i prodotti di un proprio ordine specifico
+		\item Il Cliente visualizza un singolo ordine dal proprio storico
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item Il sistema è online
 		\item Il Cliente è autenticato
-		\item Il Cliente sta visualizzando i dettagli di un proprio ordine specifico
+		\item Il Cliente sta visualizzando lo storico ordini
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il Cliente visualizza i prodotti di un proprio ordine specifico
+		\item Il Cliente visualizza un singolo ordine dal proprio storico
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
 		\item \hyperref[uc_45.1.1]{UC\_45.1.1}
 		\item \hyperref[uc_45.1.2]{UC\_45.1.2}
-		\item \hyperref[uc_45.1.3]{UC\_45.1.3}
 	\end{itemize}
-	\item \textbf{Trigger}: Il Cliente vuole visualizzare i prodotti di un proprio ordine specifico
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare i dettagli di un singolo ordine
 \end{itemize}
 
-\subsubsubsubsection{UC\_45.1.1: Visualizza nome prodotti}
+\subsubsubsection{UC\_45.1.1: Visualizza codice ordine}
 \label{uc_45.1.1}
-
 \begin{itemize}
 	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item Il Cliente visualizza il nome dei prodotti di un proprio ordine specifico
+		\item Il Cliente visualizza i codici dei propri ordini
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item Il sistema è online
 		\item Il Cliente è autenticato
-		\item Il Cliente sta visualizzando i prodotti di un proprio ordine specifico
+		\item Il Cliente sta visualizzando un singolo ordine
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il Cliente visualizza il nome dei prodotti di un proprio ordine specifico
+		\item Il Cliente visualizza i codici dei propri ordini
 	\end{itemize}
-	\item \textbf{Trigger}: Il Cliente vuole visualizzare il nome dei prodotti di un proprio ordine specifico
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare i codici ordini dei propri ordini presenti
 \end{itemize}
 
-\subsubsubsubsection{UC\_45.1.2: Visualizza descrizione prodotti}
+\subsubsubsection{UC\_45.1.2: Visualizza data ordine}
 \label{uc_45.1.2}
-
 \begin{itemize}
 	\item \textbf{Attore principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item Il Cliente visualizza la descrizione dei prodotti di un proprio ordine specifico
+		\item Il Cliente visualizza le date dei propri ordini
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item Il sistema è online
 		\item Il Cliente è autenticato
-		\item Il Cliente sta visualizzando i prodotti di un proprio ordine specifico
+		\item Il Cliente sta visualizzando un singolo ordine
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il Cliente visualizza la descrizione dei prodotti di un proprio ordine specifico
+		\item Il Cliente visualizza le date dei propri ordini
 	\end{itemize}
-	\item \textbf{Trigger}: Il Cliente vuole visualizzare la descrizione dei prodotti di un proprio ordine specifico
-\end{itemize}
-
-\subsubsubsubsection{UC\_45.1.3: Visualizza quantità prodotti}
-\label{uc_45.1.3}
-
-\begin{itemize}
-	\item \textbf{Attore principale}: Cliente
-	\item \textbf{Scenario principale}:
-	\begin{enumerate}
-		\item Il Cliente visualizza la quantità dei prodotti di un proprio ordine specifico
-	\end{enumerate}
-	\item \textbf{Precondizioni}:
-	\begin{itemize}
-		\item Il sistema è online
-		\item Il Cliente è autenticato
-		\item Il Cliente sta visualizzando i prodotti di un proprio ordine specifico
-	\end{itemize}
-	\item \textbf{Postcondizioni}:
-	\begin{itemize}
-		\item Il Cliente visualizza la quantità dei prodotti di un proprio ordine specifico
-	\end{itemize}
-	\item \textbf{Trigger}: Il Cliente vuole visualizzare la quantità dei prodotti di un proprio ordine specifico
-\end{itemize}
-
-\subsubsubsection{UC\_45.2: Visualizza data ordine}
-\label{uc_45.2}
-
-\begin{itemize}
-	\item \textbf{Attore principale}: Cliente
-	\item \textbf{Scenario principale}:
-	\begin{enumerate}
-		\item Il Cliente visualizza la data di un proprio ordine specifico
-	\end{enumerate}
-	\item \textbf{Precondizioni}:
-	\begin{itemize}
-		\item Il sistema è online
-		\item Il Cliente è autenticato
-		\item Il Cliente sta visualizzando i dettagli di un proprio ordine specifico
-	\end{itemize}
-	\item \textbf{Postcondizioni}:
-	\begin{itemize}
-		\item Il Cliente visualizza la data di un proprio ordine specifico
-	\end{itemize}
-	\item \textbf{Trigger}: Il Cliente vuole visualizzare la data di un proprio ordine specifico
-\end{itemize}
-
-\subsubsubsection{UC\_45.3: Visualizza codice ordine}
-\label{uc_45.3}
-
-\begin{itemize}
-	\item \textbf{Attore principale}: Cliente
-	\item \textbf{Scenario principale}:
-	\begin{enumerate}
-		\item Il Cliente visualizza il codice di un proprio ordine specifico
-	\end{enumerate}
-	\item \textbf{Precondizioni}:
-	\begin{itemize}
-		\item Il sistema è online
-		\item Il Cliente è autenticato
-		\item Il Cliente sta visualizzando i dettagli di un proprio ordine specifico
-	\end{itemize}
-	\item \textbf{Postcondizioni}:
-	\begin{itemize}
-		\item Il Cliente visualizza il codice di un proprio ordine specifico
-	\end{itemize}
-	\item \textbf{Trigger}: Il Cliente vuole visualizzare il codice di un proprio ordine specifico
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare la data ordine nei propri ordini presenti
 \end{itemize}

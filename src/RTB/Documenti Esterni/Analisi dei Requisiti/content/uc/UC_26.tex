@@ -65,20 +65,14 @@
 	\end{itemize} 
 \end{itemize}
 
-\subsubsubsection{UC\_26.2: Visualizza singolo elemento}
+\subsubsubsection{UC\_26.2: Visualizza riepilogo ordine}
 \label{uc_26.2}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_26.2}
-	\caption{Inclusioni UC\_26.2: UC\_26.2.1, UC\_26.2.2, UC\_26.2.3}
-\end{figure}
 
 \begin{itemize}
     \item \textbf{Attore principale}: Cliente
     \item \textbf{Scenario principale}:
     \begin{enumerate}
-        \item Per ogni articolo presente nel carrello, il sistema ne visualizza le informazioni.
+        \item Per ogni articolo presente nel carrello, il sistema ne visualizza le informazioni $\rightarrow$ Vedi \hyperref[uc_19.1]{UC\_19.1}
         \item Per ciascun articolo, il Cliente visualizza:
         \begin{itemize}
             \item Il prezzo $\rightarrow$ Vedi \hyperref[uc_26.2.1]{UC\_26.2.1}
@@ -97,75 +91,9 @@
     \end{itemize}
     \item \textbf{Inclusioni}:
 	\begin{itemize}
-		\item \hyperref[uc_26.2.1]{UC\_26.2.1}
-		\item \hyperref[uc_26.2.2]{UC\_26.2.2}
-		\item \hyperref[uc_26.2.3]{UC\_26.2.3}
+        \item \hyperref[uc_19.1]{UC\_19.1}
 	\end{itemize}
     \item \textbf{Trigger}: Il Cliente vuole visualizzare i dettagli del singolo articolo
-\end{itemize}
-
-\subsubsubsubsection{UC\_26.2.1: Visualizzazione prezzo articolo}
-\label{uc_26.2.1}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Cliente
-    \item \textbf{Scenario principale}:
-    \begin{enumerate}
-        \item Il Cliente visualizza il prezzo di ciascun articolo presente nell'ordine
-    \end{enumerate}
-    \item \textbf{Precondizioni}:
-    \begin{itemize}
-        \item Il carrello non è vuoto
-        \item Il Cliente ha digitato il comando \verb|/invio|
-        \item Il Cliente visualizza il riepilogo dell'ordine
-    \end{itemize}
-    \item \textbf{Postcondizioni}:
-    \begin{itemize}
-        \item Il prezzo dei singoli articoli è visibile al Cliente
-    \end{itemize}
-\end{itemize}
-
-
-\subsubsubsubsection{UC\_26.2.2: Visualizzazione nome articolo}
-\label{uc_26.2.2}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Cliente
-    \item \textbf{Scenario principale}:
-    \begin{enumerate}
-        \item Il Cliente visualizza il nome di ciascun articolo presente nell'ordine
-    \end{enumerate}
-    \item \textbf{Precondizioni}:
-    \begin{itemize}
-        \item Il carrello non è vuoto
-        \item Il Cliente ha digitato il comando \verb|/invio|
-        \item Il Cliente visualizza il riepilogo dell'ordine
-    \end{itemize}
-    \item \textbf{Postcondizioni}:
-    \begin{itemize}
-        \item Il Cliente visualizza il nome dei singoli articoli
-    \end{itemize}
-\end{itemize}
-
-\subsubsubsubsection{UC\_26.2.3: Visualizzazione quantità articolo}
-\label{uc_26.2.3}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Cliente
-    \item \textbf{Scenario principale}:
-    \begin{enumerate}
-        \item Il Cliente visualizza la quantità di ciascun articolo presente nell'ordine
-    \end{enumerate}
-    \item \textbf{Precondizioni}:
-    \begin{itemize}
-        \item Il carrello non è vuoto
-        \item Il Cliente ha digitato il comando \verb|/invio|
-        \item Il Cliente visualizza il riepilogo dell'ordine
-    \end{itemize}
-    \item \textbf{Postcondizioni}:
-    \begin{itemize}
-        \item Il Cliente visualizza la quantità dei singoli articoli
-    \end{itemize}
 \end{itemize}
 
 \subsubsubsection{UC\_26.3: Conferma invio ordine}
@@ -176,7 +104,7 @@
     \begin{enumerate}
         \item Il Cliente conferma l'invio dell'ordine tramite uno dei seguenti metodi:
         \begin{itemize}
-            \item Inserendo un comando testuale (es. "conferma").
+            \item Inserendo un comando testuale (es. \vr{conferma}).
             \item Fornendo un comando vocale.
             \item Selezionando un apposito pulsante di conferma nel riepilogo.
         \end{itemize}

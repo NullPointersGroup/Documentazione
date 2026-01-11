@@ -12,17 +12,16 @@
 	\item \textbf{Attore principale}: Admin
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item L'Admin visualizza la pagina di gestione utenti $\rightarrow$ Vedi \hyperref[uc_32.1]{UC\_32.1}
-		\item L'Admin inserisce il ruolo $\rightarrow$ Vedi \hyperref[uc_32.2]{UC\_32.2}
-		\item L'Admin inserisce lo username $\rightarrow$ Vedi \hyperref[uc_32.3]{UC\_32.3}
-		\item L'Admin inserisce l'email $\rightarrow$ Vedi \hyperref[uc_32.4]{UC\_32.4}
+		\item L'Admin inserisce il ruolo $\rightarrow$ Vedi \hyperref[uc_32.1]{UC\_32.1}
+		\item L'Admin inserisce lo username $\rightarrow$ Vedi \hyperref[uc_01.1]{UC\_01.1}
+		\item L'Admin inserisce l'email $\rightarrow$ Vedi \hyperref[uc_01.4]{UC\_01.4}
 		\item L'Admin conferma la creazione del nuovo utente
-		\item Il sistema mostra una notifica di creazione riuscita $\rightarrow$ Vedi \hyperref[uc_32.5]{UC\_32.5}
+		\item Il sistema mostra una notifica di creazione riuscita $\rightarrow$ Vedi \hyperref[uc_32.2]{UC\_32.2}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item Il sistema è online
-		\item 
+		\item L'Admin è autenticato ed autorizzato
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
@@ -34,11 +33,10 @@
 	\end{itemize}
 	\item \textbf{Inclusioni}:
 	\begin{itemize}
+		\item \hyperref[uc_01.1]{UC\_01.1}
+		\item \hyperref[uc_01.4]{UC\_01.4}
 		\item \hyperref[uc_32.1]{UC\_32.1}
 		\item \hyperref[uc_32.2]{UC\_32.2}
-		\item \hyperref[uc_32.3]{UC\_32.3}
-		\item \hyperref[uc_32.4]{UC\_32.4}
-		\item \hyperref[uc_32.5]{UC\_32.5}
 	\end{itemize}
 	\item \textbf{Estensioni}:
 	\begin{itemize}
@@ -47,29 +45,8 @@
 	\item \textbf{Trigger}: L'Admin vuole creare un nuovo Utente
 \end{itemize}
 
-\subsubsubsection{UC\_32.1: Visualizzazione pagina gestione utenti}
+\subsubsubsection{UC\_32.1: Inserimento ruolo}
 \label{uc_32.1}
-
-\begin{itemize}
-	\item \textbf{Attore principale}: Admin
-	\item \textbf{Scenario principale}:
-	\begin{enumerate}
-		\item L'Admin visualizza la pagina di gestione utenti
-	\end{enumerate}
-	\item \textbf{Precondizioni}:
-	\begin{itemize}
-		\item Il sistema è online
-		\item L'Admin è autenticato ed autorizzato
-	\end{itemize}
-	\item \textbf{Postcondizioni}:
-	\begin{itemize}
-		\item La pagina di gestione utenti è visualizzata
-	\end{itemize}
-	\item \textbf{Trigger}: L'Admin vuole visualizzare la pagina di gestione utenti
-\end{itemize}
-
-\subsubsubsection{UC\_32.2: Inserimento ruolo}
-\label{uc_32.2}
 
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
@@ -88,48 +65,8 @@
 	\item \textbf{Trigger}: L'Admin deve specificare il ruolo del nuovo Utente
 \end{itemize}
 
-\subsubsubsection{UC\_32.3: Inserimento username}
-\label{uc_32.3}
-
-\begin{itemize}
-	\item \textbf{Attore principale}: Admin
-	\item \textbf{Scenario principale}:
-	\begin{enumerate}
-		\item L'Admin inserisce lo username del nuovo Utente
-	\end{enumerate}
-	\item \textbf{Precondizioni}:
-	\begin{itemize}
-		\item L'Admin sta creando un nuovo Utente $\rightarrow$ Vedi \hyperref[uc_32]{UC\_32}
-	\end{itemize}
-	\item \textbf{Postcondizioni}:
-	\begin{itemize}
-		\item Lo username del nuovo Utente è stato inserito
-	\end{itemize}
-	\item \textbf{Trigger}: L'Admin deve specificare lo username del nuovo Utente
-\end{itemize}
-
-\subsubsubsection{UC\_32.4: Inserimento email}
-\label{uc_32.4}
-
-\begin{itemize}
-	\item \textbf{Attore principale}: Admin
-	\item \textbf{Scenario principale}:
-	\begin{enumerate}
-		\item L'Admin inserisce l'email del nuovo Utente
-	\end{enumerate}
-	\item \textbf{Precondizioni}:
-	\begin{itemize}
-		\item L'Admin sta creando un nuovo Utente $\rightarrow$ Vedi \hyperref[uc_32]{UC\_32}
-	\end{itemize}
-	\item \textbf{Postcondizioni}:
-	\begin{itemize}
-		\item L'email del nuovo Utente è stata inserita
-	\end{itemize}
-	\item \textbf{Trigger}: L'Admin deve specificare l'email del nuovo Utente
-\end{itemize}
-
-\subsubsubsection{UC\_32.5: Notifica creazione riuscita}
-\label{uc_32.5}
+\subsubsubsection{UC\_32.2: Notifica creazione riuscita}
+\label{uc_32.2}
 
 \begin{itemize}
 	\item \textbf{Attore principale}: Admin
