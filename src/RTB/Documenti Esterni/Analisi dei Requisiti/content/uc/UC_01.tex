@@ -65,13 +65,31 @@
     \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
-        \item \hyperref[uc_01.1.1]{UC\_}
+        \item \hyperref[uc_01.1.1]{UC\_01.1.1}
+        \item \hyperref[uc_01.1.2]{UC\_01.1.2}
     \end{itemize}
     \item \textbf{Trigger}: L'Utente vuole inserire l'username per la registrazione
 \end{itemize}
 
-\subsubsubsubsection{UC\_01.1.1: Errore inserimento username}
+\subsubsubsubsection{UC\_01.1.1: Username non valido}
 \label{uc_01.1.1}
+
+\begin{itemize}
+    \item \textbf{Attore Principale}: Utente
+    \item \textbf{Precondizioni}:
+    \begin{itemize}
+        \item Il sistema è online
+        \item L'Utente non è registrato nel sistema
+        \item L'Utente ha inserito uno username non valido
+    \end{itemize}
+    \item \textbf{Postcondizioni}:
+    \begin{itemize}
+        \item L'Utente visualizza un messaggio di errore
+    \end{itemize}
+\end{itemize}
+
+\subsubsubsubsection{UC\_01.1.2: Username già esistente}
+\label{uc_01.1.2}
 
 \begin{itemize}
     \item \textbf{Attore Principale}: Utente
@@ -84,6 +102,7 @@
     \item \textbf{Postcondizioni}:
     \begin{itemize}
         \item Link HTML per andare alla pagina di login
+        \item L'Utente visualizza un messaggio di errore
     \end{itemize}
 \end{itemize}
 
@@ -261,6 +280,7 @@
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Messaggio di errore visibile all'Utente 
+        \item Link HTML per andare alla pagina di login
+        \item L'Utente visualizza un messaggio di errore
     \end{itemize}
 \end{itemize}

@@ -1,4 +1,4 @@
-\subsubsection{UC\_18: Errore rimozione articolo dal carrello}
+\subsubsection{UC\_18: Errore carrello vuoto}
 \label{uc_18}
 
 \begin{itemize}
@@ -6,15 +6,11 @@
    \item \textbf{Precondizioni}:
 	\begin{itemize}
 		\item Il Cliente ha richiesto la rimozione di articoli dal carrello.
-		\item \textbf{Una delle seguenti condizioni si verifica}:
-		\begin{enumerate}
-		    \item Il carrello è vuoto
-		    \item Gli articoli di cui viene richiesta la rimozione non sono presenti nel carrello
-		\end{enumerate}
+		\item Il carrello è vuoto
     \end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il sistema visualizza un messaggio di errore appropriato (carrello vuoto o articoli non presenti)
+		\item Il sistema visualizza un messaggio di errore per carrello vuoto
 		\item Nessun articolo viene rimosso dal carrello
 	\end{itemize}
 \end{itemize}
