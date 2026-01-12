@@ -1,0 +1,25 @@
+\subsubsection{UC\_49: Errore invio comandi nella chat}
+\label{uc_49}
+
+\hyperref[uc_44]{UC\_44} ha un'ulteriore estensione indicata nel seguente diagramma dei casi d'uso.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_49}
+	\caption{Estensione UC\_44: UC\_49}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Attore Principale}: Cliente
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item Una sessione chat del Cliente è attiva
+		\item Il Cliente ha inviato due comandi nello stesso input oppure il Cliente ha inviato del testo non consentito con un comando
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza un messaggio di errore
+	\end{itemize}
+\end{itemize}
