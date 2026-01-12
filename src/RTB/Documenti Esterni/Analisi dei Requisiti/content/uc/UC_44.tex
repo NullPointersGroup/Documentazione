@@ -1,0 +1,172 @@
+\subsubsection{UC\_44: Invio di un comando nella chat}
+\label{uc_44}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_44}
+	\caption{UC\_44: Invio di un comando nella chat}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Scenario principale}: 
+	\begin{enumerate}
+		\item Il Cliente digita un comando nella chat
+		\item Il Cliente visualizza l'effetto del comando
+	\end{enumerate}
+	\item \textbf{Precondizioni}: 
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item Il Cliente può scrivere nella chat
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza l'elenco dei comandi con spiegazione nella chat
+	\end{itemize}
+	\item \textbf{Generalizzazioni}:
+	\begin{itemize}
+		\item \hyperref[uc_44.1]{UC\_44.1}
+		\item \hyperref[uc_44.2]{UC\_44.2}
+		\item \hyperref[uc_44.3]{UC\_44.3}
+		\item \hyperref[uc_44.4]{UC\_44.4}
+		\item \hyperref[uc_44.5]{UC\_44.5}
+		\item \hyperref[uc_44.6]{UC\_44.6}
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole inviare un comando nella chat
+\end{itemize}
+
+\subsubsubsection{UC\_44.1: Invio comando \vr{/duplica}}
+\label{uc_44.1}
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente digita \texttt{/duplica} nella chat
+		\item Il Cliente duplica l'ultimo ordine effettuato
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item Il Cliente può scrivere nella chat
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il sistema duplica l'ultimo ordine
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole duplicare l'ultimo ordine effettuato
+\end{itemize}
+
+\subsubsubsection{UC\_44.2: Invio comando \vr{/carrello}}
+\label{uc_44.2}
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente digita \texttt{/carrello} nella chat
+		\item Il Cliente visualizza gli articoli presenti nel carrello
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online 
+		\item Il Cliente è autenticato
+		\item Il Cliente può scrivere nella chat
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza il riepilogo
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole vedere gli articoli presenti nel carrello
+\end{itemize}
+
+\subsubsubsection{UC\_44.3: Invio comando \vr{/duplica\{xx\}}}
+\label{uc_44.3}
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente digita \texttt{/duplica\{xx\}} nella chat
+		\item Il Cliente duplica l'ordine con codice xx
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online 
+		\item Il Cliente è autenticato
+		\item Il Cliente può scrivere nella chat
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il sistema duplica l'ordine con codice xx
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole duplicare l'ordine con il codice xx
+\end{itemize}
+
+\subsubsubsection{UC\_44.4: Invio comando \vr{/invia}}
+\label{uc_44.4}
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente digita \texttt{/invia} nella chat
+		\item Il Cliente visualizza il riepilogo del carrello
+		\item Il Cliente conferma l'invio
+		\item Il Cliente invia l'ordine con gli articoli presenti nel carrello
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online 
+		\item Il Cliente è autenticato
+		\item Il Cliente può scrivere nella chat
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il sistema riceve l'ordine
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole inviare l'ordine
+\end{itemize}
+
+\subsubsubsection{UC\_44.5: Invio comando \vr{/annulla}}
+\label{uc_44.5}
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente digita \texttt{/annulla} nella chat
+		\item Il Cliente annulla l'operazione che stava effettuando
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online 
+		\item Il Cliente è autenticato
+		\item Il Cliente può scrivere nella chat
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il sistema annulla la disambiguazione
+		\item Il Cliente può inserire un nuovo input
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole annullare la disambiguazione
+\end{itemize}
+
+\subsubsubsection{UC\_44.6: Invio comando \vr{/comandi}}
+\label{uc_44.6}
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente digita \texttt{/comandi} nella chat
+		\item Il Cliente visualizza i comandi con la relativa spiegazione nella chat
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online 
+		\item Il Cliente è autenticato
+		\item Il Cliente può scrivere nella chat
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza i comandi con la relativa spiegazione
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare i comandi e la loro spiegazione
+\end{itemize}

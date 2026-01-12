@@ -1,0 +1,17 @@
+\subsubsection{UC\_39: Errore duplicazione ordine}
+\label{uc_39}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il Cliente ha confermato la duplicazione di un ordine $\rightarrow$ Vedi \hyperref[uc_38]{UC\_38}
+		\item Uno o più prodotti presenti nell'ordine originale non sono più disponibili nel sistema
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il sistema visualizza un messaggio di errore che informa dell'indisponibilità dei prodotti
+		\item La duplicazione dell'ordine non viene eseguita
+		\item Il carrello del Cliente non viene modificato
+	\end{itemize}
+\end{itemize}

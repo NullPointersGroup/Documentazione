@@ -1,0 +1,78 @@
+\subsubsection{UC\_47: Impostazione filtri Cliente}
+\label{uc_47}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_47}
+	\caption{UC\_47: Impostazione filtri Cliente}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente accede alle impostazioni dei filtri in una pagina
+		\item Il Cliente imposta i filtri secondo le proprie preferenze
+		\item Il Cliente imposta il filtro data $\rightarrow$ Vedi \hyperref[uc_47.1]{UC\_47.1}
+		\item Il Cliente imposta il filtro prodotti $\rightarrow$ Vedi \hyperref[uc_47.2]{UC\_47.2}
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item Il Cliente si trova in una pagina che supporta i filtri
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente ha configurato i filtri secondo le proprie preferenze
+		\item Il Cliente visualizza la pagina aggiornata con i filtri applicati
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_47.1]{UC\_47.1}
+		\item \hyperref[uc_47.2]{UC\_47.2}
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole personalizzare la visualizzazione dei dati applicando filtri specifici
+\end{itemize}
+
+\subsubsubsection{UC\_47.1: Imposta filtro data}
+\label{uc_47.1}
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente imposta i parametri del filtro per data
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item Il Cliente sta configurando i filtri in una pagina
+	\end{itemize}
+	\item \textbf{Postcondizioni}
+	\begin{itemize}
+		\item Il Cliente ha impostato il filtro per data con i parametri scelti
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole filtrare i dati per intervallo di date
+\end{itemize}
+
+\subsubsubsection{UC\_47.2: Imposta filtro prodotti}
+\label{uc_47.2}
+\begin{itemize}
+	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente imposta i parametri del filtro per prodotti
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item Il Cliente sta configurando i filtri in una pagina
+	\end{itemize}
+	\item \textbf{Postcondizioni}
+	\begin{itemize}
+		\item Il Cliente ha impostato il filtro per prodotti con i parametri scelti
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole filtrare i dati per prodotto specifico
+\end{itemize}
