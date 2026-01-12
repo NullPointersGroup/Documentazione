@@ -1,0 +1,53 @@
+\subsubsection{UC\_05: Eliminazione account}
+\label{uc_05}
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_05}
+	\caption{UC\_05: Eliminazione account}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Attore Principale}: Utente
+	\item \textbf{Scenario Principale}:
+	\begin{enumerate}
+		\item L'Utente clicca il pulsante \vr{Elimina Account}
+		\item L'Utente conferma l'eliminazione $\rightarrow$ Vedi \hyperref[uc_05.1]{UC\_05.1}
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item L'Utente è autenticato
+		\item L'Utente si trova nella pagina di info del profilo
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item L'Utente è stato eliminato dal sistema 
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_05.1]{UC\_05.1}
+	\end{itemize}
+	\item \textbf{Trigger}: L'Utente vuole eliminare il proprio account
+\end{itemize}
+
+\subsubsubsection{UC\_05.1: Conferma eliminazione account}
+\label{uc_05.1}
+
+\begin{itemize}
+    \item \textbf{Attore Principale}: Utente
+	\item \textbf{Scenario Principale}:
+	\begin{enumerate}
+		\item Il sistema visualizza un pop-up di conferma per l'eliminazione definitiva dell'account
+		\item L'Utente seleziona l'opzione per confermare l'eliminazione
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item L'Utente ha avviato la procedura di eliminazione account (clic sul pulsante \vr{Elimina Account})
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item L'Utente ha autorizzato definitivamente l'eliminazione del proprio account
+	\end{itemize}
+	\item \textbf{Trigger}: Il sistema richiede conferma prima di procedere con l'eliminazione irreversibile
+\end{itemize}

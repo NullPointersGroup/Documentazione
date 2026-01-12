@@ -1,0 +1,37 @@
+\subsubsection{UC\_09: Inserimento ordine via testo}
+\label{uc_09}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_09}
+        \caption{UC\_09: Inserimento ordine via testo}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Attore Principale}: Cliente
+    \item \textbf{Scenario principale}:
+        \begin{enumerate}
+            \item Il Cliente inserisce un ordine tramite campo di testo
+            \item Il Cliente invia il testo al sistema
+        \end{enumerate}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Il sistema è online
+            \item Il Cliente è autenticato
+            \item Il Cliente visualizza il campo di testo per l'inserimento degli ordini
+        \end{itemize}
+    \item \textbf{Postcondizioni}:
+        \begin{itemize}
+            \item Il testo dell'ordine è stato inviato al sistema per l'elaborazione
+            \item Il campo di testo viene svuotato
+        \end{itemize}
+    \item \textbf{Scenari alternativi}:
+        \begin{itemize}
+            \item Il Cliente riceve un messaggio di errore per il superamento del limite di caratteri $\rightarrow$ Vedi \hyperref[uc_10]{UC\_10}
+        \end{itemize}
+    \item \textbf{Estensioni}:
+        \begin{itemize}
+            \item \hyperref[uc_10]{UC\_10}
+        \end{itemize}   
+    \item \textbf{Trigger}: Il Cliente desidera inviare un ordine tramite chat testuale 
+\end{itemize}

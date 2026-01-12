@@ -1,0 +1,99 @@
+\subsubsection{UC\_40: Visualizza statistiche}
+\label{uc_40}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_40}
+	\caption{UC\_40: Visualizza pagina statistiche}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Attore Principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin visualizza la sezione statistiche dedicata compresa nella pagina delle performance
+		\item L'Admin visualizza il numero di utenti $\rightarrow$ Vedi \hyperref[uc_40.1]{UC\_40.1}
+		\item L'Admin visualizza il numero di acquisti completati $\rightarrow$ Vedi \hyperref[uc_40.2]{UC\_40.2}
+		\item L'Admin visualizza il modello utilizzato $\rightarrow$ Vedi \hyperref[uc_40.3]{UC\_40.3}
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item L'Admin sta visualizzando la pagina delle performance $\rightarrow$ Vedi \hyperref[uc_25]{UC\_25}
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item L'Admin sta visualizzando la parte della pagina delle performance dedicata alle statistiche
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_40.1]{UC\_40.1}
+		\item \hyperref[uc_40.2]{UC\_40.2}
+		\item \hyperref[uc_40.3]{UC\_40.3}
+	\end{itemize}
+	\item \textbf{Trigger}: L'Admin vuole visualizzare le statistiche della piattaforma
+\end{itemize}
+
+\subsubsubsection{UC\_40.1: Visualizza numero di utenti}
+\label{uc_40.1}
+
+\begin{itemize}
+    \item \textbf{Attore Principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin visualizza il numero di utenti
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item L'Admin sta visualizzando la sezione delle statistiche
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item L'Admin visualizza il numero di utenti
+	\end{itemize}
+	\item \textbf{Trigger}: L'Admin vuole visualizzare il numero di utenti presenti in quel momento nella piattaforma
+\end{itemize}
+
+\subsubsubsection{UC\_40.2: Visualizza numero di acquisti completati}
+\label{uc_40.2}
+
+\begin{itemize}
+    \item \textbf{Attore Principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin visualizza il numero di acquisti completati
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item L'Admin sta visualizzando la sezione delle statistiche
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item L'Admin visualizza il numero di acquisti completati tramite la piattaforma
+	\end{itemize}
+	\item \textbf{Trigger}: L'Admin vuole visualizzare il numero di acquisti completati
+\end{itemize}
+
+\subsubsubsection{UC\_40.3: Visualizza modello utilizzato}
+\label{uc_40.3}
+
+\begin{itemize}
+    \item \textbf{Attore Principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin visualizza il modello utilizzato in quel momento
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item L'Admin sta visualizzando la sezione delle statistiche
+		\item Il modello AI è attivo
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item L'Adminvisualizza il modello utilizzato in quel momento
+	\end{itemize}
+	\item \textbf{Trigger}: L'Admin vuole visualizzare il modello 
+\end{itemize}

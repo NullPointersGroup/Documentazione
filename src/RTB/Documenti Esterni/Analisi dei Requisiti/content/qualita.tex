@@ -1,0 +1,102 @@
+\subsection{Requisiti di Qualità}
+
+\subsubsection{Requisiti di Qualità obbligatori}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.5\textwidth}|>{\raggedright\arraybackslash}p{0.3\textwidth}|}
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
+    \hline
+    \endfirsthead
+    
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
+    \hline
+    \endhead
+    
+    RQ-OB\_1 & Il sistema deve essere modulare e scalabile per supportare variazioni di carico. & Esterno \\
+    \hline
+    RQ-OB\_2 & Deve garantire affidabilità nell'elaborazione, mantenendo un basso tasso di errori. & \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato di Progetto} \newline Sez. Architettura proposta \\
+    \hline
+    RQ-OB\_3 & Deve garantire manutenibilità tramite struttura modulare, logging e separazione dei componenti. & \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato di Progetto} \newline Sez. Architettura AI multimodale \\
+    \hline
+    RQ-OB\_4 & Deve rispettare tempi di risposta accettabili in relazione al carico previsto (max 8s, min 4s). & Esterno \\
+    \hline
+    RQ-OB\_5 & Deve garantire alta disponibilità del servizio (operatività 24/7). & Esterno \\
+    \hline
+    RQ-OB\_6 & I microservizi devono poter essere aggiornati senza interrompere l'intero sistema (rolling updates). & Interno \newline Esterno \\
+    \hline
+    RQ-OB\_7 & È necessario realizzare opportuni Test$^G$ di Unità & Interno \newline Esterno \\
+    \hline
+    RQ-OB\_8 & È necessario descrivere i Test$^G$ da effettuare nel Piano di Qualifica & Interno \newline \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documenti\%20Esterni/Piano_di_Qualifica.pdf}{Piano di Qualifica versione 1.0.0}\\
+    \hline
+    RQ-OB\_9 & È necessario rispettare tutte le norme presenti nel documento Norme di Progetto & Interno \newline \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documenti\%20Interni/Norme_di_Progetto.pdf}{Norme di Progetto versione 1.0.0}\\
+    \hline
+    \multicolumn{3}{c}{} \\
+    \caption{Requisiti di Qualità obbligatori}\label{tab:qualita_obbligatori}\\
+\end{longtable}
+
+\subsubsection{Requisiti di Qualità desiderabili}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.5\textwidth}|>{\raggedright\arraybackslash}p{0.3\textwidth}|}
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
+    \hline
+    \endfirsthead
+    
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
+    \hline
+    \endhead
+    
+    RQ-DE\_1 & Latenza ridotta anche sotto carichi elevati (scaling automatico consigliato). & Interno \newline Esterno \\
+    \hline
+    RQ-DE\_2 & Strumenti di monitoring dei componenti con Prometheus. & Interno \\
+    \hline
+    RQ-DE\_3 & Supporto a meccanismi di caching per ridurre tempi di risposta in operazioni ripetute. & Esterno \\
+    \hline
+    RQ-DE\_4 & Logging distribuito e centralizzato per analisi avanzate. & Interno \newline Esterno \\
+    \hline
+    RQ-DE\_5 & Supporto a sistemi di alerting automatici (email, webhook, dashboard). & Interno \\
+    \hline
+    RQ-DE\_6 & Possibilità di benchmark periodici sulle performance dei modelli AI. & Interno \newline Esterno \\
+    \hline
+    RQ-DE\_7 & Pubblicazione di benchmark pubblici sulle performance del sistema. & Interno \newline Esterno \\
+    \hline
+    RQ-DE\_8 & Supporto a backup e ripristino dei dati e delle configurazioni critiche. & Esterno \\
+    \hline
+    RQ-DE\_9 & Il sistema deve essere in grado di gestire correttamente errori e fallimenti della pipeline tramite meccanismi di recovery. & Esterno \\
+    \hline
+    
+    \multicolumn{3}{c}{} \\
+    \caption{Requisiti di Qualità desiderabili}\label{tab:qualita_desiderabili}\\
+\end{longtable}
+
+\subsubsection{Requisiti di Qualità opzionali}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.5\textwidth}|>{\raggedright\arraybackslash}p{0.3\textwidth}|}
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
+    \hline
+    \endfirsthead
+    
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
+    \hline
+    \endhead
+    
+    RQ-OP\_1 & Ottimizzazione avanzata per la riduzione dei costi computazionali. & Interno \\
+    \hline
+    RQ-OP\_2 & Sistema di throttling intelligente per evitare sovraccarichi in input massivi. & Interno \\
+    \hline
+    RQ-OP\_3 & Supporto multi-tenant a livello infrastrutturale (isolamento risorse). & Interno \\
+    \hline
+    
+    \multicolumn{3}{c}{} \\
+    \caption{Requisiti di Qualità opzionali}\label{tab:qualita_opzionali}\\
+\end{longtable}
