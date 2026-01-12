@@ -1,0 +1,16 @@
+\subsubsection{UC\_33: Errore creazione utenti}
+\label{uc_33}
+
+\begin{itemize}
+    \item \textbf{Attore Principale}: Admin
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item L'Admin ha inviato una richiesta di creazione nuovo utente $\rightarrow$ Vedi \hyperref[uc_32]{UC\_32}
+		\item La creazione utente fallisce (es per dati duplicati o non validi)
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il sistema visualizza una notifica di errore che spiega il motivo del fallimento
+		\item Il nuovo utente non viene creato nel sistema
+	\end{itemize}
+\end{itemize}

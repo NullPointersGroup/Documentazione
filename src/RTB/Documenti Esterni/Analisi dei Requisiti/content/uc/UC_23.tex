@@ -1,0 +1,110 @@
+\subsubsection{UC\_23: Fornire feedback all'AI}
+\label{uc_23}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_23}
+	\caption{UC\_23: Fornire feedback all'AI}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Attore Principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente, tramite il pulsante affianco all'ultimo messaggio dell'AI, apre il form per la compilazione del feedback
+		\item Il Cliente compila il campo tipologia del feedback $\rightarrow$ Vedi \hyperref[uc_23.1]{UC\_23.1}
+		\item Il Cliente compila il campo descrizione del feedback $\rightarrow$ Vedi \hyperref[uc_23.2]{UC\_23.2}
+        \item Il Cliente invia il feedback $\rightarrow$ Vedi \hyperref[uc_23.3]{UC\_23.3}
+        \item Il Cliente riceve conferma dell'invio del feedback $\rightarrow$ Vedi \hyperref[uc_23.4]{UC\_23.4}
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente ha ricevuto una risposta dal chatbot AI
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il feedback è stato registrato nel sistema
+		\item Il Cliente ha ricevuto conferma dell'operazione
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_23.1]{UC\_23.1}
+		\item \hyperref[uc_23.2]{UC\_23.2}
+		\item \hyperref[uc_23.3]{UC\_23.3}
+		\item \hyperref[uc_23.4]{UC\_23.4}
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole valutare le risposte del chatbot tramite feedback, per contribuire a migliorarne l'accuratezza
+\end{itemize}
+
+\subsubsubsection{UC\_23.1: Inserimento tipologia feedback}
+\label{uc_23.1}
+\begin{itemize}
+    \item \textbf{Attore Principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente compila il campo relativo alla tipologia del feedback
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il modulo di feedback è aperto e il campo tipologia è visibile al Cliente
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il campo tipologia del feedback è compilato
+	\end{itemize}
+\end{itemize}
+
+\subsubsubsection{UC\_23.2: Inserimento descrizione feedback}
+\label{uc_23.2}
+\begin{itemize}
+    \item \textbf{Attore Principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente compila il campo descrizione del feedback
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il modulo di feedback è aperto e il campo descrizione è visibile al Cliente
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il campo descrizione del feedback è compilato
+	\end{itemize}
+\end{itemize}
+
+\subsubsubsection{UC\_23.3: Invio feedback}
+\label{uc_23.3}
+\begin{itemize}
+    \item \textbf{Attore Principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente preme il pulsante di invio del feedback
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il modulo di feedback è compilato (campi tipologia e descrizione inseriti)
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item La richiesta di invio del feedback è stata trasmessa al sistema
+	\end{itemize}
+\end{itemize}
+
+\subsubsubsection{UC\_23.4: Notifica invio feedback}
+\label{uc_23.4}
+\begin{itemize}
+    \item \textbf{Attore Principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza la conferma dell'invio del feedback
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il Cliente ha inviato il feedback (UC\_23.3)
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il sistema ha confermato l'avvenuta registrazione del feedback
+	\end{itemize}
+\end{itemize}
