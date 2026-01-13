@@ -1,0 +1,212 @@
+\documentclass[11pt]{beamer} %Presentazione Beamer con carattere 11pt
+
+% --- Codifica e font ---
+\usepackage[T1]{fontenc} %Per caratteri accentati
+\usepackage[utf8]{inputenc} %Per caratteri UTF-8
+\usepackage{lmodern} %Font
+\usepackage{hyperref} %Per collegamenti link
+% --- per sfondi ---
+\usepackage{tikz}
+\usetikzlibrary{calc,backgrounds,positioning}
+\usepackage{graphicx}
+\graphicspath{{./}{../../shared/images/}}
+
+% --- Colori ---
+\usepackage{xcolor} %colori
+\definecolor{Teal}{HTML}{2EAFC0} %Azzurro
+\definecolor{Green}{HTML}{88C084} %Verde
+\definecolor{Purple}{HTML}{6A2E7A} %Viola
+\definecolor{Pink}{HTML}{CF8AA6} %Rosa
+\definecolor{Yellow}{HTML}{F0D78A} %Giallo
+\definecolor{Orange}{HTML}{DDBF83} %Arancione
+\definecolor{Cream}{HTML}{FFF8F0}
+\definecolor{LightGray}{HTML}{F5F5F5}
+
+% --- Tema base Beamer ---
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{normal text}{fg=black,bg=white} %testo nero su sfondo bianco 
+\setbeamercolor{frametitle}{fg=black}
+
+% Template del frametitle semplificato
+\setbeamertemplate{frametitle}{ %per template titolo
+	\vspace{1.2cm}
+	\centering
+	\insertframetitle%
+}
+
+% --- Template ---
+\newcommand{\BaseBackground}[1]{
+	\setbeamertemplate{background}{%
+		\begin{tikzpicture}[remember picture,overlay]
+			% Sfondo principale bianco
+			\fill[#1!5!white] (current page.south west) rectangle (current page.north east); %colore scelto ma più chiaro per sfondo della slide
+			
+			% Header 
+			\fill[#1!17!white] %colore scelto più scuro dello sfondo per fasce
+			(current page.north west) rectangle ($(current page.north east)+(0,-2.5cm)$);
+			
+			% Barra colorata nell'header
+			\fill[#1] 
+			($(current page.north west)+(0,-2.3cm)$) rectangle 
+			($(current page.north west)+(4cm,-2.5cm)$);
+			
+			% Logo gruppo
+			\coordinate (logocenter) at ($(current page.north east)+(-1.5cm,-1.2cm)$); %Posizionamento logo NullPointers
+			\node at (logocenter) {\includegraphics[height=1.8cm]{logo_gruppo_.png}}; %Inserisce logo
+			
+			% Footer
+			\fill[#1!10!white] %trasparenza fascia footer colorata
+			(current page.south west) rectangle ($(current page.south east)+(0,1.2cm)$); %dimensione in altezza
+			
+			\node[anchor=west] (unipdlogo) at ($(current page.south west)+(0.8cm,0.6cm)$) %Posizionamento logo UniPD
+			{\includegraphics[height=0.9cm]{logo_unipd_.png}}; %Inserisce logo
+			
+			% Numero slide nel footer
+			\node[anchor=south east, text=#1!70!black, font=\bfseries, inner sep=3pt] 
+			at ($(current page.south east)+(-0.5cm,0.4cm)$) 
+			{\insertframenumber/\inserttotalframenumber};
+		\end{tikzpicture}%
+	}%
+	% Imposta i colori del testo
+	\setbeamercolor{normal text}{fg=black,bg=white}
+	\setbeamercolor{frametitle}{fg=#1!80!black}
+}
+
+% --- Background ---
+\newcommand{\SetTitleBackground}{
+	\setbeamertemplate{background}{%Imposta settaggio dello sfondo
+		\begin{tikzpicture}[remember picture,overlay]
+			% Sfondo titolo con gradiente
+			\path[shade, left color=Purple!25!white, right color=Teal!25!white] %Sfuma dal viola a teal con trasparenza
+			(current page.south west) rectangle (current page.north east);
+			
+			% Logo gruppo
+			\coordinate (logocenter) at ($(current page.north east)+(-1.3cm,-1.3cm)$);
+			\node at (logocenter) {\includegraphics[height=2.0cm]{logo_gruppo_.png}};
+			
+			% Fondo con logo UniPD
+			\fill[color=Cream!50, opacity=0.25] 
+			($(current page.south west)$) rectangle ($(current page.south east)+(0,1.5cm)$);
+			\node[anchor=west] (unipdlogo) at ($(current page.south west)+(0.5cm,0.75cm)$)
+			{\includegraphics[height=1.3cm]{logo_unipd_.png}};
+			
+			% Numero slide
+			\node[anchor=south east, text=gray, font=\bfseries, inner sep=3pt] 
+			at ($(current page.south east)+(-0.4cm,0.3cm)$) 
+			{\insertframenumber/\inserttotalframenumber};
+		\end{tikzpicture}%
+	}%
+	\setbeamercolor{normal text}{fg=black,bg=white}
+	\setbeamercolor{frametitle}{fg=black}
+}
+
+\newcommand{\ResetToNormalBackground}{\BaseBackground{Teal}}
+\newcommand{\SetSectionBackground}[1]{\BaseBackground{#1}} %Cambia sfondo con colore specificato
+
+% --- Colori liste ---
+\newcommand{\SetListItemColor}[1]{%Imposta colore per elenco puntato
+	\setbeamertemplate{itemize item}{\color{#1!70!black}$\bullet$}%Imposta idem
+	\setbeamertemplate{itemize subitem}{\color{#1!60!black}$\circ$}%Se ci dovessero essere subitem
+}
+
+% --- Stili testo ---
+\setbeamerfont{title}{size=\Huge, series=\bfseries} %Font titolo
+\setbeamerfont{frametitle}{size=\Large, series=\bfseries}
+\setlength{\leftmargini}{1.5em}
+
+% --- Rimuove il piedipagina  ---
+\setbeamertemplate{footline}{}
+
+% --- Info presentazione ---
+\title{Diario di Bordo}
+\author{NullPointers Group}
+\subtitle{Ingegneria del Software}
+\institute{Università degli Studi di Padova}
+\date{8 Gennaio 2026}     %   <------------ data
+
+% === DOCUMENTO ===
+\begin{document}
+	
+	% --- SLIDE TITOLO ---
+	\SetTitleBackground
+	\begin{frame}[plain]
+		\vspace{2cm}
+		\centering
+		{\usebeamerfont{title}\color{black}\inserttitle\par}
+		\vspace{0.8cm}
+		{\Large\color{black}\insertauthor\par}
+		\vspace{0.5cm}
+		{\large\color{black}\insertsubtitle\par} 
+		\vspace{0.5cm}
+		{\color{black}\insertdate\par}
+	\end{frame}
+	
+	% --- SLIDE NORMALI ---
+	\ResetToNormalBackground
+	
+	%----------------------- MODIFICA DA QUI -----------------------
+	
+	\section{Attività svolte}
+	\SetSectionBackground{Green}
+	\SetListItemColor{Green}
+	\begin{frame}{Attività svolte}
+		\vspace*{-0.5cm}
+		\begin{itemize}
+			\setlength\itemsep{1.0em}
+			\item Terminata individuazione casi d'uso;
+			\item Terminata individuazione requisiti;
+			\item Diagrammi UML dei casi d'uso;
+			\item Continuata stesura Analisi dei Requisiti;
+			\item Ricevimento col prof. Cardin.
+		\end{itemize}
+	\end{frame}
+	
+	\section{Attività future}
+	\SetSectionBackground{Teal}
+	\SetListItemColor{Teal}
+	\begin{frame}{Attività future}
+		\begin{itemize}
+			\setlength\itemsep{1.0em}
+			\item Diagrammi UML delle attività;
+			\item Terminazione Analisi Requisiti;
+			\item Incontro formativo con la proponente;
+			\item Inizio PoC;
+			\item Candidatura RTB 6 febbraio.
+		\end{itemize}
+	\end{frame}
+	
+	\section{Dubbi e difficoltà riscontrate}
+	\SetSectionBackground{Orange}
+	\SetListItemColor{Orange}
+	\begin{frame}{Dubbi e difficoltà riscontrate}
+		\begin{itemize}
+			\item Ritardo terminazione analisi requisiti.
+		\end{itemize}
+	\end{frame}
+	
+	%----------------------- FINO A QUI -----------------------
+	
+	% --- SLIDE FINALE ---
+	\SetSectionBackground{Purple}
+	\SetListItemColor{Purple}
+	\begin{frame}[plain]
+		\vspace{1.5cm}
+		\centering
+		{\Huge\textbf{Grazie per l'attenzione!}\par}
+		\vspace{1.0cm}
+		
+		% Contatti e repository
+		\begin{tabular}{c}
+			\href{mailto:nullpointersg@gmail.com}{\large nullpointersg@gmail.com} \\
+			\vspace{0.3cm} \\
+			\href{https://github.com/NullPointersGroup/Documentazione.git}{
+				\begin{tabular}{@{}c@{}}
+					\includegraphics[height=1.0cm]{logo_github_.png}
+					\hspace{0.3cm}
+					\raisebox{0.3cm}{Visita il nostro repository}
+				\end{tabular}
+			}
+		\end{tabular}
+	\end{frame}
+	
+\end{document}
