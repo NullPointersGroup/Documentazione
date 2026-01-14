@@ -38,8 +38,8 @@ jobs:
           git config --global user.name "GitHub App"
           git config --global user.email "noreply@github.com"
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          git add index.html
-          git commit -m "Index aggiornato" || exit 0
+          git add .
+          git commit -m "PDF aggiornati" || exit 0
           git push origin main
 
       - name: Upload Pages artifact
