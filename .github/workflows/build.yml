@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-merge:
-    if: github.event.pull_request.merged == true # ← Esegue action solo se la PR è stata MERGATA sul main
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'feature/')
     runs-on: ubuntu-latest
     container: ghcr.io/xu-cheng/texlive-full:latest
     permissions: {}
@@ -30,7 +30,7 @@ jobs:
       - name: Inserisci termini Glossario 
         run: python .github/workflows/glossario.py
         
-      - name: Compile LaTeX
+      - name: Compile & Update Index
         run: python .github/workflows/main.py
 
       - name: Commit and Push PDFs
@@ -38,6 +38,11 @@ jobs:
           git config --global user.name "GitHub App"
           git config --global user.email "noreply@github.com"
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          git add .
-          git commit -m "Auto: PDF compilati" || exit 0
+          git add index.html
+          git commit -m "Index aggiornato" || exit 0
           git push origin main
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: output/
