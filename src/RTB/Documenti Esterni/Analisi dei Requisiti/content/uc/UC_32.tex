@@ -1,0 +1,87 @@
+\subsubsection{UC\_32: Creazione nuovi Utenti}
+\label{uc_32}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_32}
+	\caption{UC\_32: Creazione nuovi Utenti}
+\end{figure}
+
+
+\begin{itemize}
+    \item \textbf{Attore Principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin inserisce il ruolo $\rightarrow$ Vedi \hyperref[uc_32.1]{UC\_32.1}
+		\item L'Admin inserisce lo username $\rightarrow$ Vedi \hyperref[uc_01.1]{UC\_01.1}
+		\item L'Admin inserisce l'email $\rightarrow$ Vedi \hyperref[uc_01.4]{UC\_01.4}
+		\item L'Admin conferma la creazione del nuovo utente
+		\item Il sistema mostra una notifica di creazione riuscita $\rightarrow$ Vedi \hyperref[uc_32.2]{UC\_32.2}
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item L'Admin è autenticato ed autorizzato
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il nuovo Utente è stato creato nel Sistema
+	\end{itemize}
+	\item \textbf{Scenari alternativi}:
+	\begin{itemize}
+		\item La creazione Utente fallisce e il sistema mostra una notifica con spiegazione dell'errore $\rightarrow$ Vedi \hyperref[uc_33]{UC\_33}
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_01.1]{UC\_01.1}
+		\item \hyperref[uc_01.4]{UC\_01.4}
+		\item \hyperref[uc_32.1]{UC\_32.1}
+		\item \hyperref[uc_32.2]{UC\_32.2}
+	\end{itemize}
+	\item \textbf{Estensioni}:
+	\begin{itemize}
+		\item \hyperref[uc_33]{UC\_33}
+	\end{itemize}
+	\item \textbf{Trigger}: L'Admin vuole creare un nuovo Utente
+\end{itemize}
+
+\subsubsubsection{UC\_32.1: Inserimento ruolo}
+\label{uc_32.1}
+
+\begin{itemize}
+    \item \textbf{Attore Principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin inserisce il ruolo del nuovo Utente
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item L'Admin sta creando un nuovo Utente $\rightarrow$ Vedi \hyperref[uc_32]{UC\_32}
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il ruolo del nuovo Utente è stato inserito
+	\end{itemize}
+	\item \textbf{Trigger}: L'Admin deve specificare il ruolo del nuovo Utente
+\end{itemize}
+
+\subsubsubsection{UC\_32.2: Notifica creazione riuscita}
+\label{uc_32.2}
+
+\begin{itemize}
+    \item \textbf{Attore Principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il sistema mostra una notifica di creazione Utente riuscita
+		\item L'Admin visualizza la notifica
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item La creazione del nuovo Utente è stata confermata ed elaborata con successo
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item La notifica di creazione riuscita è stata visualizzata
+	\end{itemize}
+	\item \textbf{Trigger}: Il sistema conferma l'avvenuta creazione del nuovo utente
+\end{itemize}
