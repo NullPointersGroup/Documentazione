@@ -1,0 +1,101 @@
+\subsubsection{UC\_48: Impostazione filtri Admin}
+\label{uc_48}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_48}
+	\caption{UC\_48: Impostazione filtri Admin}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin accede alle impostazioni dei filtri in una pagina
+		\item L'Admin imposta i filtri secondo le proprie preferenze
+		\item L'Admin imposta il filtro Cliente $\rightarrow$ Vedi \hyperref[uc_48.1]{UC\_48.1}
+		\item L'Admin imposta il filtro data $\rightarrow$ Vedi \hyperref[uc_48.2]{UC\_48.2}
+		\item L'Admin imposta il filtro prodotti $\rightarrow$ Vedi \hyperref[uc_48.3]{UC\_48.3}
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item L'Admin è autenticato ed autorizzato
+		\item L'Admin si trova in una pagina che supporta i filtri
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item L'Admin ha configurato i filtri secondo le proprie preferenze
+		\item L'Admin visualizza la pagina aggiornata con i filtri applicati
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_48.1]{UC\_48.1}
+		\item \hyperref[uc_48.2]{UC\_48.2}
+		\item \hyperref[uc_48.3]{UC\_48.3}
+	\end{itemize}
+	\item \textbf{Trigger}: L'Admin vuole personalizzare la visualizzazione dei dati applicando filtri specifici
+\end{itemize}
+
+\subsubsubsection{UC\_48.1: Imposta filtro Cliente}
+\label{uc_48.1}
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin imposta i parametri del filtro per Cliente
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item L'Admin è autenticato ed autorizzato
+		\item L'Admin sta configurando i filtri in una pagina
+	\end{itemize}
+	\item \textbf{Postcondizioni}
+	\begin{itemize}
+		\item L'Admin ha impostato il filtro per Cliente con i parametri scelti
+	\end{itemize}
+	\item \textbf{Trigger}: L'Admin vuole filtrare i dati per Cliente specifico
+\end{itemize}
+
+\subsubsubsection{UC\_48.2: Imposta filtro data}
+\label{uc_48.2}
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin imposta i parametri del filtro per data
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item L'Admin è autenticato ed autorizzato
+		\item L'Admin sta configurando i filtri in una pagina
+	\end{itemize}
+	\item \textbf{Postcondizioni}
+	\begin{itemize}
+		\item L'Admin ha impostato il filtro per data con i parametri scelti
+	\end{itemize}
+	\item \textbf{Trigger}: L'Admin vuole filtrare i dati per intervallo di date
+\end{itemize}
+
+\subsubsubsection{UC\_48.3: Imposta filtro prodotti}
+\label{uc_48.3}
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin imposta i parametri del filtro per prodotti
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item L'Admin è autenticato ed autorizzato
+		\item L'Admin sta configurando i filtri in una pagina
+	\end{itemize}
+	\item \textbf{Postcondizioni}
+	\begin{itemize}
+		\item L'Admin ha impostato il filtro per prodotti con i parametri scelti
+	\end{itemize}
+	\item \textbf{Trigger}: L'Admin vuole filtrare i dati per prodotto specifico
+\end{itemize}
