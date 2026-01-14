@@ -1,0 +1,98 @@
+\subsubsection{UC\_07: Visualizza informazioni profilo}
+\label{uc_07}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_07}
+        \caption{UC\_07: Visualizza informazioni profilo}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+    \item \textbf{Scenario principale}: 
+            \begin{enumerate}
+                \item Il Cliente accede alla sezione info del proprio profilo
+                \item Il Cliente visualizza il proprio username $\rightarrow$ Vedi \hyperref[uc_07.1]{UC\_07.1}
+                \item Il Cliente visualizza la propria ragione sociale $\rightarrow$ Vedi \hyperref[uc_07.2]{UC\_07.2}
+                \item Il Cliente visualizza il proprio indirizzo email $\rightarrow$ Vedi \hyperref[uc_07.3]{UC\_07.3}
+            \end{enumerate}
+    \item \textbf{Precondizioni}:   
+            \begin{itemize}
+                \item Il sistema è online
+                \item Il Cliente è autenticato
+            \end{itemize}      
+    \item \textbf{Postcondizioni}: 
+            \begin{itemize}
+                \item Il sistema mostra una pagina HTML con le informazioni Utente
+            \end{itemize}
+    \item \textbf{Inclusioni}: 
+            \begin{itemize}
+                \item \hyperref[uc_07.1]{UC\_07.1}
+		        \item \hyperref[uc_07.2]{UC\_07.2}
+		        \item \hyperref[uc_07.3]{UC\_07.3}
+            \end{itemize}
+    \item \textbf{Trigger}: Il Cliente vuole visualizzare i propri dati registrati nel sistema
+\end{itemize}
+
+\subsubsubsection{UC\_07.1: Visualizza username}
+\label{uc_07.1}
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item Il Cliente visualizza lo username
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
+    \begin{itemize}
+        \item Il sistema è online
+        \item Il Cliente è autenticato
+        \item Il Cliente si trova nella sezione info del proprio profilo
+    \end{itemize}      
+    \item \textbf{Postcondizioni}:
+    \begin{itemize}
+        \item Il Cliente visualizza lo username
+    \end{itemize}
+    \item \textbf{Trigger}: Il Cliente vuole visualizzare la sezione informazioni del profilo
+\end{itemize}
+
+\subsubsubsection{UC\_07.2: Visualizza ragione sociale}
+\label{uc_07.2}
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+    \item \textbf{Scenario principale}:
+            \begin{enumerate}
+                \item Il Cliente visualizza la ragione sociale
+            \end{enumerate}
+    \item \textbf{Precondizioni}:
+            \begin{itemize}
+                \item Il sistema è online
+                \item Il Cliente è autenticato
+                \item Il Cliente si trova nella sezione info del proprio profilo
+            \end{itemize}      
+    \item \textbf{Postcondizioni}:
+            \begin{itemize}
+                \item Il Cliente visualizza la ragione sociale
+            \end{itemize}
+    \item \textbf{Trigger}: Il Cliente vuole visualizzare la sezione informazioni del profilo
+\end{itemize}
+
+\subsubsubsection{UC\_07.3: Visualizza indirizzo email}
+\label{uc_07.3}
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+    \item \textbf{Scenario principale}:
+            \begin{enumerate}
+                \item Il Cliente visualizza l'indirizzo email
+            \end{enumerate}
+    \item \textbf{Precondizioni}:
+            \begin{itemize}
+                \item Il sistema è online
+                \item Il Cliente è autenticato
+                \item Il Cliente si trova nella sezione info del proprio profilo
+            \end{itemize}      
+    \item \textbf{Postcondizioni}:
+            \begin{itemize}
+                \item Il Cliente visualizza l'indirizzo email
+            \end{itemize}
+    \item \textbf{Trigger}: Il Cliente sta visualizzando la sezione informazioni del profilo.
+\end{itemize}

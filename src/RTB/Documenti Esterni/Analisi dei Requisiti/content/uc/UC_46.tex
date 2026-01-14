@@ -1,0 +1,174 @@
+\subsubsection{UC\_46: Visualizza dettaglio ordine Cliente}
+\label{uc_46}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_46}
+	\caption{UC\_46: Visualizza dettaglio ordine Cliente}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente clicca su un proprio ordine specifico
+		\item Il Cliente visualizza i dettagli di un proprio ordine specifico
+		\item Il Cliente visualizza i prodotti del proprio ordine specifico $\rightarrow$ Vedi \hyperref[uc_46.1]{UC\_46.1}
+		\item Il Cliente visualizza la data del proprio ordine specifico $\rightarrow$ Vedi \hyperref[uc_46.2]{UC\_46.2}
+		\item Il Cliente visualizza il numero del proprio ordine specifico $\rightarrow$ Vedi \hyperref[uc_46.3]{UC\_46.3}
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza la pagina dedicata alla visualizzazione di un ordine personale
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_46.1]{UC\_46.1}
+		\item \hyperref[uc_46.2]{UC\_46.2}
+		\item \hyperref[uc_46.3]{UC\_46.3}
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare i dettagli di un proprio ordine specifico
+\end{itemize}
+
+\subsubsubsection{UC\_46.1: Visualizza prodotti}
+\label{uc_46.1}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza i prodotti di un proprio ordine specifico
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item Il Cliente sta visualizzando i dettagli di un proprio ordine specifico
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza i prodotti di un proprio ordine specifico
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_46.1.1]{UC\_46.1.1}
+		\item \hyperref[uc_46.1.2]{UC\_46.1.2}
+		\item \hyperref[uc_46.1.3]{UC\_46.1.3}
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare i prodotti di un proprio ordine specifico
+\end{itemize}
+
+\subsubsubsubsection{UC\_46.1.1: Visualizza nome prodotti}
+\label{uc_46.1.1}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza il nome dei prodotti di un proprio ordine specifico
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item Il Cliente sta visualizzando i prodotti di un proprio ordine specifico
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza il nome dei prodotti di un proprio ordine specifico
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare il nome dei prodotti di un proprio ordine specifico
+\end{itemize}
+
+\subsubsubsubsection{UC\_46.1.2: Visualizza descrizione prodotti}
+\label{uc_46.1.2}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza la descrizione dei prodotti di un proprio ordine specifico
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item Il Cliente sta visualizzando i prodotti di un proprio ordine specifico
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza la descrizione dei prodotti di un proprio ordine specifico
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare la descrizione dei prodotti di un proprio ordine specifico
+\end{itemize}
+
+\subsubsubsubsection{UC\_46.1.3: Visualizza quantità prodotti}
+\label{uc_46.1.3}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza la quantità dei prodotti di un proprio ordine specifico
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item Il Cliente sta visualizzando i prodotti di un proprio ordine specifico
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza la quantità dei prodotti di un proprio ordine specifico
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare la quantità dei prodotti di un proprio ordine specifico
+\end{itemize}
+
+\subsubsubsection{UC\_46.2: Visualizza data ordine}
+\label{uc_46.2}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza la data di un proprio ordine specifico
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item Il Cliente sta visualizzando i dettagli di un proprio ordine specifico
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza la data di un proprio ordine specifico
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare la data di un proprio ordine specifico
+\end{itemize}
+
+\subsubsubsection{UC\_46.3: Visualizza codice ordine}
+\label{uc_46.3}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza il codice di un proprio ordine specifico
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item Il Cliente sta visualizzando i dettagli di un proprio ordine specifico
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza il codice di un proprio ordine specifico
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare il codice di un proprio ordine specifico
+\end{itemize}
