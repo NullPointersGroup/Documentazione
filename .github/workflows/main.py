@@ -11,11 +11,13 @@ from typing import Dict, Any, List, Optional
 INDEX_HTML_PATH = Path("index.html")
 SRC_DIR = Path("src")
 OUTPUT_DIR = Path("output")
+IGNORE_DIR = {Path("Candidatura")}
 SECTION_ORDER = ["PB", "RTB", "Candidatura", "Diario Di Bordo"]
 MAX_DEPTH = 2
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
+
 
 def cleanup_source_pdf(src_dir: Path = SRC_DIR) -> None:
     """Rimuove file generati temporanei nella sorgente (.pdf, .log, .aux, ...)."""
@@ -28,18 +30,24 @@ def cleanup_source_pdf(src_dir: Path = SRC_DIR) -> None:
                 except Exception:
                     logger.debug(f"Could not remove {os.path.join(root, file)}")
 
+
 def compile_tex_to_pdf(
     src_dir: Path = SRC_DIR,
     output_dir: Path = OUTPUT_DIR,
+    ignore_dir: set[Path] = IGNORE_DIR,
     max_depth: Optional[int] = MAX_DEPTH,
     latexmk_cmd: str = "latexmk",
 ) -> Dict[Path, str]:
     #Compila i .tex e copia i PDF in output, restituendo una mappa PDF -> table.tex
     output_dir.mkdir(parents=True, exist_ok=True)
-
+    
+    if (src_dir / "PB").exists():
+        ignore_dir.add(src_dir / "RTB")
 
     tex_files: List[Path] = []
     for tex_path in src_dir.rglob("*.tex"):
+        if any(p.name == ignored.name for p in tex_path.parents for ignored in ignore_dir):
+            continue
         try:
             with open(tex_path, "r", encoding="utf-8", errors="ignore") as f:
                 head = f.read(4096)
@@ -96,6 +104,7 @@ def compile_tex_to_pdf(
 
     return pdf_to_tex_content
 
+
 def format_filename(filename: str, tex_content: str = "") -> str:
     """
     Format del nome file con prefissi e versione.
@@ -127,6 +136,7 @@ def format_filename(filename: str, tex_content: str = "") -> str:
         return date
 
     return name.replace("_", " ") + v
+
 
 def build_tree(
     path: Path,
@@ -173,6 +183,7 @@ def build_tree(
             node[d.name] = child
 
     return node
+
 
 def generate_html(node: Dict[str, Any], level: int = 2, indent: int = 0) -> str:
     html_lines: List[str] = []
@@ -246,11 +257,9 @@ def update_index_html(
     index_path.write_text(html_text, encoding="utf-8")
     logger.info("index.html updated correctly")
 
-
 def main() -> None:
     pdf_to_tex_content = compile_tex_to_pdf()
     update_index_html(pdf_to_tex_content=pdf_to_tex_content)
-
 
 try:
     main()
