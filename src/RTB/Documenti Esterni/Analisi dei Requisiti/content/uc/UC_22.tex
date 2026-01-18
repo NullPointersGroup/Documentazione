@@ -8,19 +8,19 @@
 \end{figure}
 
 \begin{itemize}
-	\item \textbf{Attore principale}: Cliente
+	\item \textbf{Attore$^G$ principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item Il Cliente decide di annullare il processo di disambiguazione
-		\item Il Cliente visualizza il messaggio di conferma per l'interruzione del processo di disambiguazione
+		\item Il Cliente decide di annullare il processo$^G$ di disambiguazione
+		\item Il Cliente visualizza il messaggio di conferma per l'interruzione del processo$^G$ di disambiguazione
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il processo di gestione ambiguità è attivo $\rightarrow$ Vedi \hyperref[uc_21]{UC\_21}
+		\item Il processo$^G$ di gestione ambiguità è attivo $\rightarrow$ Vedi \hyperref[uc_21]{UC\_21}
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il processo di disambiguazione viene annullato
+		\item Il processo$^G$ di disambiguazione viene annullato
 		\item L'ordine rimane nello stato precedente all'ambiguità
 	\end{itemize}
 	\item \textbf{Trigger}: Il Cliente durante la chiarificazione di un prodotto ambiguo, vuole annullare l'operazione di disambiguazione
@@ -30,7 +30,7 @@
 \label{uc_22.1}
 
 \begin{itemize}
-    \item \textbf{Attore Principale}: Cliente
+    \item \textbf{Attore$^G$ Principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
 		\item Il Cliente seleziona il comando \texttt{/annulla}
@@ -38,7 +38,7 @@
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item È attivo un processo di disambiguazione $\rightarrow$ Vedi \hyperref[uc_21]{UC\_21}
+		\item È attivo un processo$^G$ di disambiguazione $\rightarrow$ Vedi \hyperref[uc_21]{UC\_21}
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
@@ -50,17 +50,17 @@
 \label{uc_22.2}
 
 \begin{itemize}
-    \item \textbf{Attore Principale}: Cliente
+    \item \textbf{Attore$^G$ Principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
 		\item Il Cliente visualizza la notifica di conferma dell'avvenuto annullamento della disambiguazione
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il Cliente ha richiesto l'annullamento del processo di disambiguazione $\rightarrow$ Vedi \hyperref[uc_22.1]{UC\_22.1}
+		\item Il Cliente ha richiesto l'annullamento del processo$^G$ di disambiguazione $\rightarrow$ Vedi \hyperref[uc_22.1]{UC\_22.1}
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il Cliente è informato del corretto annullamento del processo
+		\item Il Cliente è informato del corretto annullamento del processo$^G$
 	\end{itemize}
 \end{itemize}
