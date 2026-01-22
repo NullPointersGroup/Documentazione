@@ -483,3 +483,65 @@ Le attività di test$^G$ devono essere ripetibili, per poter confermare le corre
 \subsubsection{Classificazione dei Test}
 Tutti i test$^G$ pianificati, eseguiti e i loro esiti sono tracciati nel Piano di Qualifica$^G$.\\
 I test$^G$ sono classificati in categorie gerarchiche, ognuna con un codice identificativo univoco nel formato:
+\begin{center}
+    \textbf{TestTipo\_xx}
+\end{center}
+Dove \textbf{TestTipo} può assumere uno dei seguenti valori:
+\begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
+    \item \textbf{TU}: Test di Unità;
+    \item \textbf{TI}: Test di Integrazione;
+    \item \textbf{TS}: Test di Sistema;
+    \item \textbf{TA}: Test di Accettazione.
+\end{itemize}
+Il numero \textbf{(xx)} è un valore progressivo che identifica univocamente il test all'interno della sua categoria. \\
+Inoltre per permettere un monitoraggio efficace dell'avanzamento ogni test può assumere uno dei seguenti stati:
+\begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
+    \item \textbf{S}: Superato;
+    \item \textbf{I}: Implementato;
+    \item \textbf{NI}: Non Implementato.
+\end{itemize}
+
+\subsubsubsection{Test di Unità}
+I Test di Unità rappresentano il livello di granularità più basso e mirano a verificare il corretto funzionamento delle singole unità software nella loro forma più elementare (funzioni, metodi o classi).
+Si distinguono due approcci principali:
+\begin{itemize}
+    \item \textbf{Test Funzionali}: analizzano input e output del sistema senza considerare la logica interna di implementazione. Per questo motivo, il solo test funzionale non è sufficiente a garantire la correttezza delle unità e necessita di essere affiancato da altre tipologie di test;
+    \item \textbf{Test Strutturali}: analizzano la logica interna del codice, verificandone i diversi percorsi di esecuzione e la relativa copertura.
+\end{itemize}
+
+\subsubsubsection{Test di Integrazione}
+I Test di Integrazione verificano che le diverse componenti, precedentemente testate singolarmente, interagiscano e comunichino correttamente tra loro.\\
+L’obiettivo principale è individuare errori derivanti dall’integrazione di moduli, come incompatibilità di interfacce, errori nella gestione dei dati condivisi o comportamenti inattesi nelle sequenze di chiamata.\\
+L'approccio di integrazione adottato può seguire due strategie:
+\begin{itemize}
+    \item \textbf{Top-Down}: si parte dalle componenti di livello superiore, caratterizzate da maggiori dipendenze;
+    \item \textbf{Bottom-Up}: si inizia dalle componenti di base, con minori dipendenze.
+\end{itemize}
+
+\subsubsubsection{Test di Sistema}
+I test di Sistema verificano il comportamento del sistema nella sua interezza, valutandone la conformità rispetto ai requisiti funzionali e non funzionali definiti nel documento di Analisi dei Requisiti. Questi test permettono di validare aspetti quali la correttezza funzionale, l'affidabilità, la robustezza e la gestione degli errori.
+
+\subsubsubsection{Test di Accettazione}
+I Test di Accettazione verificano che il sistema funzioni nella sua interezza e che soddisfi le aspettative ed i requisiti richiesti dalla proponente.
+
+\subsubsubsection{Test di Regressione}
+I Test di Regressione hanno lo scopo di verificare che le modifiche apportate al sistema, siano esse correzioni o l'aggiunta di nuove funzionalità, non abbiano compromesso comportamenti precedentemente testati e corretti. 
+Vengono eseguiti ogni volta che viene apportata una modifica al software e consistono nella riesecuzione dell'intera suite di test, garantendo così che le funzionalità già verificate mantengano la loro correttezza, prevenendo di fatto una regressione della qualità del prodotto.
+
+\subsubsection{Validazione}
+Il processo di Validazione ha l'obiettivo di verificare e confermare attraverso delle prove oggettive che quanto realizzato rispetti tutte le richieste di \textbf{Ergon Informatica Srl}.
+Mentre la verifica si concentra sulla conformità tecnica del prodotto, la validazione risponde alla domanda: \textit{\vr{Did I build the right system?}} ovvero \textit{\vr{Stiamo costruendo il sistema corretto?}}.\\
+In conformità allo standard ISO/IEC 122207:1995 adottato, le attività previste dal processo di validazione sono:
+\begin{itemize}
+    \item implementazione del processo
+    \item attività di validazione
+\end{itemize}
+
+\subsubsubsection{Implementazione del processo}
+A seguito di un’analisi approfondita delle richieste di \textbf{Ergon Informatica srl}, Nullpointers Group ha stilato una lista di requisiti da soddisfare, reperibili nel documento di \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documenti%20Esterni/Analisi_dei_Requisiti.pdf}{Analisi dei Requisiti} (Sezione 2.3).
+Come già ribadito, il tracciamento dei requisiti rappresenta un elemento fondamentale per il processo di validazione, permettendo di verificare che ogni requisito obbligatorio sia stato implementato e che il sistema operi correttamente nel suo complesso. 
+Per realizzare l’attività di validazione, il gruppo si avvale del \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documenti%20Esterni/Piano_di_Qualifica.pdf}{Piano di Qualifica} per definire e tracciare le metodologie di test implementate.
+
+\subsubsubsection{Attività di Validazione}
+L’attività di Validazione consiste nella verifica finale della conformità del prodotto rispetto ai requisiti definiti e concordati con \textbf{Ergon Informatica srl}.\\
+Viene svolta attraverso l’analisi degli esiti dei test di accettazione e il controllo del tracciamento dei requisiti, costituendo la fase conclusiva del processo di verifica del sistema. L'obiettivo è accertare che le funzionalità realizzate rispondano effettivamente alle aspettative della proponente.
