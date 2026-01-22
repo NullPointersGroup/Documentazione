@@ -1,0 +1,18 @@
+\section{Diario della riunione}
+A seguito della discussione dei casi d'uso avvenuta con la proponente$^G$, di cui il relativo \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Verbali\%20Esterni/2025-12-10\_verbale\_esterno.pdf}{verbale esterno in data 10 Dicembre}, si è deciso di rivedere alcuni casi d'uso.
+
+\subsection{Gestione delle ambiguità}
+Nel corso della riunione è stata esaminata e ridefinita la procedura per la gestione delle ambiguità riscontrate durante il processo$^G$ di ordinazione dell'utente.\\
+Il processo$^G$ prende avvio quando l'utente crea un ordine, per il quale è stato stabilito un limite massimo di 15 articoli.\\
+La gestione delle ambiguità avverrà interamente attraverso la chatbox. Nel momento in cui il sistema rileva un'ambiguità nella descrizione di un articolo fornita dall'utente, la chatbox interverrà elencando i dubbi.\\
+A seguito di questo messaggio, sarà compito dell'utente riformulare con precisione l'oggetto che intende ordinare.\\
+Qualora, dopo questa prima riformulazione, la chatbox non riesca ancora a comprendere la richiesta in modo univoco, chiederà all'utente di specificare nuovamente. Se invece è stato compreso correttamente, il sistema procederà all'aggiunta o alla modifica$^G$ dell'articolo.\\
+Per quanto riguarda la gestione dell'ordine, sono stati definiti comandi specifici. L'utente potrà utilizzare il comando /carrello per visualizzare il resoconto completo del proprio ordine, e il comando /invia per confermare e inviare l'ordine definitivo.\\
+È stato tuttavia stabilito un vincolo fondamentale per garantire la correttezza degli ordini: l'invio dell'ordine non sarà possibile senza una preventiva verifica$^G$ obbligatoria.\\
+Di conseguenza, l'utente dovrà necessariamente aver visualizzato il riepilogo del carrello tramite il comando /carrello prima che il comando /invia diventi effettivo e permetta la trasmissione dell'ordine.\\
+Questo passaggio è stato ritenuto necessario dalla proponente$^G$ e introdotto come misura di sicurezza per ridurre al minimo errori e fraintendimenti.
+
+\subsection{In generale}
+La funzionalità$^G$ di autenticazione di utenti e admin è stata ridefinita come caso d'uso$^G$ secondario e desiderabile.\\
+Si è proceduto alla scomposizione di alcuni casi d'uso facendo in modo che fossero il più atomici possibile.\\
+Suddivisione del lavoro tra gli Analisti del gruppo per poter individuare i requisiti relativi ad ogni caso d'uso$^G$.

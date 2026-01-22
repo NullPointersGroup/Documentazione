@@ -1,0 +1,61 @@
+\subsubsection{UC\_38: Duplicazione ordine tramite pagina storico}
+\label{uc_38}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_38}
+	\caption{UC\_38: Duplica ordine}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Ciente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente clicca il pulsante per duplicare un ordine dalla pagina del proprio storico o dettaglio ordine
+		\item Il Cliente conferma la duplicazione ordine $\rightarrow$ Vedi \hyperref[uc_38.1]{UC\_38.1}
+		\item Il sistema crea una copia dell'ordine selezionato e la aggiunge al carrello del Cliente
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item Il Cliente sta visualizzando la pagina del proprio storico ordini o il dettaglio di un proprio ordine
+		\item Esiste almeno un ordine precedente del Cliente
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Una copia dell'ordine selezionato è stata aggiunta al carrello del Cliente
+	\end{itemize}
+	\item \textbf{Scenari alternativi}:
+	\begin{itemize}
+		\item Il Cliente riceve un messaggio di errore di duplicazione ordine $\rightarrow$ Vedi \hyperref[uc_39]{UC\_39}
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_38.1]{UC\_38.1}
+	\end{itemize}
+	\item \textbf{Estensioni}:
+	\begin{itemize}
+		\item \hyperref[uc_39]{UC\_39}
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole duplicare un proprio ordine precedente per ripeterlo
+\end{itemize}
+
+\subsubsubsection{UC\_38.1: Conferma duplicazione ordine}
+\label{uc_38.1}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Ciente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente conferma la volontà di procedere con la duplicazione dell'ordine
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il Cliente ha avviato la procedura di duplicazione (clic sul pulsante in UC\_38)
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item La conferma di duplicazione è stata inviata al sistema
+	\end{itemize}
+\end{itemize}

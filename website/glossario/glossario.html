@@ -21,6 +21,7 @@
             <li><a href="#g">G</a></li>
             <li><a href="#i">I</a></li>
             <li><a href="#j">J</a></li>
+            <li><a href="#k">K</a></li>
             <li><a href="#l">L</a></li>
             <li><a href="#m">M</a></li>
             <li><a href="#n">N</a></li>
@@ -55,7 +56,7 @@
 	      <dd>L&#39;Amministratore si occupa della configurazione e gestione dell&#39;infrastruttura IT di supporto ad un progetto.</dd>
 
 	      <dt>Analisi dei Requisiti</dt>
-	      <dd>Documento contenente i Casi d&#39;Uso identificati da un Team per i requisiti di un determinato progetto. Contiene anche i Requisiti funzionali, Requisiti non funzionali e Requisiti di Vincolo.</dd>
+	      <dd>Documento contenente i Casi d&#39;Uso identificati da un Team per i requisiti di un determinato progetto. Contiene anche i Requisiti funzionali, Requisiti di Qualità e Requisiti di Vincolo.</dd>
 
 	      <dt>Analista</dt>
 	      <dd>Si occupa di identificare e chiarire i requisiti, interpretando le esigenze degli utilizzatori finali per garantire una corretta definizione delle funzionalità.</dd>
@@ -67,7 +68,7 @@
 	      <dd>Un&#39;entità esterna e non controllabile dal progetto, ma che interagisce con esso, con attività o obiettivi specifici da soddisfare.</dd>
 
 	      <dt>Automazione</dt>
-	      <dd>Esecuzione deterministica e ripetibile di processi (build, test, deploy, verifiche, provisioning) attivati da eventi del repository o da pianificazioni,</dd>
+	      <dd>Esecuzione deterministica e ripetibile di processi (build, test, deploy, verifiche, provisioning) attivati da eventi del repository o da pianificazioni, definita tramite workflow dichiarativi in YAML, eseguita in ambienti isolati, senza intervento manuale.</dd>
 
 	      <dt>Azione</dt>
 	      <dd>L&#39;insieme di processi intrapresi per mettere in pratica una determinata Decisione.</dd>
@@ -106,10 +107,13 @@
 	<h2>C</h2>
 	  <dl>
 	      <dt>Capitolato</dt>
-	      <dd>Documento fornito dalla proponente, che espone le principali specifiche e condizioni di un progetto. Stabilisce delle regole e delle aspettative che il fornitore</dd>
+	      <dd>Documento fornito dalla proponente, che espone le principali specifiche e condizioni di un progetto. Stabilisce delle regole e delle aspettative che il fornitore deve rispettare.</dd>
 
 	      <dt>Caso d&#39;uso</dt>
 	      <dd>Insieme di azioni all&#39;interno di uno scenario, con in comune uno scopo finale per un Attore.</dd>
+
+	      <dt>Code Smell</dt>
+	      <dd>Caratteristica negativa di un codice sorgente, sono di diverso tipo e possono indicare difetti di design o di implementazione, diminuendo la qualità del software e aumentandone il debito tecnico.</dd>
 
 	      <dt>Committente</dt>
 	      <dd>Persona, ente o azienda che richiede e finanzia la realizzazione di un progetto software, di un sistema informatico o di un servizio IT. Il committente definisce gli obiettivi, approva i requisiti e verifica i risultati, ma non esegue direttamente lo sviluppo.</dd>
@@ -119,6 +123,9 @@
 
 	      <dt>Continuous Integration</dt>
 	      <dd>Pratica di sviluppo del software che prevede che gli sviluppatori effettuino frequentemente commit verso una repository centrale, alla quale possono seguire test automatizzati.</dd>
+
+	      <dt>Cyclomatic Complexity</dt>
+	      <dd>Una metrica utilizzata per misurare la complessità di un programma; nello specifico misura il numero di cammini linearmente indipendenti di un metodo, una classe o un progetto intero.</dd>
 
         </dl>
     </section>
@@ -144,6 +151,9 @@
 	      <dt>Docker</dt>
 	      <dd>Software che permette di eseguire applicazioni in ambienti isolati chiamati container.</dd>
 
+	      <dt>Doxygen</dt>
+	      <dd>Software che permette la generazione automatica di documentazione a partire dal codice sorgente di un software.</dd>
+
 	      <dt>Draw.io</dt>
 	      <dd>Software utilizzato per la creazione di diagrammi UML.</dd>
 
@@ -157,7 +167,7 @@
 	      <dd>Acronimo di <i>Estimate at Completion</i>, per la definizione vedere ‘Estimate at Completion’.</dd>
 
 	      <dt>Earned Value</dt>
-	      <dd>È una metrica che rappresenta il valore del lavoro completato rispetto al budget totale previsto</dd>
+	      <dd>È una metrica che rappresenta il valore del lavoro completato rispetto al budget totale previsto.</dd>
 
 	      <dt>EasyOCR</dt>
 	      <dd>Libreria python di tipo OCR per il riconoscimento di testo da immagini.</dd>
@@ -258,6 +268,11 @@
 
     <section id="k">
 	<h2>K</h2>
+	  <dl>
+	      <dt>KLOC</dt>
+	      <dd>Acronimo di <i>Kilo Lines of Code</i>, le linee di codice totali che compongono un progetto, nell&#39;ordine delle migliaia.</dd>
+
+        </dl>
     </section>
 
     <section id="l">
@@ -275,14 +290,23 @@
 	      <dt>LLM</dt>
 	      <dd>Large Language Models. Indica i modelli addestrati su enormi quantità di testo come ChatGPT e DeepSeek.</dd>
 
+	      <dt>LOC</dt>
+	      <dd>Acronimo di <i>Lines of Code</i>, le linee di codice totali che compongono un progetto.</dd>
+
+	      <dt>Lua</dt>
+	      <dd>Un linguaggio di programmazione dinamico e procedurale, utilizzato come linguaggio di scripting per automatizzare vari processi.</dd>
+
         </dl>
     </section>
 
     <section id="m">
 	<h2>M</h2>
 	  <dl>
+	      <dt>Machine Learning</dt>
+	      <dd>Una branca dell&#39;intelligenza artificiale che permette ad un computer di svolgere un compito apprendendo dai dati forniti e migliorando le sue prestazioni nel tempo tramite più dati ed esperienze.</dd>
+
 	      <dt>Major</dt>
-	      <dd>Una modifica atta ad approvare un documento in una sua versione “pronta al rilascio”. In un sistema di versionamento x.y.z, la Major è rappresentata dalla lettera x, e ogni</dd>
+	      <dd>Una modifica atta ad approvare un documento in una sua versione “pronta al rilascio”. In un sistema di versionamento x.y.z, la Major è rappresentata dalla lettera x, e ogni modifica di tipo Major aggiorna un file dalla versione x.y.z alla versione (x+1).y.z.</dd>
 
 	      <dt>Manutenzione</dt>
 	      <dd>Insieme di attività atte a risolvere i problemi e migliorare le funzionalità di un prodotto.</dd>
@@ -302,6 +326,9 @@
 	      <dt>Minor</dt>
 	      <dd>Una modifica atta ad aggiungere migliorie o funzionalità significative. In un sistema di versionamento x.y.z, la Minor è rappresentata dalla lettera y, e ogni modifica di tipo Minor aggiorna un file dalla versione x.y.z alla versione x.(y+1).0.</dd>
 
+	      <dt>ML</dt>
+	      <dd>Acronimo di <i>Machine Learning</i>, per la definizione vedere ‘Machine Learning’.</dd>
+
 	      <dt>Modifica</dt>
 	      <dd>Qualsiasi intervento sul codice esistente, sulla documentazione o sul metodo di lavoro volto a correggere degli errori, aggiornare i contenuti o adattarli ai nuovi requisiti.</dd>
 
@@ -314,8 +341,11 @@
     <section id="n">
 	<h2>N</h2>
 	  <dl>
+	      <dt>Natural Language Processing</dt>
+	      <dd>É il ramo dell&#39;informatica e dell&#39;intelligenza artificiale che sviluppa metodi e algoritmi per far comprendere, generare e interagire i computer con il linguaggio umano.</dd>
+
 	      <dt>NLP</dt>
-	      <dd>NLP (Natural Language Processing) è il ramo dell&#39;informatica e dell&#39;intelligenza artificiale che sviluppa metodi e algoritmi per far comprendere, generare e interagire i computer con il linguaggio umano.</dd>
+	      <dd>Acronimo di <i>Natural Language Processing</i>, per la definizione vedere ‘Natural Language Processing’</dd>
 
 	      <dt>Norme di Progetto</dt>
 	      <dd>Documento che descrive il Way of Working del gruppo. Contiene le regole che NullPointers Group rispetta per garantire un lavoro efficace ed efficiente.</dd>
@@ -339,7 +369,7 @@
 	<h2>P</h2>
 	  <dl>
 	      <dt>Patch</dt>
-	      <dd>Una modifica atta a risolvere errori ortografici o di struttura. In un sistema di versionamento x.y.z, la patch è rappresentata dalla lettera z, e ogni modifica di tipo patch</dd>
+	      <dd>Una modifica atta a risolvere errori ortografici o di struttura. In un sistema di versionamento x.y.z, la patch è rappresentata dalla lettera z, e ogni modifica di tipo patch aggiorna un file dalla versione x.y.z alla versione x.y.(z+1).</dd>
 
 	      <dt>PB</dt>
 	      <dd>Acronimo di <i>Product Baseline</i>, per la definizione vedere ‘Product Baseline’.</dd>
@@ -369,7 +399,7 @@
 	      <dd>Insieme di attività correlate e coese che trasformano ingressi (bisogni) in uscite (prodotti) secondo regole date, consumando risorse nel farlo.</dd>
 
 	      <dt>Product Baseline</dt>
-	      <dd>Fase finale in un progetto, che prevede la realizzazione di un Minimum Viable Product, a seguito del superamento dei test concordati nella</dd>
+	      <dd>Fase finale in un progetto, che prevede la realizzazione di un Minimum Viable Product, a seguito del superamento dei test concordati nella Requirements and Technology Baseline.</dd>
 
 	      <dt>Produzione</dt>
 	      <dd>Processo di traduzione della progettazione in codice sorgente mediante la programmazione ed i test.</dd>
@@ -393,7 +423,7 @@
 	      <dd>La persona, il gruppo o l’organizzazione che propone un progetto, un’idea o un’iniziativa, e ne definisce obiettivi, requisiti e motivazioni. La proponente di NullPointers Group è Ergon s.r.l.</dd>
 
 	      <dt>Pull Request</dt>
-	      <dd>All&#39;interno dell&#39;ecosistema GitHub, uno strumento che permette di sospendere momentaneamente la pubblicazione di una modifica nel ramo principale della repository, in attesa</dd>
+	      <dd>All&#39;interno dell&#39;ecosistema GitHub, uno strumento che permette di sospendere momentaneamente la pubblicazione di una modifica nel ramo principale della repository, in attesa di approvazione e/o workflow automatici (e.g. GitHub Action).</dd>
 
 	      <dt>PV</dt>
 	      <dd>Acronimo di <i>Planned Value</i>, per la definizione vedere ‘Planned Value’.</dd>
@@ -445,10 +475,10 @@
 	<h2>S</h2>
 	  <dl>
 	      <dt>SM</dt>
-	      <dd>Codice stabilito dal Team, rappresenta un&#39;attività, con corrispettiva issue in GitHub all&#39;interno della Repository ‘SmartOrder’, indica dunque un&#39;attività da svolgere</dd>
+	      <dd>Codice stabilito dal Team, rappresenta un&#39;attività, con corrispettiva issue in GitHub all&#39;interno della Repository ‘SmartOrder’, indica dunque un&#39;attività da svolgere relativa al progetto e al <i>PoC</i>. Il codice è seguito da un numero incrementale che permette di distinguere univocamente una singola attività.</dd>
 
 	      <dt>SMD</dt>
-	      <dd>Codice stabilito dal Team, rappresenta un&#39;attività, con corrispettiva issue in GitHub all&#39;interno della Repository ‘Documentazione’, indica dunque un&#39;attività da svolgere</dd>
+	      <dd>Codice stabilito dal Team, rappresenta un&#39;attività, con corrispettiva issue in GitHub all&#39;interno della Repository ‘Documentazione’, indica dunque un&#39;attività da svolgere relativa alla documentazione di progetto. Il codice è seguito da un numero incrementale che permette di distinguere univocamente una singola attività.</dd>
 
 	      <dt>Sprint</dt>
 	      <dd>Ciclo di lavoro di durata fissa, tipico dello sviluppo Agile, durante il quale il team si impegna a completare un insieme prefissato di attività per produrre un incremento del software.</dd>
