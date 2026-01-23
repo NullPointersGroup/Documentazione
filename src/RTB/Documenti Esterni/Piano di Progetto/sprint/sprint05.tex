@@ -5,7 +5,7 @@
 \begin{tabular}{p{0.25\textwidth} p{0.2\textwidth}}
 	\textbf{Inizio} & 29/12/2025 \\
 	\textbf{Fine prevista} & 12/01/2026 \\
-	\textbf{Fine reale} & \\
+	\textbf{Fine reale} &  12/01/2026\\
 	\textbf{Giorni di ritardo} &
 \end{tabular}
 \newline \newline 
@@ -59,9 +59,58 @@ Il totale preventivato per lo sprint$^G$ è \textbf{615€}.\\
 \end{figure}
 
 \subsubsubsection{Consuntivo}
+In questo sprint sono state utilizzate le seguenti risorse:
+\begin{table}[H]
+	\centering
+	% Prima tabella senza bordi per le intestazioni ruotate
+	\begin{tabular}{p{0.2\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}}
+		& \rotatebox{45}{\textbf{Responsabile$^G$}} &
+		\rotatebox{45}{\textbf{Amministratore$^G$}} & \rotatebox{45}{\textbf{Analista$^G$}} & \rotatebox{45}{\textbf{Programmatore$^G$}} & \rotatebox{45}{\textbf{Verificatore$^G$}} &
+		\rotatebox{45}{\textbf{Progettista$^G$}} \\
+	\end{tabular}
+	
+	\vspace{0.2cm} % Piccolo spazio tra le due tabelle
+	
+	% Seconda tabella con i dati e i bordi
+	\begin{tabular}{|p{0.2\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|}
+		\hline
+		M. Mazzaretto & - & - & 5 \textcolor{green}{(+1)} & - & - & - \\ \hline
+		T. Ceron      & - & - & 3,5 \textcolor{red}{(-0.5)} & - & - & - \\ \hline
+		L. Pieripolli & - & - & 3,5 \textcolor{green}{(+0.5)} & - & - & - \\ \hline
+		L. Marcuzzo   & - & - & 3 \textcolor{red}{(-2)} & - & 2 & - \\ \hline
+		M. Brunello   & 3 & - & - & - & - & - \\ \hline
+		L. Casagrande & - & - & 4 \textcolor{green}{(+2)} & - & 4 \textcolor{green}{(+1)} & - \\ \hline
+	\end{tabular}
+	\caption{Sprint 5: Consuntivo}
+\end{table}
+In questo sprint la distribuzione delle ore non e' stata accuratamente rispettata, a causa di una leggera sottostima dell'impegno richiesto per ultimare la Analisi dei Requisiti.
+E' inoltre stata pianificata una riunione con la azienda Proponente in seguito all'inserimento delle ore a preventivo di questo sprint e questo ha causato un'ora in piu' di verifica del Verbale Esterno.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{PianoProgetto/sprint04_consuntivo}
+	\caption{Sprint 4: Consuntivo}
+\end{figure}
+
+
 
 \subsubsubsection{Aggiornamento delle risorse rimanenti}
-
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{0.2\textwidth}|p{0.1\textwidth}|p{0.05\textwidth}|p{0.1\textwidth}|p{0.13\textwidth}|p{0.12\textwidth}|}
+		\hline
+		\rowcolor{gray!25}
+		Ruolo & Costo & Ore & Costo \newline effettivo & Ore \newline rimanenti & Budget \newline rimanente \\ \hline
+		Responsabile$^G$   & 30(€/h) & 3 & 90 & 37 \textcolor{red}{(-4)} & 1110 \textcolor{red}{(-120)} \\ \hline
+		Amministratore$^G$ & 20(€/h) & - & - & 11 & 220 \\ \hline
+		Analista$^G$       & 25(€/h) & 19 & 475 & 26.5 \textcolor{red}{(-30)} & 662.5 \newline \textcolor{red}{(-750)} \\ \hline
+		Progettista$^G$    & 25(€/h) & - & - & 125 & 3125 \\ \hline
+		Verificatore$^G$   & 15(€/h) & 6 & 90 & 101 \textcolor{red}{(-3)} & 1515 \textcolor{red}{(-45)} \\ \hline
+		Programmatore$^G$  & 15(€/h) & - & - & 125 & 1875 \\ \hline
+		Totale         & - & 37 & 915 & 425.5 \textcolor{red}{(-37)} & 8507.5 \newline \textcolor{red}{(-915)} \\ \hline
+	\end{tabular}
+	\caption{Sprint 4: Aggiornamento risorse}
+\end{table}
 \subsubsubsection{Rischi incontrati}
 
 \subsubsubsection{Efficacia delle strategie di gestione di mitigazione dei rischi}
