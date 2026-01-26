@@ -287,12 +287,9 @@ La seguente tabella riporta l’elenco completo dei test di Sistema pianificati 
     TS\_251 & Verificare che l'Admin possa vedere una notifica di errore per la creazione utente & RF-OP\_09 & NI \\ \hline
     
     \caption{Test di Sistema}
-    %\label{}
-
 \end{longtable}
 
 \subsubsection{Tracciamento Test di Sistema}
- %da fare
 \begin{longtable}{|
     >{\raggedright\arraybackslash}p{0.12\columnwidth} |
     >{\centering\arraybackslash}p{0.10\columnwidth} |
@@ -563,8 +560,48 @@ La seguente tabella riporta l’elenco completo dei test di Sistema pianificati 
     TS\_251 & RF-OP\_09 \\ \hline
 
     \caption{Tracciamento Test di Sistema}
-        %\label{}
 \end{longtable}
 
-
 \subsection{Test di Accettazione}
+La seguente tabella riporta l’elenco completo dei test di Accettazione pianificati specificandone: identificativo, descrizione e stato del test.
+\begin{longtable}{|
+    >{\raggedright\arraybackslash}p{0.10\columnwidth} |
+    >{\centering\arraybackslash}p{0.50\columnwidth} |
+    >{\centering\arraybackslash}p{0.12\columnwidth} |
+    }
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice Test} & \textbf{Descrizione} & \textbf{Stato}\\
+    \hline
+    \endfirsthead
+
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice Test} & \textbf{Descrizione} & \textbf{Stato}\\
+    \hline
+    \endhead
+
+    \hline
+    TA\_01 & Verificare che l'input testuale dell'Utente venga tradotto in un ordine & NI \\ \hline
+    TA\_02 & Verificare che l'input vocale dell'Utente venga tradotto in un ordine & NI \\ \hline
+    TA\_03 & Verificare che l'Utente possa scegliere il prodotto che vuole in caso di ambiguità & NI \\ \hline
+    TA\_04 & Verificare che l'Utente possa autenticarsi nel sistema & NI \\ \hline
+    TA\_05 & Verificare che l'Utente possa registrarsi nel sistema & NI \\ \hline
+    TA\_06 & Verificare che ci sia la possibilità di effettuare gli ordini & NI \\ \hline
+    TA\_07 & Verificare che ci sia la possibilità di confermare gli ordini & NI \\ \hline
+    TA\_08 & Verificare che ci sia la possibilità di visualizzare lo storico ordini & NI \\ \hline
+    TA\_09 & Verificare che il Cliente possa vedere gli articoli presenti nel carrello & NI \\ \hline
+    TA\_10 & Verificare che il Cliente possa aggiungere o rimuovere articoli dal carrello & NI \\ \hline
+    TA\_11 & Verificare che sia implementato il limite alle dimensioni di file audio & NI \\ \hline
+    TA\_12 & Verificare che siano implementati i limiti per gli input testuali & NI \\ \hline
+    TA\_13 & Verificare che ci siano degli errori nel caso di carrello vuoto & NI \\ \hline
+    TA\_14 & Verificare che i comandi statici compiano la loro funzione & NI \\ \hline
+    TA\_15 & Verificare che il modello di AI abbia memoria delle conversazioni precedenti & NI \\ \hline
+
+    \caption{Test di Accettazione}
+\end{longtable}
+
+\subsection{Test di Regressione}
+Per prevenire problemi di regressione durante lo sviluppo di nuove funzionalità, Nullpointers Group ha deciso di adottare un approccio di integrazione continua.
+La repository del codice sorgente sarà configurata in modo che ogni commit attivi automaticamente l'esecuzione completa della suite di test di unità e integrazione (descritti nelle sezioni precedenti).
+Questo processo consentirà di rilevare tempestivamente possibili regressioni introdotte dalle modifiche apportate al codice, permettendo di intervenire prima dell'integrazione nel branch principale.
