@@ -1,0 +1,61 @@
+\subsubsection{UC\_53: Visualizza carrello}
+\label{uc_53}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_53}
+	\caption{UC\_53: Visualizza carrello}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+    \item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza l'icona del carrello
+		\item Il Cliente preme l'icona del carrello
+		\item Il Cliente visualizza gli elementi nel carrello $\rightarrow$ Vedi \hyperref[uc_53.1]{UC\_53.1}
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item La sessione chat del Cliente è attiva
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza la sidebar del carrello
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_53.1]{UC\_53.1}
+	\end{itemize}
+    \item \textbf{Trigger}: Il Cliente vuole visualizzare l'ordine tramite la sidebar del carrello
+\end{itemize}
+
+\subsubsection{UC\_53.1: Visualizza elementi nel carrello}
+\label{uc_53.1}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+    \item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza il riepilogo del carrello
+		\item Il Cliente visualizza i singoli elementi del carrello $\rightarrow$ Vedi \hyperref[uc_19.1]{UC\_19.1}
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item Il Cliente preme l'icona del carrello
+		\item Sono presenti articoli nel carrello
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza l'anteprima del carrello
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_19.1]{UC\_19.1}
+	\end{itemize}
+    \item \textbf{Trigger}: Il Cliente vuole visualizzare gli ordini tramite la sidebar del carrello
+\end{itemize}
