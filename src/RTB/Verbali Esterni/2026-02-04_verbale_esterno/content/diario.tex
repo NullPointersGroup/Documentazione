@@ -1,27 +1,27 @@
 \section{Diario della riunione}
 \subsection{Test di Accettazione}
-Il gruppo ha presentato i test di Accettazione elaborati. L'azienda ha approvato tutti i test proposti, tuttavia è emersa la necessità di riformulare il test \textbf{TA\_13} per migliorarne la comprensione e la chiarezza. 
+Il gruppo ha presentato i test$^G$ di Accettazione elaborati. L'azienda ha approvato tutti i test$^G$ proposti, tuttavia è emersa la necessità di riformulare il test$^G$ \textbf{TA\_13} per migliorarne la comprensione e la chiarezza. 
 
 \subsection{Presentazione del Proof of Concept}
-Il gruppo ha mostrato i progressi del PoC realizzato fino a questo momento.
+Il gruppo ha mostrato i progressi del PoC$^G$ realizzato fino a questo momento.
 L'azienda ha valutato positivamente il lavoro svolto, commentando che il tempo di risposta da noi ritenuto problematico rientra nei limiti accettabili.
-L'azienda ha inoltre suggerito di rendere visibile la query generata dall'agente per avere un maggior controllo sul processo e migliorarne l'ottimizzazione, consentendo inoltre di controllare se l'agente genera una singola query o query multiple.
+L'azienda ha inoltre suggerito di rendere visibile la query generata dall'agente per avere un maggior controllo sul processo$^G$ e migliorarne l'ottimizzazione, consentendo inoltre di controllare se l'agente genera una singola query o query multiple.
 
 \subsection{Dubbi riguardanti le tecnologie}
-Il gruppo ha esposto alcuni dubbi emersi durante lo sviluppo del Proof of Concept.
+Il gruppo ha esposto alcuni dubbi emersi durante lo sviluppo$^G$ del Proof of Concept.
 \subsubsection{LangChain e utilizzo degli agenti}
-Il gruppo ha posto domande relative all'utilizzo di LangChain all'interno del progetto e sulla necessità di implementare agenti multipli o un singolo agente.\\
-L'azienda ha chiarito che per l'utilizzo che viene fatto all'interno del progetto un solo agente è sufficiente e non è necessario implementare un sistema multi-agente più complesso.
+Il gruppo ha posto domande relative all'utilizzo di LangChain all'interno del progetto$^G$ e sulla necessità di implementare agenti multipli o un singolo agente.\\
+L'azienda ha chiarito che per l'utilizzo che viene fatto all'interno del progetto$^G$ un solo agente è sufficiente e non è necessario implementare un sistema multi-agente più complesso.
 
 \subsubsection{Utilizzo del database vettoriale}
-Il gruppo ha sollevato il dubbio se l'utilizzo di LangChain renda superfluo il database vettoriale.\\
+Il gruppo ha sollevato il dubbio se l'utilizzo di LangChain renda superfluo il database$^G$ vettoriale.\\
 L'azienda ha spiegato che esistono due approcci validi:
 \begin{itemize}
-    \item Utilizzare un database relazionale classico con un agente che costruisce query per interrogare il database
-    \item Utilizzare un database vettoriale che semplifica la gestione della cronologia e garantisce maggiore coerenza nelle risposte
+    \item Utilizzare un database$^G$ relazionale classico con un agente che costruisce query per interrogare il database$^G$
+    \item Utilizzare un database$^G$ vettoriale che semplifica la gestione della cronologia e garantisce maggiore coerenza nelle risposte
 \end{itemize}
-L'azienda ha confermato che attualmente il database vettoriale rimane la scelta più frequente, ma l'approccio con agente e database relazionale è altrettanto valido per il progetto.
+L'azienda ha confermato che attualmente il database$^G$ vettoriale rimane la scelta più frequente, ma l'approccio con agente e database$^G$ relazionale è altrettanto valido per il progetto.
 
 \subsection{Ottimizzazione e diagnostica}
 L'azienda ha suggerito l'aggiunta di indici anche sulle operazioni e richieste effettuate più frequentemente per migliorare le performance del sistema. 
-È stato inoltre consigliato l'utilizzo di profiler per il database PostgreSQL al fine di effettuare diagnostica e analizzare le query che vengono eseguite.
+È stato inoltre consigliato l'utilizzo di profiler per il database$^G$ PostgreSQL$^G$ al fine di effettuare diagnostica e analizzare le query che vengono eseguite.
