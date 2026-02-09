@@ -1,0 +1,116 @@
+% Configurazione
+\documentclass{article} 
+
+\usepackage{titling} % Required for inserting the subtitle
+\usepackage{graphicx} % Required for inserting images
+\usepackage{tabularx} % Per l'ambiente tabularx (tabelle)
+\usepackage{calc} % Sempre per le tabelle
+\usepackage[hidelinks]{hyperref} % Per i collegamenti ipertestuali, ad esempio sulla table of contents
+\usepackage{xcolor} % Per colorare il testo
+\usepackage{colortbl} % Per colorare le celle delle tabelle
+\usepackage{lipsum} % Per generare lorem ipsum
+\usepackage[normalem]{ulem} % Per sottolineare il testo
+\usepackage{array} % Per la visualizzazione fluttuante di array di domande e risposte
+\usepackage{ragged2e} % Pacchetto necessario per \justifying che giustifica il testo di tabelle
+\usepackage{placeins}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr} % Per l'intestazione e piè di pagina
+\usepackage{lastpage} % Per ottenere il numero totale di pagine
+
+\newcommand{\ulhref}[2]{\href{#1}{\uline{#2}}} % Nuovo comando per sottolineare i link
+\newcommand{\ulref}[1]{\uline{\ref{#1}}} % Nuovo comando per sottolineare i collegamenti a immagini
+\setlength{\parindent}{0pt} % Rimuove il rientro automatico dei paragrafi
+
+\graphicspath{ {immagini/} {../shared/images} }
+
+% Configurazione piè di pagina
+\pagestyle{fancy}
+\fancyhf{} % Cancella intestazione e piè di pagina predefiniti
+\renewcommand{\headrulewidth}{0pt} % Rimuove la linea nell'intestazione
+\fancyfoot[C]{\thepage} % Numero di pagina centrato in fondo
+
+% Struttura
+\begin{document}
+\vspace*{0.05\textheight}
+    \begin{center}
+	\begin{minipage}{0.4\textwidth}
+		\centering
+		\includegraphics[width=0.7\textwidth]{logo_gruppo}
+	\end{minipage}
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\textbf{NullPointers Group} \\
+		\textsf{nullpointersg@gmail.com}
+	\end{minipage}
+	\end{center}
+    
+    \vspace{2cm}
+    
+    {
+        \centering
+        \Huge\bfseries Presentazione RTB\par
+        \vspace{0.5cm}
+    }
+
+    \begin{center}
+        \vspace{3.5em}
+        {\LARGE\textbf{Componenti}}\\
+		\textcolor{gray}{\rule{4.5cm}{0.4pt}}\\
+        \vspace{2em}
+        \begin{tabular}{l l l}
+			Brunello & Marco & 2110997 \\[0.5em]
+			Casagrande & Lisa & 2116440 \\[0.5em]
+            Ceron & Tommaso & 2101045 \\[0.5em]
+            Marcuzzo & Luca & 2113198 \\[0.5em]
+            Mazzaretto & Matteo & 2111005 \\[0.5em]
+            Pieripolli & Laura & 2048057 \\[0.5em]
+        \end{tabular}
+    \end{center}
+
+    \newpage
+    
+    \begin{center}
+        \begin{minipage}{1.0\textwidth}
+            Destinatari:\\
+            Prof. Vardanega Tullio,\\
+            Prof. Cardin Riccardo.\\
+        \end{minipage}
+    \end{center}
+    
+    Egregi Professori Vardanega e Cardin,\\
+    con il presente documento il team \textbf{NullPointers Group} desidera comunicarVi formalmente la propria intenzione di sottoporsi alla revisione della Requirements and Technology Baseline in data successiva al 16 febbraio 2026.\\
+	La revisione riguarderà il progetto sviluppato per il capitolato C8 proposto da Ergon Informatica Srl:
+    
+    \begin{center}
+        \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}
+    \end{center}
+
+    Nel corso della fase di sviluppo, \textbf{NullPointers Group} ha realizzato un \textit{Proof of Concept}, reso disponibile al seguente link:
+    
+    \begin{center}
+        \url{https://github.com/NullPointersGroup/PoC}
+    \end{center}
+
+    Tutta la documentazione prodotta per la RTB è consultabile e sempre aggiornata nella relativa sezione della nostra repository, accessibile al link:
+    
+    \begin{center}
+        \url{https://github.com/NullPointersGroup/Documentazione}
+    \end{center}
+
+    All'interno si possono trovare i seguenti documenti:
+    \begin{itemize}
+        \item Lettera di presentazione;
+        \item Piano di Qualifica v1.0.0
+        \item Piano di Progetto v1.0.0
+        \item Analisi dei Requisiti v1.0.0
+        \item Norme di Progetto v1.0.0
+        \item Glossario v1.0.0
+    \end{itemize}
+
+    Infine, riconfermiamo la data ultima di consegna del progetto al \textbf{30 Aprile 2026}, con costo stimato massimo di \textbf{€11.440}.\\[0.5cm]
+
+    Cordiali Saluti,\\[0.3cm]
+    NullPointers Group
+    
+\end{document}
