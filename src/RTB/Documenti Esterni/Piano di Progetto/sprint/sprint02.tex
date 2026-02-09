@@ -29,28 +29,33 @@ I possibili rischi attesi sono:
 
 
 \subsubsubsection{Preventivo}
-Si prospetta l'utilizzo delle seguenti risorse:\newpage
+Si prospetta l'utilizzo delle seguenti risorse:
 \begin{table}[H]
 	\centering
-	% Prima tabella senza bordi per le intestazioni ruotate
-	\begin{tabular}{p{0.2\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}}
-		& \rotatebox{45}{\textbf{Responsabile$^G$}} &
-		\rotatebox{45}{\textbf{Amministratore$^G$}} & \rotatebox{45}{\textbf{Analista$^G$}} & \rotatebox{45}{\textbf{Programmatore$^G$}} & \rotatebox{45}{\textbf{Verificatore$^G$}} &
-		\rotatebox{45}{\textbf{Progettista$^G$}} \\
-	\end{tabular}
-	
-	\vspace{0.2cm} % Piccolo spazio tra le due tabelle
-	
-	% Seconda tabella con i dati e i bordi
-	\begin{tabular}{|p{0.2\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|}
-		\hline
-		M. Mazzaretto & - & 2 & 3 & - & 1 & - \\ \hline
-		T. Ceron      & - & - & 6 & - & 1 & - \\ \hline
-		L. Pieripolli & - & 5 & - & - & 1 & - \\ \hline
-		L. Marcuzzo   & - & - & 6 & - & 1 & - \\ \hline
-		M. Brunello   & - & 5 & - & - & - & - \\ \hline
-		L. Casagrande & 4 & - & - & - & - & - \\ \hline
-	\end{tabular}
+	\makebox[\textwidth][c]{
+		\begin{minipage}{1.2\textwidth}
+			\centering
+			% Prima tabella senza bordi per le intestazioni ruotate
+			\begin{tabular}{p{0.2\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}}
+				& \rotatebox{45}{\textbf{Responsabile$^G$}} &
+				\rotatebox{45}{\textbf{Amministratore$^G$}} & \rotatebox{45}{\textbf{Analista$^G$}} & \rotatebox{45}{\textbf{Programmatore$^G$}} & \rotatebox{45}{\textbf{Verificatore$^G$}} &
+				\rotatebox{45}{\textbf{Progettista$^G$}} \\
+			\end{tabular}
+			
+			\vspace{0.2cm} % Piccolo spazio tra le due tabelle
+			
+			% Seconda tabella con i dati e i bordi
+			\begin{tabular}{|p{0.2\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|}
+				\hline
+				M. Mazzaretto & - & 2 & 3 & - & 1 & - \\ \hline
+				T. Ceron      & - & - & 6 & - & 1 & - \\ \hline
+				L. Pieripolli & - & 5 & - & - & 1 & - \\ \hline
+				L. Marcuzzo   & - & - & 6 & - & 1 & - \\ \hline
+				M. Brunello   & - & 5 & - & - & - & - \\ \hline
+				L. Casagrande & 4 & - & - & - & - & - \\ \hline
+			\end{tabular}
+		\end{minipage}
+	}
 	\caption{Sprint 2: Preventivo}
 \end{table}
 
@@ -64,28 +69,32 @@ Il totale preventivato per lo sprint$^G$ è \textbf{795€}.\\
 
 \subsubsubsection{Consuntivo}
 In questo sprint$^G$ sono state utilizzate le seguenti risorse:
-
 \begin{table}[H]
 	\centering
-	% Prima tabella senza bordi per le intestazioni ruotate
-	\begin{tabular}{p{0.2\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}}
-		& \rotatebox{45}{\textbf{Responsabile$^G$}} &
-		\rotatebox{45}{\textbf{Amministratore$^G$}} & \rotatebox{45}{\textbf{Analista$^G$}} & \rotatebox{45}{\textbf{Programmatore$^G$}} & \rotatebox{45}{\textbf{Verificatore$^G$}} &
-		\rotatebox{45}{\textbf{Progettista$^G$}} \\
-	\end{tabular}
-	
-	\vspace{0.2cm} % Piccolo spazio tra le due tabelle
-	
-	% Seconda tabella con i dati e i bordi
-	\begin{tabular}{|p{0.2\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.13\textwidth}|p{0.12\textwidth}|}
-		\hline
-		M. Mazzaretto & - & 2.5 \textcolor{green}{(-0.5)} & 5 \textcolor{red}{(+2)} & - & 1 & - \\ \hline
-		T. Ceron      & - & - & 5 \textcolor{green}{(-1)} & - & 0.5 \textcolor{green}{(-0.5)} & - \\ \hline
-		L. Pieripolli & - & 3 \textcolor{green}{(-2)} & - & - & 0.5 \textcolor{green}{(-0.5)} & - \\ \hline
-		L. Marcuzzo   & - & - & 5 \textcolor{green}{(-1)} & - & 0.5 \textcolor{green}{(-0.5)} & - \\ \hline
-		M. Brunello   & - & 3.5 \textcolor{green}{(-1.5)} & - & - & 0.5 \textcolor{red}{(+0.5)} & - \\ \hline
-		L. Casagrande & 3 \textcolor{green}{(-1)} & - & - & - & 1 \textcolor{red}{(+1)} & - \\ \hline
-	\end{tabular}
+	\makebox[\textwidth][c]{
+		\begin{minipage}{1.2\textwidth}
+			\centering
+			% Prima tabella senza bordi per le intestazioni ruotate
+			\begin{tabular}{p{0.2\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}}
+				& \rotatebox{45}{\textbf{Responsabile$^G$}} &
+				\rotatebox{45}{\textbf{Amministratore$^G$}} & \rotatebox{45}{\textbf{Analista$^G$}} & \rotatebox{45}{\textbf{Programmatore$^G$}} & \rotatebox{45}{\textbf{Verificatore$^G$}} &
+				\rotatebox{45}{\textbf{Progettista$^G$}} \\
+			\end{tabular}
+			
+			\vspace{0.2cm} % Piccolo spazio tra le due tabelle
+			
+			% Seconda tabella con i dati e i bordi
+			\begin{tabular}{|p{0.2\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.13\textwidth}|p{0.12\textwidth}|}
+				\hline
+				M. Mazzaretto & - & 2.5 \textcolor{green}{(-0.5)} & 5 \textcolor{red}{(+2)} & - & 1 & - \\ \hline
+				T. Ceron      & - & - & 5 \textcolor{green}{(-1)} & - & 0.5 \textcolor{green}{(-0.5)} & - \\ \hline
+				L. Pieripolli & - & 3 \textcolor{green}{(-2)} & - & - & 0.5 \textcolor{green}{(-0.5)} & - \\ \hline
+				L. Marcuzzo   & - & - & 5 \textcolor{green}{(-1)} & - & 0.5 \textcolor{green}{(-0.5)} & - \\ \hline
+				M. Brunello   & - & 3.5 \textcolor{green}{(-1.5)} & - & - & 0.5 \textcolor{red}{(+0.5)} & - \\ \hline
+				L. Casagrande & 3 \textcolor{green}{(-1)} & - & - & - & 1 \textcolor{red}{(+1)} & - \\ \hline
+			\end{tabular}
+		\end{minipage}
+	}
 	\caption{Sprint 2: Consuntivo}
 \end{table}
 Il totale consuntivato per lo sprint è \textbf{705€}.\\
@@ -102,13 +111,13 @@ Si evidenzia come il processo$^G$ di verifica$^G$ sia migliorato, nonostante ci�
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|p{0.2\textwidth}|p{0.1\textwidth}|p{0.05\textwidth}|p{0.1\textwidth}|p{0.13\textwidth}|p{0.12\textwidth}|}
+	\begin{tabular}{|p{0.2\textwidth}|p{0.1\textwidth}|p{0.05\textwidth}|p{0.1\textwidth}|p{0.15\textwidth}|p{0.17\textwidth}|}
 		\hline
 		\rowcolor{gray!25}
 		Ruolo & Costo & Ore & Costo \newline effettivo & Ore \newline rimanenti & Budget \newline rimanente \\ \hline
 		Responsabile$^G$   & 30(€/h) & 3 & 90 & 44 \textcolor{red}{(-3)} & 1320 \textcolor{red}{(-90)} \\ \hline
-		Amministratore$^G$ & 20(€/h) & 9 & 180 & 20 \textcolor{red}{(-9)} & 400 \newline \textcolor{red}{(-180)} \\ \hline
-		Analista$^G$       & 25(€/h) & 15 & 375 & 72.5 \textcolor{red}{(-15)} & 1812.5 \newline \textcolor{red}{(-375)} \\ \hline
+		Amministratore$^G$ & 20(€/h) & 9 & 180 & 20 \textcolor{red}{(-9)} & 400 \textcolor{red}{(-180)} \\ \hline
+		Analista$^G$       & 25(€/h) & 15 & 375 & 72.5 \textcolor{red}{(-15)} & 1812.5 \textcolor{red}{(-375)} \\ \hline
 		Progettista$^G$    & 25(€/h) & - & - & 125 & 3125 \\ \hline
 		Verificatore$^G$   & 15(€/h) & 4 & 60 & 107 \textcolor{red}{(-4)} & 1605 \textcolor{red}{(-60)} \\ \hline
 		Programmatore$^G$  & 15(€/h) & - & - & 125 & 1875 \\ \hline
