@@ -30,9 +30,9 @@ Si prospetta l'utilizzo delle seguenti risorse:\newpage
 	\centering
 	% Prima tabella senza bordi per le intestazioni ruotate
 	\begin{tabular}{p{0.2\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}}
-		& \rotatebox{45}{\textbf{Responsabile$^G$}} &
-		\rotatebox{45}{\textbf{Amministratore$^G$}} & \rotatebox{45}{\textbf{Analista$^G$}} & \rotatebox{45}{\textbf{Programmatore$^G$}} & \rotatebox{45}{\textbf{Verificatore$^G$}} &
-		\rotatebox{45}{\textbf{Progettista$^G$}} \\
+		& \rotatebox{45}{\textbf{Responsabile}} &
+		\rotatebox{45}{\textbf{Amministratore}} & \rotatebox{45}{\textbf{Analista}} & \rotatebox{45}{\textbf{Programmatore}} & \rotatebox{45}{\textbf{Verificatore}} &
+		\rotatebox{45}{\textbf{Progettista}} \\
 	\end{tabular}
 	
 	\vspace{0.2cm} % Piccolo spazio tra le due tabelle
@@ -50,7 +50,7 @@ Si prospetta l'utilizzo delle seguenti risorse:\newpage
 	\caption{Sprint 7: Preventivo}
 \end{table}
 
-Il totale preventivato per lo sprint$^G$ è \textbf{330€}.\\
+Il totale preventivato per lo sprint è \textbf{330€}.\\
 
 \begin{figure}[H]
 	\centering
@@ -59,14 +59,95 @@ Il totale preventivato per lo sprint$^G$ è \textbf{330€}.\\
 \end{figure}
 
 \subsubsubsection{Consuntivo}
+In questo sprint sono state utilizzate le seguenti risorse:
+\begin{table}[H]
+	\centering
+	% Prima tabella senza bordi per le intestazioni ruotate
+	\begin{tabular}{p{0.2\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}}
+		& \rotatebox{45}{\textbf{Responsabile}} &
+		\rotatebox{45}{\textbf{Amministratore}} & \rotatebox{45}{\textbf{Analista}} & \rotatebox{45}{\textbf{Programmatore}} & \rotatebox{45}{\textbf{Verificatore}} &
+		\rotatebox{45}{\textbf{Progettista}} \\
+	\end{tabular}
+	
+	\vspace{0.2cm} % Piccolo spazio tra le due tabelle
+	
+	% Seconda tabella con i dati e i bordi
+	\begin{tabular}{|p{0.2\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.13\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|}
+		\hline
+		M. Mazzaretto & - & 1\textcolor{red}{(+1)} & 1\textcolor{red}{(+1)} & 3 & - & - \\ \hline
+		T. Ceron      & - & - & - & 3 & 1\textcolor{red}{(+1)} & - \\ \hline
+		L. Pieripolli & 3 & - & - & - & - & - \\ \hline
+		L. Marcuzzo   & - & - & - & 3 & - & - \\ \hline
+		M. Brunello   & - & 1\textcolor{red}{(+1)} & - & 4\textcolor{red}{(+1)} & - & - \\ \hline
+		L. Casagrande & - & - & - & 3 & - & - \\ \hline
+	\end{tabular}
+	\caption{Sprint 7: Consuntivo}
+\end{table}
+Il totale consuntivato per lo sprint è \textbf{410€}.\\
 
+In questo sprint, il carico di lavoro effettivo ha superato leggermente le stime iniziali, in oltre il team ha speso diverse ore per la formazione individuale non inclusa nelle stime.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{PianoProgetto/sprint07_consuntivo}
+	\caption{Sprint 7: Consuntivo}
+\end{figure}
 
 \subsubsubsection{Aggiornamento delle risorse rimanenti}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{0.2\textwidth}|p{0.1\textwidth}|p{0.05\textwidth}|p{0.1\textwidth}|p{0.15\textwidth}|p{0.17\textwidth}|}
+		\hline
+		\rowcolor{gray!25}
+		Ruolo & Costo & Ore & Costo \newline effettivo & Ore \newline rimanenti & Budget \newline rimanente \\ \hline
+		
+		Responsabile
+		& 30(€/h) & 3 & 90
+		& 29 \textcolor{red}{(-3)}
+		& 870 \textcolor{red}{(-90)} \\ \hline
+		
+		Amministratore
+		& 20(€/h) & 2 & 40
+		& 6 \textcolor{red}{(-2)}
+		& 120 \textcolor{red}{(-40)} \\ \hline
+		
+		Analista
+		& 25(€/h) & 1 & 25
+		& 3.5 \textcolor{red}{(-1)}
+		& 87.5 \textcolor{red}{(-25)} \\ \hline
+		
+		Progettista
+		& 25(€/h) & - & -
+		& 125
+		& 3125 \\ \hline
+		
+		Verificatore
+		& 15(€/h) & 1 & 15
+		& 93 \textcolor{red}{(-1)}
+		& 1395 \textcolor{red}{(-15)} \\ \hline
+		
+		Programmatore
+		& 15(€/h) & 16 & 240
+		& 109 \textcolor{red}{(-16)}
+		& 1635 \textcolor{red}{(-240)} \\ \hline
+		
+		Totale
+		& - & 23 & 410
+		& 365.5 \textcolor{red}{(-23)}
+		& 7232.5 \textcolor{red}{(-410)} \\ \hline
+	\end{tabular}
+	\caption{Sprint 7: Aggiornamento risorse}
+\end{table}
 
 \subsubsubsection{Rischi incontrati}
+Durante questo sprint si è concretizzato il rischio RP1, che si è però manifestato con un'intensità inferiore rispetto al precedente periodo, grazie al fatto che il suo avveramento era già stato anticipato.
+Inoltre, è emerso il rischio RE1, anch'esso già previsto nella valutazione iniziale. La sua insorgenza è stata mitigata da un maggiore impegno individuale nello studio e nell'approfondimento delle nuove tecnologie coinvolte.
 
 \subsubsubsection{Efficacia delle strategie di gestione di mitigazione dei rischi}
+Il gruppo ha stimato con buona accuratezza il monte ore da destinare al ruolo di programmatore, anche in considerazione del fatto che il periodo coincidente con la sessione d'esame ha influito sulla disponibilità temporale.
 
 \subsubsubsection{Migliorie da attuare per le attività future}
+Nei prossimi sprint, il gruppo dovrà pianificare con maggiore attenzione l'assegnazione dei ruoli necessari, assicurandosi di non sottostimare il carico di lavoro associato a ciascuno di essi.
 
 \subsubsubsection{Retrospettiva}
+Il team ha completato in modo efficiente le attività pianificate, riuscendo anche a recuperare i task rimasti in sospeso dal precedente sprint. Ciò ha consentito il pieno riallineamento con gli obiettivi prefissati nel piano di progetto.
