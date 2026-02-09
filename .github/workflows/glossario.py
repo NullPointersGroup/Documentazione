@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(levelname)s | %(message)s')
 
 SRC_DIR: Path = Path("src")
 EXCLUDE_DIRS: Set[str] = {"Candidatura", "Diario Di Bordo", "Glossario"}
-IGNORE_FILENAMES: Set[str] = {"heading.tex", "table.tex", "title.tex", "modifiche.tex"}
+IGNORE_FILENAMES: Set[str] = {"heading.tex", "table.tex", "title.tex", "modifiche.tex", "Lettera_di_Presentazione_RTB.tex"}
 
 
 def find_glossary() -> Optional[Path]:
@@ -81,7 +81,7 @@ def apply_tags_to_text(text: str, patterns: List[Tuple[str, Pattern]], tex_file:
       - il carattere successivo è spazio o fine stringa
       - non si trova all'interno di comandi come label, url, hyperref, ref ecc...
     """
-    text = re.sub(r'\$\^G\$', '', text)
+    text = text.replace('$^G$', '')
     title_ranges: List[Tuple[int, int]] = []
     link_ranges: List[Tuple[int, int]] = []
 
