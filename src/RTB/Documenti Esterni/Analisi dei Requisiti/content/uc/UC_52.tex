@@ -1,0 +1,34 @@
+\subsubsection{UC\_52: Cancella chat}
+\label{uc_52}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_52}
+	\caption{UC\_52: Cancella chat}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Attore$^G$ Principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza il pulsante per cancellare la chat
+		\item Il Cliente preme il pulsante per cancellare la chat
+		\item Il Cliente conferma la cancellazione della chat
+	\end{enumerate}
+	\item \textbf{Scenari alternativi}:
+	\begin{itemize}
+		\item Il Cliente decide di non iniziare una nuova chat; la sessione corrente rimane attiva
+	\end{itemize}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item Una sessione chat del Cliente è attiva
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item La chat cancellata non è più visibile
+		\item Il Cliente visualizza una chat vuota
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole cancellare la chat
+\end{itemize}

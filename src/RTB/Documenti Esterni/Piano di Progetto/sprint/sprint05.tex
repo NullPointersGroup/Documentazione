@@ -5,15 +5,15 @@
 \begin{tabular}{p{0.25\textwidth} p{0.2\textwidth}}
 	\textbf{Inizio} & 29/12/2025 \\
 	\textbf{Fine prevista} & 12/01/2026 \\
-	\textbf{Fine reale} & \\
-	\textbf{Giorni di ritardo} &
+	\textbf{Fine reale} &  12/01/2026\\
+	\textbf{Giorni di ritardo} & 0
 \end{tabular}
 \newline \newline 
 Le nostre attività da svolgere, definite nel \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Verbali\%20Interni/2025-12-29\_verbale\_interno.pdf}{Verbale interno del 29/12/2025} e nel \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Verbali\%20Interni/2026-01-05\_verbale\_interno.pdf}{Verbale interno del 05/01/2026} sono:
 \begin{itemize}[itemsep=5pt, parsep=1pt, label=$\scriptstyle\bullet$]
-	\item Continuazione Analisi di Requisiti: sezione Casi d’Uso (30-35)
-	\item Continuazione Analisi di Requisiti: sezione requisiti funzionali
-	\item Continuazione Analisi di Requisiti: sezione tracciamento requisiti
+	\item Continuazione Analisi dei Requisiti$^G$: sezione Casi d’Uso (30-35)
+	\item Continuazione Analisi dei Requisiti$^G$: sezione requisiti funzionali
+	\item Continuazione Analisi dei Requisiti$^G$: sezione tracciamento requisiti
 \end{itemize}
 
 \subsubsubsection{Rischi attesi}
@@ -59,13 +59,65 @@ Il totale preventivato per lo sprint$^G$ è \textbf{615€}.\\
 \end{figure}
 
 \subsubsubsection{Consuntivo}
+In questo sprint$^G$ sono state utilizzate le seguenti risorse:
+\begin{table}[H]
+	\centering
+	% Prima tabella senza bordi per le intestazioni ruotate
+	\begin{tabular}{p{0.2\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}}
+		& \rotatebox{45}{\textbf{Responsabile$^G$}} &
+		\rotatebox{45}{\textbf{Amministratore$^G$}} & \rotatebox{45}{\textbf{Analista$^G$}} & \rotatebox{45}{\textbf{Programmatore$^G$}} & \rotatebox{45}{\textbf{Verificatore$^G$}} &
+		\rotatebox{45}{\textbf{Progettista$^G$}} \\
+	\end{tabular}
+	
+	\vspace{0.2cm} % Piccolo spazio tra le due tabelle
+	
+	% Seconda tabella con i dati e i bordi
+	\begin{tabular}{|p{0.2\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.13\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|}
+		\hline
+		M. Mazzaretto & - & - & 5 \textcolor{red}{(+1)} & - & - & - \\ \hline
+		T. Ceron      & - & - & 3,5 \textcolor{green}{(-0.5)} & - & - & - \\ \hline
+		L. Pieripolli & - & - & 3,5 \textcolor{red}{(+0.5)}& - & - & - \\ \hline
+		L. Marcuzzo   & - & - & 3 \textcolor{green}{(-2)} & - & 2 & - \\ \hline
+		M. Brunello   & 3 & - & - & - & - & - \\ \hline
+		L. Casagrande & - & - & 4 \textcolor{red}{(+2)} & - & 4 \textcolor{green}{(+1)} & - \\ \hline
+	\end{tabular}
+	\caption{Sprint 5: Consuntivo}
+\end{table}
+In questo sprint$^G$ la distribuzione$^G$ delle ore non è stata accuratamente rispettata, a causa di una leggera sottostima dell'impegno richiesto per ultimare l'Analisi dei Requisiti.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{PianoProgetto/sprint05_consuntivo}
+	\caption{Sprint 5: Consuntivo}
+\end{figure}
+
+
 
 \subsubsubsection{Aggiornamento delle risorse rimanenti}
-
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{0.2\textwidth}|p{0.1\textwidth}|p{0.05\textwidth}|p{0.1\textwidth}|p{0.13\textwidth}|p{0.12\textwidth}|}
+		\hline
+		\rowcolor{gray!25}
+		Ruolo & Costo & Ore & Costo \newline effettivo & Ore \newline rimanenti & Budget \newline rimanente \\ \hline
+		Responsabile$^G$   & 30(€/h) & 3 & 90 & 34 \textcolor{red}{(-3)} & 1020 \textcolor{red}{(-90)} \\ \hline
+		Amministratore$^G$ & 20(€/h) & - & - & 11 & 220 \\ \hline
+		Analista$^G$       & 25(€/h) & 19 & 475 & 7.5 \textcolor{red}{(-19)} & 187.5 \newline \textcolor{red}{(-475)} \\ \hline
+		Progettista$^G$    & 25(€/h) & - & - & 125 & 3125 \\ \hline
+		Verificatore$^G$   & 15(€/h) & 6 & 90 & 95 \textcolor{red}{(-6)} & 1425 \textcolor{red}{(-95)} \\ \hline
+		Programmatore$^G$  & 15(€/h) & - & - & 125 & 1875 \\ \hline
+		Totale         & - & 28 & 655 & 397.5 \textcolor{red}{(-28)} & 7852.5 \newline \textcolor{red}{(-655)} \\ \hline
+	\end{tabular}
+	\caption{Sprint 5: Aggiornamento risorse}
+\end{table}
 \subsubsubsection{Rischi incontrati}
+In questo sprint$^G$ è stato incontrato il rischio RE2, dato dalla poca esperienza nell'attività di Analisi dei Requisiti$^G$, che ha portato a una stima errata del carico di lavoro per alcuni membri in fase di preventivo.
 
 \subsubsubsection{Efficacia delle strategie di gestione di mitigazione dei rischi}
+Per il rischio RE2 dobbiamo cercare di preventivare le ore in modo più accurato, anche se, come visto nei precedenti sprint$^G$, siamo ad un buon punto.\\
+Il gruppo ha inoltre migliorato ulteriormente la gestione individuale delle task$^G$ e la comunicazione interna, consentendo una gestione più efficiente del lavoro.
 
 \subsubsubsection{Migliorie da attuare per le attività future}
+È necessario migliorare la stima delle ore per evitare ulteriori sottostime o sovrastime.
 
 \subsubsubsection{Retrospettiva}
+Tutte le attività previste sono state completate nei tempi previsti.

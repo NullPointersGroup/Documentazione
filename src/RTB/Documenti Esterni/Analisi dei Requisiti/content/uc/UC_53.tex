@@ -1,0 +1,34 @@
+\subsubsection{UC\_53: Invio ordine dal carrello}
+\label{uc_53}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_53}
+	\caption{UC\_53: Invio ordine dal carrello}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+    \item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza il pulsante per l'invio dell'ordine
+		\item Il Cliente preme il pulsante per l'invio dell'ordine
+		\item Il Cliente riceve conferma dell'invio dell'ordine $\rightarrow$ Vedi \hyperref[uc_26.4]{UC\_26.4}
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item La sessione chat del Cliente è attiva
+		\item Sono presenti articoli nel carrello
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza la conferma dell'invio dell'ordine
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_26.4]{UC\_26.4}
+	\end{itemize}
+    \item \textbf{Trigger}: Il Cliente vuole inviare l'ordine tramite pulsante
+\end{itemize}
