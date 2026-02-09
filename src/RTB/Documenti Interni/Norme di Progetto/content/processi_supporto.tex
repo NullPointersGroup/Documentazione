@@ -13,7 +13,7 @@
 
 \subsubsection{Caricamento in Repository}
     Ogni volta che si inserisce un nuovo documento o si effettua una modifica$^G$ nel Repository$^G$ si utilizza un branch$^G$ feature/* personalizzato, la cui nomenclatura è definita nella sezione \ref{sec: nomenclatura-branch}.\\
-    Una volta creato un commit nel branch$^G$ una GitHub$^G$ Action$^G$ si occupa di creare automaticamente una PR$^G$, la quale deve essere approvata dai Verificatori.
+    Una volta creato un commit nel branch$^G$ una GitHub Action$^G$ si occupa di creare automaticamente una PR$^G$, la quale deve essere approvata dai Verificatori.
 
 \subsubsection{Struttura base dei documenti}
 \label{sec: struttura-base-doc}
@@ -88,7 +88,7 @@ Il contenuto principale dei Verbali Interni segue una struttura standardizzata c
             \item Data della riunione;
             \item Orario di inizio; 
             \item Orario di fine;
-            \item Scriba, ovvero chi si occupa di redigere il Verbale che, come stabilito nella sezione \ref{sec: verbali-interni}, spetta alla figura del Responsabile$^G$.
+            \item Scriba, ovvero chi si occupa di redigere il Verbale che, come stabilito nella sezione \ref{sec: verbali-interni}, spetta alla figura del Responsabile.
         \end{itemize}
         \item \textbf{Ordine del giorno} 
     \end{enumerate}
@@ -111,12 +111,12 @@ Il contenuto principale dei Verbali Interni segue una struttura standardizzata c
     Ha lo scopo di registrare in modo formale e strutturato tutte le deliberazioni e i compiti emersi durante l'incontro.\\
     La tabella funge da riferimento ufficiale e chiaro per tutto il gruppo, riassumendo cosa è stato stabilito e quali attività devono essere svolte.\\
     Alcune di queste informazioni non rimangono confinate al documento, ma vengono integrate e tracciate all'interno del nostro sistema di ticketing.\\
-    Ciò garantisce che ogni elemento sia documentato per riferimento futuro e attivo per la sua esecuzione, collegando direttamente la decisione$^G$ al task$^G$.
+    Ciò garantisce che ogni elemento sia documentato per riferimento futuro e attivo per la sua esecuzione, collegando direttamente la decisione$^G$ al task.
 
 \vspace{0.7em}
 \subsubsubsection{Verbali Esterni}
 \label{sec:verbali-esterni}
-I verbali esterni sono documenti che registrano ufficialmente gli incontri avvenuti con soggetti esterni al gruppo di lavoro, in particolare con l'ente proponente$^G$ del progetto$^G$.\\
+I verbali esterni sono documenti che registrano ufficialmente gli incontri avvenuti con soggetti esterni al gruppo di lavoro, in particolare con l'ente proponente$^G$ del progetto.\\
 Tali documenti hanno lo scopo di tracciare le discussioni, le decisioni concordate e gli impegni assunti da entrambe le parti durante la riunione.\\
 Seguono la struttura base dei documenti esposta alla sezione \ref{sec: struttura-base-doc} ma diversamente dal resto della documentazione non contengono la sezione del Registro delle Modifiche.
     \begin{enumerate}[label=\arabic*., itemsep=0pt, parsep=1pt, leftmargin=*]
@@ -127,7 +127,7 @@ Seguono la struttura base dei documenti esposta alla sezione \ref{sec: struttura
             \item Data della riunione;
             \item Orario di inizio; 
             \item Orario di fine;
-            \item Scriba, ovvero chi si occupa di redigere il Verbale che, come stabilito nella sezione \ref{sec: verbali-interni}, spetta alla figura del Responsabile$^G$.;
+            \item Scriba, ovvero chi si occupa di redigere il Verbale che, come stabilito nella sezione \ref{sec: verbali-interni}, spetta alla figura del Responsabile.;
             \item Partecipanti: ovvero i referenti dell'azienda proponente$^G$ con i quali viene svolto l'incontro. 
         \end{itemize}
         \item \textbf{Ordine del giorno} 
@@ -165,7 +165,7 @@ Seguono la struttura base dei documenti esposta alla sezione \ref{sec: struttura
 
 \vspace{0.3em}
 \subsubsubsection{Altri documenti}
-Di seguito sono elencati tutti i documenti redatti e mantenuti durante l'intero ciclo di vita del progetto$^G$ ciascuno dei quali risponde a uno scopo specifico, contribuendo alla tracciabilità, alla gestione e alla comunicazione delle attività di progetto$^G$.\\
+Di seguito sono elencati tutti i documenti redatti e mantenuti durante l'intero ciclo di vita del progetto$^G$ ciascuno dei quali risponde a uno scopo specifico, contribuendo alla tracciabilità, alla gestione e alla comunicazione delle attività di progetto.\\
 La struttura iniziale di tali documenti corrisponde con quanto definito al punto 3.1.4:
     \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
         \item \textbf{Valutazione dei Capitolati};
@@ -192,7 +192,7 @@ La Redazione di un documento segue i seguenti passaggi:
 \end{enumerate}
 Il procedimento che segue si applica solo a verbali o per l’approvazione di Documenti ritenuti definitivi e da approvare per termini di Baseline$^G$:
 \begin{enumerate} [resume]
-    \item \textbf{Approvazione e pubblicazione:} A seguito di esito positivo della revisione, il Responsabile$^G$ approva il documento completando la pull request$^G$ e procede al merge$^G$ del branch$^G$ secondario in quello principale.\\ Questa operazione attiva una GitHub$^G$ Action$^G$ che, oltre a procedere con la generazione del .pdf dai .tex, aggiorna automaticamente il sito web del progetto$^G$ con i nuovi documenti approvati.
+    \item \textbf{Approvazione e pubblicazione:} A seguito di esito positivo della revisione, il Responsabile$^G$ approva il documento completando la pull request$^G$ e procede al merge$^G$ del branch$^G$ secondario in quello principale.\\ Questa operazione attiva una GitHub Action$^G$ che, oltre a procedere con la generazione del .pdf dai .tex, aggiorna automaticamente il sito web del progetto$^G$ con i nuovi documenti approvati.
 \end{enumerate}
 
 \subsubsection{Nomenclatura}
@@ -217,7 +217,7 @@ Per tutti gli altri documenti, la convenzione di denominazione prevede la forma:
 \end{center}
 \subsubsubsection{Documenti nel sito web}
 Diversamente è stato deciso di fare per il sito della Documentazione \\
-(https://nullpointersgroup.github$^G$.io/Documentazione/) dove, sempre per convenzione, è stato stabilito come segue:
+(https://nullpointersgroup.github.io/Documentazione/) dove, sempre per convenzione, è stato stabilito come segue:
 \begin{center}
     AAAA-MM-GG\_TIPO v\#
 \end{center}
@@ -234,7 +234,7 @@ La nomenclatura dei restanti documenti consisterà in:
 Inoltre viene indicata la versione attuale di ogni documento con v\# dove \# funge da modificatore di versione, che viene incrementato progressivamente a ogni aggiornamento significativo del documento.
 
 \subsubsection{Manutenzione}
-L'attività di manutenzione$^G$ della documentazione viene attivata ogni qualvolta un documento richiede integrazioni o modifiche per rimanere accurato e allineato allo stato del progetto$^G$.\\
+L'attività di manutenzione$^G$ della documentazione viene attivata ogni qualvolta un documento richiede integrazioni o modifiche per rimanere accurato e allineato allo stato del progetto.\\
 Il flusso di aggiornamento ripercorre le fasi principali della stesura iniziale: partendo dalla creazione di una issue$^G$ di tracciamento, si procede con le modifiche in un branch$^G$ dedicato, per concludere con una verifica$^G$ formale attraverso una Pull Request$^G$ prima dell'integrazione nel documento definitivo (il punto \ref{sec:stesura-documenti} descrive la procedura).
 
 \subsubsection{Documentazione del Codice}
@@ -250,33 +250,33 @@ Il suo scopo è garantire:
 Per garantire tracciabilità e manutenibilità, il codice sorgente deve essere documentato utilizzando uno standard ispirato da \textbf{Doxygen$^G$}.\\
 I blocchi di documentazione devono essere inseriti immediatamente prima della dichiarazione di:
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
-    \item Funzioni e metodi in Python$^G$.
+    \item Funzioni e metodi in Python.
     \item Componenti React$^G$, funzioni e metodi in JavaScript/TypeScript.
 \end{itemize}
 
 \subsubsubsection{Tag previsti}
 Ogni blocco di documentazione deve includere i seguenti tag, ove applicabili:
 \begin{table}[H]
-\centering
-\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{|p{0.22\textwidth}|p{0.7\textwidth}|}
-    \hline
-    \textbf{Tag} & \textbf{Scopo e Formato} \\
-    \hline
-    \texttt{@brief} & \textbf{Brief description}: descrizione concisa dello scopo e della funzionalità$^G$. \\
-    \hline
-    \texttt{@param} & \textbf{Type Description}: descrizione di un parametro, specificandone il tipo e una breve descrizione. \\
-    \hline
-    \texttt{@raise/@throws} & \textbf{ExceptionType Condition or description}: eccezioni/errori sollevati, con tipo e condizioni che li provocano. \\
-    \hline
-    \texttt{@bug$^G$} & \textbf{Actual problems}: descrizione di problemi noti non ancora risolti nel codice. \\
-    \hline
-    \texttt{@return} & \textbf{Type Description}: descrizione del valore di ritorno e del suo tipo. \\
-    \hline
-    \texttt{@req} & \textbf{Requisito associato}: identificativo del requisito associato (es. \texttt{RF-OB\_\_1}). Fondamentale per la tracciabilità. \\
-    \hline
-\end{tabular}
-\caption{Tag previsti per la documentazione del codice}
+	\centering
+	\renewcommand{\arraystretch}{1.15}
+	\begin{tabular}{|p{0.22\textwidth}|p{0.7\textwidth}|}
+	    \hline
+	    \textbf{Tag} & \textbf{Scopo e Formato} \\
+	    \hline
+	    \texttt{@brief} & \textbf{Brief description}: descrizione concisa dello scopo e della funzionalità. \\
+	    \hline
+	    \texttt{@param} & \textbf{Type Description}: descrizione di un parametro, specificandone il tipo e una breve descrizione. \\
+	    \hline
+	    \texttt{@raise/@throws} & \textbf{ExceptionType Condition or description}: eccezioni/errori sollevati, con tipo e condizioni che li provocano. \\
+	    \hline
+	    \texttt{@bug$^G$} & \textbf{Actual problems}: descrizione di problemi noti non ancora risolti nel codice. \\
+	    \hline
+	    \texttt{@return} & \textbf{Type Description}: descrizione del valore di ritorno e del suo tipo. \\
+	    \hline
+	    \texttt{@req} & \textbf{Requisito associato}: identificativo del requisito associato (es. \texttt{RF-OB\_\_1}). Fondamentale per la tracciabilità. \\
+	    \hline
+	\end{tabular}
+	\caption{Tag previsti per la documentazione del codice}
 \end{table}
 
 \subsubsubsection{Verifica della Conformità}
@@ -285,12 +285,12 @@ Ogni blocco di documentazione deve includere i seguenti tag, ove applicabili:
 		\item Il \textbf{Programmatore$^G$} è responsabile$^G$ della documentazione del proprio codice.
 		\item Il \textbf{Verificatore$^G$}, durante la revisione di una Pull Request$^G$, deve controllare:
 		\begin{itemize}[itemsep=2pt, parsep=1pt, label=$\circ$]
-			\item La presenza dei blocchi di documentazione per le nuove funzionalità$^G$.
+			\item La presenza dei blocchi di documentazione per le nuove funzionalità.
 			\item La completezza dei tag corretti (\texttt{@brief}, \texttt{@param}, \texttt{@return}, \texttt{@req}).
 			\item La correttezza del formato, in particolare per il tag \texttt{@req} che deve contenere un identificativo valido di requisito.
 			\item La coerenza tra il codice e quanto descritto nella documentazione.
 		\end{itemize}
-		\item La mancata conformità è motivo di richiesta di modifica$^G$ prima dell'approvazione della PR$^G$.
+		\item La mancata conformità è motivo di richiesta di modifica$^G$ prima dell'approvazione della PR.
 	\end{enumerate}
 
 \subsection{Gestione della Configurazione}
@@ -303,7 +303,7 @@ Questo approccio assicura un avanzamento ordinato dello sviluppo$^G$, mantenendo
 \subsubsection{Strumenti di Controllo della Configurazione}
 \label{sec:ticketing}
 Il gruppo utilizza il sistema di Issue$^G$ Tracking e le Project Board integrate in GitHub$^G$ come strumenti principali per la gestione e l’organizzazione delle attività.\\
-Questi strumenti consentono di pianificare il lavoro, monitorarne l’avanzamento e mantenere un controllo costante sulla qualità e sulla coerenza del processo$^G$ di sviluppo$^G$.
+Questi strumenti consentono di pianificare il lavoro, monitorarne l’avanzamento e mantenere un controllo costante sulla qualità e sulla coerenza del processo$^G$ di sviluppo.
 \subsubsubsection{Issue}
 Ogni attività, modifica$^G$ o produzione$^G$ di documentazione viene gestita attraverso una issue$^G$, che deve contenere:
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
@@ -325,7 +325,7 @@ Il mantenimento del sistema di Issue$^G$ Tracking avviene tramite una procedura 
     \item Quando un membro effettua un push nel branch$^G$ relativo alla issue$^G$, il sistema genera automaticamente una \textbf{pull request$^G$}.
     \item \textbf{Assegnazione della PR$^G$} al Verificatore$^G$ designato.
     \item \textbf{Verifica$^G$ della PR$^G$}: il Verificatore$^G$ controlla che il contenuto sia conforme agli standard, coerente con la documentazione e privo di errori.
-    \item \textbf{Merge$^G$ nel main}: se la verifica$^G$ ha esito positivo, il Verificatore$^G$ effettua il merge$^G$ e chiude la issue$^G$. In caso contrario, richiede ulteriori modifiche.
+    \item \textbf{Merge$^G$ nel main}: se la verifica$^G$ ha esito positivo, il Verificatore$^G$ effettua il merge$^G$ e chiude la issue. In caso contrario, richiede ulteriori modifiche.
 \end{enumerate}
 Questa procedura permette tracciabilità completa del lavoro e sincronizzazione costante tra issue$^G$, project board e repository$^G$ riducendo il rischio di incoerenze dei documenti.
 
@@ -335,8 +335,8 @@ Il gruppo mantiene due Project Board principali:
     \item \textbf{RTB$^G$} (Requirements and Technology Baseline$^G$)
     \item \textbf{PB$^G$} (Product Baseline$^G$)
 \end{itemize}
-Queste board permettono di organizzare e visualizzare in modo chiaro tutte le attività necessarie al raggiungimento delle rispettive milestone$^G$.\\
-Ogni issue$^G$ viene collegata alla board pertinente e inserita nella colonna appropriata, così da garantire una visione aggiornata e condivisa dello stato del progetto$^G$.\\
+Queste board permettono di organizzare e visualizzare in modo chiaro tutte le attività necessarie al raggiungimento delle rispettive milestone.\\
+Ogni issue$^G$ viene collegata alla board pertinente e inserita nella colonna appropriata, così da garantire una visione aggiornata e condivisa dello stato del progetto.\\
 Le board vengono aggiornate:
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
     \item quando una issue$^G$ cambia stato;
@@ -348,8 +348,8 @@ Il Responsabile$^G$ verifica$^G$ periodicamente la coerenza delle board con le m
 \subsubsubsection{Labels}
 Per migliorare l'organizzazione, il gruppo utilizza un sistema di etichette che identifica chiaramente la tipologia di lavoro, introducendo una famiglia dedicata specificamente alla gestione documentale.\\
 Il principio è semplice: viene sempre aggiunta un'etichetta specifica, come \vr{Piano di Progetto$^G$} o \vr{Analisi dei Requisiti$^G$}, che indica precisamente quale file è coinvolto.\\
-Queste label vengono applicate sia alle issue$^G$ settimanali, sia alle attività associate alle milestone$^G$ RTB$^G$ e PB$^G$.\\
-Ciò permette di individuare rapidamente quali attività richiedono attenzione e tracciare il carico di lavoro per tipologia di attività oltre che avere una visione completa dell'avanzamento complessivo del progetto$^G$.
+Queste label vengono applicate sia alle issue$^G$ settimanali, sia alle attività associate alle milestone$^G$ RTB$^G$ e PB.\\
+Ciò permette di individuare rapidamente quali attività richiedono attenzione e tracciare il carico di lavoro per tipologia di attività oltre che avere una visione completa dell'avanzamento complessivo del progetto.
 
 \subsubsubsection{Nomenclatura dei branch}
 \label{sec: nomenclatura-branch}
@@ -393,9 +393,9 @@ Per garantire uniformità e tracciabilità nella gestione dei branch$^G$ relativ
 L'attività di Registrazione dello Stato di Configurazione è fondamentale per garantire la tracciabilità e la conoscenza storica delle evoluzioni di tutti gli Elementi di Configurazione (codice e documentazione) prodotti dal gruppo.
 
 \subsubsubsection{Documentazione}
-In base a quanto definito nel \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Verbali\%20Interni/2025-11-06\_verbale\_interno.pdf}{verbale interno del 6 novembre} per il tracciamento durante il ciclo di vita dei documenti, NullPointers Group ha deciso di utilizzare una politica di versionamento$^G$ basata sulla specifica MAJOR$^G$.MINOR$^G$.PATCH$^G$. Questa specifica riflette lo stato di avanzamento e la validazione$^G$ formale del documento. La sua implementazione avviene come segue:
+In base a quanto definito nel \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Verbali\%20Interni/2025-11-06\_verbale\_interno.pdf}{verbale interno del 6 novembre} per il tracciamento durante il ciclo di vita dei documenti, NullPointers Group ha deciso di utilizzare una politica di versionamento$^G$ basata sulla specifica MAJOR.MINOR.PATCH. Questa specifica riflette lo stato di avanzamento e la validazione$^G$ formale del documento. La sua implementazione avviene come segue:
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
-    \item \textbf{MAJOR$^G$}: Incrementato solo in seguito all'Approvazione Formale (Approvazione) del file da parte del Responsabile$^G$.
+    \item \textbf{MAJOR$^G$}: Incrementato solo in seguito all'Approvazione Formale (Approvazione) del file da parte del Responsabile.
     \item \textbf{MINOR$^G$}: Incrementato una volta completato l'intero ciclo di modifica$^G$, che include sia lo sviluppo$^G$ del contenuto sia la verifica$^G$ formale da parte del Verificatore$^G$ designato.
     \item \textbf{PATCH$^G$}: Incrementato per modifiche di entità minore, come correzioni ortografiche, formattazione, o aggiustamenti di sintassi che non alterano il contenuto sostanziale.
 \end{itemize}
@@ -405,14 +405,14 @@ In aggiunta al versionamento$^G$, ogni documento conterrà un Registro delle Mod
 \label{sec:gestione-qualita}
 La Gestione della Qualità è il processo$^G$ che definisce, pianifica e coordina tutte le attività necessarie affinché i prodotti sviluppati dal gruppo rispettino gli standard stabiliti nel Piano di Qualifica$^G$ e risultino coerenti con gli obiettivi progettuali.\\
 Tale processo$^G$ assicura che ogni artefatto prodotto (documenti, codice, modelli o deliverable intermedi) soddisfi i criteri qualitativi prefissati e fornisce un quadro operativo per il miglioramento continuo.\\
-La qualità è garantita da un sistema integrato di strumenti, procedure e responsabilità, che accompagna e supporta l'intero ciclo di sviluppo$^G$. Questo approccio consente di prevenire l'introduzione di errori, rilevare tempestivamente eventuali incongruenze e garantire che ogni output sia verificato prima di essere considerato completo, oltre a mantenere elevata la tracciabilità delle attività.\\
+La qualità è garantita da un sistema integrato di strumenti, procedure e responsabilità, che accompagna e supporta l'intero ciclo di sviluppo. Questo approccio consente di prevenire l'introduzione di errori, rilevare tempestivamente eventuali incongruenze e garantire che ogni output sia verificato prima di essere considerato completo, oltre a mantenere elevata la tracciabilità delle attività.\\
 La Gestione della Qualità opera in stretta sinergia con la Gestione della Configurazione (sezione \ref{sec:gestione-configurazione}) e con il processo$^G$ di Verifica$^G$ (sezione \ref{sec:verifica}), costituendo un sistema integrato di controllo e miglioramento del prodotto.
 
 \subsubsection{Piano di Qualifica}
 Il gruppo adotta una pianificazione$^G$ esplicita delle attività di qualità, formalizzata nel Piano di Qualifica$^G$, che definisce:
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
     \item Gli obiettivi qualitativi specifici da raggiungere, distinti per il prodotto finale e per i processi di sviluppo$^G$;
-    \item Metriche quantitative per misurare oggettivamente la qualità del prodotto ma anche del processo$^G$.
+    \item Metriche quantitative per misurare oggettivamente la qualità del prodotto ma anche del processo.
     \item Strumenti utilizzati sia per l'analisi statica che dinamica;
     \item Strategie di testing specifiche (unitario, di integrazione, di sistema e di accettazione) per verificare il prodotto e garantire che soddisfi i requisiti;
     \item Un cruscotto di valutazione che consente il monitoraggio, per la durata del ciclo di vita del progetto$^G$, delle metriche di qualità definite.
@@ -424,7 +424,7 @@ Per garantire un controllo oggettivo e ripetibile della qualità, il gruppo adot
 Le metriche (dettaglio nella sezione \ref{sec:metriche-qualita}) sono suddivise in due categorie:
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
     \item \textbf{Metriche di Qualità del prodotto}: indicatori per misurare le caratteristiche del software finale, come affidabilità e usabilità.
-    \item \textbf{Metriche di Qualità del processo$^G$}: indicatori per valutare l'efficacia$^G$ e l'efficienza$^G$ delle attività di sviluppo$^G$.
+    \item \textbf{Metriche di Qualità del processo$^G$}: indicatori per valutare l'efficacia$^G$ e l'efficienza$^G$ delle attività di sviluppo.
 \end{itemize}
 
 \subsubsection{Struttura e identificazione delle metriche}
@@ -439,7 +439,7 @@ Ogni metrica è definita dai seguenti elementi essenziali:
     dove:
     \begin{itemize}[label=\textendash, itemsep=0pt, parsep=1pt, leftmargin=1.5em]
         \item \texttt{MQD\_xx}: identifica le Metriche di Qualità del Prodotto.
-        \item \texttt{MQC\_xx}: identifica le Metriche di Qualità del Processo$^G$.
+        \item \texttt{MQC\_xx}: identifica le Metriche di Qualità del Processo.
     \end{itemize}
     Il numero progressivo (xx) garantisce l'unicità all'interno di ciascuna categoria.
     \item \textbf{Nome}: il nome completo e descrittivo della metrica.
@@ -456,11 +456,11 @@ Se emergono problemi, come errori frequenti o metriche insufficienti, si valutan
 \label{sec:verifica}
 \subsubsection{Scopo e descrizione}
 Il processo$^G$ di Verifica$^G$ è un'attività sistematica che deve essere applicata a tutti i prodotti di progetto$^G$ (documenti e codice) prima che possano essere considerati completi e rilasciati.\\ 
-Il suo scopo principale è rispondere alla domanda \vr{\textit{Did I build$^G$ the system right?}}, ovvero assicurare che quanto prodotto sia stato realizzato correttamente, in piena conformità con i vincoli, le regole e gli standard qualitativi definiti nel Piano di Qualifica$^G$ e nelle Norme di Progetto$^G$.\\ 
+Il suo scopo principale è rispondere alla domanda \vr{\textit{Did I build$^G$ the system right?}}, ovvero assicurare che quanto prodotto sia stato realizzato correttamente, in piena conformità con i vincoli, le regole e gli standard qualitativi definiti nel Piano di Qualifica$^G$ e nelle Norme di Progetto.\\ 
 Le attività di Verifica$^G$ sono svolte dai Verificatori, il cui compito è controllare, correggere e segnalare ogni discrepanza rispetto ai requisiti prestabiliti.
 
 \subsubsection{Strumenti a supporto}
-Per supportare le attività di Verifica$^G$ descritte, il gruppo utilizza GitHub$^G$, imponendo che ogni modifica$^G$ alla documentazione o al codice venga prima sottoposta a revisione attraverso una Pull Request$^G$.\\ 
+Per supportare le attività di Verifica$^G$ descritte, il gruppo utilizza GitHub$^G$, imponendo che ogni modifica$^G$ alla documentazione o al codice venga prima sottoposta a revisione attraverso una Pull Request.\\ 
 Le regole di protezione del ramo principale obbligano che ogni PR$^G$ sia approvata da almeno un Verificatore$^G$ diverso dall'autore, garantendo un controllo qualità sistematico e tracciabile prima che le modifiche vengano integrate.
 
 \subsubsection{Analisi statica}
@@ -475,11 +475,73 @@ I metodi di lettura più diffusi sono due:
 \end{itemize}
 
 \subsubsection{Analisi dinamica}
-L'analisi dinamica viene condotta eseguendo il prodotto software attraverso una serie di test$^G$. Questa procedura misura la qualità funzionale del codice, assicurandosi che raggiunga il suo scopo e che il suo comportamento sia conforme alle specifiche.\\
+L'analisi dinamica viene condotta eseguendo il prodotto software attraverso una serie di test. Questa procedura misura la qualità funzionale del codice, assicurandosi che raggiunga il suo scopo e che il suo comportamento sia conforme alle specifiche.\\
 Permette di individuare e risolvere gli errori nel codice che causano comportamenti indesiderati.\\
 Ogni test$^G$ è definito da uno stato iniziale, input specifici e output attesi.\\
 Le attività di test$^G$ devono essere ripetibili, per poter confermare le correzioni, e automatizzabili, per essere eseguiti in modo continuo durante tutto il ciclo di vita del prodotto.
 
 \subsubsection{Classificazione dei Test}
-Tutti i test$^G$ pianificati, eseguiti e i loro esiti sono tracciati nel Piano di Qualifica$^G$.\\
+Tutti i test$^G$ pianificati, eseguiti e i loro esiti sono tracciati nel Piano di Qualifica.\\
 I test$^G$ sono classificati in categorie gerarchiche, ognuna con un codice identificativo univoco nel formato:
+\begin{center}
+    \textbf{TestTipo\_xx}
+\end{center}
+Dove \textbf{TestTipo} può assumere uno dei seguenti valori:
+\begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
+    \item \textbf{TU}: Test$^G$ di Unità;
+    \item \textbf{TI}: Test$^G$ di Integrazione;
+    \item \textbf{TS}: Test$^G$ di Sistema;
+    \item \textbf{TA}: Test$^G$ di Accettazione.
+\end{itemize}
+Il numero \textbf{(xx)} è un valore progressivo che identifica univocamente il test$^G$ all'interno della sua categoria. \\
+Inoltre per permettere un monitoraggio efficace dell'avanzamento ogni test$^G$ può assumere uno dei seguenti stati:
+\begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
+    \item \textbf{S}: Superato;
+    \item \textbf{I}: Implementato;
+    \item \textbf{NI}: Non Implementato.
+\end{itemize}
+
+\subsubsubsection{Test di Unità}
+I Test$^G$ di Unità rappresentano il livello di granularità più basso e mirano a verificare il corretto funzionamento delle singole unità software nella loro forma più elementare (funzioni, metodi o classi).
+Si distinguono due approcci principali:
+\begin{itemize}
+    \item \textbf{Test$^G$ Funzionali}: analizzano input e output del sistema senza considerare la logica interna di implementazione. Per questo motivo, il solo test$^G$ funzionale non è sufficiente a garantire la correttezza delle unità e necessita di essere affiancato da altre tipologie di test$^G$;
+    \item \textbf{Test$^G$ Strutturali}: analizzano la logica interna del codice, verificandone i diversi percorsi di esecuzione e la relativa copertura.
+\end{itemize}
+
+\subsubsubsection{Test di Integrazione}
+I Test$^G$ di Integrazione verificano che le diverse componenti, precedentemente testate singolarmente, interagiscano e comunichino correttamente tra loro.\\
+L’obiettivo principale è individuare errori derivanti dall’integrazione di moduli, come incompatibilità di interfacce, errori nella gestione dei dati condivisi o comportamenti inattesi nelle sequenze di chiamata.\\
+L'approccio di integrazione adottato può seguire due strategie:
+\begin{itemize}
+    \item \textbf{Top-Down}: si parte dalle componenti di livello superiore, caratterizzate da maggiori dipendenze;
+    \item \textbf{Bottom-Up}: si inizia dalle componenti di base, con minori dipendenze.
+\end{itemize}
+
+\subsubsubsection{Test di Sistema}
+I test$^G$ di Sistema verificano il comportamento del sistema nella sua interezza, valutandone la conformità rispetto ai requisiti funzionali e non funzionali definiti nel documento di Analisi dei Requisiti. Questi test$^G$ permettono di validare aspetti quali la correttezza funzionale, l'affidabilità, la robustezza e la gestione degli errori.
+
+\subsubsubsection{Test di Accettazione}
+I Test$^G$ di Accettazione verificano che il sistema funzioni nella sua interezza e che soddisfi le aspettative ed i requisiti richiesti dalla proponente.
+
+\subsubsubsection{Test di Regressione}
+I Test$^G$ di Regressione hanno lo scopo di verificare che le modifiche apportate al sistema, siano esse correzioni o l'aggiunta di nuove funzionalità$^G$, non abbiano compromesso comportamenti precedentemente testati e corretti. 
+Vengono eseguiti ogni volta che viene apportata una modifica$^G$ al software e consistono nella riesecuzione dell'intera suite di test$^G$, garantendo così che le funzionalità$^G$ già verificate mantengano la loro correttezza, prevenendo di fatto una regressione della qualità del prodotto.
+
+\subsubsection{Validazione}
+Il processo$^G$ di Validazione$^G$ ha l'obiettivo di verificare e confermare attraverso delle prove oggettive che quanto realizzato rispetti tutte le richieste di \textbf{Ergon Informatica Srl}.
+Mentre la verifica$^G$ si concentra sulla conformità tecnica del prodotto, la validazione$^G$ risponde alla domanda: \textit{\vr{Did I build$^G$ the right system?}} ovvero \textit{\vr{Stiamo costruendo il sistema corretto?}}.\\
+In conformità allo standard ISO/IEC 122207:1995 adottato, le attività previste dal processo$^G$ di validazione$^G$ sono:
+\begin{itemize}
+    \item implementazione del processo$^G$
+    \item attività di validazione$^G$
+\end{itemize}
+
+\subsubsubsection{Implementazione del processo}
+A seguito di un’analisi approfondita delle richieste di \textbf{Ergon Informatica srl}, Nullpointers Group ha stilato una lista di requisiti da soddisfare, reperibili nel documento di \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documenti%20Esterni/Analisi_dei_Requisiti.pdf}{Analisi dei Requisiti$^G$} (Sezione 2.3).
+Come già ribadito, il tracciamento dei requisiti rappresenta un elemento fondamentale per il processo$^G$ di validazione$^G$, permettendo di verificare che ogni requisito obbligatorio sia stato implementato e che il sistema operi correttamente nel suo complesso. 
+Per realizzare l’attività di validazione$^G$, il gruppo si avvale del \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documenti%20Esterni/Piano_di_Qualifica.pdf}{Piano di Qualifica$^G$} per definire e tracciare le metodologie di test$^G$ implementate.
+
+\subsubsubsection{Attività di Validazione}
+L’attività di Validazione$^G$ consiste nella verifica$^G$ finale della conformità del prodotto rispetto ai requisiti definiti e concordati con \textbf{Ergon Informatica srl}.\\
+Viene svolta attraverso l’analisi degli esiti dei test$^G$ di accettazione e il controllo del tracciamento dei requisiti, costituendo la fase conclusiva del processo$^G$ di verifica$^G$ del sistema. L'obiettivo è accertare che le funzionalità$^G$ realizzate rispondano effettivamente alle aspettative della proponente.

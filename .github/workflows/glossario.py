@@ -81,7 +81,7 @@ def apply_tags_to_text(text: str, patterns: List[Tuple[str, Pattern]], tex_file:
       - il carattere successivo è spazio o fine stringa
       - non si trova all'interno di comandi come label, url, hyperref, ref ecc...
     """
-    #text = re.sub(r'\$\^G\$', '', text)
+    text = re.sub(r'\$\^G\$', '', text)
     title_ranges: List[Tuple[int, int]] = []
     link_ranges: List[Tuple[int, int]] = []
 
@@ -148,9 +148,18 @@ def apply_tags_to_text(text: str, patterns: List[Tuple[str, Pattern]], tex_file:
                 continue
             if text[end:end + 4] == "$^G$":
                 continue
+            
+            # Controllo carattere prima e dopo per evitare match in MAJOR.MINOR.PATCH
+            before_char: str = text[start-1:start] if start > 0 else ""
             after_char: str = text[end:end + 1]
-            if after_char and not (after_char.isspace() or after_char in {".", ",", ";", ":", ")", "]", "}"}):
+            
+            # Se il termine è circondato da punti, salta (es. MAJOR.MINOR.PATCH)
+            if before_char == "." or after_char == ".":
                 continue
+            
+            if after_char and not (after_char.isspace() or after_char in {",", ";", ":", ")", "]", "}"}):
+                continue
+            
             inserts.append((end, "$^G$", m.group(1)))
             occupied.append((start, end))
 
