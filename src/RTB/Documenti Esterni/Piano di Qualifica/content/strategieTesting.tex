@@ -1,16 +1,16 @@
 \section{Strategie di Testing}
-Le strategie di testing adottate sono state discusse nel documento di \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documenti%20Interni/Norme_di_Progetto.pdf}{Norme di Progetto}, nel quale è definita la classificazione delle diverse tipologie di test e la relativa codifica (Sezione 3.4.5).\\
-Verranno attuati i seguenti test:
+Le strategie di testing adottate sono state discusse nel documento di \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documenti%20Interni/Norme_di_Progetto.pdf}{Norme di Progetto$^G$}, nel quale è definita la classificazione delle diverse tipologie di test$^G$ e la relativa codifica (Sezione 3.4.5).\\
+Verranno attuati i seguenti test$^G$:
 \begin{itemize}
-    \item Test di Unità;
-    \item Test di Integrazione;
-    \item Test di Sistema;
-    \item Test di Regressione;
-    \item Test di Accettazione.
+    \item Test$^G$ di Unità;
+    \item Test$^G$ di Integrazione;
+    \item Test$^G$ di Sistema;
+    \item Test$^G$ di Regressione;
+    \item Test$^G$ di Accettazione.
 \end{itemize}
-Nullpointers Group ha deciso di riportare solamente i \textbf{test di Sistema} e i \textbf{test di Accettazione}; le restanti tipologie di test verranno eseguite durante le attività di sviluppo per la \textbf{Product Baseline (PB)}.
+Nullpointers Group ha deciso di riportare solamente i \textbf{test$^G$ di Sistema} e i \textbf{test$^G$ di Accettazione}; le restanti tipologie di test$^G$ verranno eseguite durante le attività di sviluppo$^G$ per la \textbf{Product Baseline$^G$ (PB$^G$)}.
 \subsection{Test di Sistema}
-La seguente tabella riporta l’elenco completo dei test di Sistema pianificati specificandone: identificativo, descrizione, requisito associato e stato del test.
+La seguente tabella riporta l’elenco completo dei test$^G$ di Sistema pianificati specificandone: identificativo, descrizione, requisito associato e stato del test.
 \renewcommand{\arraystretch}{1.2}
 \begin{longtable}{|
     >{\raggedright\arraybackslash}p{0.12\columnwidth} |
@@ -20,13 +20,13 @@ La seguente tabella riporta l’elenco completo dei test di Sistema pianificati 
     }
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice Test} & \textbf{Descrizione} & \textbf{Requisito associato} & \textbf{Stato} \\
+    \textbf{Codice Test$^G$} & \textbf{Descrizione} & \textbf{Requisito associato} & \textbf{Stato} \\
     \hline
     \endfirsthead
 
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice Test} & \textbf{Descrizione} & \textbf{Requisito associato} & \textbf{Stato} \\
+    \textbf{Codice Test$^G$} & \textbf{Descrizione} & \textbf{Requisito associato} & \textbf{Stato} \\
     \hline
     \endhead
 
@@ -200,7 +200,7 @@ La seguente tabella riporta l’elenco completo dei test di Sistema pianificati 
     TS\_165 & Verificare che il Cliente possa ricevere la notifica di conferma invio feedback & RF-DE\_56 & NI \\ \hline
     TS\_166 & Verificare che il Cliente possa vedere il pulsante \vr{Segnala un problema} nella home & RF-DE\_57 & NI \\ \hline
     TS\_167 & Verificare che il Cliente possa cliccare il pulsante \vr{Segnala un problema} & RF-DE\_58 & NI \\ \hline
-    TS\_168 & Verificare che il Cliente possa visualizzare il dropdown: \vr{Bug}, \vr{Richiesta di supporto}, \vr{Suggerimento} & RF-DE\_59 & NI \\ \hline
+    TS\_168 & Verificare che il Cliente possa visualizzare il dropdown: \vr{Bug$^G$}, \vr{Richiesta di supporto}, \vr{Suggerimento} & RF-DE\_59 & NI \\ \hline
     TS\_169 & Verificare che il Cliente possa selezionare il tipo dal dropdown & RF-DE\_60 & NI \\ \hline
     TS\_170 & Verificare che il Cliente possa visualizzare il pulsante \vr{Invia segnalazione} & RF-DE\_61 & NI \\ \hline
     TS\_171 & Verificare che il Cliente possa inviare il form premento il pulsante \vr{Invia segnalazione} & RF-DE\_62 & NI \\ \hline
@@ -212,18 +212,18 @@ La seguente tabella riporta l’elenco completo dei test di Sistema pianificati 
     TS\_177 & Verificare che l'Admin possa visualizzare il tempo medio di permanenza nella web-app & RF-DE\_68 & NI \\ \hline
     TS\_178 & Verificare che l'Admin possa visualizzare il pulsante per l'esportazione dei log & RF-DE\_69 & NI \\ \hline
     TS\_179 & Verificare che l'Admin possa premere il pulsante per l'esportazione dei log & RF-DE\_70 & NI \\ \hline
-    TS\_180 & Verificare che l'Admin possa ottenere il file log in formato JSON & RF-DE\_71 & NI \\ \hline
-    TS\_181 & Verificare che l'Admin possa ottenere il file dello storico ordini in formato JSON & RF-DE\_72 & NI \\ \hline
+    TS\_180 & Verificare che l'Admin possa ottenere il file log in formato JSON$^G$ & RF-DE\_71 & NI \\ \hline
+    TS\_181 & Verificare che l'Admin possa ottenere il file dello storico ordini in formato JSON$^G$ & RF-DE\_72 & NI \\ \hline
     TS\_182 & Verificare che l'Admin possa visualizzare il tasto \vr{Esporta} nella pagina dello storico ordini & RF-DE\_73 & NI \\ \hline
     TS\_183 & Verificare che l'Admin possa premere il pulsante \vr{Esporta} & RF-DE\_74 & NI \\ \hline
     TS\_184 & Verificare che l'Admin possa vedere la conferma dell'esportazione dello storico ordini & RF-DE\_75 & NI \\ \hline
     TS\_185 & Verificare che l'Admin visualizzi un errore se non fosse possibile scaricare il file & RF-DE\_76 & NI \\ \hline
-    TS\_186 & Verificare che il file JSON esportato contenga il campo id[integer]: identificativo dell'ordine & RF-DE\_77 & NI \\ \hline
-    TS\_187 & Verificare che il file JSON esportato contenga il campo cod\_cli[integer]: identificativo del cliente & RF-DE\_78 & NI \\ \hline
-    TS\_188 & Verificare che il file JSON esportato contenga il campo cod\_art[varchar(13)]: identificativo dell'articolo & RF-DE\_79 & NI \\ \hline
-    TS\_189 & Verificare che il file JSON esportato contenga il campo data\_ord[date]: data dell'ordine & RF-DE\_80 & NI \\ \hline
-    TS\_190 & Verificare che il file JSON esportato contenga il campo qta\_ordinata[float]: quantità ordinata & RF-DE\_81 & NI \\ \hline
-    TS\_191 & Verificare che il file JSON esportato contenga il campo rif[integer/string]: riferimento al testo originario & RF-DE\_82 & NI \\ \hline
+    TS\_186 & Verificare che il file JSON$^G$ esportato contenga il campo id[integer]: identificativo dell'ordine & RF-DE\_77 & NI \\ \hline
+    TS\_187 & Verificare che il file JSON$^G$ esportato contenga il campo cod\_cli[integer]: identificativo del cliente & RF-DE\_78 & NI \\ \hline
+    TS\_188 & Verificare che il file JSON$^G$ esportato contenga il campo cod\_art[varchar(13)]: identificativo dell'articolo & RF-DE\_79 & NI \\ \hline
+    TS\_189 & Verificare che il file JSON$^G$ esportato contenga il campo data\_ord[date]: data dell'ordine & RF-DE\_80 & NI \\ \hline
+    TS\_190 & Verificare che il file JSON$^G$ esportato contenga il campo qta\_ordinata[float]: quantità ordinata & RF-DE\_81 & NI \\ \hline
+    TS\_191 & Verificare che il file JSON$^G$ esportato contenga il campo rif[integer/string]: riferimento al testo originario & RF-DE\_82 & NI \\ \hline
     TS\_192 & Verificare che il Cliente possa richiedere la duplicazione di un ordine con il comando \vr{/duplica{xx}} indicando il codice & RF-DE\_83 & NI \\ \hline
     TS\_193 & Verificare che il Cliente possa richiedere la duplicazione dell'ultimo ordine con il comando \vr{/duplica} & RF-DE\_84 & NI \\ \hline
     TS\_194 & Verificare che il Cliente possa richiedere la duplicazione tramite input testo, audio o immagine & RF-DE\_85 & NI \\ \hline
@@ -304,13 +304,13 @@ La seguente tabella riporta l’elenco completo dei test di Sistema pianificati 
     }
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice Test} & \textbf{Codice Requisito}\\
+    \textbf{Codice Test$^G$} & \textbf{Codice Requisito}\\
     \hline
     \endfirsthead
 
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice Test} & \textbf{Codice Requisito}\\
+    \textbf{Codice Test$^G$} & \textbf{Codice Requisito}\\
     \hline
     \endhead
 
@@ -579,7 +579,7 @@ La seguente tabella riporta l’elenco completo dei test di Sistema pianificati 
 \end{longtable}
 
 \subsection{Test di Accettazione}
-La seguente tabella riporta l’elenco completo dei test di Accettazione pianificati specificandone: identificativo, descrizione e stato del test.
+La seguente tabella riporta l’elenco completo dei test$^G$ di Accettazione pianificati specificandone: identificativo, descrizione e stato del test.
 \begin{longtable}{|
     >{\raggedright\arraybackslash}p{0.10\columnwidth} |
     >{\centering\arraybackslash}p{0.50\columnwidth} |
@@ -587,13 +587,13 @@ La seguente tabella riporta l’elenco completo dei test di Accettazione pianifi
     }
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice Test} & \textbf{Descrizione} & \textbf{Stato}\\
+    \textbf{Codice Test$^G$} & \textbf{Descrizione} & \textbf{Stato}\\
     \hline
     \endfirsthead
 
     \hline
     \rowcolor[gray]{0.9}
-    \textbf{Codice Test} & \textbf{Descrizione} & \textbf{Stato}\\
+    \textbf{Codice Test$^G$} & \textbf{Descrizione} & \textbf{Stato}\\
     \hline
     \endhead
 
@@ -618,6 +618,6 @@ La seguente tabella riporta l’elenco completo dei test di Accettazione pianifi
 \end{longtable}
 
 \subsection{Test di Regressione}
-Per prevenire problemi di regressione durante lo sviluppo di nuove funzionalità, Nullpointers Group ha deciso di adottare un approccio di integrazione continua.
-La repository del codice sorgente sarà configurata in modo che ogni commit attivi automaticamente l'esecuzione completa della suite di test di unità e integrazione (i quali verranno definiti durante la PB).
-Questo approccio consentirà di rilevare tempestivamente possibili regressioni introdotte dalle modifiche apportate al codice, permettendo di intervenire prima dell'integrazione nel branch principale.
+Per prevenire problemi di regressione durante lo sviluppo$^G$ di nuove funzionalità$^G$, Nullpointers Group ha deciso di adottare un approccio di integrazione continua.
+La repository$^G$ del codice sorgente sarà configurata in modo che ogni commit attivi automaticamente l'esecuzione completa della suite di test$^G$ di unità e integrazione (i quali verranno definiti durante la PB$^G$).
+Questo approccio consentirà di rilevare tempestivamente possibili regressioni introdotte dalle modifiche apportate al codice, permettendo di intervenire prima dell'integrazione nel branch$^G$ principale.
