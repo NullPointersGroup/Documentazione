@@ -3,7 +3,7 @@
     Il processo$^G$ di documentazione è un elemento cardine di tutti i processi primari. Il suo output è fondamentale per tracciare le decisioni prese e per facilitare il lavoro asincrono, che nel nostro contesto si rivela notevolmente più produttivo di quello sincrono. \\
     Nello specifico, questo processo$^G$ si occupa di registrare le informazioni generate da ciascuna attività o processo$^G$ del ciclo di vita del prodotto; comprende quindi tutte le operazioni di pianificazione$^G$, progettazione$^G$, sviluppo$^G$, produzione$^G$, modifica$^G$, distribuzione$^G$ e manutenzione$^G$ dei documenti destinati a tutti i soggetti coinvolti.
 
-\subsubsection{Linguaggio di Markup}
+\subsubsection{Linguaggio di markup}
     Per la redazione dei documenti il gruppo ha deciso di utilizzare \textbf{LaTeX$^G$} ovvero un linguaggio di markup consolidato e ampiamente utilizzato per la stesura di documenti tecnici e scientifici. LaTeX$^G$ consente di mantenere un’elevata qualità tipografica e di gestire in modo efficiente la struttura del documento.\\
     NullPointers Group utilizza LaTeX$^G$ per la produzione$^G$ di tutta la documentazione, facendo uso di pacchetti e template appositamente sviluppati dai membri del gruppo.
 
@@ -196,7 +196,7 @@ Il procedimento che segue si applica solo a verbali o per l’approvazione di Do
 \end{enumerate}
 
 \subsubsection{Nomenclatura}
-\subsubsubsection{File nel repository}
+\subsubsubsection{File nel Repository}
 Per convenzione i documenti caricati nel repository$^G$ seguiranno la seguente denominazione:\\
 Verbali interni:
 \begin{center}
@@ -237,7 +237,7 @@ Inoltre viene indicata la versione attuale di ogni documento con v\# dove \# fun
 L'attività di manutenzione$^G$ della documentazione viene attivata ogni qualvolta un documento richiede integrazioni o modifiche per rimanere accurato e allineato allo stato del progetto.\\
 Il flusso di aggiornamento ripercorre le fasi principali della stesura iniziale: partendo dalla creazione di una issue$^G$ di tracciamento, si procede con le modifiche in un branch$^G$ dedicato, per concludere con una verifica$^G$ formale attraverso una Pull Request$^G$ prima dell'integrazione nel documento definitivo (il punto \ref{sec:stesura-documenti} descrive la procedura).
 
-\subsubsection{Documentazione del Codice}
+\subsubsection{Documentazione del codice}
 Questa sezione definisce gli standard da adottare per la scrittura e la documentazione del codice sorgente del progetto$^G$ SmartOrder.\\ 
 Il suo scopo è garantire:
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
@@ -246,7 +246,7 @@ Il suo scopo è garantire:
     \item \textbf{Coerenza del Team}: uniformità nello stile, essenziale per il lavoro collaborativo e asincrono.
 \end{itemize}
 
-\subsubsubsection{Convenzioni per la Documentazione del Codice}
+\subsubsubsection{Convenzioni per la documentazione del codice}
 Per garantire tracciabilità e manutenibilità, il codice sorgente deve essere documentato utilizzando uno standard ispirato da \textbf{Doxygen$^G$}.\\
 I blocchi di documentazione devono essere inseriti immediatamente prima della dichiarazione di:
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
@@ -279,7 +279,7 @@ Ogni blocco di documentazione deve includere i seguenti tag, ove applicabili:
 	\caption{Tag previsti per la documentazione del codice}
 \end{table}
 
-\subsubsubsection{Verifica della Conformità}
+\subsubsubsection{Verifica della conformità}
 	La conformità a questi standard è parte integrante del \textbf{processo$^G$ di verifica$^G$ del codice}:
 	\begin{enumerate}[itemsep=3pt, parsep=1pt, label=\arabic*.]
 		\item Il \textbf{Programmatore$^G$} è responsabile$^G$ della documentazione del proprio codice.
@@ -295,15 +295,15 @@ Ogni blocco di documentazione deve includere i seguenti tag, ove applicabili:
 
 \subsection{Gestione della Configurazione}
 \label{sec:gestione-configurazione}
-La gestione delle configurazioni è il processo$^G$ che garantisce il controllo e la tracciabilità di tutte le componenti di un progetto$^G$ software. Consente di organizzare le modifiche al codice e alla documentazione, permettendo un controllo su tutte le modifiche e le versioni rilasciate.\\
+La gestione delle configurazioni è la pratica che garantisce il controllo e la tracciabilità di tutte le componenti di un progetto$^G$ software. Consente di organizzare le modifiche al codice e alla documentazione, permettendo un controllo su tutte le modifiche e le versioni rilasciate.\\
 Per garantire questo controllo, ogni elemento del progetto$^G$ viene trattato come elemento di configurazione e sottoposto a versionamento$^G$ e tracciamento.\\
 Gli elementi sottoposti a verifica$^G$ sono documenti, esclusi i verbali siccome questi non hanno necessità di registro di modifiche, e il codice.\\
 Questo approccio assicura un avanzamento ordinato dello sviluppo$^G$, mantenendo una traccia storica dell’evoluzione di ciascun elemento.
 
-\subsubsection{Strumenti di Controllo della Configurazione}
+\subsubsection{Strumenti di controllo della configurazione}
 \label{sec:ticketing}
 Il gruppo utilizza il sistema di Issue$^G$ Tracking e le Project Board integrate in GitHub$^G$ come strumenti principali per la gestione e l’organizzazione delle attività.\\
-Questi strumenti consentono di pianificare il lavoro, monitorarne l’avanzamento e mantenere un controllo costante sulla qualità e sulla coerenza del processo$^G$ di sviluppo.
+Questi strumenti consentono di pianificare il lavoro, monitorarne l’avanzamento e mantenere un controllo costante sulla qualità e sulla coerenza delle attività di sviluppo.
 \subsubsubsection{Issue}
 Ogni attività, modifica$^G$ o produzione$^G$ di documentazione viene gestita attraverso una issue$^G$, che deve contenere:
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
@@ -393,7 +393,7 @@ Per garantire uniformità e tracciabilità nella gestione dei branch$^G$ relativ
 L'attività di Registrazione dello Stato di Configurazione è fondamentale per garantire la tracciabilità e la conoscenza storica delle evoluzioni di tutti gli Elementi di Configurazione (codice e documentazione) prodotti dal gruppo.
 
 \subsubsubsection{Documentazione}
-In base a quanto definito nel \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Verbali\%20Interni/2025-11-06\_verbale\_interno.pdf}{verbale interno del 6 novembre} per il tracciamento durante il ciclo di vita dei documenti, NullPointers Group ha deciso di utilizzare una politica di versionamento$^G$ basata sulla specifica MAJOR.MINOR.PATCH. Questa specifica riflette lo stato di avanzamento e la validazione$^G$ formale del documento. La sua implementazione avviene come segue:
+In base a quanto definito nel \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Verbali%20Interni/2025-11-06_verbale_interno.pdf}{verbale interno del 6 novembre} per il tracciamento durante il ciclo di vita dei documenti, NullPointers Group ha deciso di utilizzare una politica di versionamento$^G$ basata sulla specifica MAJOR.MINOR.PATCH. Questa specifica riflette lo stato di avanzamento e la validazione$^G$ formale del documento. La sua implementazione avviene come segue:
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
     \item \textbf{MAJOR$^G$}: Incrementato solo in seguito all'Approvazione Formale (Approvazione) del file da parte del Responsabile.
     \item \textbf{MINOR$^G$}: Incrementato una volta completato l'intero ciclo di modifica$^G$, che include sia lo sviluppo$^G$ del contenuto sia la verifica$^G$ formale da parte del Verificatore$^G$ designato.
@@ -448,7 +448,7 @@ Ogni metrica è definita dai seguenti elementi essenziali:
 \end{itemize}
 Questa struttura facilita il riconoscimento immediato della tipologia di metrica (di prodotto o di processo$^G$), standardizza la documentazione e ne supporta l'utilizzo sistematico in tutte le fasi di monitoraggio e valutazione.
 
-\subsubsection{Miglioramento Continuo}
+\subsubsection{Miglioramento continuo}
 Il gruppo segue un approccio in cui la qualità migliora progressivamente, analizzando i risultati dopo ogni ciclo di lavoro.\\ 
 Se emergono problemi, come errori frequenti o metriche insufficienti, si valutano azioni correttive. Questo può significare introdurre nuovi strumenti, aggiornare quelli esistenti o rivedere procedure e checklist.\\ Le modifiche importanti vengono discusse in gruppo, approvate e registrate formalmente nei verbali interni, per assicurare la tracciabilità e una corretta applicazione futura.
 
@@ -533,7 +533,7 @@ Il processo$^G$ di Validazione$^G$ ha l'obiettivo di verificare e confermare att
 Mentre la verifica$^G$ si concentra sulla conformità tecnica del prodotto, la validazione$^G$ risponde alla domanda: \textit{\vr{Did I build$^G$ the right system?}} ovvero \textit{\vr{Stiamo costruendo il sistema corretto?}}.\\
 In conformità allo standard ISO/IEC 122207:1995 adottato, le attività previste dal processo$^G$ di validazione$^G$ sono:
 \begin{itemize}
-    \item implementazione del processo$^G$
+    \item esecuzione dell'attività
     \item attività di validazione$^G$
 \end{itemize}
 
@@ -542,6 +542,6 @@ A seguito di un’analisi approfondita delle richieste di \textbf{Ergon Informat
 Come già ribadito, il tracciamento dei requisiti rappresenta un elemento fondamentale per il processo$^G$ di validazione$^G$, permettendo di verificare che ogni requisito obbligatorio sia stato implementato e che il sistema operi correttamente nel suo complesso. 
 Per realizzare l’attività di validazione$^G$, il gruppo si avvale del \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documenti%20Esterni/Piano_di_Qualifica.pdf}{Piano di Qualifica$^G$} per definire e tracciare le metodologie di test$^G$ implementate.
 
-\subsubsubsection{Attività di Validazione}
+\subsubsubsection{Attività di validazione}
 L’attività di Validazione$^G$ consiste nella verifica$^G$ finale della conformità del prodotto rispetto ai requisiti definiti e concordati con \textbf{Ergon Informatica srl}.\\
 Viene svolta attraverso l’analisi degli esiti dei test$^G$ di accettazione e il controllo del tracciamento dei requisiti, costituendo la fase conclusiva del processo$^G$ di verifica$^G$ del sistema. L'obiettivo è accertare che le funzionalità$^G$ realizzate rispondano effettivamente alle aspettative della proponente.
