@@ -15,7 +15,7 @@
 		\item L'Admin inserisce il ruolo $\rightarrow$ Vedi \hyperref[uc_32.1]{UC\_32.1}
 		\item L'Admin inserisce lo username $\rightarrow$ Vedi \hyperref[uc_32.2]{UC\_32.2}
 		\item L'Admin inserisce l'email $\rightarrow$ Vedi \hyperref[uc_32.3]{UC\_32.3}
-		\item L'Admin conferma la creazione del nuovo utente
+		\item L'Admin conferma la creazione del nuovo Utente
 		\item Il sistema mostra una notifica di creazione riuscita $\rightarrow$ Vedi \hyperref[uc_32.4]{UC\_32.4}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
@@ -56,6 +56,8 @@
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
+        \item Il sistema è online
+        \item L'Utente non è registrato nel sistema
 		\item L'Admin sta creando un nuovo Utente $\rightarrow$ Vedi \hyperref[uc_32]{UC\_32}
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
@@ -78,6 +80,7 @@
     \begin{itemize}
         \item Il sistema è online
         \item L'Utente non è registrato nel sistema
+		\item L'Admin sta creando un nuovo Utente $\rightarrow$ Vedi \hyperref[uc_32]{UC\_32}
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
@@ -85,12 +88,11 @@
     \end{itemize}
     \item \textbf{Scenari Alternativi}:
     \begin{itemize}
-        \item L'Admin ha inserito uno username esistente o errato $\rightarrow$ Vedi \hyperref[uc_32.2.1]{UC\_32.2.1}
+        \item L'Admin ha inserito uno username già esistente o errato $\rightarrow$ Vedi \hyperref[uc_32.2.1]{UC\_32.2.1}
     \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
         \item \hyperref[uc_32.2.1]{UC\_32.2.1}
-        \item \hyperref[uc_32.2.2]{UC\_32.2.2}
     \end{itemize}
     \item \textbf{Trigger}: L'Admin vuole inserire l'username per la registrazione
 \end{itemize}
@@ -108,6 +110,10 @@ UC\_32.2 presenta una ulteriore estensione, come mostrato in figura:
 
 \begin{itemize}
     \item \textbf{Attore$^G$ Principale}: Admin
+    \item \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item L'Admin visualizza un errore per username non valido
+    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il sistema è online
@@ -116,7 +122,7 @@ UC\_32.2 presenta una ulteriore estensione, come mostrato in figura:
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item L'Admin visualizza un messaggio di errore per Username non valido
+        \item L'Admin visualizza un messaggio di errore per username non valido
     \end{itemize}
 \end{itemize}
 
@@ -139,6 +145,7 @@ UC\_32.2 presenta una ulteriore estensione, come mostrato in figura:
     \begin{itemize}
         \item Il sistema è online
         \item L'Utente non è registrato nel sistema
+		\item L'Admin sta creando un nuovo Utente $\rightarrow$ Vedi \hyperref[uc_32]{UC\_32}
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
@@ -146,31 +153,35 @@ UC\_32.2 presenta una ulteriore estensione, come mostrato in figura:
     \end{itemize}
     \item \textbf{Scenari Alternativi}:
     \begin{itemize}
-        \item L'Utente ha inserito una email non valida $\rightarrow$ Vedi \hyperref[uc_32.3.1]{UC\_32.3.1}
-        \item L'Utente ha inserito una email già presente nel sistema $\rightarrow$ Vedi \hyperref[uc_32.3.2]{UC\_32.3.2}
+        \item L'Admin ha inserito una email non valida $\rightarrow$ Vedi \hyperref[uc_32.3.1]{UC\_32.3.1}
+        \item L'Admin ha inserito una email già presente nel sistema $\rightarrow$ Vedi \hyperref[uc_32.3.2]{UC\_32.3.2}
     \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
         \item \hyperref[uc_32.3.1]{UC\_32.3.1}
         \item \hyperref[uc_32.3.2]{UC\_32.3.2}
     \end{itemize}
-    \item \textbf{Trigger}: L'Utente vuole inserire l'email
+    \item \textbf{Trigger}: L'Admin vuole inserire l'email del nuovo Utente
 \end{itemize}
 
 \subsubsubsubsection{UC\_32.3.1: Email non valida}
 \label{uc_32.3.1}
 
 \begin{itemize} 
-    \item \textbf{Attore$^G$ Principale}: Utente
+    \item \textbf{Attore$^G$ Principale}: Admin
+    \item \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item L'Admin visualizza un errore per email non valida
+    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il sistema è online
         \item L'Utente non è registrato nel sistema
-        \item L'Utente ha inserito una email in un formato non corretto
+        \item L'Admin ha inserito una email in un formato non corretto
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Messaggio di errore visibile all'Utente 
+        \item Messaggio di errore visibile all'Admin 
     \end{itemize}
 \end{itemize}
 
@@ -179,17 +190,20 @@ UC\_32.2 presenta una ulteriore estensione, come mostrato in figura:
 \label{uc_32.3.2}
 
 \begin{itemize}
-    \item \textbf{Attore$^G$ Principale}: Utente
+    \item \textbf{Attore$^G$ Principale}: Admin
+    \item \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item L'Admin visualizza un errore per email già presente nel sistema
+    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il sistema è online
         \item L'Utente non è registrato nel sistema
-        \item L'Utente ha inserito una email già presente nel sistema
+        \item L'Admin ha inserito una email già presente nel sistema
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Link HTML per andare alla pagina di login
-        \item L'Utente visualizza un messaggio di errore
+        \item L'Admin visualizza un messaggio di errore per email già presente nel sistema
     \end{itemize}
 \end{itemize}
 
@@ -211,5 +225,5 @@ UC\_32.2 presenta una ulteriore estensione, come mostrato in figura:
 	\begin{itemize}
 		\item La notifica di creazione riuscita è stata visualizzata
 	\end{itemize}
-	\item \textbf{Trigger}: Il sistema conferma l'avvenuta creazione del nuovo utente
+	\item \textbf{Trigger}: Il sistema conferma l'avvenuta creazione del nuovo Utente
 \end{itemize}
