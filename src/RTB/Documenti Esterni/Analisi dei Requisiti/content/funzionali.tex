@@ -25,9 +25,9 @@
 	\hline
 	RF-OB\_04 \hypertarget{rf-ob_4} & L'Utente deve poter visualizzare una notifica di errore se lo username è già presente nel sistema & \hyperref[uc_01.1.2]{UC\_01.1.2} \\
 	\hline
-	RF-OB\_05 \hypertarget{rf-ob_5} & Lo username deve avere un massimo di 24 caratteri & \hyperref[uc_01.1.1]{UC\_01.1.1}\newline \hyperref[uc_08]{UC\_08} \\
+	RF-OB\_05 \hypertarget{rf-ob_5} & Lo username deve avere un massimo di 24 caratteri & \hyperref[uc_01.1.1]{UC\_01.1.1}\newline \hyperref[uc_08]{UC\_08} \newline \hyperref[uc_32.2.1]{UC\_32.2.1}\\
 	\hline
-	RF-OB\_06 \hypertarget{rf-ob_6} & L'Utente deve poter visualizzare una notifica di errore se lo username eccede il numero massimo di caratteri & \hyperref[uc_01.1.1]{UC\_01.1.1} \\
+	RF-OB\_06 \hypertarget{rf-ob_6} & L'Utente deve poter visualizzare una notifica di errore se lo username eccede il numero massimo di caratteri & \hyperref[uc_01.1.1]{UC\_01.1.1} \newline \hyperref[uc_32.2.1]{UC\_32.2.1}\\
 	\hline
 	RF-OB\_07 \hypertarget{rf-ob_7} & L'Utente deve poter visualizzare il campo di input per inserire la password & \hyperref[uc_01.2]{UC\_01.2} \\
 	\hline
@@ -53,7 +53,7 @@
 	\hline
 	RF-OB\_18 \hypertarget{rf-ob_18} & L'Utente deve poter inserire l'email & \hyperref[uc_01.4]{UC\_01.4} \\
 	\hline
-	RF-OB\_19 \hypertarget{rf-ob_19} & L'email deve essere univoca & \hyperref[uc_01.4.2]{UC\_01.4.2} \\
+	RF-OB\_19 \hypertarget{rf-ob_19} & L'email deve essere univoca & \hyperref[uc_01.4.2]{UC\_01.4.2} \newline \hyperref[uc_32.3.2]{UC\_32.3.2} \\
 	\hline
 	RF-OB\_20 \hypertarget{rf-ob_20} & L'Utente deve poter visualizzare l'errore nel caso in cui l'email non fosse nel formato corretto & \hyperref[uc_01.4.1]{UC\_01.4.1} \\
 	\hline
@@ -145,13 +145,13 @@
 	\hline
 	RF-OB\_64 \hypertarget{rf-ob_64} & Il Cliente deve essere avvisato nel caso in cui richiedesse la rimozione di alcuni articoli dal carrello ma quest'ultimo fosse vuoto & \hyperref[uc_18]{UC\_18} \\
 	\hline
-	RF-OB\_65 \hypertarget{rf-ob_65} & Il Cliente deve poter inviare il comando testuale \vr{/carrello} & \hyperref[uc_19.1]{UC\_19.1} \newline \hyperref[uc_44.2]{UC\_44.2}  \\
+	RF-OB\_65 \hypertarget{rf-ob_65} & Il Cliente deve poter inviare il comando testuale \vr{/carrello} & \hyperref[uc_19]{UC\_19} \newline \hyperref[uc_44.2]{UC\_44.2}  \\
 	\hline
-	RF-OB\_66 \hypertarget{rf-ob_66} & Il Cliente deve poter visualizzare il prezzo di ogni articolo & \hyperref[uc_19.1.1]{UC\_19.1.1} \\
+	RF-OB\_66 \hypertarget{rf-ob_66} & Il Cliente deve poter visualizzare il prezzo di ogni articolo & \hyperref[uc_19.1.1]{UC\_19.1.1} \newline \hyperref[uc_26.2.1.1]{UC\_26.2.1.1} \newline \hyperref[uc_34.1.1.1]{UC\_34.1.1.1} \\
 	\hline
-	RF-OB\_67 \hypertarget{rf-ob_67} & Il Cliente deve poter visualizzare il nome di ogni articolo & \hyperref[uc_19.1.2]{UC\_19.1.2} \\
+	RF-OB\_67 \hypertarget{rf-ob_67} & Il Cliente deve poter visualizzare il nome di ogni articolo & \hyperref[uc_19.1.2]{UC\_19.1.2} \newline \hyperref[uc_26.2.1.2]{UC\_26.2.1.2}\newline \hyperref[uc_34.1.1.2]{UC\_34.1.1.2}\\
 	\hline
-	RF-OB\_68 \hypertarget{rf-ob_68} & Il Cliente deve poter visualizzare la quantità di ogni articolo & \hyperref[uc_19.1.3]{UC\_19.1.3} \\
+	RF-OB\_68 \hypertarget{rf-ob_68} & Il Cliente deve poter visualizzare la quantità di ogni articolo & \hyperref[uc_19.1.3]{UC\_19.1.3} \newline \hyperref[uc_26.2.1.3]{UC\_26.2.1.3} \newline \hyperref[uc_34.1.1.3]{UC\_34.1.1.3}\\
 	\hline
 	RF-OB\_69 \hypertarget{rf-ob_69} & Il Cliente deve poter visualizzare i singoli elementi del carrello & \hyperref[uc_19.1]{UC\_19.1} \\
 	\hline
@@ -163,77 +163,79 @@
 	\hline
 	RF-OB\_73 \hypertarget{rf-ob_73} & Il Cliente deve poter inserire il comando \vr{/invia} nella chat per avviare la conferma dell'ordine & \hyperref[uc_26.1]{UC\_26.1} \\
 	\hline
-	RF-OB\_74 \hypertarget{rf-ob_74} & Il Cliente deve poter visualizzare il riepilogo ordine nella chat & \hyperref[uc_26.2]{UC\_26.2} \\
+	RF-OB\_74 \hypertarget{rf-ob_74} & Il Cliente deve poter visualizzare il riepilogo ordine nella chat & \hyperref[uc_26.2]{UC\_26.2} \newline \hyperref[uc_34.1]{UC\_34.1}\\
 	\hline
 	RF-OB\_75 \hypertarget{rf-ob_75} & Il Cliente a seguito del messaggio riepilogativo deve decidere se annullare o confermare l'invio dell'ordine & \hyperref[uc_26.2]{UC\_26.2} \\
 	\hline
-	RF-OB\_76 \hypertarget{rf-ob_76} & Il Cliente deve poter confermare l'invio dell'ordine con un input & \hyperref[uc_26.3]{UC\_26.3}\newline \hyperref[uc_34.2]{UC\_34.2} \\
+	RF-OB\_76 \hypertarget{rf-ob_74} & Il Cliente deve poter visualizzare i singoli elementi del riepilogo ordine dalla chat & \hyperref[uc_26.2.1]{UC\_26.2.1} \newline \hyperref[uc_34.1.1]{UC\_34.1.1} \\
 	\hline
-	RF-OB\_77 \hypertarget{rf-ob_77} & Il Cliente deve poter visualizzare la conferma dell'invio dell'ordine & \hyperref[uc_26.4]{UC\_26.4}\\
+	RF-OB\_77 \hypertarget{rf-ob_76} & Il Cliente deve poter confermare l'invio dell'ordine con un input & \hyperref[uc_26.3]{UC\_26.3}\newline \hyperref[uc_34.2]{UC\_34.2} \\
 	\hline
-	RF-OB\_78 \hypertarget{rf-ob_78} & Il Cliente deve poter annullare l'invio dell'ordine con un input & \hyperref[uc_26.5]{UC\_26.5}\\
+	RF-OB\_78 \hypertarget{rf-ob_77} & Il Cliente deve poter visualizzare la conferma dell'invio dell'ordine & \hyperref[uc_26.4]{UC\_26.4}\\
 	\hline
-	RF-OB\_79 \hypertarget{rf-ob_79} & Se il carrello è vuoto dopo il comando \vr{/invia} il Cliente visualizza un messaggio di errore che avvisa che il carrello è vuoto & \hyperref[uc_27]{UC\_27} \\
+	RF-OB\_79 \hypertarget{rf-ob_78} & Il Cliente deve poter annullare l'invio dell'ordine con un input & \hyperref[uc_26.5]{UC\_26.5}\\
 	\hline
-	RF-OB\_80 \hypertarget{rf-ob_80} & Il Cliente deve poter visualizzare un messaggio riguardante l'ambiguità dei prodotti & \hyperref[uc_21]{UC\_21} \\
+	RF-OB\_80 \hypertarget{rf-ob_79} & Se il carrello è vuoto dopo il comando \vr{/invia} il Cliente visualizza un messaggio di errore che avvisa che il carrello è vuoto & \hyperref[uc_27]{UC\_27} \\
 	\hline
-	RF-OB\_81 \hypertarget{rf-ob_81} & Il Cliente deve poter riformulare l'ordine per prodotti ambigui & \hyperref[uc_21.1]{UC\_21.1} \\
+	RF-OB\_81 \hypertarget{rf-ob_80} & Il Cliente deve poter visualizzare un messaggio riguardante l'ambiguità dei prodotti & \hyperref[uc_21]{UC\_21} \\
 	\hline
-	RF-OB\_82 \hypertarget{rf-ob_82} & Il Cliente deve poter annullare la disambiguazione & \hyperref[uc_22]{UC\_22} \\
+	RF-OB\_82 \hypertarget{rf-ob_81} & Il Cliente deve poter riformulare l'ordine per prodotti ambigui & \hyperref[uc_21.1]{UC\_21.1} \\
 	\hline
-	RF-OB\_83 \hypertarget{rf-ob_83} & Il Cliente deve poter rispondere \vr{/annulla} per uscire dalla disambiguazione & \hyperref[uc_22.1]{UC\_22.1} \\
+	RF-OB\_83 \hypertarget{rf-ob_82} & Il Cliente deve poter annullare la disambiguazione & \hyperref[uc_22]{UC\_22} \\
 	\hline
-	RF-OB\_84 \hypertarget{rf-ob_84} & Il Cliente deve poter ricevere conferma dell'annullamento della disambiguazione & \hyperref[uc_22.2]{UC\_22.2} \\
+	RF-OB\_84 \hypertarget{rf-ob_83} & Il Cliente deve poter rispondere \vr{/annulla} per uscire dalla disambiguazione & \hyperref[uc_22.1]{UC\_22.1} \\
 	\hline
-	RF-OB\_85 \hypertarget{rf-ob_85} & Il Cliente deve poter vedere il pulsante \vr{Nuova chat} & \hyperref[uc_28]{UC\_28} \\
+	RF-OB\_85 \hypertarget{rf-ob_84} & Il Cliente deve poter ricevere conferma dell'annullamento della disambiguazione & \hyperref[uc_22.2]{UC\_22.2} \\
 	\hline
-	RF-OB\_86 \hypertarget{rf-ob_86} & L'Utente deve poter cliccare sul pulsante \vr{Nuova chat} & \hyperref[uc_28]{UC\_28} \\
+	RF-OB\_86 \hypertarget{rf-ob_85} & Il Cliente deve poter vedere il pulsante \vr{Nuova chat} & \hyperref[uc_28]{UC\_28} \\
 	\hline
-	RF-OB\_87 \hypertarget{rf-ob_87} & Il Cliente deve poter visualizzare una notifica di errore nel caso in cui il prodotto non venga duplicato correttamente & \hyperref[uc_35]{UC\_35} \\
+	RF-OB\_87 \hypertarget{rf-ob_86} & L'Utente deve poter cliccare sul pulsante \vr{Nuova chat} & \hyperref[uc_28]{UC\_28} \\
 	\hline
-	RF-OB\_88 \hypertarget{rf-ob_88} & L'Utente deve poter visualizzare il pulsante \vr{visualizza storico ordini} & \hyperref[uc_36]{UC\_36} \newline \hyperref[uc_45]{UC\_45} \\
+	RF-OB\_88 \hypertarget{rf-ob_87} & Il Cliente deve poter visualizzare una notifica di errore nel caso in cui il prodotto non venga duplicato correttamente & \hyperref[uc_35]{UC\_35} \\
 	\hline
-	RF-OB\_89 \hypertarget{rf-ob_89} & L'Utente deve poter schiacciare il pulsante \vr{visualizza storico ordini} & \hyperref[uc_36]{UC\_36} \newline \hyperref[uc_45]{UC\_45} \\
+	RF-OB\_89 \hypertarget{rf-ob_88} & L'Utente deve poter visualizzare il pulsante \vr{visualizza storico ordini} & \hyperref[uc_36]{UC\_36} \newline \hyperref[uc_45]{UC\_45} \\
 	\hline
-	RF-OB\_90 \hypertarget{rf-ob_90} & L'Admin deve poter visualizzare una pagina separata contenente lo storico totale degli ordini di tutti i Clienti & \hyperref[uc_36]{UC\_36} \\
+	RF-OB\_90 \hypertarget{rf-ob_89} & L'Utente deve poter schiacciare il pulsante \vr{visualizza storico ordini} & \hyperref[uc_36]{UC\_36} \newline \hyperref[uc_45]{UC\_45} \\
 	\hline
-	RF-OB\_91 \hypertarget{rf-ob_91} & Il Cliente deve poter visualizzare una pagina separata contente lo storico totale dei suoi ordini & \hyperref[uc_45]{UC\_45} \\
+	RF-OB\_91 \hypertarget{rf-ob_90} & L'Admin deve poter visualizzare una pagina separata contenente lo storico totale degli ordini di tutti i Clienti & \hyperref[uc_36]{UC\_36} \\
 	\hline
-	RF-OB\_92 \hypertarget{rf-ob_92} & La lista completa degli ordini deve essere visualizzata in pagine contenenti al massimo 10 ordini ciascuna & \hyperref[uc_36]{UC\_36} \newline \hyperref[uc_45]{UC\_45} \\
+	RF-OB\_92 \hypertarget{rf-ob_91} & Il Cliente deve poter visualizzare una pagina separata contente lo storico totale dei suoi ordini & \hyperref[uc_45]{UC\_45} \\
 	\hline
-	RF-OB\_93 \hypertarget{rf-ob_93} & Il caricamento di una pagina non implica il caricamento delle pagine successive & \hyperref[uc_36]{UC\_36} \newline \hyperref[uc_45]{UC\_45} \\
+	RF-OB\_93 \hypertarget{rf-ob_92} & La lista completa degli ordini deve essere visualizzata in pagine contenenti al massimo 10 ordini ciascuna & \hyperref[uc_36]{UC\_36} \newline \hyperref[uc_45]{UC\_45} \\
 	\hline
-	RF-OB\_94 \hypertarget{rf-ob_94} & L'Utente deve poter visualizzare il singolo ordine nello storico & \hyperref[uc_36.1]{UC\_36.1} \newline \hyperref[uc_45.1]{UC\_45.1} \\
+	RF-OB\_94 \hypertarget{rf-ob_93} & Il caricamento di una pagina non implica il caricamento delle pagine successive & \hyperref[uc_36]{UC\_36} \newline \hyperref[uc_45]{UC\_45} \\
 	\hline
-	RF-OB\_95 \hypertarget{rf-ob_95} & L'Utente deve poter visualizzare il codice ordine & \hyperref[uc_36.1.1]{UC\_36.1.1} \newline \hyperref[uc_45.1.1]{UC\_45.1.1} \\
+	RF-OB\_95 \hypertarget{rf-ob_94} & L'Utente deve poter visualizzare il singolo ordine nello storico & \hyperref[uc_36.1]{UC\_36.1} \newline \hyperref[uc_45.1]{UC\_45.1} \\
 	\hline
-	RF-OB\_96 \hypertarget{rf-ob_96} & L'Utente deve poter visualizzare la data dell'ordine & \hyperref[uc_36.1.2]{UC\_36.1.2} \newline \hyperref[uc_45.1.2]{UC\_45.1.2} \\
+	RF-OB\_96 \hypertarget{rf-ob_95} & L'Utente deve poter visualizzare il codice ordine & \hyperref[uc_36.1.1]{UC\_36.1.1} \newline \hyperref[uc_45.1.1]{UC\_45.1.1} \\
 	\hline
-	RF-OB\_97 \hypertarget{rf-ob_97} & L'Admin deve poter visualizzare lo username del Cliente & \hyperref[uc_36.1.3]{UC\_36.1.3} \\
+	RF-OB\_97 \hypertarget{rf-ob_96} & L'Utente deve poter visualizzare la data dell'ordine & \hyperref[uc_36.1.2]{UC\_36.1.2} \newline \hyperref[uc_45.1.2]{UC\_45.1.2} \\
 	\hline
-	RF-OB\_98 \hypertarget{rf-ob_98} & L'Utente deve poter visualizzare il dettaglio di un ordine specifico & \hyperref[uc_37]{UC\_37} \newline \hyperref[uc_46]{UC\_46} \\
+	RF-OB\_98 \hypertarget{rf-ob_97} & L'Admin deve poter visualizzare lo username del Cliente & \hyperref[uc_36.1.3]{UC\_36.1.3} \\
 	\hline
-	RF-OB\_99 \hypertarget{rf-ob_99} & L'Admin deve poter visualizzare lo username del Cliente & \hyperref[uc_37.1]{UC\_37.1} \\
+	RF-OB\_99 \hypertarget{rf-ob_98} & L'Utente deve poter visualizzare il dettaglio di un ordine specifico & \hyperref[uc_37]{UC\_37} \newline \hyperref[uc_46]{UC\_46} \\
 	\hline
-	RF-OB\_100 \hypertarget{rf-ob_100} & L'Utente deve poter visualizzare i prodotti dell'ordine & \hyperref[uc_37.2]{UC\_37.2} \newline \hyperref[uc_46.1]{UC\_46.1} \\
+	RF-OB\_100 \hypertarget{rf-ob_99} & L'Admin deve poter visualizzare lo username del Cliente & \hyperref[uc_37.1]{UC\_37.1} \\
 	\hline
-	RF-OB\_101 \hypertarget{rf-ob_101} & L'Utente deve poter visualizzare il nome dei prodotti & \hyperref[uc_37.2.1]{UC\_37.2.1} \newline \hyperref[uc_46.1.1]{UC\_46.1.1} \\
+	RF-OB\_101 \hypertarget{rf-ob_100} & L'Utente deve poter visualizzare i prodotti dell'ordine & \hyperref[uc_37.2]{UC\_37.2} \newline \hyperref[uc_46.1]{UC\_46.1} \\
 	\hline
-	RF-OB\_102 \hypertarget{rf-ob_102} & L'Utente deve poter visualizzare la descrizione dei prodotti & \hyperref[uc_37.2.2]{UC\_37.2.2} \newline \hyperref[uc_46.1.2]{UC\_46.1.2} \\
+	RF-OB\_102 \hypertarget{rf-ob_101} & L'Utente deve poter visualizzare il nome dei prodotti & \hyperref[uc_37.2.1]{UC\_37.2.1} \newline \hyperref[uc_46.1.1]{UC\_46.1.1} \\
 	\hline
-	RF-OB\_103 \hypertarget{rf-ob_103} & L'Utente deve poter visualizzare la quantità dei prodotti & \hyperref[uc_37.2.3]{UC\_37.2.3} \newline \hyperref[uc_46.1.3]{UC\_46.1.3} \\
+	RF-OB\_103 \hypertarget{rf-ob_102} & L'Utente deve poter visualizzare la descrizione dei prodotti & \hyperref[uc_37.2.2]{UC\_37.2.2} \newline \hyperref[uc_46.1.2]{UC\_46.1.2} \\
 	\hline
-	RF-OB\_104 \hypertarget{rf-ob_104} & L'Utente deve poter visualizzare la data dell'ordine & \hyperref[uc_37.3]{UC\_37.3} \newline \hyperref[uc_46.2]{UC\_46.2} \\
+	RF-OB\_104 \hypertarget{rf-ob_103} & L'Utente deve poter visualizzare la quantità dei prodotti & \hyperref[uc_37.2.3]{UC\_37.2.3} \newline \hyperref[uc_46.1.3]{UC\_46.1.3} \\
 	\hline
-	RF-OB\_105 \hypertarget{rf-ob_105} & L'Utente deve poter visualizzare il numero dell'ordine & \hyperref[uc_37.4]{UC\_37.4} \newline \hyperref[uc_46.3]{UC\_46.3} \\
+	RF-OB\_105 \hypertarget{rf-ob_104} & L'Utente deve poter visualizzare la data dell'ordine & \hyperref[uc_37.3]{UC\_37.3} \newline \hyperref[uc_46.2]{UC\_46.2} \\
 	\hline
-	RF-OB\_106 \hypertarget{rf-ob_106} & Il Cliente deve poter visualizzare il pulsante per duplicare l'ordine & \hyperref[uc_38]{UC\_38} \\
+	RF-OB\_106 \hypertarget{rf-ob_105} & L'Utente deve poter visualizzare il numero dell'ordine & \hyperref[uc_37.4]{UC\_37.4} \newline \hyperref[uc_46.3]{UC\_46.3} \\
 	\hline
-	RF-OB\_107 \hypertarget{rf-ob_107} & Il Cliente deve poter cliccare sul pulsante per duplicare l'ordine & \hyperref[uc_38]{UC\_38} \\
+	RF-OB\_107 \hypertarget{rf-ob_106} & Il Cliente deve poter visualizzare il pulsante per duplicare l'ordine & \hyperref[uc_38]{UC\_38} \\
 	\hline
-	RF-OB\_108 \hypertarget{rf-ob_108} & Il Cliente deve poter confermare la duplicazione dell'ordine & \hyperref[uc_38.1]{UC\_38.1} \\
+	RF-OB\_108 \hypertarget{rf-ob_107} & Il Cliente deve poter cliccare sul pulsante per duplicare l'ordine & \hyperref[uc_38]{UC\_38} \\
 	\hline
-	RF-OB\_109 \hypertarget{rf-ob_109} & Il Cliente deve poter visualizzare la notifica di errore duplicazione ordine & \hyperref[uc_39]{UC\_39} \\
+	RF-OB\_109 \hypertarget{rf-ob_108} & Il Cliente deve poter confermare la duplicazione dell'ordine & \hyperref[uc_38.1]{UC\_38.1} \\
+	\hline
+	RF-OB\_110 \hypertarget{rf-ob_109} & Il Cliente deve poter visualizzare la notifica di errore duplicazione ordine & \hyperref[uc_39]{UC\_39} \\
 	\hline
 	\multicolumn{3}{c}{} \\
 	\caption{Requisiti Funzionali obbligatori}\hypertarget{tab:funzionali_obbligatori}\\
@@ -573,9 +575,26 @@
 	\hline
 	RF-OP\_07 \hypertarget{rf-op_7} & L'Admin deve poter selezionare il ruolo Admin & \hyperref[uc_32.1]{UC\_32.1} \\
 	\hline
-	RF-OP\_08 \hypertarget{rf-op_8} & Deve essere visualizzata una notifica a schermo che informa della corretta creazione dell'Utente & \hyperref[uc_32.4]{UC\_32.4} \\
+	RF-OP\_08 \hypertarget{rf-op_8} & L'Admin deve poter selezionare il ruolo Admin & \hyperref[uc_32.1]{UC\_32.1} \\
 	\hline
-	RF-OP\_09 \hypertarget{rf-op_9} & L'Admin deve poter visualizzare la notifica di errore creazione utente & \hyperref[uc_33]{UC\_33}\\
+	RF-OP\_09 \hypertarget{rf-op_09} & L'Admin deve poter visualizzare il campo di input per inserire lo username & \hyperref[uc_32.2]{UC\_32.2} \\
+	\hline
+	RF-OP\_10 \hypertarget{rf-op_10} & L'Admin deve poter inserire lo username & \hyperref[uc_32.2]{UC\_32.2} \\
+	\hline
+	RF-OP\_11 \hypertarget{rf-op_11} & Lo username deve essere univoco & \hyperref[uc_32.2.2]{UC\_32.2.2} \\
+	\hline
+	RF-OP\_12 \hypertarget{rf-op_12} & L'Admin deve poter visualizzare una notifica di errore se lo username è già presente nel sistema & \hyperref[uc_32.2.2]{UC\_32.2.2} \\
+	\hline
+	RF-OP\_13 \hypertarget{rf-op_13} & L'Admin deve poter visualizzare il campo di input per l'inserimento dell'email & \hyperref[uc_32.3]{UC\_32.3} \\
+	\hline
+	RF-OP\_14 \hypertarget{rf-op_14} & L'Admin deve poter inserire l'email & \hyperref[uc_32.3]{UC\_32.3} \\
+	\hline
+	RF-OP\_15 \hypertarget{rf-op_15} & L'Admin deve poter visualizzare l'errore nel caso in cui l'email non fosse nel formato corretto & \hyperref[uc_32.3.1]{UC\_32.3.1} \\
+	\hline
+	RF-OP\_16 \hypertarget{rf-op_16} & L'Admin deve poter visualizzare l'errore nel caso in cui l'email sia già presente nel sistema & \hyperref[uc_32.3.2]{UC\_32.3.2} \\
+	RF-OP\_17 \hypertarget{rf-op_17} & Deve essere visualizzata una notifica a schermo che informa della corretta creazione dell'Utente & \hyperref[uc_32.4]{UC\_32.4} \\
+	\hline
+	RF-OP\_18 \hypertarget{rf-op_18} & L'Admin deve poter visualizzare la notifica di errore creazione utente & \hyperref[uc_33]{UC\_33}\\
 	\hline
 	\multicolumn{3}{c}{} \\
 	\caption{Requisiti Funzionali opzionali}\hypertarget{tab:funzionali_opzionali}\\
