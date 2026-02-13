@@ -88,21 +88,23 @@
     \end{itemize}
     \item \textbf{Scenari Alternativi}:
     \begin{itemize}
-        \item L'Admin ha inserito uno username già esistente o errato $\rightarrow$ Vedi \hyperref[uc_32.2.1]{UC\_32.2.1}
+        \item L'Admin ha inserito uno username non valido $\rightarrow$ Vedi \hyperref[uc_32.2.1]{UC\_32.2.1}
+        \item L'Admin ha inserito uno username già esistente $\rightarrow$ Vedi \hyperref[uc_32.2.2]{UC\_32.2.2}
     \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
         \item \hyperref[uc_32.2.1]{UC\_32.2.1}
+        \item \hyperref[uc_32.2.2]{UC\_32.2.2}
     \end{itemize}
     \item \textbf{Trigger}: L'Admin vuole inserire l'username per la registrazione
 \end{itemize}
 
-UC\_32.2 presenta una ulteriore estensione, come mostrato in figura:
+UC\_32.2 presenta due ulteriori estensioni, come mostrato in figura:
 
 \begin{figure}[H]
     \centering 
     \includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_32.2}
-    \caption{Estensioni UC\_32.2: UC\_32.2.1}
+    \caption{Estensioni UC\_32.2: UC\_32.2.1, UC\_32.2.2}
 \end{figure}
 
 \subsubsubsubsection{UC\_32.2.1: Username non valido}
@@ -110,7 +112,7 @@ UC\_32.2 presenta una ulteriore estensione, come mostrato in figura:
 
 \begin{itemize}
     \item \textbf{Attore$^G$ Principale}: Admin
-    \item \item \textbf{Scenario Principale}:
+    \item \textbf{Scenario Principale}:
     \begin{enumerate}
         \item L'Admin visualizza un errore per username non valido
     \end{enumerate}
@@ -118,13 +120,36 @@ UC\_32.2 presenta una ulteriore estensione, come mostrato in figura:
     \begin{itemize}
         \item Il sistema è online
         \item L'Utente non è registrato nel sistema
-        \item L'Admin ha inserito uno username non valido o già esistente
+        \item L'Admin ha inserito uno username non valido
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
         \item L'Admin visualizza un messaggio di errore per username non valido
     \end{itemize}
 \end{itemize}
+
+\subsubsubsubsection{UC\_32.2.2: Username già esistente}
+\label{uc_32.2.1}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Admin
+    \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item L'Admin visualizza un errore per username già esistente
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
+    \begin{itemize}
+        \item Il sistema è online
+        \item L'Utente non è registrato nel sistema
+        \item L'Admin ha inserito uno username già esistente
+    \end{itemize}
+    \item \textbf{Postcondizioni}:
+    \begin{itemize}
+        \item L'Admin visualizza un messaggio di errore per username già esistente
+    \end{itemize}
+\end{itemize}
+
+UC\_32.3 presenta due ulteriori estensioni, come mostrato in figura:
 
 \subsubsubsection{UC\_32.3: Inserimento email}
 \label{uc_32.3}
