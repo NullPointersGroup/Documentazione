@@ -46,7 +46,7 @@
 		\item \hyperref[uc_26.5]{UC\_26.5}
 		\item \hyperref[uc_27]{UC\_27}
 	\end{itemize}
-	\item \textbf{Trigger}: Il Cliente deve poter confermare e inviare l'ordine con un semplice comando, per completare l'acquisto in modo rapido.
+	\item \textbf{Trigger}: Il Cliente vuole confermare e inviare l'ordine con un comando, per completare l'acquisto.
 \end{itemize}
 
 \subsubsubsection{UC\_26.1: Digita comando /invio}
@@ -74,28 +74,112 @@
     \item \textbf{Attore$^G$ Principale}: Cliente
     \item \textbf{Scenario principale}:
     \begin{enumerate}
-        \item Per ogni articolo presente nel carrello, il sistema ne visualizza le informazioni $\rightarrow$ Vedi \hyperref[uc_19.1]{UC\_19.1}
-        \item Per ciascun articolo, il Cliente visualizza:
-        \begin{itemize}
-            \item Il nome $\rightarrow$ Vedi \hyperref[uc_19.1.1]{UC\_19.1.1}
-            \item Il prezzo $\rightarrow$ Vedi \hyperref[uc_19.1.2]{UC\_19.1.2}
-            \item La quantità $\rightarrow$ Vedi \hyperref[uc_19.1.3]{UC\_19.1.3}
-        \end{itemize}
+        \item Il Cliente visualizza la lista di articoli presenti nel carrello $\rightarrow$ Vedi \hyperref[uc_26.2.1]{UC\_26.2.1}
     \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il carrello non è vuoto.
-        \item Il Cliente ha digitato il comando \verb|/invio| e il sistema sta mostrando il riepilogo.
+        \item Il Cliente ha digitato il comando \verb|/invio| e il sistema sta mostrando il riepilogo
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Le informazioni di ogni articolo nel carrello sono state visualizzate nel riepilogo.
+        \item Il Cliente visualizza gli articoli presenti nel carrello tramite riepilogo
     \end{itemize}
     \item \textbf{Inclusioni}:
 	\begin{itemize}
-        \item \hyperref[uc_19.1]{UC\_19.1}
+        \item \hyperref[uc_26.2.1]{UC\_26.2.1}
 	\end{itemize}
-    \item \textbf{Trigger}: Il Cliente vuole visualizzare i dettagli del singolo articolo
+    \item \textbf{Trigger}: Il Cliente vuole inviare l'ordine ma prima è necessario che verifichi gli articoli presenti nel carrello
+\end{itemize}
+
+\subsubsubsection{UC\_26.2.1: Visualizza singolo elemento carrello}
+\label{uc_26.2.1}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+	\item \textbf{Scenario principale}: 
+	\begin{enumerate}
+		\item Il Cliente visualizza i singoli elementi presenti nel carrello
+	\end{enumerate}
+	\item \textbf{Precondizioni}: 
+	\begin{itemize}
+		\item Il Cliente sta visualizzando il riepilogo del carrello $\rightarrow$ Vedi \hyperref[uc_26.2]{UC\_26.2}
+		\item Esiste almeno un articolo nel carrello
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza il singolo articolo presente nal carrello
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_26.2.1.1]{UC\_26.2.1.1}
+		\item \hyperref[uc_26.2.1.2]{UC\_26.2.1.2}
+		\item \hyperref[uc_26.2.1.3]{UC\_26.2.1.3}
+	\end{itemize}
+\end{itemize}
+
+UC\_26.2.1 presenta una ulteriore inclusione, come mostrato in figura:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_26.2.1}
+	\caption{Inclusioni UC\_26.2.1: UC\_26.2.1.1, UC\_26.2.1.2, UC\_26.2.1.3}
+\end{figure}
+
+\subsubsubsubsection{UC\_26.2.1.1: Visualizza nome articolo}
+\label{uc_26.2.1.1}
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+	\item \textbf{Scenario principale}: 
+	\begin{enumerate}
+		\item Il Cliente visualizza il nome dell'articolo
+	\end{enumerate}
+	\item \textbf{Precondizioni}: 
+	\begin{itemize}
+		\item Il Cliente sta visualizzando un elemento del carrello $\rightarrow$ Vedi \hyperref[uc_26.2.1]{UC\_26.2.1}
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il nome dell'articolo è visibile
+	\end{itemize} 
+\end{itemize}
+
+%--------------------------------------------------------------------
+\subsubsubsubsection{UC\_26.2.1.2: Visualizza prezzo articolo}
+\label{uc_26.2.1.2}
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+	\item \textbf{Scenario principale}: 
+	\begin{enumerate}
+		\item Il Cliente visualizza il prezzo dell'articolo
+	\end{enumerate}
+	\item \textbf{Precondizioni}: 
+	\begin{itemize}
+		\item Il Cliente sta visualizzando un elemento del carrello $\rightarrow$ Vedi \hyperref[uc_26.2.1]{UC\_26.2.1}
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il prezzo dell'articolo è visibile
+	\end{itemize} 
+\end{itemize}
+
+%--------------------------------------------------------------------
+\subsubsubsubsection{UC\_26.2.1.3: Visualizza quantità articolo}
+\label{uc_26.2.1.3}
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+	\item \textbf{Scenario principale}: 
+	\begin{enumerate}
+		\item Il Cliente visualizza la quantità dell'articolo
+	\end{enumerate}
+	\item \textbf{Precondizioni}: 
+	\begin{itemize}
+		\item Il Cliente sta visualizzando un elemento del carrello $\rightarrow$ Vedi \hyperref[uc_26.2.1]{UC\_26.2.1}
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item La quantità dell'articolo è visibile
+	\end{itemize} 
 \end{itemize}
 
 \subsubsubsection{UC\_26.3: Conferma invio ordine}
