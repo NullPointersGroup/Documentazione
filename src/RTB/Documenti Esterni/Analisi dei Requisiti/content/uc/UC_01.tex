@@ -8,7 +8,7 @@
 \end{figure}
 
 \begin{itemize}
-    \item \textbf{Attore$^G$ Principale}: Utente
+    \item \textbf{Attore$^G$ Principale}: Utente non registrato
     \item \textbf{Scenario Principale}: 
     \begin{enumerate}
         \item Inserimento dello username $\rightarrow$ Vedi \hyperref[uc_01.1]{UC\_01.1}
@@ -45,7 +45,7 @@
 \end{figure}
 
 \begin{itemize}
-    \item \textbf{Attore$^G$ Principale}: Utente
+    \item \textbf{Attore$^G$ Principale}: Utente non registrato
     \item \textbf{Scenario Principale}:
     \begin{enumerate}
         \item L'Utente inserisce uno username con il quale vuole registrarsi
@@ -61,7 +61,8 @@
     \end{itemize}
     \item \textbf{Scenari Alternativi}:
     \begin{itemize}
-        \item L'Utente ha inserito uno username esistente $\rightarrow$ Vedi \hyperref[uc_01.1.1]{UC\_01.1.1}
+        \item L'Utente ha inserito uno username non valido $\rightarrow$ Vedi \hyperref[uc_01.1.1]{UC\_01.1.1}
+        \item L'Utente ha inserito uno username già esistente $\rightarrow$ Vedi \hyperref[uc_01.1.2]{UC\_01.1.2}
     \end{itemize}
     \item \textbf{Estensioni}:
     \begin{itemize}
@@ -75,12 +76,15 @@
 \label{uc_01.1.1}
 
 \begin{itemize}
-    \item \textbf{Attore$^G$ Principale}: Utente
+    \item \textbf{Attore$^G$ Principale}: Utente non registrato
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'Utente inserisce uno username non valido
+    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il sistema è online
         \item L'Utente non è registrato nel sistema
-        \item L'Utente ha inserito uno username non valido
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
@@ -92,12 +96,15 @@
 \label{uc_01.1.2}
 
 \begin{itemize}
-    \item \textbf{Attore$^G$ Principale}: Utente
+    \item \textbf{Attore$^G$ Principale}: Utente non registrato
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'Utente inserisce uno username già esistente
+    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il sistema è online
         \item L'Utente non è registrato nel sistema
-        \item L'Utente ha inserito uno username già esistente
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
@@ -116,7 +123,7 @@
 \end{figure}
 
 \begin{itemize}
-    \item \textbf{Attore$^G$ Principale}: Utente
+    \item \textbf{Attore$^G$ Principale}: Utente non registrato
     \item \textbf{Scenario Principale}:
     \begin{enumerate}
         \item L'Utente inserisce la password che userà per autenticarsi
@@ -146,12 +153,15 @@
 \label{uc_01.2.1}
 
 \begin{itemize}
-    \item \textbf{Attore$^G$ Principale}: Utente
+    \item \textbf{Attore$^G$ Principale}: Utente non registrato
+    \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'Utente inserisce una password che non rispetta i criteri di sicurezza
+    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il sistema è online
         \item L'Utente non è registrato nel sistema
-        \item L'Utente ha inserito una password e quest'ultima non rispetta i criteri di sicurezza
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
@@ -169,7 +179,7 @@
 \end{figure}
 
 \begin{itemize}
-    \item \textbf{Attore$^G$ Principale}: Utente
+    \item \textbf{Attore$^G$ Principale}: Utente non registrato
     \item \textbf{Scenario Principale}:
     \begin{enumerate}
         \item L'Utente inserisce la password nel campo \vr{conferma password}
@@ -199,12 +209,15 @@
 \label{uc_01.3.1}
 
 \begin{itemize}
-    \item \textbf{Attore$^G$ Principale}: Utente
+    \item \textbf{Attore$^G$ Principale}: Utente non registrato
+    \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item L'Utente non ha inserito la password inserita in precedenza
+    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il sistema è online
         \item L'Utente non è registrato nel sistema
-        \item L'Utente ha inserito una password non coincidente con quella inserita precedentemente
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
@@ -222,7 +235,7 @@
 \end{figure}
 
 \begin{itemize}
-    \item \textbf{Attore$^G$ Principale}: Utente
+    \item \textbf{Attore$^G$ Principale}: Utente non registrato
     \item \textbf{Scenario Principale}:
     \begin{enumerate}
         \item L'Utente inserisce l’email che utilizzerà
@@ -253,12 +266,15 @@
 \label{uc_01.4.1}
 
 \begin{itemize} 
-    \item \textbf{Attore$^G$ Principale}: Utente
+    \item \textbf{Attore$^G$ Principale}: Utente non registrato
+    \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item L'Utente ha inserito una mail non valida
+    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il sistema è online
         \item L'Utente non è registrato nel sistema
-        \item L'Utente ha inserito una email in un formato non corretto
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
@@ -271,16 +287,19 @@
 \label{uc_01.4.2}
 
 \begin{itemize}
-    \item \textbf{Attore$^G$ Principale}: Utente
+    \item \textbf{Attore$^G$ Principale}: Utente non registrato
+    \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item L'Utente ha inserito una mail già presente nel sistema
+    \end{enumerate}
     \item \textbf{Precondizioni}:
     \begin{itemize}
         \item Il sistema è online
         \item L'Utente non è registrato nel sistema
-        \item L'Utente ha inserito una email già presente nel sistema
     \end{itemize}
     \item \textbf{Postcondizioni}:
     \begin{itemize}
-        \item Link HTML per andare alla pagina di login
+        \item L'Utente visualizza il link HTML per andare alla pagina di login
         \item L'Utente visualizza un messaggio di errore
     \end{itemize}
 \end{itemize}

@@ -3,10 +3,14 @@
 
 \begin{itemize}
     \item \textbf{Attore$^G$ Principale}: Cliente
+	 \item \textbf{Scenario Principale}:
+	 \begin{enumerate}
+		\item Il Cliente tenta di duplicare un ordine che ha prodotti non più disponibili nel sistema
+	 \end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
-		\item Il Cliente ha confermato la duplicazione di un ordine $\rightarrow$ Vedi \hyperref[uc_38]{UC\_38}
-		\item Uno o più prodotti presenti nell'ordine originale non sono più disponibili nel sistema
+		\item Il sistema è online
+		\item Il Cliente è autenticato
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
