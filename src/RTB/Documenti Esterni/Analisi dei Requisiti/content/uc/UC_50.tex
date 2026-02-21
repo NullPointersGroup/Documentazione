@@ -4,14 +4,14 @@
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_50}
-	\caption{UC\_50: Visualizza le chat}
+	\caption{UC\_50: Visualizza lista chat}
 \end{figure}
 
 \begin{itemize}
 	\item \textbf{Attore$^G$ Principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item Il Cliente visualizza le chat
+		\item Il Cliente visualizza la lista delle chat
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
@@ -20,7 +20,79 @@
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il Cliente visualizza le chat
+		\item Il Cliente visualizza la lista delle chat
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_50.1]{UC\_50.1}
 	\end{itemize}
 	\item \textbf{Trigger}: Il Cliente vuole visualizzare l'elenco delle chat
+\end{itemize}
+
+\subsubsubsection{UC\_50.1: Visualizzazione singola chat}
+\label{uc_50.1}
+
+\begin{itemize}
+	\item \textbf{Attore$^G$ principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza una singola chat 
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il Cliente ha effettuato almeno una chat
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza una singola chat
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_50.1.1]{UC\_50.1.1}
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare una singola chat 
+\end{itemize}
+
+\subsubsubsection{UC\_50.1.1: Visualizzazione lista messaggi}
+\label{uc_50.1.1}
+
+\begin{itemize}
+	\item \textbf{Attore$^G$ principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza la lista dei messaggi di una singola chat
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il Cliente ha effettuato almeno una chat e scritto almeno un messaggio in essa
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza la lista messaggi di una singola chat 
+	\end{itemize}
+	\item \textbf{Inclusioni}:
+	\begin{itemize}
+		\item \hyperref[uc_50.1.1.1]{UC\_50.1.1.1}
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare la lista messaggi di una singola chat
+\end{itemize}
+
+\subsubsubsection{UC\_50.1.1.1: Visualizzazione messaggio singolo}
+\label{uc_50.1.1.1}
+
+\begin{itemize}
+	\item \textbf{Attore$^G$ principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza un messaggio singolo all'interno di una singola chat 
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il Cliente ha effettuato almeno una chat e scritto almeno un messaggio in essa
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza un messaggio singolo all'interno di una singola chat 
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare un messaggio singolo all'interno di una chat 
 \end{itemize}
