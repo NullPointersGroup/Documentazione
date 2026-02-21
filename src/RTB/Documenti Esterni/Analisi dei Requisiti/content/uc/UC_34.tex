@@ -15,7 +15,6 @@
 		\item Il sistema identifica e propone l'ordine da duplicare
 		\item Il Cliente conferma la duplicazione $\rightarrow$ Vedi \hyperref[uc_34.2]{UC\_34.2}
 		\item Il sistema duplica l'ordine
-		\item Il sistema mostra una notifica di conferma $\rightarrow$ Vedi \hyperref[uc_34.3]{UC\_34.3}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
@@ -36,7 +35,6 @@
 	\begin{itemize}
 		\item \hyperref[uc_34.1]{UC\_34.1}
 		\item \hyperref[uc_34.2]{UC\_34.2}
-		\item \hyperref[uc_34.3]{UC\_34.3}
 	\end{itemize}
 	\item \textbf{Estensioni}:
 	\begin{itemize}
@@ -178,26 +176,4 @@ UC\_34.1.1 presenta tre ulteriori inclusioni, come mostrato in figura:
 		\item La duplicazione dell'ordine è confermata dal Cliente
 	\end{itemize}
 	\item \textbf{Trigger}: Il sistema richiede conferma per procedere con la duplicazione
-\end{itemize}
-
-\subsubsubsection{UC\_34.3: Notifica conferma}
-\label{uc_34.3}
-
-\begin{itemize}
-    \item \textbf{Attore$^G$ Principale}: Cliente
-	\item \textbf{Scenario principale}:
-	\begin{enumerate}
-		\item Il sistema mostra al Cliente una notifica di conferma della duplicazione
-		\item Il Cliente visualizza la notifica
-	\end{enumerate}
-	\item \textbf{Precondizioni}:
-	\begin{itemize}
-		\item Il Cliente ha confermato la duplicazione $\rightarrow$ Vedi \hyperref[uc_34.2]{UC\_34.2}
-		\item Il sistema ha completato la duplicazione dell'ordine
-	\end{itemize}
-	\item \textbf{Postcondizioni}:
-	\begin{itemize}
-		\item La notifica di conferma è stata visualizzata
-	\end{itemize}
-	\item \textbf{Trigger}: Il sistema ha completato con successo la duplicazione dell'ordine
 \end{itemize}
