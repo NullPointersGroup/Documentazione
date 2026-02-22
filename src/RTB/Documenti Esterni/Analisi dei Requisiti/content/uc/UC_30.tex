@@ -14,7 +14,6 @@
 		\item L'Admin richiede l'esportazione dello storico ordini in formato JSON$^G$
 		\item Il sistema genera e rende disponibile il file JSON$^G$
 		\item L'Admin scarica lo storico ordini in formato JSON$^G$
-		\item Il sistema mostra una notifica di download riuscito $\rightarrow$ Vedi \hyperref[uc_30.1]{UC\_30.1}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
@@ -31,35 +30,9 @@
 	\begin{itemize}
 		\item Si è verificato un errore nel download dello storico ordini $\rightarrow$ Vedi \hyperref[uc_31]{UC\_31}
 	\end{itemize}
-	\item \textbf{Inclusioni}:
-	\begin{itemize}
-		\item \hyperref[uc_30.1]{UC\_30.1}
-	\end{itemize}
 	\item \textbf{Estensioni}:
 	\begin{itemize}
 		\item \hyperref[uc_31]{UC\_31}
 	\end{itemize}
 	\item \textbf{Trigger}: L'Admin vuole esportare lo storico ordini in formato JSON$^G$
-\end{itemize}
-
-\subsubsubsection{UC\_30.1: Visualizzazione notifica}
-\label{uc_30.1}
-
-\begin{itemize}
-	\item \textbf{Attore$^G$ principale}: Admin
-	\item \textbf{Scenario principale}:
-	\begin{enumerate}
-		\item Il sistema mostra una notifica di download riuscito
-		\item L'Admin visualizza la notifica
-	\end{enumerate}
-	\item \textbf{Precondizioni}:
-	\begin{itemize}
-		\item L'Admin ha completato il download del file JSON$^G$ $\rightarrow$ Vedi \hyperref[uc_30]{UC\_30}
-		\item Il file JSON$^G$ è stato generato correttamente
-	\end{itemize}
-	\item \textbf{Postcondizioni}:
-	\begin{itemize}
-		\item La notifica di download riuscito è stata visualizzata
-	\end{itemize}
-	\item \textbf{Trigger}: Il sistema conferma il completamento dell'operazione di esportazione
 \end{itemize}

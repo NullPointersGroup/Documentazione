@@ -16,7 +16,6 @@
 		\item L'Admin inserisce lo username $\rightarrow$ Vedi \hyperref[uc_32.2]{UC\_32.2}
 		\item L'Admin inserisce l'email $\rightarrow$ Vedi \hyperref[uc_32.3]{UC\_32.3}
 		\item L'Admin conferma la creazione del nuovo Utente
-		\item Il sistema mostra una notifica di creazione riuscita $\rightarrow$ Vedi \hyperref[uc_32.4]{UC\_32.4}
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
@@ -36,7 +35,6 @@
 		\item \hyperref[uc_32.1]{UC\_32.1}
 		\item \hyperref[uc_32.2]{UC\_32.2}
 		\item \hyperref[uc_32.3]{UC\_32.3}
-		\item \hyperref[uc_32.4]{UC\_32.4}
 	\end{itemize}
 	\item \textbf{Estensioni}:
 	\begin{itemize}
@@ -229,25 +227,4 @@ UC\_32.3 presenta due ulteriori estensioni, come mostrato in figura:
     \begin{itemize}
         \item L'Admin visualizza un messaggio di errore per email già presente nel sistema
     \end{itemize}
-\end{itemize}
-
-\subsubsubsection{UC\_32.4: Notifica creazione riuscita}
-\label{uc_32.4}
-
-\begin{itemize}
-    \item \textbf{Attore$^G$ Principale}: Admin
-	\item \textbf{Scenario principale}:
-	\begin{enumerate}
-		\item Il sistema mostra una notifica di creazione Utente riuscita
-		\item L'Admin visualizza la notifica
-	\end{enumerate}
-	\item \textbf{Precondizioni}:
-	\begin{itemize}
-		\item La creazione del nuovo Utente è stata confermata ed elaborata con successo
-	\end{itemize}
-	\item \textbf{Postcondizioni}:
-	\begin{itemize}
-		\item La notifica di creazione riuscita è stata visualizzata
-	\end{itemize}
-	\item \textbf{Trigger}: Il sistema conferma l'avvenuta creazione del nuovo Utente
 \end{itemize}
