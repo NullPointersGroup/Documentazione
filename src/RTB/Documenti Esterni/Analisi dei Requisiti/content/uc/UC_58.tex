@@ -1,4 +1,4 @@
-\subsubsection{UC\_58: Visualizzazione conferma esportazione}
+\subsubsection{UC\_58: Visualizza conferma esportazione}
 \label{uc_58}
 
 \begin{figure}[H]
@@ -16,6 +16,8 @@
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
+		\item Il sistema è online
+		\item L'Admin è autenticato
 		\item L'Admin ha completato il download del file JSON$^G$ $\rightarrow$ Vedi \hyperref[uc_30]{UC\_30}
 		\item Il file JSON$^G$ è stato generato correttamente
 	\end{itemize}
@@ -23,5 +25,5 @@
 	\begin{itemize}
 		\item L'Admin visualizza la notifica di download riuscito
 	\end{itemize}
-	\item \textbf{Trigger}: Il sistema conferma il completamento dell'operazione di esportazione
+	\item \textbf{Trigger}: L'Admin vuole visualizzare la conferma del completamento dell'operazione di esportazione
 \end{itemize}

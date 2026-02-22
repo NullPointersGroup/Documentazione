@@ -11,16 +11,18 @@
     \item \textbf{Attore$^G$ Principale}: Cliente
 	\item \textbf{Scenario principale}:
 	\begin{enumerate}
-		\item Il sistema mostra al Cliente una notifica di conferma della duplicazione
-		\item Il Cliente visualizza la notifica
+		\item Il Cliente visualizza una notifica di conferma della duplicazione dell'ordine
 	\end{enumerate}
 	\item \textbf{Precondizioni}:
 	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item La sessione chat del Cliente è attiva
 		\item Il Cliente ha confermato la duplicazione dell'ordine tramite chatbot $\rightarrow$ Vedi \hyperref[uc_34]{UC\_34}
 	\end{itemize}
 	\item \textbf{Postcondizioni}:
 	\begin{itemize}
-		\item Il Cliente ha visualizzato la notifica di conferma
+		\item Il Cliente ha visualizzato la notifica di conferma di duplicazione dell'ordine
 	\end{itemize}
-	\item \textbf{Trigger}: Il Cliente vuole visualizzare una notifica di conferma in caso di duplicazione dell'ordine 
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare una notifica di conferma di duplicazione dell'ordine se duplica un ordine tremite chatbot
 \end{itemize}
