@@ -3,7 +3,7 @@
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_34}
+	\includegraphics[width=0.8\textwidth, height=0.8\textheight]{AnalisiRequisiti/DA-UC_34}
 	\caption{UC\_34: Duplicazione ordine tramite chatbot}
 \end{figure}
 
@@ -27,19 +27,6 @@
 	\begin{itemize}
 		\item Una copia dell'ordine selezionato è stata creata nel carrello
 	\end{itemize}
-	\item \textbf{Scenari alternativi}:
-	\begin{itemize}
-		\item L'ordine non esiste e il sistema mostra un errore di duplicazione $\rightarrow$ Vedi \hyperref[uc_35]{UC\_35}
-	\end{itemize}
-	\item \textbf{Inclusioni}:
-	\begin{itemize}
-		\item \hyperref[uc_34.1]{UC\_34.1}
-		\item \hyperref[uc_34.2]{UC\_34.2}
-	\end{itemize}
-	\item \textbf{Estensioni}:
-	\begin{itemize}
-		\item \hyperref[uc_35]{UC\_35}
-	\end{itemize}
 	\item \textbf{Trigger}: Il Cliente vuole duplicare un ordine precedente tramite chatbot
 \end{itemize}
 
@@ -61,10 +48,6 @@
     \begin{itemize}
         \item Il Cliente visualizza gli articoli presenti nell'ordine da duplicare tramite riepilogo
     \end{itemize}
-    \item \textbf{Inclusioni}:
-	\begin{itemize}
-        \item \hyperref[uc_34.1.1]{UC\_34.1.1}
-	\end{itemize}
     \item \textbf{Trigger}: Il Cliente vuole duplicare l'ordine ma prima è necessario che verifichi gli articoli dell'ordine da duplicare
 \end{itemize}
 
@@ -86,21 +69,7 @@
 	\begin{itemize}
 		\item Il Cliente visualizza il singolo articolo presente nal carrello
 	\end{itemize}
-	\item \textbf{Inclusioni}:
-	\begin{itemize}
-		\item \hyperref[uc_34.1.1.1]{UC\_34.1.1.1}
-		\item \hyperref[uc_34.1.1.2]{UC\_34.1.1.2}
-		\item \hyperref[uc_34.1.1.3]{UC\_34.1.1.3}
-	\end{itemize}
 \end{itemize}
-
-UC\_34.1.1 presenta tre ulteriori inclusioni, come mostrato in figura:
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_34.1.1}
-	\caption{Inclusioni UC\_34.1.1: UC\_34.1.1.1, UC\_34.1.1.2, UC\_34.1.1.3}
-\end{figure}
 
 \subsubsubsubsection{UC\_34.1.1.1: Visualizza nome articolo}
 \label{uc_34.1.1.1}
