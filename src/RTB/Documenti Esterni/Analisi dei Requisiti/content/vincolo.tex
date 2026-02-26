@@ -1,7 +1,5 @@
 \subsection{Requisiti di Vincolo}
-
 \subsubsection{Requisiti di Vincolo obbligatori}
-\renewcommand{\arraystretch}{1.15}
 \begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.5\textwidth}|>{\raggedright\arraybackslash}p{0.3\textwidth}|}
     \hline
     \rowcolor[gray]{0.9}
@@ -15,86 +13,28 @@
     \hline
     \endhead
     
-    RV-OB\_1 & Utilizzo di un database$^G$ relazionale \textit{PostgreSQL$^G$} per persistenza dei dati. &  \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato$^G$ di Progetto$^G$} \newline Sez. Tecnologie \\
+    RV-OB\_1 & Utilizzo di un database$^G$ relazionale \textit{PostgreSQL$^G$} per persistenza dei dati. &  \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato$^G$ di Progetto$^G$} \newline Sez. Tecnologie \newline Interno \\
     \hline
-    RV-OB\_2 & Il sistema deve adottare un'architettura modulare con componenti separati (AI, API$^G$, DB), come richiesto dal capitolato. & \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato$^G$ di Progetto$^G$} \newline Sez. Tecnologie \\
+    RV-OB\_2 & Utilizzo di un database$^G$ vettoriale \textit{FAISS} per ricerca semantica. & \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato$^G$ di Progetto$^G$} \newline Sez. Architettura AI Multimodale \newline Interno \\
     \hline
-    RV-OB\_3 & Il sistema deve esporre interfacce di integrazione tramite API$^G$ REST. & \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato$^G$ di Progetto$^G$} \newline Sez. Tecnologie \\
-    \hline
-    RV-OB\_4 & I formati di scambio dati devono essere strutturati in formato JSON. & \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato$^G$ di Progetto$^G$} \newline Sez. Architettura AI Multimodale \\
-    \hline
-    RV-OB\_5 & Utilizzo di un database$^G$ vettoriale \textit{FAISS} per ricerca semantica. & \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato$^G$ di Progetto$^G$} \newline Sez. Architettura AI Multimodale \\
-    \hline
-    RV-OB\_6 & Creazione di un'interfaccia web. &  \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato$^G$ di Progetto$^G$} \newline Sez. Tecnologie \\
-    \hline
-    RV-OB\_7 & Il prodotto deve essere eseguibile sui browser con versioni minime: \begin{itemize}
+    RV-OB\_3 & Il prodotto deve essere eseguibile sui browser con versioni minime: \begin{itemize}
         \item Google Chrome $\ge$ 120
         \item Microsoft Edge $\ge$ 120
         \item Mozilla Firefox $\ge$ 115
         \item Safari $\ge$ 16
     \end{itemize} & Interno \\
     \hline
-    RV-OB\_8 & L'interfaccia utente deve essere utilizzabile senza perdita di funzionalità$^G$ o sovrapposizioni grafiche alle seguenti larghezze minime dello schermo: 360 px (smartphone) 768 px (tablet) 1024 px (desktop) 1440 px (desktop widescreen). &  \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato$^G$ di Progetto$^G$} \newline Sez. Tecnologie \newline Esterno \\
+    RV-OB\_4 & L'interfaccia utente deve essere utilizzabile senza perdita di funzionalità$^G$ alle seguenti larghezze minime dello schermo: 360 px (smartphone) 768 px (tablet) 1024 px (desktop) 1440 px (desktop widescreen). &  \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato$^G$ di Progetto$^G$} \newline Sez. Tecnologie \newline Esterno \\
     \hline
-    RV-OB\_9 & Supporto alla containerizzazione tramite Docker. & Interno \\
+    RV-OB\_5 & Supporto alla containerizzazione tramite Docker. & Interno \\
     \hline
-    RV-OB\_10 & Deve essere garantita l’integrità dei dati trattati verificando che i valori siano corretti e coerenti tra loro, prima di effettuare operazioni che li modificano. & Interno \\
+    RV-OB\_6 & Devono essere garantiti meccanismi di autenticazione sicura (password hashing, rate limiting tentativi). & \href{https://pages.nist.gov/800-63-3/sp800-63b.html#sfcs}{NIST Special Publication 800-63B} Sezioni 5.1.1.2 e 5.2.2 \\
     \hline
-    RV-OB\_11 & Devono essere garantiti meccanismi di autenticazione sicura (password hashing, rate limiting tentativi). & Interno \\
+    RV-OB\_7 & Deve garantire alta disponibilità del servizio (operatività 24/7). & Esterno \\
     \hline
-    RV-OB\_12 & Deve essere garantita la riservatezza e sicurezza della comunicazione attraverso l'utilizzo del protocollo HTTPS (TLS 1.2 o superiore). & Interno \newline Esterno \\
-    \hline
-    RV-OB\_13 & Il modello deve essere addestrato sui dati forniti dalla proponente$^G$ & Interno \newline Esterno \\
+    RV-OB\_8 & I microservizi devono poter essere aggiornati senza interrompere l'intero sistema (rolling updates). & Interno \newline Esterno \\
     \hline
     
     \multicolumn{3}{c}{} \\
     \caption{Requisiti di Vincolo obbligatori}\label{tab:vincolo_obbligatori}\\
 \end{longtable}
-
-\subsubsection{Requisiti di Vincolo desiderabili}
-\renewcommand{\arraystretch}{1.15}
-\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.5\textwidth}|>{\raggedright\arraybackslash}p{0.3\textwidth}|}
-    \hline
-    \rowcolor[gray]{0.9}
-    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
-    \hline
-    \endfirsthead
-    
-    \hline
-    \rowcolor[gray]{0.9}
-    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
-    \hline
-    \endhead
-    
-    RV-DE\_1 & Preferenza per l'utilizzo delle tecnologie suggerite (BERT$^G$, GPT$^G$, ViT$^G$, Whisper$^G$, React$^G$, FAISS, FastAPI, Docker$^G$). & \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato$^G$ di Progetto$^G$} \newline Sez. Tecnologie  \\
-    \hline
-    RV-DE\_2 & Adozione di API$^G$ REST$^G$ anche per comunicazioni interne tra moduli. & Esterno \\
-    \hline
-    RV-DE\_3 & Utilizzo di un formato standard per il logging (es. JSON$^G$ Logging). & Interno \newline Esterno \\
-    \hline
-    
-    \multicolumn{3}{c}{} \\
-    \caption{Requisiti di Vincolo desiderabili}\label{tab:vincolo_desiderabili}\\
-\end{longtable}
-
-% \subsubsection{Requisiti di Vincolo opzionali}
-% \renewcommand{\arraystretch}{1.15}
-% \begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.5\textwidth}|>{\raggedright\arraybackslash}p{0.3\textwidth}|}
-%     \hline
-%     \rowcolor[gray]{0.9}
-%     \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
-%     \hline
-%     \endfirsthead
-    
-%     \hline
-%     \rowcolor[gray]{0.9}
-%     \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti}  \\
-%     \hline
-%     \endhead
-    
-%     RV-OP\_1 & Utilizzo di un middleware$^G$ per separare ulteriormente la comunicazione tra i componenti oppure attraverso connettori standard come una fonte dati ODBC$^G$ (Docker$^G$ Compose, ). & Interno \\
-%     \hline
-    
-%     \multicolumn{3}{c}{} \\
-%     \caption{Requisiti di Vincolo opzionali}\label{tab:vincolo_opzionali}\\
-% \end{longtable}
