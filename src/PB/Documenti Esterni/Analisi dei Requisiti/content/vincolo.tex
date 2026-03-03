@@ -1,0 +1,40 @@
+\subsection{Requisiti di Vincolo}
+\subsubsection{Requisiti di Vincolo obbligatori}
+\begin{longtable}{|>{\raggedright}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.5\textwidth}|>{\raggedright\arraybackslash}p{0.3\textwidth}|}
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
+    \hline
+    \endfirsthead
+    
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} \\
+    \hline
+    \endhead
+    
+    RV-OB\_1 & Utilizzo di un database$^G$ relazionale \textit{PostgreSQL$^G$} per persistenza dei dati. &  \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato$^G$ di Progetto$^G$} \newline Sez. Tecnologie \newline Interno \\
+    \hline
+    RV-OB\_2 & Utilizzo di un database$^G$ vettoriale \textit{FAISS} per ricerca semantica. & \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato$^G$ di Progetto$^G$} \newline Sez. Architettura AI Multimodale \newline Interno \\
+    \hline
+    RV-OB\_3 & Il prodotto deve essere eseguibile sui browser con versioni minime: \begin{itemize}
+        \item Google Chrome $\ge$ 120
+        \item Microsoft Edge $\ge$ 120
+        \item Mozilla Firefox $\ge$ 115
+        \item Safari $\ge$ 16
+    \end{itemize} & Interno \\
+    \hline
+    RV-OB\_4 & L'interfaccia utente deve essere utilizzabile senza perdita di funzionalità$^G$ alle seguenti larghezze minime dello schermo: 360 px (smartphone) 768 px (tablet) 1024 px (desktop) 1440 px (desktop widescreen). &  \href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C8.pdf}{Capitolato$^G$ di Progetto$^G$} \newline Sez. Tecnologie \newline Esterno \\
+    \hline
+    RV-OB\_5 & Supporto alla containerizzazione tramite Docker. & Interno \\
+    \hline
+    RV-OB\_6 & Devono essere garantiti meccanismi di autenticazione sicura (password hashing, rate limiting tentativi). & \href{https://pages.nist.gov/800-63-3/sp800-63b.html#sfcs}{NIST Special Publication 800-63B} Sezioni 5.1.1.2 e 5.2.2 \\
+    \hline
+    RV-OB\_7 & Deve garantire alta disponibilità del servizio (operatività 24/7). & Esterno \\
+    \hline
+    RV-OB\_8 & I microservizi devono poter essere aggiornati senza interrompere l'intero sistema (rolling updates). & Interno \newline Esterno \\
+    \hline
+    
+    \multicolumn{3}{c}{} \\
+    \caption{Requisiti di Vincolo obbligatori}\label{tab:vincolo_obbligatori}\\
+\end{longtable}

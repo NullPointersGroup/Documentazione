@@ -1,0 +1,27 @@
+\subsubsection{UC\_59: Notifica conferma creazione nuovi Utenti}
+\label{uc_59}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_59}
+	\caption{UC\_59: Notifica conferma creazione nuovi Utenti}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item L'Admin visualizza una notifica di creazione Utente riuscita
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item L'Admin è autenticato
+		\item La creazione del nuovo Utente è stata confermata $\rightarrow$ Vedi \hyperref[uc_32]{UC\_32}
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item La notifica di conferma di creazione dell'Utente è stata visualizzata dall'Admin
+	\end{itemize}
+	\item \textbf{Trigger}: L'Admin vuole visualizzare la conferma dell'avvenuta creazione del nuovo Utente
+\end{itemize}

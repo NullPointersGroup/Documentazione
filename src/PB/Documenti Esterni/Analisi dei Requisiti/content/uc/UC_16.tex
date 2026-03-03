@@ -1,0 +1,21 @@
+\subsubsection{UC\_16 - Errore superamento limite articoli}
+\label{uc_16}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+    \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item Il Cliente inserisce più di 10 articoli nel messaggio
+    \end{enumerate}
+    \item \textbf{Precondizioni}:
+        \begin{itemize}
+            \item Il sistema è online
+            \item Il Cliente è autenticato
+            \item Il Cliente ha richiesto l'aggiunta di articoli al carrello tramite una delle forme di input
+        \end{itemize}
+	\item \textbf{Postcondizioni}:
+        \begin{itemize}
+            \item Il Cliente visualizza un messaggio di errore
+            \item Gli articoli non vengono aggiunti al carrello
+        \end{itemize}
+\end{itemize}

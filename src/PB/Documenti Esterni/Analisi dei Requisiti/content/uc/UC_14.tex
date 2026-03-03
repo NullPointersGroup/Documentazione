@@ -1,0 +1,21 @@
+\subsubsection{UC\_14: Errore inserimento audio}
+\label{uc_14}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+	 \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item Il Cliente ha inserito un audio che non rispetta i requisiti richiesti
+    \end{enumerate}
+   \item \textbf{Precondizioni}:
+		\begin{itemize}
+			\item Il sistema è online
+			\item Il Cliente è autenticato
+			\item Il Cliente tenta di inserire un file audio
+		\end{itemize}
+	\item \textbf{Postcondizioni}:
+		\begin{itemize}
+			\item Il sistema visualizza un messaggio di errore appropriato (per dimensioni, formato o lunghezza non conformi)
+			\item L'audio non viene accettato per l'elaborazione
+		\end{itemize}
+\end{itemize}

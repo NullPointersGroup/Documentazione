@@ -1,0 +1,28 @@
+\subsubsection{UC\_55: Notifica di conferma annullamento}
+\label{uc_55}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_55}
+	\caption{UC\_55: Notifica di conferma annullamento}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza la notifica di conferma dell'avvenuto annullamento della disambiguazione
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item La sessione chat del Cliente è attiva
+		\item Il Cliente ha richiesto l'annullamento del processo$^G$ di disambiguazione $\rightarrow$ Vedi \hyperref[uc_22.1]{UC\_22.1}
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente è informato del corretto annullamento del processo$^G$
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare una notifica di conferma di annullamento dell'ordine
+\end{itemize}

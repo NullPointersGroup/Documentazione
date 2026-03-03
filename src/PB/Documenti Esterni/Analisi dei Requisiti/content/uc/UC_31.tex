@@ -1,0 +1,21 @@
+\subsubsection{UC\_31: Errore download}
+\label{uc_31}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Admin
+	 \item \textbf{Scenario principale}:
+    \begin{enumerate}
+        \item L'Admin richiede l'esportazione dello storico ordine $\rightarrow$ Vedi \hyperref[uc_30]{UC\_30}
+		  \item Il sistema avvisa dell'impossibilità di esportare lo storico ordini
+    \end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il Sistema è online
+		\item L'Admin è autenticato ed autorizzato
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il sistema visualizza un messaggio di errore che impedisce il completamento del download
+		\item Il file JSON$^G$ non viene scaricato
+	\end{itemize}
+\end{itemize}
