@@ -299,11 +299,8 @@ Per garantire questo controllo, ogni elemento del progetto$^G$ viene trattato co
 Gli elementi sottoposti a verifica$^G$ sono documenti, esclusi i verbali siccome questi non hanno necessità di registro di modifiche, e il codice.\\
 Questo approccio assicura un avanzamento ordinato dello sviluppo$^G$, mantenendo una traccia storica dell’evoluzione di ciascun elemento.
 
-\subsubsection{Strumenti di controllo della Configurazione}
 \label{sec:ticketing}
-Il gruppo utilizza il sistema di Issue$^G$ Tracking e le Project Board integrate in GitHub$^G$ come strumenti principali per la gestione e l’organizzazione delle attività.\\
-Questi strumenti consentono di pianificare il lavoro, monitorarne l’avanzamento e mantenere un controllo costante sulla qualità e sulla coerenza delle attività di sviluppo.
-\subsubsubsection{Issue}
+\subsubsection{Issue}
 Ogni attività, modifica$^G$ o produzione$^G$ di documentazione viene gestita attraverso una issue$^G$, che deve contenere:
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
     \item \textbf{Titolo}: una descrizione sintetica del compito da svolgere;
@@ -328,7 +325,7 @@ Il mantenimento del sistema di Issue$^G$ Tracking avviene tramite una procedura 
 \end{enumerate}
 Questa procedura permette tracciabilità completa del lavoro e sincronizzazione costante tra issue$^G$, project board e repository$^G$ riducendo il rischio di incoerenze dei documenti.
 
-\subsubsubsection{Project Board}
+\subsubsection{Project Board}
 Il gruppo mantiene due Project Board principali:
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
     \item \textbf{RTB$^G$} (Requirements and Technology Baseline$^G$)
@@ -344,13 +341,13 @@ Le board vengono aggiornate:
 \end{itemize}
 Il Responsabile$^G$ verifica$^G$ periodicamente la coerenza delle board con le milestone$^G$ attive.
 
-\subsubsubsection{Labels}
+\subsubsection{Labels}
 Per migliorare l'organizzazione, il gruppo utilizza un sistema di etichette che identifica chiaramente la tipologia di lavoro, introducendo una famiglia dedicata specificamente alla gestione documentale.\\
 Il principio è semplice: viene sempre aggiunta un'etichetta specifica, come \vr{Piano di Progetto$^G$} o \vr{Analisi dei Requisiti$^G$}, che indica precisamente quale file è coinvolto.\\
 Queste label vengono applicate sia alle issue$^G$ settimanali, sia alle attività associate alle milestone$^G$ RTB$^G$ e PB.\\
 Ciò permette di individuare rapidamente quali attività richiedono attenzione e tracciare il carico di lavoro per tipologia di attività oltre che avere una visione completa dell'avanzamento complessivo del progetto.
 
-\subsubsubsection{Nomenclatura dei branch}
+\subsubsection{Nomenclatura dei branch}
 \label{sec: nomenclatura-branch}
 Per garantire uniformità e tracciabilità nella gestione dei branch$^G$ relativi alla documentazione, è stata adottata la seguente convenzione di denominazione:
 \begin{table}[H]
@@ -399,6 +396,13 @@ In base a quanto definito nel \href{https://nullpointersgroup.github.io/Document
     \item \textbf{PATCH$^G$}: Incrementato per modifiche di entità minore, come correzioni ortografiche, formattazione, o aggiustamenti di sintassi che non alterano il contenuto sostanziale.
 \end{itemize}
 In aggiunta al versionamento$^G$, ogni documento conterrà un Registro delle Modifiche dettagliato (come descritto nella sezione \ref{sec:registro-modifiche}), che elenca cronologicamente tutte le variazioni apportate per ciascuna versione rilasciata.
+
+\subsubsection{Strumenti a supporto}
+    Per il controllo e la gestione dello Stato di Configurazione il gruppo utilizza i seguenti strumenti:
+	\begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
+	    \item \textbf{GitHub Issue Tracking/ Project Board}: Strumenti di tracciamento delle attività da svolgere all' interno del progetto, consentono una pianificazione accurata
+        dei ruoli e delle scadenze, monitorando l' avanzamento dei lavori di sviluppo.   
+	\end{itemize}
 
 \subsection{Gestione della Qualità}
 \label{sec:gestione-qualita}
@@ -457,10 +461,6 @@ Se emergono problemi, come errori frequenti o metriche insufficienti, si valutan
 Il processo$^G$ di Verifica$^G$ è un'attività sistematica che deve essere applicata a tutti i prodotti di progetto$^G$ (documenti e codice) prima che possano essere considerati completi e rilasciati.\\ 
 Il suo scopo principale è rispondere alla domanda \vr{\textit{Did I build$^G$ the system right?}}, ovvero assicurare che quanto prodotto sia stato realizzato correttamente, in piena conformità con i vincoli, le regole e gli standard qualitativi definiti nel Piano di Qualifica$^G$ e nelle Norme di Progetto.\\ 
 Le attività di Verifica$^G$ sono svolte dai Verificatori, il cui compito è controllare, correggere e segnalare ogni discrepanza rispetto ai requisiti prestabiliti.
-
-\subsubsection{Strumenti a supporto}
-Per supportare le attività di Verifica$^G$ descritte, il gruppo utilizza GitHub$^G$, imponendo che ogni modifica$^G$ alla documentazione o al codice venga prima sottoposta a revisione attraverso una Pull Request.\\ 
-Le regole di protezione del ramo principale obbligano che ogni PR$^G$ sia approvata da almeno un Verificatore$^G$ diverso dall'autore, garantendo un controllo qualità sistematico e tracciabile prima che le modifiche vengano integrate.
 
 \subsubsection{Analisi statica}
 L'analisi statica è una tecnica di verifica$^G$ che si applica senza eseguire il codice o il prodotto.\\
@@ -544,3 +544,10 @@ Per realizzare l’attività di validazione$^G$, il gruppo si avvale del \href{h
 \subsubsubsection{Attività di validazione}
 L’attività di Validazione$^G$ consiste nella verifica$^G$ finale della conformità del prodotto rispetto ai requisiti definiti e concordati con \textbf{Ergon Informatica srl}.\\
 Viene svolta attraverso l’analisi degli esiti dei test$^G$ di accettazione e il controllo del tracciamento dei requisiti, costituendo la fase conclusiva del processo$^G$ di verifica$^G$ del sistema. L'obiettivo è accertare che le funzionalità$^G$ realizzate rispondano effettivamente alle aspettative della proponente.
+
+\subsubsection{Strumenti a supporto}
+    Per il controllo e la gestione dello Stato di Configurazione il gruppo utilizza i seguenti strumenti:
+	\begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
+	    \item \textbf{GitHub Pull Request}: Strumento nativo di GitHub che permette ogni modifica a codice o a documentazione venga sottoposta a una revisione da parte di un 
+        Verificatore diverso dall'autore della modifica prima di essere integrata nel ramo principale.
+	\end{itemize}
