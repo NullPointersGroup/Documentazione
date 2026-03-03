@@ -1,0 +1,21 @@
+\subsubsection{UC\_12: Errore inserimento immagine}
+\label{uc_12}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+	 \item \textbf{Scenario Principale}:
+    \begin{enumerate}
+        \item Il Cliente inserisce un'immagine che non rispetta i requisiti necessari
+    \end{enumerate}
+   \item \textbf{Precondizioni}:
+		\begin{itemize}
+         \item Il sistema è online
+         \item Il Cliente è autenticato
+			\item Il Cliente ha allegato un'immagine
+		\end{itemize}
+	\item \textbf{Postcondizioni}:
+   \begin{itemize}
+      \item Il sistema visualizza un messaggio di errore appropriato (per dimensioni, formato o qualità non conformi)
+      \item L'immagine non viene accettata per l'elaborazione
+   \end{itemize}
+\end{itemize}

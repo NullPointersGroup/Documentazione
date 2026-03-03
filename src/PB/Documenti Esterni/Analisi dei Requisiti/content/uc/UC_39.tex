@@ -1,0 +1,21 @@
+\subsubsection{UC\_39: Errore duplicazione ordine}
+\label{uc_39}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+	 \item \textbf{Scenario Principale}:
+	 \begin{enumerate}
+		\item Il Cliente tenta di duplicare un ordine che ha prodotti non più disponibili nel sistema
+	 \end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il sistema visualizza un messaggio di errore che informa dell'indisponibilità dei prodotti
+		\item La duplicazione dell'ordine non viene eseguita
+		\item Il carrello del Cliente non viene modificato
+	\end{itemize}
+\end{itemize}

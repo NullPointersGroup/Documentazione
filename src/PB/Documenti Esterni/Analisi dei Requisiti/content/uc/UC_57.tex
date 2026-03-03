@@ -1,0 +1,28 @@
+\subsubsection{UC\_57: Notifica invio segnalazione}
+\label{uc_57}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_57}
+	\caption{UC\_57: Notifica invio segnalazione}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente visualizza la conferma dell'invio della segnalazione
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item Il Cliente è autenticato
+		\item La sessione chat del Cliente è attiva
+		\item Il Cliente ha inviato la segnalazione $\rightarrow$ Vedi \hyperref[uc_24.3]{UC\_24.3}
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il Cliente visualizza la conferma dell'avvenuta registrazione della segnalazione
+	\end{itemize}
+	\item \textbf{Trigger}: Il Cliente vuole visualizzare una notifica di conferma di invio segnalazione
+\end{itemize}

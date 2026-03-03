@@ -1,0 +1,29 @@
+\subsubsection{UC\_58: Visualizza conferma esportazione}
+\label{uc_58}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{AnalisiRequisiti/UC_58}
+	\caption{UC\_58: Visualizzazione conferma esportazione}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Attore$^G$ principale}: Admin
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il sistema mostra una notifica di download riuscito
+		\item L'Admin visualizza la notifica
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item L'Admin è autenticato
+		\item L'Admin ha completato il download del file JSON$^G$ $\rightarrow$ Vedi \hyperref[uc_30]{UC\_30}
+		\item Il file JSON$^G$ è stato generato correttamente
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item L'Admin visualizza la notifica di download riuscito
+	\end{itemize}
+	\item \textbf{Trigger}: L'Admin vuole visualizzare la conferma del completamento dell'operazione di esportazione
+\end{itemize}

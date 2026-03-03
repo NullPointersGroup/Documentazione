@@ -1,0 +1,21 @@
+\subsubsection{UC\_33: Errore creazione Utenti}
+\label{uc_33}
+
+\begin{itemize}
+    \item \textbf{Attore$^G$ Principale}: Admin
+	 \item \textbf{Scenario Principale}:
+	 \begin{enumerate}
+		\item L'Admin crea un Utente ma la creazione fallisce per via dell'inserimento di dati duplicati o non validi
+	 \end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il sistema è online
+		\item L'Admin è autenticato ed autorizzato
+		\item L'Admin ha inviato una richiesta di creazione nuovo Utente $\rightarrow$ Vedi \hyperref[uc_32]{UC\_32}
+	\end{itemize}
+	\item \textbf{Postcondizioni}:
+	\begin{itemize}
+		\item Il sistema visualizza una notifica di errore che spiega il motivo del fallimento
+		\item Il nuovo Utente non viene creato nel sistema
+	\end{itemize}
+\end{itemize}
