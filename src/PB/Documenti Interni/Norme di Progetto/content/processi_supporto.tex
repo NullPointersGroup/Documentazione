@@ -1,7 +1,7 @@
 \section{Processi di Supporto}
 \subsection{Documentazione}
-    Il processo$^G$ di documentazione è un elemento cardine di tutti i processi primari. Il suo output è fondamentale per tracciare le decisioni prese e per facilitare il lavoro asincrono, che nel nostro contesto si rivela notevolmente più produttivo di quello sincrono. \\
-    Nello specifico, questo processo$^G$ si occupa di registrare le informazioni generate da ciascuna attività o processo$^G$ del ciclo di vita del prodotto; comprende quindi tutte le operazioni di pianificazione$^G$, progettazione$^G$, sviluppo$^G$, produzione$^G$, modifica$^G$, distribuzione$^G$ e manutenzione$^G$ dei documenti destinati a tutti i soggetti coinvolti.
+    Il processo di documentazione è essenziale per tracciare le decisioni e favorire il lavoro asincrono, nel nostro contesto più produttivo di quello sincrono.\\
+    Registra le informazioni di ogni attività del ciclo di vita del prodotto, gestendo tutte le operazioni sui documenti: pianificazione, progettazione, sviluppo, produzione, modifica, distribuzione e manutenzione.
 
 \subsubsection{Struttura base dei documenti}
 \label{sec: struttura-base-doc}
@@ -66,6 +66,7 @@ Il contenuto del documento è strutturato in modo gerarchico per organizzare al 
 \subsubsubsection{Verbali Interni}
 \label{sec:verbali-interni}
 I Verbali Interni seguono la struttura base dei documenti esposta alla sezione \ref{sec: struttura-base-doc} ma diversamente dal resto della documentazione non contengono la sezione del Registro delle modifiche.\\
+Inoltre la sezione \textbf{Ordine del giorno} precede l'indice delle tabelle e delle immagini e ha lo scopo di delineare in modo strutturato e puntuale gli argomenti che verranno discussi durante la riunione.\\
 Il contenuto principale dei Verbali Interni segue una struttura standardizzata composta dai seguenti elementi: \vspace{-0.5em}
 
     \begin{enumerate}[label=\arabic*., itemsep=0pt, parsep=1pt, leftmargin=*]
@@ -78,11 +79,7 @@ Il contenuto principale dei Verbali Interni segue una struttura standardizzata c
             \item Orario di fine;
             \item Scriba, ovvero chi si occupa di redigere il Verbale che, come stabilito nella sezione \ref{sec: verbali-interni}, spetta alla figura del Responsabile.
         \end{itemize}
-        \item \textbf{Ordine del giorno} 
     \end{enumerate}
-
-    \vspace{-0.5em}
-    Ha lo scopo di delineare in modo strutturato e puntuale gli argomenti che verranno discussi durante la riunione.
 
     \begin{enumerate}[resume*, itemsep=0pt, parsep=1pt, leftmargin=*, label=\arabic*.]
         \item \textbf{Diario della riunione}
@@ -106,7 +103,10 @@ Il contenuto principale dei Verbali Interni segue una struttura standardizzata c
 \label{sec:verbali-esterni}
 I verbali esterni sono documenti che registrano ufficialmente gli incontri avvenuti con soggetti esterni al gruppo di lavoro, in particolare con l'ente proponente$^G$ del progetto.\\
 Tali documenti hanno lo scopo di tracciare le discussioni, le decisioni concordate e gli impegni assunti da entrambe le parti durante la riunione.\\
-Seguono la struttura base dei documenti esposta alla sezione \ref{sec: struttura-base-doc} ma diversamente dal resto della documentazione non contengono la sezione del Registro delle Modifiche.
+Seguono la struttura base dei documenti esposta alla sezione \ref{sec: struttura-base-doc} ma la sezione \textbf{Ordine del giorno} precede l'indice delle tabelle e delle immagini e ha lo scopo di delineare in modo strutturato e puntuale gli argomenti che verranno discussi durante la riunione.\\
+Inoltre diversamente dal resto della documentazione non contengono la sezione del Registro delle Modifiche.\\
+Il contenuto principale è composto da:
+
     \begin{enumerate}[label=\arabic*., itemsep=0pt, parsep=1pt, leftmargin=*]
         \item \textbf{Informazioni generali}
         \begin{itemize}[label=--, itemsep=0pt, parsep=1pt, leftmargin=1.5em]
@@ -153,8 +153,7 @@ Seguono la struttura base dei documenti esposta alla sezione \ref{sec: struttura
 
 \vspace{0.3em}
 \subsubsubsection{Altri documenti}
-Di seguito sono elencati tutti i documenti redatti e mantenuti durante l'intero ciclo di vita del progetto$^G$ ciascuno dei quali risponde a uno scopo specifico, contribuendo alla tracciabilità, alla gestione e alla comunicazione delle attività di progetto.\\
-La struttura iniziale di tali documenti corrisponde con quanto definito al punto 3.1.4:
+Di seguito sono elencati tutti i documenti redatti e mantenuti durante l'intero ciclo di vita del progetto, la struttura iniziale di tali documenti corrisponde con quanto definito al punto 3.1.4:
     \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
         \item \textbf{Valutazione dei Capitolati};
         \item \textbf{Dichiarazione degli Impegni};
@@ -284,12 +283,9 @@ Ogni blocco di documentazione deve includere i seguenti tag, ove applicabili:
 \subsubsection{Strumenti a supporto}
 	Per la stesura e la gestione dei documenti il gruppo utilizza i seguenti strumenti: \vspace{-0.5em}
 	\begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
-	    \item \textbf{LaTeX}: Linguaggio di markup consolidato e ampiamente utilizzato per la stesura di documenti tecnici e scientifici. 
-        LaTeX consente di mantenere una elevata qualità tipografica e di gestire in modo efficiente la struttura del documento. NullPointers Group 
-        utilizza LaTeX per la produzioneG di tutta la documentazione, facendo uso di pacchetti e template appositamente sviluppati dai membri del gruppo;
+	    \item \textbf{LaTeX}: Linguaggio di markup consolidato e ampiamente utilizzato per la stesura di documenti tecnici e scientifici. Consente di mantenere una elevata qualità tipografica e di gestire in modo efficiente la struttura del documento. NullPointers Group utilizza LaTeX per la produzioneG di tutta la documentazione;
 	    \item \textbf{Git}: Sistema di versionamento del codice LaTeX;
-	    \item \textbf{GitHub}: Per il mantenimento di una repository centrale del codice LaTeX e dei suoi artefatti in formato PDF, che vengono poi resi fruibili
-	    attraverso GitHub stesso su un sito web statico. 
+	    \item \textbf{GitHub}: Per il mantenimento delle repository. 
 	\end{itemize}
 
 \subsection{Gestione della Configurazione}
@@ -342,8 +338,8 @@ Le board vengono aggiornate:
 Il Responsabile$^G$ verifica$^G$ periodicamente la coerenza delle board con le milestone$^G$ attive.
 
 \subsubsection{Labels}
-Per migliorare l'organizzazione, il gruppo utilizza un sistema di etichette che identifica chiaramente la tipologia di lavoro, introducendo una famiglia dedicata specificamente alla gestione documentale.\\
-Il principio è semplice: viene sempre aggiunta un'etichetta specifica, come \vr{Piano di Progetto$^G$} o \vr{Analisi dei Requisiti$^G$}, che indica precisamente quale file è coinvolto.\\
+Per migliorare l'organizzazione, il gruppo utilizza un sistema di etichette che identifica la tipologia di lavoro.\\
+Viene quindi aggiunta un'etichetta specifica, come \vr{Piano di Progetto$^G$} o \vr{Analisi dei Requisiti$^G$}, che indica precisamente quale file è coinvolto.\\
 Queste label vengono applicate sia alle issue$^G$ settimanali, sia alle attività associate alle milestone$^G$ RTB$^G$ e PB.\\
 Ciò permette di individuare rapidamente quali attività richiedono attenzione e tracciare il carico di lavoro per tipologia di attività oltre che avere una visione completa dell'avanzamento complessivo del progetto.
 
@@ -406,10 +402,9 @@ In aggiunta al versionamento$^G$, ogni documento conterrà un Registro delle Mod
 
 \subsection{Gestione della Qualità}
 \label{sec:gestione-qualita}
-La Gestione della Qualità è il processo$^G$ che definisce, pianifica e coordina tutte le attività necessarie affinché i prodotti sviluppati dal gruppo rispettino gli standard stabiliti nel Piano di Qualifica$^G$ e risultino coerenti con gli obiettivi progettuali.\\
-Tale processo$^G$ assicura che ogni artefatto prodotto (documenti, codice, modelli o deliverable intermedi) soddisfi i criteri qualitativi prefissati e fornisce un quadro operativo per il miglioramento continuo.\\
-La qualità è garantita da un sistema integrato di strumenti, procedure e responsabilità, che accompagna e supporta l'intero ciclo di sviluppo. Questo approccio consente di prevenire l'introduzione di errori, rilevare tempestivamente eventuali incongruenze e garantire che ogni output sia verificato prima di essere considerato completo, oltre a mantenere elevata la tracciabilità delle attività.\\
-La Gestione della Qualità opera in stretta sinergia con la Gestione della Configurazione (sezione \ref{sec:gestione-configurazione}) e con il processo$^G$ di Verifica$^G$ (sezione \ref{sec:verifica}), costituendo un sistema integrato di controllo e miglioramento del prodotto.
+La Gestione della Qualità è il processo che definisce, pianifica e coordina le attività necessarie affinché i prodotti sviluppati rispettino gli standard del Piano di Qualifica e siano coerenti con gli obiettivi progettuali.\\
+Tale processo garantisce che ogni artefatto prodotto soddisfi i criteri qualitativi prefissati e fornisce un quadro operativo per il miglioramento continuo. La qualità è assicurata da un sistema integrato di strumenti, procedure e responsabilità che accompagna l'intero ciclo di sviluppo, prevenendo errori, rilevando incongruenze e garantendo la verifica di ogni output.\\
+La Gestione della Qualità opera in stretta sinergia con la Gestione della Configurazione (sezione \ref{sec:gestione-configurazione}) e con il processo di Verifica (sezione \ref{sec:verifica}), costituendo un sistema integrato di controllo e miglioramento del prodotto.
 
 \subsubsection{Piano di Qualifica}
 Il gruppo adotta una pianificazione$^G$ esplicita delle attività di qualità, formalizzata nel Piano di Qualifica$^G$, che definisce:
@@ -465,19 +460,16 @@ Le attività di Verifica$^G$ sono svolte dai Verificatori, il cui compito è con
 \subsubsection{Analisi statica}
 L'analisi statica è una tecnica di verifica$^G$ che si applica senza eseguire il codice o il prodotto.\\
 Il suo scopo è individuare problemi di sintassi, logica o conformità agli standard prima che si manifestino durante l'esecuzione.\\
-Si può eseguire tramite metodi formali (dimostrazioni matematiche) oppure, più frequentemente, tramite metodi di lettura manuali o semi-automatici.
 
 I metodi di lettura più diffusi sono due:
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
-    \item \textbf{Walkthrough$^G$}: è una tecnica di verifica$^G$ basata sull'ipotesi che esista un difetto, pur in assenza di informazioni sulla sua natura o localizzazione. Ne consegue l'obbligo di un'analisi approfondita ed esaustiva dell'oggetto sotto esame. Questa caratteristica lo rende una metodologia ad alto impegno di risorse, di limitata applicabilità pratica e scarsamente automatizzabile.
-    \item \textbf{Ispezione}: utilizza una lista di controllo predeterminata, concentrandosi su possibili errori o criteri di qualità specifici. Pur essendo meno esaustiva di un walkthrough$^G$ (specie nelle prime fasi di sviluppo$^G$) offre un vantaggio decisivo: è facilmente automatizzabile. Per questo risulta la scelta preferibile quando occorre verificare grandi quantità di codice o documenti in modo sistematico e ripetibile.
+    \item \textbf{Walkthrough$^G$}: è una tecnica di verifica$^G$ basata sull'ipotesi che esista un difetto, pur in assenza di informazioni sulla sua natura o localizzazione. Per questo motivo, richiede un'analisi molto approfondita e completa di tutto ciò che si sta esaminando. Di conseguenza, è un metodo che richiede molte risorse, è difficile da applicare nella pratica e non si può automatizzare facilmente.
+    \item \textbf{Ispezione}: una lista di controllo già pronta, concentrandosi su errori tipici o criteri di qualità specifici. Anche se è meno approfondita di un walkthrough, soprattutto all'inizio, ha un grande vantaggio: è facile da automatizzare. Per questo è la scelta migliore quando bisogna controllare tanto codice o tanti documenti in modo sistematico e ripetitivo.
 \end{itemize}
 
 \subsubsection{Analisi dinamica}
-L'analisi dinamica viene condotta eseguendo il prodotto software attraverso una serie di test. Questa procedura misura la qualità funzionale del codice, assicurandosi che raggiunga il suo scopo e che il suo comportamento sia conforme alle specifiche.\\
-Permette di individuare e risolvere gli errori nel codice che causano comportamenti indesiderati.\\
-Ogni test$^G$ è definito da uno stato iniziale, input specifici e output attesi.\\
-Le attività di test$^G$ devono essere ripetibili, per poter confermare le correzioni, e automatizzabili, per essere eseguiti in modo continuo durante tutto il ciclo di vita del prodotto.
+L'analisi dinamica verifica il software eseguendolo con test specifici, per misurarne la qualità funzionale e individuare errori nel codice.\\
+Ogni test ha uno stato iniziale, input e output attesi. I test devono essere ripetibili e automatizzabili, così da poterli eseguire continuamente durante l'intero ciclo di vita del prodotto.
 
 \subsubsection{Classificazione dei Test}
 Tutti i test$^G$ pianificati, eseguiti e i loro esiti sono tracciati nel Piano di Qualifica.\\
@@ -537,13 +529,12 @@ In conformità allo standard ISO/IEC 122207:1995 adottato, le attività previste
 \end{itemize}
 
 \subsubsubsection{Implementazione del processo}
-A seguito di un’analisi approfondita delle richieste di \textbf{Ergon Informatica srl}, Nullpointers Group ha stilato una lista di requisiti da soddisfare, reperibili nel documento di \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documenti%20Esterni/Analisi_dei_Requisiti.pdf}{Analisi dei Requisiti$^G$} (Sezione 2.3).
-Come già ribadito, il tracciamento dei requisiti rappresenta un elemento fondamentale per il processo$^G$ di validazione$^G$, permettendo di verificare che ogni requisito obbligatorio sia stato implementato e che il sistema operi correttamente nel suo complesso. 
-Per realizzare l’attività di validazione$^G$, il gruppo si avvale del \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documenti%20Esterni/Piano_di_Qualifica.pdf}{Piano di Qualifica$^G$} per definire e tracciare le metodologie di test$^G$ implementate.
+A seguito dell'analisi delle richieste di \textbf{Ergon Informatica srl}, Nullpointers Group ha definito i requisiti da soddisfare, disponibili nel documento di \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documenti\%20Esterni/Analisi_dei_Requisiti.pdf}{Analisi dei Requisiti} (Sezione 2.3).\\
+Il tracciamento dei requisiti è fondamentale per la validazione, poiché permette di verificare che ogni requisito obbligatorio sia implementato e che il sistema funzioni correttamente. Per questa attività, il gruppo utilizza il \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Documenti\%20Esterni/Piano_di_Qualifica.pdf}{Piano di Qualifica}, dove definisce e traccia le metodologie di test adottate.
 
 \subsubsubsection{Attività di validazione}
-L’attività di Validazione$^G$ consiste nella verifica$^G$ finale della conformità del prodotto rispetto ai requisiti definiti e concordati con \textbf{Ergon Informatica srl}.\\
-Viene svolta attraverso l’analisi degli esiti dei test$^G$ di accettazione e il controllo del tracciamento dei requisiti, costituendo la fase conclusiva del processo$^G$ di verifica$^G$ del sistema. L'obiettivo è accertare che le funzionalità$^G$ realizzate rispondano effettivamente alle aspettative della proponente.
+L'attività di Validazione consiste nella verifica finale della conformità del prodotto rispetto ai requisiti concordati con \textbf{Ergon Informatica srl}. Viene svolta analizzando gli esiti dei test di accettazione e il tracciamento dei requisiti, rappresentando la fase conclusiva del processo di verifica del sistema.\\
+L'obiettivo è accertare che le funzionalità realizzate rispondano effettivamente alle aspettative della proponente.
 
 \subsubsection{Strumenti a supporto}
     Per il controllo e la gestione dello Stato di Configurazione il gruppo utilizza i seguenti strumenti:
