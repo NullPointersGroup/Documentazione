@@ -1,0 +1,23 @@
+\section{Diario della riunione}
+
+\subsection{Dubbi sul corretto utilizzo dei database vettoriali}
+Abbiamo chiesto come inizializzare i DB vettoriali, in quanto il nostro metodo di lavoro è indicizzare e trasformare in vettori. Il gruppo chiede se il metodo è giusto oppure ci sono vie più semplici.\\
+Ci è stato detto che vie più semplici purtroppo non esistono e, mostrando il codice, ci è stata confermata la correttezza del nostro operato.\\
+Un possibile metodo sarebbe da utilizzare solo il DB relazionale, cosa che è stata prontamente scartata dal gruppo in quanto le performance risultano molto più lente.\\
+Successivamente abbiamo chiesto che cosa ci va nei DB vettoriali, ci è stato suggerito di inserire sicuramente tutte le cose relative agli articoli, e in generale tutto ciò che è utile allo scopo di costruzione dell'ordine.\\
+Infatti, tutto ciò che fa parte dei prodotti va sicuramente inserito.\\
+Sarà utile pure inserire lo storico degli ordini, di sicuro non vanno inserite cose relative agli utenti come la password e la mail.
+
+\subsection{Considerazione delle unità di misura per l'MVP}
+Abbiamo chiesto, siccome nel dataset fornitoci sono stati inserite le unità di misure di ogni prodotto, se queste fossero necessarie da inserire per l'approvazione dell'MVP.\\
+La risposta è stata che non è una cosa necessaria ai fini dell'MVP, e che se ci avanzerà tempo potremmo inserirla in quanto preferibile.
+
+\subsection{Tipo di architettura di deployment}
+Abbiamo chiesto se fosse preferibile per il capitolato avere un'architettura monolitica oppure un'architettura a microservizi.\\
+Ci è stato risposto che sarebbe meglio il monolite, non perché sia più facile ma perché più utile al nostro scopo siccome il prodotto non ha numerose funzionalità che necessitano di microservizi e non c'è bisogno di scalare per il futuro.
+
+\subsection{Suggerimenti per l'architettura}
+Abbiamo mostrato tutte le architetture fatte fino a quel momento, mostrando i diagrammi delle classi comprensivi dei design pattern.\\
+Ci è stato detto che tutte le nostre idee sono buone e valide e che come inizio non va bene.\\
+Poi abbiamo chiesto se è possibile, basandosi sulla loro esperienza, se si può riconoscere se una progettazione è sbagliata prima dell'effettiva codifica. \\
+Ci è stato detto che è quasi impossibile a colpo d'occhio a meno che non siano errori grossolani, quindi uno dei modi è progettare è tentare.
