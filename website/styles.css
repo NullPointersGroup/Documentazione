@@ -24,7 +24,6 @@
     --hover-augmentation: .5vw;
     --divisor-width: .2em;
 
-    /* --position-left-divisor: calc(-1 * var(--lef-divisor-width) - var(--hover-augmentation) * 2); */
     --position-left-divisor: 0;
 
 
@@ -88,6 +87,7 @@ main {
     width: 100%;
     overflow-y: scroll;
     position: relative;
+    flex: 1;
 }
 
 #glossario {
@@ -178,7 +178,6 @@ nav::after {
 #nav-navigation a:not(.active):hover {
     background-color: rgba(var(--ciano-rgb), 0.1);
     color: var(--ciano-hex);
-    /* transform: translateX(0.313em); */
     transform: translateX(var(--hover-augmentation));
 }
 
@@ -197,9 +196,6 @@ nav::after {
 
 
 /* CONTENUTO PRINCIPALE */
-main {
-    flex: 1;
-}
 
 main section {
     min-height: 100vh;
@@ -240,6 +236,12 @@ main section {
     border-radius: 100%;
     z-index: 1;
     left: calc(var(--section-left-padding) - (var(--content-bar-cirlce-width) / 2.5));
+}
+
+#rtb, 
+#diario,
+#candidatura{
+    display: none;
 }
 
 
