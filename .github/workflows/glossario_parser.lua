@@ -80,7 +80,7 @@ text = text:gsub("([^i])>", "%1&gt;")
 text = text:gsub("^>", "&gt;")  
 text = text:gsub('"', "&quot;")  
 text = text:gsub("'", "&#39;")  
-text = test:gsub("\\_","&#95;")
+text = text:gsub("\\_","&#95;")
 
 return text
 
