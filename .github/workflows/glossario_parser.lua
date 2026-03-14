@@ -81,7 +81,7 @@ text = text:gsub("^>", "&gt;")
 text = text:gsub('"', "&quot;")  
 text = text:gsub("'", "&#39;")  
 text = text:gsub("\\_","&#95;")
-text = text:gsub("\\","")
+text = text:gsub("\\\\","")
 
 return text
 
