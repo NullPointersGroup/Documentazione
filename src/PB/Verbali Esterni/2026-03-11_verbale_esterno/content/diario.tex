@@ -1,0 +1,24 @@
+\section{Diario della riunione}
+
+\subsection{Dubbi sul corretto utilizzo dei database vettoriali}
+Abbiamo chiesto come inizializzare i DB$^G$ vettoriali, in quanto il nostro metodo di lavoro è indicizzare e trasformare in vettori. Il gruppo chiede se il metodo è giusto oppure ci sono vie più semplici.\\
+Ci è stato detto che vie più semplici purtroppo non esistono e, mostrando il codice, ci è stata confermata la correttezza del nostro operato.\\
+Una possibile alternativa sarebbe utilizzare solo il DB$^G$ relazionale.\\
+Questa opzione è stata scartata dal gruppo in quanto le performance risulterebbero molto più lente.\\
+Successivamente abbiamo chiesto che cosa inserire nei DB$^G$ vettoriali, ci è stato suggerito di inserire sicuramente tutte le cose relative agli articoli, e in generale tutto ciò che è utile allo scopo di costruzione dell'ordine.\\
+Devono quindi essere inseriti tutti i dati relativi ai prodotti.\\
+Sarà utile pure inserire lo storico degli ordini, di sicuro non vanno inseriti dati personali relativi agli utenti come la password e la mail.
+
+\subsection{Considerazione delle unità di misura per l'MVP}
+Siccome nel dataset fornitoci sono state inserite le unità di misura di ogni prodotto, abbiamo chiesto se queste fosse necessario inserirle per l'approvazione dell'MVP.\\
+La risposta è stata che non è una cosa necessaria ai fini dell'MVP$^G$, e che se ci avanzerà tempo potremmo inserirla, in quanto preferibile.
+
+\subsection{Tipo di architettura di deployment}
+Abbiamo chiesto se per gli scopi del capitolato$^G$ fosse preferibile un'architettura monolitica oppure un'architettura a microservizi.\\
+Ci è stato risposto che sarebbe meglio optare per il monolite, non tanto per la sua semplicità, quanto perché più adatto al nostro contesto: il prodotto non presenta numerose funzionalità$^G$ che richiedano l'uso di microservizi e non è prevista la necessità di scalare in futuro.
+
+\subsection{Suggerimenti per l'architettura}
+Abbiamo mostrato tutte le architetture fatte fino a quel momento, mostrando i diagrammi delle classi comprensivi dei design pattern.\\
+Ci è stato detto che le nostre prime idee di progettazione$^G$ sono valide per lo scopo del capitolato.\\
+Successivamente abbiamo chiesto se, basandosi sulla loro esperienza, fosse possibile riconoscere errori di progettazione$^G$ prima ancora di iniziare la fase di codifica. \\
+Ci è stato detto che è quasi impossibile a colpo d'occhio a meno che non siano errori grossolani, quindi uno dei modi è progettare è tentare.
