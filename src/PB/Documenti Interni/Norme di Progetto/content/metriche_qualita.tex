@@ -140,24 +140,13 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
         \]
         \item \textbf{Descrizione}: indica la percentuale di test$^G$ automatizzati o manuali che si concludono con esito positivo. Riflette la stabilità delle funzionalità$^G$ verificate.
     \end{itemize}
-
-% MQC_12
-\item \textbf{MQC\_12 - Test$^G$ Density and Automation}:
-    \begin{itemize}
-        \item \textbf{Formula}:
-        \[
-            \text{Test$^G$ Density and Automation} =
-            \frac{\text{Test$^G$ automatizzati}}{\text{Test$^G$ totali}} \times 100
-        \]
-        \item \textbf{Descrizione}: misura il grado di automazione$^G$ del processo$^G$ di verifica. Un’elevata densità di test$^G$ automatizzati migliora l’affidabilità della pipeline di testing e riduce i tempi di validazione.
-    \end{itemize}
 \end{itemize}
 
 % --------------------- 6.2.3 Processi Organizzativi ---------------------
 \subsubsection{Processi Organizzativi}
 \begin{itemize}
-% MQC_13
-\item \textbf{MQC\_13 - Quality Metrics Satisfied}:
+% MQC_12
+\item \textbf{MQC\_12 - Quality Metrics Satisfied}:
     \begin{itemize}
         \item \textbf{Formula}:
         \[
@@ -257,42 +246,11 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
     \end{itemize}
 \end{itemize}
 
-% --------------------- 6.1.3 Usabilità ---------------------
-\subsubsection{Usabilità}
-\begin{itemize}
-% MQD_07
-\item \textbf{MQD\_07 - Time on Task$^G$}:
-    \begin{itemize}
-        \item \textbf{Formula}:
-    \[
-        \text{Time on Task$^G$} = \frac{\sum_{i=1}^{n} T_i}{n}
-    \]
-    dove:\\
-    $T_i$ = tempo impiegato dall'utente $i$ per completare il task$^G$ specifico\\
-    $n$ = numero di utenti che hanno completato il task$^G$
-        \item \textbf{Descrizione}: misura quanto tempo, in media, un utente impiega a completare un'attività specifica nel sistema. Serve a capire se l'interfaccia è facile da usare e se ci sono passaggi che rallentano l'utente.
-    \end{itemize}
-\end{itemize}
-
-% --------------------- 6.1.4 Efficienza$^G$ ---------------------
-\subsubsection{Efficienza}
-\begin{itemize}
-% MQD_08
-\item \textbf{MQD\_08 - Response time}:
-    \begin{itemize}
-        \item \textbf{Formula}:
-        \[
-            \text{Response time} = \text{Tempo risposta medio}
-        \]
-        \item \textbf{Descrizione}: misura il tempo di risposta del sistema alle interazioni dell’utente. Un valore ridotto è indicatore di un’applicazione performante e reattiva.
-    \end{itemize}
-\end{itemize}
-
 % --------------------- 6.1.5 Manutenibilità ---------------------
 \subsubsection{Manutenibilità}
 \begin{itemize}
-% MQD_09
-\item \textbf{MQD\_09 - Code Smells per KLOC$^G$}:
+% MQD_07
+\item \textbf{MQD\_07 - Code Smells per KLOC$^G$}:
     \begin{itemize}
         \item \textbf{Formula}:
         \[
@@ -303,19 +261,8 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
         \item \textbf{Descrizione}: valuta la qualità del codice attraverso l’analisi dei “code smell”, ovvero pattern che segnalano complessità o debolezza nella struttura del software. Un numero contenuto favorisce la manutenibilità e la pulizia architetturale.
     \end{itemize}
 
-% MQD_10
-\item \textbf{MQD\_10 - Coefficient of Coupling}:
-    \begin{itemize}
-        \item \textbf{Formula}:
-        \[
-            \text{Coefficient of Coupling} =
-            \frac{\text{Dipendenze esterne}}{\text{Moduli totali}}
-        \]
-        \item \textbf{Descrizione}: misura il livello di accoppiamento tra i moduli del sistema. Un basso accoppiamento è desiderabile perché rende il prodotto più stabile, testabile e semplice da estendere nel tempo.
-    \end{itemize}
-
-% MQD_11
-\item \textbf{MQD\_11 - Cyclomatic Complexity$^G$}:
+% MQD_08
+\item \textbf{MQD\_08 - Cyclomatic Complexity$^G$}:
     \begin{itemize}
         \item \textbf{Formula}:
         \[
@@ -329,4 +276,21 @@ Le metriche qui definite consentono di monitorare l’andamento dei processi pri
         \end{itemize}
         \item \textbf{Descrizione}: misura la complessità del flusso di controllo del codice contando i percorsi logicamente indipendenti. Valori elevati indicano funzioni difficili da comprendere e testare.
     \end{itemize}
+
+%MQD_09
+\item \textbf{MQD\_09 - Cognitive Complexity}:
+\begin{itemize}
+	\item \textbf{Formula}:
+	\[
+		\text{Cognitive Complexity} = \sum \text{(incrementi per annidamento e salti logici)}
+	\]
+	Dove:
+	\begin{itemize}
+		\item incremento per ogni struttura di controllo annidata (if, while, for, switch)
+		\item incremento per salti logici che interrompono il flusso sequenziale (break, continue, return)
+		\item non incrementa per percorsi separati allo stesso livello
+	\end{itemize}
+	\item \textbf{Descrizione}: misura la complessità del codice dal punto di vista della comprensione umana, valutando quanto è difficile seguire il flusso logico. Valori elevati indicano funzioni difficili da leggere e mantenere.
+\end{itemize}
+
 \end{itemize}
