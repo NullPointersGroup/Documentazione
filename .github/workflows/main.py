@@ -31,6 +31,88 @@ def cleanup_source_pdf(src_dir: Path = SRC_DIR) -> None:
                     logger.debug(f"Could not remove {os.path.join(root, file)}")
 
 
+def _is_ignored(tex_path: Path, ignore_dir: set[Path]) -> bool:
+    return any(p.name == ignored.name for p in tex_path.parents for ignored in ignore_dir)
+
+
+def _is_main_tex(tex_path: Path) -> bool:
+    try:
+        with open(tex_path, "r", encoding="utf-8", errors="ignore") as f:
+            head = f.read(4096)
+        return "\\documentclass" in head
+    except Exception:
+        logger.debug(f"Skipped unreadable tex file: {tex_path}")
+        raise RuntimeError(f"Skipped unreadable tex file: {tex_path}")
+
+
+def _collect_tex_files(src_dir: Path, ignore_dir: set[Path]) -> List[Path]:
+    tex_files: List[Path] = []
+
+    for tex_path in src_dir.rglob("*.tex"):
+        if _is_ignored(tex_path, ignore_dir):
+            continue
+        if _is_main_tex(tex_path):
+            tex_files.append(tex_path)
+
+    return tex_files
+
+
+def _run_latexmk(tex_file: Path, latexmk_cmd: str) -> None:
+    tex_dir = tex_file.parent
+    tex_name = tex_file.name
+
+    logger.info(f"Compiling {tex_file}...")
+
+    res = subprocess.run(
+        [latexmk_cmd, "-pdf", "-interaction=nonstopmode", "-f", tex_name],
+        cwd=str(tex_dir),
+        capture_output=True,
+        text=True,
+        encoding="latin-1",
+    )
+
+    if res.returncode != 0:
+        logger.warning(f"latexmk failed for {tex_file}: {res.stderr.strip()}")
+        raise RuntimeError(f"latexmk failed for {tex_file}: {res.stderr.strip()}")
+
+
+def _copy_pdf(
+    tex_file: Path,
+    src_dir: Path,
+    output_dir: Path,
+    max_depth: Optional[int]
+) -> Optional[Path]:
+
+    tex_dir = tex_file.parent
+    pdf_path = tex_dir / (tex_file.stem + ".pdf")
+
+    if not pdf_path.exists():
+        return None
+
+    relative_parts = tex_dir.relative_to(src_dir).parts if tex_dir != src_dir else ()
+
+    if max_depth is not None and len(relative_parts) > max_depth:
+        relative_parts = relative_parts[:max_depth]
+
+    dest_dir = output_dir.joinpath(*relative_parts)
+    dest_dir.mkdir(parents=True, exist_ok=True)
+
+    dest_pdf_path = dest_dir / pdf_path.name
+    shutil.copy2(pdf_path, dest_pdf_path)
+
+    return dest_pdf_path
+
+
+def _read_table_tex(tex_file: Path) -> str:
+    table_tex_path = tex_file.parent / "content/table.tex"
+
+    if not table_tex_path.exists():
+        return ""
+
+    with open(table_tex_path, "r", encoding="utf-8", errors="ignore") as tf:
+        return tf.read()
+
+
 def compile_tex_to_pdf(
     src_dir: Path = SRC_DIR,
     output_dir: Path = OUTPUT_DIR,
@@ -38,64 +120,26 @@ def compile_tex_to_pdf(
     max_depth: Optional[int] = MAX_DEPTH,
     latexmk_cmd: str = "latexmk",
 ) -> Dict[Path, str]:
-    #Compila i .tex e copia i PDF in output, restituendo una mappa PDF -> table.tex
+
     output_dir.mkdir(parents=True, exist_ok=True)
-    
+
     if (src_dir / "PB").exists():
         ignore_dir.add(src_dir / "RTB")
 
-    tex_files: List[Path] = []
-    for tex_path in src_dir.rglob("*.tex"):
-        if any(p.name == ignored.name for p in tex_path.parents for ignored in ignore_dir):
-            continue
-        try:
-            with open(tex_path, "r", encoding="utf-8", errors="ignore") as f:
-                head = f.read(4096)
-                if "\\documentclass" in head:
-                    tex_files.append(tex_path)
-        except Exception:
-            logger.debug(f"Skipped unreadable tex file: {tex_path}")
-            raise RuntimeError(f"Skipped unreadable tex file: {tex_path}")
-
+    tex_files = _collect_tex_files(src_dir, ignore_dir)
     pdf_to_tex_content: Dict[Path, str] = {}
 
     for tex_file in tex_files:
-        tex_dir = tex_file.parent
-        tex_name = tex_file.name
         try:
-            logger.info(f"Compiling {tex_file}...")
-            res = subprocess.run(
-                [latexmk_cmd, "-pdf", "-interaction=nonstopmode", "-f", tex_name],
-                cwd=str(tex_dir),
-                capture_output=True,
-                text=True,
-                encoding='latin-1',
-            )
+            _run_latexmk(tex_file, latexmk_cmd)
 
-            if res.returncode != 0:
-                logger.warning(f"latexmk failed for {tex_file}: {res.stderr.strip()}")
-                raise RuntimeError(f"latexmk failed for {tex_file}: {res.stderr.strip()}")
+            dest_pdf = _copy_pdf(tex_file, src_dir, output_dir, max_depth)
+            if dest_pdf is None:
+                continue
 
-            pdf_name = tex_file.stem + ".pdf"
-            pdf_path = tex_dir / pdf_name
-            if pdf_path.exists():
-                relative_parts = tex_dir.relative_to(src_dir).parts if tex_dir != src_dir else ()
-                if max_depth is not None and len(relative_parts) > max_depth:
-                    relative_parts = relative_parts[:max_depth]
-                dest_dir = output_dir.joinpath(*relative_parts)
-                dest_dir.mkdir(parents=True, exist_ok=True)
-                dest_pdf_path = dest_dir / pdf_name
-                shutil.copy2(pdf_path, dest_pdf_path)
+            tex_content = _read_table_tex(tex_file)
+            pdf_to_tex_content[dest_pdf] = tex_content
 
-                # Legge il contenuto del table.tex relativo
-                table_tex_path = tex_dir / "content/table.tex"
-                tex_content = ""
-                if table_tex_path.exists():
-                    with open(table_tex_path, "r", encoding="utf-8", errors="ignore") as tf:
-                        tex_content = tf.read()
-
-                pdf_to_tex_content[dest_pdf_path] = tex_content
-                
         except Exception as e:
             logger.exception(f"Error processing {tex_file}: {e}")
             raise RuntimeError(f"Error processing {tex_file}: {e}")
@@ -138,26 +182,23 @@ def format_filename(filename: str, tex_content: str = "") -> str:
     return name.replace("_", " ") + v
 
 
-def build_tree(
-    path: Path,
-    pdf_to_tex_content: Optional[Dict[Path, str]] = None,
-    depth: int = 0,
-    max_depth: Optional[int] = MAX_DEPTH
-) -> Dict[str, Any]:
-    node: Dict[str, Any] = {}
-    if pdf_to_tex_content is None:
-        pdf_to_tex_content = {}
+def _extract_date(name: str) -> int:
+    m = re.match(r"^(\d{4})-(\d{2})-(\d{2})", name)
+    if not m:
+        return 0
+    y, mth, d = map(int, m.groups())
+    return y * 10000 + mth * 100 + d
 
-    def _extract_date(name: str) -> int:
-        m = re.match(r"^(\d{4})-(\d{2})-(\d{2})", name)
-        if not m:
-            return 0
-        return int(m.group(1)) * 10000 + int(m.group(2)) * 100 + int(m.group(3))
 
-    pdfs = [f for f in path.iterdir() if f.is_file() and f.suffix.lower() == ".pdf"]
+def _collect_pdfs(path: Path) -> List[Path]:
+    return [
+        f for f in path.iterdir()
+        if f.is_file() and f.suffix.lower() == ".pdf"
+    ]
 
-    dated: List[Path] = []
-    plain: List[Path] = []
+
+def _sort_pdfs(pdfs: List[Path]) -> List[Path]:
+    dated, plain = [], []
 
     for f in pdfs:
         if re.match(r"^\d{4}-\d{2}-\d{2}", f.stem):
@@ -166,19 +207,47 @@ def build_tree(
             plain.append(f)
 
     dated.sort(key=lambda p: _extract_date(p.stem), reverse=True)
-    pdfs_sorted = dated + sorted(plain, key=lambda x: x.name.lower())
+    plain.sort(key=lambda p: p.name.lower())
+
+    return dated + plain
+
+
+def _build_file_entries(
+    pdfs: List[Path],
+    pdf_to_tex_content: Dict[Path, str]
+) -> List[tuple[str, str]]:
+    entries = []
+
+    for f in pdfs:
+        tex_content = pdf_to_tex_content.get(f, "")
+        name = format_filename(f.name, tex_content)
+        entries.append((name, str(f)))
+
+    return entries
+
+
+def build_tree(
+    path: Path,
+    pdf_to_tex_content: Optional[Dict[Path, str]] = None,
+    depth: int = 0,
+    max_depth: Optional[int] = MAX_DEPTH
+) -> Dict[str, Any]:
+
+    pdf_to_tex_content = pdf_to_tex_content or {}
+    node: Dict[str, Any] = {}
+
+    pdfs = _collect_pdfs(path)
+    pdfs_sorted = _sort_pdfs(pdfs)
 
     if pdfs_sorted:
-        files_with_versions = []
-        for f in pdfs_sorted:
-            tex_content = pdf_to_tex_content.get(f, "")
-            files_with_versions.append((format_filename(f.name, tex_content), str(f)))
-        node["_files"] = files_with_versions
+        node["_files"] = _build_file_entries(pdfs_sorted, pdf_to_tex_content)
 
-    for d in sorted([d for d in path.iterdir() if d.is_dir()]):
+    for d in sorted(p for p in path.iterdir() if p.is_dir()):
         if max_depth is not None and depth + 1 > max_depth:
             continue
+
         child = build_tree(d, pdf_to_tex_content, depth + 1, max_depth)
+
         if child:
             node[d.name] = child
 
@@ -192,6 +261,7 @@ def generate_html(node: Dict[str, Any], level: int = 2, indent: int = 0) -> str:
         node.keys(),
         key=lambda k: (SECTION_ORDER.index(k) if k in SECTION_ORDER else 1000, k.lower()),
     )
+    print(sorted_keys)
     for key in sorted_keys:
         if key == "_files":
             for name, path in node["_files"]:
@@ -202,6 +272,7 @@ def generate_html(node: Dict[str, Any], level: int = 2, indent: int = 0) -> str:
             tag = f"h{min(level,4)}"
             if level == 2:
                 section_id = key.lower().split()[0]
+                print(section_id)
                 html_lines.append(f'{space}<section id="{section_id}">')
             html_lines.append(f'{space}<{tag}>{key}</{tag}>')
             html_lines.append(generate_html(node[key], level + 1, indent + 1))
@@ -242,10 +313,12 @@ def update_index_html(
             li = f'<li><a href="#{section_id}">{sec}</a></li>'
 
             # Keep visible only sections that actually exist, keep Contatti always visible
-            if sec == "Contatti" or folder_exists:
+            if sec == "Contatti":
                 new_nav += f"{li}\n"
-            else:
+            elif section_id in ("rtb", "diario", "candidatura"):
                 new_nav += f"<!-- {li} -->\n"
+            elif folder_exists:
+                new_nav += f"{li}\n"
         html_text = html_text[:match.start(1)] + new_nav + html_text[match.end(1):]
 
     copyright_line = '<p id="copyright">Copyright© 2025 by NullPointers Group - All rights reserved</p>'
