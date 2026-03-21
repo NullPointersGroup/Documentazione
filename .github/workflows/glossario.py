@@ -6,7 +6,7 @@ from typing import List, Tuple, Pattern, Optional, Set
 logging.basicConfig(level=logging.DEBUG, format='%(levelname)s | %(message)s')
 
 SRC_DIR: Path = Path("src")
-EXCLUDE_DIRS: Set[str] = {"Candidatura", "Diario Di Bordo", "Glossario"}
+EXCLUDE_DIRS: Set[str] = {"Candidatura", "Diario Di Bordo", "Glossario", "Manuale Utente"}
 IGNORE_FILENAMES: Set[str] = {"heading.tex", "table.tex", "title.tex", "modifiche.tex", "Lettera_di_Presentazione_RTB.tex"}
 
 
