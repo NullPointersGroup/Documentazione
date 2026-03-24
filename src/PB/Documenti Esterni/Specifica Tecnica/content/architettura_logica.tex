@@ -31,10 +31,10 @@ I principali elementi dell'architettura esagonale sono:\\
 	\caption{Registrazione e autenticazione}
 \end{figure}
 	\begin{itemize}
-		\item \textbf{Core domain}: Contiene la logica dedicata alla registrazione di un utente nuovo oppure all'autenticazione di un utente già esistente. Permette di elaborare i dati ricevuti tramite l'inserimento dei dati dell'utente.
-		\item \textbf{Inbound ports}: Non sono presenti inbound ports esplicite. Il layer applicativo è esposto direttamente tramite \texttt{UserService}, che viene istanziato e invocato dal controller FastAPI. Questa scelta è giustificata dalla presenza di un unico driver (l'interfaccia HTTP), che rende superflua l'introduzione di un'interfaccia dedicata sul lato entrante.
-		\item \textbf{Outbound ports}: Definiscono i contratti verso l'infrastruttura esterna. \texttt{IUserRepoPort} espone le operazioni di persistenza sugli utenti, mentre \texttt{IEmailValidationPort} espone la verifica del dominio email tramite DNS. Entrambe le interfacce sono definite nel core domain e implementate da adapter dedicati.
-		\item \textbf{Adapters}: Implementa adattatori per l'inserimento nel DB
+		\item \textbf{Core domain}: contiene la logica dedicata alla registrazione di un utente nuovo oppure all'autenticazione di un utente già esistente. Permette di elaborare i dati ricevuti tramite l'inserimento dei dati dell'utente.
+		\item \textbf{Inbound ports}: l’applicazione espone un unico punto di ingresso tramite FastAPI Router, che funge da inbound port. Non sono stati definiti ulteriori livelli di astrazione (es. interfacce dedicate), poiché l’HTTP driver è già sufficiente.
+		\item \textbf{Outbound ports}: definiscono i contratti verso l'infrastruttura esterna. \texttt{IUserRepoPort} espone le operazioni di persistenza sugli utenti, mentre \texttt{IEmailValidationPort} espone la verifica del dominio email tramite DNS. Entrambe le interfacce sono definite nel core domain e implementate da adapter dedicati.
+		\item \textbf{Adapters}: implementano l’integrazione con servizi esterni, tra cui la persistenza su database (UserRepo), la validazione email, la gestione delle password e la generazione dei token.
 	\end{itemize}
 	\item Chatbot e gestione ordine
 	\begin{itemize}
