@@ -1,0 +1,10 @@
+
+\subsection{Autenticazione e Registrazione}
+
+Questa parte si occupa di ricevere le richieste di ottenimento Token, controllarne i valori e restituire un Token valido e temporaneo (24 ore di validità), affinché il Client possa utilizzare il Sistema.\\
+I Token sono firmati tramite l'algoritmo \textbf{HS256} (HMAC-SHA256), che utilizza una chiave segreta condivisa sia per la firma che per la verifica.\\
+Le password degli utenti sono invece cifrate tramite \textbf{bcrypt}, algoritmo appositamente progettato per l'hashing.
+
+\input{content/autenticazione_frontend}
+
+\input{content/autenticazione_backend}
