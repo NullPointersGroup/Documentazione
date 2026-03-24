@@ -1,30 +1,35 @@
 \section{Architettura Logica}
 L'architettura logica del progetto SmartOrder adotta un approccio esagonale.\\
-L'obiettivo è quello di separare le tre logiche: Presentation, Business e Persistence. \\
-La separazione fra Presentation e Business esiste grazie all'utilizzo delle API interne, che permettono di separare completamente la logica. \\
-La separazione fra Business e Persistence è invece resa possibile grazie alla separazione fra classi di tipo Service, che rappresentano le classi che gestiscono la Business Logic, e classi di tipo Repository, le quali gestiscono la Persistence Logic.
+L'obiettivo è quello di mantenere separata la logica di business dalle componenti esterne, come l'interfaccia utente e il sistema di persistenza dei dati.\\
+La comunicazione tra la parte di presentazione e la logica applicativa avviene tramite interfacce, che permettono ai controller (ad esempio quelli esposti tramite API HTTP) di invocare le funzionalità del sistema senza dipendere direttamente dalla loro implementazione.\\
+Allo stesso modo, l'accesso al database e ad altri servizi esterni è gestito tramite componenti dedicati, che permettono alla logica di business di rimanere indipendente dalle tecnologie utilizzate.
 
 \subsection{Pattern di architettura esagonale}
-Il pattern esagonale è stato scelto per la sua utilità nel suddividere le responsabilità specifiche.\\
-Questa separazione consente una maggiore manutenibilità e testabilità del sistema, oltre a facilitare l'evoluzione tecnologica senza impattare sul nucleo funzionale.\\
-Nell'architettura esagonale, possiamo distinguere:\\
+Il pattern esagonale è stato scelto per organizzare il sistema in modo chiaro e modulare, separando le responsabilità tra le diverse componenti.\\
+Questo approccio rende il sistema più facile da mantenere, testare ed estendere nel tempo.\\
+I principali elementi dell'architettura esagonale sono:\\
 \begin{itemize}
-	\item \textbf{Core domain}: La logica di business, ha una o più porte
-	\item \textbf{Porte}: Definiscono set di operazioni ed il modo con il quale la logica si interfaccia con la parte esterna, solitamente sono definite tramite un'interfaccia. Si distinguono in:
+	\item \textbf{Core domain}: contiene la logica di business dell'applicazione ed è indipendente dalle tecnologie esterne.
+	\item \textbf{Porte}: rappresentano i punti di contatto tra il dominio e l'esterno, e definiscono le operazioni disponibili. Si distinguono in:
 	\begin{itemize}
-		\item \textbf{Inbound ports}: Interfacce che espongono le funzionalità del dominio verso l'esterno
-		\item \textbf{Outbound ports}: Interfacce che definiscono come il dominio può utilizzare servizi esterni
+		\item \textbf{Inbound ports}: interfacce che espongono le funzionalità del dominio verso l'esterno
+		\item \textbf{Outbound ports}: interfacce che definiscono come il dominio può utilizzare servizi esterni
 	\end{itemize}
-	\item \textbf{Adapters}: Implementazioni concrete delle porte che collegano il dominio alle tecnologie specifiche
+	\item \textbf{Adapters}: sono implementazioni concrete delle porte che collegano il dominio alle tecnologie utilizzate
 	\begin{itemize}
-		\item \textbf{Inbound adapters}: Adattatori che convertono le richieste esterne nel formato atteso del dominio
-		\item \textbf{Outbound adapters}: Adattori che implementano le interfacce di uscita collegandole a tecnologie specifiche
+		\item \textbf{Inbound adapters}: adattatori che convertono le richieste esterne nel formato atteso del dominio
+		\item \textbf{Outbound adapters}: adattori che implementano le interfacce di uscita collegandole a tecnologie specifiche
 	\end{itemize}
 \end{itemize}
 
 \section{Servizi principali}
 \begin{itemize}
 	\item Autenticazione e registrazione
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{SpecificaTecnica/auth}
+	\caption{Registrazione e autenticazione}
+\end{figure}
 	\begin{itemize}
 		\item \textbf{Core domain}: Contiene la logica dedicata alla registrazione di un utente nuovo oppure all'autenticazione di un utente già esistente. Permette di elaborare i dati ricevuti tramite l'inserimento dei dati dell'utente.
 		\item \textbf{Inbound ports}: Non sono presenti inbound ports esplicite. Il layer applicativo è esposto direttamente tramite \texttt{UserService}, che viene istanziato e invocato dal controller FastAPI. Questa scelta è giustificata dalla presenza di un unico driver (l'interfaccia HTTP), che rende superflua l'introduzione di un'interfaccia dedicata sul lato entrante.
