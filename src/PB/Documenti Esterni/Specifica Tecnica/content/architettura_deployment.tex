@@ -1,1 +1,20 @@
 \section{Architettura di Deployment}
+
+Il sistema adotta un'architettura \textbf{monolitica}, in cui tutti i 
+componenti applicativi — logica di dominio, layer HTTP e accesso al 
+database — sono sviluppati, deployati ed eseguiti come un'unica unità.
+
+Rispetto a un'architettura a microservizi, questa scelta offre i 
+seguenti vantaggi nel contesto del progetto:
+
+\begin{itemize}
+	\item \textbf{Semplicità operativa}: Non è necessario gestire orchestrazione di container, service discovery o bilanciamento del carico tra servizi distribuiti.
+	
+	\item \textbf{Latenza ridotta}: Le comunicazioni tra i componenti avvengono in-process, eliminando l'overhead di chiamate HTTP o message broker tra servizi separati.
+	
+	\item \textbf{Transazioni coerenti}: Le operazioni sul database avvengono all'interno di un'unica connessione, senza la necessità di gestire la consistenza distribuita tra servizi indipendenti.
+	
+	\item \textbf{Adeguatezza alla scala}: Considerata la natura del progetto e il numero limitato di utenti previsti, i benefici introdotti dai microservizi non giustificherebbero la complessità aggiuntiva che comportano.
+	
+	\item \textbf{Comunicazione con la proponente}: Discutendo con la proponente a riguardo dell'architettura migliore ci è stato detto che è preferibile avere un'architettura monolitica piuttosto che a microservizi. Quest'informazione si può trovare nel \href{https://nullpointersgroup.github.io/Documentazione/output/PB/Verbali%20Esterni/2026-03-11_verbale_esterno.pdf}{Verbale esterno del 11 marzo}
+\end{itemize}
