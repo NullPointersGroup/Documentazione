@@ -2,6 +2,54 @@
 
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.8\textwidth]{SpecificaTecnica/schema_db}
+	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/schema_db}
 	\caption{Schema ER della base di dati}
 \end{figure}
+
+Il database relazionale utilizzato per il progetto SmartOrder non è molto complesso.\\
+In esso vengono salvati:
+\begin{itemize}
+	\item \textbf{anaart}: L'anagrafica degli articoli. È composto da:
+	\begin{itemize}
+		\item \textbf{cod\_art}: Il codice articolo, è la primary key della tabella
+		\item \textbf{des\_art}: Rappresenta la descrizione dell'articolo
+		\item \textbf{des\_um}: Rappresenta la modalità di vendita dell'articolo
+		\item \textbf{tipo\_um}: Rappresenta il tipo della confezione. È descritto da un enum in cui L sta per colli, P per pezzi, K per chilogrammo per e C per confezioni
+		\item \textbf{peso\_netto\_conf}: Rappresenta il peso netto della confezione
+		\item \textbf{conf\_collo}: Rappresenta quante confezioni sono presenti all'interno di un collo
+		\item \textbf{pezzi\_conf}: Rappresenta quanti pezzi sono presenti all'interno di una confezione
+		\item \textbf{grammatura}: Rappresenta il peso
+		\item \textbf{prezzo}: Rappresenta il pezzo in euro del prodotto
+	\end{itemize}
+	\item \textbf{UtentiWeb}: La tabella che tiene salvati gli utenti di SmartOrder. Contiene:
+	\begin{itemize}
+		\item \textbf{username}: Rappresenta il nome dell'utente con cui si può effettuare il login. È la primary key della tabella
+		\item \textbf{descrizione}: Rappresenta la descrizione del cliente associato all'utente
+		\item \textbf{email}: L'email associata all'utente. Deve essere univoca
+		\item \textbf{password}: La password dell'utente. È salvata utilizzando l'algoritmo HS256
+	\end{itemize}
+	\item \textbf{Ordine}: Rappresenta un ordine di un utente. È composto da:
+		\begin{itemize}
+			\item \textbf{id\_ord}: Numero univoco per l'id dell'ordine. È la primary key della tabella
+			\item \textbf{username}: Rappresenta lo username dell'utente associato all'ordine. È una chiave esterna
+			\item \textbf{data}: Rappresenta la data in cui è stato effettuato l'ordine.
+		\end{itemize}
+	\item \textbf{OrdCliDet}: Rappresenta la tabella per collegare gli articoli ordinati dal cliente per un determinato ordine. È composto da:
+	\begin{itemize}
+		\item \textbf{id\_ord}: Rappresenta l'id dell'ordine associato. Viene utilizzato come primary key assieme all'attributo \textbf{cod\_art}. È una chiave esterna
+		\item \textbf{cod\_art}: Rappresenta il codice dell'articolo in oggetto. Viene utilizzato come primary key assieme all'attributo \textbf{id\_ord}. È una chiave esterna 
+	\end{itemize}
+	\item \textbf{Conversazione}: Rappresenta una chat di un utente. È composta da:
+	\begin{itemize}
+		\item \textbf{id\_conv}: Rappresenta l'id della conversazione. È la primary key della tabella
+		\item \textbf{username}: Rappresenta lo username associato a quella conversazione. È una chiave esterna
+	\end{itemize}
+	\item \textbf{Messaggi}: Rappresenta i messaggi all'interno di una conversazione. È composta da:
+	\begin{itemize}
+		\item \textbf{id\_conv}: Rappresenta l'id della conversazione a cui il messaggio è associato. È una primary key assieme all'attributo \textbf{id\_messaggio} ed è una chiave esterna
+		\item \textbf{id\_messaggio}: Rappresenta l'id di un messaggio all'interno di una conversazione. È una primary key assieme all'attributo \textbf{id\_conv}
+		\item \textbf{mittente}: Rappresenta chi ha inviato il messaggio. È rappresentato da un enum e può essere solo utente oppure chatbot
+		\item \textbf{contenuto}: Rappresenta il testo del messaggio
+	\end{itemize}
+	
+\end{itemize}
