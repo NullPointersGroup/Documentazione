@@ -5,15 +5,18 @@
 \begin{tabular}{p{0.25\textwidth} p{0.2\textwidth}}
 	\textbf{Inizio} & 09/03/2026 \\
 	\textbf{Fine prevista} & 16/03/2026 \\
-	\textbf{Fine reale} & - \\
-	\textbf{Giorni di ritardo} & -
+	\textbf{Fine reale} & 16/03/2026 \\
+	\textbf{Giorni di ritardo} & 0
 \end{tabular}
 \newline \newline 
-Le nostre attività da svolgere, definite nel \href{https://nullpointersgroup.github.io/Documentazione/output/PB/Verbali%20Interni/2026-03-09_verbale_interno.pdf}{Verbale interno del 09/03/2026}, nel \href{https://nullpointersgroup.github.io/Documentazione/output/PB/Verbali%20Interni/2026-03-11_verbale_interno.pdf}{Verbale interno del 11/03/2026} e nel \href{https://nullpointersgroup.github.io/Documentazione/output/PB/Verbali%20Interni/2026-03-11_verbale_esterno.pdf}{Verbale esterno del 11/03/2026} sono:
+Le nostre attività da svolgere, definite nel \href{https://nullpointersgroup.github.io/Documentazione/output/PB/Verbali%20Interni/2026-03-09_verbale_interno.pdf}{Verbale interno del 09/03/2026}, nel \href{https://nullpointersgroup.github.io/Documentazione/output/PB/Verbali%20Interni/2026-03-11_verbale_interno.pdf}{Verbale interno del 11/03/2026} e nel \href{https://nullpointersgroup.github.io/Documentazione/output/PB/Verbali%20Esterni/2026-03-11_verbale_esterno.pdf}{Verbale esterno del 11/03/2026} sono:
 \begin{itemize}[itemsep=5pt, parsep=1pt, label=$\scriptstyle\bullet$]
 	\item Sistemare i riferimenti informativi e normativi
 	\item Scrivere il consuntivo$^G$ dello sprint$^G$ 8 e il preventivo dello sprint$^G$ 9
 	\item Stesura Diario di Bordo del 11 marzo 2026
+	\item Modellare il diagramma ER del DB$^G$ relazionale
+	\item Inserire termini Glossario
+	\item Correggere i requisiti di vincolo dell'Analisi dei Requisiti$^G$
 \end{itemize}
 
 \subsubsubsection{Rischi attesi}
@@ -45,21 +48,117 @@ Si prospetta l'utilizzo delle seguenti risorse:
 			\begin{tabular}{|p{0.2\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|}
 				\hline
 				M. Mazzaretto & 3 & - & - & - & - & - \\ \hline
-				T. Ceron      & - & - & - & - & - & 3 \\ \hline
+				T. Ceron      & - & - & - & 3 & - & 3 \\ \hline
 				L. Pieripolli & - & - & - & - & - & 3 \\ \hline
 				L. Marcuzzo   & - & - & - & - & - & 3 \\ \hline
-				M. Brunello   & - & - & - & - & 1 & 3 \\ \hline
-				L. Casagrande & - & - & - & - & - & 3 \\ \hline
+				M. Brunello   & - & - & - & - & 3 & 3 \\ \hline
+				L. Casagrande & - & - & 1 & - & - & 3 \\ \hline
 			\end{tabular}
 		\end{minipage}
 	}
 	\caption{Sprint 9: Preventivo}
 \end{table}
 
-Il totale preventivato per lo sprint$^G$ è \textbf{480€}.\\
+Il totale preventivato per lo sprint$^G$ è \textbf{580€}.\\
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{PianoProgetto/sprint09_preventivo}
 	\caption{Sprint 9: Preventivo}
 \end{figure}
+
+\subsubsubsection{Consuntivo}
+In questo sprint$^G$ sono state utilizzate le seguenti risorse:
+\begin{table}[H]
+	\centering
+	\makebox[\textwidth][c]{%
+		\begin{minipage}{1.2\textwidth}
+			\centering
+			% Prima tabella senza bordi per le intestazioni ruotate
+			\begin{tabular}{p{0.2\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}}
+				& \rotatebox{45}{\textbf{Responsabile$^G$}} &
+				\rotatebox{45}{\textbf{Amministratore$^G$}} & \rotatebox{45}{\textbf{Analista$^G$}} & \rotatebox{45}{\textbf{Programmatore$^G$}} & \rotatebox{45}{\textbf{Verificatore$^G$}} &
+				\rotatebox{45}{\textbf{Progettista$^G$}} \\
+			\end{tabular}
+			
+			\vspace{0.2cm} % Piccolo spazio tra le due tabelle
+			
+			% Seconda tabella con i dati e i bordi
+			\begin{tabular}{|p{0.2\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.13\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|}
+				\hline
+				M. Mazzaretto & 4 \textcolor{red}{(+1)} & - & - & - & - & \\ \hline
+				T. Ceron      & - & - & - & 5 \textcolor{red}{(+2)} & - & 4 \textcolor{red}{(+1)} \\ \hline
+				L. Pieripolli & - & - & - & - & - & 4 \textcolor{red}{(+1)} \\ \hline
+				L. Marcuzzo   & - & - & - & - & - & 4 \textcolor{red}{(+1)} \\ \hline
+				M. Brunello   & - & - & - & 2 \textcolor{red}{(+2)} & 5 \textcolor{red}{(+2)} & 4 \textcolor{red}{(+1)} \\ \hline
+				L. Casagrande & - & - & 1 & 5 \textcolor{red}{(+5)} & - & 4 \textcolor{red}{(+1)} \\ \hline
+			\end{tabular}
+		\end{minipage}
+	}
+	\caption{Sprint 9: Consuntivo}
+\end{table}
+Il totale consuntivato per lo sprint$^G$ è \textbf{900€}.\\
+
+In questo sprint$^G$, il carico di lavoro effettivo ha superato le aspettative in termini di ore produttive, poiché il gruppo ha dovuto dedicare maggiore impegno alle attività, a causa di una complessità della progettazione$^G$ superiore a quanto inizialmente previsto.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{PianoProgetto/sprint09_consuntivo}
+	\caption{Sprint 9: Consuntivo}
+\end{figure}
+
+\subsubsubsection{Retrospettiva}
+Il team ha completato le attività pianificate e ha avuto modo di chiarire eventuali dubbi riguardo la progettazione.
+\subsubsubsection{Rischi incontrati}
+In questo sprint$^G$ sono stati incontrati rischi RE1 e RE2 in quanto la complessità della progettazione$^G$ ha richiesto un maggiore impegno rispetto alle aspettative iniziali poiché è un'attività nuova a tutti i membri del gruppo.
+
+\subsubsubsection{Efficacia delle strategie di gestione di mitigazione dei rischi}
+Il gruppo ha sottostimato il monte ore a causa dell'attività di progettazione$^G$ che si è rivelata più complessa di quanto inizialmente previsto, non riuscendo quindi a pianificare in maniera più corretta le ore produttive da dedicare.
+
+\subsubsubsection{Migliorie da attuare per le attività future}
+Nei prossimi sprint$^G$, il gruppo dovrà pianificare con maggiore attenzione la distribuzione$^G$ dei compiti e dei ruoli evitando di sottostimare la complessità delle attività.
+
+\subsubsubsection{Aggiornamento delle risorse rimanenti}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{0.2\textwidth}|p{0.1\textwidth}|p{0.05\textwidth}|p{0.1\textwidth}|p{0.15\textwidth}|p{0.17\textwidth}|}
+		\hline
+		\rowcolor{gray!25}
+		Ruolo & Costo & Ore & Costo \newline effettivo & Ore \newline rimanenti & Budget \newline rimanente \\ \hline
+		
+		Responsabile$^G$
+		& 30(€/h) & 4 & 120
+		& 23 \textcolor{red}{(-4)}
+		& 690 \textcolor{red}{(-120)} \\ \hline
+		
+		Amministratore$^G$
+		& 20(€/h) & - & -
+		& 1
+		& 20 \\ \hline
+		
+		Analista$^G$
+		& 25(€/h) & 1 & 25
+		& 2.5 \textcolor{red}{(-1)}
+		& 62.5 \textcolor{red}{(-25)} \\ \hline
+		
+		Progettista$^G$
+		& 25(€/h) & 20 & 500
+		& 102 \textcolor{red}{(-20)}
+		& 2550 \textcolor{red}{(-500)}\\ \hline
+		
+		Verificatore$^G$
+		& 15(€/h) & 5 & 75
+		& 87 \textcolor{red}{(-5)}
+		& 1305 \textcolor{red}{(-75)} \\ \hline
+		
+		Programmatore$^G$
+		& 15(€/h) & 12 & 180
+		& 97 \textcolor{red}{(-12)}
+		& 1455 \textcolor{red}{(-180)} \\ \hline
+		
+		Totale
+		& - & 42 & 900
+		& 312.5 \textcolor{red}{(-42)}
+		& 6082.5 \textcolor{red}{(-900)} \\ \hline
+	\end{tabular}
+	\caption{Sprint 9: Aggiornamento risorse}
+\end{table}
