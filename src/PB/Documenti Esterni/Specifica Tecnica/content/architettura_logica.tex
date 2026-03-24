@@ -1,1 +1,48 @@
 \section{Architettura Logica}
+L'architettura logica del progetto SmartOrder adotta un approccio esagonale.\\
+L'obiettivo è quello di separare le tre logiche: Presentation, Business e Persistence. \\
+La separazione fra Presentation e Business esiste grazie all'utilizzo delle API interne, che permettono di separare completamente la logica. \\
+La separazione fra Business e Persistence è invece resa possibile grazie alla separazione fra classi di tipo Service, che rappresentano le classi che gestiscono la Business Logic, e classi di tipo Repository, le quali gestiscono la Persistence Logic.
+
+\subsection{Pattern di architettura esagonale}
+Il pattern esagonale è stato scelto per la sua utilità nel suddividere le responsabilità specifiche.\\
+Questa separazione consente una maggiore manutenibilità e testabilità del sistema, oltre a facilitare l'evoluzione tecnologica senza impattare sul nucleo funzionale.\\
+Nell'architettura esagonale, possiamo distinguere:\\
+\begin{itemize}
+	\item \textbf{Core domain}: La logica di business, ha una o più porte
+	\item \textbf{Porte}: Definiscono set di operazioni ed il modo con il quale la logica si interfaccia con la parte esterna, solitamente sono definite tramite un'interfaccia. Si distinguono in:
+	\begin{itemize}
+		\item \textbf{Inbound ports}: Interfacce che espongono le funzionalità del dominio verso l'esterno
+		\item \textbf{Outbound ports}: Interfacce che definiscono come il dominio può utilizzare servizi esterni
+	\end{itemize}
+	\item \textbf{Adapters}: Implementazioni concrete delle porte che collegano il dominio alle tecnologie specifiche
+	\begin{itemize}
+		\item \textbf{Inbound adapters}: Adattatori che convertono le richieste esterne nel formato atteso del dominio
+		\item \textbf{Outbound adapters}: Adattori che implementano le interfacce di uscita collegandole a tecnologie specifiche
+	\end{itemize}
+\end{itemize}
+
+\section{Servizi principali}
+\begin{itemize}
+	\item Autenticazione e registrazione
+	\begin{itemize}
+		\item \textbf{Core domain}: Contiene la logica dedicata alla registrazione di un utente nuovo oppure all'autenticazione di un utente già esistente. Permette di elaborare i dati ricevuti tramite l'inserimento dei dati dell'utente.
+		\item \textbf{Inbound ports}: Non sono presenti inbound ports esplicite. Il layer applicativo è esposto direttamente tramite \texttt{UserService}, che viene istanziato e invocato dal controller FastAPI. Questa scelta è giustificata dalla presenza di un unico driver (l'interfaccia HTTP), che rende superflua l'introduzione di un'interfaccia dedicata sul lato entrante.
+		\item \textbf{Outbound ports}: Definiscono i contratti verso l'infrastruttura esterna. \texttt{IUserRepoPort} espone le operazioni di persistenza sugli utenti, mentre \texttt{IEmailValidationPort} espone la verifica del dominio email tramite DNS. Entrambe le interfacce sono definite nel core domain e implementate da adapter dedicati.
+		\item \textbf{Adapters}: Implementa adattatori per l'inserimento nel DB
+	\end{itemize}
+	\item Chatbot e gestione ordine
+	\begin{itemize}
+		\item \textbf{Core domain}:
+		\item \textbf{Inbound ports}:
+		\item \textbf{Outbound ports}:
+		\item \textbf{Adapters}:
+	\end{itemize}
+	\item Visualizzazione storico ordini
+	\begin{itemize}
+		\item \textbf{Core domain}:
+		\item \textbf{Inbound ports}:
+		\item \textbf{Outbound ports}:
+		\item \textbf{Adapters}:
+	\end{itemize}
+\end{itemize}
