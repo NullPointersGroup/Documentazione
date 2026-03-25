@@ -16,7 +16,7 @@
 
 \subsubsubsubsection{Descrizione}
 \texttt{UserService} è il servizio applicativo che orchestra i casi d'uso di autenticazione e registrazione.\\
-Implementa la logica di business coordinando le dipendenze verso la persistenza (\texttt{IUserRepoPort}) e la validazione email (\texttt{IEmailValidationPort}), sollevando eccezioni specifiche in caso di violazione delle regole applicative.
+Implementa la logica di business orchestrando i servizi di persistenza (\texttt{IUserRepoPort}) e di validazione email (\texttt{IEmailValidationPort}), lanciando eccezioni mirate quando vengono violate le regole applicative.
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
@@ -27,8 +27,8 @@ Implementa la logica di business coordinando le dipendenze verso la persistenza 
 \subsubsubsubsection{Metodi e funzioni}
 \begin{itemize}
 	\item \texttt{\_\_init\_\_(repo, email\_validator)} - costruttore che riceve le due porte secondarie per dependency injection.
-	\item \texttt{check\_user(u: User) -> str} - verifica le credenziali di un utente: recupera l'utente dal repository tramite username e controlla la password con \texttt{PasswordUtility}. Solleva \texttt{InvalidCredentialsError} se l'utente non esiste o la password non corrisponde. Restituisce lo username autenticato.
-	\item \texttt{register\_user(u: UserRegistration) -> None} - orchestra la registrazione di un nuovo utente eseguendo in sequenza: verifica univocità dello username (\texttt{UsernameAlreadyExistsError}), validazione DNS del dominio email (\texttt{InvalidEmailFormatError}), verifica univocità dell'email (\texttt{EmailAlreadyExistsError}) e inserimento nel database (\texttt{UserCreationError}).
+	\item \texttt{check\_user(u: User) -> str} - verifica le credenziali di un utente: recupera l'utente dal repository tramite username e controlla la password con \texttt{PasswordUtility} restituendo lo username autenticato. Solleva \newline \texttt{InvalidCredentialsError} se l'utente non esiste o la password non corrisponde.
+	\item \texttt{register\_user(u: UserRegistration) -> None} - orchestra la registrazione di un nuovo utente eseguendo in sequenza: la verifica dell'univocità dello username (\texttt{UsernameAlreadyExistsError}), la validazione del DNS del dominio email (\texttt{InvalidEmailFormatError}), la verifica dell'univocità dell'email (\texttt{EmailAlreadyExistsError}) e l'inserimento nel database \newline (\texttt{UserCreationError}).
 	\item \texttt{delete\_user(username: str) -> None} - elimina un utente autenticato: verifica l'esistenza dell'utente (\texttt{UserNotFoundError}) e ne richiede la cancellazione al repository (\texttt{UserDeletionError}).
 \end{itemize}
 
@@ -50,10 +50,10 @@ La variabile \texttt{router: APIRouter} è definita a livello di modulo e funge 
 \subsubsubsubsection{Metodi e funzioni}
 \begin{itemize}
 	\item \texttt{get\_user\_service(db: Session) -> UserService} - funzione di dipendenza FastAPI che istanzia \texttt{UserService} iniettando \texttt{UserRepoAdapter} e \texttt{EmailValidationAdapter}; riceve la sessione database tramite \texttt{get\_conn}.
-	\item \texttt{login(payload: UserSchema) -> LoginResponse} - handler \texttt{POST /auth/login}; riceve un payload \texttt{UserSchema} contenente username e password, e delega la verifica a \texttt{UserService.check\_user}. In caso di successo genera e restituisce un \texttt{LoginResponse} contenente il JWT prodotto da \texttt{TokenUtility.create\_token}; in caso di \texttt{InvalidCredentialsError} risponde con \texttt{HTTP 400}.
-	\item \texttt{register(payload: UserRegistrationSchema) -> AuthResponse} - handler \texttt{POST /auth/register}; riceve un payload \texttt{UserRegistrationSchema} che estende \texttt{UserSchema} con email e conferma password, applicando a livello Pydantic la validazione del formato di username, password ed email e la corrispondenza tra le due password. Delega la registrazione a \texttt{UserService.register\_user} e restituisce un \texttt{AuthResponse}; mappa le eccezioni dominio in \texttt{HTTP 400} per errori di validazione e \texttt{HTTP 500} per errori di persistenza.
-	\item \texttt{delete\_account(current\_user: str) -> AuthResponse} - handler \texttt{DELETE /auth/account}; richiede un token JWT valido tramite \texttt{get\_current\_user}, delega la cancellazione a \texttt{UserService.delete\_user} e restituisce un \texttt{AuthResponse}. Risponde con \texttt{HTTP 404} se l'utente non esiste e \texttt{HTTP 500} in caso di errore durante la cancellazione.
-	\item \texttt{get\_current\_user(token: str) -> str} - funzione di dipendenza che decodifica il JWT tramite \texttt{TokenUtility.decode\_token}; solleva \texttt{HTTPException 401} se il token è assente o non valido. Restituisce lo username estratto dal payload.
+	\item \texttt{login(payload: UserSchema) -> LoginResponse} - handler \newline \texttt{POST /auth/login}; riceve un payload \texttt{UserSchema} contenente username e password, e delega la verifica a \texttt{UserService.check\_user}. In caso di successo genera e restituisce un \texttt{LoginResponse} contenente il JWT prodotto da \texttt{TokenUtility.create\_token}; in caso di \texttt{InvalidCredentialsError} risponde con \texttt{HTTP 400}.
+	\item \texttt{register(payload: UserRegistrationSchema) -> AuthResponse} - \newline handler \texttt{POST /auth/register}; riceve un payload \texttt{UserRegistrationSchema} che estende \texttt{UserSchema} con email e conferma password, applicando a livello Pydantic la validazione del formato di username, password ed email e la corrispondenza tra le due password. Delega la registrazione a \newline \texttt{UserService.register\_user} e restituisce un \texttt{AuthResponse}; mappa le eccezioni del dominio in \texttt{HTTP 400} per errori di validazione e \texttt{HTTP 500} per errori di persistenza.
+	\item \texttt{delete\_account(current\_user: str) -> AuthResponse} - handler \texttt{DELETE /auth/account}, richiede un token JWT valido tramite \texttt{get\_current\_user}, delega la cancellazione a \texttt{UserService.delete\_user} e restituisce un \newline \texttt{AuthResponse}. Risponde con \texttt{HTTP 404} se l'utente non esiste e \texttt{HTTP 500} in caso di errore durante la cancellazione.
+	\item \texttt{get\_current\_user(token: str) -> str} - funzione di dipendenza che decodifica il JWT tramite \texttt{TokenUtility.decode\_token}; solleva \newline \texttt{HTTPException 401} se il token è assente o non valido. Restituisce lo username estratto dal payload.
 \end{itemize}
 
 \subsubsubsection{TokenUtility}
@@ -87,7 +87,7 @@ Sono definite le seguenti costanti a livello di modulo:
 
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.8\textwidth]{SpecificaTecnica/Autenticazione/IEmailValidationPort}
+	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Autenticazione/IEmailValidationPort}
 	\caption{Autenticazione e Registrazione: IEmailValidationPort}
 \end{figure}
 
@@ -107,7 +107,7 @@ Sono definite le seguenti costanti a livello di modulo:
 
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.8\textwidth]{SpecificaTecnica/Autenticazione/EmailValidationAdapter}
+	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Autenticazione/EmailValidationAdapter}
 	\caption{Autenticazione e Registrazione: EmailValidationAdapter}
 \end{figure}
 
@@ -127,7 +127,7 @@ Effettua la validazione del dominio email tramite una query DNS di tipo \texttt{
 
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.8\textwidth]{SpecificaTecnica/Autenticazione/IUserRepoPort}
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Autenticazione/IUserRepoPort}
 	\caption{Autenticazione e Registrazione: IUserRepoPort}
 \end{figure}
 
@@ -151,7 +151,7 @@ Effettua la validazione del dominio email tramite una query DNS di tipo \texttt{
 
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.8\textwidth]{SpecificaTecnica/Autenticazione/UserRepoAdapter}
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Autenticazione/UserRepoAdapter}
 	\caption{Autenticazione e Registrazione: UserRepoAdapter}
 \end{figure}
 
@@ -168,7 +168,7 @@ Funge da adapter verso il livello di persistenza, delegando tutte le operazioni 
 \begin{itemize}
 	\item \texttt{\_\_init\_\_(db: Session) -> None} - costruttore che riceve la sessione database e istanzia \texttt{UserRepository}.
 	\item \texttt{find\_by\_username(username: str) -> Utente | None} - implementazione concreta che delega la ricerca per username a \texttt{UserRepository.find\_by\_username}.
-	\item \texttt{username\_exists(username: str) -> bool} - implementazione concreta che verifica l'esistenza dello username delegando a \texttt{UserRepository.find\_by\_username} e controllando che il risultato non sia \texttt{None}.
+	\item \texttt{username\_exists(username: str) -> bool} - implementazione concreta che verifica l'esistenza dello username delegando a \newline \texttt{UserRepository.find\_by\_username} e controllando che il risultato non sia \texttt{None}.
 	\item \texttt{email\_exists(email: str) -> bool} - implementazione concreta che verifica l'esistenza dell'email delegando a \texttt{UserRepository.find\_by\_email} e controllando che il risultato non sia \texttt{None}.
 	\item \texttt{add\_user(u: UserRegistration) -> bool} - implementazione concreta che delega l'inserimento del nuovo utente a \texttt{UserRepository.save}.
 	\item \texttt{delete\_user(username: str) -> bool} - implementazione concreta che delega la cancellazione dell'utente a \texttt{UserRepository.delete}.
@@ -184,7 +184,7 @@ Funge da adapter verso il livello di persistenza, delegando tutte le operazioni 
 
 \subsubsubsubsection{Descrizione}
 \texttt{UserRepository} è il repository concreto che gestisce le operazioni di persistenza sugli utenti.\\
-Traduce le operazioni dominio in query SQL tramite \texttt{QueryExecutor}, utilizzando SQLModel e SQLAlchemy Core per la costruzione e l'esecuzione delle istruzioni.
+Traduce le operazioni di dominio in query SQL tramite \texttt{QueryExecutor}, utilizzando SQLModel e SQLAlchemy Core per costruire ed eseguire le istruzioni.
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
