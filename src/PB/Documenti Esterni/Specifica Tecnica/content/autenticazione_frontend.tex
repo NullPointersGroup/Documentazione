@@ -248,10 +248,6 @@ Viene utilizzato esclusivamente dalle classi Model.
 
 	\item \texttt{authFetch(endpoint: string, body: object): Promise<AuthResponse>} - funzione helper interna asincrona.
 	Centralizza la logica comune delle chiamate HTTP: costruisce l'header, gestisce gli errori di rete e deserializza la risposta JSON$^G$ in \texttt{AuthResponse}.
-
-	\item \texttt{getUsernameFromToken(token$^G$: string): string} - funzione pubblica.
-	Decodifica il payload del token$^G$ ed estrae il campo corrispondente allo username dell'utente autenticato.
-	Viene utilizzata dopo il login per recuperare l'identità dell'utente senza effettuare ulteriori chiamate al backend.
 \end{itemize}
 
 
