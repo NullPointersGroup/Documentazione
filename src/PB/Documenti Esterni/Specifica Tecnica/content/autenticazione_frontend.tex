@@ -415,7 +415,11 @@ Standardizza il formato della risposta del Model, indipendentemente dal tipo di 
 Inizializza i campi del form con la configurazione specifica per la registrazione (username, email, password, conferma password) e sovrascrive \texttt{validate} per aggiungere la validazione$^G$ del formato email e la verifica$^G$ della corrispondenza delle due password.
 
 \subsubsubsubsection{Attributi}
-\texttt{RegisterModel} non definisce attributi.
+\begin{itemize}
+	\item \texttt{EMAIL\_REGEX: string} - attributo privato di tipo stringa. 
+	Espressione regolare utilizzata per la validazione del formato dell'indirizzo email 
+	inserito dall'utente durante la registrazione.
+\end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
 \texttt{RegisterModel} sovrascrive il metodo \texttt{validate} ereditato da \texttt{FormModel}, estendendolo con la validazione$^G$ del formato username tramite \texttt{USERNAME\_REGEX}, del formato email tramite \texttt{EMAIL\_REGEX}, della complessità della password tramite \texttt{PASSWORD\_REGEX} e della corrispondenza tra i campi \texttt{password} e \texttt{confirmPwd}.
