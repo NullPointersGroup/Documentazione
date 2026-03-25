@@ -42,7 +42,7 @@
 \fancyhf{}
 % Intestazione standard
 \fancyhead[L]{NullPointers Group}
-\fancyhead[R]{Specifica Tecnica}
+\fancyhead[R]{Manuale Utente}
 \renewcommand{\headrulewidth}{0.4pt}
 % Piè di pagina
 \fancyfoot[C]{Pagina \thepage{} di \pageref*{LastPage}}
@@ -52,7 +52,7 @@
 \fancypagestyle{plain}{
   \fancyhf{}
   \fancyhead[L]{NullPointers Group}
-  \fancyhead[R]{Specifica Tecnica}
+  \fancyhead[R]{Manuale Utente}
   \fancyfoot[C]{Pagina \thepage{} di \pageref*{LastPage}}
   \renewcommand{\headrulewidth}{0.4pt}
   \renewcommand{\footrulewidth}{0.4pt}
@@ -141,6 +141,13 @@
 	\listoftables
 }
 
+\newpage
+% Indice delle immagini
+\renewcommand{\listfigurename}{Elenco delle Immagini}
+{
+	\hypersetup{linkcolor=black}
+	\listoffigures
+}
 
 %parte variabile
 \newpage
