@@ -24,9 +24,9 @@ In esso vengono salvati:
 	\item \textbf{UtentiWeb}: la tabella che tiene salvati gli utenti di SmartOrder. Contiene:
 	\begin{itemize}
 		\item \textbf{username}: rappresenta il nome dell'utente con cui si può effettuare il login. È la primary key della tabella
-		\item \textbf{descrizione}: rappresenta la descrizione del cliente associato all'utente
 		\item \textbf{email}: l'email associata all'utente. Deve essere univoca
 		\item \textbf{password}: la password dell'utente. È salvata utilizzando l'algoritmo bcrypt
+		\item \textbf{admin}: rappresenta se l'utente è un admin (true) oppure se è un cliente (false)
 	\end{itemize}
 	\item \textbf{Ordine}: rappresenta un ordine di un utente. È composto da:
 		\begin{itemize}
@@ -43,6 +43,7 @@ In esso vengono salvati:
 	\begin{itemize}
 		\item \textbf{id\_conv}: rappresenta l'id della conversazione. È la primary key della tabella
 		\item \textbf{username}: rappresenta lo username associato a quella conversazione. È una chiave esterna
+		\item \textbf{titolo}: rappresenta il titolo della conversazione
 	\end{itemize}
 	\item \textbf{Messaggi}: rappresenta i messaggi all'interno di una conversazione. È composta da:
 	\begin{itemize}

@@ -54,6 +54,8 @@ La variabile \texttt{router: APIRouter} è definita a livello di modulo e funge 
 	\item \texttt{register(payload: UserRegistrationSchema) -> AuthResponse} - handler \texttt{POST /auth/register}; riceve un payload \texttt{UserRegistrationSchema} che estende \texttt{UserSchema} con email e conferma password, applicando a livello Pydantic la validazione del formato di username, password ed email e la corrispondenza tra le due password. Delega la registrazione a \texttt{UserService.register\_user} e restituisce un \texttt{AuthResponse}; mappa le eccezioni dominio in \texttt{HTTP 400} per errori di validazione e \texttt{HTTP 500} per errori di persistenza.
 	\item \texttt{delete\_account(current\_user: str) -> AuthResponse} - handler \texttt{DELETE /auth/account}; richiede un token JWT valido tramite \texttt{get\_current\_user}, delega la cancellazione a \texttt{UserService.delete\_user} e restituisce un \texttt{AuthResponse}. Risponde con \texttt{HTTP 404} se l'utente non esiste e \texttt{HTTP 500} in caso di errore durante la cancellazione.
 	\item \texttt{get\_current\_user(token: str) -> str} - funzione di dipendenza che decodifica il JWT tramite \texttt{TokenUtility.decode\_token}; solleva \texttt{HTTPException 401} se il token è assente o non valido. Restituisce lo username estratto dal payload.
+	\item \texttt{logout(response: Response) -> bool} - questa funzione si occupa di eseguire il logout e di cancellare i cookie
+	\item \texttt{me(current\_user: UserServiceCurrentUser) -> string} - restituisce lo user corrente
 \end{itemize}
 
 \subsubsubsection{TokenUtility}
