@@ -14,7 +14,7 @@
 	\caption{Autenticazione e Registrazione: UserService}
 \end{figure}
 
-\subsubsubsubsection{Descrizione della classe}
+\subsubsubsubsection{Descrizione}
 \texttt{UserService} è il servizio applicativo che orchestra i casi d'uso di autenticazione e registrazione.\\
 Implementa la logica di business coordinando le dipendenze verso la persistenza (\texttt{IUserRepoPort}) e la validazione email (\texttt{IEmailValidationPort}), sollevando eccezioni specifiche in caso di violazione delle regole applicative.
 
@@ -40,7 +40,7 @@ Implementa la logica di business coordinando le dipendenze verso la persistenza 
 	\caption{Autenticazione e Registrazione: AuthRouter}
 \end{figure}
 
-\subsubsubsubsection{Descrizione della classe}
+\subsubsubsubsection{Descrizione}
 \texttt{AuthRouter} è il modulo FastAPI che espone gli endpoint REST del dominio autenticazione sotto il prefisso \texttt{/auth}.\\
 Non è una classe nel senso stretto, ma un insieme di route handler e funzioni di dipendenza che traducono le richieste HTTP in chiamate al \texttt{UserService}, gestendo la serializzazione dei payload e la conversione delle eccezioni dominio in risposte HTTP appropriate.
 
@@ -64,7 +64,7 @@ La variabile \texttt{router: APIRouter} è definita a livello di modulo e funge 
 	\caption{Autenticazione e Registrazione: TokenUtility}
 \end{figure}
 
-\subsubsubsubsection{Descrizione della classe}
+\subsubsubsubsection{Descrizione}
 \texttt{TokenUtility} è una classe di utilità che fornisce metodi statici per la generazione e la verifica dei JWT.\\
 Utilizza la libreria \texttt{python-jose} con algoritmo \texttt{HS256} e una chiave segreta letta dalla variabile d'ambiente \texttt{SECRET\_KEY}.
 
@@ -91,7 +91,7 @@ Sono definite le seguenti costanti a livello di modulo:
 	\caption{Autenticazione e Registrazione: IEmailValidationPort}
 \end{figure}
 
-\subsubsubsubsection{Descrizione della classe}
+\subsubsubsubsection{Descrizione}
 \texttt{IEmailValidationPort} è una porta secondaria dell'architettura esagonale che definisce il contratto per la validazione del dominio email.\\
 È una classe astratta Python che disaccoppia il dominio applicativo dalla concreta implementazione della validazione, permettendo di sostituire o simulare l'adapter in fase di test.
 
@@ -111,7 +111,7 @@ Sono definite le seguenti costanti a livello di modulo:
 	\caption{Autenticazione e Registrazione: EmailValidationAdapter}
 \end{figure}
 
-\subsubsubsubsection{Descrizione della classe}
+\subsubsubsubsection{Descrizione}
 \texttt{EmailValidationAdapter} è l'implementazione concreta di \texttt{IEmailValidationPort}.\\
 Effettua la validazione del dominio email tramite una query DNS di tipo \texttt{MX}, verificando che il dominio sia effettivamente in grado di ricevere posta elettronica.
 
@@ -131,7 +131,7 @@ Effettua la validazione del dominio email tramite una query DNS di tipo \texttt{
 	\caption{Autenticazione e Registrazione: IUserRepoPort}
 \end{figure}
 
-\subsubsubsubsection{Descrizione della classe}
+\subsubsubsubsection{Descrizione}
 \texttt{IUserRepoPort} è una porta secondaria dell'architettura esagonale che definisce il contratto per la persistenza degli utenti.\\
 È una classe astratta Python che disaccoppia il dominio applicativo dalla concreta implementazione del repository, permettendo di sostituire o simulare l'adapter in fase di test.
 
@@ -155,7 +155,7 @@ Effettua la validazione del dominio email tramite una query DNS di tipo \texttt{
 	\caption{Autenticazione e Registrazione: UserRepoAdapter}
 \end{figure}
 
-\subsubsubsubsection{Descrizione della classe}
+\subsubsubsubsection{Descrizione}
 \texttt{UserRepoAdapter} è l'implementazione concreta di \texttt{IUserRepoPort}.\\
 Funge da adapter verso il livello di persistenza, delegando tutte le operazioni a \texttt{UserRepository} che gestisce l'interazione con il database tramite SQLModel.
 
@@ -182,7 +182,7 @@ Funge da adapter verso il livello di persistenza, delegando tutte le operazioni 
 	\caption{Autenticazione e Registrazione: UserRepository}
 \end{figure}
 
-\subsubsubsubsection{Descrizione della classe}
+\subsubsubsubsection{Descrizione}
 \texttt{UserRepository} è il repository concreto che gestisce le operazioni di persistenza sugli utenti.\\
 Traduce le operazioni dominio in query SQL tramite \texttt{QueryExecutor}, utilizzando SQLModel e SQLAlchemy Core per la costruzione e l'esecuzione delle istruzioni.
 
@@ -208,7 +208,7 @@ Traduce le operazioni dominio in query SQL tramite \texttt{QueryExecutor}, utili
 	\caption{Autenticazione e Registrazione: PasswordUtility}
 \end{figure}
 
-\subsubsubsubsection{Descrizione della classe}
+\subsubsubsubsection{Descrizione}
 \texttt{PasswordUtility} è una classe di utilità che fornisce metodi statici per l'hashing e la verifica delle password tramite la libreria \texttt{bcrypt}.\\
 Non mantiene stato interno e viene utilizzata da \texttt{UserRepository} in fase di registrazione e da \texttt{UserService} in fase di autenticazione.
 
