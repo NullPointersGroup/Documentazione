@@ -16,20 +16,20 @@
 
 \subsubsubsubsection{Descrizione}
 \texttt{UserService} è il servizio applicativo che orchestra i casi d'uso di autenticazione e registrazione.\\
-Implementa la logica di business orchestrando i servizi di persistenza (\texttt{IUserRepoPort}) e di validazione email (\texttt{IEmailValidationPort}), lanciando eccezioni mirate quando vengono violate le regole applicative.
+Implementa la logica di business orchestrando i servizi di persistenza (\texttt{IUserRepoPort}) e di validazione$^G$ email (\texttt{IEmailValidationPort}), lanciando eccezioni mirate quando vengono violate le regole applicative.
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
 	\item \texttt{repo: IUserRepoPort} - porta secondaria verso la persistenza degli utenti; iniettata tramite costruttore.
-	\item \texttt{email\_validator: IEmailValidationPort} - porta secondaria verso la validazione DNS del dominio email; iniettata tramite costruttore.
+	\item \texttt{email\_validator: IEmailValidationPort} - porta secondaria verso la validazione$^G$ DNS del dominio email; iniettata tramite costruttore.
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
 \begin{itemize}
 	\item \texttt{\_\_init\_\_(repo, email\_validator)} - costruttore che riceve le due porte secondarie per dependency injection.
-	\item \texttt{check\_user(u: User) -> str} - verifica le credenziali di un utente: recupera l'utente dal repository tramite username e controlla la password con \texttt{PasswordUtility} restituendo lo username autenticato. Solleva \newline \texttt{InvalidCredentialsError} se l'utente non esiste o la password non corrisponde.
-	\item \texttt{register\_user(u: UserRegistration) -> None} - orchestra la registrazione di un nuovo utente eseguendo in sequenza: la verifica dell'univocità dello username (\texttt{UsernameAlreadyExistsError}), la validazione del DNS del dominio email (\texttt{InvalidEmailFormatError}), la verifica dell'univocità dell'email (\texttt{EmailAlreadyExistsError}) e l'inserimento nel database \newline (\texttt{UserCreationError}).
-	\item \texttt{delete\_user(username: str) -> None} - elimina un utente autenticato: verifica l'esistenza dell'utente (\texttt{UserNotFoundError}) e ne richiede la cancellazione al repository (\texttt{UserDeletionError}).
+	\item \texttt{check\_user(u: User) -> str} - verifica$^G$ le credenziali di un utente: recupera l'utente dal repository$^G$ tramite username e controlla la password con \texttt{PasswordUtility} restituendo lo username autenticato. Solleva \newline \texttt{InvalidCredentialsError} se l'utente non esiste o la password non corrisponde.
+	\item \texttt{register\_user(u: UserRegistration) -> None} - orchestra la registrazione di un nuovo utente eseguendo in sequenza: la verifica$^G$ dell'univocità dello username (\texttt{UsernameAlreadyExistsError}), la validazione$^G$ del DNS del dominio email (\texttt{InvalidEmailFormatError}), la verifica$^G$ dell'univocità dell'email (\texttt{EmailAlreadyExistsError}) e l'inserimento nel database$^G$ \newline (\texttt{UserCreationError}).
+	\item \texttt{delete\_user(username: str) -> None} - elimina un utente autenticato: verifica$^G$ l'esistenza dell'utente (\texttt{UserNotFoundError}) e ne richiede la cancellazione al repository$^G$ (\texttt{UserDeletionError}).
 \end{itemize}
 
 \subsubsubsection{AuthRouter}
@@ -41,7 +41,7 @@ Implementa la logica di business orchestrando i servizi di persistenza (\texttt{
 \end{figure}
 
 \subsubsubsubsection{Descrizione}
-\texttt{AuthRouter} è il modulo FastAPI che espone gli endpoint REST del dominio autenticazione sotto il prefisso \texttt{/auth}.\\
+\texttt{AuthRouter} è il modulo FastAPI che espone gli endpoint REST$^G$ del dominio autenticazione sotto il prefisso \texttt{/auth}.\\
 Non è una classe nel senso stretto, ma un insieme di route handler e funzioni di dipendenza che traducono le richieste HTTP in chiamate al \texttt{UserService}, gestendo la serializzazione dei payload e la conversione delle eccezioni dominio in risposte HTTP appropriate.
 
 \subsubsubsubsection{Attributi}
@@ -49,11 +49,11 @@ Il modulo non definisce una classe e pertanto non possiede attributi di istanza.
 La variabile \texttt{router: APIRouter} è definita a livello di modulo e funge da  punto di registrazione degli endpoint.
 \subsubsubsubsection{Metodi e funzioni}
 \begin{itemize}
-	\item \texttt{get\_user\_service(db: Session) -> UserService} - funzione di dipendenza FastAPI che istanzia \texttt{UserService} iniettando \texttt{UserRepoAdapter} e \texttt{EmailValidationAdapter}; riceve la sessione database tramite \texttt{get\_conn}.
-	\item \texttt{login(payload: UserSchema) -> LoginResponse} - handler \newline \texttt{POST /auth/login}; riceve un payload \texttt{UserSchema} contenente username e password, e delega la verifica a \texttt{UserService.check\_user}. In caso di successo genera e restituisce un \texttt{LoginResponse} contenente il JWT prodotto da \texttt{TokenUtility.create\_token}; in caso di \texttt{InvalidCredentialsError} risponde con \texttt{HTTP 400}.
-	\item \texttt{register(payload: UserRegistrationSchema) -> AuthResponse} - \newline handler \texttt{POST /auth/register}; riceve un payload \texttt{UserRegistrationSchema} che estende \texttt{UserSchema} con email e conferma password, applicando a livello Pydantic la validazione del formato di username, password ed email e la corrispondenza tra le due password. Delega la registrazione a \newline \texttt{UserService.register\_user} e restituisce un \texttt{AuthResponse}; mappa le eccezioni del dominio in \texttt{HTTP 400} per errori di validazione e \texttt{HTTP 500} per errori di persistenza.
-	\item \texttt{delete\_account(current\_user: str) -> AuthResponse} - handler \texttt{DELETE /auth/account}, richiede un token JWT valido tramite \texttt{get\_current\_user}, delega la cancellazione a \texttt{UserService.delete\_user} e restituisce un \newline \texttt{AuthResponse}. Risponde con \texttt{HTTP 404} se l'utente non esiste e \texttt{HTTP 500} in caso di errore durante la cancellazione.
-	\item \texttt{get\_current\_user(token: str) -> str} - funzione di dipendenza che decodifica il JWT tramite \texttt{TokenUtility.decode\_token}; solleva \newline \texttt{HTTPException 401} se il token è assente o non valido. Restituisce lo username estratto dal payload.
+	\item \texttt{get\_user\_service(db$^G$: Session) -> UserService} - funzione di dipendenza FastAPI che istanzia \texttt{UserService} iniettando \texttt{UserRepoAdapter} e \texttt{EmailValidationAdapter}; riceve la sessione database$^G$ tramite \texttt{get\_conn}.
+	\item \texttt{login(payload: UserSchema) -> LoginResponse} - handler \newline \texttt{POST /auth/login}; riceve un payload \texttt{UserSchema} contenente username e password, e delega la verifica$^G$ a \texttt{UserService.check\_user}. In caso di successo genera e restituisce un \texttt{LoginResponse} contenente il JWT prodotto da \texttt{TokenUtility.create\_token}; in caso di \texttt{InvalidCredentialsError} risponde con \texttt{HTTP 400}.
+	\item \texttt{register(payload: UserRegistrationSchema) -> AuthResponse} - \newline handler \texttt{POST /auth/register}; riceve un payload \texttt{UserRegistrationSchema} che estende \texttt{UserSchema} con email e conferma password, applicando a livello Pydantic la validazione$^G$ del formato di username, password ed email e la corrispondenza tra le due password. Delega la registrazione a \newline \texttt{UserService.register\_user} e restituisce un \texttt{AuthResponse}; mappa le eccezioni del dominio in \texttt{HTTP 400} per errori di validazione$^G$ e \texttt{HTTP 500} per errori di persistenza.
+	\item \texttt{delete\_account(current\_user: str) -> AuthResponse} - handler \texttt{DELETE /auth/account}, richiede un token$^G$ JWT valido tramite \texttt{get\_current\_user}, delega la cancellazione a \texttt{UserService.delete\_user} e restituisce un \newline \texttt{AuthResponse}. Risponde con \texttt{HTTP 404} se l'utente non esiste e \texttt{HTTP 500} in caso di errore durante la cancellazione.
+	\item \texttt{get\_current\_user(token$^G$: str) -> str} - funzione di dipendenza che decodifica il JWT tramite \texttt{TokenUtility.decode\_token}; solleva \newline \texttt{HTTPException 401} se il token$^G$ è assente o non valido. Restituisce lo username estratto dal payload.
 \end{itemize}
 
 \subsubsubsection{TokenUtility}
@@ -65,22 +65,22 @@ La variabile \texttt{router: APIRouter} è definita a livello di modulo e funge 
 \end{figure}
 
 \subsubsubsubsection{Descrizione}
-\texttt{TokenUtility} è una classe di utilità che fornisce metodi statici per la generazione e la verifica dei JWT.\\
+\texttt{TokenUtility} è una classe di utilità che fornisce metodi statici per la generazione e la verifica$^G$ dei JWT.\\
 Utilizza la libreria \texttt{python-jose} con algoritmo \texttt{HS256} e una chiave segreta letta dalla variabile d'ambiente \texttt{SECRET\_KEY}.
 
 \subsubsubsubsection{Attributi}
 \texttt{TokenUtility} non possiede attributi di istanza.\\
 Sono definite le seguenti costanti a livello di modulo:
 \begin{itemize}
-	\item \texttt{SECRET\_KEY: str} - chiave segreta per la firma del token, letta dalla variabile d'ambiente \texttt{SECRET\_KEY}.
+	\item \texttt{SECRET\_KEY: str} - chiave segreta per la firma del token$^G$, letta dalla variabile d'ambiente \texttt{SECRET\_KEY}.
 	\item \texttt{ALGORITHM: str} - algoritmo di firma, impostato a \texttt{HS256}.
-	\item \texttt{TOKEN\_EXPIRY\_HOURS: int} - durata del token in ore, impostata a \texttt{24}.
+	\item \texttt{TOKEN\_EXPIRY\_HOURS: int} - durata del token$^G$ in ore, impostata a \texttt{24}.
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
 \begin{itemize}
-	\item \texttt{create\_token(username: str) -> str} - genera un JWT firmato con payload contenente lo username nel campo \texttt{sub} e la scadenza calcolata a partire dal momento corrente. Restituisce il token come stringa.
-	\item \texttt{decode\_token(token: str) -> str | None} - decodifica e verifica un JWT; restituisce lo username contenuto nel campo \texttt{sub} se il token è valido e non scaduto, \texttt{None} altrimenti.
+	\item \texttt{create\_token(username: str) -> str} - genera un JWT firmato con payload contenente lo username nel campo \texttt{sub} e la scadenza calcolata a partire dal momento corrente. Restituisce il token$^G$ come stringa.
+	\item \texttt{decode\_token(token$^G$: str) -> str | None} - decodifica e verifica$^G$ un JWT; restituisce lo username contenuto nel campo \texttt{sub} se il token$^G$ è valido e non scaduto, \texttt{None} altrimenti.
 \end{itemize}
 
 \subsubsubsection{IEmailValidationPort}
@@ -92,15 +92,15 @@ Sono definite le seguenti costanti a livello di modulo:
 \end{figure}
 
 \subsubsubsubsection{Descrizione}
-\texttt{IEmailValidationPort} è una porta secondaria dell'architettura esagonale che definisce il contratto per la validazione del dominio email.\\
-È una classe astratta Python che disaccoppia il dominio applicativo dalla concreta implementazione della validazione, permettendo di sostituire o simulare l'adapter in fase di test.
+\texttt{IEmailValidationPort} è una porta secondaria dell'architettura esagonale che definisce il contratto per la validazione$^G$ del dominio email.\\
+È una classe astratta Python$^G$ che disaccoppia il dominio applicativo dalla concreta implementazione della validazione$^G$, permettendo di sostituire o simulare l'adapter in fase di test.
 
 \subsubsubsubsection{Attributi}
 \texttt{IEmailValidationPort} non possiede attributi.
 
 \subsubsubsubsection{Metodi e funzioni}
 \begin{itemize}
-	\item \texttt{domain\_exists(email: str) -> bool} - metodo astratto che verifica l'esistenza del dominio dell'email fornita. L'implementazione concreta è demandata all'adapter \texttt{EmailValidationAdapter}.
+	\item \texttt{domain\_exists(email: str) -> bool} - metodo astratto che verifica$^G$ l'esistenza del dominio dell'email fornita. L'implementazione concreta è demandata all'adapter \texttt{EmailValidationAdapter}.
 \end{itemize}
 
 \subsubsubsection{EmailValidationAdapter}
@@ -113,7 +113,7 @@ Sono definite le seguenti costanti a livello di modulo:
 
 \subsubsubsubsection{Descrizione}
 \texttt{EmailValidationAdapter} è l'implementazione concreta di \texttt{IEmailValidationPort}.\\
-Effettua la validazione del dominio email tramite una query DNS di tipo \texttt{MX}, verificando che il dominio sia effettivamente in grado di ricevere posta elettronica.
+Effettua la validazione$^G$ del dominio email tramite una query DNS di tipo \texttt{MX}, verificando che il dominio sia effettivamente in grado di ricevere posta elettronica.
 
 \subsubsubsubsection{Attributi}
 \texttt{EmailValidationAdapter} non possiede attributi.
@@ -133,7 +133,7 @@ Effettua la validazione del dominio email tramite una query DNS di tipo \texttt{
 
 \subsubsubsubsection{Descrizione}
 \texttt{IUserRepoPort} è una porta secondaria dell'architettura esagonale che definisce il contratto per la persistenza degli utenti.\\
-È una classe astratta Python che disaccoppia il dominio applicativo dalla concreta implementazione del repository, permettendo di sostituire o simulare l'adapter in fase di test.
+È una classe astratta Python$^G$ che disaccoppia il dominio applicativo dalla concreta implementazione del repository$^G$, permettendo di sostituire o simulare l'adapter in fase di test.
 
 \subsubsubsubsection{Attributi}
 \texttt{IUserRepoPort} non possiede attributi.
@@ -141,8 +141,8 @@ Effettua la validazione del dominio email tramite una query DNS di tipo \texttt{
 \subsubsubsubsection{Metodi e funzioni}
 \begin{itemize}
 	\item \texttt{find\_by\_username(username: str) -> Utente} - metodo astratto che recupera un utente dal sistema di persistenza tramite username; restituisce \texttt{None} se non trovato.
-	\item \texttt{username\_exists(username: str) -> bool} - metodo astratto che verifica se uno username è già presente nel sistema di persistenza.
-	\item \texttt{email\_exists(email: str) -> bool} - metodo astratto che verifica se un'email è già presente nel sistema di persistenza.
+	\item \texttt{username\_exists(username: str) -> bool} - metodo astratto che verifica$^G$ se uno username è già presente nel sistema di persistenza.
+	\item \texttt{email\_exists(email: str) -> bool} - metodo astratto che verifica$^G$ se un'email è già presente nel sistema di persistenza.
 	\item \texttt{add\_user(u: UserRegistration) -> bool} - metodo astratto che inserisce un nuovo utente nel sistema di persistenza; restituisce \texttt{True} se l'operazione ha successo.
 	\item \texttt{delete\_user(username: str) -> bool} - metodo astratto che elimina un utente dal sistema di persistenza tramite username; restituisce \texttt{True} se l'operazione ha successo.
 \end{itemize}
@@ -157,19 +157,19 @@ Effettua la validazione del dominio email tramite una query DNS di tipo \texttt{
 
 \subsubsubsubsection{Descrizione}
 \texttt{UserRepoAdapter} è l'implementazione concreta di \texttt{IUserRepoPort}.\\
-Funge da adapter verso il livello di persistenza, delegando tutte le operazioni a \texttt{UserRepository} che gestisce l'interazione con il database tramite SQLModel.
+Funge da adapter verso il livello di persistenza, delegando tutte le operazioni a \texttt{UserRepository} che gestisce l'interazione con il database$^G$ tramite SQLModel.
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
-	\item \texttt{repo: UserRepository} - istanza del repository concreto, inizializzata nel costruttore con la sessione database ricevuta.
+	\item \texttt{repo: UserRepository} - istanza del repository$^G$ concreto, inizializzata nel costruttore con la sessione database$^G$ ricevuta.
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
 \begin{itemize}
-	\item \texttt{\_\_init\_\_(db: Session) -> None} - costruttore che riceve la sessione database e istanzia \texttt{UserRepository}.
+	\item \texttt{\_\_init\_\_(db$^G$: Session) -> None} - costruttore che riceve la sessione database$^G$ e istanzia \texttt{UserRepository}.
 	\item \texttt{find\_by\_username(username: str) -> Utente | None} - implementazione concreta che delega la ricerca per username a \texttt{UserRepository.find\_by\_username}.
-	\item \texttt{username\_exists(username: str) -> bool} - implementazione concreta che verifica l'esistenza dello username delegando a \newline \texttt{UserRepository.find\_by\_username} e controllando che il risultato non sia \texttt{None}.
-	\item \texttt{email\_exists(email: str) -> bool} - implementazione concreta che verifica l'esistenza dell'email delegando a \texttt{UserRepository.find\_by\_email} e controllando che il risultato non sia \texttt{None}.
+	\item \texttt{username\_exists(username: str) -> bool} - implementazione concreta che verifica$^G$ l'esistenza dello username delegando a \newline \texttt{UserRepository.find\_by\_username} e controllando che il risultato non sia \texttt{None}.
+	\item \texttt{email\_exists(email: str) -> bool} - implementazione concreta che verifica$^G$ l'esistenza dell'email delegando a \texttt{UserRepository.find\_by\_email} e controllando che il risultato non sia \texttt{None}.
 	\item \texttt{add\_user(u: UserRegistration) -> bool} - implementazione concreta che delega l'inserimento del nuovo utente a \texttt{UserRepository.save}.
 	\item \texttt{delete\_user(username: str) -> bool} - implementazione concreta che delega la cancellazione dell'utente a \texttt{UserRepository.delete}.
 \end{itemize}
@@ -183,21 +183,21 @@ Funge da adapter verso il livello di persistenza, delegando tutte le operazioni 
 \end{figure}
 
 \subsubsubsubsection{Descrizione}
-\texttt{UserRepository} è il repository concreto che gestisce le operazioni di persistenza sugli utenti.\\
-Traduce le operazioni di dominio in query SQL tramite \texttt{QueryExecutor}, utilizzando SQLModel e SQLAlchemy Core per costruire ed eseguire le istruzioni.
+\texttt{UserRepository} è il repository$^G$ concreto che gestisce le operazioni di persistenza sugli utenti.\\
+Traduce le operazioni di dominio in query SQL$^G$ tramite \texttt{QueryExecutor}, utilizzando SQLModel e SQLAlchemy Core per costruire ed eseguire le istruzioni.
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
-	\item \texttt{executor: QueryExecutor} - istanza del query executor, inizializzata nel costruttore con la sessione database ricevuta.
+	\item \texttt{executor: QueryExecutor} - istanza del query executor, inizializzata nel costruttore con la sessione database$^G$ ricevuta.
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
 \begin{itemize}
-	\item \texttt{\_\_init\_\_(db: Session) -> None} - costruttore che riceve la sessione database e istanzia \texttt{QueryExecutor}.
-	\item \texttt{find\_by\_username(username: str) -> Utente} - recupera un utente dal database tramite username usando una \texttt{SELECT} con filtro su \texttt{Utente.username}; restituisce \texttt{None} se non trovato.
-	\item \texttt{find\_by\_email(email: str) -> Utente} - recupera un utente dal database tramite email usando una \texttt{SELECT} con filtro su \texttt{Utente.email}; restituisce \texttt{None} se non trovato.
-	\item \texttt{save(u: UserRegistration) -> bool} - inserisce un nuovo utente nel database tramite una \texttt{INSERT}, ricevendo un oggetto \texttt{UserRegistration} contenente username, email e password in chiaro. La trasmissione della password in chiaro è considerata sicura in quanto il sistema opera esclusivamente su HTTPS, che garantisce la cifratura a livello di trasporto. La password viene hashata tramite \texttt{PasswordUtility.hash\_password} prima della persistenza e la descrizione viene impostata a \texttt{CLIENTE}; restituisce \texttt{True} se l'operazione ha successo.
-	\item \texttt{delete(username: str) -> bool} - elimina un utente dal database tramite una \texttt{DELETE} con filtro su \texttt{Utente.username}; restituisce \texttt{True} se l'operazione ha successo.
+	\item \texttt{\_\_init\_\_(db$^G$: Session) -> None} - costruttore che riceve la sessione database$^G$ e istanzia \texttt{QueryExecutor}.
+	\item \texttt{find\_by\_username(username: str) -> Utente} - recupera un utente dal database$^G$ tramite username usando una \texttt{SELECT} con filtro su \texttt{Utente.username}; restituisce \texttt{None} se non trovato.
+	\item \texttt{find\_by\_email(email: str) -> Utente} - recupera un utente dal database$^G$ tramite email usando una \texttt{SELECT} con filtro su \texttt{Utente.email}; restituisce \texttt{None} se non trovato.
+	\item \texttt{save(u: UserRegistration) -> bool} - inserisce un nuovo utente nel database$^G$ tramite una \texttt{INSERT}, ricevendo un oggetto \texttt{UserRegistration} contenente username, email e password in chiaro. La trasmissione della password in chiaro è considerata sicura in quanto il sistema opera esclusivamente su HTTPS, che garantisce la cifratura a livello di trasporto. La password viene hashata tramite \texttt{PasswordUtility.hash\_password} prima della persistenza e la descrizione viene impostata a \texttt{CLIENTE}; restituisce \texttt{True} se l'operazione ha successo.
+	\item \texttt{delete(username: str) -> bool} - elimina un utente dal database$^G$ tramite una \texttt{DELETE} con filtro su \texttt{Utente.username}; restituisce \texttt{True} se l'operazione ha successo.
 \end{itemize}
 
 \subsubsubsection{PasswordUtility}
@@ -209,7 +209,7 @@ Traduce le operazioni di dominio in query SQL tramite \texttt{QueryExecutor}, ut
 \end{figure}
 
 \subsubsubsubsection{Descrizione}
-\texttt{PasswordUtility} è una classe di utilità che fornisce metodi statici per l'hashing e la verifica delle password tramite la libreria \texttt{bcrypt}.\\
+\texttt{PasswordUtility} è una classe di utilità che fornisce metodi statici per l'hashing e la verifica$^G$ delle password tramite la libreria \texttt{bcrypt}.\\
 Non mantiene stato interno e viene utilizzata da \texttt{UserRepository} in fase di registrazione e da \texttt{UserService} in fase di autenticazione.
 
 \subsubsubsubsection{Attributi}
@@ -218,5 +218,5 @@ Non mantiene stato interno e viene utilizzata da \texttt{UserRepository} in fase
 \subsubsubsubsection{Metodi e funzioni}
 \begin{itemize}
 	\item \texttt{hash\_password(password: str) -> str} - genera l'hash bcrypt della password in chiaro tramite \texttt{bcrypt.hashpw} con salt casuale; restituisce l'hash come stringa.
-	\item \texttt{verify\_password(plain: str, hashed: str) -> bool} - verifica che la password in chiaro corrisponda all'hash salvato nel database tramite \texttt{bcrypt.checkpw}; restituisce \texttt{False} direttamente se \texttt{hashed} è \texttt{None}.
+	\item \texttt{verify\_password(plain: str, hashed: str) -> bool} - verifica$^G$ che la password in chiaro corrisponda all'hash salvato nel database$^G$ tramite \texttt{bcrypt.checkpw}; restituisce \texttt{False} direttamente se \texttt{hashed} è \texttt{None}.
 \end{itemize}
