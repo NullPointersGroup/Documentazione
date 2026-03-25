@@ -48,8 +48,7 @@ delegando tutta la logica al \texttt{FormViewModel} ricevuto tramite \texttt{For
 \end{figure}
 
 \subsubsubsubsection{Descrizione della classe}
-\texttt{FormErrors} è un componente React di presentazione dedicato alla visualizzazione
-degli errori globali del form.\\
+\texttt{FormErrors} è un componente React di presentazione dedicato alla visualizzazione degli errori globali del form.\\
 Riceve un array di messaggi di errore e li renderizza come lista.\\
 Viene invocato da \texttt{FormView} e non contiene logica applicativa.
 
@@ -74,10 +73,8 @@ le props di tipo \texttt{FormErrorProps}.
 \end{figure}
 
 \subsubsubsubsection{Descrizione della classe}
-\texttt{FormErrorProps} è un'interfaccia TypeScript che definisce le proprietà accettate
-dal componente \texttt{FormErrors}. Rappresenta il contratto tra il componente padre
-\texttt{FormView} e il componente \texttt{FormErrors}, garantendo il corretto passaggio
-dei messaggi di errore globali.
+\texttt{FormErrorProps} è un'interfaccia TypeScript che definisce le proprietà accettate dal componente \texttt{FormErrors}.\\
+Rappresenta il contratto tra il componente padre \texttt{FormView} e il componente \texttt{FormErrors}, garantendo il corretto passaggio dei messaggi di errore globali.
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
@@ -87,7 +84,7 @@ dei messaggi di errore globali.
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
-Trattandosi di un'interfaccia TypeScript, \texttt{FormErrorProps} non definisce metodi o funzioni.
+\texttt{FormErrorProps} non definisce metodi o funzioni.
 
 
 \subsubsubsection{FormProps}
@@ -123,7 +120,7 @@ Disaccoppia la View dalla logica, seguendo il pattern MVVM.
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
-Trattandosi di un'interfaccia TypeScript, \texttt{FormProps} non definisce metodi o funzioni.
+\texttt{FormProps} non definisce metodi o funzioni.
 
 
 \subsubsubsection{FormViewModel}
@@ -135,11 +132,9 @@ Trattandosi di un'interfaccia TypeScript, \texttt{FormProps} non definisce metod
 \end{figure}
 
 \subsubsubsubsection{Descrizione della classe}
-\texttt{FormViewModel} è un'interfaccia TypeScript che definisce il contratto del ViewModel
-nel pattern MVVM.\\
+\texttt{FormViewModel} è un'interfaccia TypeScript che definisce il contratto del ViewModel nel pattern MVVM.\\
 Espone lo stato del form e gli handler degli eventi che la View deve utilizzare.\\
-La sua implementazione concreta è prodotta dall'hook \texttt{useFormViewModel}, che gestisce
-lo stato React e la comunicazione con il Model.
+La sua implementazione concreta è prodotta dall'hook \texttt{useFormViewModel}, che gestisce lo stato React e la comunicazione con il Model.
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
@@ -318,7 +313,7 @@ Garantisce la correttezza dei tipi dei dati trasmessi e disaccoppia la struttura
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
-Trattandosi di un'interfaccia TypeScript, \texttt{LoginDto} non definisce metodi o funzioni.
+\texttt{LoginDto} non definisce metodi o funzioni.
 
 
 \subsubsubsection{RegisterDTO}
@@ -345,7 +340,7 @@ Definisce la struttura del payload JSON inviato al backend nell'endpoint di regi
 	Deve rispettare il formato definito da \texttt{EMAIL\_REGEX} in \texttt{RegisterModel}.
 
 	\item \texttt{password: string} - attributo pubblico di tipo stringa.
-	Password scelta dall'utente, trasmessa in chiaro tramite HTTPS e cifrata lato backend con bcrypt.
+	Password scelta dall'utente, trasmessa in chiaro tramite HTTPS e cifrata lato backend con bcrypt. Deve rispettare il formato definito da \texttt{PASSWORD\_REGEX} in \texttt{FormModel}.
 
 	\item \texttt{confirmPwd: string} - attributo pubblico di tipo stringa.
 	Conferma della password inserita dall'utente, utilizzata lato frontend per verificare
@@ -353,7 +348,7 @@ Definisce la struttura del payload JSON inviato al backend nell'endpoint di regi
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
-Trattandosi di un'interfaccia TypeScript, \texttt{RegisterDto} non definisce metodi o funzioni.
+\texttt{RegisterDto} non definisce metodi o funzioni.
 
 
 \subsubsubsection{AuthResponse}
@@ -384,7 +379,7 @@ Viene deserializzata dal modulo \texttt{AuthAPI} e utilizzata dal Model per dete
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
-Trattandosi di un'interfaccia TypeScript, \texttt{AuthResponse} non definisce metodi o funzioni.
+\texttt{AuthResponse} non definisce metodi o funzioni.
 
 
 \subsubsubsection{FieldConfig}
@@ -421,7 +416,7 @@ dalla specifica struttura del form (login o registrazione).
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
-Trattandosi di un'interfaccia TypeScript, \texttt{FieldConfig} non definisce metodi o funzioni.
+\texttt{FieldConfig} non definisce metodi o funzioni.
 
 
 \subsubsubsection{SubmitResult}
@@ -451,7 +446,7 @@ Standardizza il formato della risposta del Model, indipendentemente dal tipo di 
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
-Trattandosi di un'interfaccia TypeScript, \texttt{SubmitResult} non definisce metodi o funzioni.
+\texttt{SubmitResult} non definisce metodi o funzioni.
 
 
 \subsubsubsection{RegisterModel}
