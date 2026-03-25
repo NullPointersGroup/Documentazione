@@ -14,28 +14,22 @@
 	\caption{Autenticazione e Registrazione: FormView}
 \end{figure}
 
-\subsubsubsubsection{Descrizione della classe}
-\texttt{FormView} è il componente React che costituisce il livello di \textit{View} nel pattern MVVM.\\
-Si occupa esclusivamente della presentazione grafica del form di autenticazione o registrazione,
-delegando tutta la logica al \texttt{FormViewModel} ricevuto tramite \texttt{FormProps}.
+\subsubsubsubsection{Descrizione}
+\texttt{FormView} è il componente React$^G$ che costituisce il livello di \textit{View} nel pattern MVVM.\\
+Si occupa esclusivamente della presentazione grafica del form di autenticazione o registrazione, delegando tutta la logica al \texttt{FormViewModel} ricevuto tramite \texttt{FormProps}.
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
 	\item \texttt{visibleFields: Record} - attributo privato di tipo \texttt{Record<string, boolean>}.
-	Gestisce la visibilità dei campi password: per ciascun campo di tipo \texttt{password},
-	traccia se il testo è attualmente visibile o nascosto.
+	Gestisce la visibilità dei campi password: per ciascun campo di tipo \texttt{password}, traccia se il testo è attualmente visibile o nascosto.
 	Viene aggiornato dalla funzione \texttt{toggleVisibility} al click sull'icona dell'occhio.
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
 \begin{itemize}
-	\item \texttt{Form(f: FormProps)} - funzione componente React (funzione pubblica).
+	\item \texttt{Form(f: FormProps)} - funzione componente React$^G$ (funzione pubblica).
 	Riceve le props di tipo \texttt{FormProps} e restituisce il markup JSX del form.
-	Itera sulla lista \texttt{fields} per renderizzare dinamicamente i campi di input,
-	utilizza \texttt{vm.values} e \texttt{vm.fieldErrors} per il binding dei dati,
-	e collega gli handler \texttt{vm.handleChange}, \texttt{vm.handleBlur} e \texttt{vm.handleSubmit}
-	agli eventi del form. Per i campi di tipo password gestisce la visibilità tramite
-	\texttt{visibleFields} e delega la visualizzazione degli errori globali al componente \texttt{FormErrors}.
+	Itera sulla lista \texttt{fields} per renderizzare dinamicamente i campi di input, utilizza \texttt{vm.values} e \texttt{vm.fieldErrors} per il binding dei dati, e collega gli handler \texttt{vm.handleChange}, \texttt{vm.handleBlur} e \texttt{vm.handleSubmit} agli eventi del form. Per i campi di tipo password gestisce la visibilità tramite \texttt{visibleFields} e delega la visualizzazione degli errori globali al componente \texttt{FormErrors}.
 \end{itemize}
 
 
@@ -47,19 +41,17 @@ delegando tutta la logica al \texttt{FormViewModel} ricevuto tramite \texttt{For
 	\caption{Autenticazione e Registrazione: FormErrors}
 \end{figure}
 
-\subsubsubsubsection{Descrizione della classe}
-\texttt{FormErrors} è un componente React di presentazione dedicato alla visualizzazione degli errori globali del form.\\
+\subsubsubsubsection{Descrizione}
+\texttt{FormErrors} è un componente React$^G$ di presentazione dedicato alla visualizzazione degli errori globali del form.\\
 Riceve un array di messaggi di errore e li renderizza come lista.\\
 Viene invocato da \texttt{FormView} e non contiene logica applicativa.
 
 \subsubsubsubsection{Attributi}
-La classe non presenta attributi propri: riceve i dati da visualizzare tramite
-le props di tipo \texttt{FormErrorProps}.
+La classe non presenta attributi propri: riceve i dati da visualizzare tramite le props di tipo \texttt{FormErrorProps}.
 
 \subsubsubsubsection{Metodi e funzioni}
 \begin{itemize}
-	\item \texttt{FormErrors(): FormErrorProps} - funzione pubblica che legge la prop \texttt{errors} di tipo \texttt{string*} e restituisce
-	il markup JSX contenente la lista degli errori globali da mostrare all'utente.
+	\item \texttt{FormErrors(): FormErrorProps} - funzione pubblica che legge la prop \texttt{errors} di tipo \texttt{string*} e restituisce il markup JSX contenente la lista degli errori globali da mostrare all'utente.
 	Se l'array è vuoto, il componente non renderizza nulla.
 \end{itemize}
 
@@ -72,15 +64,14 @@ le props di tipo \texttt{FormErrorProps}.
 	\caption{Autenticazione e Registrazione: FormErrorProps}
 \end{figure}
 
-\subsubsubsubsection{Descrizione della classe}
+\subsubsubsubsection{Descrizione}
 \texttt{FormErrorProps} è un'interfaccia TypeScript che definisce le proprietà accettate dal componente \texttt{FormErrors}.\\
 Rappresenta il contratto tra il componente padre \texttt{FormView} e il componente \texttt{FormErrors}, garantendo il corretto passaggio dei messaggi di errore globali.
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
 	\item \texttt{errors: string*} - Array pubblico di stringhe.
-	Contiene i messaggi di errore globali da visualizzare all'utente,
-	ad esempio errori provenienti dal backend. Può essere un array vuoto se non vi sono errori da mostrare.
+	Contiene i messaggi di errore globali da visualizzare all'utente, ad esempio errori provenienti dal backend. Può essere un array vuoto se non vi$^G$ sono errori da mostrare.
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
@@ -95,11 +86,9 @@ Rappresenta il contratto tra il componente padre \texttt{FormView} e il componen
 	\caption{Autenticazione e Registrazione: FormProps}
 \end{figure}
 
-\subsubsubsubsection{Descrizione della classe}
-\texttt{FormProps} è un'interfaccia TypeScript che definisce le proprietà passate al componente
-\texttt{FormView}.\\
-Aggrega tutte le informazioni necessarie alla renderizzazione del form:
-titolo, etichetta del pulsante di invio, configurazione dei campi e riferimento al ViewModel.\\
+\subsubsubsubsection{Descrizione}
+\texttt{FormProps} è un'interfaccia TypeScript che definisce le proprietà passate al componente \texttt{FormView}.\\
+Aggrega tutte le informazioni necessarie alla renderizzazione del form: titolo, etichetta del pulsante di invio, configurazione dei campi e riferimento al ViewModel.\\
 Disaccoppia la View dalla logica, seguendo il pattern MVVM.
 
 \subsubsubsubsection{Attributi}
@@ -111,8 +100,7 @@ Disaccoppia la View dalla logica, seguendo il pattern MVVM.
 	Etichetta testuale del pulsante di invio del form.
 
 	\item \texttt{fields: FieldConfig*} - attributo pubblico di tipo array di \texttt{FieldConfig}.
-	Contiene la configurazione di ciascun campo del form (chiave, etichetta, tipo, placeholder,
-	autocompletamento). Permette la renderizzazione dinamica dei campi senza modificare il componente View.
+	Contiene la configurazione di ciascun campo del form (chiave, etichetta, tipo, placeholder, autocompletamento). Permette la renderizzazione dinamica dei campi senza modificare il componente View.
 
 	\item \texttt{vm: FormViewModel} - attributo pubblico di tipo \texttt{FormViewModel}.
 	Riferimento al ViewModel del form, contenente lo stato reattivo e gli handler degli eventi.
@@ -131,14 +119,22 @@ Disaccoppia la View dalla logica, seguendo il pattern MVVM.
 	\caption{Autenticazione e Registrazione: FormViewModel}
 \end{figure}
 
+<<<<<<< HEAD
 \subsubsubsubsection{Descrizione della classe}
 \texttt{FormViewModel} è un'interfaccia TypeScript che definisce il contratto del ViewModel nel pattern MVVM.\\
 Espone lo stato del form e gli handler degli eventi che la View deve utilizzare.\\
 La sua implementazione concreta è prodotta dall'hook \texttt{useFormViewModel}, che gestisce lo stato React e la comunicazione con il Model.
+=======
+\subsubsubsubsection{Descrizione}
+\texttt{FormViewModel} è un'interfaccia TypeScript che definisce il contratto del ViewModel nel pattern MVVM.\\
+Espone lo stato del form e gli handler degli eventi che la View deve utilizzare.\\
+La sua implementazione concreta è prodotta dall'hook \texttt{useFormViewModel}, che gestisce lo stato React$^G$ e la comunicazione con il Model.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
 	\item \texttt{values: Record} - attributo pubblico di tipo \texttt{Record<string, string>}.
+<<<<<<< HEAD
 	Mappa chiave-valore contenente i valori correnti di ciascun campo del form, viene
 	aggiornata ad ogni modifica dell'utente.
 
@@ -148,6 +144,15 @@ La sua implementazione concreta è prodotta dall'hook \texttt{useFormViewModel},
 
 	\item \texttt{errors: string*} - attributo pubblico di tipo array di stringhe.
 	Contiene i messaggi di errore globali restituiti dal backend o generati durante l'invio del form.
+=======
+	Mappa chiave-valore contenente i valori correnti di ciascun campo del form, viene aggiornata ad ogni modifica$^G$ dell'utente.
+
+	\item \texttt{fieldErrors: Record} - attributo pubblico di tipo \texttt{Record<string, string>}.
+	Mappa chiave-valore contenente i messaggi di errore di validazione$^G$ per ciascun campo, popolata durante la validazione$^G$ on-blur e al momento del submit.
+
+	\item \texttt{errors: string*} - attributo pubblico di tipo array di stringhe.
+	Contiene i messaggi di errore globali restituiti dal backend$^G$ o generati durante l'invio del form.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 
 	\item \texttt{loading: bool} - attributo pubblico booleano.
 	Indica se è in corso una richiesta asincrona verso il backend.
@@ -159,11 +164,19 @@ La sua implementazione concreta è prodotta dall'hook \texttt{useFormViewModel},
 	\item \texttt{handleChange(key: string, value: string): void} - metodo pubblico che aggiorna il valore del campo identificato da \texttt{key} all'interno di \texttt{values}.
 	Viene invocato dalla View ad ogni evento \texttt{onChange} degli input.
 
+<<<<<<< HEAD
 	\item \texttt{handleBlur(key: string): void} - metodo pubblico che innesca la validazione del singolo campo identificato da \texttt{key} nel momento in cui l'utente abbandona il campo.
 	Aggiorna \texttt{fieldErrors} con l'eventuale errore riscontrato.
 
 	\item \texttt{handleSubmit(e: React.SyntheticEvent): void} - metodo pubblico che gestisce la sottomissione del form intercettando l'evento del browser. Innesca la validazione completa di tutti i campi e, se non vi sono errori, invoca il metodo \texttt{submit} del Model delegando
 	la chiamata API al layer sottostante.
+=======
+	\item \texttt{handleBlur(key: string): void} - metodo pubblico che innesca la validazione$^G$ del singolo campo identificato da \texttt{key} nel momento in cui l'utente abbandona il campo.
+	Aggiorna \texttt{fieldErrors} con l'eventuale errore riscontrato.
+
+	\item \texttt{handleSubmit(e: React.SyntheticEvent): void} - metodo pubblico che gestisce la sottomissione del form intercettando l'evento del browser. Innesca la validazione$^G$ completa di tutti i campi e, se non vi$^G$ sono errori, invoca il metodo \texttt{submit} del Model delegando
+	la chiamata API$^G$ al layer sottostante.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 \end{itemize}
 
 
@@ -175,6 +188,7 @@ La sua implementazione concreta è prodotta dall'hook \texttt{useFormViewModel},
 	\caption{Autenticazione e Registrazione: FormModel}
 \end{figure}
 
+<<<<<<< HEAD
 \subsubsubsubsection{Descrizione della classe}
 \texttt{FormModel} è una classe astratta TypeScript che costituisce il livello di \textit{Model}
 nel pattern MVVM.\\
@@ -182,11 +196,19 @@ Incapsula la logica di validazione dei campi del form e la logica di invio
 dei dati al backend tramite il modulo \texttt{AuthAPI}.\\
 Le classi concrete \texttt{LoginModel} e
 \texttt{RegisterModel} la estendono specializzandone il comportamento.\\
+=======
+\subsubsubsubsection{Descrizione}
+\texttt{FormModel} è una classe astratta TypeScript che costituisce il livello di \textit{Model}
+nel pattern MVVM.\\
+Incapsula la logica di validazione$^G$ dei campi del form e la logica di invio dei dati al backend$^G$ tramite il modulo \texttt{AuthAPI}.\\
+Le classi concrete \texttt{LoginModel} e \texttt{RegisterModel} la estendono specializzandone il comportamento.\\
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 Solo \texttt{fields} e \texttt{submit} sono astratti: \texttt{validate} e \texttt{validateField} hanno invece un'implementazione concreta nella classe base.
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
 	\item \texttt{fields: FieldConfig*} - attributo pubblico astratto di tipo array di \texttt{FieldConfig}.
+<<<<<<< HEAD
 	Contiene la configurazione dei campi del form. Viene definito dalle sottoclassi concrete
 	con i campi specifici per login o registrazione.
 
@@ -197,11 +219,21 @@ Solo \texttt{fields} e \texttt{submit} sono astratti: \texttt{validate} e \textt
 	\item \texttt{PASSWORD\_REGEX: string} - costante privata protetta di tipo \texttt{RegExp}.
 	Espressione regolare utilizzata per la validazione della complessità della password
 	(tra 8 e 24 caratteri, con almeno una maiuscola, una minuscola, un numero e un carattere speciale).
+=======
+	Contiene la configurazione dei campi del form. Viene definito dalle sottoclassi concrete con i campi specifici per login o registrazione.
+
+	\item \texttt{USERNAME\_REGEX: string} - costante privata protetta di tipo \texttt{RegExp}.
+	Espressione regolare utilizzata per la validazione$^G$ del formato del nome utente (tra 4 e 24 caratteri alfanumerici o underscore).
+
+	\item \texttt{PASSWORD\_REGEX: string} - costante privata protetta di tipo \texttt{RegExp}.
+	Espressione regolare utilizzata per la validazione$^G$ della complessità della password (tra 8 e 24 caratteri, con almeno una maiuscola, una minuscola, un numero e un carattere speciale).
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
 \begin{itemize}
 	\item \texttt{validate(values: Record): Record} - metodo pubblico concreto.
+<<<<<<< HEAD
 	Riceve la mappa dei valori correnti del form e restituisce una mappa di errori
 	(\texttt{Record<string, string>}) per tutti i campi.
 	Verifica che nessun campo sia vuoto; le sottoclassi possono sovrascriverlo
@@ -218,6 +250,18 @@ Solo \texttt{fields} e \texttt{submit} sono astratti: \texttt{validate} e \textt
 	e delega la chiamata HTTP al modulo \texttt{AuthAPI}.
 	Restituisce una \texttt{Promise<SubmitResult>} che il ViewModel utilizza per
 	aggiornare lo stato della View in base all'esito dell'operazione.
+=======
+	Riceve la mappa dei valori correnti del form e restituisce una mappa di errori (\texttt{Record<string, string>}) per tutti i campi.
+	Verifica$^G$ che nessun campo sia vuoto; le sottoclassi possono sovrascriverlo per aggiungere regole di validazione$^G$ specifiche.
+
+	\item \texttt{validateField(key: string, value: string): string} - metodo pubblico concreto.
+	Valida il singolo campo identificato da \texttt{key} con il valore \texttt{value} invocando \texttt{validate} sull'intero set di valori correnti.
+	Restituisce il messaggio di errore per il campo richiesto, oppure una stringa vuota se la validazione$^G$ ha successo.
+
+	\item \texttt{submit(values: Record): Promise<SubmitResult>} - metodo pubblico astratto asincrono.
+	Riceve la mappa dei valori del form, costruisce il DTO appropriato e delega la chiamata HTTP al modulo \texttt{AuthAPI}.
+	Restituisce una \texttt{Promise<SubmitResult>} che il ViewModel utilizza per aggiornare lo stato della View in base all'esito dell'operazione.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 \end{itemize}
 
 
@@ -229,11 +273,19 @@ Solo \texttt{fields} e \texttt{submit} sono astratti: \texttt{validate} e \textt
 	\caption{Autenticazione e Registrazione: useFormViewModel}
 \end{figure}
 
+<<<<<<< HEAD
 \subsubsubsubsection{Descrizione della classe}
 \texttt{useFormViewModel} è un custom React Hook che implementa concretamente l'interfaccia
 \texttt{FormViewModel}.\\
 Gestisce lo stato del form tramite i primitivi React (\texttt{useState}, \texttt{useCallback}) e funge da collegamento tra la View e il Model.\\
 Riceve un'istanza di \texttt{FormModel} e una callback \texttt{onSuccess} da invocare al termine di un'operazione andata a buon fine, passando l'eventuale token JWT ricevuto dal backend.
+=======
+\subsubsubsubsection{Descrizione}
+\texttt{useFormViewModel} è un custom React$^G$ Hook che implementa concretamente l'interfaccia
+\texttt{FormViewModel}.\\
+Gestisce lo stato del form tramite i primitivi React$^G$ (\texttt{useState}, \texttt{useCallback}) e funge da collegamento tra la View e il Model.\\
+Riceve un'istanza di \texttt{FormModel} e una callback \texttt{onSuccess} da invocare al termine di un'operazione andata a buon fine, passando l'eventuale token$^G$ JWT ricevuto dal backend.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 
 \subsubsubsubsection{Attributi}
 \texttt{useFormViewModel} non possiede attributi.
@@ -242,10 +294,14 @@ Riceve un'istanza di \texttt{FormModel} e una callback \texttt{onSuccess} da inv
 \begin{itemize}
 	\item \texttt{useFormViewModel(model: FormModel, onSuccess: (token?: string) => void): FormViewModel}
 	- Funzione hook pubblica.
+<<<<<<< HEAD
 	Inizializza lo stato del form sulla base dei campi definiti in \texttt{model.fields},
 	implementa gli handler \texttt{handleChange}, \texttt{handleBlur} e \texttt{handleSubmit}
 	delegando rispettivamente l'aggiornamento dello stato, la validazione puntuale e la sottomissione
 	asincrona a \texttt{model}. In caso di successo invoca \texttt{onSuccess}.
+=======
+	Inizializza lo stato del form sulla base dei campi definiti in \texttt{model.fields}, implementa gli handler \texttt{handleChange}, \texttt{handleBlur} e \texttt{handleSubmit} delegando rispettivamente l'aggiornamento dello stato, la validazione$^G$ puntuale e la sottomissione asincrona a \texttt{model}. In caso di successo invoca \texttt{onSuccess}.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 	Restituisce un oggetto conforme all'interfaccia \texttt{FormViewModel}.
 \end{itemize}
 
@@ -258,12 +314,18 @@ Riceve un'istanza di \texttt{FormModel} e una callback \texttt{onSuccess} da inv
 	\caption{Autenticazione e Registrazione: AuthAPI}
 \end{figure}
 
+<<<<<<< HEAD
 \subsubsubsubsection{Descrizione della classe}
 \texttt{AuthAPI} è un modulo TypeScript con stereotipo \textit{«utility»} che funge da unico
 punto di accesso alle API REST di autenticazione del backend.\\
 Espone funzioni pure (non metodi
 di istanza) che incapsulano la logica delle chiamate HTTP, costruiscono le richieste nel formato
 atteso dal server e deserializzano le risposte in oggetti \texttt{AuthResponse}.\\
+=======
+\subsubsubsubsection{Descrizione}
+\texttt{AuthAPI} è un modulo TypeScript con stereotipo \textit{«utility»} che funge da unico punto di accesso alle API$^G$ REST$^G$ di autenticazione del backend.\\
+Espone funzioni pure (non metodi di istanza) che incapsulano la logica delle chiamate HTTP, costruiscono le richieste nel formato atteso dal server e deserializzano le risposte in oggetti \texttt{AuthResponse}.\\
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 Viene utilizzato esclusivamente dalle classi Model.
 
 \subsubsubsubsection{Attributi}
@@ -272,13 +334,18 @@ Viene utilizzato esclusivamente dalle classi Model.
 \subsubsubsubsection{Metodi e funzioni}
 \begin{itemize}
 	\item \texttt{login(dto: LoginDto): Promise<AuthResponse>} - funzione pubblica asincrona.
+<<<<<<< HEAD
 	Invia una richiesta HTTP POST all'endpoint \texttt{/auth/login} del backend con il payload
 	\texttt{LoginDto}. Restituisce una \texttt{Promise<AuthResponse>} contenente l'esito
 	dell'operazione e l'eventuale token in caso di successo.
+=======
+	Invia una richiesta HTTP POST all'endpoint \texttt{/auth/login} del backend$^G$ con il payload \texttt{LoginDto}. Restituisce una \texttt{Promise<AuthResponse>} contenente l'esito dell'operazione e l'eventuale token$^G$ in caso di successo.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 
 	\item \texttt{register(dto: RegisterDto): Promise<AuthResponse>} - funzione pubblica asincrona. Invia una richiesta HTTP POST all'endpoint \texttt{/auth/register} con il payload
 	\texttt{RegisterDto}. Restituisce una \texttt{Promise<AuthResponse>} con l'esito dell'operazione.
 
+<<<<<<< HEAD
 	\item \texttt{authFetch(endpoint: string, body: object): Promise<AuthResponse>} -
 	funzione helper interna asincrona.
 	Centralizza la logica comune delle chiamate HTTP: costruisce l'header,
@@ -286,6 +353,13 @@ Viene utilizzato esclusivamente dalle classi Model.
 
 	\item \texttt{getUsernameFromToken(token: string): string} - funzione pubblica.
 	Decodifica il payload del token ed estrae il campo corrispondente allo username dell'utente autenticato.
+=======
+	\item \texttt{authFetch(endpoint: string, body: object): Promise<AuthResponse>} - funzione helper interna asincrona.
+	Centralizza la logica comune delle chiamate HTTP: costruisce l'header, gestisce gli errori di rete e deserializza la risposta JSON$^G$ in \texttt{AuthResponse}.
+
+	\item \texttt{getUsernameFromToken(token$^G$: string): string} - funzione pubblica.
+	Decodifica il payload del token$^G$ ed estrae il campo corrispondente allo username dell'utente autenticato.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 	Viene utilizzata dopo il login per recuperare l'identità dell'utente senza effettuare ulteriori chiamate al backend.
 \end{itemize}
 
@@ -298,18 +372,28 @@ Viene utilizzato esclusivamente dalle classi Model.
 	\caption{Autenticazione e Registrazione: LoginDTO}
 \end{figure}
 
+<<<<<<< HEAD
 \subsubsubsubsection{Descrizione della classe}
 \texttt{LoginDto} è un'interfaccia TypeScript che rappresenta il Data Transfer Object
 utilizzato per la richiesta di autenticazione.\\
 Definisce la struttura del payload JSON inviato al backend nell'endpoint di login.\\
+=======
+\subsubsubsubsection{Descrizione}
+\texttt{LoginDto} è un'interfaccia TypeScript che rappresenta il Data Transfer Object utilizzato per la richiesta di autenticazione.\\
+Definisce la struttura del payload JSON$^G$ inviato al backend$^G$ nell'endpoint di login.\\
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 Garantisce la correttezza dei tipi dei dati trasmessi e disaccoppia la struttura della richiesta HTTP dalla logica del Model.
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
 	\item \texttt{username: string} - attributo pubblico di tipo stringa, corrisponde al nome utente inserito dall'utente nel campo corrispondente del form di login.
 
+<<<<<<< HEAD
 	\item \texttt{password: string} - attributo pubblico di tipo stringa, corrisponde alla password inserita dall'utente, che viene trasmessa in chiaro tramite HTTPS al backend,
 	dove verrà verificata contro l'hash bcrypt memorizzato.
+=======
+	\item \texttt{password: string} - attributo pubblico di tipo stringa, corrisponde alla password inserita dall'utente, che viene trasmessa in chiaro tramite HTTPS al backend$^G$, dove verrà verificata contro l'hash bcrypt memorizzato.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
@@ -324,10 +408,16 @@ Garantisce la correttezza dei tipi dei dati trasmessi e disaccoppia la struttura
 	\caption{Autenticazione e Registrazione: RegisterDTO}
 \end{figure}
 
+<<<<<<< HEAD
 \subsubsubsubsection{Descrizione della classe}
 \texttt{RegisterDto} è un'interfaccia TypeScript che rappresenta il Data Transfer Object
 utilizzato per la richiesta di registrazione di un nuovo utente.\\
 Definisce la struttura del payload JSON inviato al backend nell'endpoint di registrazione.
+=======
+\subsubsubsubsection{Descrizione}
+\texttt{RegisterDto} è un'interfaccia TypeScript che rappresenta il Data Transfer Object utilizzato per la richiesta di registrazione di un nuovo utente.\\
+Definisce la struttura del payload JSON$^G$ inviato al backend$^G$ nell'endpoint di registrazione.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
@@ -340,11 +430,18 @@ Definisce la struttura del payload JSON inviato al backend nell'endpoint di regi
 	Deve rispettare il formato definito da \texttt{EMAIL\_REGEX} in \texttt{RegisterModel}.
 
 	\item \texttt{password: string} - attributo pubblico di tipo stringa.
+<<<<<<< HEAD
 	Password scelta dall'utente, trasmessa in chiaro tramite HTTPS e cifrata lato backend con bcrypt. Deve rispettare il formato definito da \texttt{PASSWORD\_REGEX} in \texttt{FormModel}.
 
 	\item \texttt{confirmPwd: string} - attributo pubblico di tipo stringa.
 	Conferma della password inserita dall'utente, utilizzata lato frontend per verificare
 	che i due campi password coincidano prima di inviare la richiesta al backend.
+=======
+	Password scelta dall'utente, trasmessa in chiaro tramite HTTPS e cifrata lato backend$^G$ con bcrypt. Deve rispettare il formato definito da \texttt{PASSWORD\_REGEX} in \texttt{FormModel}.
+
+	\item \texttt{confirmPwd: string} - attributo pubblico di tipo stringa.
+	Conferma della password inserita dall'utente, utilizzata lato frontend$^G$ per verificare che i due campi password coincidano prima di inviare la richiesta al backend.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
@@ -359,15 +456,21 @@ Definisce la struttura del payload JSON inviato al backend nell'endpoint di regi
 	\caption{Autenticazione e Registrazione: AuthResponse}
 \end{figure}
 
+<<<<<<< HEAD
 \subsubsubsubsection{Descrizione della classe}
 \texttt{AuthResponse} è un'interfaccia TypeScript che rappresenta la risposta restituita
 dal backend a seguito di una richiesta di login o registrazione.\\
+=======
+\subsubsubsubsection{Descrizione}
+\texttt{AuthResponse} è un'interfaccia TypeScript che rappresenta la risposta restituita dal backend$^G$ a seguito di una richiesta di login o registrazione.\\
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 Viene deserializzata dal modulo \texttt{AuthAPI} e utilizzata dal Model per determinare l'esito dell'operazione e propagare eventuali errori al ViewModel.
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
 	\item \texttt{ok: boolean} - attributo pubblico booleano.
 	Indica se l'operazione di autenticazione o registrazione ha avuto successo.
+<<<<<<< HEAD
 	Se \texttt{true}, il token JWT è presente e l'utente può accedere al sistema.
 
 	\item \texttt{errors: string*} - attributo pubblico di tipo array di stringhe.
@@ -376,6 +479,15 @@ Viene deserializzata dal modulo \texttt{AuthAPI} e utilizzata dal Model per dete
 	\item \texttt{token?: string} - attributo pubblico opzionale di tipo stringa.
 	Contiene il token JWT restituito dal backend in caso di autenticazione o registrazione
 	avvenuta con successo. È assente (\texttt{undefined}) in caso di errore.
+=======
+	Se \texttt{true}, il token$^G$ JWT è presente e l'utente può accedere al sistema.
+
+	\item \texttt{errors: string*} - attributo pubblico di tipo array di stringhe.
+	Contiene i messaggi di errore restituiti dal backend$^G$ in caso di fallimento.
+
+	\item \texttt{token?: string} - attributo pubblico opzionale di tipo stringa.
+	Contiene il token$^G$ JWT restituito dal backend$^G$ in caso di autenticazione o registrazione avvenuta con successo. È assente (\texttt{undefined}) in caso di errore.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
@@ -390,17 +502,26 @@ Viene deserializzata dal modulo \texttt{AuthAPI} e utilizzata dal Model per dete
 	\caption{Autenticazione e Registrazione: FieldConfig}
 \end{figure}
 
+<<<<<<< HEAD
 \subsubsubsubsection{Descrizione della classe}
 \texttt{FieldConfig} è un'interfaccia TypeScript che descrive la configurazione di un singolo
 campo del form. Viene utilizzata da \texttt{FormModel}, \texttt{FormProps} e \texttt{FormView}
 per la renderizzazione dinamica dei campi, rendendo il componente View indipendente
 dalla specifica struttura del form (login o registrazione).
+=======
+\subsubsubsubsection{Descrizione}
+\texttt{FieldConfig} è un'interfaccia TypeScript che descrive la configurazione di un singolo campo del form. Viene utilizzata da \texttt{FormModel}, \texttt{FormProps} e \texttt{FormView} per la renderizzazione dinamica dei campi, rendendo il componente View indipendente dalla specifica struttura del form (login o registrazione).
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
 	\item \texttt{key: string} - attributo pubblico di tipo stringa.
+<<<<<<< HEAD
 	Identificatore univoco del campo, utilizzato come chiave nelle mappe \texttt{values}
 	e \texttt{fieldErrors} del ViewModel.
+=======
+	Identificatore univoco del campo, utilizzato come chiave nelle mappe \texttt{values} e \texttt{fieldErrors} del ViewModel.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 
 	\item \texttt{label: string} - attributo pubblico di tipo stringa.
 	Etichetta testuale visualizzata sopra al campo di input nel form.
@@ -427,11 +548,17 @@ dalla specifica struttura del form (login o registrazione).
 	\caption{Autenticazione e Registrazione: SubmitResult}
 \end{figure}
 
+<<<<<<< HEAD
 \subsubsubsubsection{Descrizione della classe}
 \texttt{SubmitResult} è un'interfaccia TypeScript che rappresenta il risultato dell'operazione
 di submit restituito dal metodo \texttt{FormModel.submit()} al ViewModel.\\
 Standardizza il formato della risposta del Model, indipendentemente dal tipo di operazione
 (login o registrazione), permettendo al ViewModel di aggiornare lo stato della View in modo uniforme.
+=======
+\subsubsubsubsection{Descrizione}
+\texttt{SubmitResult} è un'interfaccia TypeScript che rappresenta il risultato dell'operazione di submit restituito dal metodo \texttt{FormModel.submit()} al ViewModel.\\
+Standardizza il formato della risposta del Model, indipendentemente dal tipo di operazione (login o registrazione), permettendo al ViewModel di aggiornare lo stato della View in modo uniforme.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
@@ -442,7 +569,11 @@ Standardizza il formato della risposta del Model, indipendentemente dal tipo di 
 	Contiene i messaggi di errore da mostrare all'utente in caso di fallimento.
 
 	\item \texttt{token?: string} - attributo pubblico opzionale di tipo stringa.
+<<<<<<< HEAD
 	Contiene il token JWT in caso di submit andato a buon fine.
+=======
+	Contiene il token$^G$ JWT in caso di submit andato a buon fine.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
@@ -457,22 +588,32 @@ Standardizza il formato della risposta del Model, indipendentemente dal tipo di 
 	\caption{Autenticazione e Registrazione: RegisterModel}
 \end{figure}
 
+<<<<<<< HEAD
 \subsubsubsubsection{Descrizione della classe}
 \texttt{RegisterModel} è una classe concreta che estende \texttt{FormModel},
 specializzandone il comportamento per il caso d'uso della registrazione di un nuovo utente.\\
 Inizializza i campi del form con la configurazione specifica per la registrazione
 (username, email, password, conferma password) e sovrascrive \texttt{validate} per aggiungere
 la validazione del formato email e la verifica della corrispondenza delle due password.
+=======
+\subsubsubsubsection{Descrizione}
+\texttt{RegisterModel} è una classe concreta che estende \texttt{FormModel}, specializzandone il comportamento per il caso d'uso$^G$ della registrazione di un nuovo utente.\\
+Inizializza i campi del form con la configurazione specifica per la registrazione (username, email, password, conferma password) e sovrascrive \texttt{validate} per aggiungere la validazione$^G$ del formato email e la verifica$^G$ della corrispondenza delle due password.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 
 \subsubsubsubsection{Attributi}
 \texttt{RegisterModel} non definisce attributi.
 
 \subsubsubsubsection{Metodi e funzioni}
+<<<<<<< HEAD
 \texttt{RegisterModel} sovrascrive il metodo \texttt{validate} ereditato da \texttt{FormModel},
 estendendolo con la validazione del formato username tramite \texttt{USERNAME\_REGEX},
 del formato email tramite \texttt{EMAIL\_REGEX}, della complessità della password tramite
 \texttt{PASSWORD\_REGEX} e della corrispondenza tra i campi \texttt{password} e
 \texttt{confirmPwd}.
+=======
+\texttt{RegisterModel} sovrascrive il metodo \texttt{validate} ereditato da \texttt{FormModel}, estendendolo con la validazione$^G$ del formato username tramite \texttt{USERNAME\_REGEX}, del formato email tramite \texttt{EMAIL\_REGEX}, della complessità della password tramite \texttt{PASSWORD\_REGEX} e della corrispondenza tra i campi \texttt{password} e \texttt{confirmPwd}.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 
 
 \subsubsubsection{LoginModel}
@@ -483,17 +624,27 @@ del formato email tramite \texttt{EMAIL\_REGEX}, della complessità della passwo
 	\caption{Autenticazione e Registrazione: LoginModel}
 \end{figure}
 
+<<<<<<< HEAD
 \subsubsubsubsection{Descrizione della classe}
 \texttt{LoginModel} è una classe concreta che estende \texttt{FormModel},
 specializzandone il comportamento per il caso d'uso dell'autenticazione di un utente esistente.\\
 Inizializza i campi del form con la configurazione specifica per il login
 (username e password) e utilizza le regole di validazione ereditate da \texttt{FormModel}
 senza aggiungerne di nuove.
+=======
+\subsubsubsubsection{Descrizione}
+\texttt{LoginModel} è una classe concreta che estende \texttt{FormModel}, specializzandone il comportamento per il caso d'uso$^G$ dell'autenticazione di un utente esistente.\\
+Inizializza i campi del form con la configurazione specifica per il login (username e password) e utilizza le regole di validazione$^G$ ereditate da \texttt{FormModel} senza aggiungerne di nuove.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
 
 \subsubsubsubsection{Attributi}
 \texttt{LoginModel} non definisce attributi aggiuntivi rispetto alla classe padre \texttt{FormModel}.
 
 \subsubsubsubsection{Metodi e funzioni}
+<<<<<<< HEAD
 \texttt{LoginModel} eredita senza modifiche i metodi \texttt{validate} e \texttt{validateField}
 da \texttt{FormModel}. Il metodo \texttt{submit} viene specializzato per costruire un oggetto
 \texttt{LoginDto} con i campi username e password.
+=======
+\texttt{LoginModel} eredita senza modifiche i metodi \texttt{validate} e \texttt{validateField} da \texttt{FormModel}. Il metodo \texttt{submit} viene specializzato per costruire un oggetto \texttt{LoginDto} con i campi username e password.
+>>>>>>> 2019c056bf9942f64663ab9c03be26db274856df
