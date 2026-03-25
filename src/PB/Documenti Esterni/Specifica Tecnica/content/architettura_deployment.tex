@@ -1,14 +1,11 @@
 \section{Architettura di Deployment}
 
-Il sistema adotta un'architettura \textbf{monolitica}, in cui tutti i 
-componenti applicativi (logica di dominio, layer HTTP e accesso al 
-database$^G$) sono sviluppati, deployati ed eseguiti come un'unica unità.
+Il sistema adotta un'architettura \textbf{monolitica}, in cui tutti i componenti applicativi (logica di dominio, layer HTTP e accesso al database$^G$) sono sviluppati, rilasciati ed eseguiti come un'unica unità.
 
-Rispetto a un'architettura a microservizi, questa scelta offre i 
-seguenti vantaggi nel contesto del progetto$^G$:
+Rispetto a un'architettura a microservizi, questa scelta offre i seguenti vantaggi nel contesto del progetto$^G$:
 
 \begin{itemize}
-	\item \textbf{Semplicità operativa}: Non è necessario gestire orchestrazione di container, service discovery o bilanciamento del carico tra servizi distribuiti.
+	\item \textbf{Semplicità operativa}: non è necessario gestire orchestrazione di container, service discovery o bilanciamento del carico tra servizi distribuiti.
 	
 	\item \textbf{Latenza ridotta}: le comunicazioni tra i componenti avvengono in-process, eliminando l'overhead di chiamate HTTP o message broker tra servizi separati.
 	
