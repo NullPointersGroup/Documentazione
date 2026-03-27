@@ -9,6 +9,44 @@ Verranno attuati i seguenti test$^G$:
     \item Test$^G$ di Accettazione.
 \end{itemize}
 Nullpointers Group ha deciso di riportare solamente i \textbf{test$^G$ di Sistema} e i \textbf{test$^G$ di Accettazione}; le restanti tipologie di test$^G$ verranno eseguite durante le attività di sviluppo$^G$ per la \textbf{Product Baseline$^G$ (PB$^G$)}.
+
+\subsection{Test di Unità}
+I test di unità, così come i test di integrazione, vengono avviati nello stesso momento eseguendo lo script bash "command.sh", scritto appositamente per questo scopo.
+La seguente tabella riporta l'elenco completo dei test di unità implementati e/o superati specificandone: identificativo, descrizione, valore atteso e stato del test.
+
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{|
+    >{\raggedright\arraybackslash}p{0.12\columnwidth} |
+    >{\raggedright\arraybackslash}p{0.34\columnwidth} |
+    >{\raggedright\arraybackslash}p{0.34\columnwidth} |
+    >{\centering\arraybackslash}p{0.10\columnwidth} |
+    }
+    \hline
+    \rowcolor[gray]{0.9}
+    \textbf{Codice Test$^G$} & \textbf{Descrizione} & \textbf{Valore atteso} & \textbf{Stato} \\
+    \hline
+    \endhead
+    TU\_01 & Implementato da \textit{test\_registration\_success}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e ritorni il valore una risposta positiva & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+        \item 201 come stato della risposta HTTP
+        \item Il campo "ok", della risposta in formato Json, è impostato a "True"
+    \end{itemize} & S \\
+    \hline
+    TU\_02 & Implementato da \textit{test\_register\_user\_twice}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e che non ci sia una registrazione duplicata & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+        \item 400 come stato della risposta HTTP
+        \item Il campo "ok" dentro l'oggetto "detail", della risposta in formato Json, è impostato a "False"
+    \end{itemize} & S \\
+    \hline
+    TU\_03 & & \\
+    \hline
+
+    \caption{Test di Unità}
+\end{longtable}
+
+
+
+
+
+
 \subsection{Test di Sistema}
 La seguente tabella riporta l’elenco completo dei test$^G$ di Sistema pianificati specificandone: identificativo, descrizione, requisito associato e stato del test.
 \renewcommand{\arraystretch}{1.2}
