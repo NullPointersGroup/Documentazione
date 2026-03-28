@@ -26,17 +26,66 @@ La seguente tabella riporta l'elenco completo dei test di unità implementati e/
     \textbf{Codice Test$^G$} & \textbf{Descrizione} & \textbf{Valore atteso} & \textbf{Stato} \\
     \hline
     \endhead
-    TU\_01 & Implementato da \textit{test\_registration\_success}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e ritorni il valore una risposta positiva & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
-        \item 201 come stato della risposta HTTP
+    TU\_01 & Implementato da \textit{\seqsplit{test\_registration\_success}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e ritorni il valore una risposta positiva & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+        \item Risposta HTTP con stato 201
         \item Il campo "ok", della risposta in formato Json, è impostato a "True"
     \end{itemize} & S \\
     \hline
-    TU\_02 & Implementato da \textit{test\_register\_user\_twice}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e che non ci sia una registrazione duplicata & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
-        \item 400 come stato della risposta HTTP
+    TU\_02 & Implementato da \texttt{\seqsplit{test\_register\_user\_twice}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e che non ci sia una registrazione duplicata & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+        \item Risposta HTTP con stato 400
         \item Il campo "ok" dentro l'oggetto "detail", della risposta in formato Json, è impostato a "False"
     \end{itemize} & S \\
     \hline
-    TU\_03 & & \\
+    TU\_03 & Implementato da \texttt{\seqsplit{test\_registration\_missing\_fields}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e che in caso di campi mancanti restituisce una risposta negativa & Risposta HTTP con stato 422 & S \\
+    \hline
+    TU\_04 & Implementato da \texttt{\seqsplit{test\_register\_invalid\_email\_domain}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e verifica il caso in cui l'utente inserisce una main in un formato non corretto & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+        \item Risposta HTTP con stato 400
+        \item "email" come prima parola della stringa contenuta dal campo "errors" nell'oggetto "detail"
+    \end{itemize} & S \\
+    \hline
+    TU\_05 & Implementato da \texttt{\seqsplit{test\_register\_email\_already\_exists}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e verifica il caso in cui l'utente inserisce una mail che è già presente nel sistema & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+        \item Risposta HTTP con stato 400
+        \item "Email" come prima parola della stringa contenuta dal campo "errors" nell'oggetto "detail"
+    \end{itemize} & S \\
+    \hline
+    TU\_07 & Implementato da \texttt{\seqsplit{test\_login\_success}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e verifica la presenza di un utente nel sistema &  \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+        \item Risposta HTTP con stato 200
+        \item Il campo "ok", della risposta in formato Json, è impostato a "True"
+    \end{itemize} & S \\
+    \hline
+    TU\_08 & Implementato da \texttt{\seqsplit{test\_login\_failed}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e verifica che il sistemi restituisca una risposta negativa all'invio delle credenziali di un utente non registrato & Risposta HTTP con stato 400 & S \\
+    \hline
+    TU\_09 & Implementato da \texttt{\seqsplit{test\_login\_missing\_fields}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e in caso di campi mancanti restituisce una risposta negativa & Risposta HTTP con stato 422 & S \\
+    \hline
+    TU\_10 & Implementato da \texttt{\seqsplit{test\_returns\_users\_service\_instance}}; verifica che la funzione \texttt{\seqsplit{get\_user\_service}} restituisca un'istanza della classe UserService & Istanza di \texttt{UserService} restituita correttamente & S \\
+    \hline
+    TU\_11 & Implementato da \texttt{\seqsplit{test\_user\_service\_wraps\_user\_repo\_adapter}}; verifica che l'attributo \texttt{repo} dell'istanza della classe \texttt{UserService} sia correttamente configurato & Attributo \texttt{repo} correttamente configurato come \texttt{UserRepoAdapter} & S \\
+    \hline
+    TU\_12 & Implementato da \texttt{\seqsplit{test\_adapter\_receives\_db\_session}}; verifica che il db iniettato nello \texttt{UserService} sia configurato correttamente & Db iniettato e configurato correttamente & S \\
+    \hline
+    TU\_13 & Implementato da \texttt{\seqsplit{test\_valid\_token\_returns\_username}}; verifica che il recupero dell'identità utente, funzione \texttt{get\_current\_user} tramite cookie di sessione & Username corretto dopo la decodifica del token & S \\
+    \hline
+    TU\_14 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_raises\_401}}; verifica che l'accesso venga negato, con errore HTTP, se il token nel cookie è invalido o nullo & Risposta HTTP con stato 401 & S \\
+    \hline
+    TU\_15 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_detail\_message}}; verifica che l'accesso venga negato, verificando che il messaggio di errore sia corretto, in caso di token invalido o nullo & Il campo \texttt{detail} assume valore \textit{Token non valido} & S \\
+    \hline
+    TU\_16 & Implementato da \texttt{\seqsplit{test\_delete\_account\_success}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che l'eliminazione vada a buon fine & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+        \item Risposta HTTP con stato 200
+        \item Il campo "ok", della risposta in formato Json, è impostato a "True"
+        \item Il campo "errors", della risposta in formato Json, è vuoto
+    \end{itemize} & S \\
+    \hline 
+    TU\_17 & Implementato da \texttt{\seqsplit{test\_delete\_account\_user\_not\_found}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che, fornito un utente non valido, il test fallisca & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+        \item Risposta HTTP con stato 404
+        \item Il campo "ok", della risposta in formato Json, è impostato a "False"
+        \item Il campo "errors", della risposta in formato Json, contiene "Utente non trovato"
+    \end{itemize} & S \\
+    \hline
+    TU\_18 & Implementato da \texttt{\seqsplit{test\_delete\_account\_deletion\_error}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che l'endpoint sollevi un'eccezione qualora l'eliminazione non vada a buon fine & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+        \item Risposta HTTP con stato 500
+        \item Il campo "ok", della risposta in formato Json, è impostato a "False"
+        \item Il campo "errors", della risposta in formato Json, contiene "Errore durante la cancellazione"
+    \end{itemize} & S \\
     \hline
 
     \caption{Test di Unità}
