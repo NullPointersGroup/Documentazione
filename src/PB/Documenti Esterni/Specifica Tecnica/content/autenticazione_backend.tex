@@ -26,10 +26,11 @@ Implementa la logica di business orchestrando i servizi di persistenza (\texttt{
 
 \subsubsubsubsection{Metodi e funzioni}
 \begin{itemize}
-	\item \texttt{\_\_init\_\_(repo, email\_validator)} - costruttore che riceve le due porte secondarie per dependency injection.
-	\item \texttt{check\_user(u: User) -> str} - verifica$^G$ le credenziali di un utente: recupera l'utente dal repository$^G$ tramite username e controlla la password con \texttt{PasswordUtility} restituendo lo username autenticato. Solleva \newline \texttt{InvalidCredentialsError} se l'utente non esiste o la password non corrisponde.
+	\item \texttt{\_\_init\_\_(repo: IUserRepository, email\_validator: IEmailValidationPort)} - costruttore che riceve le due porte secondarie per dependency injection.
+	\item \texttt{check\_user(u: Utente) -> string} - verifica$^G$ le credenziali di un utente: recupera l'utente dal repository$^G$ tramite username e controlla la password con \texttt{PasswordUtility} restituendo lo username autenticato. Solleva \newline \texttt{InvalidCredentialsError} se l'utente non esiste o la password non corrisponde.
 	\item \texttt{register\_user(u: UserRegistration) -> None} - orchestra la registrazione di un nuovo utente eseguendo in sequenza: la verifica$^G$ dell'univocità dello username (\texttt{UsernameAlreadyExistsError}), la validazione$^G$ del DNS del dominio email (\texttt{InvalidEmailFormatError}), la verifica$^G$ dell'univocità dell'email (\texttt{EmailAlreadyExistsError}) e l'inserimento nel database$^G$ \newline (\texttt{UserCreationError}).
 	\item \texttt{delete\_user(username: str) -> None} - elimina un utente autenticato: verifica$^G$ l'esistenza dell'utente (\texttt{UserNotFoundError}) e ne richiede la cancellazione al repository$^G$ (\texttt{UserDeletionError}).
+	\item \texttt{reset\_password(u: UserReset) -> None} - orchestra il reset della password di un utente, verificando$^G$ l'esistenza dell'utente e aggiornando la password nel sistema di persistenza tramite \texttt{PasswordUtility}.
 \end{itemize}
 
 \subsubsubsection{AuthRouter}
@@ -54,6 +55,7 @@ La variabile \texttt{router: APIRouter} è definita a livello di modulo e funge 
 	\item \texttt{register(payload: UserRegistrationSchema) -> AuthResponse} - \newline handler \texttt{POST /auth/register}; riceve un payload \texttt{UserRegistrationSchema} che estende \texttt{UserSchema} con email e conferma password, applicando a livello Pydantic la validazione$^G$ del formato di username, password ed email e la corrispondenza tra le due password. Delega la registrazione a \newline \texttt{UserService.register\_user} e restituisce un \texttt{AuthResponse}; mappa le eccezioni del dominio in \texttt{HTTP 400} per errori di validazione$^G$ e \texttt{HTTP 500} per errori di persistenza.
 	\item \texttt{delete\_account(current\_user: str) -> AuthResponse} - handler \texttt{DELETE /auth/account}, richiede un token$^G$ JWT valido tramite \texttt{get\_current\_user}, delega la cancellazione a \texttt{UserService.delete\_user} e restituisce un \newline \texttt{AuthResponse}. Risponde con \texttt{HTTP 404} se l'utente non esiste e \texttt{HTTP 500} in caso di errore durante la cancellazione.
 	\item \texttt{get\_current\_user(token$^G$: str) -> str} - funzione di dipendenza che decodifica il JWT tramite \texttt{TokenUtility.decode\_token}; solleva \newline \texttt{HTTPException 401} se il token$^G$ è assente o non valido. Restituisce lo username estratto dal payload.
+	\item \texttt{reset\_password(body: ResetPasswordRequest) -> AuthResponse} - handler \texttt{POST /auth/reset-password}; riceve i dati necessari al reset della password e delega l'operazione a \texttt{UserService.reset\_password}. Restituisce un \texttt{AuthResponse} e mappa le eccezioni del dominio in risposte HTTP appropriate.
 \end{itemize}
 
 \subsubsubsection{TokenUtility}
@@ -145,6 +147,7 @@ Effettua la validazione$^G$ del dominio email tramite una query DNS di tipo \tex
 	\item \texttt{email\_exists(email: str) -> bool} - metodo astratto che verifica$^G$ se un'email è già presente nel sistema di persistenza.
 	\item \texttt{add\_user(u: UserRegistration) -> bool} - metodo astratto che inserisce un nuovo utente nel sistema di persistenza; restituisce \texttt{True} se l'operazione ha successo.
 	\item \texttt{delete\_user(username: str) -> bool} - metodo astratto che elimina un utente dal sistema di persistenza tramite username; restituisce \texttt{True} se l'operazione ha successo.
+	\item \texttt{reset\_password(u: UserReset) -> bool} - metodo astratto che aggiorna la password di un utente esistente nel sistema di persistenza; restituisce \texttt{True} se l'operazione ha successo.
 \end{itemize}
 
 \subsubsubsection{UserRepoAdapter}
@@ -198,6 +201,7 @@ Traduce le operazioni di dominio in query SQL$^G$ tramite \texttt{QueryExecutor}
 	\item \texttt{find\_by\_email(email: str) -> Utente} - recupera un utente dal database$^G$ tramite email usando una \texttt{SELECT} con filtro su \texttt{Utente.email}; restituisce \texttt{None} se non trovato.
 	\item \texttt{save(u: UserRegistration) -> bool} - inserisce un nuovo utente nel database$^G$ tramite una \texttt{INSERT}, ricevendo un oggetto \texttt{UserRegistration} contenente username, email e password in chiaro. La trasmissione della password in chiaro è considerata sicura in quanto il sistema opera esclusivamente su HTTPS, che garantisce la cifratura a livello di trasporto. La password viene hashata tramite \texttt{PasswordUtility.hash\_password} prima della persistenza e la descrizione viene impostata a \texttt{CLIENTE}; restituisce \texttt{True} se l'operazione ha successo.
 	\item \texttt{delete(username: str) -> bool} - elimina un utente dal database$^G$ tramite una \texttt{DELETE} con filtro su \texttt{Utente.username}; restituisce \texttt{True} se l'operazione ha successo.
+	\item \texttt{reset\_password(u: UserReset) -> bool} - aggiorna la password di un utente esistente nel database$^G$ tramite una \texttt{UPDATE} con filtro su \texttt{Utente.username}, hashando la nuova password tramite \texttt{PasswordUtility.hash\_password}; restituisce \texttt{True} se l'operazione ha successo.
 \end{itemize}
 
 \subsubsubsection{PasswordUtility}

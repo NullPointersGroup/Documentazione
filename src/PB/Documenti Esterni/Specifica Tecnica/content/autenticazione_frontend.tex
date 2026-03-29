@@ -173,10 +173,10 @@ Solo \texttt{fields} e \texttt{submit} sono astratti: \texttt{validate} e \textt
 	\item \texttt{fields: FieldConfig*} - attributo pubblico astratto di tipo array di \texttt{FieldConfig}.
 	Contiene la configurazione dei campi del form. Viene definito dalle sottoclassi concrete con i campi specifici per login o registrazione.
 
-	\item \texttt{USERNAME\_REGEX: string} - costante privata protetta di tipo \texttt{RegExp}.
+	\item \texttt{USERNAME\_REGEX: RegExp} - costante privata protetta di tipo \texttt{RegExp}.
 	Espressione regolare utilizzata per la validazione$^G$ del formato del nome utente (tra 4 e 24 caratteri alfanumerici o underscore).
 
-	\item \texttt{PASSWORD\_REGEX: string} - costante privata protetta di tipo \texttt{RegExp}.
+	\item \texttt{PASSWORD\_REGEX: RegExp} - costante privata protetta di tipo \texttt{RegExp}.
 	Espressione regolare utilizzata per la validazione$^G$ della complessità della password (tra 8 e 24 caratteri, con almeno una maiuscola, una minuscola, un numero e un carattere speciale).
 \end{itemize}
 
@@ -412,7 +412,7 @@ Inizializza i campi del form con la configurazione specifica per la registrazion
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
-	\item \texttt{EMAIL\_REGEX: string} - attributo privato di tipo stringa. 
+	\item \texttt{EMAIL\_REGEX: RegExp} - attributo privato di tipo \texttt{RegExp}. 
 	Espressione regolare utilizzata per la validazione$^G$ del formato dell'indirizzo email inserito dall'utente durante la registrazione.
 \end{itemize}
 
