@@ -1,6 +1,6 @@
 \section{Strategie di Testing}
 Le strategie di testing adottate sono state discusse nel documento di \href{https://nullpointersgroup.github.io/Documentazione/output/PB/Documenti%20Interni/Norme_di_Progetto.pdf}{Norme di Progetto$^G$}, nel quale è definita la classificazione delle diverse tipologie di test$^G$ e la relativa codifica (Sezione 3.4.5).\\
-Verranno attuati i seguenti test$^G$:
+Verranno atTU-Bati i seguenti test$^G$:
 \begin{itemize}
     \item Test$^G$ di Unità;
     \item Test$^G$ di Integrazione;
@@ -16,9 +16,9 @@ La seguente tabella riporta l'elenco completo dei test di unità implementati e/
 
 \renewcommand{\arraystretch}{1.2}
 \begin{longtable}{|
-    >{\raggedright\arraybackslash}p{0.12\columnwidth} |
-    >{\raggedright\arraybackslash}p{0.34\columnwidth} |
-    >{\raggedright\arraybackslash}p{0.34\columnwidth} |
+    >{\raggedright\arraybackslash}p{0.15\columnwidth} |
+    >{\raggedright\arraybackslash}p{0.325\columnwidth} |
+    >{\raggedright\arraybackslash}p{0.325\columnwidth} |
     >{\centering\arraybackslash}p{0.10\columnwidth} |
     }
     \hline
@@ -26,68 +26,141 @@ La seguente tabella riporta l'elenco completo dei test di unità implementati e/
     \textbf{Codice Test$^G$} & \textbf{Descrizione} & \textbf{Valore atteso} & \textbf{Stato} \\
     \hline
     \endhead
-    TU\_01 & Implementato da \textit{\seqsplit{test\_registration\_success}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e ritorni il valore una risposta positiva & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+    TU-B\_01 & Implementato da \textit{\seqsplit{test\_registration\_success}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e ritorni il valore una risposta positiva & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
         \item Risposta HTTP con stato 201
         \item Il campo "ok", della risposta in formato Json, è impostato a "True"
     \end{itemize} & S \\
     \hline
-    TU\_02 & Implementato da \texttt{\seqsplit{test\_register\_user\_twice}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e che non ci sia una registrazione duplicata & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+    TU-B\_02 & Implementato da \texttt{\seqsplit{test\_register\_user\_twice}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e che non ci sia una registrazione duplicata & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
         \item Risposta HTTP con stato 400
         \item Il campo "ok" dentro l'oggetto "detail", della risposta in formato Json, è impostato a "False"
     \end{itemize} & S \\
     \hline
-    TU\_03 & Implementato da \texttt{\seqsplit{test\_registration\_missing\_fields}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e che in caso di campi mancanti restituisce una risposta negativa & Risposta HTTP con stato 422 & S \\
+    TU-B\_03 & Implementato da \texttt{\seqsplit{test\_registration\_missing\_fields}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e che in caso di campi mancanti restiTU-Bisce una risposta negativa & Risposta HTTP con stato 422 & S \\
     \hline
-    TU\_04 & Implementato da \texttt{\seqsplit{test\_register\_invalid\_email\_domain}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e verifica il caso in cui l'utente inserisce una main in un formato non corretto & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+    TU-B\_04 & Implementato da \texttt{\seqsplit{test\_register\_invalid\_email\_domain}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e verifica il caso in cui l'utente inserisce una main in un formato non corretto & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
         \item Risposta HTTP con stato 400
         \item "email" come prima parola della stringa contenuta dal campo "errors" nell'oggetto "detail"
     \end{itemize} & S \\
     \hline
-    TU\_05 & Implementato da \texttt{\seqsplit{test\_register\_email\_already\_exists}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e verifica il caso in cui l'utente inserisce una mail che è già presente nel sistema & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+    TU-B\_05 & Implementato da \texttt{\seqsplit{test\_register\_email\_already\_exists}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e verifica il caso in cui l'utente inserisce una mail che è già presente nel sistema & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
         \item Risposta HTTP con stato 400
         \item "Email" come prima parola della stringa contenuta dal campo "errors" nell'oggetto "detail"
     \end{itemize} & S \\
     \hline
-    TU\_07 & Implementato da \texttt{\seqsplit{test\_login\_success}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e verifica la presenza di un utente nel sistema &  \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+    TU-B\_07 & Implementato da \texttt{\seqsplit{test\_login\_success}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e verifica la presenza di un utente nel sistema &  \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
         \item Risposta HTTP con stato 200
         \item Il campo "ok", della risposta in formato Json, è impostato a "True"
     \end{itemize} & S \\
     \hline
-    TU\_08 & Implementato da \texttt{\seqsplit{test\_login\_failed}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e verifica che il sistemi restituisca una risposta negativa all'invio delle credenziali di un utente non registrato & Risposta HTTP con stato 400 & S \\
+    TU-B\_08 & Implementato da \texttt{\seqsplit{test\_login\_failed}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e verifica che il sistemi restiTU-Bisca una risposta negativa all'invio delle credenziali di un utente non registrato & Risposta HTTP con stato 400 & S \\
     \hline
-    TU\_09 & Implementato da \texttt{\seqsplit{test\_login\_missing\_fields}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e in caso di campi mancanti restituisce una risposta negativa & Risposta HTTP con stato 422 & S \\
+    TU-B\_09 & Implementato da \texttt{\seqsplit{test\_login\_missing\_fields}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e in caso di campi mancanti restiTU-Bisce una risposta negativa & Risposta HTTP con stato 422 & S \\
     \hline
-    TU\_10 & Implementato da \texttt{\seqsplit{test\_returns\_users\_service\_instance}}; verifica che la funzione \texttt{\seqsplit{get\_user\_service}} restituisca un'istanza della classe UserService & Istanza di \texttt{UserService} restituita correttamente & S \\
+    TU-B\_10 & Implementato da \texttt{\seqsplit{test\_reTU-Brns\_users\_service\_instance}}; verifica che la funzione \texttt{\seqsplit{get\_user\_service}} restiTU-Bisca un'istanza della classe UserService & Istanza di \texttt{UserService} restiTU-Bita correttamente & S \\
     \hline
-    TU\_11 & Implementato da \texttt{\seqsplit{test\_user\_service\_wraps\_user\_repo\_adapter}}; verifica che l'attributo \texttt{repo} dell'istanza della classe \texttt{UserService} sia correttamente configurato & Attributo \texttt{repo} correttamente configurato come \texttt{UserRepoAdapter} & S \\
+    TU-B\_11 & Implementato da \texttt{\seqsplit{test\_user\_service\_wraps\_user\_repo\_adapter}}; verifica che l'attributo \texttt{repo} dell'istanza della classe \texttt{UserService} sia correttamente configurato & Attributo \texttt{repo} correttamente configurato come \texttt{UserRepoAdapter} & S \\
     \hline
-    TU\_12 & Implementato da \texttt{\seqsplit{test\_adapter\_receives\_db\_session}}; verifica che il db iniettato nello \texttt{UserService} sia configurato correttamente & Db iniettato e configurato correttamente & S \\
+    TU-B\_12 & Implementato da \texttt{\seqsplit{test\_adapter\_receives\_db\_session}}; verifica che il db iniettato nello \texttt{UserService} sia configurato correttamente & Db iniettato e configurato correttamente & S \\
     \hline
-    TU\_13 & Implementato da \texttt{\seqsplit{test\_valid\_token\_returns\_username}}; verifica che il recupero dell'identità utente, funzione \texttt{get\_current\_user} tramite cookie di sessione & Username corretto dopo la decodifica del token & S \\
+    \multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestGetCurrenTU-Bser} \\
     \hline
-    TU\_14 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_raises\_401}}; verifica che l'accesso venga negato, con errore HTTP, se il token nel cookie è invalido o nullo & Risposta HTTP con stato 401 & S \\
+    TU-B\_13 & Implementato da \texttt{\seqsplit{test\_valid\_token\_reTU-Brns\_username}}; verifica che il recupero dell'identità utente, funzione \texttt{get\_current\_user} tramite cookie di sessione & Username corretto dopo la decodifica del token & S \\
     \hline
-    TU\_15 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_detail\_message}}; verifica che l'accesso venga negato, verificando che il messaggio di errore sia corretto, in caso di token invalido o nullo & Il campo \texttt{detail} assume valore \textit{Token non valido} & S \\
+    TU-B\_14 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_raises\_401}}; verifica che l'accesso venga negato, con errore HTTP, se il token nel cookie è invalido o nullo & Risposta HTTP con stato 401 & S \\
     \hline
-    TU\_16 & Implementato da \texttt{\seqsplit{test\_delete\_account\_success}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che l'eliminazione vada a buon fine & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+    TU-B\_15 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_detail\_message}}; verifica che l'accesso venga negato, verificando che il messaggio di errore sia corretto, in caso di token invalido o nullo & Il campo \texttt{detail} assume valore \textit{Token non valido} & S \\
+    \hline
+    \multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestDeleteAccount} \\
+    \hline
+    TU-B\_16 & Implementato da \texttt{\seqsplit{test\_delete\_account\_success}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che l'eliminazione vada a buon fine & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
         \item Risposta HTTP con stato 200
         \item Il campo "ok", della risposta in formato Json, è impostato a "True"
         \item Il campo "errors", della risposta in formato Json, è vuoto
     \end{itemize} & S \\
     \hline 
-    TU\_17 & Implementato da \texttt{\seqsplit{test\_delete\_account\_user\_not\_found}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che, fornito un utente non valido, il test fallisca & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+    TU-B\_17 & Implementato da \texttt{\seqsplit{test\_delete\_account\_user\_not\_found}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che, fornito un utente non valido, il test fallisca & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
         \item Risposta HTTP con stato 404
         \item Il campo "ok", della risposta in formato Json, è impostato a "False"
         \item Il campo "errors", della risposta in formato Json, contiene "Utente non trovato"
     \end{itemize} & S \\
     \hline
-    TU\_18 & Implementato da \texttt{\seqsplit{test\_delete\_account\_deletion\_error}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che l'endpoint sollevi un'eccezione qualora l'eliminazione non vada a buon fine & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+    TU-B\_18 & Implementato da \texttt{\seqsplit{test\_delete\_account\_deletion\_error}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che l'endpoint sollevi un'eccezione qualora l'eliminazione non vada a buon fine & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
         \item Risposta HTTP con stato 500
         \item Il campo "ok", della risposta in formato Json, è impostato a "False"
         \item Il campo "errors", della risposta in formato Json, contiene "Errore durante la cancellazione"
     \end{itemize} & S \\
     \hline
-
+    \multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestEmailDomainExists} \\
+    \hline
+    TU-B\_19 & Implementato da \texttt{\seqsplit{test\_reTU-Brns\_true\_when\_mx\_record\_found}}; verifica, tramite una simulazione di una risoluzione DNS positiva, che la mail interessata esista nel sistema & Risposta positiva da parte del sistema nella query di esistenza della mail nel dominio & S \\
+    \hline
+    TU-B\_20 & Implementato da \texttt{\seqsplit{test\_reTU-Brns\_false\_when\_mx\_record\_not\_found}}; verifica, tramite una simulazione di una risoluzione DNS positiva, che la main interessata non sia esistente nel sistema & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+        \item Eccezione sollevata
+        \item Risposta negativa da parte del sistema nella query di esistenza della mail nel dominio
+    \end{itemize} & S \\
+    \hline
+    TU-B\_21 & Implementato da \texttt{\seqsplit{test\_extracts\_domain\_from\_email}}; verifica che il dominio venga correttamente estratto dall'email e passato al resolver DNS con i parametri corretti & La chiamata a \texttt{resolve} avviene una sola volta con il dominio corretto & S \\
+    \hline
+    \multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestUsernameAlreadyExistsError} \\
+    \hline
+    TU-B\_22 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica che la classe \texttt{\seqsplit{UsernameAlreadyExistsError}} istanzi un oggetto di tipo \texttt{ValueError} & Istanza di \texttt{ValueError} & S \\
+    \hline
+    TU-B\_23 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{UsernameAlreadyExistsError}} sia correttamente configurato & Una stringa dal valore "Username già esistente" & S \\
+    \hline
+    TU-B\_24 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{UsernameAlreadyExistsError}} possa essere lanciata come eccezione & Eccezione di tipo \texttt{\seqsplit{UsernameAlreadyExistsError}} lanciata & S \\
+    \hline
+    \multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestInvalidEmailFormatError} \\
+    \hline
+    TU-B\_25 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica che la classe \texttt{\seqsplit{InvalidEmailFormatError}} istanzi un oggetto di tipo \texttt{ValueError} & Istanza di \texttt{ValueError} & S \\
+    \hline
+    TU-B\_26 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{InvalidEmailFormatError}} sia correttamente configurato & Una stringa dal valore "L'email non è nel formato corretto" & S \\
+    \hline
+    TU-B\_27 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{InvalidEmailFormatError}} possa essere lanciata come eccezione & Eccezione di tipo \texttt{\seqsplit{InvalidEmailFormatError}} lanciata & S \\
+    \hline
+    \multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestEmailAlreadyExistsError} \\
+    \hline
+    TU-B\_28 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica che la classe \texttt{\seqsplit{EmailAlreadyExistsError}} istanzi un oggetto di tipo \texttt{ValueError} & Istanza di \texttt{ValueError} & S \\
+    \hline
+    TU-B\_29 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{EmailAlreadyExistsError}} sia correttamente configurato & Una stringa dal valore "Email già esistente" & S \\
+    \hline
+    TU-B\_30 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{EmailAlreadyExistsError}} possa essere lanciata come eccezione & Eccezione di tipo \texttt{\seqsplit{EmailAlreadyExistsError}} lanciata & S \\
+    \hline
+    \multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestInvalidCredentialsError} \\
+    \hline
+    TU-B\_31 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica che la classe \texttt{\seqsplit{InvalidCredentialsError}} istanzi un oggetto di tipo \texttt{ValueError} & Istanza di \texttt{ValueError} & S \\
+    \hline
+    TU-B\_32 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{InvalidCredentialsError}} sia correttamente configurato & Una stringa dal valore "Username o password errati" & S \\
+    \hline
+    TU-B\_33 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{InvalidCredentialsError}} possa essere lanciata come eccezione & Eccezione di tipo \texttt{\seqsplit{InvalidCredentialsError}} lanciata & S \\
+    \hline
+    \multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestUserCreationError} \\
+    \hline
+    TU-B\_34 & Implementato da \texttt{\seqsplit{test\_is\_exception}}; verifica che la classe \texttt{\seqsplit{InvalidCredentialsError}} istanzi un oggetto di tipo \texttt{Exception} & Istanza di \texttt{Exception} & S \\
+    \hline
+    TU-B\_35 & Implementato da \texttt{{\seqsplit{test\_is\_not\_value\_error}}}; verifica che la classe \texttt{\seqsplit{UserCreationError}} non istanzi un oggetto di tipo \texttt{ValueError} & Istanza di un oggetto diverso da \texttt{ValueError} & S \\
+    \hline
+    TU-B\_36 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{UserCreationError}} sia correttamente configurato & Una stringa dal valore "Errore durante la registrazione" & S \\
+    \hline
+    TU-B\_37 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{UserCreationError}} possa essere lanciata come eccezione & Eccezione di tipo \texttt{\seqsplit{UserCreationError}} lanciata & S \\
+    \hline
+    \multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestHashPassword} \\
+    \hline
+    TU-B\_38 & Implementato da \texttt{\seqsplit{test\_returns\_string}}; verifica che la funzione di hashing ritorni un valore di tipo stringa & Valore di tipo stringa & S \\
+    \hline
+    TU-B\_39 & Implementato da \texttt{\seqsplit{test\_hash\_is\_different\_from\_plain}}; verifica che la funzione di hashing ritori un valore diverso dalla password in chiaro & Valore diverso da password in chiaro & S \\
+    \hline
+    TU\_40 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_bcrypt}}; verifica che la funzione deleghi correttamente l'operazione di hashing alla libreria \texttt{bcrypt} & Chiamata a \texttt{bcrypt.hashpw} effettuata esattamente una volta con i parametri previsti & S \\
+    \hline
+    \multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestVerifyPassword} \\
+    \hline
+    TU\_41 & Implementato da \texttt{\seqsplit{test\_correct\_password\_returns\_true}}; verifica che la funzione di validazione password riconosca una password confrontandola con il relativo hash & Valore booleano \texttt{True} & S \\
+    \hline
+    TU\_42 & Implementato da \texttt{\seqsplit{test\_wrong\_password\_returns\_false}}; verifica che la funzione di validazione non riconosca una password confrontandola con l'hash che dovrebbe assumere & Valore booleano \texttt{False} & S \\
+    \hline
+    TU\_43 & Implementato da \texttt{\seqsplit{test\_none\_hash\_returns\_false\_without\_calling\_bcrypt}}; verifica che in caso di hash vuoto, la funzione di verifica termina e non viene chiamata la libreria \texttt{bcrypt} & Valore booleano \texttt{False} & S \\
+    \hline
+    TU\_44 & Implementato da \texttt{\seqsplit{test\_empty\_password\_delegates\_to\_bcrypt}}; verifica che, anche in caso di password vuota, la libreria \texttt{bcrypt} viene comunque chiamata per il confronto booleano & Valore booleano \texttt{False} & S \\
     \caption{Test di Unità}
 \end{longtable}
 
@@ -152,8 +225,8 @@ La seguente tabella riporta l’elenco completo dei test$^G$ di Sistema pianific
     TS\_28 \hypertarget{ts-28} & Verificare che l'Utente possa visualizzare il messaggio \vr{Username o password errati} se l'autenticazione fallisce & RF-OB\_28 & NI \\ \hline
     TS\_29 \hypertarget{ts-29} & Verificare che avvenga un logout automatico a seguito della cancellazione di un account & RF-OB\_29 & NI \\ \hline
     TS\_30 \hypertarget{ts-30} & Verificare che l'Utente possa visualizzare il pulsante \vr{Logout} sul profilo & RF-OB\_30 & NI \\ \hline
-    TS\_31 \hypertarget{ts-31} & Verificare che l'Utente possa effettuare il logout tramite il pulsante \vr{Logout} & RF-OB\_31 & NI \\ \hline
-    TS\_32 \hypertarget{ts-32} & Verificare che il Cliente possa inserire input testuali di lunghezza massima 4096 caratteri & RF-OB\_32 & NI \\ \hline
+    TS\_31 \hypertarget{ts-31} & Verificare che l'Utente possa effetTU-Bare il logout tramite il pulsante \vr{Logout} & RF-OB\_31 & NI \\ \hline
+    TS\_32 \hypertarget{ts-32} & Verificare che il Cliente possa inserire input tesTU-Bali di lunghezza massima 4096 caratteri & RF-OB\_32 & NI \\ \hline
     TS\_33 \hypertarget{ts-33} & Verificare che il Cliente non possa inviare il messaggio al superamento dei 4096 caratteri & RF-OB\_33 & NI \\ \hline
     TS\_34 \hypertarget{ts-34} & Verificare che il Cliente visualizzi il campo input & RF-OB\_34 & NI \\ \hline
     TS\_35 \hypertarget{ts-35} & Verificare che il Cliente visualizzi il tasto di invio & RF-OB\_35 & NI \\ \hline
@@ -210,7 +283,7 @@ La seguente tabella riporta l’elenco completo dei test$^G$ di Sistema pianific
     TS\_86 \hypertarget{ts-86} & Verificare che il Cliente possa visualizzare una notifica di errore se il prodotto non viene duplicato correttamente & RF-OB\_86 & NI \\ \hline
     TS\_87 \hypertarget{ts-87} & Verificare che il Cliente possa visualizzare il pulsante \vr{visualizza storico ordini} & RF-OB\_87 & NI \\ \hline
     TS\_88 \hypertarget{ts-88} & Verificare che il Cliente possa premere il pulsante \vr{visualizza storico ordini} & RF-OB\_88 & NI \\ \hline
-    TS\_89 \hypertarget{ts-89} & Verificare che l'Admin possa visualizzare una pagina separata contenente lo storico totale degli ordini di tutti i Clienti & RF-OB\_89 & NI \\ \hline
+    TS\_89 \hypertarget{ts-89} & Verificare che l'Admin possa visualizzare una pagina separata contenente lo storico totale degli ordini di TU-Btti i Clienti & RF-OB\_89 & NI \\ \hline
     TS\_90 \hypertarget{ts-90} & Verificare che il Cliente possa visualizzare una pagina separata contenente lo storico totale dei suoi ordini & RF-OB\_90 & NI \\ \hline
     TS\_91 \hypertarget{ts-91} & Verificare che la lista degli ordini debba essere visualizzata in pagine separate contenenti massimo 10 ordini ciascuna & RF-OB\_91 & NI \\ \hline
     TS\_92 \hypertarget{ts-92} & Verificare che il caricamento di una pagina non implichi il caricamento delle pagine successive & RF-OB\_92 & NI \\ \hline
@@ -277,7 +350,7 @@ La seguente tabella riporta l’elenco completo dei test$^G$ di Sistema pianific
     TS\_150 \hypertarget{ts-150} & Verificare che il Cliente possa visualizzare un form in una nuova pagina dopo aver premuto il pulsante \vr{lascia Feedback} & RF-DE\_44 & NI \\ \hline
     TS\_151 \hypertarget{ts-151} & Verificare che il Cliente possa vedere il dropdown relativo alla tipologia di feedback \vr{Prodotto sbagliato}, \vr{Quantità errata}, \vr{Incomprensione}, \vr{Altro} & RF-DE\_45 & NI \\ \hline
     TS\_152 \hypertarget{ts-152} & Verificare che il Cliente debba selezionare obbligatoriamente una tipologia tra: \vr{Prodotto sbagliato}, \vr{Quantità errata}, \vr{Incomprensione}, \vr{Altro} & RF-DE\_46 & NI \\ \hline
-    TS\_153 \hypertarget{ts-153} & Verificare che il Cliente visualizzi l'input testuale della descrizione & RF-DE\_47 & NI \\ \hline
+    TS\_153 \hypertarget{ts-153} & Verificare che il Cliente visualizzi l'input tesTU-Bale della descrizione & RF-DE\_47 & NI \\ \hline
     TS\_154 \hypertarget{ts-154} & Verificare che il Cliente inserisca obbligatoriamente una descrizione & RF-DE\_48 & NI \\ \hline
     TS\_155 \hypertarget{ts-155} & Verificare che il Cliente possa inserire nella descrizione un massimo di 300 caratteri & RF-DE\_49 & NI \\ \hline
     TS\_156 \hypertarget{ts-156} & Verificare che il Cliente possa visualizzare un contatore x/300 vicino al campo di testo & RF-DE\_50 & NI \\ \hline
@@ -347,13 +420,13 @@ La seguente tabella riporta l’elenco completo dei test$^G$ di Sistema pianific
     TS\_220 \hypertarget{ts-220} & Verificare che l'Utente possa filtrare per data su un calendario & RF-DE\_114 & NI \\ \hline
     TS\_221 \hypertarget{ts-221} & Verificare che l'Utente possa visualizzare l'icona a forma di calendario & RF-DE\_115 & NI \\ \hline
     TS\_222 \hypertarget{ts-222} & Verificare che l'Utente possa premere l'icona del filtro data & RF-DE\_116 & NI \\ \hline
-    TS\_223 \hypertarget{ts-223} & Verificare che il filtro data permetta di vedere tutti gli ordini successivi & RF-DE\_117 & NI \\ \hline
+    TS\_223 \hypertarget{ts-223} & Verificare che il filtro data permetta di vedere TU-Btti gli ordini successivi & RF-DE\_117 & NI \\ \hline
     TS\_224 \hypertarget{ts-224} & Verificare che il filtro data permetta di vedere gli ordini compresi tra due date & RF-DE\_118 & NI \\ \hline
-    TS\_225 \hypertarget{ts-225} & Verificare che l'Utente possa vedere il campo testuale del filtro prodotti & RF-DE\_119 & NI \\ \hline
-    TS\_226 \hypertarget{ts-226} & Verificare che l'Utente possa scrivere nel campo testuale del filtro & RF-DE\_120 & NI \\ \hline
+    TS\_225 \hypertarget{ts-225} & Verificare che l'Utente possa vedere il campo tesTU-Bale del filtro prodotti & RF-DE\_119 & NI \\ \hline
+    TS\_226 \hypertarget{ts-226} & Verificare che l'Utente possa scrivere nel campo tesTU-Bale del filtro & RF-DE\_120 & NI \\ \hline
     TS\_227 \hypertarget{ts-227} & Verificare che l'Utente possa vedere un riquadro di prodotti contenenti la sequenza di caratteri & RF-DE\_121 & NI \\ \hline
-    TS\_228 \hypertarget{ts-228} & Verificare che l'Admin possa visualizzare il campo testuale di filtro Cliente & RF-DE\_122 & NI \\ \hline
-    TS\_229 \hypertarget{ts-229} & Verificare che l'Admin possa scrivere nel campo testuale di filtro Cliente & RF-DE\_123 & NI \\ \hline
+    TS\_228 \hypertarget{ts-228} & Verificare che l'Admin possa visualizzare il campo tesTU-Bale di filtro Cliente & RF-DE\_122 & NI \\ \hline
+    TS\_229 \hypertarget{ts-229} & Verificare che l'Admin possa scrivere nel campo tesTU-Bale di filtro Cliente & RF-DE\_123 & NI \\ \hline
     TS\_230 \hypertarget{ts-230} & Verificare che l'Admin possa vedere un riquadro Clienti che contengono la sequenza di caratteri & RF-DE\_124 & NI \\ \hline
     TS\_231 \hypertarget{ts-231} & Verificare che l'Admin possa scegliere dal riquadro lo username del Cliente desiderato & RF-DE\_125 & NI \\ \hline
     TS\_232 \hypertarget{ts-232} & Verificare che il Cliente riceva un avviso nel caso in cui invii più comandi nello stesso input & RF-DE\_126 & NI \\ \hline
@@ -374,7 +447,7 @@ La seguente tabella riporta l’elenco completo dei test$^G$ di Sistema pianific
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%opzionali%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    TS\_247 \hypertarget{ts-247} & Verificare che tutte le informazioni dell'Utente per il login siano anonime & RF-OP\_01 & NI \\ \hline
+    TS\_247 \hypertarget{ts-247} & Verificare che TU-Btte le informazioni dell'Utente per il login siano anonime & RF-OP\_01 & NI \\ \hline
     TS\_248 \hypertarget{ts-248} & Verificare che l'Admin possa creare nuovi utenti & RF-OP\_02 & NI \\ \hline
     TS\_249 \hypertarget{ts-249} & Verificare che l'Admin possa visualizzare il pulsante per la creazione di nuovi utenti & RF-OP\_03 & NI \\ \hline
     TS\_250 \hypertarget{ts-250} & Verificare che l'Admin possa premere il pulsante per la creazione di nuovi utenti & RF-OP\_04 & NI \\ \hline
@@ -694,18 +767,18 @@ La seguente tabella riporta l’elenco completo dei test$^G$ di Accettazione pia
     \endhead
 
     \hline
-    TA\_01 & Verificare che l'input testuale dell'Utente venga tradotto in un ordine & NI \\ \hline
+    TA\_01 & Verificare che l'input tesTU-Bale dell'Utente venga tradotto in un ordine & NI \\ \hline
     TA\_02 & Verificare che l'input vocale dell'Utente venga tradotto in un ordine & NI \\ \hline
     TA\_03 & Verificare che l'Utente possa scegliere il prodotto che vuole in caso di ambiguità & NI \\ \hline
     TA\_04 & Verificare che l'Utente possa autenticarsi nel sistema & NI \\ \hline
     TA\_05 & Verificare che l'Utente possa registrarsi nel sistema & NI \\ \hline
-    TA\_06 & Verificare che ci sia la possibilità di effettuare gli ordini & NI \\ \hline
+    TA\_06 & Verificare che ci sia la possibilità di effetTU-Bare gli ordini & NI \\ \hline
     TA\_07 & Verificare che ci sia la possibilità di confermare gli ordini & NI \\ \hline
     TA\_08 & Verificare che ci sia la possibilità di visualizzare lo storico ordini & NI \\ \hline
     TA\_09 & Verificare che il Cliente possa vedere gli articoli presenti nel carrello & NI \\ \hline
     TA\_10 & Verificare che il Cliente possa aggiungere o rimuovere articoli dal carrello & NI \\ \hline
     TA\_11 & Verificare che sia implementato il limite alle dimensioni di file audio & NI \\ \hline
-    TA\_12 & Verificare che siano implementati i limiti per gli input testuali & NI \\ \hline
+    TA\_12 & Verificare che siano implementati i limiti per gli input tesTU-Bali & NI \\ \hline
     TA\_13 & Verificare che l'ordine non possa essere inviato nel caso di carrello vuoto & NI \\ \hline
     TA\_14 & Verificare che i comandi statici compiano la loro funzione & NI \\ \hline
     TA\_15 & Verificare che il modello di AI abbia memoria delle conversazioni precedenti & NI \\ \hline
