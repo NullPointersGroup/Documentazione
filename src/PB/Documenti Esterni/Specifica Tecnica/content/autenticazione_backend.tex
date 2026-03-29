@@ -30,7 +30,7 @@ Implementa la logica di business orchestrando i servizi di persistenza (\texttt{
 	\item \texttt{check\_user(u: Utente) -> string} - verifica$^G$ le credenziali di un utente: recupera l'utente dal repository$^G$ tramite username e controlla la password con \texttt{PasswordUtility} restituendo lo username autenticato. Solleva \newline \texttt{InvalidCredentialsError} se l'utente non esiste o la password non corrisponde.
 	\item \texttt{register\_user(u: UserRegistration) -> None} - orchestra la registrazione di un nuovo utente eseguendo in sequenza: la verifica$^G$ dell'univocità dello username (\texttt{UsernameAlreadyExistsError}), la validazione$^G$ del DNS del dominio email (\texttt{InvalidEmailFormatError}), la verifica$^G$ dell'univocità dell'email (\texttt{EmailAlreadyExistsError}) e l'inserimento nel database$^G$ \newline (\texttt{UserCreationError}).
 	\item \texttt{delete\_user(username: str) -> None} - elimina un utente autenticato: verifica$^G$ l'esistenza dell'utente (\texttt{UserNotFoundError}) e ne richiede la cancellazione al repository$^G$ (\texttt{UserDeletionError}).
-	\item \texttt{reset\_password(u: UserReset) -> None} - orchestra il reset della password di un utente, verificando$^G$ l'esistenza dell'utente e aggiornando la password nel sistema di persistenza tramite \texttt{PasswordUtility}.
+	\item \texttt{reset\_password(u: UserReset) -> None} - orchestra il reset della password di un utente, verificando l'esistenza dell'utente e aggiornando la password nel sistema di persistenza tramite \texttt{PasswordUtility}.
 \end{itemize}
 
 \subsubsubsection{AuthRouter}
