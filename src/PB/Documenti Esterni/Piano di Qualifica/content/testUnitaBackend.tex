@@ -147,5 +147,90 @@
 	TU\_43 & Implementato da \texttt{\seqsplit{test\_none\_hash\_returns\_false\_without\_calling\_bcrypt}}; verifica che in caso di hash vuoto, la funzione di verifica termina e non viene chiamata la libreria \texttt{bcrypt} & Valore booleano \texttt{False} & S \\
 	\hline
 	TU\_44 & Implementato da \texttt{\seqsplit{test\_empty\_password\_delegates\_to\_bcrypt}}; verifica che, anche in caso di password vuota, la libreria \texttt{bcrypt} viene comunque chiamata per il confronto booleano & Valore booleano \texttt{False} & S \\
+	\hline
+	TU\_45 & Implementato da \texttt{\seqsplit{test\_returns\_all\_results}}; verifica che la query eseguita dal database ritorni tutti i risultati. & Lista di valori \texttt{str} & S \\
+	\hline
+	TU\_46 & Implementato da \texttt{\seqsplit{test\_calls\_exec\_with\_stmt}}; verifica che il database esegua esattamente la query che gli viene passata nel parametro. \textit{stmt} & Valore booleano & S \\
+	\hline
+	TU\_47 & Implementato da \texttt{\seqsplit{test\_returns\_empty\_sequence}}; verifica che il database, in caso di risultato privo di tuple, ritorni correttamente una lista vuota.  & Lista priva di valori & S \\
+	\hline
+	TU\_48 & Implementato da \texttt{\seqsplit{test\_returns\_single\_result}}; verifica che il database, quando viene chiesto di restituire solo un risultato dalla query, restituisca correttamente il primo risultato. & Valore di tipo \texttt{str} & S \\
+	\hline
+	TU\_49 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica che il database, in caso di risultato privo di tuple, quando viene chiesto di restituire un risultato restituisca correttamente \textit{None}. & Valore di tipo \texttt{None}& S \\
+	\hline
+	TU\_50 & Implementato da \texttt{\seqsplit{test\_calls\_exec\_with\_stmt}}; verifica che il database, quando viene chiesto di restituire un risultato esegua esattamente la query che gli viene passata nel parametro \textit{stmt}. & Valore booleano& S \\
+	\hline
+	TU\_51 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, restituisca \text{True} in caso di esito positivo. & Valore booleano \texttt{True} & S \\
+	\hline
+	TU\_52 & Implementato da \texttt{\seqsplit{test\_commits\_on\_success}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di esito positivo chiami il metodo \texttt{commit}.& Valore booleano & S \\
+	\hline
+	TU\_53 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_integrity\_error}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di esito negativo restituisca \textit{False}.& Valore booleano \texttt{False} & S \\
+	\hline
+	TU\_54 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_integrity\_error}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di esito negativo chiami il metodo \texttt{rollback}.& Valore booleano & S \\
+	\hline
+	TU\_55 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_generic\_exception}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di una eccezione generica restituisca \textit{False}.& Valore booleano \texttt{False} & S \\
+	\hline
+	TU\_56 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_generic\_exception}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di una eccezione generica chiami il metodo \texttt{rollback}.& Valore booleano & S \\
+	\hline
+	TU\_57 & Implementato da \texttt{\seqsplit{test\_no\_commit\_on\_failure}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di esito negativo non chiami il metodo \texttt{commit}.& Valore booleano & S \\
+	\hline
+	TU\_58 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_integrity\_error\_raw}}; verifica che il database, quando viene chiesto di eseguire una mutazione diretta, in caso di esito negativo restituisca \textit{False}. & Valore booleano \texttt{False} & S \\
+	\hline
+	TU\_59 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_integrity\_error}}; verifica che il database, quando viene chiesto di eseguire una mutazione diretta, in caso di esito negativo chiami il metodo \texttt{rollback}. & Valore booleano & S \\
+	\hline
+	TU\_60 & Implementato da \texttt{\seqsplit{test\_execute\_raises\_not\_implemented}}; verifica la classe \texttt{Query}, quando viene chiamato il suo metodo \texttt{execute} lanci un'eccezione \texttt{NotImplementedException}. & Eccezione di tipo \texttt{NotImplementedError} lanciata & S \\
+	\hline
+	TU\_61 & Implementato da \texttt{\seqsplit{test\_execute\_raises\_not\_implemented}}; verifica la classe \texttt{Mutation}, quando viene chiamato il suo metodo \texttt{execute} lanci un'eccezione \texttt{NotImplementedException}. & Eccezione di tipo \texttt{NotImplementedError} lanciata & S \\
+	\hline
+	TU\_62 & Implementato da \texttt{\seqsplit{test\_valid}}; verifica che lo schema \texttt{UserSchema} sia valido. & Valore booleano & S \\
+	\hline
+	TU\_63 & Implementato da \texttt{\seqsplit{test\_missing\_username}}; verifica che, se lo schema \texttt{UserSchema} manca del campo \texttt{Username}, venga lanciata una eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} lanciata & S \\
+	\hline
+	TU\_64 & Implementato da \texttt{\seqsplit{test\_missing\_password}}; verifica che, se lo schema \texttt{UserSchema} manca del campo \texttt{Password}, venga lanciata una eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} lanciata & S \\
+	\hline
+	TU\_65 & Implementato da \texttt{\seqsplit{test\_ok\_no\_token}}; verifica che una \texttt{AuthResponse} possa essere creata anche senza campo \texttt{Token}. & Valore di tipo \texttt{None} & S \\
+	\hline
+	TU\_66 & Implementato da \texttt{\seqsplit{test\_ok\_with\_token}}; verifica che una \texttt{AuthResponse} possa essere creata con campo \texttt{Token}, di tipo \texttt{str}. & Valore di tipo \texttt{str} & S \\
+	\hline
+	TU\_67 & Implementato da \texttt{\seqsplit{test\_ok\_no\_token}}; verifica che una \texttt{AuthResponse} possa essere creata con campo \texttt{Errors}, di tipo \texttt{str}. In questo caso il campo \texttt{Ok} della response deve essere \texttt{None} e \texttt{r.errors} deve restituire l'errore & Valore di tipo \texttt{None}, valore di tipo \texttt{str}. & S \\
+	\hline
+	TU\_68 & Implementato da \texttt{\seqsplit{test\_not\_ok\_with\_errors}}; verifica che una \texttt{AuthResponse} possa essere creata con campo \texttt{Errors}, di tipo \texttt{str}. In questo caso il campo \texttt{Ok} della response deve essere \texttt{None} e \texttt{r.errors} deve restituire l'errore & Valore di tipo \texttt{None}, valore di tipo \texttt{str}. & S \\
+	\hline
+	TU\_69 & Implementato da \texttt{\seqsplit{test\_valid}}; verifica che lo schema \texttt{UserRegistrationSchema}  sia valido & Valore booleano. & S \\
+	\hline
+	TU\_70 & Implementato da \texttt{\seqsplit{test\_too\_short}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Username} troppo corto (meno di 4 caratteri), lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Username} & S \\
+	\hline
+	TU\_71 & Implementato da \texttt{\seqsplit{test\_too\_long}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Username} troppo lungo (più di 24 caratteri), lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Username} & S \\
+	\hline
+	TU\_72 & Implementato da \texttt{\seqsplit{test\_special\_chars\_not\_allowed}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Username} contenente caratteri speciali, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Username} & S \\
+	\hline
+	TU\_73 & Implementato da \texttt{\seqsplit{test\_exactly\_4\_chars}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Username} lungo 4 caratteri, contenga un campo \texttt{Username} uguale al valore con la quale è stata creata. & Valore di tipo \texttt{str} & S \\
+	\hline
+	TU\_74 & Implementato da \texttt{\seqsplit{test\_valid}}; verifica che lo schema \texttt{UserRegistrationSchema} sia valido e il campo \texttt{Password} corrisponda a quello inserito. & Valore booleano & S \\
+	\hline
+	TU\_75 & Implementato da \texttt{\seqsplit{test\_too\_short}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} troppo corto, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Password} & S \\
+	\hline
+	TU\_76 & Implementato da \texttt{\seqsplit{test\_too\_long}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} troppo lungo, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Password} & S \\
+	\hline
+	TU\_77 & Implementato da \texttt{\seqsplit{test\_missing\_uppercase}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} senza almeno una lettera maiuscola, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Password} & S \\
+	\hline
+	TU\_78 & Implementato da \texttt{\seqsplit{test\_missing\_lowercase}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} senza almeno una lettera minuscola, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Password} & S \\
+	\hline
+	TU\_79 & Implementato da \texttt{\seqsplit{test\_missing\_digit}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} senza almeno una cifra, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Password} & S \\
+	\hline
+	TU\_80 & Implementato da \texttt{\seqsplit{test\_missing\_special\_char}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} senza almeno un carattere speciale, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Password} & S \\
+	\hline
+	TU\_81 & Implementato da \texttt{\seqsplit{test\_valid}}; verifica che lo schema \texttt{UserRegistrationSchema} sia valido e il campo \texttt{Email} corrisponda a quello inserito. & Valore booleano & S \\
+	\hline
+	TU\_82 & Implementato da \texttt{\seqsplit{test\_missing\_at}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Email} senza un simbolo "chiocciola", lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Email} & S \\
+	\hline
+	TU\_83 & Implementato da \texttt{\seqsplit{test\_missing\_dot\_in\_domain}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Email} senza un simbolo "punto" dopo la sezione di dominio, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Email} & S \\
+	\hline
+	TU\_84 & Implementato da \texttt{\seqsplit{test\_spaces\_not\_allowed}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Email} contenente spazi, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Email} & S \\
+	\hline
+	TU\_85 & Implementato da \texttt{\seqsplit{test\_password\_match}}; verifica che lo schema \texttt{UserRegistrationSchema} contenga un campo \texttt{confirmPwd} uguale al campo \texttt{Password} inserito. & Valore booleano & S \\
+	\hline
+	TU\_86 & Implementato da \texttt{\seqsplit{test\_password\_mismatch}}; verifica che lo schema \texttt{UserRegistrationSchema} quando presenta un campo \texttt{confirmPwd} non uguale al campo \texttt{Password} inserito, lanci una eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError}& S \\
+	\hline
 	\caption{Test di Unità Backend}
 \end{longtable}
