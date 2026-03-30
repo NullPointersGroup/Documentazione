@@ -1,0 +1,151 @@
+\subsubsection{Test di Unità Backend}
+
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{|
+		>{\raggedright\arraybackslash}p{0.15\columnwidth} |
+		>{\raggedright\arraybackslash}p{0.325\columnwidth} |
+		>{\raggedright\arraybackslash}p{0.325\columnwidth} |
+		>{\centering\arraybackslash}p{0.10\columnwidth} |
+	}
+	\hline
+	\rowcolor[gray]{0.9}
+	\textbf{Codice Test$^G$} & \textbf{Descrizione} & \textbf{Valore atteso} & \textbf{Stato} \\
+	\hline
+	\endhead
+	TU-B\_01 & Implementato da \textit{\seqsplit{test\_registration\_success}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e ritorni il valore una risposta positiva & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+		\item Risposta HTTP con stato 201
+		\item Il campo "ok", della risposta in formato Json, è impostato a "True"
+	\end{itemize} & S \\
+	\hline
+	TU-B\_02 & Implementato da \texttt{\seqsplit{test\_register\_user\_twice}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e che non ci sia una registrazione duplicata & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+		\item Risposta HTTP con stato 400
+		\item Il campo "ok" dentro l'oggetto "detail", della risposta in formato Json, è impostato a "False"
+	\end{itemize} & S \\
+	\hline
+	TU-B\_03 & Implementato da \texttt{\seqsplit{test\_registration\_missing\_fields}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e che in caso di campi mancanti restiTU-Bisce una risposta negativa & Risposta HTTP con stato 422 & S \\
+	\hline
+	TU-B\_04 & Implementato da \texttt{\seqsplit{test\_register\_invalid\_email\_domain}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e verifica il caso in cui l'utente inserisce una main in un formato non corretto & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+		\item Risposta HTTP con stato 400
+		\item "email" come prima parola della stringa contenuta dal campo "errors" nell'oggetto "detail"
+	\end{itemize} & S \\
+	\hline
+	TU-B\_05 & Implementato da \texttt{\seqsplit{test\_register\_email\_already\_exists}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e verifica il caso in cui l'utente inserisce una mail che è già presente nel sistema & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+		\item Risposta HTTP con stato 400
+		\item "Email" come prima parola della stringa contenuta dal campo "errors" nell'oggetto "detail"
+	\end{itemize} & S \\
+	\hline
+	TU-B\_07 & Implementato da \texttt{\seqsplit{test\_login\_success}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e verifica la presenza di un utente nel sistema &  \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+		\item Risposta HTTP con stato 200
+		\item Il campo "ok", della risposta in formato Json, è impostato a "True"
+	\end{itemize} & S \\
+	\hline
+	TU-B\_08 & Implementato da \texttt{\seqsplit{test\_login\_failed}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e verifica che il sistemi restiTU-Bisca una risposta negativa all'invio delle credenziali di un utente non registrato & Risposta HTTP con stato 400 & S \\
+	\hline
+	TU-B\_09 & Implementato da \texttt{\seqsplit{test\_login\_missing\_fields}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e in caso di campi mancanti restiTU-Bisce una risposta negativa & Risposta HTTP con stato 422 & S \\
+	\hline
+	TU-B\_10 & Implementato da \texttt{\seqsplit{test\_reTU-Brns\_users\_service\_instance}}; verifica che la funzione \texttt{\seqsplit{get\_user\_service}} restiTU-Bisca un'istanza della classe UserService & Istanza di \texttt{UserService} restiTU-Bita correttamente & S \\
+	\hline
+	TU-B\_11 & Implementato da \texttt{\seqsplit{test\_user\_service\_wraps\_user\_repo\_adapter}}; verifica che l'attributo \texttt{repo} dell'istanza della classe \texttt{UserService} sia correttamente configurato & Attributo \texttt{repo} correttamente configurato come \texttt{UserRepoAdapter} & S \\
+	\hline
+	TU-B\_12 & Implementato da \texttt{\seqsplit{test\_adapter\_receives\_db\_session}}; verifica che il db iniettato nello \texttt{UserService} sia configurato correttamente & Db iniettato e configurato correttamente & S \\
+	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestGetCurrenTU-Bser} \\
+	\hline
+	TU-B\_13 & Implementato da \texttt{\seqsplit{test\_valid\_token\_reTU-Brns\_username}}; verifica che il recupero dell'identità utente, funzione \texttt{get\_current\_user} tramite cookie di sessione & Username corretto dopo la decodifica del token & S \\
+	\hline
+	TU-B\_14 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_raises\_401}}; verifica che l'accesso venga negato, con errore HTTP, se il token nel cookie è invalido o nullo & Risposta HTTP con stato 401 & S \\
+	\hline
+	TU-B\_15 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_detail\_message}}; verifica che l'accesso venga negato, verificando che il messaggio di errore sia corretto, in caso di token invalido o nullo & Il campo \texttt{detail} assume valore \textit{Token non valido} & S \\
+	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestDeleteAccount} \\
+	\hline
+	TU-B\_16 & Implementato da \texttt{\seqsplit{test\_delete\_account\_success}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che l'eliminazione vada a buon fine & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+		\item Risposta HTTP con stato 200
+		\item Il campo "ok", della risposta in formato Json, è impostato a "True"
+		\item Il campo "errors", della risposta in formato Json, è vuoto
+	\end{itemize} & S \\
+	\hline 
+	TU-B\_17 & Implementato da \texttt{\seqsplit{test\_delete\_account\_user\_not\_found}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che, fornito un utente non valido, il test fallisca & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+		\item Risposta HTTP con stato 404
+		\item Il campo "ok", della risposta in formato Json, è impostato a "False"
+		\item Il campo "errors", della risposta in formato Json, contiene "Utente non trovato"
+	\end{itemize} & S \\
+	\hline
+	TU-B\_18 & Implementato da \texttt{\seqsplit{test\_delete\_account\_deletion\_error}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che l'endpoint sollevi un'eccezione qualora l'eliminazione non vada a buon fine & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+		\item Risposta HTTP con stato 500
+		\item Il campo "ok", della risposta in formato Json, è impostato a "False"
+		\item Il campo "errors", della risposta in formato Json, contiene "Errore durante la cancellazione"
+	\end{itemize} & S \\
+	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestEmailDomainExists} \\
+	\hline
+	TU-B\_19 & Implementato da \texttt{\seqsplit{test\_reTU-Brns\_true\_when\_mx\_record\_found}}; verifica, tramite una simulazione di una risoluzione DNS positiva, che la mail interessata esista nel sistema & Risposta positiva da parte del sistema nella query di esistenza della mail nel dominio & S \\
+	\hline
+	TU-B\_20 & Implementato da \texttt{\seqsplit{test\_reTU-Brns\_false\_when\_mx\_record\_not\_found}}; verifica, tramite una simulazione di una risoluzione DNS positiva, che la main interessata non sia esistente nel sistema & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+		\item Eccezione sollevata
+		\item Risposta negativa da parte del sistema nella query di esistenza della mail nel dominio
+	\end{itemize} & S \\
+	\hline
+	TU-B\_21 & Implementato da \texttt{\seqsplit{test\_extracts\_domain\_from\_email}}; verifica che il dominio venga correttamente estratto dall'email e passato al resolver DNS con i parametri corretti & La chiamata a \texttt{resolve} avviene una sola volta con il dominio corretto & S \\
+	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestUsernameAlreadyExistsError} \\
+	\hline
+	TU-B\_22 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica che la classe \texttt{\seqsplit{UsernameAlreadyExistsError}} istanzi un oggetto di tipo \texttt{ValueError} & Istanza di \texttt{ValueError} & S \\
+	\hline
+	TU-B\_23 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{UsernameAlreadyExistsError}} sia correttamente configurato & Una stringa dal valore "Username già esistente" & S \\
+	\hline
+	TU-B\_24 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{UsernameAlreadyExistsError}} possa essere lanciata come eccezione & Eccezione di tipo \texttt{\seqsplit{UsernameAlreadyExistsError}} lanciata & S \\
+	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestInvalidEmailFormatError} \\
+	\hline
+	TU-B\_25 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica che la classe \texttt{\seqsplit{InvalidEmailFormatError}} istanzi un oggetto di tipo \texttt{ValueError} & Istanza di \texttt{ValueError} & S \\
+	\hline
+	TU-B\_26 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{InvalidEmailFormatError}} sia correttamente configurato & Una stringa dal valore "L'email non è nel formato corretto" & S \\
+	\hline
+	TU-B\_27 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{InvalidEmailFormatError}} possa essere lanciata come eccezione & Eccezione di tipo \texttt{\seqsplit{InvalidEmailFormatError}} lanciata & S \\
+	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestEmailAlreadyExistsError} \\
+	\hline
+	TU-B\_28 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica che la classe \texttt{\seqsplit{EmailAlreadyExistsError}} istanzi un oggetto di tipo \texttt{ValueError} & Istanza di \texttt{ValueError} & S \\
+	\hline
+	TU-B\_29 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{EmailAlreadyExistsError}} sia correttamente configurato & Una stringa dal valore "Email già esistente" & S \\
+	\hline
+	TU-B\_30 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{EmailAlreadyExistsError}} possa essere lanciata come eccezione & Eccezione di tipo \texttt{\seqsplit{EmailAlreadyExistsError}} lanciata & S \\
+	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestInvalidCredentialsError} \\
+	\hline
+	TU-B\_31 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica che la classe \texttt{\seqsplit{InvalidCredentialsError}} istanzi un oggetto di tipo \texttt{ValueError} & Istanza di \texttt{ValueError} & S \\
+	\hline
+	TU-B\_32 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{InvalidCredentialsError}} sia correttamente configurato & Una stringa dal valore "Username o password errati" & S \\
+	\hline
+	TU-B\_33 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{InvalidCredentialsError}} possa essere lanciata come eccezione & Eccezione di tipo \texttt{\seqsplit{InvalidCredentialsError}} lanciata & S \\
+	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestUserCreationError} \\
+	\hline
+	TU-B\_34 & Implementato da \texttt{\seqsplit{test\_is\_exception}}; verifica che la classe \texttt{\seqsplit{InvalidCredentialsError}} istanzi un oggetto di tipo \texttt{Exception} & Istanza di \texttt{Exception} & S \\
+	\hline
+	TU-B\_35 & Implementato da \texttt{{\seqsplit{test\_is\_not\_value\_error}}}; verifica che la classe \texttt{\seqsplit{UserCreationError}} non istanzi un oggetto di tipo \texttt{ValueError} & Istanza di un oggetto diverso da \texttt{ValueError} & S \\
+	\hline
+	TU-B\_36 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{UserCreationError}} sia correttamente configurato & Una stringa dal valore "Errore durante la registrazione" & S \\
+	\hline
+	TU-B\_37 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{UserCreationError}} possa essere lanciata come eccezione & Eccezione di tipo \texttt{\seqsplit{UserCreationError}} lanciata & S \\
+	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestHashPassword} \\
+	\hline
+	TU-B\_38 & Implementato da \texttt{\seqsplit{test\_returns\_string}}; verifica che la funzione di hashing ritorni un valore di tipo stringa & Valore di tipo stringa & S \\
+	\hline
+	TU-B\_39 & Implementato da \texttt{\seqsplit{test\_hash\_is\_different\_from\_plain}}; verifica che la funzione di hashing ritori un valore diverso dalla password in chiaro & Valore diverso da password in chiaro & S \\
+	\hline
+	TU\_40 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_bcrypt}}; verifica che la funzione deleghi correttamente l'operazione di hashing alla libreria \texttt{bcrypt} & Chiamata a \texttt{bcrypt.hashpw} effettuata esattamente una volta con i parametri previsti & S \\
+	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestVerifyPassword} \\
+	\hline
+	TU\_41 & Implementato da \texttt{\seqsplit{test\_correct\_password\_returns\_true}}; verifica che la funzione di validazione password riconosca una password confrontandola con il relativo hash & Valore booleano \texttt{True} & S \\
+	\hline
+	TU\_42 & Implementato da \texttt{\seqsplit{test\_wrong\_password\_returns\_false}}; verifica che la funzione di validazione non riconosca una password confrontandola con l'hash che dovrebbe assumere & Valore booleano \texttt{False} & S \\
+	\hline
+	TU\_43 & Implementato da \texttt{\seqsplit{test\_none\_hash\_returns\_false\_without\_calling\_bcrypt}}; verifica che in caso di hash vuoto, la funzione di verifica termina e non viene chiamata la libreria \texttt{bcrypt} & Valore booleano \texttt{False} & S \\
+	\hline
+	TU\_44 & Implementato da \texttt{\seqsplit{test\_empty\_password\_delegates\_to\_bcrypt}}; verifica che, anche in caso di password vuota, la libreria \texttt{bcrypt} viene comunque chiamata per il confronto booleano & Valore booleano \texttt{False} & S \\
+	\caption{Test di Unità Backend}
+\end{longtable}

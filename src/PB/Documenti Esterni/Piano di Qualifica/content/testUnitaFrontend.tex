@@ -1,0 +1,24 @@
+\subsubsection{Test di Unità Frontend}
+
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{|
+		>{\raggedright\arraybackslash}p{0.15\columnwidth} |
+		>{\raggedright\arraybackslash}p{0.325\columnwidth} |
+		>{\raggedright\arraybackslash}p{0.325\columnwidth} |
+		>{\centering\arraybackslash}p{0.10\columnwidth} |
+	}
+	\hline
+	\rowcolor[gray]{0.9}
+	\textbf{Codice Test$^G$} & \textbf{Descrizione} & \textbf{Valore atteso} & \textbf{Stato} \\
+	\hline
+	\endhead
+	TU-B\_01 & Implementato da \textit{\seqsplit{test\_registration\_success}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e ritorni il valore una risposta positiva & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+		\item Risposta HTTP con stato 201
+		\item Il campo "ok", della risposta in formato Json, è impostato a "True"
+	\end{itemize} & S \\
+	\hline
+	\caption{Test di Unità Frontend}
+\end{longtable}
+
+
+ATTENZIONE QUELLO INSERITO È SOLO UN ESEMPIO PER LA TABELLA NIENTE DI PIÙ NIENTE DI MENO
