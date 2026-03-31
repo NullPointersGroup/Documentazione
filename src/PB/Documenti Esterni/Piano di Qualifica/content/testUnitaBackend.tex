@@ -232,5 +232,97 @@
 	\hline
 	TU\_86 & Implementato da \texttt{\seqsplit{test\_password\_mismatch}}; verifica che lo schema \texttt{UserRegistrationSchema} quando presenta un campo \texttt{confirmPwd} non uguale al campo \texttt{Password} inserito, lanci una eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError}& S \\
 	\hline
+	TU\_87 & Implementato da \texttt{\seqsplit{test\_returns\_string}}; verifica che la classe \texttt{TokenUtility}, quando viene chiamato il suo metodo \texttt{create_token}, restituisca un valore di tipo \texttt{str} & Valore booleano & S \\
+	\hline
+	TU\_88 & Implementato da \texttt{\seqsplit{test\_token\_contains\_username}}; verifica che, quando si decodifica un token attraverso il metodo \texttt{decode}, venga resituito un dizionario contenente anche lo username con il quale il token è stato generato. & Valore booleano & S \\
+	\hline
+	TU\_89 & Implementato da \texttt{\seqsplit{test\_token\_has\_expiry}}; verifica che, quando si decodifica un token attraverso il metodo \texttt{decode}, venga resituito un dizionario contenente anche il valore indicizzato dalla chiave \texttt{exp}. & Valore booleano & S \\
+	\hline
+	TU\_90 & Implementato da \texttt{\seqsplit{test\_different\_users\_produce\_different\_tokens}}; verifica che la classe \texttt{TokenUtility}, quando viene chiamato il suo metodo \texttt{create_token}, restituisca valori diversi per username diversi. & Valore booleano & S \\
+	\hline
+	TU\_91 & Implementato da \texttt{\seqsplit{test\_valid\_token\_returns\_username}}; verifica che la classe \texttt{TokenUtility}, quando viene chiamato il suo metodo \texttt{decode_token}, restituisca lo username che è stato usato per creare il token. & Valore booleano & S \\
+	\hline
+	TU\_92 & Implementato da \texttt{\seqsplit{test\_expired\_token\_returns\_none}}; verifica che un token scaduto restituisca \texttt{None} quando viene decodificato. & Valore di tipo \texttt{None}& S \\
+	\hline
+	TU\_93 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_returns\_none}}; verifica che un token non valido restituisca \texttt{None} quando viene decodificato. & Valore di tipo \texttt{None}& S \\
+	\hline
+	TU\_94 & Implementato da \texttt{\seqsplit{test\_empty\_string\_returns\_none}}; verifica che un token vuoto restituisca \texttt{None} quando viene decodificato. & Valore di tipo \texttt{None}& S \\
+	\hline
+	TU\_95 & Implementato da \texttt{\seqsplit{test\_token\_signed\_with\_wrong\_key\_retunrs\_none}}; verifica che un token firmato con una chiave sbagliata restituisca \texttt{None} quando viene decodificato. & Valore di tipo \texttt{None}& S \\
+	\hline
+	TU\_96 & Implementato da \texttt{\seqsplit{test\_roundtrip\_create\_and\_decode}}; verifica che un token valido che viene successivamente decodificato restituisca il valore usato per creare il token. & Valore di tipo \texttt{str} & S \\
+	\hline
+	TU\_97 & Implementato da \texttt{\seqsplit{test\_returns\_utente\_when\_found}}; verifica che l'adapter, quando presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca un oggetto \texttt{User} relativo a quell'utente. & Valore di tipo \texttt{User} & S \\
+	\hline
+	TU\_98 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica che l'adapter, quando non presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca \texttt{None}. & Valore di tipo \texttt{None} & S \\
+	\hline
+	TU\_99 & Implementato da \texttt{\seqsplit{test\_returns\_true\_when\_found}}; verifica che il metodo \texttt{username_exists} dell'adapter, quando presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca \texttt{True}. & Valore booleano & S \\
+	\hline
+	TU\_100 & Implementato da \texttt{\seqsplit{test\_returns\_false\_when\_not\_found}}; verifica che il metodo \texttt{username_exists} dell'adapter, quando non presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca \texttt{False}. & Valore booleano & S \\
+	\hline
+	TU\_101 & Implementato da \texttt{\seqsplit{test\_returns\_true\_when\_found}}; verifica che il metodo \texttt{email_exists} dell'adapter, quando presente un \texttt{Utente} con il valore \texttt{email} richiesto nel database, restituisca \texttt{True}. & Valore booleano & S \\
+	\hline
+	TU\_102 & Implementato da \texttt{\seqsplit{test\_returns\_false\_when\_not\_found}}; verifica che il metodo \texttt{email_exists} dell'adapter, quando non presente un \texttt{Utente} con il valore \texttt{email} richiesto nel database, restituisca \texttt{False}. & Valore booleano & S \\
+	\hline
+	TU\_103 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica che l'adapter, quando viene aggiunto correttamente un valore \texttt{User}, restituisca \texttt{True}. & Valore booleano & S \\
+	\hline
+	TU\_104 & Implementato da \texttt{\seqsplit{test\_commits\_on\_success}}; verifica che l'adapter, quando viene aggiunto correttamente un valore \texttt{User}, chiami il metodo \texttt{commits} del database. & Valore booleano & S \\
+	\hline
+	TU\_105 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_exception}}; verifica che l'adapter, quando non viene aggiunto correttamente un valore \texttt{User}, restituisca \texttt{False}. & Valore booleano & S \\
+	\hline
+	TU\_106 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_exception}}; verifica che l'adapter, quando non viene aggiunto correttamente un valore \texttt{User}, chiami il metodo \texttt{rollback} del database. & Valore booleano & S \\
+	\hline
+	TU\_107 & Implementato da \texttt{\seqsplit{test\_password\_is\_hashed}}; verifica che l'adapter, quando viene aggiunto correttamente un valore \texttt{User}, chiami il metodo \texttt{hash}. & Valore booleano & S \\
+	\hline
+	TU\_108 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica che l'adapter, quando viene eliminato correttamente un valore \texttt{User}, restituisca \texttt{True}. & Valore booleano & S \\
+	\hline
+	TU\_109 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_exception}}; verifica che l'adapter, quando non viene eliminato correttamente un valore \texttt{User}, restituisca \texttt{False}. & Valore booleano & S \\
+	\hline
+	TU\_110 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_exception}}; verifica che l'adapter, quando non viene eliminato correttamente un valore \texttt{User}, chiami il metodo \texttt{rollback} del database. & Valore booleano & S \\
+	\hline
+	TU\_111 & Implementato da \texttt{\seqsplit{test\_commits\_on\_success}}; verifica che l'adapter, quando viene eliminato correttamente un valore \texttt{User}, chiami il metodo \texttt{commits} del database. & Valore booleano & S \\
+	\hline
+	TU\_112 & Implementato da \texttt{\seqsplit{test\_returns\_utente\_when\_found}}; verifica che il metodo \texttt{find_by_username} dell'adapter, quando presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca l'oggetto \texttt{User} corrispondente. & Valore di tipo \texttt{User}& S \\
+	\hline
+	TU\_113 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica che il metodo \texttt{find_by_username} dell'adapter, quando non presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca \texttt{None}. & Valore di tipo \texttt{None}& S \\
+	\hline
+	TU\_114 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_executor}}; verifica che il metodo \texttt{find_by_username} dell'adapter, chiami il metodo \texttt{execute_one_raw}. & Valore booleano & S \\
+	\hline
+	TU\_115 & Implementato da \texttt{\seqsplit{test\_returns\_utente\_when\_found}}; verifica che il metodo \texttt{find_by_email} dell'adapter, quando presente un \texttt{Utente} con il valore \texttt{email} richiesto nel database, restituisca l'oggetto \texttt{User} corrispondente. & Valore di tipo \texttt{User} & S \\
+	\hline
+	TU\_116 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica che il metodo \texttt{find_by_email} dell'adapter, quando non presente un \texttt{Utente} con il valore \texttt{email} richiesto nel database, restituisca \texttt{None}. & Valore di tipo \texttt{None} & S \\
+	\hline
+	TU\_117 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_executor}}; verifica che il metodo \texttt{find_by_email} dell'adapter, chiami il metodo \texttt{execute_one_raw}. & Valore booleano & S \\
+	\hline
+	TU\_118 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica che l'adapter, quando viene salvato correttamente un valore \texttt{User}, restituisca \texttt{True}. & Valore booleano & S \\
+	\hline
+	TU\_119 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_failure}}; verifica che l'adapter, quando non viene salvato correttamente un valore \texttt{User}, restituisca \texttt{False}. & Valore booleano & S \\
+	\hline
+	TU\_120 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_executor}}; verifica che il metodo \texttt{save} dell'adapter, chiami il metodo \texttt{mutate_one_raw}. & Valore booleano & S \\
+	\hline
+	TU\_121 & Implementato da \texttt{\seqsplit{test\_password\_is\_hashed}}; verifica che il metodo \texttt{save} dell'adapter, chiami il metodo \texttt{hash}. & Valore booleano & S \\
+	\hline
+	TU\_122 & Implementato da \texttt{\seqsplit{test\_returns\_username\_with\_valid\_credentials}}; verifica che il metodo \texttt{check_user} della classe \texttt{UserService} restituisca il valore \texttt{username} dell'oggetto \texttt{User} passato come parametro. & Valore di tipo \texttt{str} & S \\
+	\hline
+	TU\_123 & Implementato da \texttt{\seqsplit{test\_raises\_when\_user\_not\_found}}; verifica che il metodo \texttt{check_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{InvalidCredentialsError} in caso di utente non trovato nel databse. & Eccezione di tipo \texttt{InvalidCredentialsError} & S \\
+	\hline
+	TU\_124 & Implementato da \texttt{\seqsplit{test\_raises\_when\_password\_wrong}}; verifica che il metodo \texttt{check_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{InvalidCredentialsError} in caso di password errata. & Eccezione di tipo \texttt{InvalidCredentialsError} & S \\
+	\hline
+	TU\_125 & Implementato da \texttt{\seqsplit{test\_succeeds\_with\_valid\_data}}; verifica che il metodo \texttt{register_user} della classe \texttt{UserService} non sollevi eccezioni in caso di credenziali valide. & Valore booleano & S \\
+	\hline
+	TU\_126 & Implementato da \texttt{\seqsplit{test\_raises\_when\_username\_exists}}; verifica che il metodo \texttt{register_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UsernameAlreadyExistsError} in caso di username già presente nel database. & Eccezione di tipo \texttt{UsernameAlreadyExistsError} & S \\
+	\hline
+	TU\_127 & Implementato da \texttt{\seqsplit{test\_raises\_when\_email\_domain\_invalid}}; verifica che il metodo \texttt{register_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{InvalidEmailFormatError} in caso di email non valida . & Eccezione di tipo \texttt{InvalidEmailFormatError} & S \\
+	\hline
+	TU\_128 & Implementato da \texttt{\seqsplit{test\_raises\_when\_email\_exists}}; verifica che il metodo \texttt{register_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{EmailAlreadyExistsError} in caso di email già presente nel database. & Eccezione di tipo \texttt{EmailAlreadyExistsError} & S \\
+	\hline
+	TU\_129 & Implementato da \texttt{\seqsplit{test\_raises\_when\_add\_user\_fails}}; verifica che il metodo \texttt{register_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UserCreationError} in caso di errore nella aggiunta dell'utente al database. & Eccezione di tipo \texttt{UserCreationError} & S \\
+	\hline
+	TU\_130 & Implementato da \texttt{\seqsplit{test\_succeeds\_when\_user\_exists}}; verifica che il metodo \texttt{delete_user} della classe \texttt{UserService} non sollevi eccezioni in caso di eliminazione di un utente andata a buon fine. & Valore booleano & S \\
+	\hline
+	TU\_131 & Implementato da \texttt{\seqsplit{test\_raises\_when\_user\_not\_found}}; verifica che il metodo \texttt{delete_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UserNotFoundError} in caso di richiesta di eliminazione di un utente non presente nel database. & Eccezione di tipo \texttt{UserNotFoundError} & S \\
+	\hline
+	TU\_132 & Implementato da \texttt{\seqsplit{test\_raises\_when\_delete\_fails}}; verifica che il metodo \texttt{delete_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UserDeletionError} in caso di errore nella eliminazione dell'utente dal database. & Eccezione di tipo \texttt{UserDeletionError} & S \\
+	\hline
 	\caption{Test di Unità Backend}
 \end{longtable}
