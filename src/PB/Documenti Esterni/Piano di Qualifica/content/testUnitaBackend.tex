@@ -344,5 +344,77 @@
 	\hline
 	TU\_142 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_subtract\_calls\_repo}}; verifica che il metodo \texttt{update_quantity} della classe \texttt{CartAdapter} chiami il database fornendo correttamente il tipo di operazione \texttt{CartUpdateOperation} richiesto. & Valore booleano & S \\
 	\hline
+	TU\_143 & Implementato da \texttt{\seqsplit{test\_get\_products\_can\_be\_implemented}}; verifica che il metodo \texttt{get_products} della classe astratta  \texttt{CartRepoPort} possa essere implementato da una sottoclasse. & Valore booleano & S \\
+	\hline
+	TU\_144 & Implementato da \texttt{\seqsplit{test\_add\_product\_can\_be\_implemented}}; verifica che il metodo \texttt{add_product} della classe astratta  \texttt{CartRepoPort} possa essere implementato da una sottoclasse. & Valore booleano & S \\
+	\hline
+	TU\_145 & Implementato da \texttt{\seqsplit{test\_remove\_product\_can\_be\_implemented}}; verifica che il metodo \texttt{remove_product} della classe astratta  \texttt{CartRepoPort} possa essere implementato da una sottoclasse. & Valore booleano & S \\
+	\hline
+	TU\_146 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_can\_be\_implemented}}; verifica che il metodo \texttt{update_quantity} della classe astratta  \texttt{CartRepoPort} possa essere implementato da una sottoclasse. & Valore booleano & S \\
+	\hline
+	TU\_147 & Implementato da \texttt{\seqsplit{test\_get\_products\_calls\_db}}; verifica che il metodo \texttt{get_products} della classe \texttt{CartRepository} chiami il database. & Valore booleano & S \\
+	\hline
+	TU\_148 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_list}}; verifica che il metodo \texttt{get_products} della classe \texttt{CartRepository} restituisca una lista di oggetti di tipo \texttt{UserCartRepository, CatalogProductRepository}. & Lista di oggetti di tipo \texttt{UserCartRepository, CatalogProductRepository} & S \\
+	\hline
+	TU\_149 & Implementato da \texttt{\seqsplit{test\_add\_product\_calls\_and\_commit\_refresh}}; verifica che il metodo \texttt{add_product} della classe \texttt{CartRepository} chiami il \texttt{commit} e il \texttt{refresh} del database. & Valore booleano  & S \\
+	\hline
+	TU\_150 & Implementato da \texttt{\seqsplit{test\_add\_product\_returns\_product\_repository}}; verifica che il metodo \texttt{add_product} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository}. & Oggetto di tipo \texttt{CartProductRepository} & S \\
+	\hline
+	TU\_151 & Implementato da \texttt{\seqsplit{test\_add\_product\_correct\_fields}}; verifica che il metodo \texttt{add_product} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{CartProductRepository} & S \\
+	\hline
+	TU\_152 & Implementato da \texttt{\seqsplit{test\_add\_product\_not\_existing}}; verifica che il metodo \texttt{add_product} della classe \texttt{CartRepository}, in caso di prodotto non presente sul database, sollevi un'eccezione di tipo \texttt{ProductNotFoundException}. & Eccezione di tipo \texttt{ProductNotFoundException} & S \\
+	\hline
+	TU\_153 & Implementato da \texttt{\seqsplit{test\_remove\_product\_calls\_and\_commit}}; verifica che il metodo \texttt{remove_product} della classe \texttt{CartRepository} chiami il \texttt{commit} del database. & Valore booleano & S \\
+	\hline
+	TU\_154 & Implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_product\_repository}}; verifica che il metodo \texttt{remove_product} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository}. & Oggetto di tipo \texttt{CartProductRepository} & S \\
+	\hline
+	TU\_155 & Implementato da \texttt{\seqsplit{test\_remove\_product\_correct\_fields}}; verifica che il metodo \texttt{remove_product} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{CartProductRepository} & S \\
+	\hline
+	TU\_156 & Implementato da \texttt{\seqsplit{test\_remove\_product\_not\_in\_cart}}; verifica che il metodo \texttt{remove_product} della classe \texttt{CartRepository}, in caso di prodotto non presente nel carrello dell'utente, lanci un'eccezione di tipo \texttt{ProductNotInCartException}. & Eccezione di tipo \texttt{ProductNotInCartException} & S \\
+	\hline
+	TU\_157 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_calls\_and\_commit\_refresh}}; verifica che il metodo \texttt{update_quantity} della classe \texttt{CartRepository} chiami il \texttt{commit} del database. & Valore booleano & S \\
+	\hline
+	TU\_158 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_product\_repository}}; verifica che il metodo \texttt{update_quantity} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository}. & Oggetto di tipo \texttt{CartProductRepository} & S \\
+	\hline
+	TU\_159 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_correct\_fields}}; verifica che il metodo \texttt{update_quantity} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{CartProductRepository} & S \\
+	\hline
+	TU\_160 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_product\_not\_in\_cart}}; verifica che il metodo \texttt{update_quantity} della classe \texttt{CartRepository}, in caso di prodotto non presente nel carrello dell'utente, lanci un'eccezione di tipo \texttt{ProductNotInCartException}. & Eccezione di tipo \texttt{ProductNotInCartException} & S \\
+	\hline
+	TU\_161 & Implementato da \texttt{\seqsplit{test\_get\_cart\_service\_unit}}; verifica che il metodo \texttt{get_cart_service} della classe \texttt{CartApi} restituisca l'istanza corrente di \texttt{CartService}. & Oggetto di tipo \texttt{CartService} & S \\
+	\hline
+	tu\_162 & implementato da \texttt{\seqsplit{test\_get\_user\_cart}}; verifica che il metodo \texttt{get_user_cart} della classe \texttt{CartApi} restituisca un oggetto di tipo \texttt{CartResponse} con i valori corretti. & Oggetto di tipo \texttt{CartResponse} & S \\
+	\hline
+	tu\_163 & implementato da \texttt{\seqsplit{test\_add\_product\_to\_cart}}; verifica che il metodo \texttt{add_product_to_cart} della classe \texttt{CartApi} restituisca un oggetto di tipo \texttt{CartProductResponse} con i valori corretti. & Oggetto di tipo \texttt{CartProductResponse} & S \\
+	\hline
+	tu\_164 & implementato da \texttt{\seqsplit{test\_add\_product\_not\_found}}; verifica che il metodo \texttt{add_product_to_cart} della classe \texttt{CartApi}, in caso di prodotto non presente nel database, lanci un'eccezione di tipo \texttt{HTTPException (404)}. & Eccezione di tipo \texttt{HTTPException(404)} & S \\
+	\hline
+	tu\_165 & implementato da \texttt{\seqsplit{test\_remove\_product\_from\_cart}}; verifica che il metodo \texttt{remove_product_from_cart} della classe \texttt{CartApi} restituisca un oggetto di tipo \texttt{CartProductResponse} con i valori corretti. & Oggetto di tipo \texttt{CartProductResponse} & S \\
+	\hline
+	tu\_166 & implementato da \texttt{\seqsplit{test\_remove\_product\_not\_in\_cart}}; verifica che il metodo \texttt{remove_product_from_cart} della classe \texttt{CartApi}, in caso di oggetto non presente nel carrello dell'utente,  restituisca un'eccezione di tipo \texttt{HTTPException(404)}. & Eccezione di tipo \texttt{HTTPException(404)} & S \\
+	\hline
+	tu\_167 & implementato da \texttt{\seqsplit{test\_update\_product\_quantity}}; verifica che il metodo \texttt{update_cart_quantity} della classe \texttt{CartApi}, restituisca un oggetto di tipo \texttt{CartProductResponse} & Oggetto di tipo \texttt{CartProductResponse}.1 & S \\
+	\hline
+	tu\_168 & implementato da \texttt{\seqsplit{test\_update\_product\_not\_in\_cart}}; verifica che il metodo \texttt{update_cart_quantity} della classe \texttt{CartApi}, in caso di prodotto non presente nel carrello dell'utente, restituisca un'eccezione di tipo \texttt{HTTPException(404)}. & Eccezione di tipo \texttt{HTTPException(404)} & S \\
+	\hline
+	tu\_169 & implementato da \texttt{\seqsplit{test\_get\_products\_returns\_empty\_list}}; verifica che il metodo \texttt{get_cart_products} della classe \texttt{CartService} restituisca una lista. & Lista & S \\
+	\hline
+	tu\_170 & implementato da \texttt{\seqsplit{test\_get\_cart\_products\_returns\_list}}; verifica che il metodo \texttt{get_cart_products} della classe \texttt{CartService} restituisca una lista di oggetti di tipo \texttt{CartProduct}. & Lista di oggetti di tipo \texttt{CartProduct} & S \\
+	\hline
+	tu\_171 & implementato da \texttt{\seqsplit{test\_add\_product\_returns\_cart\_product}}; verifica che il metodo \texttt{add_product_to_cart} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct}. & Oggetto di tipo \texttt{CartProduct} & S \\
+	\hline
+	tu\_172 & implementato da \texttt{\seqsplit{test\_add\_product\_returns\_correct\_product}}; verifica che il metodo \texttt{add_product_to_cart} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{CartProduct} & S \\
+	\hline
+	tu\_173 & implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_cart\_product}}; verifica che il metodo \texttt{remove_product_from_cart} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct}.  & Oggetto di tipo \texttt{CartProduct} & S \\
+	\hline
+	tu\_174 & implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_correct\_product}}; verifica che il metodo \texttt{remove_product_from_cart} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{CartProduct} & S \\
+	\hline
+	tu\_175 & implementato da \texttt{\seqsplit{test\_update\_quantity\_calls\_repo\_with\_add}}; verifica che il metodo \texttt{update_quantity} della classe \texttt{CartService} chiami il database con la corretta operazione di \texttt{CartUpdateOperation.Add}. & Valore booleano & S \\
+	\hline
+	tu\_176 & implementato da \texttt{\seqsplit{test\_update\_quantity\_calls\_repo\_with\_subtract}}; verifica che il metodo \texttt{update_quantity} della classe \texttt{CartService} chiami il database con la corretta operazione di \texttt{CartUpdateOperation.Subtract}. & Valore booleano & S \\
+	\hline
+	tu\_177 & implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_cart\_product}}; verifica che il metodo \texttt{update_quantity} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct}. & Oggetto di tipo \texttt{CartProduct} & S \\
+	\hline
+	tu\_178 & implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_correct\_product}}; verifica che il metodo \texttt{update_quantity} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{CartProduct} & S \\
+	\hline
 	\caption{Test di Unità Backend}
 \end{longtable}
