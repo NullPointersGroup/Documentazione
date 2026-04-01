@@ -16,4 +16,8 @@ In seguito alla progettazione del lato frontend della funzione chat e autenticaz
 
 
 \subsection{Discussione strategie di gestione file multimedialii all'interno del sistema}
-Data la necessità di gestire file multimediali, di tipo audio e/o immagini, il gruppo ha discusso delle possibili soluzioni per gestirli. 
+Data la necessità di gestire file multimediali, di tipo audio e/o immagini, il gruppo ha discusso delle possibili soluzioni per gestirli. Le soluzioni prese in considerazione sono state:
+\begin{itemize}
+	\item Utilizzo di un servizio esterno di archiviazione oggetti su cloud (es AWS S3)
+	\item Caricamento dei file audio direttamente nella macchina host, con policy di eliminazione del file dopo la corretta elaborazione da parte dell'LLM
+\end{itemize} 
