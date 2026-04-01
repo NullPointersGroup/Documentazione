@@ -1,6 +1,6 @@
 \section{Tecnologie}
 
-In questa sezione vengono descritte le tecnologie adottate per lo sviluppo$^G$ del progetto$^G$ \textbf{SmartOrder}, suddivise per ambito di utilizzo. Per ciascuna tecnologia vengono riportate la versione di riferimento, la documentazione ufficiale e il ruolo ricoperto all'interno del sistema.
+In questa sezione vengono descritte le tecnologie adottate per lo sviluppo$^G$ del progetto$^G$ \textbf{SmartOrder}. Per ciascuna tecnologia vengono riportate la versione di riferimento, la documentazione ufficiale e il ruolo ricoperto all'interno del sistema.
 
 \subsection{Linguaggi di programmazione}
 
@@ -10,9 +10,9 @@ In questa sezione vengono descritte le tecnologie adottate per lo sviluppo$^G$ d
     \item \textbf{Documentazione:} \url{https://docs.python.org/3/}
 \end{itemize}
 
-Python$^G$ è un linguaggio di programmazione ad alto livello, interpretato e multiparadigma, progettato per favorire la leggibilità del codice e la rapidità nello sviluppo$^G$ delle applicazioni.
+Python$^G$ è un linguaggio di programmazione ad alto livello, interpretato e flessibile, progettato per rendere il codice facile da leggere e veloce da sviluppare.
 
-Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato principalmente per lo sviluppo$^G$ del backend$^G$ applicativo e per l'integrazione con i modelli di intelligenza artificiale. In particolare, gestisce la logica di elaborazione degli ordini, l'implementazione delle API$^G$ tramite FastAPI e l'interazione con il database$^G$ e con i sistemi di memorizzazione vettoriale. Grazie al suo ampio ecosistema di librerie, Python$^G$ risulta particolarmente adatto allo sviluppo$^G$ di applicazioni basate su tecniche di machine learning$^G$ e intelligenza artificiale.
+Nel progetto$^G$ SmartOrder, Python$^G$ viene usato principalmente per sviluppare il backend$^G$ e per collegarsi ai modelli di intelligenza artificiale. In particolare, gestisce la logica degli ordini, realizza le API$^G$ con FastAPI e si occupa delle interazioni con il database$^G$ e con i sistemi di memorizzazione vettoriale. Grazie alla grande quantità di librerie disponibili, Python$^G$ è particolarmente adatto per applicazioni che usano machine learning$^G$ e intelligenza artificiale.
 
 \subsubsection{TypeScript}
 \begin{itemize}
@@ -20,11 +20,30 @@ Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato principalmente per lo svil
     \item \textbf{Documentazione:} \url{https://www.typescriptlang.org/docs/}
 \end{itemize}
 
-TypeScript è un linguaggio di programmazione open source che estende JavaScript introducendo la tipizzazione statica, interfacce, tipi complessi e generics. I controlli sui tipi a compile-time riducono gli errori comuni legati all'assenza di tipizzazione e migliorano la leggibilità, la manutenibilità e la robustezza del codice.
+TypeScript è un linguaggio di programmazione che estende JavaScript introducendo la tipizzazione statica, interfacce, tipi complessi e generics. I controlli sui tipi a compile-time riducono gli errori comuni legati all'assenza di tipizzazione e migliorano la leggibilità, la manutenibilità e la robustezza del codice.
 
 Nel progetto$^G$ viene utilizzato per gestire dati strutturati complessi come ordini, prodotti, quantità e validazioni, contribuendo a mantenere coerenza tra frontend$^G$ e backend$^G$ e a ridurre il rischio di errori nella comunicazione tramite API.
 
-\subsection{Frontend}
+\subsubsection{PostgreSQL}
+\begin{itemize}
+    \item \textbf{Versione:}
+    \item \textbf{Documentazione:} \url{https://www.postgresql.org/docs/}
+\end{itemize}
+
+PostgreSQL$^G$ è un sistema di gestione di basi di dati relazionali conforme agli standard SQL$^G$, noto per la sua affidabilità e robustezza nella gestione dei dati.
+
+Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato come database$^G$ principale per la memorizzazione persistente delle informazioni dell'applicazione, tra cui il catalogo dei prodotti, gli ordini generati dal sistema e i dati associati agli input elaborati. L'utilizzo di PostgreSQL$^G$ consente di garantire integrità, consistenza e affidabilità nella gestione dei dati e si integra facilmente con il backend$^G$ sviluppato in Python.
+
+\subsubsection{Infrastruttura e servizi}
+
+\subsubsection{FastAPI}
+\begin{itemize}
+    \item \textbf{Versione:}
+    \item \textbf{Documentazione:} \url{https://fastapi.tiangolo.com}
+\end{itemize}
+
+FastAPI è un framework$^G$ web per Python$^G$ utilizzato per sviluppare API$^G$ REST$^G$ ad alte prestazioni. Si basa sullo standard ASGI e utilizza librerie come Pydantic e Starlette per la gestione delle richieste e la validazione$^G$ dei dati.\\
+Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per implementare il backend$^G$ dell'applicazione e gestire la comunicazione tra frontend$^G$, moduli di elaborazione e database. Inoltre, consente di integrare facilmente i modelli di intelligenza artificiale$^G$ e di generare automaticamente la documentazione delle API$^G$ tramite strumenti basati su OpenAPI.
 
 \subsubsection{React}
 \begin{itemize}
@@ -35,9 +54,6 @@ Nel progetto$^G$ viene utilizzato per gestire dati strutturati complessi come or
 React$^G$ è una libreria JavaScript open source per la costruzione di interfacce utente basate su un modello dichiarativo e su componenti indipendenti e riutilizzabili. Utilizza un DOM virtuale per aggiornare selettivamente solo le parti dell'interfaccia effettivamente modificate, ottimizzando le prestazioni di rendering.
 
 Non essendo opinionata nella scelta delle librerie di routing o di gestione dello stato, non impone vincoli architetturali, permettendo di strutturare il frontend$^G$ in modo modulare e adattarlo alle esigenze dell'applicazione.
-\\
-\textbf{Librerie utilizzate}\\
-*inserire le librerie utilizzate*
 
 \subsubsection{TailwindCSS}
 \begin{itemize}
@@ -55,26 +71,13 @@ TailwindCSS è un framework$^G$ CSS utility-first che mette a disposizione un am
 
 Vite è uno strumento di build$^G$ per lo sviluppo$^G$ di applicazioni web moderne. Sfrutta i moduli ES nativi del browser per avviare l'ambiente di sviluppo$^G$ con tempi di avvio ridotti, offrendo hot module replacement per aggiornamenti immediati durante lo sviluppo. Supporta la configurazione tramite plugin, l'ottimizzazione automatica delle dipendenze e la generazione di bundle di codice ottimizzati tramite Rollup.
 
-\subsection{Backend}
-
-\subsubsection{FastAPI}
-\begin{itemize}
-    \item \textbf{Versione:}
-    \item \textbf{Documentazione:} \url{https://fastapi.tiangolo.com}
-\end{itemize}
-
-FastAPI è un framework$^G$ web per Python$^G$ utilizzato per sviluppare API$^G$ REST$^G$ ad alte prestazioni. Si basa sullo standard ASGI e utilizza librerie come Pydantic e Starlette per la gestione delle richieste e la validazione$^G$ dei dati.
-
-Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per implementare il backend$^G$ dell'applicazione e gestire la comunicazione tra frontend$^G$, moduli di elaborazione e database. Inoltre, consente di integrare facilmente i modelli di intelligenza artificiale$^G$ e di generare automaticamente la documentazione delle API$^G$ tramite strumenti basati su OpenAPI.
-
 \subsubsection{LangChain}
 \begin{itemize}
     \item \textbf{Versione:}
     \item \textbf{Documentazione:} \url{https://python.langchain.com}
 \end{itemize}
 
-LangChain è un framework$^G$ open source progettato per facilitare lo sviluppo$^G$ di applicazioni basate su Large Language Models (LLM$^G$). Fornisce strumenti per gestire prompt, orchestrare le chiamate ai modelli e integrare i modelli di linguaggio con fonti di dati esterne.
-
+LangChain è un framework$^G$ open source progettato per facilitare lo sviluppo$^G$ di applicazioni basate su Large Language Models (LLM$^G$). Fornisce strumenti per gestire prompt, orchestrare le chiamate ai modelli e integrare i modelli di linguaggio con fonti di dati esterne.\\
 Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per gestire l'interazione con il modello di linguaggio e costruire le pipeline di elaborazione necessarie per interpretare gli input degli utenti ed estrarre le informazioni rilevanti dagli ordini, trasformandole in dati strutturati utilizzabili dal sistema.
 
 \subsubsection{FAISS}
@@ -83,23 +86,8 @@ Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per gestire l'interazione 
     \item \textbf{Documentazione:} \url{https://faiss.ai/index.html}
 \end{itemize}
 
-FAISS (Facebook AI Similarity Search) è una libreria open source sviluppata da Meta per l'indicizzazione e la ricerca efficiente di vettori ad alta dimensionalità, utilizzata principalmente per operazioni di similarity search tra embedding.
-
+FAISS (Facebook AI Similarity Search) è una libreria open source sviluppata da Meta per l'indicizzazione e la ricerca efficiente di vettori ad alta dimensionalità, utilizzata principalmente per operazioni di similarity search tra embedding.\\
 Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato come database$^G$ vettoriale per memorizzare e confrontare gli embedding generati dai modelli di linguaggio. Questo consente di individuare prodotti simili a partire da descrizioni testuali e migliorare l'accuratezza del matching tra le richieste dell'utente e il catalogo aziendale.
-
-\subsection{Database}
-
-\subsubsection{PostgreSQL}
-\begin{itemize}
-    \item \textbf{Versione:}
-    \item \textbf{Documentazione:} \url{https://www.postgresql.org/docs/}
-\end{itemize}
-
-PostgreSQL$^G$ è un sistema di gestione di basi di dati relazionali open source conforme agli standard SQL$^G$, noto per la sua affidabilità e robustezza nella gestione dei dati.
-
-Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato come database$^G$ principale per la memorizzazione persistente delle informazioni dell'applicazione, tra cui il catalogo dei prodotti, gli ordini generati dal sistema e i dati associati agli input elaborati. L'utilizzo di PostgreSQL$^G$ consente di garantire integrità, consistenza e affidabilità nella gestione dei dati e si integra facilmente con il backend$^G$ sviluppato in Python.
-
-\subsection{Modelli di linguaggio}
 
 \subsubsection{GPT-5}
 \begin{itemize}
@@ -107,11 +95,8 @@ Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato come database$^G$ principa
     \item \textbf{Documentazione:} \url{https://platform.openai.com/docs}
 \end{itemize}
 
-GPT-5 è un Large Language Model basato sull'architettura Transformer, progettato per comprendere e generare testo in linguaggio naturale. Grazie all'addestramento su grandi quantità di dati testuali, è in grado di interpretare il significato delle richieste degli utenti e di estrarre informazioni rilevanti dal testo.
-
+GPT-5 è un Large Language Model basato sull'architettura Transformer, progettato per comprendere e generare testo in linguaggio naturale. Grazie all'addestramento su grandi quantità di dati testuali, è in grado di interpretare il significato delle richieste degli utenti e di estrarre informazioni rilevanti dal testo.\\
 Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per analizzare gli input degli utenti espressi in linguaggio naturale e trasformarli in dati strutturati utilizzabili dal sistema, individuando informazioni come prodotti, quantità e altri dettagli necessari alla generazione degli ordini.
-
-\subsection{Tecnologie per il deployment}
 
 \subsubsection{Docker}
 \begin{itemize}
@@ -119,12 +104,10 @@ Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per analizzare gli input d
     \item \textbf{Documentazione:} \url{https://docs.docker.com}
 \end{itemize}
 
-Docker$^G$ è una piattaforma open source che consente di sviluppare ed eseguire applicazioni all'interno di container, ambienti isolati che includono tutte le dipendenze necessarie al funzionamento del software.
-
+Docker$^G$ è una piattaforma open source che consente di sviluppare ed eseguire applicazioni all'interno di container, ambienti isolati che includono tutte le dipendenze necessarie al funzionamento del software.\\
 Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per containerizzare i diversi componenti dell'applicazione, come backend$^G$, frontend$^G$ e database$^G$, garantendo un ambiente di esecuzione coerente tra sviluppo$^G$, testing e deployment e semplificando il processo$^G$ di distribuzione$^G$ del sistema.
 
 \subsection{Tecnologie di analisi}
-
 \subsubsection{Tecnologie di analisi statica}
 
 \subsubsubsection{SonarQube}
@@ -133,8 +116,7 @@ Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per containerizzare i dive
     \item \textbf{Documentazione:} \url{https://docs.sonarsource.com/sonarqube}
 \end{itemize}
 
-SonarQube è una piattaforma di analisi statica del codice che consente di valutare la qualità del software individuando potenziali errori, vulnerabilità di sicurezza e problemi di manutenibilità.
-
+SonarQube è una piattaforma di analisi statica del codice che consente di valutare la qualità del software individuando potenziali errori, vulnerabilità di sicurezza e problemi di manutenibilità.\\
 Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per monitorare automaticamente la qualità del codice prodotto durante lo sviluppo$^G$, permettendo di individuare precocemente eventuali criticità e mantenere elevati standard qualitativi nel progetto.
 
 \subsubsubsection{MyPy}
@@ -143,8 +125,7 @@ Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per monitorare automaticam
     \item \textbf{Documentazione:} \url{https://mypy.readthedocs.io}
 \end{itemize}
 
-MyPy è uno strumento di analisi statica per Python$^G$ che verifica$^G$ la correttezza delle annotazioni di tipo presenti nel codice sorgente.
-
+MyPy è uno strumento di analisi statica per Python$^G$ che verifica$^G$ la correttezza delle annotazioni di tipo presenti nel codice sorgente.\\
 Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per controllare la coerenza dei tipi nel backend$^G$ sviluppato in Python$^G$, contribuendo a individuare errori prima dell'esecuzione del programma e migliorando la robustezza del codice.
 
 \subsubsection{Tecnologie di analisi dinamica}
