@@ -474,5 +474,27 @@
 	\hline
 	tu\_178 & implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_correct\_product}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{CartProduct} & S \\
 	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestCatalogRepoAdapter} \\
+	\hline
+	tu\_179 & implementato da \texttt{\seqsplit{test\_get\_product\_return\_mapped\_catalog\_product}}; verifica che il metodo \texttt{get\_product} della classe \texttt{CatalogAdapter} restituisca un oggetto di tipo \texttt{CatalogProduct} con i campi dati mappati correttamente dal rispettivo oggetto nel database. & Oggetto di tipo \texttt{CatalogProduct} & S \\
+	\hline
+	tu\_180 & implementato da \texttt{\seqsplit{test\_get\_product\_returns\_none\_when\_missing}}; verifica che il metodo \texttt{get\_product} della classe \texttt{CatalogAdapter} restituisca il valore \texttt{None} quando viene cercato un prodotto non presente nel catalogo. & Valore \texttt{None} & S \\
+	\hline
+	tu\_181 & implementato da \texttt{\seqsplit{test\_get\_full\_catalog\_returns\_mapped\_products}}; verifica che il metodo \texttt{get\_full\_catalog} della classe \texttt{CatalogAdapter} restituisca una lista di oggetti \texttt{CatalogProduct} con i campi dati mappati correttamente dal rispettivo catalogo nel database. & Lista di oggetti di tipo \texttt{CatalogProduct} & S \\
+	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestCatalogRepoPort} \\
+	\hline
+	tu\_182 & implementato da \texttt{\seqsplit{test\_get\_product\_can\_be\_implemented}}; verifica che il metodo \texttt{get\_product} della classe astratta \texttt{CatalogRepoPort} possa essere implementata da una sottoclasse. & Valore booleano & S \\
+	\hline
+	tu\_183 & implementato da \texttt{\seqsplit{test\_get\_full\_catalog\_can\_be\_implemented}}; verifica che il metodo \texttt{get\_full\_catalog} della classe astratta \texttt{CatalogRepoPort} possa essere implementata da una sottoclasse. & Valore booleano & S \\
+	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestCatalogRepository} \\
+	\hline
+	tu\_184 & implementato da \texttt{\seqsplit{test\_catalog\_product\_repository\_maps\_real\_db\_columns\_names}}; verifica che la classe \texttt{CatalogProductRepository} sia correttamente mappata sulle colonne della tabella \texttt{anaart} del database. & Valore booleano & S \\
+	\hline
+	tu\_185 & implementato da \texttt{\seqsplit{test\_get\_product\_calls\_db\_and\_returns\_first\_row}}; verifica che il metodo \texttt{get\_product} della classe \texttt{CatalogProductRepository} chiami il database e restituisca la prima riga valida di quest'ultimo. & Oggetto di tipo \texttt{CatalogProductRepository} & S \\
+	\hline
+	tu\_186 & implementato da \texttt{\seqsplit{test\_get\_full\_catalog\_calls\_db\_and\_returns\_all\_rows}}; verifica che il metodo \texttt{get\_full\_catalog} della classe \texttt{CatalogProductRepository} chiami il database e restituisca tutte le righe valide di quest'ultimo. & Lista di oggetti di tipo \texttt{CatalogProductRepository} & S \\
+	\hline
 	\caption{Test di Unità Backend}
 \end{longtable}
