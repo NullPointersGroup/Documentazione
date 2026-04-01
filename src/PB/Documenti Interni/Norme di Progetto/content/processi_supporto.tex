@@ -479,7 +479,11 @@ I test$^G$ sono classificati in categorie gerarchiche, ognuna con un codice iden
 \end{center}
 Dove \textbf{TestTipo} può assumere uno dei seguenti valori:
 \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
-    \item \textbf{TU}: Test$^G$ di Unità;
+    \item \textbf{TU-Classificazione}: Test$^G$ di Unità, dove Classificazione può essere:
+    \begin{itemize}
+    	\item B: utilizzato per i test Backend
+    	\item F: utilizzato per i test Frontend
+    \end{itemize}
     \item \textbf{TI}: Test$^G$ di Integrazione;
     \item \textbf{TS}: Test$^G$ di Sistema;
     \item \textbf{TA}: Test$^G$ di Accettazione.
