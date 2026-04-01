@@ -324,11 +324,25 @@
 	\hline
 	TU\_132 & Implementato da \texttt{\seqsplit{test\_raises\_when\_delete\_fails}}; verifica che il metodo \texttt{delete_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UserDeletionError} in caso di errore nella eliminazione dell'utente dal database. & Eccezione di tipo \texttt{UserDeletionError} & S \\
 	\hline
-	TU\_133 & Implementato da \texttt{\seqsplit{test\_get\_products\_calls\_repo}}; verifica che il metodo \texttt{get_products} della classe \texttt{CartAdapter} chiami il database. & Valore booleano  & S \\
+	TU\_133 & Implementato da \texttt{\seqsplit{test\_get\_products\_calls\_repo}}; verifica che il metodo \texttt{get_products} della classe \texttt{CartAdapter} chiami il database. & Valore booleano & S \\
 	\hline
 	TU\_134 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_mapped\_products}}; verifica che il metodo \texttt{get_products} della classe \texttt{CartAdapter} restituisca una lista di oggetti di tipo \texttt{CartProduct} con valori mappati correttamente. & Lista di oggetti di tipo \texttt{CartProduct} & S \\
 	\hline
-	TU\_135 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_mapped\_products}}; verifica che il metodo \texttt{get_products} della classe \texttt{CartAdapter} restituisca una lista di oggetti di tipo \texttt{CartProduct} con valori mappati correttamente. & Lista di oggetti di tipo \texttt{CartProduct} & S \\
+	TU\_135 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_empty\_list}}; verifica che il metodo \texttt{get_products} della classe \texttt{CartAdapter}, in caso di database vuoto, restituisca una lista vuota. & Lista vuota & S \\
+	\hline
+	TU\_136 & Implementato da \texttt{\seqsplit{test\_add\_product\_returns\_cart\_product}}; verifica che il metodo \texttt{add_product} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct}. & Oggetto di tipo \texttt{CartProduct} & S \\
+	\hline
+	TU\_137 & Implementato da \texttt{\seqsplit{test\_add\_product\_returns\_mapped\_product}}; verifica che il metodo \texttt{add_product} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct} con i valori mappati correttamente. & Oggetto di tipo \texttt{CartProduct} & S \\
+	\hline
+	TU\_138 & Implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_cart\_product}}; verifica che il metodo \texttt{remove_product} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct}. & Oggetto di tipo \texttt{CartProduct} & S \\
+	\hline
+	TU\_139 & Implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_mapped\_product}}; verifica che il metodo \texttt{remove_product} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct} con i valori mappati correttamente. & Oggetto di tipo \texttt{CartProduct} & S \\
+	\hline
+	TU\_140 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_product}}; verifica che il metodo \texttt{update_quantity} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct}. & Oggetto di tipo \texttt{CartProduct} & S \\
+	\hline
+	TU\_141 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_mapped\_product}}; verifica che il metodo \texttt{update_quantity} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct} con i valori mappati correttamente. & Oggetto di tipo \texttt{CartProduct} & S \\
+	\hline
+	TU\_142 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_subtract\_calls\_repo}}; verifica che il metodo \texttt{update_quantity} della classe \texttt{CartAdapter} chiami il database fornendo correttamente il tipo di operazione \texttt{CartUpdateOperation} richiesto. & Valore booleano & S \\
 	\hline
 	\caption{Test di Unità Backend}
 \end{longtable}
