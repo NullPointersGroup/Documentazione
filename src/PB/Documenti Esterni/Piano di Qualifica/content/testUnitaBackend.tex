@@ -496,5 +496,67 @@
 	\hline
 	tu\_186 & implementato da \texttt{\seqsplit{test\_get\_full\_catalog\_calls\_db\_and\_returns\_all\_rows}}; verifica che il metodo \texttt{get\_full\_catalog} della classe \texttt{CatalogProductRepository} chiami il database e restituisca tutte le righe valide di quest'ultimo. & Lista di oggetti di tipo \texttt{CatalogProductRepository} & S \\
 	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestChatRepoAdapter} \\
+	\hline
+	tu\_187 & implementato da \texttt{\seqsplit{test\_get\_messages\_returns\_mapped\_messages}}; verifica che il metodo \texttt{get\_messages} della classe \texttt{ChatRepoAdapter} restituisca un oggetto di tipo \texttt{Message} con i campi dati mappati correttamente dalla rispettiva tabella nel database. & Oggetto di tipo \texttt{Message} & S \\
+	\hline
+	tu\_188 & implementato da \texttt{\seqsplit{test\_get\_messages\_returns\_empty\_list}}; verifica che il metodo \texttt{get\_messages} della classe \texttt{ChatRepoAdapter}, in caso di assenza di messaggi corrispondenti nel database, restituisca una lista vuota. & Oggetto di tipo \texttt{List} & S \\
+	\hline
+	tu\_189 & implementato da \texttt{\seqsplit{test\_add\_message\_returns\_mapped\_message}}; verifica che il metodo \texttt{add\_message} della classe \texttt{ChatRepoAdapter} restituisca un oggetto di tipo \texttt{Message} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{Message} & S \\
+	\hline
+	tu\_190 & implementato da \texttt{\seqsplit{test\_add\_message\_chatbot\_sender}}; verifica che il metodo \texttt{add\_message} della classe \texttt{ChatRepoAdapter} mantenga correttamente le enumerazione \texttt{SenderEnum}. & Valore booleano &  S \\
+	\hline
+	tu\_191 & implementato da \texttt{\seqsplit{test\_conversation\_exist\_returns\_true}}; verifica che il metodo \texttt{conversation\_exist} della classe \texttt{ChatRepoAdapter} restituisca \texttt{True} quando la conversazione è presente nel database. & Valore booleano & S \\
+	\hline
+	tu\_192 & implementato da \texttt{\seqsplit{test\_conversation\_exist\_returns\_false}}; verifica che il metodo \texttt{conversation\_exist} della classe \texttt{ChatRepoAdapter} restituisca \texttt{False} quando la conversazione non è presente nel database. & Valore booleano & S \\
+	\hline
+	tu\_193 & implementato da \texttt{\seqsplit{test\_create\_conversation}}; verifica che il metodo \texttt{create\_conversation} della classe \texttt{ChatRepoAdapter} chiami il metodo \texttt{create\_conversation} del database. & Valore booleano & S \\
+	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestChatRepoPort} \\
+	\hline
+	tu\_194 & implementato da \texttt{\seqsplit{test\_get\_messages\_can\_be\_implemented}}; verifica che il metodo \texttt{get\_messages} della classe astratta \texttt{ChatRepoPort} possa essere implementato da una sottoclasse. & Valore booleano & S \\
+	\hline
+	tu\_195 & implementato da \texttt{\seqsplit{test\_add\_message\_can\_be\_implemented}}; verifica che il metodo \texttt{add\_message} della classe astratta \texttt{ChatRepoPort} possa essere implementato da una sottoclasse. & Valore booleano & S \\
+	\hline
+	tu\_196 & implementato da \texttt{\seqsplit{test\_get\_messages\_returns\_empty\_list}}; verifica che il metodo \texttt{get\_messages} della classe astratta \texttt{ChatRepoPort} ritorni un oggetto di tipo \texttt{List} quando istanziato da una sottoclasse. & Oggetto di tipo \texttt{List} & S \\
+	\hline
+	tu\_197 & implementato da \texttt{\seqsplit{test\_add\_message\_returns\_message}}; verifica che il metodo \texttt{add\_message} della classe astratta \texttt{ChatRepoPort} ritorni un oggetto di tipo \texttt{List} quando istanziato da una sottoclasse. & Oggetto di tipo \texttt{Message} & S \\
+	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestChatRepository} \\
+	\hline
+	tu\_198 & implementato da \texttt{\seqsplit{test\_get\_messages\_calls\_db}}; verifica che il metodo \texttt{get\_messages} della classe \texttt{ChatRepository} chiami correttamente il database. & Valore booleano & S \\
+	\hline
+	tu\_199 & implementato da \texttt{\seqsplit{test\_get\_messages\_returns\_list}}; verifica che il metodo \texttt{get\_messages} della classe \texttt{ChatRepository} ritorni una lista di oggetti di tipo \texttt{ChatMessageRepository}. & Lista di oggetti di tipo \texttt{ChatMessageRepository} & S \\
+	\hline
+	tu\_200 & implementato da \texttt{\seqsplit{test\_add\_message\_calls\_and\_commit\_refresh}}; verifica che il metodo \texttt{add\_message} della classe \texttt{ChatRepository} chiami il \texttt{commit} e il \texttt{refresh} del database. & Valore booleano & S \\
+	\hline
+	tu\_201 & implementato da \texttt{\seqsplit{test\_add\_message\_returns\_chat\_message\_repository}}; verifica che il metodo \texttt{add\_message} della classe \texttt{ChatRepository} ritorni un oggetto di tipo \texttt{ChatMessageRepository}. & Oggetto di tipo \texttt{ChatMessageRepository} & S \\
+	\hline
+	tu\_202 & implementato da \texttt{\seqsplit{test\_add\_message\_correct\_fields}}; verifica che il metodo \texttt{add\_message} della classe \texttt{ChatRepository} ritorni un oggetto di tipo \texttt{ChatMessageRepository} con i campi dati corretti rispetto ai parametri passati. & Oggetto di tipo \texttt{ChatMessageRepository} & S \\
+	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestChatApi} \\
+	\hline
+	tu\_203 & implementato da \texttt{\seqsplit{test\_get\_chat\_service}}; verifica che il metodo \texttt{get\_chat\_service} della classe \texttt{ChatApi} ritorni una istanza di \texttt{ChatService}. & Oggetto di tipo \texttt{ChatService} & S \\
+	\hline
+	tu\_204 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_unit}}; verifica che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatApi} ritorni un oggetto di tipo \texttt{ChatResponse}. & Oggetto di tipo \texttt{ChatResponse} & S \\
+	\hline
+	tu\_205 & implementato da \texttt{\seqsplit{test\_send\_message\_unit}}; verifica che il metodo \texttt{send\_message} della classe \texttt{ChatApi} ritorni un oggetto di tipo \texttt{MessageResponse} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{MessageResponse} & S \\
+	\hline
+	tu\_206 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_from\_inexistent\_conv}}; verifica che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatApi}, in caso di conversazione non presente nel database, sollevi una eccezione di tipo \texttt{HTTPException(404)}. & Eccezione di tipo \texttt{HTTPException(404)} & S \\
+	\hline
+	tu\_207 & implementato da \texttt{\seqsplit{test\_send\_message\_returns\_500\_when\_tool\_is\_missing}}; verifica che il metodo \texttt{send\_message} della classe \texttt{ChatApi}, in caso di \texttt{Tool} non presente nel sistema, sollevi una eccezione di tipo \texttt{HTTPException(500)}. & Eccezione di tipo \texttt{HTTPException(500)} & S \\
+	\hline
+	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestChatService} \\
+	\hline
+	tu\_208 & implementato da \texttt{\seqsplit{test\_send\_message\_returns\_llm\_response}}; verifica che il metodo \texttt{send\_message} della classe \texttt{ChatService} ritorni un oggetto di tipo \texttt{Message}, e che la risposta del \texttt{LLM} venga aggiunta al database. & Oggetto di tipo \texttt{Message}, valore booleano & S \\
+	\hline
+	tu\_209 & implementato da \texttt{\seqsplit{test\_send\_message\_creates\_conv\_if\_not\_exists}}; verifica che il metodo \texttt{send\_message} della classe \texttt{ChatService}, in caso di conversazione non presente nel database, chiami il metodo \texttt{create\_conversation} della classe \texttt{ChatRepository}. & Valore booleano & S \\
+	\hline
+	tu\_210 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_returns\_chat\_response}}; verifica che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatService} restituisca una lista di oggetti di tipo \texttt{Message}. & Lista di oggetti di tipo \texttt{Message} & S \\
+	\hline
+	tu\_211 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_empty\_conversation}}; verifica che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatService}, in caso di conversazione vuota, restituisca una lista vuota. & Lista vuota & S \\
+	\hline
+	tu\_212 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_empty\_conversation}}; verifica che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatService}, in caso di conversazione non presente nel database, restituisca una eccezione di tipo \texttt{ConversationNotFoundException}. & Eccezione di tipo \texttt{ConversationNotFoundException} & S \\
+	\hline
 	\caption{Test di Unità Backend}
 \end{longtable}
