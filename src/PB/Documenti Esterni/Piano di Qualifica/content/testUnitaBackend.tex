@@ -2,561 +2,530 @@
 
 \renewcommand{\arraystretch}{1.2}
 \begin{longtable}{|
-		>{\raggedright\arraybackslash}p{0.15\columnwidth} |
-		>{\raggedright\arraybackslash}p{0.325\columnwidth} |
-		>{\raggedright\arraybackslash}p{0.325\columnwidth} |
-		>{\centering\arraybackslash}p{0.10\columnwidth} |
+		>{\raggedright\arraybackslash}p{0.2\columnwidth} |
+		>{\raggedright\arraybackslash}p{0.5\columnwidth} |
+		>{\centering\arraybackslash}p{0.1\columnwidth} |
 	}
 	\hline
 	\rowcolor[gray]{0.9}
-	\textbf{Codice Test$^G$} & \textbf{Descrizione} & \textbf{Valore atteso} & \textbf{Stato} \\
+	\textbf{Codice Test$^G$} & \textbf{Descrizione} & \textbf{Stato} \\
 	\hline
 	\endhead
-	TU-B\_01 & Implementato da \textit{\seqsplit{test\_registration\_success}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e ritorni il valore una risposta positiva & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
-		\item Risposta HTTP con stato 201
-		\item Il campo "ok", della risposta in formato Json, è impostato a "True"
-	\end{itemize} & S \\
+	TU-B\_01 & Implementato da \textit{\seqsplit{test\_registration\_success}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e ritorni il valore una risposta positiva & S \\
 	\hline
-	TU-B\_02 & Implementato da \texttt{\seqsplit{test\_register\_user\_twice}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e che non ci sia una registrazione duplicata & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
-		\item Risposta HTTP con stato 400
-		\item Il campo "ok" dentro l'oggetto "detail", della risposta in formato Json, è impostato a "False"
-	\end{itemize} & S \\
+	TU-B\_02 & Implementato da \texttt{\seqsplit{test\_register\_user\_twice}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e che non ci sia una registrazione duplicata & S \\
 	\hline
-	TU-B\_03 & Implementato da \texttt{\seqsplit{test\_registration\_missing\_fields}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e che in caso di campi mancanti restiTU-Bisce una risposta negativa & Risposta HTTP con stato 422 & S \\
+	TU-B\_03 & Implementato da \texttt{\seqsplit{test\_registration\_missing\_fields}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e che in caso di campi mancanti restiTU-Bisce una risposta negativa & S \\
 	\hline
-	TU-B\_04 & Implementato da \texttt{\seqsplit{test\_register\_invalid\_email\_domain}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e verifica il caso in cui l'utente inserisce una main in un formato non corretto & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
-		\item Risposta HTTP con stato 400
-		\item "email" come prima parola della stringa contenuta dal campo "errors" nell'oggetto "detail"
-	\end{itemize} & S \\
+	TU-B\_04 & Implementato da \texttt{\seqsplit{test\_register\_invalid\_email\_domain}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e verifica il caso in cui l'utente inserisce una main in un formato non corretto & S \\
 	\hline
-	TU-B\_05 & Implementato da \texttt{\seqsplit{test\_register\_email\_already\_exists}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e verifica il caso in cui l'utente inserisce una mail che è già presente nel sistema & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
-		\item Risposta HTTP con stato 400
-		\item "Email" come prima parola della stringa contenuta dal campo "errors" nell'oggetto "detail"
-	\end{itemize} & S \\
+	TU-B\_05 & Implementato da \texttt{\seqsplit{test\_register\_email\_already\_exists}}; verifica che l'endpoint di registrazione dell'api possa essere chiamato e verifica il caso in cui l'utente inserisce una mail che è già presente nel sistema & S \\
 	\hline
-	TU-B\_07 & Implementato da \texttt{\seqsplit{test\_login\_success}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e verifica la presenza di un utente nel sistema &  \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
-		\item Risposta HTTP con stato 200
-		\item Il campo "ok", della risposta in formato Json, è impostato a "True"
-	\end{itemize} & S \\
+	TU-B\_07 & Implementato da \texttt{\seqsplit{test\_login\_success}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e verifica la presenza di un utente nel sistema & S \\
 	\hline
-	TU-B\_08 & Implementato da \texttt{\seqsplit{test\_login\_failed}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e verifica che il sistemi restiTU-Bisca una risposta negativa all'invio delle credenziali di un utente non registrato & Risposta HTTP con stato 400 & S \\
+	TU-B\_08 & Implementato da \texttt{\seqsplit{test\_login\_failed}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e verifica che il sistemi restiTU-Bisca una risposta negativa all'invio delle credenziali di un utente non registrato & S \\
 	\hline
-	TU-B\_09 & Implementato da \texttt{\seqsplit{test\_login\_missing\_fields}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e in caso di campi mancanti restiTU-Bisce una risposta negativa & Risposta HTTP con stato 422 & S \\
+	TU-B\_09 & Implementato da \texttt{\seqsplit{test\_login\_missing\_fields}}; verifica che l'endpoint di autenticazione dell'api possa essere chiamato e in caso di campi mancanti restiTU-Bisce una risposta negativa & S \\
 	\hline
-	TU-B\_10 & Implementato da \texttt{\seqsplit{test\_reTU-Brns\_users\_service\_instance}}; verifica che la funzione \texttt{\seqsplit{get\_user\_service}} restiTU-Bisca un'istanza della classe UserService & Istanza di \texttt{UserService} restiTU-Bita correttamente & S \\
+	TU-B\_10 & Implementato da \texttt{\seqsplit{test\_reTU-Brns\_users\_service\_instance}}; verifica che la funzione \texttt{\seqsplit{get\_user\_service}} restiTU-Bisca un'istanza della classe UserService & S \\
 	\hline
-	TU-B\_11 & Implementato da \texttt{\seqsplit{test\_user\_service\_wraps\_user\_repo\_adapter}}; verifica che l'attributo \texttt{repo} dell'istanza della classe \texttt{UserService} sia correttamente configurato & Attributo \texttt{repo} correttamente configurato come \texttt{UserRepoAdapter} & S \\
+	TU-B\_11 & Implementato da \texttt{\seqsplit{test\_user\_service\_wraps\_user\_repo\_adapter}}; verifica che l'attributo \texttt{repo} dell'istanza della classe \texttt{UserService} sia correttamente configurato & S \\
 	\hline
-	TU-B\_12 & Implementato da \texttt{\seqsplit{test\_adapter\_receives\_db\_session}}; verifica che il db iniettato nello \texttt{UserService} sia configurato correttamente & Db iniettato e configurato correttamente & S \\
+	TU-B\_12 & Implementato da \texttt{\seqsplit{test\_adapter\_receives\_db\_session}}; verifica che il db iniettato nello \texttt{UserService} sia configurato correttamente & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestGetCurrenTU-Bser} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetCurrenTU-Bser} \\
 	\hline
-	TU-B\_13 & Implementato da \texttt{\seqsplit{test\_valid\_token\_reTU-Brns\_username}}; verifica che il recupero dell'identità utente, funzione \texttt{get\_current\_user} tramite cookie di sessione & Username corretto dopo la decodifica del token & S \\
+	TU-B\_13 & Implementato da \texttt{\seqsplit{test\_valid\_token\_reTU-Brns\_username}}; verifica che il recupero dell'identità utente, funzione \texttt{get\_current\_user} tramite cookie di sessione & S \\
 	\hline
-	TU-B\_14 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_raises\_401}}; verifica che l'accesso venga negato, con errore HTTP, se il token nel cookie è invalido o nullo & Risposta HTTP con stato 401 & S \\
+	TU-B\_14 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_raises\_401}}; verifica che l'accesso venga negato, con errore HTTP, se il token nel cookie è invalido o nullo & S \\
 	\hline
-	TU-B\_15 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_detail\_message}}; verifica che l'accesso venga negato, verificando che il messaggio di errore sia corretto, in caso di token invalido o nullo & Il campo \texttt{detail} assume valore \textit{Token non valido} & S \\
+	TU-B\_15 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_detail\_message}}; verifica che l'accesso venga negato, verificando che il messaggio di errore sia corretto, in caso di token invalido o nullo & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestDeleteAccount} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDeleteAccount} \\
 	\hline
-	TU-B\_16 & Implementato da \texttt{\seqsplit{test\_delete\_account\_success}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che l'eliminazione vada a buon fine & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
-		\item Risposta HTTP con stato 200
-		\item Il campo "ok", della risposta in formato Json, è impostato a "True"
-		\item Il campo "errors", della risposta in formato Json, è vuoto
-	\end{itemize} & S \\
+	TU-B\_16 & Implementato da \texttt{\seqsplit{test\_delete\_account\_success}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che l'eliminazione vada a buon fine & S \\
 	\hline 
-	TU-B\_17 & Implementato da \texttt{\seqsplit{test\_delete\_account\_user\_not\_found}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che, fornito un utente non valido, il test fallisca & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
-		\item Risposta HTTP con stato 404
-		\item Il campo "ok", della risposta in formato Json, è impostato a "False"
-		\item Il campo "errors", della risposta in formato Json, contiene "Utente non trovato"
-	\end{itemize} & S \\
+	TU-B\_17 & Implementato da \texttt{\seqsplit{test\_delete\_account\_user\_not\_found}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che, fornito un utente non valido, il test fallisca & S \\
 	\hline
-	TU-B\_18 & Implementato da \texttt{\seqsplit{test\_delete\_account\_deletion\_error}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che l'endpoint sollevi un'eccezione qualora l'eliminazione non vada a buon fine & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
-		\item Risposta HTTP con stato 500
-		\item Il campo "ok", della risposta in formato Json, è impostato a "False"
-		\item Il campo "errors", della risposta in formato Json, contiene "Errore durante la cancellazione"
-	\end{itemize} & S \\
+	TU-B\_18 & Implementato da \texttt{\seqsplit{test\_delete\_account\_deletion\_error}}; verifica che l'endpoint di eliminazione del cliente possa essere chiamato e verifica che l'endpoint sollevi un'eccezione qualora l'eliminazione non vada a buon fine & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestEmailDomainExists} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestEmailDomainExists} \\
 	\hline
-	TU-B\_19 & Implementato da \texttt{\seqsplit{test\_reTU-Brns\_true\_when\_mx\_record\_found}}; verifica, tramite una simulazione di una risoluzione DNS positiva, che la mail interessata esista nel sistema & Risposta positiva da parte del sistema nella query di esistenza della mail nel dominio & S \\
+	TU-B\_19 & Implementato da \texttt{\seqsplit{test\_reTU-Brns\_true\_when\_mx\_record\_found}}; verifica, tramite una simulazione di una risoluzione DNS positiva, che la mail interessata esista nel sistema & S \\
 	\hline
-	TU-B\_20 & Implementato da \texttt{\seqsplit{test\_reTU-Brns\_false\_when\_mx\_record\_not\_found}}; verifica, tramite una simulazione di una risoluzione DNS positiva, che la main interessata non sia esistente nel sistema & \begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
-		\item Eccezione sollevata
-		\item Risposta negativa da parte del sistema nella query di esistenza della mail nel dominio
-	\end{itemize} & S \\
+	TU-B\_20 & Implementato da \texttt{\seqsplit{test\_reTU-Brns\_false\_when\_mx\_record\_not\_found}}; verifica, tramite una simulazione di una risoluzione DNS positiva, che la main interessata non sia esistente nel sistema & S \\
 	\hline
-	TU-B\_21 & Implementato da \texttt{\seqsplit{test\_extracts\_domain\_from\_email}}; verifica che il dominio venga correttamente estratto dall'email e passato al resolver DNS con i parametri corretti & La chiamata a \texttt{resolve} avviene una sola volta con il dominio corretto & S \\
+	TU-B\_21 & Implementato da \texttt{\seqsplit{test\_extracts\_domain\_from\_email}}; verifica che il dominio venga correttamente estratto dall'email e passato al resolver DNS con i parametri corretti & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestUsernameAlreadyExistsError} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestUsernameAlreadyExistsError} \\
 	\hline
-	TU-B\_22 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica che la classe \texttt{\seqsplit{UsernameAlreadyExistsError}} istanzi un oggetto di tipo \texttt{ValueError} & Istanza di \texttt{ValueError} & S \\
+	TU-B\_22 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica che la classe \texttt{\seqsplit{UsernameAlreadyExistsError}} istanzi un oggetto di tipo \texttt{ValueError} & S \\
 	\hline
-	TU-B\_23 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{UsernameAlreadyExistsError}} sia correttamente configurato & Una stringa dal valore "Username già esistente" & S \\
+	TU-B\_23 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{UsernameAlreadyExistsError}} sia correttamente configurato & S \\
 	\hline
-	TU-B\_24 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{UsernameAlreadyExistsError}} possa essere lanciata come eccezione & Eccezione di tipo \texttt{\seqsplit{UsernameAlreadyExistsError}} lanciata & S \\
+	TU-B\_24 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{UsernameAlreadyExistsError}} possa essere lanciata come eccezione & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestInvalidEmailFormatError} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestInvalidEmailFormatError} \\
 	\hline
-	TU-B\_25 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica che la classe \texttt{\seqsplit{InvalidEmailFormatError}} istanzi un oggetto di tipo \texttt{ValueError} & Istanza di \texttt{ValueError} & S \\
+	TU-B\_25 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica che la classe \texttt{\seqsplit{InvalidEmailFormatError}} istanzi un oggetto di tipo \texttt{ValueError} & S \\
 	\hline
-	TU-B\_26 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{InvalidEmailFormatError}} sia correttamente configurato & Una stringa dal valore "L'email non è nel formato corretto" & S \\
+	TU-B\_26 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{InvalidEmailFormatError}} sia correttamente configurato & S \\
 	\hline
-	TU-B\_27 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{InvalidEmailFormatError}} possa essere lanciata come eccezione & Eccezione di tipo \texttt{\seqsplit{InvalidEmailFormatError}} lanciata & S \\
+	TU-B\_27 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{InvalidEmailFormatError}} possa essere lanciata come eccezione & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestEmailAlreadyExistsError} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestEmailAlreadyExistsError} \\
 	\hline
-	TU-B\_28 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica che la classe \texttt{\seqsplit{EmailAlreadyExistsError}} istanzi un oggetto di tipo \texttt{ValueError} & Istanza di \texttt{ValueError} & S \\
+	TU-B\_28 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica che la classe \texttt{\seqsplit{EmailAlreadyExistsError}} istanzi un oggetto di tipo \texttt{ValueError} & S \\
 	\hline
-	TU-B\_29 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{EmailAlreadyExistsError}} sia correttamente configurato & Una stringa dal valore "Email già esistente" & S \\
+	TU-B\_29 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{EmailAlreadyExistsError}} sia correttamente configurato & S \\
 	\hline
-	TU-B\_30 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{EmailAlreadyExistsError}} possa essere lanciata come eccezione & Eccezione di tipo \texttt{\seqsplit{EmailAlreadyExistsError}} lanciata & S \\
+	TU-B\_30 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{EmailAlreadyExistsError}} possa essere lanciata come eccezione & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestInvalidCredentialsError} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestInvalidCredentialsError} \\
 	\hline
-	TU-B\_31 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica che la classe \texttt{\seqsplit{InvalidCredentialsError}} istanzi un oggetto di tipo \texttt{ValueError} & Istanza di \texttt{ValueError} & S \\
+	TU-B\_31 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica che la classe \texttt{\seqsplit{InvalidCredentialsError}} istanzi un oggetto di tipo \texttt{ValueError} & S \\
 	\hline
-	TU-B\_32 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{InvalidCredentialsError}} sia correttamente configurato & Una stringa dal valore "Username o password errati" & S \\
+	TU-B\_32 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{InvalidCredentialsError}} sia correttamente configurato & S \\
 	\hline
-	TU-B\_33 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{InvalidCredentialsError}} possa essere lanciata come eccezione & Eccezione di tipo \texttt{\seqsplit{InvalidCredentialsError}} lanciata & S \\
+	TU-B\_33 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{InvalidCredentialsError}} possa essere lanciata come eccezione & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestUserCreationError} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestUserCreationError} \\
 	\hline
-	TU-B\_34 & Implementato da \texttt{\seqsplit{test\_is\_exception}}; verifica che la classe \texttt{\seqsplit{InvalidCredentialsError}} istanzi un oggetto di tipo \texttt{Exception} & Istanza di \texttt{Exception} & S \\
+	TU-B\_34 & Implementato da \texttt{\seqsplit{test\_is\_exception}}; verifica che la classe \texttt{\seqsplit{InvalidCredentialsError}} istanzi un oggetto di tipo \texttt{Exception} & S \\
 	\hline
-	TU-B\_35 & Implementato da \texttt{{\seqsplit{test\_is\_not\_value\_error}}}; verifica che la classe \texttt{\seqsplit{UserCreationError}} non istanzi un oggetto di tipo \texttt{ValueError} & Istanza di un oggetto diverso da \texttt{ValueError} & S \\
+	TU-B\_35 & Implementato da \texttt{{\seqsplit{test\_is\_not\_value\_error}}}; verifica che la classe \texttt{\seqsplit{UserCreationError}} non istanzi un oggetto di tipo \texttt{ValueError} & S \\
 	\hline
-	TU-B\_36 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{UserCreationError}} sia correttamente configurato & Una stringa dal valore "Errore durante la registrazione" & S \\
+	TU-B\_36 & Implementato da \texttt{\seqsplit{test\_message}}; verifica che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{UserCreationError}} sia correttamente configurato & S \\
 	\hline
-	TU-B\_37 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{UserCreationError}} possa essere lanciata come eccezione & Eccezione di tipo \texttt{\seqsplit{UserCreationError}} lanciata & S \\
+	TU-B\_37 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica che la classe \texttt{\seqsplit{UserCreationError}} possa essere lanciata come eccezione & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestHashPassword} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestHashPassword} \\
 	\hline
-	TU-B\_38 & Implementato da \texttt{\seqsplit{test\_returns\_string}}; verifica che la funzione di hashing ritorni un valore di tipo stringa & Valore di tipo stringa & S \\
+	TU-B\_38 & Implementato da \texttt{\seqsplit{test\_returns\_string}}; verifica che la funzione di hashing ritorni un valore di tipo stringa & S \\
 	\hline
-	TU-B\_39 & Implementato da \texttt{\seqsplit{test\_hash\_is\_different\_from\_plain}}; verifica che la funzione di hashing ritori un valore diverso dalla password in chiaro & Valore diverso da password in chiaro & S \\
+	TU-B\_39 & Implementato da \texttt{\seqsplit{test\_hash\_is\_different\_from\_plain}}; verifica che la funzione di hashing ritori un valore diverso dalla password in chiaro & S \\
 	\hline
-	TU\_40 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_bcrypt}}; verifica che la funzione deleghi correttamente l'operazione di hashing alla libreria \texttt{bcrypt} & Chiamata a \texttt{bcrypt.hashpw} effettuata esattamente una volta con i parametri previsti & S \\
+	TU\_40 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_bcrypt}}; verifica che la funzione deleghi correttamente l'operazione di hashing alla libreria \texttt{bcrypt} & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestVerifyPassword} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestVerifyPassword} \\
 	\hline
-	TU\_41 & Implementato da \texttt{\seqsplit{test\_correct\_password\_returns\_true}}; verifica che la funzione di validazione password riconosca una password confrontandola con il relativo hash & Valore booleano \texttt{True} & S \\
+	TU\_41 & Implementato da \texttt{\seqsplit{test\_correct\_password\_returns\_true}}; verifica che la funzione di validazione password riconosca una password confrontandola con il relativo hash & S \\
 	\hline
-	TU\_42 & Implementato da \texttt{\seqsplit{test\_wrong\_password\_returns\_false}}; verifica che la funzione di validazione non riconosca una password confrontandola con l'hash che dovrebbe assumere & Valore booleano \texttt{False} & S \\
+	TU\_42 & Implementato da \texttt{\seqsplit{test\_wrong\_password\_returns\_false}}; verifica che la funzione di validazione non riconosca una password confrontandola con l'hash che dovrebbe assumere & S \\
 	\hline
-	TU\_43 & Implementato da \texttt{\seqsplit{test\_none\_hash\_returns\_false\_without\_calling\_bcrypt}}; verifica che in caso di hash vuoto, la funzione di verifica termina e non viene chiamata la libreria \texttt{bcrypt} & Valore booleano \texttt{False} & S \\
+	TU\_43 & Implementato da \texttt{\seqsplit{test\_none\_hash\_returns\_false\_without\_calling\_bcrypt}}; verifica che in caso di hash vuoto, la funzione di verifica termina e non viene chiamata la libreria \texttt{bcrypt} & S \\
 	\hline
-	TU\_44 & Implementato da \texttt{\seqsplit{test\_empty\_password\_delegates\_to\_bcrypt}}; verifica che, anche in caso di password vuota, la libreria \texttt{bcrypt} viene comunque chiamata per il confronto booleano & Valore booleano \texttt{False} & S \\
+	TU\_44 & Implementato da \texttt{\seqsplit{test\_empty\_password\_delegates\_to\_bcrypt}}; verifica che, anche in caso di password vuota, la libreria \texttt{bcrypt} viene comunque chiamata per il confronto booleano & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestExecute} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestExecute} \\
 	\hline
-	TU\_45 & Implementato da \texttt{\seqsplit{test\_returns\_all\_results}}; verifica che la query eseguita dal database ritorni tutti i risultati. & Lista di valori \texttt{str} & S \\
+	TU\_45 & Implementato da \texttt{\seqsplit{test\_returns\_all\_results}}; verifica che la query eseguita dal database ritorni tutti i risultati. & S \\
 	\hline
-	TU\_46 & Implementato da \texttt{\seqsplit{test\_calls\_exec\_with\_stmt}}; verifica che il database esegua esattamente la query che gli viene passata nel parametro. \textit{stmt} & Valore booleano & S \\
+	TU\_46 & Implementato da \texttt{\seqsplit{test\_calls\_exec\_with\_stmt}}; verifica che il database esegua esattamente la query che gli viene passata nel parametro. \textit{stmt} & S \\
 	\hline
-	TU\_47 & Implementato da \texttt{\seqsplit{test\_returns\_empty\_sequence}}; verifica che il database, in caso di risultato privo di tuple, ritorni correttamente una lista vuota.  & Lista priva di valori & S \\
+	TU\_47 & Implementato da \texttt{\seqsplit{test\_returns\_empty\_sequence}}; verifica che il database, in caso di risultato privo di tuple, ritorni correttamente una lista vuota.  & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestExecuteOne} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestExecuteOne} \\
 	\hline
-	TU\_48 & Implementato da \texttt{\seqsplit{test\_returns\_single\_result}}; verifica che il database, quando viene chiesto di restituire solo un risultato dalla query, restituisca correttamente il primo risultato. & Valore di tipo \texttt{str} & S \\
+	TU\_48 & Implementato da \texttt{\seqsplit{test\_returns\_single\_result}}; verifica che il database, quando viene chiesto di restituire solo un risultato dalla query, restituisca correttamente il primo risultato. & S \\
 	\hline
-	TU\_49 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica che il database, in caso di risultato privo di tuple, quando viene chiesto di restituire un risultato restituisca correttamente \textit{None}. & Valore di tipo \texttt{None}& S \\
+	TU\_49 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica che il database, in caso di risultato privo di tuple, quando viene chiesto di restituire un risultato restituisca correttamente \textit{None}. & S \\
 	\hline
-	TU\_50 & Implementato da \texttt{\seqsplit{test\_calls\_exec\_with\_stmt}}; verifica che il database, quando viene chiesto di restituire un risultato esegua esattamente la query che gli viene passata nel parametro \textit{stmt}. & Valore booleano& S \\
+	TU\_50 & Implementato da \texttt{\seqsplit{test\_calls\_exec\_with\_stmt}}; verifica che il database, quando viene chiesto di restituire un risultato esegua esattamente la query che gli viene passata nel parametro \textit{stmt}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestMutate} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestMutate} \\
 	\hline
-	TU\_51 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, restituisca \text{True} in caso di esito positivo. & Valore booleano \texttt{True} & S \\
+	TU\_51 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, restituisca \text{True} in caso di esito positivo. & S \\
 	\hline
-	TU\_52 & Implementato da \texttt{\seqsplit{test\_commits\_on\_success}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di esito positivo chiami il metodo \texttt{commit}.& Valore booleano & S \\
+	TU\_52 & Implementato da \texttt{\seqsplit{test\_commits\_on\_success}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di esito positivo chiami il metodo \texttt{commit}.& S \\
 	\hline
-	TU\_53 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_integrity\_error}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di esito negativo restituisca \textit{False}.& Valore booleano \texttt{False} & S \\
+	TU\_53 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_integrity\_error}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di esito negativo restituisca \textit{False}. & S \\
 	\hline
-	TU\_54 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_integrity\_error}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di esito negativo chiami il metodo \texttt{rollback}.& Valore booleano & S \\
+	TU\_54 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_integrity\_error}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di esito negativo chiami il metodo \texttt{rollback}.& S \\
 	\hline
-	TU\_55 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_generic\_exception}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di una eccezione generica restituisca \textit{False}.& Valore booleano \texttt{False} & S \\
+	TU\_55 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_generic\_exception}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di una eccezione generica restituisca \textit{False}.& S \\
 	\hline
-	TU\_56 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_generic\_exception}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di una eccezione generica chiami il metodo \texttt{rollback}.& Valore booleano & S \\
+	TU\_56 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_generic\_exception}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di una eccezione generica chiami il metodo \texttt{rollback}.& S \\
 	\hline
-	TU\_57 & Implementato da \texttt{\seqsplit{test\_no\_commit\_on\_failure}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di esito negativo non chiami il metodo \texttt{commit}.& Valore booleano & S \\
+	TU\_57 & Implementato da \texttt{\seqsplit{test\_no\_commit\_on\_failure}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di esito negativo non chiami il metodo \texttt{commit}.& S \\
 	\hline
-	TU\_58 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_integrity\_error\_raw}}; verifica che il database, quando viene chiesto di eseguire una mutazione diretta, in caso di esito negativo restituisca \textit{False}. & Valore booleano \texttt{False} & S \\
+	TU\_58 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_integrity\_error\_raw}}; verifica che il database, quando viene chiesto di eseguire una mutazione diretta, in caso di esito negativo restituisca \textit{False}. & S \\
 	\hline
-	TU\_59 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_integrity\_error}}; verifica che il database, quando viene chiesto di eseguire una mutazione diretta, in caso di esito negativo chiami il metodo \texttt{rollback}. & Valore booleano & S \\
+	TU\_59 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_integrity\_error}}; verifica che il database, quando viene chiesto di eseguire una mutazione diretta, in caso di esito negativo chiami il metodo \texttt{rollback}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestQueryBase} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestQueryBase} \\
 	\hline
-	TU\_60 & Implementato da \texttt{\seqsplit{test\_execute\_raises\_not\_implemented}}; verifica la classe \texttt{Query}, quando viene chiamato il suo metodo \texttt{execute} lanci un'eccezione \texttt{NotImplementedException}. & Eccezione di tipo \texttt{NotImplementedError} lanciata & S \\
+	TU\_60 & Implementato da \texttt{\seqsplit{test\_execute\_raises\_not\_implemented}}; verifica la classe \texttt{Query}, quando viene chiamato il suo metodo \texttt{execute} lanci un'eccezione \texttt{NotImplementedException}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestMutationBase} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestMutationBase} \\
 	\hline
-	TU\_61 & Implementato da \texttt{\seqsplit{test\_execute\_raises\_not\_implemented}}; verifica la classe \texttt{Mutation}, quando viene chiamato il suo metodo \texttt{execute} lanci un'eccezione \texttt{NotImplementedException}. & Eccezione di tipo \texttt{NotImplementedError} lanciata & S \\
+	TU\_61 & Implementato da \texttt{\seqsplit{test\_execute\_raises\_not\_implemented}}; verifica la classe \texttt{Mutation}, quando viene chiamato il suo metodo \texttt{execute} lanci un'eccezione \texttt{NotImplementedException}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestUserSchema} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestUserSchema} \\
 	\hline
-	TU\_62 & Implementato da \texttt{\seqsplit{test\_valid}}; verifica che lo schema \texttt{UserSchema} sia valido. & Valore booleano & S \\
+	TU\_62 & Implementato da \texttt{\seqsplit{test\_valid}}; verifica che lo schema \texttt{UserSchema} sia valido. & S \\
 	\hline
-	TU\_63 & Implementato da \texttt{\seqsplit{test\_missing\_username}}; verifica che, se lo schema \texttt{UserSchema} manca del campo \texttt{Username}, venga lanciata una eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} lanciata & S \\
+	TU\_63 & Implementato da \texttt{\seqsplit{test\_missing\_username}}; verifica che, se lo schema \texttt{UserSchema} manca del campo \texttt{Username}, venga lanciata una eccezione di tipo \texttt{ValidationError}. & S \\
 	\hline
-	TU\_64 & Implementato da \texttt{\seqsplit{test\_missing\_password}}; verifica che, se lo schema \texttt{UserSchema} manca del campo \texttt{Password}, venga lanciata una eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} lanciata & S \\
+	TU\_64 & Implementato da \texttt{\seqsplit{test\_missing\_password}}; verifica che, se lo schema \texttt{UserSchema} manca del campo \texttt{Password}, venga lanciata una eccezione di tipo \texttt{ValidationError}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestAuthResponse} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestAuthResponse} \\
 	\hline
-	TU\_65 & Implementato da \texttt{\seqsplit{test\_ok\_no\_token}}; verifica che una \texttt{AuthResponse} possa essere creata anche senza campo \texttt{Token}. & Valore di tipo \texttt{None} & S \\
+	TU\_65 & Implementato da \texttt{\seqsplit{test\_ok\_no\_token}}; verifica che una \texttt{AuthResponse} possa essere creata anche senza campo \texttt{Token}. & S \\
 	\hline
-	TU\_66 & Implementato da \texttt{\seqsplit{test\_ok\_with\_token}}; verifica che una \texttt{AuthResponse} possa essere creata con campo \texttt{Token}, di tipo \texttt{str}. & Valore di tipo \texttt{str} & S \\
+	TU\_66 & Implementato da \texttt{\seqsplit{test\_ok\_with\_token}}; verifica che una \texttt{AuthResponse} possa essere creata con campo \texttt{Token}, di tipo \texttt{str}. & S \\
 	\hline
-	TU\_67 & Implementato da \texttt{\seqsplit{test\_ok\_no\_token}}; verifica che una \texttt{AuthResponse} possa essere creata con campo \texttt{Errors}, di tipo \texttt{str}. In questo caso il campo \texttt{Ok} della response deve essere \texttt{None} e \texttt{r.errors} deve restituire l'errore & Valore di tipo \texttt{None}, valore di tipo \texttt{str}. & S \\
+	TU\_67 & Implementato da \texttt{\seqsplit{test\_ok\_no\_token}}; verifica che una \texttt{AuthResponse} possa essere creata con campo \texttt{Errors}, di tipo \texttt{str}. In questo caso il campo \texttt{Ok} della response deve essere \texttt{None} e \texttt{r.errors} deve restituire l'errore & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestUsernameValidator} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestUsernameValidator} \\
 	\hline
-	TU\_68 & Implementato da \texttt{\seqsplit{test\_not\_ok\_with\_errors}}; verifica che una \texttt{AuthResponse} possa essere creata con campo \texttt{Errors}, di tipo \texttt{str}. In questo caso il campo \texttt{Ok} della response deve essere \texttt{None} e \texttt{r.errors} deve restituire l'errore & Valore di tipo \texttt{None}, valore di tipo \texttt{str}. & S \\
+	TU\_68 & Implementato da \texttt{\seqsplit{test\_not\_ok\_with\_errors}}; verifica che una \texttt{AuthResponse} possa essere creata con campo \texttt{Errors}, di tipo \texttt{str}. In questo caso il campo \texttt{Ok} della response deve essere \texttt{None} e \texttt{r.errors} deve restituire l'errore & S \\
 	\hline
-	TU\_69 & Implementato da \texttt{\seqsplit{test\_valid}}; verifica che lo schema \texttt{UserRegistrationSchema}  sia valido & Valore booleano. & S \\
+	TU\_69 & Implementato da \texttt{\seqsplit{test\_valid}}; verifica che lo schema \texttt{UserRegistrationSchema}  sia valido & S \\
 	\hline
-	TU\_70 & Implementato da \texttt{\seqsplit{test\_too\_short}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Username} troppo corto (meno di 4 caratteri), lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Username} & S \\
+	TU\_70 & Implementato da \texttt{\seqsplit{test\_too\_short}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Username} troppo corto (meno di 4 caratteri), lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
 	\hline
-	TU\_71 & Implementato da \texttt{\seqsplit{test\_too\_long}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Username} troppo lungo (più di 24 caratteri), lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Username} & S \\
+	TU\_71 & Implementato da \texttt{\seqsplit{test\_too\_long}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Username} troppo lungo (più di 24 caratteri), lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
 	\hline
-	TU\_72 & Implementato da \texttt{\seqsplit{test\_special\_chars\_not\_allowed}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Username} contenente caratteri speciali, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Username} & S \\
+	TU\_72 & Implementato da \texttt{\seqsplit{test\_special\_chars\_not\_allowed}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Username} contenente caratteri speciali, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
 	\hline
-	TU\_73 & Implementato da \texttt{\seqsplit{test\_exactly\_4\_chars}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Username} lungo 4 caratteri, contenga un campo \texttt{Username} uguale al valore con la quale è stata creata. & Valore di tipo \texttt{str} & S \\
+	TU\_73 & Implementato da \texttt{\seqsplit{test\_exactly\_4\_chars}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Username} lungo 4 caratteri, contenga un campo \texttt{Username} uguale al valore con la quale è stata creata. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestPasswordValidator} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestPasswordValidator} \\
 	\hline
-	TU\_74 & Implementato da \texttt{\seqsplit{test\_valid}}; verifica che lo schema \texttt{UserRegistrationSchema} sia valido e il campo \texttt{Password} corrisponda a quello inserito. & Valore booleano & S \\
+	TU\_74 & Implementato da \texttt{\seqsplit{test\_valid}}; verifica che lo schema \texttt{UserRegistrationSchema} sia valido e il campo \texttt{Password} corrisponda a quello inserito. & S \\
 	\hline
-	TU\_75 & Implementato da \texttt{\seqsplit{test\_too\_short}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} troppo corto, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Password} & S \\
+	TU\_75 & Implementato da \texttt{\seqsplit{test\_too\_short}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} troppo corto, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
 	\hline
-	TU\_76 & Implementato da \texttt{\seqsplit{test\_too\_long}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} troppo lungo, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Password} & S \\
+	TU\_76 & Implementato da \texttt{\seqsplit{test\_too\_long}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} troppo lungo, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
 	\hline
-	TU\_77 & Implementato da \texttt{\seqsplit{test\_missing\_uppercase}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} senza almeno una lettera maiuscola, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Password} & S \\
+	TU\_77 & Implementato da \texttt{\seqsplit{test\_missing\_uppercase}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} senza almeno una lettera maiuscola, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
 	\hline
-	TU\_78 & Implementato da \texttt{\seqsplit{test\_missing\_lowercase}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} senza almeno una lettera minuscola, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Password} & S \\
+	TU\_78 & Implementato da \texttt{\seqsplit{test\_missing\_lowercase}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} senza almeno una lettera minuscola, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
 	\hline
-	TU\_79 & Implementato da \texttt{\seqsplit{test\_missing\_digit}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} senza almeno una cifra, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Password} & S \\
+	TU\_79 & Implementato da \texttt{\seqsplit{test\_missing\_digit}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} senza almeno una cifra, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
 	\hline
-	TU\_80 & Implementato da \texttt{\seqsplit{test\_missing\_special\_char}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} senza almeno un carattere speciale, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Password} & S \\
+	TU\_80 & Implementato da \texttt{\seqsplit{test\_missing\_special\_char}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} senza almeno un carattere speciale, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestEmailValidator} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestEmailValidator} \\
 	\hline
-	TU\_81 & Implementato da \texttt{\seqsplit{test\_valid}}; verifica che lo schema \texttt{UserRegistrationSchema} sia valido e il campo \texttt{Email} corrisponda a quello inserito. & Valore booleano & S \\
+	TU\_81 & Implementato da \texttt{\seqsplit{test\_valid}}; verifica che lo schema \texttt{UserRegistrationSchema} sia valido e il campo \texttt{Email} corrisponda a quello inserito. & S \\
 	\hline
-	TU\_82 & Implementato da \texttt{\seqsplit{test\_missing\_at}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Email} senza un simbolo "chiocciola", lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Email} & S \\
+	TU\_82 & Implementato da \texttt{\seqsplit{test\_missing\_at}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Email} senza un simbolo "chiocciola", lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
 	\hline
-	TU\_83 & Implementato da \texttt{\seqsplit{test\_missing\_dot\_in\_domain}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Email} senza un simbolo "punto" dopo la sezione di dominio, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Email} & S \\
+	TU\_83 & Implementato da \texttt{\seqsplit{test\_missing\_dot\_in\_domain}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Email} senza un simbolo "punto" dopo la sezione di dominio, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
 	\hline
-	TU\_84 & Implementato da \texttt{\seqsplit{test\_spaces\_not\_allowed}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Email} contenente spazi, lanci un'eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError} con parametro \texttt{Email} & S \\
+	TU\_84 & Implementato da \texttt{\seqsplit{test\_spaces\_not\_allowed}}; verifica che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Email} contenente spazi, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestConfirmPasswordValidator} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestConfirmPasswordValidator} \\
 	\hline
-	TU\_85 & Implementato da \texttt{\seqsplit{test\_password\_match}}; verifica che lo schema \texttt{UserRegistrationSchema} contenga un campo \texttt{confirmPwd} uguale al campo \texttt{Password} inserito. & Valore booleano & S \\
+	TU\_85 & Implementato da \texttt{\seqsplit{test\_password\_match}}; verifica che lo schema \texttt{UserRegistrationSchema} contenga un campo \texttt{confirmPwd} uguale al campo \texttt{Password} inserito. & S \\
 	\hline
-	TU\_86 & Implementato da \texttt{\seqsplit{test\_password\_mismatch}}; verifica che lo schema \texttt{UserRegistrationSchema} quando presenta un campo \texttt{confirmPwd} non uguale al campo \texttt{Password} inserito, lanci una eccezione di tipo \texttt{ValidationError}. & Eccezione di tipo \texttt{ValidationError}& S \\
+	TU\_86 & Implementato da \texttt{\seqsplit{test\_password\_mismatch}}; verifica che lo schema \texttt{UserRegistrationSchema} quando presenta un campo \texttt{confirmPwd} non uguale al campo \texttt{Password} inserito, lanci una eccezione di tipo \texttt{ValidationError}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestCreateToken} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCreateToken} \\
 	\hline
-	TU\_87 & Implementato da \texttt{\seqsplit{test\_returns\_string}}; verifica che la classe \texttt{TokenUtility}, quando viene chiamato il suo metodo \texttt{create\_token}, restituisca un valore di tipo \texttt{str} & Valore booleano & S \\
+	TU\_87 & Implementato da \texttt{\seqsplit{test\_returns\_string}}; verifica che la classe \texttt{TokenUtility}, quando viene chiamato il suo metodo \texttt{create\_token}, restituisca un valore di tipo \texttt{str} & S \\
 	\hline
-	TU\_88 & Implementato da \texttt{\seqsplit{test\_token\_contains\_username}}; verifica che, quando si decodifica un token attraverso il metodo \texttt{decode}, venga resituito un dizionario contenente anche lo username con il quale il token è stato generato. & Valore booleano & S \\
+	TU\_88 & Implementato da \texttt{\seqsplit{test\_token\_contains\_username}}; verifica che, quando si decodifica un token attraverso il metodo \texttt{decode}, venga resituito un dizionario contenente anche lo username con il quale il token è stato generato. & S \\
 	\hline
-	TU\_89 & Implementato da \texttt{\seqsplit{test\_token\_has\_expiry}}; verifica che, quando si decodifica un token attraverso il metodo \texttt{decode}, venga resituito un dizionario contenente anche il valore indicizzato dalla chiave \texttt{exp}. & Valore booleano & S \\
+	TU\_89 & Implementato da \texttt{\seqsplit{test\_token\_has\_expiry}}; verifica che, quando si decodifica un token attraverso il metodo \texttt{decode}, venga resituito un dizionario contenente anche il valore indicizzato dalla chiave \texttt{exp}. & S \\
 	\hline
-	TU\_90 & Implementato da \texttt{\seqsplit{test\_different\_users\_produce\_different\_tokens}}; verifica che la classe \texttt{TokenUtility}, quando viene chiamato il suo metodo \texttt{create\_token}, restituisca valori diversi per username diversi. & Valore booleano & S \\
+	TU\_90 & Implementato da \texttt{\seqsplit{test\_different\_users\_produce\_different\_tokens}}; verifica che la classe \texttt{TokenUtility}, quando viene chiamato il suo metodo \texttt{create\_token}, restituisca valori diversi per username diversi. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestDecodeToken} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDecodeToken} \\
 	\hline
-	TU\_91 & Implementato da \texttt{\seqsplit{test\_valid\_token\_returns\_username}}; verifica che la classe \texttt{TokenUtility}, quando viene chiamato il suo metodo \texttt{decode\_token}, restituisca lo username che è stato usato per creare il token. & Valore booleano & S \\
+	TU\_91 & Implementato da \texttt{\seqsplit{test\_valid\_token\_returns\_username}}; verifica che la classe \texttt{TokenUtility}, quando viene chiamato il suo metodo \texttt{decode\_token}, restituisca lo username che è stato usato per creare il token. & S \\
 	\hline
-	TU\_92 & Implementato da \texttt{\seqsplit{test\_expired\_token\_returns\_none}}; verifica che un token scaduto restituisca \texttt{None} quando viene decodificato. & Valore di tipo \texttt{None}& S \\
+	TU\_92 & Implementato da \texttt{\seqsplit{test\_expired\_token\_returns\_none}}; verifica che un token scaduto restituisca \texttt{None} quando viene decodificato. & S \\
 	\hline
-	TU\_93 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_returns\_none}}; verifica che un token non valido restituisca \texttt{None} quando viene decodificato. & Valore di tipo \texttt{None}& S \\
+	TU\_93 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_returns\_none}}; verifica che un token non valido restituisca \texttt{None} quando viene decodificato. & S \\
 	\hline
-	TU\_94 & Implementato da \texttt{\seqsplit{test\_empty\_string\_returns\_none}}; verifica che un token vuoto restituisca \texttt{None} quando viene decodificato. & Valore di tipo \texttt{None}& S \\
+	TU\_94 & Implementato da \texttt{\seqsplit{test\_empty\_string\_returns\_none}}; verifica che un token vuoto restituisca \texttt{None} quando viene decodificato. & S \\
 	\hline
-	TU\_95 & Implementato da \texttt{\seqsplit{test\_token\_signed\_with\_wrong\_key\_retunrs\_none}}; verifica che un token firmato con una chiave sbagliata restituisca \texttt{None} quando viene decodificato. & Valore di tipo \texttt{None}& S \\
+	TU\_95 & Implementato da \texttt{\seqsplit{test\_token\_signed\_with\_wrong\_key\_retunrs\_none}}; verifica che un token firmato con una chiave sbagliata restituisca \texttt{None} quando viene decodificato. & S \\
 	\hline
-	TU\_96 & Implementato da \texttt{\seqsplit{test\_roundtrip\_create\_and\_decode}}; verifica che un token valido che viene successivamente decodificato restituisca il valore usato per creare il token. & Valore di tipo \texttt{str} & S \\
+	TU\_96 & Implementato da \texttt{\seqsplit{test\_roundtrip\_create\_and\_decode}}; verifica che un token valido che viene successivamente decodificato restituisca il valore usato per creare il token. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestFindByUsername} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestFindByUsername} \\
 	\hline
-	TU\_97 & Implementato da \texttt{\seqsplit{test\_returns\_utente\_when\_found}}; verifica che l'adapter, quando presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca un oggetto \texttt{User} relativo a quell'utente. & Valore di tipo \texttt{User} & S \\
+	TU\_97 & Implementato da \texttt{\seqsplit{test\_returns\_utente\_when\_found}}; verifica che l'adapter, quando presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca un oggetto \texttt{User} relativo a quell'utente. & S \\
 	\hline
-	TU\_98 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica che l'adapter, quando non presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca \texttt{None}. & Valore di tipo \texttt{None} & S \\
+	TU\_98 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica che l'adapter, quando non presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca \texttt{None}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestUsernameExist} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestUsernameExist} \\
 	\hline
-	TU\_99 & Implementato da \texttt{\seqsplit{test\_returns\_true\_when\_found}}; verifica che il metodo \texttt{username\_exists} dell'adapter, quando presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca \texttt{True}. & Valore booleano & S \\
+	TU\_99 & Implementato da \texttt{\seqsplit{test\_returns\_true\_when\_found}}; verifica che il metodo \texttt{username\_exists} dell'adapter, quando presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca \texttt{True}. & S \\
 	\hline
-	TU\_100 & Implementato da \texttt{\seqsplit{test\_returns\_false\_when\_not\_found}}; verifica che il metodo \texttt{username\_exists} dell'adapter, quando non presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca \texttt{False}. & Valore booleano & S \\
+	TU\_100 & Implementato da \texttt{\seqsplit{test\_returns\_false\_when\_not\_found}}; verifica che il metodo \texttt{username\_exists} dell'adapter, quando non presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca \texttt{False}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestEmailExist} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestEmailExist} \\
 	\hline
-	TU\_101 & Implementato da \texttt{\seqsplit{test\_returns\_true\_when\_found}}; verifica che il metodo \texttt{email\_exists} dell'adapter, quando presente un \texttt{Utente} con il valore \texttt{email} richiesto nel database, restituisca \texttt{True}. & Valore booleano & S \\
+	TU\_101 & Implementato da \texttt{\seqsplit{test\_returns\_true\_when\_found}}; verifica che il metodo \texttt{email\_exists} dell'adapter, quando presente un \texttt{Utente} con il valore \texttt{email} richiesto nel database, restituisca \texttt{True}. & S \\
 	\hline
-	TU\_102 & Implementato da \texttt{\seqsplit{test\_returns\_false\_when\_not\_found}}; verifica che il metodo \texttt{email\_exists} dell'adapter, quando non presente un \texttt{Utente} con il valore \texttt{email} richiesto nel database, restituisca \texttt{False}. & Valore booleano & S \\
+	TU\_102 & Implementato da \texttt{\seqsplit{test\_returns\_false\_when\_not\_found}}; verifica che il metodo \texttt{email\_exists} dell'adapter, quando non presente un \texttt{Utente} con il valore \texttt{email} richiesto nel database, restituisca \texttt{False}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestAddUser} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestAddUser} \\
 	\hline
-	TU\_103 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica che l'adapter, quando viene aggiunto correttamente un valore \texttt{User}, restituisca \texttt{True}. & Valore booleano & S \\
+	TU\_103 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica che l'adapter, quando viene aggiunto correttamente un valore \texttt{User}, restituisca \texttt{True}. & S \\
 	\hline
-	TU\_104 & Implementato da \texttt{\seqsplit{test\_commits\_on\_success}}; verifica che l'adapter, quando viene aggiunto correttamente un valore \texttt{User}, chiami il metodo \texttt{commits} del database. & Valore booleano & S \\
+	TU\_104 & Implementato da \texttt{\seqsplit{test\_commits\_on\_success}}; verifica che l'adapter, quando viene aggiunto correttamente un valore \texttt{User}, chiami il metodo \texttt{commits} del database. & S \\
 	\hline
-	TU\_105 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_exception}}; verifica che l'adapter, quando non viene aggiunto correttamente un valore \texttt{User}, restituisca \texttt{False}. & Valore booleano & S \\
+	TU\_105 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_exception}}; verifica che l'adapter, quando non viene aggiunto correttamente un valore \texttt{User}, restituisca \texttt{False}. & S \\
 	\hline
-	TU\_106 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_exception}}; verifica che l'adapter, quando non viene aggiunto correttamente un valore \texttt{User}, chiami il metodo \texttt{rollback} del database. & Valore booleano & S \\
+	TU\_106 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_exception}}; verifica che l'adapter, quando non viene aggiunto correttamente un valore \texttt{User}, chiami il metodo \texttt{rollback} del database. & S \\
 	\hline
-	TU\_107 & Implementato da \texttt{\seqsplit{test\_password\_is\_hashed}}; verifica che l'adapter, quando viene aggiunto correttamente un valore \texttt{User}, chiami il metodo \texttt{hash}. & Valore booleano & S \\
+	TU\_107 & Implementato da \texttt{\seqsplit{test\_password\_is\_hashed}}; verifica che l'adapter, quando viene aggiunto correttamente un valore \texttt{User}, chiami il metodo \texttt{hash}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestDeleteUser} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDeleteUser} \\
 	\hline
-	TU\_108 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica che l'adapter, quando viene eliminato correttamente un valore \texttt{User}, restituisca \texttt{True}. & Valore booleano & S \\
+	TU\_108 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica che l'adapter, quando viene eliminato correttamente un valore \texttt{User}, restituisca \texttt{True}. & S \\
 	\hline
-	TU\_109 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_exception}}; verifica che l'adapter, quando non viene eliminato correttamente un valore \texttt{User}, restituisca \texttt{False}. & Valore booleano & S \\
+	TU\_109 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_exception}}; verifica che l'adapter, quando non viene eliminato correttamente un valore \texttt{User}, restituisca \texttt{False}. & S \\
 	\hline
-	TU\_110 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_exception}}; verifica che l'adapter, quando non viene eliminato correttamente un valore \texttt{User}, chiami il metodo \texttt{rollback} del database. & Valore booleano & S \\
+	TU\_110 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_exception}}; verifica che l'adapter, quando non viene eliminato correttamente un valore \texttt{User}, chiami il metodo \texttt{rollback} del database. & S \\
 	\hline
-	TU\_111 & Implementato da \texttt{\seqsplit{test\_commits\_on\_success}}; verifica che l'adapter, quando viene eliminato correttamente un valore \texttt{User}, chiami il metodo \texttt{commits} del database. & Valore booleano & S \\
+	TU\_111 & Implementato da \texttt{\seqsplit{test\_commits\_on\_success}}; verifica che l'adapter, quando viene eliminato correttamente un valore \texttt{User}, chiami il metodo \texttt{commits} del database. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestFindByUsername} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestFindByUsername} \\
 	\hline
-	TU\_112 & Implementato da \texttt{\seqsplit{test\_returns\_utente\_when\_found}}; verifica che il metodo \texttt{find\_by\_username} dell'adapter, quando presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca l'oggetto \texttt{User} corrispondente. & Valore di tipo \texttt{User}& S \\
+	TU\_112 & Implementato da \texttt{\seqsplit{test\_returns\_utente\_when\_found}}; verifica che il metodo \texttt{find\_by\_username} dell'adapter, quando presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca l'oggetto \texttt{User} corrispondente. & S \\
 	\hline
-	TU\_113 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica che il metodo \texttt{find\_by\_username} dell'adapter, quando non presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca \texttt{None}. & Valore di tipo \texttt{None}& S \\
+	TU\_113 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica che il metodo \texttt{find\_by\_username} dell'adapter, quando non presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database, restituisca \texttt{None}. & S \\
 	\hline
-	TU\_114 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_executor}}; verifica che il metodo \texttt{find\_by\_username} dell'adapter, chiami il metodo \texttt{execute\_one\_raw}. & Valore booleano & S \\
+	TU\_114 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_executor}}; verifica che il metodo \texttt{find\_by\_username} dell'adapter, chiami il metodo \texttt{execute\_one\_raw}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestFindByEmail} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestFindByEmail} \\
 	\hline
-	TU\_115 & Implementato da \texttt{\seqsplit{test\_returns\_utente\_when\_found}}; verifica che il metodo \texttt{find\_by\_email} dell'adapter, quando presente un \texttt{Utente} con il valore \texttt{email} richiesto nel database, restituisca l'oggetto \texttt{User} corrispondente. & Valore di tipo \texttt{User} & S \\
+	TU\_115 & Implementato da \texttt{\seqsplit{test\_returns\_utente\_when\_found}}; verifica che il metodo \texttt{find\_by\_email} dell'adapter, quando presente un \texttt{Utente} con il valore \texttt{email} richiesto nel database, restituisca l'oggetto \texttt{User} corrispondente. & S \\
 	\hline
-	TU\_116 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica che il metodo \texttt{find\_by\_email} dell'adapter, quando non presente un \texttt{Utente} con il valore \texttt{email} richiesto nel database, restituisca \texttt{None}. & Valore di tipo \texttt{None} & S \\
+	TU\_116 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica che il metodo \texttt{find\_by\_email} dell'adapter, quando non presente un \texttt{Utente} con il valore \texttt{email} richiesto nel database, restituisca \texttt{None}. & S \\
 	\hline
-	TU\_117 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_executor}}; verifica che il metodo \texttt{find\_by\_email} dell'adapter, chiami il metodo \texttt{execute\_one\_raw}. & Valore booleano & S \\
+	TU\_117 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_executor}}; verifica che il metodo \texttt{find\_by\_email} dell'adapter, chiami il metodo \texttt{execute\_one\_raw}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestSave} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestSave} \\
 	\hline
-	TU\_118 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica che l'adapter, quando viene salvato correttamente un valore \texttt{User}, restituisca \texttt{True}. & Valore booleano & S \\
+	TU\_118 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica che l'adapter, quando viene salvato correttamente un valore \texttt{User}, restituisca \texttt{True}. & S \\
 	\hline
-	TU\_119 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_failure}}; verifica che l'adapter, quando non viene salvato correttamente un valore \texttt{User}, restituisca \texttt{False}. & Valore booleano & S \\
+	TU\_119 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_failure}}; verifica che l'adapter, quando non viene salvato correttamente un valore \texttt{User}, restituisca \texttt{False}. & S \\
 	\hline
-	TU\_120 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_executor}}; verifica che il metodo \texttt{save} dell'adapter, chiami il metodo \texttt{mutate\_one\_raw}. & Valore booleano & S \\
+	TU\_120 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_executor}}; verifica che il metodo \texttt{save} dell'adapter, chiami il metodo \texttt{mutate\_one\_raw}. & S \\
 	\hline
-	TU\_121 & Implementato da \texttt{\seqsplit{test\_password\_is\_hashed}}; verifica che il metodo \texttt{save} dell'adapter, chiami il metodo \texttt{hash}. & Valore booleano & S \\
+	TU\_121 & Implementato da \texttt{\seqsplit{test\_password\_is\_hashed}}; verifica che il metodo \texttt{save} dell'adapter, chiami il metodo \texttt{hash}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestCheckUser} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCheckUser} \\
 	\hline
-	TU\_122 & Implementato da \texttt{\seqsplit{test\_returns\_username\_with\_valid\_credentials}}; verifica che il metodo \texttt{check\_user} della classe \texttt{UserService} restituisca il valore \texttt{username} dell'oggetto \texttt{User} passato come parametro. & Valore di tipo \texttt{str} & S \\
+	TU\_122 & Implementato da \texttt{\seqsplit{test\_returns\_username\_with\_valid\_credentials}}; verifica che il metodo \texttt{check\_user} della classe \texttt{UserService} restituisca il valore \texttt{username} dell'oggetto \texttt{User} passato come parametro. & S \\
 	\hline
-	TU\_123 & Implementato da \texttt{\seqsplit{test\_raises\_when\_user\_not\_found}}; verifica che il metodo \texttt{check\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{InvalidCredentialsError} in caso di utente non trovato nel databse. & Eccezione di tipo \texttt{InvalidCredentialsError} & S \\
+	TU\_123 & Implementato da \texttt{\seqsplit{test\_raises\_when\_user\_not\_found}}; verifica che il metodo \texttt{check\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{InvalidCredentialsError} in caso di utente non trovato nel databse. & S \\
 	\hline
-	TU\_124 & Implementato da \texttt{\seqsplit{test\_raises\_when\_password\_wrong}}; verifica che il metodo \texttt{check\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{InvalidCredentialsError} in caso di password errata. & Eccezione di tipo \texttt{InvalidCredentialsError} & S \\
+	TU\_124 & Implementato da \texttt{\seqsplit{test\_raises\_when\_password\_wrong}}; verifica che il metodo \texttt{check\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{InvalidCredentialsError} in caso di password errata. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestRegisterUser} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestRegisterUser} \\
 	\hline
-	TU\_125 & Implementato da \texttt{\seqsplit{test\_succeeds\_with\_valid\_data}}; verifica che il metodo \texttt{register\_user} della classe \texttt{UserService} non sollevi eccezioni in caso di credenziali valide. & Valore booleano & S \\
+	TU\_125 & Implementato da \texttt{\seqsplit{test\_succeeds\_with\_valid\_data}}; verifica che il metodo \texttt{register\_user} della classe \texttt{UserService} non sollevi eccezioni in caso di credenziali valide. & S \\
 	\hline
-	TU\_126 & Implementato da \texttt{\seqsplit{test\_raises\_when\_username\_exists}}; verifica che il metodo \texttt{register\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UsernameAlreadyExistsError} in caso di username già presente nel database. & Eccezione di tipo \texttt{UsernameAlreadyExistsError} & S \\
+	TU\_126 & Implementato da \texttt{\seqsplit{test\_raises\_when\_username\_exists}}; verifica che il metodo \texttt{register\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UsernameAlreadyExistsError} in caso di username già presente nel database. & S \\
 	\hline
-	TU\_127 & Implementato da \texttt{\seqsplit{test\_raises\_when\_email\_domain\_invalid}}; verifica che il metodo \texttt{register\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{InvalidEmailFormatError} in caso di email non valida . & Eccezione di tipo \texttt{InvalidEmailFormatError} & S \\
+	TU\_127 & Implementato da \texttt{\seqsplit{test\_raises\_when\_email\_domain\_invalid}}; verifica che il metodo \texttt{register\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{InvalidEmailFormatError} in caso di email non valida . & S \\
 	\hline
-	TU\_128 & Implementato da \texttt{\seqsplit{test\_raises\_when\_email\_exists}}; verifica che il metodo \texttt{register\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{EmailAlreadyExistsError} in caso di email già presente nel database. & Eccezione di tipo \texttt{EmailAlreadyExistsError} & S \\
+	TU\_128 & Implementato da \texttt{\seqsplit{test\_raises\_when\_email\_exists}}; verifica che il metodo \texttt{register\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{EmailAlreadyExistsError} in caso di email già presente nel database. & S \\
 	\hline
-	TU\_129 & Implementato da \texttt{\seqsplit{test\_raises\_when\_add\_user\_fails}}; verifica che il metodo \texttt{register\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UserCreationError} in caso di errore nella aggiunta dell'utente al database. & Eccezione di tipo \texttt{UserCreationError} & S \\
+	TU\_129 & Implementato da \texttt{\seqsplit{test\_raises\_when\_add\_user\_fails}}; verifica che il metodo \texttt{register\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UserCreationError} in caso di errore nella aggiunta dell'utente al database. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestDeleteUser} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDeleteUser} \\
 	\hline
-	TU\_130 & Implementato da \texttt{\seqsplit{test\_succeeds\_when\_user\_exists}}; verifica che il metodo \texttt{delete\_user} della classe \texttt{UserService} non sollevi eccezioni in caso di eliminazione di un utente andata a buon fine. & Valore booleano & S \\
+	TU\_130 & Implementato da \texttt{\seqsplit{test\_succeeds\_when\_user\_exists}}; verifica che il metodo \texttt{delete\_user} della classe \texttt{UserService} non sollevi eccezioni in caso di eliminazione di un utente andata a buon fine. & S \\
 	\hline
-	TU\_131 & Implementato da \texttt{\seqsplit{test\_raises\_when\_user\_not\_found}}; verifica che il metodo \texttt{delete\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UserNotFoundError} in caso di richiesta di eliminazione di un utente non presente nel database. & Eccezione di tipo \texttt{UserNotFoundError} & S \\
+	TU\_131 & Implementato da \texttt{\seqsplit{test\_raises\_when\_user\_not\_found}}; verifica che il metodo \texttt{delete\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UserNotFoundError} in caso di richiesta di eliminazione di un utente non presente nel database. & S \\
 	\hline
-	TU\_132 & Implementato da \texttt{\seqsplit{test\_raises\_when\_delete\_fails}}; verifica che il metodo \texttt{delete\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UserDeletionError} in caso di errore nella eliminazione dell'utente dal database. & Eccezione di tipo \texttt{UserDeletionError} & S \\
+	TU\_132 & Implementato da \texttt{\seqsplit{test\_raises\_when\_delete\_fails}}; verifica che il metodo \texttt{delete\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UserDeletionError} in caso di errore nella eliminazione dell'utente dal database. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestCartAdapter} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartAdapter} \\
 	\hline
-	TU\_133 & Implementato da \texttt{\seqsplit{test\_get\_products\_calls\_repo}}; verifica che il metodo \texttt{get\_products} della classe \texttt{CartAdapter} chiami il database. & Valore booleano & S \\
+	TU\_133 & Implementato da \texttt{\seqsplit{test\_get\_products\_calls\_repo}}; verifica che il metodo \texttt{get\_products} della classe \texttt{CartAdapter} chiami il database. & S \\
 	\hline
-	TU\_134 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_mapped\_products}}; verifica che il metodo \texttt{get\_products} della classe \texttt{CartAdapter} restituisca una lista di oggetti di tipo \texttt{CartProduct} con valori mappati correttamente. & Lista di oggetti di tipo \texttt{CartProduct} & S \\
+	TU\_134 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_mapped\_products}}; verifica che il metodo \texttt{get\_products} della classe \texttt{CartAdapter} restituisca una lista di oggetti di tipo \texttt{CartProduct} con valori mappati correttamente. & S \\
 	\hline
-	TU\_135 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_empty\_list}}; verifica che il metodo \texttt{get\_products} della classe \texttt{CartAdapter}, in caso di database vuoto, restituisca una lista vuota. & Lista vuota & S \\
+	TU\_135 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_empty\_list}}; verifica che il metodo \texttt{get\_products} della classe \texttt{CartAdapter}, in caso di database vuoto, restituisca una lista vuota. & S \\
 	\hline
-	TU\_136 & Implementato da \texttt{\seqsplit{test\_add\_product\_returns\_cart\_product}}; verifica che il metodo \texttt{add\_product} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct}. & Oggetto di tipo \texttt{CartProduct} & S \\
+	TU\_136 & Implementato da \texttt{\seqsplit{test\_add\_product\_returns\_cart\_product}}; verifica che il metodo \texttt{add\_product} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct}. & S \\
 	\hline
-	TU\_137 & Implementato da \texttt{\seqsplit{test\_add\_product\_returns\_mapped\_product}}; verifica che il metodo \texttt{add\_product} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct} con i valori mappati correttamente. & Oggetto di tipo \texttt{CartProduct} & S \\
+	TU\_137 & Implementato da \texttt{\seqsplit{test\_add\_product\_returns\_mapped\_product}}; verifica che il metodo \texttt{add\_product} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct} con i valori mappati correttamente. & S \\
 	\hline
-	TU\_138 & Implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_cart\_product}}; verifica che il metodo \texttt{remove\_product} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct}. & Oggetto di tipo \texttt{CartProduct} & S \\
+	TU\_138 & Implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_cart\_product}}; verifica che il metodo \texttt{remove\_product} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct}. & S \\
 	\hline
-	TU\_139 & Implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_mapped\_product}}; verifica che il metodo \texttt{remove\_product} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct} con i valori mappati correttamente. & Oggetto di tipo \texttt{CartProduct} & S \\
+	TU\_139 & Implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_mapped\_product}}; verifica che il metodo \texttt{remove\_product} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct} con i valori mappati correttamente. & S \\
 	\hline
-	TU\_140 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_product}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct}. & Oggetto di tipo \texttt{CartProduct} & S \\
+	TU\_140 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_product}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct}. & S \\
 	\hline
-	TU\_141 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_mapped\_product}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct} con i valori mappati correttamente. & Oggetto di tipo \texttt{CartProduct} & S \\
+	TU\_141 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_mapped\_product}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct} con i valori mappati correttamente. & S \\
 	\hline
-	TU\_142 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_subtract\_calls\_repo}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartAdapter} chiami il database fornendo correttamente il tipo di operazione \texttt{CartUpdateOperation} richiesto. & Valore booleano & S \\
+	TU\_142 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_subtract\_calls\_repo}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartAdapter} chiami il database fornendo correttamente il tipo di operazione \texttt{CartUpdateOperation} richiesto. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestCartRepoPort} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartRepoPort} \\
 	\hline
-	TU\_143 & Implementato da \texttt{\seqsplit{test\_get\_products\_can\_be\_implemented}}; verifica che il metodo \texttt{get\_products} della classe astratta  \texttt{CartRepoPort} possa essere implementato da una sottoclasse. & Valore booleano & S \\
+	TU\_143 & Implementato da \texttt{\seqsplit{test\_get\_products\_can\_be\_implemented}}; verifica che il metodo \texttt{get\_products} della classe astratta  \texttt{CartRepoPort} possa essere implementato da una sottoclasse. & S \\
 	\hline
-	TU\_144 & Implementato da \texttt{\seqsplit{test\_add\_product\_can\_be\_implemented}}; verifica che il metodo \texttt{add\_product} della classe astratta  \texttt{CartRepoPort} possa essere implementato da una sottoclasse. & Valore booleano & S \\
+	TU\_144 & Implementato da \texttt{\seqsplit{test\_add\_product\_can\_be\_implemented}}; verifica che il metodo \texttt{add\_product} della classe astratta  \texttt{CartRepoPort} possa essere implementato da una sottoclasse. & S \\
 	\hline
-	TU\_145 & Implementato da \texttt{\seqsplit{test\_remove\_product\_can\_be\_implemented}}; verifica che il metodo \texttt{remove\_product} della classe astratta  \texttt{CartRepoPort} possa essere implementato da una sottoclasse. & Valore booleano & S \\
+	TU\_145 & Implementato da \texttt{\seqsplit{test\_remove\_product\_can\_be\_implemented}}; verifica che il metodo \texttt{remove\_product} della classe astratta  \texttt{CartRepoPort} possa essere implementato da una sottoclasse. & S \\
 	\hline
-	TU\_146 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_can\_be\_implemented}}; verifica che il metodo \texttt{update\_quantity} della classe astratta  \texttt{CartRepoPort} possa essere implementato da una sottoclasse. & Valore booleano & S \\
+	TU\_146 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_can\_be\_implemented}}; verifica che il metodo \texttt{update\_quantity} della classe astratta  \texttt{CartRepoPort} possa essere implementato da una sottoclasse. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestCartRepository} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartRepository} \\
 	\hline
-	TU\_147 & Implementato da \texttt{\seqsplit{test\_get\_products\_calls\_db}}; verifica che il metodo \texttt{get\_products} della classe \texttt{CartRepository} chiami il database. & Valore booleano & S \\
+	TU\_147 & Implementato da \texttt{\seqsplit{test\_get\_products\_calls\_db}}; verifica che il metodo \texttt{get\_products} della classe \texttt{CartRepository} chiami il database. & S \\
 	\hline
-	TU\_148 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_list}}; verifica che il metodo \texttt{get\_products} della classe \texttt{CartRepository} restituisca una lista di oggetti di tipo \texttt{UserCartRepository, CatalogProductRepository}. & Lista di oggetti di tipo \texttt{UserCartRepository, CatalogProductRepository} & S \\
+	TU\_148 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_list}}; verifica che il metodo \texttt{get\_products} della classe \texttt{CartRepository} restituisca una lista di oggetti di tipo \texttt{UserCartRepository, CatalogProductRepository}. & S \\
 	\hline
-	TU\_149 & Implementato da \texttt{\seqsplit{test\_add\_product\_calls\_and\_commit\_refresh}}; verifica che il metodo \texttt{add\_product} della classe \texttt{CartRepository} chiami il \texttt{commit} e il \texttt{refresh} del database. & Valore booleano  & S \\
+	TU\_149 & Implementato da \texttt{\seqsplit{test\_add\_product\_calls\_and\_commit\_refresh}}; verifica che il metodo \texttt{add\_product} della classe \texttt{CartRepository} chiami il \texttt{commit} e il \texttt{refresh} del database. & S \\
 	\hline
-	TU\_150 & Implementato da \texttt{\seqsplit{test\_add\_product\_returns\_product\_repository}}; verifica che il metodo \texttt{add\_product} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository}. & Oggetto di tipo \texttt{CartProductRepository} & S \\
+	TU\_150 & Implementato da \texttt{\seqsplit{test\_add\_product\_returns\_product\_repository}}; verifica che il metodo \texttt{add\_product} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository}. & S \\
 	\hline
-	TU\_151 & Implementato da \texttt{\seqsplit{test\_add\_product\_correct\_fields}}; verifica che il metodo \texttt{add\_product} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{CartProductRepository} & S \\
+	TU\_151 & Implementato da \texttt{\seqsplit{test\_add\_product\_correct\_fields}}; verifica che il metodo \texttt{add\_product} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository} con i campi dati uguali rispetto ai parametri passati. & S \\
 	\hline
-	TU\_152 & Implementato da \texttt{\seqsplit{test\_add\_product\_not\_existing}}; verifica che il metodo \texttt{add\_product} della classe \texttt{CartRepository}, in caso di prodotto non presente sul database, sollevi un'eccezione di tipo \texttt{ProductNotFoundException}. & Eccezione di tipo \texttt{ProductNotFoundException} & S \\
+	TU\_152 & Implementato da \texttt{\seqsplit{test\_add\_product\_not\_existing}}; verifica che il metodo \texttt{add\_product} della classe \texttt{CartRepository}, in caso di prodotto non presente sul database, sollevi un'eccezione di tipo \texttt{ProductNotFoundException}. & S \\
 	\hline
-	TU\_153 & Implementato da \texttt{\seqsplit{test\_remove\_product\_calls\_and\_commit}}; verifica che il metodo \texttt{remove\_product} della classe \texttt{CartRepository} chiami il \texttt{commit} del database. & Valore booleano & S \\
+	TU\_153 & Implementato da \texttt{\seqsplit{test\_remove\_product\_calls\_and\_commit}}; verifica che il metodo \texttt{remove\_product} della classe \texttt{CartRepository} chiami il \texttt{commit} del database. & S \\
 	\hline
-	TU\_154 & Implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_product\_repository}}; verifica che il metodo \texttt{remove\_product} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository}. & Oggetto di tipo \texttt{CartProductRepository} & S \\
+	TU\_154 & Implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_product\_repository}}; verifica che il metodo \texttt{remove\_product} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository}. & S \\
 	\hline
-	TU\_155 & Implementato da \texttt{\seqsplit{test\_remove\_product\_correct\_fields}}; verifica che il metodo \texttt{remove\_product} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{CartProductRepository} & S \\
+	TU\_155 & Implementato da \texttt{\seqsplit{test\_remove\_product\_correct\_fields}}; verifica che il metodo \texttt{remove\_product} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository} con i campi dati uguali rispetto ai parametri passati. & S \\
 	\hline
-	TU\_156 & Implementato da \texttt{\seqsplit{test\_remove\_product\_not\_in\_cart}}; verifica che il metodo \texttt{remove\_product} della classe \texttt{CartRepository}, in caso di prodotto non presente nel carrello dell'utente, lanci un'eccezione di tipo \texttt{ProductNotInCartException}. & Eccezione di tipo \texttt{ProductNotInCartException} & S \\
+	TU\_156 & Implementato da \texttt{\seqsplit{test\_remove\_product\_not\_in\_cart}}; verifica che il metodo \texttt{remove\_product} della classe \texttt{CartRepository}, in caso di prodotto non presente nel carrello dell'utente, lanci un'eccezione di tipo \texttt{ProductNotInCartException}. & S \\
 	\hline
-	TU\_157 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_calls\_and\_commit\_refresh}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartRepository} chiami il \texttt{commit} del database. & Valore booleano & S \\
+	TU\_157 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_calls\_and\_commit\_refresh}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartRepository} chiami il \texttt{commit} del database. & S \\
 	\hline
-	TU\_158 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_product\_repository}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository}. & Oggetto di tipo \texttt{CartProductRepository} & S \\
+	TU\_158 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_product\_repository}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository}. & S \\
 	\hline
-	TU\_159 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_correct\_fields}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{CartProductRepository} & S \\
+	TU\_159 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_correct\_fields}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository} con i campi dati uguali rispetto ai parametri passati. & S \\
 	\hline
-	TU\_160 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_product\_not\_in\_cart}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartRepository}, in caso di prodotto non presente nel carrello dell'utente, lanci un'eccezione di tipo \texttt{ProductNotInCartException}. & Eccezione di tipo \texttt{ProductNotInCartException} & S \\
+	TU\_160 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_product\_not\_in\_cart}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartRepository}, in caso di prodotto non presente nel carrello dell'utente, lanci un'eccezione di tipo \texttt{ProductNotInCartException}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestCartApi} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartApi} \\
 	\hline
-	TU\_161 & Implementato da \texttt{\seqsplit{test\_get\_cart\_service\_unit}}; verifica che il metodo \texttt{get\_cart\_service} della classe \texttt{CartApi} restituisca l'istanza corrente di \texttt{CartService}. & Oggetto di tipo \texttt{CartService} & S \\
+	TU\_161 & Implementato da \texttt{\seqsplit{test\_get\_cart\_service\_unit}}; verifica che il metodo \texttt{get\_cart\_service} della classe \texttt{CartApi} restituisca l'istanza corrente di \texttt{CartService}. & S \\
 	\hline
-	tu\_162 & implementato da \texttt{\seqsplit{test\_get\_user\_cart}}; verifica che il metodo \texttt{get\_user\_cart} della classe \texttt{CartApi} restituisca un oggetto di tipo \texttt{CartResponse} con i valori corretti. & Oggetto di tipo \texttt{CartResponse} & S \\
+	tu\_162 & implementato da \texttt{\seqsplit{test\_get\_user\_cart}}; verifica che il metodo \texttt{get\_user\_cart} della classe \texttt{CartApi} restituisca un oggetto di tipo \texttt{CartResponse} con i valori corretti. & S \\
 	\hline
-	tu\_163 & implementato da \texttt{\seqsplit{test\_add\_product\_to\_cart}}; verifica che il metodo \texttt{add\_product\_to\_cart} della classe \texttt{CartApi} restituisca un oggetto di tipo \texttt{CartProductResponse} con i valori corretti. & Oggetto di tipo \texttt{CartProductResponse} & S \\
+	tu\_163 & implementato da \texttt{\seqsplit{test\_add\_product\_to\_cart}}; verifica che il metodo \texttt{add\_product\_to\_cart} della classe \texttt{CartApi} restituisca un oggetto di tipo \texttt{CartProductResponse} con i valori corretti. & S \\
 	\hline
-	tu\_164 & implementato da \texttt{\seqsplit{test\_add\_product\_not\_found}}; verifica che il metodo \texttt{add\_product\_to\_cart} della classe \texttt{CartApi}, in caso di prodotto non presente nel database, lanci un'eccezione di tipo \texttt{HTTPException (404)}. & Eccezione di tipo \texttt{HTTPException(404)} & S \\
+	tu\_164 & implementato da \texttt{\seqsplit{test\_add\_product\_not\_found}}; verifica che il metodo \texttt{add\_product\_to\_cart} della classe \texttt{CartApi}, in caso di prodotto non presente nel database, lanci un'eccezione di tipo \texttt{HTTPException (404)}. & S \\
 	\hline
-	tu\_165 & implementato da \texttt{\seqsplit{test\_remove\_product\_from\_cart}}; verifica che il metodo \texttt{remove\_product\_from\_cart} della classe \texttt{CartApi} restituisca un oggetto di tipo \texttt{CartProductResponse} con i valori corretti. & Oggetto di tipo \texttt{CartProductResponse} & S \\
+	tu\_165 & implementato da \texttt{\seqsplit{test\_remove\_product\_from\_cart}}; verifica che il metodo \texttt{remove\_product\_from\_cart} della classe \texttt{CartApi} restituisca un oggetto di tipo \texttt{CartProductResponse} con i valori corretti. & S \\
 	\hline
-	tu\_166 & implementato da \texttt{\seqsplit{test\_remove\_product\_not\_in\_cart}}; verifica che il metodo \texttt{remove\_product\_from\_cart} della classe \texttt{CartApi}, in caso di oggetto non presente nel carrello dell'utente,  restituisca un'eccezione di tipo \texttt{HTTPException(404)}. & Eccezione di tipo \texttt{HTTPException(404)} & S \\
+	tu\_166 & implementato da \texttt{\seqsplit{test\_remove\_product\_not\_in\_cart}}; verifica che il metodo \texttt{remove\_product\_from\_cart} della classe \texttt{CartApi}, in caso di oggetto non presente nel carrello dell'utente,  restituisca un'eccezione di tipo \texttt{HTTPException(404)}. & S \\
 	\hline
-	tu\_167 & implementato da \texttt{\seqsplit{test\_update\_product\_quantity}}; verifica che il metodo \texttt{update\_cart\_quantity} della classe \texttt{CartApi}, restituisca un oggetto di tipo \texttt{CartProductResponse} & Oggetto di tipo \texttt{CartProductResponse}.1 & S \\
+	tu\_167 & implementato da \texttt{\seqsplit{test\_update\_product\_quantity}}; verifica che il metodo \texttt{update\_cart\_quantity} della classe \texttt{CartApi}, restituisca un oggetto di tipo \texttt{CartProductResponse} & S \\
 	\hline
-	tu\_168 & implementato da \texttt{\seqsplit{test\_update\_product\_not\_in\_cart}}; verifica che il metodo \texttt{update\_cart\_quantity} della classe \texttt{CartApi}, in caso di prodotto non presente nel carrello dell'utente, restituisca un'eccezione di tipo \texttt{HTTPException(404)}. & Eccezione di tipo \texttt{HTTPException(404)} & S \\
+	tu\_168 & implementato da \texttt{\seqsplit{test\_update\_product\_not\_in\_cart}}; verifica che il metodo \texttt{update\_cart\_quantity} della classe \texttt{CartApi}, in caso di prodotto non presente nel carrello dell'utente, restituisca un'eccezione di tipo \texttt{HTTPException(404)}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestCartService} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartService} \\
 	\hline
-	tu\_169 & implementato da \texttt{\seqsplit{test\_get\_products\_returns\_empty\_list}}; verifica che il metodo \texttt{get\_cart\_products} della classe \texttt{CartService} restituisca una lista. & Lista & S \\
+	tu\_169 & implementato da \texttt{\seqsplit{test\_get\_products\_returns\_empty\_list}}; verifica che il metodo \texttt{get\_cart\_products} della classe \texttt{CartService} restituisca una lista. & S \\
 	\hline
-	tu\_170 & implementato da \texttt{\seqsplit{test\_get\_cart\_products\_returns\_list}}; verifica che il metodo \texttt{get\_cart\_products} della classe \texttt{CartService} restituisca una lista di oggetti di tipo \texttt{CartProduct}. & Lista di oggetti di tipo \texttt{CartProduct} & S \\
+	tu\_170 & implementato da \texttt{\seqsplit{test\_get\_cart\_products\_returns\_list}}; verifica che il metodo \texttt{get\_cart\_products} della classe \texttt{CartService} restituisca una lista di oggetti di tipo \texttt{CartProduct}. & S \\
 	\hline
-	tu\_171 & implementato da \texttt{\seqsplit{test\_add\_product\_returns\_cart\_product}}; verifica che il metodo \texttt{add\_product\_to\_cart} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct}. & Oggetto di tipo \texttt{CartProduct} & S \\
+	tu\_171 & implementato da \texttt{\seqsplit{test\_add\_product\_returns\_cart\_product}}; verifica che il metodo \texttt{add\_product\_to\_cart} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct}. & S \\
 	\hline
-	tu\_172 & implementato da \texttt{\seqsplit{test\_add\_product\_returns\_correct\_product}}; verifica che il metodo \texttt{add\_product\_to\_cart} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{CartProduct} & S \\
+	tu\_172 & implementato da \texttt{\seqsplit{test\_add\_product\_returns\_correct\_product}}; verifica che il metodo \texttt{add\_product\_to\_cart} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct} con i campi dati uguali rispetto ai parametri passati. & S \\
 	\hline
-	tu\_173 & implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_cart\_product}}; verifica che il metodo \texttt{remove\_product\_from\_cart} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct}.  & Oggetto di tipo \texttt{CartProduct} & S \\
+	tu\_173 & implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_cart\_product}}; verifica che il metodo \texttt{remove\_product\_from\_cart} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct}.  & S \\
 	\hline
-	tu\_174 & implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_correct\_product}}; verifica che il metodo \texttt{remove\_product\_from\_cart} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{CartProduct} & S \\
+	tu\_174 & implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_correct\_product}}; verifica che il metodo \texttt{remove\_product\_from\_cart} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct} con i campi dati uguali rispetto ai parametri passati. & S \\
 	\hline
-	tu\_175 & implementato da \texttt{\seqsplit{test\_update\_quantity\_calls\_repo\_with\_add}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartService} chiami il database con la corretta operazione di \texttt{CartUpdateOperation.Add}. & Valore booleano & S \\
+	tu\_175 & implementato da \texttt{\seqsplit{test\_update\_quantity\_calls\_repo\_with\_add}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartService} chiami il database con la corretta operazione di \texttt{CartUpdateOperation.Add}. & S \\
 	\hline
-	tu\_176 & implementato da \texttt{\seqsplit{test\_update\_quantity\_calls\_repo\_with\_subtract}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartService} chiami il database con la corretta operazione di \texttt{CartUpdateOperation.Subtract}. & Valore booleano & S \\
+	tu\_176 & implementato da \texttt{\seqsplit{test\_update\_quantity\_calls\_repo\_with\_subtract}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartService} chiami il database con la corretta operazione di \texttt{CartUpdateOperation.Subtract}. & S \\
 	\hline
-	tu\_177 & implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_cart\_product}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct}. & Oggetto di tipo \texttt{CartProduct} & S \\
+	tu\_177 & implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_cart\_product}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct}. & S \\
 	\hline
-	tu\_178 & implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_correct\_product}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{CartProduct} & S \\
+	tu\_178 & implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_correct\_product}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct} con i campi dati uguali rispetto ai parametri passati. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestCatalogRepoAdapter} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCatalogRepoAdapter} \\
 	\hline
-	tu\_179 & implementato da \texttt{\seqsplit{test\_get\_product\_return\_mapped\_catalog\_product}}; verifica che il metodo \texttt{get\_product} della classe \texttt{CatalogAdapter} restituisca un oggetto di tipo \texttt{CatalogProduct} con i campi dati mappati correttamente dal rispettivo oggetto nel database. & Oggetto di tipo \texttt{CatalogProduct} & S \\
+	tu\_179 & implementato da \texttt{\seqsplit{test\_get\_product\_return\_mapped\_catalog\_product}}; verifica che il metodo \texttt{get\_product} della classe \texttt{CatalogAdapter} restituisca un oggetto di tipo \texttt{CatalogProduct} con i campi dati mappati correttamente dal rispettivo oggetto nel database. & S \\
 	\hline
-	tu\_180 & implementato da \texttt{\seqsplit{test\_get\_product\_returns\_none\_when\_missing}}; verifica che il metodo \texttt{get\_product} della classe \texttt{CatalogAdapter} restituisca il valore \texttt{None} quando viene cercato un prodotto non presente nel catalogo. & Valore \texttt{None} & S \\
+	tu\_180 & implementato da \texttt{\seqsplit{test\_get\_product\_returns\_none\_when\_missing}}; verifica che il metodo \texttt{get\_product} della classe \texttt{CatalogAdapter} restituisca il valore \texttt{None} quando viene cercato un prodotto non presente nel catalogo. & S \\
 	\hline
-	tu\_181 & implementato da \texttt{\seqsplit{test\_get\_full\_catalog\_returns\_mapped\_products}}; verifica che il metodo \texttt{get\_full\_catalog} della classe \texttt{CatalogAdapter} restituisca una lista di oggetti \texttt{CatalogProduct} con i campi dati mappati correttamente dal rispettivo catalogo nel database. & Lista di oggetti di tipo \texttt{CatalogProduct} & S \\
+	tu\_181 & implementato da \texttt{\seqsplit{test\_get\_full\_catalog\_returns\_mapped\_products}}; verifica che il metodo \texttt{get\_full\_catalog} della classe \texttt{CatalogAdapter} restituisca una lista di oggetti \texttt{CatalogProduct} con i campi dati mappati correttamente dal rispettivo catalogo nel database. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestCatalogRepoPort} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCatalogRepoPort} \\
 	\hline
-	tu\_182 & implementato da \texttt{\seqsplit{test\_get\_product\_can\_be\_implemented}}; verifica che il metodo \texttt{get\_product} della classe astratta \texttt{CatalogRepoPort} possa essere implementata da una sottoclasse. & Valore booleano & S \\
+	tu\_182 & implementato da \texttt{\seqsplit{test\_get\_product\_can\_be\_implemented}}; verifica che il metodo \texttt{get\_product} della classe astratta \texttt{CatalogRepoPort} possa essere implementata da una sottoclasse. & S \\
 	\hline
-	tu\_183 & implementato da \texttt{\seqsplit{test\_get\_full\_catalog\_can\_be\_implemented}}; verifica che il metodo \texttt{get\_full\_catalog} della classe astratta \texttt{CatalogRepoPort} possa essere implementata da una sottoclasse. & Valore booleano & S \\
+	tu\_183 & implementato da \texttt{\seqsplit{test\_get\_full\_catalog\_can\_be\_implemented}}; verifica che il metodo \texttt{get\_full\_catalog} della classe astratta \texttt{CatalogRepoPort} possa essere implementata da una sottoclasse. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestCatalogRepository} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCatalogRepository} \\
 	\hline
-	tu\_184 & implementato da \texttt{\seqsplit{test\_catalog\_product\_repository\_maps\_real\_db\_columns\_names}}; verifica che la classe \texttt{CatalogProductRepository} sia correttamente mappata sulle colonne della tabella \texttt{anaart} del database. & Valore booleano & S \\
+	tu\_184 & implementato da \texttt{\seqsplit{test\_catalog\_product\_repository\_maps\_real\_db\_columns\_names}}; verifica che la classe \texttt{CatalogProductRepository} sia correttamente mappata sulle colonne della tabella \texttt{anaart} del database. & S \\
 	\hline
-	tu\_185 & implementato da \texttt{\seqsplit{test\_get\_product\_calls\_db\_and\_returns\_first\_row}}; verifica che il metodo \texttt{get\_product} della classe \texttt{CatalogProductRepository} chiami il database e restituisca la prima riga valida di quest'ultimo. & Oggetto di tipo \texttt{CatalogProductRepository} & S \\
+	tu\_185 & implementato da \texttt{\seqsplit{test\_get\_product\_calls\_db\_and\_returns\_first\_row}}; verifica che il metodo \texttt{get\_product} della classe \texttt{CatalogProductRepository} chiami il database e restituisca la prima riga valida di quest'ultimo. & S \\
 	\hline
-	tu\_186 & implementato da \texttt{\seqsplit{test\_get\_full\_catalog\_calls\_db\_and\_returns\_all\_rows}}; verifica che il metodo \texttt{get\_full\_catalog} della classe \texttt{CatalogProductRepository} chiami il database e restituisca tutte le righe valide di quest'ultimo. & Lista di oggetti di tipo \texttt{CatalogProductRepository} & S \\
+	tu\_186 & implementato da \texttt{\seqsplit{test\_get\_full\_catalog\_calls\_db\_and\_returns\_all\_rows}}; verifica che il metodo \texttt{get\_full\_catalog} della classe \texttt{CatalogProductRepository} chiami il database e restituisca tutte le righe valide di quest'ultimo. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestChatRepoAdapter} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestChatRepoAdapter} \\
 	\hline
-	tu\_187 & implementato da \texttt{\seqsplit{test\_get\_messages\_returns\_mapped\_messages}}; verifica che il metodo \texttt{get\_messages} della classe \texttt{ChatRepoAdapter} restituisca un oggetto di tipo \texttt{Message} con i campi dati mappati correttamente dalla rispettiva tabella nel database. & Oggetto di tipo \texttt{Message} & S \\
+	tu\_187 & implementato da \texttt{\seqsplit{test\_get\_messages\_returns\_mapped\_messages}}; verifica che il metodo \texttt{get\_messages} della classe \texttt{ChatRepoAdapter} restituisca un oggetto di tipo \texttt{Message} con i campi dati mappati correttamente dalla rispettiva tabella nel database. & S \\
 	\hline
-	tu\_188 & implementato da \texttt{\seqsplit{test\_get\_messages\_returns\_empty\_list}}; verifica che il metodo \texttt{get\_messages} della classe \texttt{ChatRepoAdapter}, in caso di assenza di messaggi corrispondenti nel database, restituisca una lista vuota. & Oggetto di tipo \texttt{List} & S \\
+	tu\_188 & implementato da \texttt{\seqsplit{test\_get\_messages\_returns\_empty\_list}}; verifica che il metodo \texttt{get\_messages} della classe \texttt{ChatRepoAdapter}, in caso di assenza di messaggi corrispondenti nel database, restituisca una lista vuota. & S \\
 	\hline
-	tu\_189 & implementato da \texttt{\seqsplit{test\_add\_message\_returns\_mapped\_message}}; verifica che il metodo \texttt{add\_message} della classe \texttt{ChatRepoAdapter} restituisca un oggetto di tipo \texttt{Message} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{Message} & S \\
+	tu\_189 & implementato da \texttt{\seqsplit{test\_add\_message\_returns\_mapped\_message}}; verifica che il metodo \texttt{add\_message} della classe \texttt{ChatRepoAdapter} restituisca un oggetto di tipo \texttt{Message} con i campi dati uguali rispetto ai parametri passati. & S \\
 	\hline
-	tu\_190 & implementato da \texttt{\seqsplit{test\_add\_message\_chatbot\_sender}}; verifica che il metodo \texttt{add\_message} della classe \texttt{ChatRepoAdapter} mantenga correttamente le enumerazione \texttt{SenderEnum}. & Valore booleano &  S \\
+	tu\_190 & implementato da \texttt{\seqsplit{test\_add\_message\_chatbot\_sender}}; verifica che il metodo \texttt{add\_message} della classe \texttt{ChatRepoAdapter} mantenga correttamente le enumerazione \texttt{SenderEnum}. & S \\
 	\hline
-	tu\_191 & implementato da \texttt{\seqsplit{test\_conversation\_exist\_returns\_true}}; verifica che il metodo \texttt{conversation\_exist} della classe \texttt{ChatRepoAdapter} restituisca \texttt{True} quando la conversazione è presente nel database. & Valore booleano & S \\
+	tu\_191 & implementato da \texttt{\seqsplit{test\_conversation\_exist\_returns\_true}}; verifica che il metodo \texttt{conversation\_exist} della classe \texttt{ChatRepoAdapter} restituisca \texttt{True} quando la conversazione è presente nel database. & S \\
 	\hline
-	tu\_192 & implementato da \texttt{\seqsplit{test\_conversation\_exist\_returns\_false}}; verifica che il metodo \texttt{conversation\_exist} della classe \texttt{ChatRepoAdapter} restituisca \texttt{False} quando la conversazione non è presente nel database. & Valore booleano & S \\
+	tu\_192 & implementato da \texttt{\seqsplit{test\_conversation\_exist\_returns\_false}}; verifica che il metodo \texttt{conversation\_exist} della classe \texttt{ChatRepoAdapter} restituisca \texttt{False} quando la conversazione non è presente nel database. & S \\
 	\hline
-	tu\_193 & implementato da \texttt{\seqsplit{test\_create\_conversation}}; verifica che il metodo \texttt{create\_conversation} della classe \texttt{ChatRepoAdapter} chiami il metodo \texttt{create\_conversation} del database. & Valore booleano & S \\
+	tu\_193 & implementato da \texttt{\seqsplit{test\_create\_conversation}}; verifica che il metodo \texttt{create\_conversation} della classe \texttt{ChatRepoAdapter} chiami il metodo \texttt{create\_conversation} del database. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestChatRepoPort} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestChatRepoPort} \\
 	\hline
-	tu\_194 & implementato da \texttt{\seqsplit{test\_get\_messages\_can\_be\_implemented}}; verifica che il metodo \texttt{get\_messages} della classe astratta \texttt{ChatRepoPort} possa essere implementato da una sottoclasse. & Valore booleano & S \\
+	tu\_194 & implementato da \texttt{\seqsplit{test\_get\_messages\_can\_be\_implemented}}; verifica che il metodo \texttt{get\_messages} della classe astratta \texttt{ChatRepoPort} possa essere implementato da una sottoclasse. & S \\
 	\hline
-	tu\_195 & implementato da \texttt{\seqsplit{test\_add\_message\_can\_be\_implemented}}; verifica che il metodo \texttt{add\_message} della classe astratta \texttt{ChatRepoPort} possa essere implementato da una sottoclasse. & Valore booleano & S \\
+	tu\_195 & implementato da \texttt{\seqsplit{test\_add\_message\_can\_be\_implemented}}; verifica che il metodo \texttt{add\_message} della classe astratta \texttt{ChatRepoPort} possa essere implementato da una sottoclasse. & S \\
 	\hline
-	tu\_196 & implementato da \texttt{\seqsplit{test\_get\_messages\_returns\_empty\_list}}; verifica che il metodo \texttt{get\_messages} della classe astratta \texttt{ChatRepoPort} ritorni un oggetto di tipo \texttt{List} quando istanziato da una sottoclasse. & Oggetto di tipo \texttt{List} & S \\
+	tu\_196 & implementato da \texttt{\seqsplit{test\_get\_messages\_returns\_empty\_list}}; verifica che il metodo \texttt{get\_messages} della classe astratta \texttt{ChatRepoPort} ritorni un oggetto di tipo \texttt{List} quando istanziato da una sottoclasse. & S \\
 	\hline
-	tu\_197 & implementato da \texttt{\seqsplit{test\_add\_message\_returns\_message}}; verifica che il metodo \texttt{add\_message} della classe astratta \texttt{ChatRepoPort} ritorni un oggetto di tipo \texttt{List} quando istanziato da una sottoclasse. & Oggetto di tipo \texttt{Message} & S \\
+	tu\_197 & implementato da \texttt{\seqsplit{test\_add\_message\_returns\_message}}; verifica che il metodo \texttt{add\_message} della classe astratta \texttt{ChatRepoPort} ritorni un oggetto di tipo \texttt{List} quando istanziato da una sottoclasse. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestChatRepository} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestChatRepository} \\
 	\hline
-	tu\_198 & implementato da \texttt{\seqsplit{test\_get\_messages\_calls\_db}}; verifica che il metodo \texttt{get\_messages} della classe \texttt{ChatRepository} chiami correttamente il database. & Valore booleano & S \\
+	tu\_198 & implementato da \texttt{\seqsplit{test\_get\_messages\_calls\_db}}; verifica che il metodo \texttt{get\_messages} della classe \texttt{ChatRepository} chiami correttamente il database. & S \\
 	\hline
-	tu\_199 & implementato da \texttt{\seqsplit{test\_get\_messages\_returns\_list}}; verifica che il metodo \texttt{get\_messages} della classe \texttt{ChatRepository} ritorni una lista di oggetti di tipo \texttt{ChatMessageRepository}. & Lista di oggetti di tipo \texttt{ChatMessageRepository} & S \\
+	tu\_199 & implementato da \texttt{\seqsplit{test\_get\_messages\_returns\_list}}; verifica che il metodo \texttt{get\_messages} della classe \texttt{ChatRepository} ritorni una lista di oggetti di tipo \texttt{ChatMessageRepository}. & S \\
 	\hline
-	tu\_200 & implementato da \texttt{\seqsplit{test\_add\_message\_calls\_and\_commit\_refresh}}; verifica che il metodo \texttt{add\_message} della classe \texttt{ChatRepository} chiami il \texttt{commit} e il \texttt{refresh} del database. & Valore booleano & S \\
+	tu\_200 & implementato da \texttt{\seqsplit{test\_add\_message\_calls\_and\_commit\_refresh}}; verifica che il metodo \texttt{add\_message} della classe \texttt{ChatRepository} chiami il \texttt{commit} e il \texttt{refresh} del database. & S \\
 	\hline
-	tu\_201 & implementato da \texttt{\seqsplit{test\_add\_message\_returns\_chat\_message\_repository}}; verifica che il metodo \texttt{add\_message} della classe \texttt{ChatRepository} ritorni un oggetto di tipo \texttt{ChatMessageRepository}. & Oggetto di tipo \texttt{ChatMessageRepository} & S \\
+	tu\_201 & implementato da \texttt{\seqsplit{test\_add\_message\_returns\_chat\_message\_repository}}; verifica che il metodo \texttt{add\_message} della classe \texttt{ChatRepository} ritorni un oggetto di tipo \texttt{ChatMessageRepository}. & S \\
 	\hline
-	tu\_202 & implementato da \texttt{\seqsplit{test\_add\_message\_correct\_fields}}; verifica che il metodo \texttt{add\_message} della classe \texttt{ChatRepository} ritorni un oggetto di tipo \texttt{ChatMessageRepository} con i campi dati corretti rispetto ai parametri passati. & Oggetto di tipo \texttt{ChatMessageRepository} & S \\
+	tu\_202 & implementato da \texttt{\seqsplit{test\_add\_message\_correct\_fields}}; verifica che il metodo \texttt{add\_message} della classe \texttt{ChatRepository} ritorni un oggetto di tipo \texttt{ChatMessageRepository} con i campi dati corretti rispetto ai parametri passati. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestChatApi} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestChatApi} \\
 	\hline
-	tu\_203 & implementato da \texttt{\seqsplit{test\_get\_chat\_service}}; verifica che il metodo \texttt{get\_chat\_service} della classe \texttt{ChatApi} ritorni una istanza di \texttt{ChatService}. & Oggetto di tipo \texttt{ChatService} & S \\
+	tu\_203 & implementato da \texttt{\seqsplit{test\_get\_chat\_service}}; verifica che il metodo \texttt{get\_chat\_service} della classe \texttt{ChatApi} ritorni una istanza di \texttt{ChatService}. & S \\
 	\hline
-	tu\_204 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_unit}}; verifica che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatApi} ritorni un oggetto di tipo \texttt{ChatResponse}. & Oggetto di tipo \texttt{ChatResponse} & S \\
+	tu\_204 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_unit}}; verifica che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatApi} ritorni un oggetto di tipo \texttt{ChatResponse}. & S \\
 	\hline
-	tu\_205 & implementato da \texttt{\seqsplit{test\_send\_message\_unit}}; verifica che il metodo \texttt{send\_message} della classe \texttt{ChatApi} ritorni un oggetto di tipo \texttt{MessageResponse} con i campi dati uguali rispetto ai parametri passati. & Oggetto di tipo \texttt{MessageResponse} & S \\
+	tu\_205 & implementato da \texttt{\seqsplit{test\_send\_message\_unit}}; verifica che il metodo \texttt{send\_message} della classe \texttt{ChatApi} ritorni un oggetto di tipo \texttt{MessageResponse} con i campi dati uguali rispetto ai parametri passati. & S \\
 	\hline
-	tu\_206 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_from\_inexistent\_conv}}; verifica che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatApi}, in caso di conversazione non presente nel database, sollevi una eccezione di tipo \texttt{HTTPException(404)}. & Eccezione di tipo \texttt{HTTPException(404)} & S \\
+	tu\_206 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_from\_inexistent\_conv}}; verifica che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatApi}, in caso di conversazione non presente nel database, sollevi una eccezione di tipo \texttt{HTTPException(404)}. & S \\
 	\hline
-	tu\_207 & implementato da \texttt{\seqsplit{test\_send\_message\_returns\_500\_when\_tool\_is\_missing}}; verifica che il metodo \texttt{send\_message} della classe \texttt{ChatApi}, in caso di \texttt{Tool} non presente nel sistema, sollevi una eccezione di tipo \texttt{HTTPException(500)}. & Eccezione di tipo \texttt{HTTPException(500)} & S \\
+	tu\_207 & implementato da \texttt{\seqsplit{test\_send\_message\_returns\_500\_when\_tool\_is\_missing}}; verifica che il metodo \texttt{send\_message} della classe \texttt{ChatApi}, in caso di \texttt{Tool} non presente nel sistema, sollevi una eccezione di tipo \texttt{HTTPException(500)}. & S \\
 	\hline
-	\multicolumn{4}{|c|}{\rule{0pt}{15pt}\large TestChatService} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestChatService} \\
 	\hline
-	tu\_208 & implementato da \texttt{\seqsplit{test\_send\_message\_returns\_llm\_response}}; verifica che il metodo \texttt{send\_message} della classe \texttt{ChatService} ritorni un oggetto di tipo \texttt{Message}, e che la risposta del \texttt{LLM} venga aggiunta al database. & Oggetto di tipo \texttt{Message}, valore booleano & S \\
+	tu\_208 & implementato da \texttt{\seqsplit{test\_send\_message\_returns\_llm\_response}}; verifica che il metodo \texttt{send\_message} della classe \texttt{ChatService} ritorni un oggetto di tipo \texttt{Message}, e che la risposta del \texttt{LLM} venga aggiunta al database. & S \\
 	\hline
-	tu\_209 & implementato da \texttt{\seqsplit{test\_send\_message\_creates\_conv\_if\_not\_exists}}; verifica che il metodo \texttt{send\_message} della classe \texttt{ChatService}, in caso di conversazione non presente nel database, chiami il metodo \texttt{create\_conversation} della classe \texttt{ChatRepository}. & Valore booleano & S \\
+	tu\_209 & implementato da \texttt{\seqsplit{test\_send\_message\_creates\_conv\_if\_not\_exists}}; verifica che il metodo \texttt{send\_message} della classe \texttt{ChatService}, in caso di conversazione non presente nel database, chiami il metodo \texttt{create\_conversation} della classe \texttt{ChatRepository}. & S \\
 	\hline
-	tu\_210 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_returns\_chat\_response}}; verifica che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatService} restituisca una lista di oggetti di tipo \texttt{Message}. & Lista di oggetti di tipo \texttt{Message} & S \\
+	tu\_210 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_returns\_chat\_response}}; verifica che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatService} restituisca una lista di oggetti di tipo \texttt{Message}. & S \\
 	\hline
-	tu\_211 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_empty\_conversation}}; verifica che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatService}, in caso di conversazione vuota, restituisca una lista vuota. & Lista vuota & S \\
+	tu\_211 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_empty\_conversation}}; verifica che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatService}, in caso di conversazione vuota, restituisca una lista vuota. & S \\
 	\hline
-	tu\_212 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_empty\_conversation}}; verifica che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatService}, in caso di conversazione non presente nel database, restituisca una eccezione di tipo \texttt{ConversationNotFoundException}. & Eccezione di tipo \texttt{ConversationNotFoundException} & S \\
+	tu\_212 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_empty\_conversation}}; verifica che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatService}, in caso di conversazione non presente nel database, restituisca una eccezione di tipo \texttt{ConversationNotFoundException}. & S \\
 	\hline
 	\caption{Test di Unità Backend}
 \end{longtable}
