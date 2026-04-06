@@ -290,12 +290,16 @@
 	La verifica$^G$ della conformità alle convenzioni di codifica viene effettuata tramite strumenti automatici e revisione manuale durante le Pull Request.\\
 	Per garantire coerenza, leggibilità e manutenibilità del codice in tutto il progetto$^G$, il team adotta le seguenti convenzioni:
 	\begin{itemize}[itemsep=3pt, parsep=1pt, label=\textbullet]
-		\item \textbf{Nomenclatura}: i nomi di variabili, funzioni, metodi e classi devono essere scritti in inglese.
-		\item Per il \textbf{codice di produzione$^G$}: usare \texttt{camelCase$^G$} per variabili, \texttt{PascalCase$^G$} per i nomi delle classi e \texttt{snake\_case$^G$} per metodi e funzioni.
-		\item \textbf{Lingua dei commenti}: i commenti devono essere scritti in italiano. Questo favorisce la comprensione immediata da parte di tutti i membri del team durante le revisioni.
-		\item \textbf{Scope delle Variabili}: limitare al massimo l'uso di variabili globali.
-		\item \textbf{Funzioni}: favorire funzioni concise e monolitiche (che svolgono un unico compito ben definito).
-	\end{itemize}
+    \item \textbf{Python (backend)}: tutti gli identificatori (variabili, funzioni, metodi, classi) devono utilizzare esclusivamente lo \texttt{snake\_case$^G$}.
+    \item \textbf{React (frontend)}:
+    \begin{itemize}
+        \item \texttt{PascalCase$^G$} per i nomi dei componenti React;
+        \item \texttt{camelCase$^G$} per variabili, funzioni, metodi e hook.
+    \end{itemize}
+    \item \textbf{Lingua dei commenti}: i commenti devono essere scritti in italiano, per favorire la comprensione immediata da parte di tutti i membri del team durante le revisioni.
+    \item \textbf{Scope delle variabili}: limitare al massimo l’uso di variabili globali.
+    \item \textbf{Funzioni}: favorire funzioni concise e monolitiche (che svolgono un unico compito ben definito).
+\end{itemize}
 	
 	\subsubsection{Strumenti a supporto}
 	\phantomsection\label{sec:strumenti-supporto}
