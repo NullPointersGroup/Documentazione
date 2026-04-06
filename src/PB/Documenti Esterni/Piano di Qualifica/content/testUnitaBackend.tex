@@ -826,5 +826,15 @@
 	\hline
 	TU-B\_337 & Implementato da \texttt{\seqsplit{test\_search\_cart\_returns\_results}}; verifica che il metodo \texttt{search\_cart} di \texttt{VecDbService} restituisca i risultati ottenuti dal database vettoriale del carrello. & S \\
 	\hline
+	TU-B\_338 & Implementato da \texttt{\seqsplit{test\_yields\_session}}; verifica che \texttt{get\_conn} produca una sessione del database & S \\
+	\hline
+	TU-B\_339 & Implementato da \texttt{\seqsplit{test\_closes\_session\_after\_use}}; verifica che la sessione venga chiusa (chiamata a \texttt{\_\_exit\_\_}) dopo l'utilizzo del generatore & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetEngine} \\
+	\hline
+	TU-B\_340 & Implementato da \texttt{\seqsplit{test\_raises\_runtime\_error\_if\_missing}}; verifica che \texttt{get\_engine} sollevi \texttt{RuntimeError} quando la variabile d'ambiente \texttt{DATABASE\_URL} non è impostata & S \\
+	\hline
+	TU-B\_341 & Implementato da \texttt{\seqsplit{test\_returns\_engine\_if\_present}}; verifica che \texttt{get\_engine} restituisca un engine creato con l'URL fornito e con \texttt{echo=True} & S \\
+	\hline
 	\caption{Test di Unità Backend}
 \end{longtable}
