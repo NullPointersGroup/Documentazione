@@ -1,1 +1,59 @@
-\subsection{Teest di Integrazione}
+\subsection{Test di Integrazione}
+I test di integrazione servono a verificare che le componenti del sistema si integrino correttamente e in maniera efficace. L’obiettivo dei test è identificare eventuali problemi di interoperabilità e integrazione fra le componenti del software.
+
+\begin{longtable}{
+		>{\raggedright\arraybackslash}p{0.10\columnwidth} |
+		>{\raggedright\arraybackslash}p{0.50\columnwidth} |
+		>{\centering\arraybackslash}p{0.12\columnwidth} |
+	}
+	\hline
+	\rowcolor[gray]{0.9}
+	\textbf{Codice Test$^G$} & \textbf{Descrizione} & \textbf{Stato}\\
+	\hline
+	\endfirsthead
+	
+	\hline
+	\rowcolor[gray]{0.9}
+	\textbf{Codice Test$^G$} & \textbf{Descrizione} & \textbf{Stato}\\
+	\hline
+	\endhead
+	
+	TI\_01 & Implementato da \texttt{\seqsplit{test\_add\_and\_search\_returns\_correct\_product}}; verifica che l'aggiunta e la ricerca di un prodotto nel database vettoriale del carrello restituiscano l'identificativo corretto & S \\ \hline
+	TI\_02 & Implementato da \texttt{\seqsplit{test\_search\_filters\_by\_username}}; verifica che la ricerca nel carrello filtri i prodotti in base all'utente proprietario & S \\ \hline
+	TI\_03 & Implementato da \texttt{\seqsplit{test\_search\_empty\_db}}; verifica che la ricerca su un database vettoriale vuoto restituisca una lista vuota & S \\ \hline
+	TI\_04 & Implementato da \texttt{\seqsplit{test\_search\_unknown\_user\_returns\_empty}}; verifica che la ricerca con un utente sconosciuto restituisca una lista vuota & S \\ \hline
+	TI\_05 & Implementato da \texttt{\seqsplit{test\_search\_above\_threshold\_filters\_results}}; verifica che la soglia di similarità escluda i risultati con distanza superiore & S \\ \hline
+	TI\_06 & Implementato da \texttt{\seqsplit{test\_search\_returns\_closest\_product}}; verifica che la ricerca restituisca il prodotto con il vettore più vicino alla query & S \\ \hline
+	TI\_07 & Implementato da \texttt{\seqsplit{test\_add\_and\_search\_returns\_correct\_product}} (catalogo); verifica che l'aggiunta e la ricerca nel catalogo restituiscano l'identificativo corretto & S \\ \hline
+	TI\_08 & Implementato da \texttt{\seqsplit{test\_add\_single\_and\_search}}; verifica che l'aggiunta di un singolo prodotto ne permetta la ricerca esatta & S \\ \hline
+	TI\_09 & Implementato da \texttt{\seqsplit{test\_add\_multiple\_and\_search\_returns\_closest}}; verifica che tra più prodotti venga restituito quello semanticamente più vicino & S \\ \hline
+	TI\_10 & Implementato da \texttt{\seqsplit{test\_search\_returns\_multiple\_results}}; verifica che la ricerca possa restituire più risultati in ordine di similarità & S \\ \hline
+	TI\_11 & Implementato da \texttt{\seqsplit{test\_search\_empty\_db}} (catalogo); verifica che la ricerca su catalogo vuoto restituisca lista vuota & S \\ \hline
+	TI\_12 & Implementato da \texttt{\seqsplit{test\_search\_above\_threshold\_filters\_results}} (catalogo); verifica che la soglia escluda risultati poco rilevanti & S \\ \hline
+	TI\_13 & Implementato da \texttt{\seqsplit{test\_search\_n\_greater\_than\_indexed}}; verifica che richiedere più risultati di quelli indicizzati non causi errori & S \\ \hline
+	TI\_14 & Implementato da \texttt{\seqsplit{test\_search\_returns\_second\_closest}}; verifica che la ricerca restituisca il secondo prodotto più simile quando richiesto & S \\ \hline
+	TI\_15 & Implementato da \texttt{\seqsplit{test\_add\_preserves\_order}}; verifica che l'ordine di inserimento dei prodotti venga mantenuto nell'indice & S \\ \hline
+	TI\_16 & Implementato da \texttt{\seqsplit{test\_load\_catalog\_indexes\_correct\_count}}; verifica che il caricamento del catalogo indicizzi il numero atteso di prodotti & S \\ \hline
+	TI\_17 & Implementato da \texttt{\seqsplit{test\_load\_catalog\_indexes\_all\_prod\_ids}}; verifica che tutti gli identificativi dei prodotti siano presenti nell'indice & S \\ \hline
+	TI\_18 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_before\_load\_returns\_empty}}; verifica che la ricerca nel catalogo prima del caricamento restituisca lista vuota & S \\ \hline
+	TI\_19 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_returns\_indexed\_product}}; verifica che dopo il caricamento la ricerca trovi il prodotto atteso & S \\ \hline
+	TI\_20 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_finds\_each\_product\_by\_exact\_text}}; verifica che ogni prodotto sia raggiungibile tramite il suo testo esatto & S \\ \hline
+	TI\_21 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_returns\_results\_within\_threshold}}; verifica che la soglia limiti correttamente i risultati & S \\ \hline
+	TI\_22 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_exact\_text\_has\_distance\_zero}}; verifica che il testo esatto produca distanza zero & S \\ \hline
+	TI\_23 & Implementato da \texttt{\seqsplit{test\_load\_cart\_indexes\_products}}; verifica che il caricamento del carrello indicizzi i prodotti dell'utente & S \\ \hline
+	TI\_24 & Implementato da \texttt{\seqsplit{test\_load\_cart\_indexes\_correct\_prod\_ids}}; verifica che gli identificativi dei prodotti nel carrello siano correttamente indicizzati & S \\ \hline
+	TI\_25 & Implementato da \texttt{\seqsplit{test\_search\_cart\_before\_load\_returns\_empty}}; verifica che la ricerca nel carrello prima del caricamento restituisca lista vuota & S \\ \hline
+	TI\_26 & Implementato da \texttt{\seqsplit{test\_search\_cart\_returns\_indexed\_product}}; verifica che dopo il caricamento la ricerca nel carrello trovi il prodotto & S \\ \hline
+	TI\_27 & Implementato da \texttt{\seqsplit{test\_catalog\_and\_cart\_indexes\_are\_independent}}; verifica che gli indici di catalogo e carrello siano separati & S \\ \hline
+	TI\_28 & Implementato da \texttt{\seqsplit{test\_catalog\_not\_affected\_by\_cart\_load}}; verifica che il caricamento del carrello non modifichi l'indice del catalogo & S \\ \hline
+	TI\_29 & Implementato da \texttt{\seqsplit{test\_load\_and\_search\_catalog}}; verifica il flusso completo di caricamento e ricerca nel catalogo & S \\ \hline
+	TI\_30 & Implementato da \texttt{\seqsplit{test\_load\_catalog\_indexes\_all\_products}}; verifica che il catalogo venga indicizzato completamente & S \\ \hline
+	TI\_31 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_returns\_empty\_before\_load}}; verifica che la ricerca su catalogo non caricato dia lista vuota & S \\ \hline
+	TI\_32 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_returns\_closest}}; verifica che la ricerca trovi il prodotto più simile semanticamente & S \\ \hline
+	TI\_33 & Implementato da \texttt{\seqsplit{test\_load\_and\_search\_cart}}; verifica il flusso completo di caricamento e ricerca nel carrello & S \\ \hline
+	TI\_34 & Implementato da \texttt{\seqsplit{test\_load\_cart\_indexes\_all\_products}}; verifica che tutti i prodotti del carrello vengano indicizzati & S \\ \hline
+	TI\_35 & Implementato da \texttt{\seqsplit{test\_search\_cart\_returns\_empty\_before\_load}}; verifica che la ricerca su carrello non caricato dia lista vuota & S \\ \hline
+	TI\_36 & Implementato da \texttt{\seqsplit{test\_catalog\_and\_cart\_indexes\_are\_independent}} (service); verifica l'indipendenza degli indici a livello di servizio & S \\ \hline
+	
+	\caption{Test di Integrazione}
+\end{longtable}
