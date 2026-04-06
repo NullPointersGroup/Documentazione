@@ -8,48 +8,49 @@ Per ciascuna tecnologia vengono riportate la versione di riferimento e il ruolo 
 \renewcommand{\arraystretch}{1.15}
 \begin{center}
 	\begin{longtable}{
-			>{\centering\arraybackslash}p{0.3\textwidth} 
-			>{\centering\arraybackslash}p{0.1\textwidth} 
-			>{\centering\arraybackslash}p{0.6\textwidth}}
-		
+		>{\centering\arraybackslash}p{0.3\textwidth} 
+		>{\centering\arraybackslash}p{0.1\textwidth} 
+		>{\centering\arraybackslash}p{0.6\textwidth}}
+	
 		\textbf{Tecnologia} & \textbf{Versione} & \textbf{Descrizione} \\
 		
+		\arrayrulecolor{gray}
 		\hline
 		\multicolumn{3}{c}{\rule{0pt}{15pt} \textbf{Dipendenze principali}} \\
 		
-		React & 19.2.4 & Libreria per la costruzione di interfacce utente \\
-		React DOM & 19.2.0 & Rendering di componenti React nel browser \\
-		React Router DOM & 7.13.2 & Gestione della navigazione e routing client-side \\
-		Zustand & 5.0.12 & Libreria leggera per la gestione dello stato globale \\
-		Lucide React & 0.577.0 & Libreria di icone SVG per React \\
+		React & 19.2.4 & Utilizzata per sviluppare l’interfaccia utente dinamica e component-based dell’applicazione SmartOrder \\
+		React DOM & 19.2.0 & Responsabile del rendering dei componenti React all’interno del browser \\
+		React Router DOM & 7.13.2 & Gestisce la navigazione tra le diverse viste dell’applicazione \\
+		Zustand & 5.0.12 & Impiegata per la gestione dello stato globale, evitando complessità architetturali \\
+		Lucide React & 0.577.0 & Fornisce icone SVG utilizzate nell’interfaccia per migliorare l’usabilità e la chiarezza visiva \\
 		\hline
 		
 		\multicolumn{3}{c}{\rule{0pt}{15pt} \textbf{Testing}} \\
 		
-		Vitest & 4.0.18 & Framework di testing per applicazioni Vite \\
-		Testing Library React & 16.3.2 & Utility per il testing di componenti React \\
-		Testing Library User Event & 14.6.1 & Simulazione di interazioni utente nei test \\
-		Testing Library Jest DOM & 6.9.1 & Matcher personalizzati per asserzioni sul DOM \\
-		Vitest Coverage V8 & 4.0.18 & Analisi della copertura del codice \\
-		Vitest UI & 4.0.18 & Interfaccia grafica per la visualizzazione dei test \\
-		jsdom & 28.1.0 & Simulazione del DOM per l'ambiente di test \\
+		Vitest & 4.0.18 & Framework utilizzato per l’esecuzione dei test automatici del frontend \\
+		Testing Library React & 16.3.2 & Consente di testare i componenti simulando il comportamento reale dell’utente \\
+		Testing Library User Event & 14.6.1 & Utilizzata per simulare interazioni utente avanzate durante i test \\
+		Testing Library Jest DOM & 6.9.1 & Estende le asserzioni per verificare lo stato del DOM nei test \\
+		Vitest Coverage V8 & 4.0.18 & Permette di analizzare la copertura del codice garantita dai test \\
+		Vitest UI & 4.0.18 & Interfaccia grafica per monitorare e gestire l’esecuzione dei test \\
+		jsdom & 28.1.0 & Simula un ambiente browser per consentire l’esecuzione dei test in Node.js \\
 		\hline
 		
 		\multicolumn{3}{c}{\rule{0pt}{15pt} \textbf{Build e sviluppo}} \\
 		
-		Vite & 7.3.1 & Build tool e dev server per applicazioni web moderne \\
-		TypeScript & 5.9.3 & Superset tipizzato di JavaScript \\
-		Tailwind CSS & 4.2.1 & Framework CSS utility-first \\
-		PostCSS & 8.5.8 & Trasformazione CSS tramite plugin \\
-		Autoprefixer & 10.4.27 & Aggiunta automatica di prefissi CSS per compatibilità \\
+		Vite & 7.3.1 & Utilizzato come strumento di build e server di sviluppo \\
+		TypeScript & 5.9.3 & Impiegato per migliorare la robustezza del codice tramite tipizzazione statica \\
+		Tailwind CSS & 4.2.1 & Utilizzato per lo styling dell’interfaccia tramite classi utility-first \\
+		PostCSS & 8.5.8 & Permette la trasformazione e ottimizzazione del codice CSS \\
+		Autoprefixer & 10.4.27 & Aggiunge automaticamente prefissi CSS per garantire compatibilità tra browser \\
 		\hline
 		
 		\multicolumn{3}{c}{\rule{0pt}{15pt} \textbf{Linting}} \\
 		
-		ESLint & 9.39.1 & Analisi statica del codice JavaScript/TypeScript \\
-		TypeScript ESLint & 8.48.0 & Plugin ESLint per TypeScript \\
-		ESLint Plugin React Hooks & 7.0.1 & Regole ESLint per React Hooks \\
-		ESLint Plugin React Refresh & 0.4.24 & Regole ESLint per React Fast Refresh \\
+		ESLint & 9.39.1 & Utilizzato per mantenere la qualità e la coerenza del codice frontend \\
+		TypeScript ESLint & 8.48.0 & Integra ESLint con TypeScript per un controllo più accurato del codice tipizzato \\
+		ESLint Plugin React Hooks & 7.0.1 & Verifica il corretto utilizzo degli hook React all’interno dei componenti \\
+		ESLint Plugin React Refresh & 0.4.24 & Supporta il corretto funzionamento del Fast Refresh durante lo sviluppo \\
 		
 		\caption{Tecnologie Frontend}
 		
