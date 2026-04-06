@@ -94,7 +94,7 @@ Sono definite le seguenti costanti a livello di modulo:
 \end{figure}
 
 \subsubsubsubsection{Descrizione}
-\texttt{IEmailValidationPort} è una porta secondaria dell'architettura esagonale che definisce il contratto per la validazione$^G$ del dominio email.\\
+\texttt{IEmailValidationPort} è una porta secondaria dell'architettura esagonale$^G$ che definisce il contratto per la validazione$^G$ del dominio email.\\
 È una classe astratta Python$^G$ che disaccoppia il dominio applicativo dalla concreta implementazione della validazione$^G$, permettendo di sostituire o simulare l'adapter in fase di test.
 
 \subsubsubsubsection{Attributi}
@@ -115,7 +115,7 @@ Sono definite le seguenti costanti a livello di modulo:
 
 \subsubsubsubsection{Descrizione}
 \texttt{EmailValidationAdapter} è l'implementazione concreta di \texttt{IEmailValidationPort}.\\
-Effettua la validazione$^G$ del dominio email tramite una query DNS di tipo \texttt{MX}, verificando che il dominio sia effettivamente in grado di ricevere posta elettronica.
+Effettua la validazione$^G$ del dominio email tramite una query$^G$ DNS di tipo \texttt{MX}, verificando che il dominio sia effettivamente in grado di ricevere posta elettronica.
 
 \subsubsubsubsection{Attributi}
 \texttt{EmailValidationAdapter} non possiede attributi.
@@ -134,7 +134,7 @@ Effettua la validazione$^G$ del dominio email tramite una query DNS di tipo \tex
 \end{figure}
 
 \subsubsubsubsection{Descrizione}
-\texttt{IUserRepoPort} è una porta secondaria dell'architettura esagonale che definisce il contratto per la persistenza degli utenti.\\
+\texttt{IUserRepoPort} è una porta secondaria dell'architettura esagonale$^G$ che definisce il contratto per la persistenza degli utenti.\\
 È una classe astratta Python$^G$ che disaccoppia il dominio applicativo dalla concreta implementazione del repository$^G$, permettendo di sostituire o simulare l'adapter in fase di test.
 
 \subsubsubsubsection{Attributi}
@@ -187,11 +187,11 @@ Funge da adapter verso il livello di persistenza, delegando tutte le operazioni 
 
 \subsubsubsubsection{Descrizione}
 \texttt{UserRepository} è il repository$^G$ concreto che gestisce le operazioni di persistenza sugli utenti.\\
-Traduce le operazioni di dominio in query SQL$^G$ tramite \texttt{QueryExecutor}, utilizzando SQLModel e SQLAlchemy Core per costruire ed eseguire le istruzioni.
+Traduce le operazioni di dominio in query$^G$ SQL$^G$ tramite \texttt{QueryExecutor}, utilizzando SQLModel e SQLAlchemy Core per costruire ed eseguire le istruzioni.
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
-	\item \texttt{executor: QueryExecutor} - istanza del query executor, inizializzata nel costruttore con la sessione database$^G$ ricevuta.
+	\item \texttt{executor: QueryExecutor} - istanza del query$^G$ executor, inizializzata nel costruttore con la sessione database$^G$ ricevuta.
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
@@ -199,7 +199,7 @@ Traduce le operazioni di dominio in query SQL$^G$ tramite \texttt{QueryExecutor}
 	\item \texttt{\_\_init\_\_(db$^G$: Session) -> None} - costruttore che riceve la sessione database$^G$ e istanzia \texttt{QueryExecutor}.
 	\item \texttt{find\_by\_username(username: str) -> Utente} - recupera un utente dal database$^G$ tramite username usando una \texttt{SELECT} con filtro su \texttt{Utente.username}; restituisce \texttt{None} se non trovato.
 	\item \texttt{find\_by\_email(email: str) -> Utente} - recupera un utente dal database$^G$ tramite email usando una \texttt{SELECT} con filtro su \texttt{Utente.email}; restituisce \texttt{None} se non trovato.
-	\item \texttt{save(u: UserRegistration) -> bool} - inserisce un nuovo utente nel database$^G$ tramite una \texttt{INSERT}, ricevendo un oggetto \texttt{UserRegistration} contenente username, email e password in chiaro. La trasmissione della password in chiaro è considerata sicura in quanto il sistema opera esclusivamente su HTTPS, che garantisce la cifratura a livello di trasporto. La password viene hashata tramite \texttt{PasswordUtility.hash\_password} prima della persistenza e la descrizione viene impostata a \texttt{CLIENTE}; restituisce \texttt{True} se l'operazione ha successo.
+	\item \texttt{save(u: UserRegistration) -> bool} - inserisce un nuovo utente nel database$^G$ tramite una \texttt{INSERT}, ricevendo un oggetto \texttt{UserRegistration} contenente username, email e password in chiaro. La trasmissione della password in chiaro è considerata sicura in quanto il sistema opera esclusivamente su HTTPS$^G$, che garantisce la cifratura a livello di trasporto. La password viene hashata tramite \texttt{PasswordUtility.hash\_password} prima della persistenza e la descrizione viene impostata a \texttt{CLIENTE}; restituisce \texttt{True} se l'operazione ha successo.
 	\item \texttt{delete(username: str) -> bool} - elimina un utente dal database$^G$ tramite una \texttt{DELETE} con filtro su \texttt{Utente.username}; restituisce \texttt{True} se l'operazione ha successo.
 	\item \texttt{reset\_password(u: UserReset) -> bool} - aggiorna la password di un utente esistente nel database$^G$ tramite una \texttt{UPDATE} con filtro su \texttt{Utente.username}, hashando la nuova password tramite \texttt{PasswordUtility.hash\_password}; restituisce \texttt{True} se l'operazione ha successo.
 \end{itemize}

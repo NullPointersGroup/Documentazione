@@ -268,7 +268,7 @@ Garantisce la correttezza dei tipi dei dati trasmessi e disaccoppia la struttura
 \begin{itemize}
 	\item \texttt{username: string} - attributo pubblico di tipo stringa, corrisponde al nome utente inserito dall'utente nel campo corrispondente del form di login.
 
-	\item \texttt{password: string} - attributo pubblico di tipo stringa, corrisponde alla password inserita dall'utente, che viene trasmessa in chiaro tramite HTTPS al backend$^G$, dove verrà verificata contro l'hash bcrypt memorizzato.
+	\item \texttt{password: string} - attributo pubblico di tipo stringa, corrisponde alla password inserita dall'utente, che viene trasmessa in chiaro tramite HTTPS$^G$ al backend$^G$, dove verrà verificata contro l'hash bcrypt memorizzato.
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
@@ -298,7 +298,7 @@ Definisce la struttura del payload JSON$^G$ inviato al backend$^G$ nell'endpoint
 	Deve rispettare il formato definito da \texttt{EMAIL\_REGEX} in \texttt{RegisterModel}.
 
 	\item \texttt{password: string} - attributo pubblico di tipo stringa.
-	Password scelta dall'utente, trasmessa in chiaro tramite HTTPS e cifrata lato backend$^G$ con bcrypt. Deve rispettare il formato definito da \texttt{PASSWORD\_REGEX} in \texttt{FormModel}.
+	Password scelta dall'utente, trasmessa in chiaro tramite HTTPS$^G$ e cifrata lato backend$^G$ con bcrypt. Deve rispettare il formato definito da \texttt{PASSWORD\_REGEX} in \texttt{FormModel}.
 
 	\item \texttt{confirmPwd: string} - attributo pubblico di tipo stringa.
 	Conferma della password inserita dall'utente, utilizzata lato frontend$^G$ per verificare che i due campi password coincidano prima di inviare la richiesta al backend.
