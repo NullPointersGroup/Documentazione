@@ -836,5 +836,61 @@
 	\hline
 	TU-B\_341 & Implementato da \texttt{\seqsplit{test\_returns\_engine\_if\_present}}; verifica che \texttt{get\_engine} restituisca un engine creato con l'URL fornito e con \texttt{echo=True} & S \\
 	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestExecute} \\
+	\hline
+	TU-B\_342 & Implementato da \texttt{\seqsplit{test\_returns\_all\_results}}; verifica che la query eseguita dal database ritorni tutti i risultati. & S \\
+	\hline
+	TU-B\_343 & Implementato da \texttt{\seqsplit{test\_calls\_exec\_with\_stmt}}; verifica che il database esegua esattamente la query che gli viene passata nel parametro \textit{stmt}. & S \\
+	\hline
+	TU-B\_344 & Implementato da \texttt{\seqsplit{test\_returns\_empty\_sequence}}; verifica che il database, in caso di risultato privo di tuple, ritorni correttamente una lista vuota. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestExecuteOne} \\
+	\hline
+	TU-B\_345 & Implementato da \texttt{\seqsplit{test\_returns\_single\_result}}; verifica che il database, quando viene chiesto di restituire solo un risultato dalla query, restituisca correttamente il primo risultato. & S \\
+	\hline
+	TU-B\_346 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica che il database, in caso di risultato privo di tuple, quando viene chiesto di restituire un risultato restituisca correttamente \textit{None}. & S \\
+	\hline
+	TU-B\_347 & Implementato da \texttt{\seqsplit{test\_calls\_exec\_with\_stmt}}; verifica che il database, quando viene chiesto di restituire un risultato, esegua esattamente la query che gli viene passata nel parametro \textit{stmt}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestMutate} \\
+	\hline
+	TU-B\_348 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, restituisca \text{True} in caso di esito positivo. & S \\
+	\hline
+	TU-B\_349 & Implementato da \texttt{\seqsplit{test\_commits\_on\_success}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di esito positivo chiami il metodo \texttt{commit}. & S \\
+	\hline
+	TU-B\_350 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_integrity\_error}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di esito negativo restituisca \textit{False}. & S \\
+	\hline
+	TU-B\_351 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_integrity\_error}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di esito negativo chiami il metodo \texttt{rollback}. & S \\
+	\hline
+	TU-B\_352 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_generic\_exception}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di una eccezione generica restituisca \textit{False}. & S \\
+	\hline
+	TU-B\_353 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_generic\_exception}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di una eccezione generica chiami il metodo \texttt{rollback}. & S \\
+	\hline
+	TU-B\_354 & Implementato da \texttt{\seqsplit{test\_no\_commit\_on\_failure}}; verifica che il database, quando viene chiesto di eseguire una query che coinvolga una mutazione, in caso di esito negativo non chiami il metodo \texttt{commit}. & S \\
+	\hline
+	TU-B\_355 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_integrity\_error\_raw}}; verifica che il database, quando viene chiesto di eseguire una mutazione diretta, in caso di esito negativo restituisca \textit{False}. & S \\
+	\hline
+	TU-B\_356 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_integrity\_error\_raw}}; verifica che il database, quando viene chiesto di eseguire una mutazione diretta, in caso di esito negativo chiami il metodo \texttt{rollback}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestQueryBase} \\
+	\hline
+	TU-B\_357 & Implementato da \texttt{\seqsplit{test\_execute\_raises\_not\_implemented}}; verifica che la classe \texttt{Query}, quando viene chiamato il suo metodo \texttt{execute}, lanci un'eccezione \texttt{NotImplementedError}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestMutationBase} \\
+	\hline
+	TU-B\_358 & Implementato da \texttt{\seqsplit{test\_execute\_raises\_not\_implemented}}; verifica che la classe \texttt{Mutation}, quando viene chiamato il suo metodo \texttt{execute}, lanci un'eccezione \texttt{NotImplementedError}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartAdapter} \\
+	\hline
+	TU-B\_359 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_set\_calls\_repo}}; verifica che il metodo \texttt{update\_quantity} della classe \texttt{CartAdapter}, quando l'operazione è \texttt{Set}, chiami correttamente il repository con i parametri attesi e restituisca un oggetto \texttt{CartProduct} con la quantità aggiornata. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestUserService} \\
+	\hline
+	TU-B\_360 & Implementato da \texttt{\seqsplit{test\_verify\_password\_calls\_utility}}  verifica che il metodo \texttt{check\_user} della classe \texttt{UserService} utilizzi correttamente \texttt{PasswordUtility.verify\_password} per validare la password, sfruttando un patch che simula il valore di ritorno. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartService} \\
+	\hline
+	TU-B\_361 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_calls\_repo\_with\_set}}; verifica che il metodo \texttt{update\_cart\_quantity} della classe \texttt{CartService}, quando l'operazione è \texttt{Set}, invochi l'adapter passando i parametri corretti. & S \\
+	\hline
 	\caption{Test di Unità Backend}
 \end{longtable}
