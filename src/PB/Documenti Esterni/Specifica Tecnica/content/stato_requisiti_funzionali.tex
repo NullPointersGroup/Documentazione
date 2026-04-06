@@ -1,15 +1,15 @@
-\section{Stato dei requisiti funzionali}
+\section{Stato dei Requisiti Funzionali}
 La presente sezione fornisce una visione d’insieme dello stato di avanzamento dei requisiti funzionali identificati durante la fase di analisi. I requisiti funzionali sono stati classificati in base alla loro importanza (obbligatori, desiderabili e opzionali) come definito nel documento \href{https://nullpointersgroup.github.io/Documentazione/output/PB/Documenti%20Esterni/Analisi_dei_Requisiti.pdf}{Analisi dei Requisiti$^G$ v.2.0.0}.
 
 \subsection{Riepilogo dei requisiti}
-Durante la fase di analisi sono stati individuati 273 requisiti, fra cui:
+Durante la fase di analisi sono stati individuati 259 requisiti, fra cui:
 \begin{itemize}
-	\item 110 obbligatori, identificati con il codice RF-OB
-	\item 146 desiderabili, identificati con il codice RF-DE
-	\item 17 opzionali, identificati con il codice RF-OP
+	\item 96 obbligatori, identificati con il codice RF-OB
+	\item 148 desiderabili, identificati con il codice RF-DE
+	\item 15 opzionali, identificati con il codice RF-OP
 \end{itemize}
 
-\subsection{Tabella dei requisiti funzionali}
+\subsection{Tabella dei Requisiti Funzionali}
 
 \renewcommand{\arraystretch}{1.15}
 \begin{longtable}{|>{\raggedright}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.5\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
@@ -35,9 +35,9 @@ Durante la fase di analisi sono stati individuati 273 requisiti, fra cui:
 	\hline
 	RF-OB\_04 \hypertarget{rf-ob_4} & L'Utente deve poter visualizzare una notifica di errore se lo username è già presente nel sistema & Implementato \\
 	\hline
-	RF-OB\_05 \hypertarget{rf-ob_5} & Lo username deve avere un massimo di 24 caratteri & Implementato \newline \hyperref[uc_08]{UC\_08} \newline \hyperref[uc_32.2.1]{UC\_32.2.1}\\
+	RF-OB\_05 \hypertarget{rf-ob_5} & Lo username deve avere un massimo di 24 caratteri & Implementato \\
 	\hline
-	RF-OB\_06 \hypertarget{rf-ob_6} & L'Utente deve poter visualizzare una notifica di errore se lo username eccede il numero massimo di caratteri & Implementato \newline \hyperref[uc_32.2.1]{UC\_32.2.1}\\
+	RF-OB\_06 \hypertarget{rf-ob_6} & L'Utente deve poter visualizzare una notifica di errore se lo username eccede il numero massimo di caratteri & Implementato \\
 	\hline
 	RF-OB\_07 \hypertarget{rf-ob_7} & L'Utente deve poter visualizzare il campo di input per inserire la password & Implementato \\
 	\hline
@@ -373,8 +373,6 @@ Durante la fase di analisi sono stati individuati 273 requisiti, fra cui:
 	\hline
 	RF-DE\_78 \hypertarget{rf-de_78} & Il file JSON$^G$ esportato deve contenere il campo qta\_ordinata [float]: quantità che l'Utente ha ordinato nell'unità di misura dell'articolo & Da implementare \\
 	\hline
-	RF-DE\_79 \hypertarget{rf-de_79} & Il file JSON$^G$ esportato deve contenere il campo rif [integer/string]: rappresenta un riferimento al testo originario & Da implementare \\	
-	\hline
 	RF-DE\_79 \hypertarget{rf-de_79} & Il file JSON$^G$ esportato deve contenere il campo rif [integer/string]: rappresenta un riferimento al testo originario & Da implementare \\
 	\hline
 	RF-DE\_80 \hypertarget{rf-de_80} & Il Cliente deve poter richiedere la duplicazione indicando il codice dell'ordine dentro il comando comando \vr{/duplica\{xx\}} & Da implementare \\
@@ -549,3 +547,45 @@ Durante la fase di analisi sono stati individuati 273 requisiti, fra cui:
 	\caption{Stato dei Requisiti Funzionali}\\
 	
 \end{longtable}
+
+\subsection{Stato di implementazione}
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{| c | c | c | c |}
+	\hline
+	\rowcolor[gray]{0.9}
+	\textbf{Tipologia} & \textbf{Totale} & \textbf{Implementati} & \textbf{Da implementare} \\
+	\hline
+	\endfirsthead
+
+	\hline
+	\rowcolor[gray]{0.9}
+	\textbf{Tipologia} & \textbf{Totale} & \textbf{Implementati} & \textbf{Da implementare} \\
+	\hline
+	\endhead
+
+	\hline
+	\textbf{Obbligatori} & 96 & 96 & 0 \\
+	\hline
+	\textbf{Desiderabili} & 148 & 37 & 111 \\
+	\hline
+	\textbf{Opzionali} & 15 & 1 & 14 \\
+	\hline
+	\textbf{Totale} & \textbf{259} & \textbf{134} & \textbf{125} \\
+	\hline
+	\multicolumn{3}{c}{} \\
+	\caption{ Stato di implementazione dei Requisiti Funzionali}
+	\label{tab:riepilogo}
+
+\end{longtable}  
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/requisiti}
+	\caption{Stato Requisiti Funzionali}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{SpecificaTecnica/totRequisiti}
+	\caption{Stato globale dei Requisiti Funzionali}
+\end{figure}
