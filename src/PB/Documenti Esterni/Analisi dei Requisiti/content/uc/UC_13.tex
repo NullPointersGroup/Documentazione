@@ -23,7 +23,7 @@
     \item \textbf{Postcondizioni}:
         \begin{itemize}
             \item L'audio viene archiviato
-            \item L'audio viene inviato allo Speech-to-Text
+            \item L'audio viene inviato allo Speech-to-Text$^G$
         \end{itemize}
     \item \textbf{Scenari alternativi}:
         \begin{itemize}
@@ -61,7 +61,7 @@
     \item \textbf{Postcondizioni}: 
         \begin{itemize}
             \item L'audio viene archiviato
-            \item L'audio viene inviato allo Speech-to-Text
+            \item L'audio viene inviato allo Speech-to-Text$^G$
         \end{itemize}
     \item \textbf{Trigger}: Il Cliente vuole inserire un ordine registrando un messaggio audio
 \end{itemize}
@@ -92,7 +92,7 @@ L'UC\_13.2 ha 4 ulteriori specializzazioni come mostrate in figura
     \item \textbf{Postcondizioni}: 
         \begin{itemize}
             \item L'audio viene archiviato
-            \item L'audio viene inviato allo Speech-to-Text 
+            \item L'audio viene inviato allo Speech-to-Text$^G$ 
         \end{itemize}
     \item \textbf{Specializzazioni}:
         \begin{itemize}
@@ -146,7 +146,7 @@ L'UC\_13.2 ha 4 ulteriori specializzazioni come mostrate in figura
         \end{itemize}
 \end{itemize}
 
-\subsubsubsubsection{UC\_13.2.3: Selezionare audio m4p}
+\subsubsubsubsection{UC\_13.2.3: Selezionare audio flac}
 \label{uc_13.2.3}
 
 \begin{itemize}
@@ -154,16 +154,16 @@ L'UC\_13.2 ha 4 ulteriori specializzazioni come mostrate in figura
     \item \textbf{Scenario principale}:
         \begin{enumerate}
             \item Il Cliente ha premuto il pulsante per selezionare un file dal dispositivo
-            \item Il Cliente seleziona un file con estensione .m4p
+            \item Il Cliente seleziona un file con estensione .flac
         \end{enumerate}
     \item \textbf{Precondizioni}:
         \begin{itemize}
-            \item Il formato .m4p è supportato dal sistema
+            \item Il formato .flac è supportato dal sistema
             \item Il Cliente si trova nella sezione di inserimento ordine tramite file
         \end{itemize}
     \item \textbf{Postcondizioni}: 
         \begin{itemize}
-            \item Il file .m4p è stato correttamente selezionato e caricato nel sistema
+            \item Il file .flac è stato correttamente selezionato e caricato nel sistema
         \end{itemize}
 \end{itemize}
 
@@ -186,4 +186,25 @@ L'UC\_13.2 ha 4 ulteriori specializzazioni come mostrate in figura
         \begin{itemize}
             \item Il file .wav è stato correttamente selezionato e caricato nel sistema
         \end{itemize}
+\end{itemize}
+
+\subsubsubsubsection{UC\_13.2.5: Selezionare audio webm}
+\label{uc_13.2.5}
+
+\begin{itemize}
+	\item \textbf{Attore$^G$ Principale}: Cliente
+	\item \textbf{Scenario principale}:
+	\begin{enumerate}
+		\item Il Cliente ha premuto il pulsante per selezionare un file dal dispositivo
+		\item Il Cliente seleziona un file con estensione .webm
+	\end{enumerate}
+	\item \textbf{Precondizioni}:
+	\begin{itemize}
+		\item Il formato .webm è supportato dal sistema
+		\item Il Cliente si trova nella sezione di inserimento ordine tramite file
+	\end{itemize}
+	\item \textbf{Postcondizioni}: 
+	\begin{itemize}
+		\item Il file .webm è stato correttamente selezionato e caricato nel sistema
+	\end{itemize}
 \end{itemize}

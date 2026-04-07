@@ -173,10 +173,10 @@ Solo \texttt{fields} e \texttt{submit} sono astratti: \texttt{validate} e \textt
 	\item \texttt{fields: FieldConfig*} - attributo pubblico astratto di tipo array di \texttt{FieldConfig}.
 	Contiene la configurazione dei campi del form. Viene definito dalle sottoclassi concrete con i campi specifici per login o registrazione.
 
-	\item \texttt{USERNAME\_REGEX: string} - costante privata protetta di tipo \texttt{RegExp}.
+	\item \texttt{USERNAME\_REGEX: RegExp} - costante privata protetta di tipo \texttt{RegExp}.
 	Espressione regolare utilizzata per la validazione$^G$ del formato del nome utente (tra 4 e 24 caratteri alfanumerici o underscore).
 
-	\item \texttt{PASSWORD\_REGEX: string} - costante privata protetta di tipo \texttt{RegExp}.
+	\item \texttt{PASSWORD\_REGEX: RegExp} - costante privata protetta di tipo \texttt{RegExp}.
 	Espressione regolare utilizzata per la validazione$^G$ della complessità della password (tra 8 e 24 caratteri, con almeno una maiuscola, una minuscola, un numero e un carattere speciale).
 \end{itemize}
 
@@ -268,7 +268,7 @@ Garantisce la correttezza dei tipi dei dati trasmessi e disaccoppia la struttura
 \begin{itemize}
 	\item \texttt{username: string} - attributo pubblico di tipo stringa, corrisponde al nome utente inserito dall'utente nel campo corrispondente del form di login.
 
-	\item \texttt{password: string} - attributo pubblico di tipo stringa, corrisponde alla password inserita dall'utente, che viene trasmessa in chiaro tramite HTTPS al backend$^G$, dove verrà verificata contro l'hash bcrypt memorizzato.
+	\item \texttt{password: string} - attributo pubblico di tipo stringa, corrisponde alla password inserita dall'utente, che viene trasmessa in chiaro tramite HTTPS$^G$ al backend$^G$, dove verrà verificata contro l'hash bcrypt memorizzato.
 \end{itemize}
 
 \subsubsubsubsection{Metodi e funzioni}
@@ -298,7 +298,7 @@ Definisce la struttura del payload JSON$^G$ inviato al backend$^G$ nell'endpoint
 	Deve rispettare il formato definito da \texttt{EMAIL\_REGEX} in \texttt{RegisterModel}.
 
 	\item \texttt{password: string} - attributo pubblico di tipo stringa.
-	Password scelta dall'utente, trasmessa in chiaro tramite HTTPS e cifrata lato backend$^G$ con bcrypt. Deve rispettare il formato definito da \texttt{PASSWORD\_REGEX} in \texttt{FormModel}.
+	Password scelta dall'utente, trasmessa in chiaro tramite HTTPS$^G$ e cifrata lato backend$^G$ con bcrypt. Deve rispettare il formato definito da \texttt{PASSWORD\_REGEX} in \texttt{FormModel}.
 
 	\item \texttt{confirmPwd: string} - attributo pubblico di tipo stringa.
 	Conferma della password inserita dall'utente, utilizzata lato frontend$^G$ per verificare che i due campi password coincidano prima di inviare la richiesta al backend.
@@ -412,7 +412,7 @@ Inizializza i campi del form con la configurazione specifica per la registrazion
 
 \subsubsubsubsection{Attributi}
 \begin{itemize}
-	\item \texttt{EMAIL\_REGEX: string} - attributo privato di tipo stringa. 
+	\item \texttt{EMAIL\_REGEX: RegExp} - attributo privato di tipo \texttt{RegExp}. 
 	Espressione regolare utilizzata per la validazione$^G$ del formato dell'indirizzo email inserito dall'utente durante la registrazione.
 \end{itemize}
 
