@@ -1,151 +1,132 @@
 \section{Tecnologie}
 
-In questa sezione vengono descritte le tecnologie adottate per lo sviluppo$^G$ del progetto$^G$ \textbf{SmartOrder}. Per ciascuna tecnologia vengono riportate la versione di riferimento, la documentazione ufficiale e il ruolo ricoperto all'interno del sistema.
+In questa sezione vengono descritte le tecnologie adottate per lo sviluppo$^G$ del progetto$^G$ \textbf{SmartOrder}. \\
+Per ciascuna tecnologia vengono riportate la versione di riferimento e il ruolo ricoperto all'interno del sistema.
 
-\subsection{Linguaggi di programmazione}
+\subsection{Frontend}
 
-\subsubsection{Python}
-\begin{itemize}
-    \item \textbf{Versione:} 3.14.3
-    \item \textbf{Documentazione:} \url{https://docs.python.org/3/}
-\end{itemize}
+\renewcommand{\arraystretch}{1.15}
+\begin{center}
+	\begin{longtable}{
+		>{\centering\arraybackslash}p{0.3\textwidth} 
+		>{\centering\arraybackslash}p{0.1\textwidth} 
+		>{\centering\arraybackslash}p{0.6\textwidth}}
+	
+		\textbf{Tecnologia} & \textbf{Versione} & \textbf{Descrizione} \\
+		
+		\arrayrulecolor{gray}
+		\hline
+		\multicolumn{3}{c}{\rule{0pt}{15pt} \textbf{Dipendenze principali}} \\
+		
+		React & 19.2.4 & Utilizzata per sviluppare l’interfaccia utente dinamica e component-based dell’applicazione SmartOrder \\
+		React DOM & 19.2.0 & Responsabile del rendering dei componenti React all’interno del browser \\
+		React Router DOM & 7.13.2 & Gestisce la navigazione tra le diverse viste dell’applicazione \\
+		Zustand & 5.0.12 & Impiegata per la gestione dello stato globale, evitando complessità architetturali \\
+		Lucide React & 0.577.0 & Fornisce icone SVG utilizzate nell’interfaccia per migliorare l’usabilità e la chiarezza visiva \\
+		\hline
+		
+		\multicolumn{3}{c}{\rule{0pt}{15pt} \textbf{Testing}} \\
+		
+		Vitest & 4.0.18 & Framework utilizzato per l’esecuzione dei test automatici del frontend \\
+		Testing Library React & 16.3.2 & Consente di testare i componenti simulando il comportamento reale dell’utente \\
+		Testing Library User Event & 14.6.1 & Utilizzata per simulare interazioni utente avanzate durante i test \\
+		Testing Library Jest DOM & 6.9.1 & Estende le asserzioni per verificare lo stato del DOM nei test \\
+		Vitest Coverage V8 & 4.0.18 & Permette di analizzare la copertura del codice garantita dai test \\
+		Vitest UI & 4.0.18 & Interfaccia grafica per monitorare e gestire l’esecuzione dei test \\
+		jsdom & 28.1.0 & Simula un ambiente browser per consentire l’esecuzione dei test in Node.js \\
+		\hline
+		
+		\multicolumn{3}{c}{\rule{0pt}{15pt} \textbf{Build e sviluppo}} \\
+		
+		Vite & 7.3.1 & Utilizzato come strumento di build e server di sviluppo \\
+		TypeScript & 5.9.3 & Impiegato per migliorare la robustezza del codice tramite tipizzazione statica \\
+		Tailwind CSS & 4.2.1 & Utilizzato per lo styling dell’interfaccia tramite classi utility-first \\
+		PostCSS & 8.5.8 & Permette la trasformazione e ottimizzazione del codice CSS \\
+		Autoprefixer & 10.4.27 & Aggiunge automaticamente prefissi CSS per garantire compatibilità tra browser \\
+		\hline
+		
+		\multicolumn{3}{c}{\rule{0pt}{15pt} \textbf{Linting}} \\
+		
+		ESLint & 9.39.1 & Utilizzato per mantenere la qualità e la coerenza del codice frontend \\
+		TypeScript ESLint & 8.48.0 & Integra ESLint con TypeScript per un controllo più accurato del codice tipizzato \\
+		ESLint Plugin React Hooks & 7.0.1 & Verifica il corretto utilizzo degli hook React all’interno dei componenti \\
+		ESLint Plugin React Refresh & 0.4.24 & Supporta il corretto funzionamento del Fast Refresh durante lo sviluppo \\
+		
+		\caption{Tecnologie Frontend}
+		
+	\end{longtable}
+\end{center}
 
-Python$^G$ è un linguaggio di programmazione ad alto livello, interpretato e flessibile, progettato per rendere il codice facile da leggere e veloce da sviluppare.
+\subsection{Backend}
 
-Nel progetto$^G$ SmartOrder, Python$^G$ viene usato principalmente per sviluppare il backend$^G$ e per collegarsi ai modelli di intelligenza artificiale. In particolare, gestisce la logica degli ordini, realizza le API$^G$ con FastAPI e si occupa delle interazioni con il database$^G$ e con i sistemi di memorizzazione vettoriale. Grazie alla grande quantità di librerie disponibili, Python$^G$ è particolarmente adatto per applicazioni che usano machine learning$^G$ e intelligenza artificiale.
+\renewcommand{\arraystretch}{1.15}
+\begin{center}
+	\begin{longtable}{
+			>{\centering\arraybackslash}p{0.3\textwidth} 
+			>{\centering\arraybackslash}p{0.1\textwidth} 
+			>{\raggedright\arraybackslash}p{0.6\textwidth}}
+		
+		\textbf{Tecnologia} & \textbf{Versione} & \textbf{Descrizione} \\
+		\hline
+		\multicolumn{3}{c}{\rule{0pt}{15pt} \textbf{Dipendenze principali}} \\
 
-\subsubsection{TypeScript}
-\begin{itemize}
-    \item \textbf{Versione:} 5.9
-    \item \textbf{Documentazione:} \url{https://www.typescriptlang.org/docs/}
-\end{itemize}
+		aiofiles & 25.1.0 & Gestione asincrona di file \\
+		bcrypt & 5.0.0 & Hashing delle password \\
+		email-validator & 2.3.0 & Validazione sintattica e DNS delle email \\
+		faiss-cpu & 1.13.2 & Ricerca vettoriale per RAG \\
+		fastapi-utils & 0.8.0 & Utility aggiuntive per FastAPI \\
+		httptools & 0.7.1 & Parser HTTP per Uvicorn (performance) \\
+		Jinja2 & 3.1.6 & Template engine per HTML \\
+		langchain & 1.2.10 & Framework per applicazioni LLM \\
+		langchain-community & 0.4.1 & Integrazioni community per LangChain \\
+		langchain-openai & 1.1.7 & Connettore OpenAI per LangChain \\
+		mutagen & 1.47.0 & Lettura e modifica di metadati audio \\
+		networkx & 3.6.1 & Libreria per grafi (RAG avanzato) \\
+		passlib & 1.7.4 & Wrapper per hashing password \\
+		pillow & 12.1.1 & Elaborazione di immagini \\
+		psycopg & 3.3.3 & Driver PostgreSQL asincrono \\
+		psycopg2-binary & 2.9.11 & Driver PostgreSQL sincrono (legacy) \\
+		pydantic-extra-types & 2.11.0 & Tipi aggiuntivi per Pydantic \\
+		python-jose & 3.5.0 & Creazione e verifica di token JWT \\
+		python-multipart & 0.0.22 & Parsing di form-data multipart \\
+		scikit-learn & 1.8.0 & Algoritmi di machine learning \\
+		slowapi & 0.1.9 & Rate limiting per API \\
+		sqlmodel & 0.0.32 & ORM basato su SQLAlchemy con type hints \\
+		sympy & 1.14.0 & Calcolo simbolico (parsing di espressioni) \\
+		transformers & 5.1.0 & Modelli Hugging Face per NLP \\
+		uvloop & 0.22.1 & Loop eventi asincrono ad alte prestazioni \\
+		watchfiles & 1.1.1 & Ricarica automatica in sviluppo (hot reload) \\
+		websockets & 16.0 & Supporto WebSocket per chat in tempo reale \\
+		\hline
+		\multicolumn{3}{c}{\rule{0pt}{15pt} \textbf{Testing e sviluppo}} \\
 
-TypeScript è un linguaggio di programmazione che estende JavaScript introducendo la tipizzazione statica, interfacce, tipi complessi e generics. I controlli sui tipi a compile-time riducono gli errori comuni legati all'assenza di tipizzazione e migliorano la leggibilità, la manutenibilità e la robustezza del codice.
+		fastapi-cli & 0.0.20 & CLI di FastAPI (utilità) \\
+		fastapi-cloud-cli & 0.11.0 & CLI per FastAPI Cloud \\
+		mirakuru & 3.0.2 & Esecuzione di processi per test \\
+		mypy & 1.19.1 & Type checker statico per Python \\
+		pip & 25.1.1 & Package manager \\
+		pipdeptree & 2.34.0 & Visualizzazione dipendenze ad albero \\
+		port-for & 1.0.0 & Trovare porte libere per test \\
+		pytest-asyncio & 1.3.0 & Supporto asincrono per pytest \\
+		pytest-cov & 7.0.0 & Coverage dei test \\
+		setuptools & 80.10.2 & Build e distribuzione pacchetti Python \\
+		\hline
+		\multicolumn{3}{c}{\rule{0pt}{15pt} \textbf{Type stub (solo sviluppo)}} \\
 
-Nel progetto$^G$ viene utilizzato per gestire dati strutturati complessi come ordini, prodotti, quantità e validazioni, contribuendo a mantenere coerenza tra frontend$^G$ e backend$^G$ e a ridurre il rischio di errori nella comunicazione tramite API.
+		types-aiofiles & 25.1.0 & Stub di tipo per aiofiles \\
+		types-passlib & 1.7.7 & Stub di tipo per passlib \\
+		types-python-jose & 3.5.0 & Stub di tipo per python-jose \\
+		types-requests & 2.32.4 & Stub di tipo per requests \\
+		
+		\caption{Tecnologie Backend}
+		
+	\end{longtable}
+\end{center}
+
+\subsection{Persistenza dati}
 
 \subsubsection{PostgreSQL}
-\begin{itemize}
-    \item \textbf{Versione:}
-    \item \textbf{Documentazione:} \url{https://www.postgresql.org/docs/}
-\end{itemize}
 
-PostgreSQL$^G$ è un sistema di gestione di basi di dati relazionali conforme agli standard SQL$^G$, noto per la sua affidabilità e robustezza nella gestione dei dati.
-
+PostgreSQL$^G$ è un sistema di gestione di basi di dati relazionali conforme agli standard SQL$^G$, noto per la sua affidabilità e robustezza nella gestione dei dati.\\
+La versione utilizzata nel progetto è la versione 16.13 \\
 Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato come database$^G$ principale per la memorizzazione persistente delle informazioni dell'applicazione, tra cui il catalogo dei prodotti, gli ordini generati dal sistema e i dati associati agli input elaborati. L'utilizzo di PostgreSQL$^G$ consente di garantire integrità, consistenza e affidabilità nella gestione dei dati e si integra facilmente con il backend$^G$ sviluppato in Python.
-
-\subsubsection{Infrastruttura e servizi}
-
-\subsubsection{FastAPI}
-\begin{itemize}
-    \item \textbf{Versione:}
-    \item \textbf{Documentazione:} \url{https://fastapi.tiangolo.com}
-\end{itemize}
-
-FastAPI è un framework$^G$ web per Python$^G$ utilizzato per sviluppare API$^G$ REST$^G$ ad alte prestazioni. Si basa sullo standard ASGI e utilizza librerie come Pydantic e Starlette per la gestione delle richieste e la validazione$^G$ dei dati.\\
-Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per implementare il backend$^G$ dell'applicazione e gestire la comunicazione tra frontend$^G$, moduli di elaborazione e database. Inoltre, consente di integrare facilmente i modelli di intelligenza artificiale$^G$ e di generare automaticamente la documentazione delle API$^G$ tramite strumenti basati su OpenAPI.
-
-\subsubsection{React}
-\begin{itemize}
-    \item \textbf{Versione:} 19.2
-    \item \textbf{Documentazione:} \url{https://it.react.dev/reference/react}
-\end{itemize}
-
-React$^G$ è una libreria JavaScript open source per la costruzione di interfacce utente basate su un modello dichiarativo e su componenti indipendenti e riutilizzabili. Utilizza un DOM virtuale per aggiornare selettivamente solo le parti dell'interfaccia effettivamente modificate, ottimizzando le prestazioni di rendering.
-
-Non essendo opinionata nella scelta delle librerie di routing o di gestione dello stato, non impone vincoli architetturali, permettendo di strutturare il frontend$^G$ in modo modulare e adattarlo alle esigenze dell'applicazione.
-
-\subsubsection{TailwindCSS}
-\begin{itemize}
-    \item \textbf{Versione:} 4.2
-    \item \textbf{Documentazione:} \url{https://tailwindcss.com/docs/installation/using-vite}
-\end{itemize}
-
-TailwindCSS è un framework$^G$ CSS utility-first che mette a disposizione un ampio insieme di classi di utilità che applicano singole proprietà CSS direttamente nel markup. Questo approccio consente di costruire interfacce in modo rapido e coerente, evitando la scrittura di fogli di stile personalizzati e complessi, e favorendo una maggiore manutenibilità del codice di presentazione.
-
-\subsubsection{Vite}
-\begin{itemize}
-    \item \textbf{Versione:} 7.3.1
-    \item \textbf{Documentazione:} \url{https://vite.dev/guide/#scaffolding-your-first-vite-project}
-\end{itemize}
-
-Vite è uno strumento di build$^G$ per lo sviluppo$^G$ di applicazioni web moderne. Sfrutta i moduli ES nativi del browser per avviare l'ambiente di sviluppo$^G$ con tempi di avvio ridotti, offrendo hot module replacement per aggiornamenti immediati durante lo sviluppo. Supporta la configurazione tramite plugin, l'ottimizzazione automatica delle dipendenze e la generazione di bundle di codice ottimizzati tramite Rollup.
-
-\subsubsection{LangChain}
-\begin{itemize}
-    \item \textbf{Versione:}
-    \item \textbf{Documentazione:} \url{https://python.langchain.com}
-\end{itemize}
-
-LangChain è un framework$^G$ open source progettato per facilitare lo sviluppo$^G$ di applicazioni basate su Large Language Models (LLM$^G$). Fornisce strumenti per gestire prompt$^G$, orchestrare le chiamate ai modelli e integrare i modelli di linguaggio con fonti di dati esterne.\\
-Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per gestire l'interazione con il modello di linguaggio e costruire le pipeline di elaborazione necessarie per interpretare gli input degli utenti ed estrarre le informazioni rilevanti dagli ordini, trasformandole in dati strutturati utilizzabili dal sistema.
-
-\subsubsection{FAISS}
-\begin{itemize}
-    \item \textbf{Versione:}
-    \item \textbf{Documentazione:} \url{https://faiss.ai/index.html}
-\end{itemize}
-
-FAISS$^G$ (Facebook AI Similarity Search) è una libreria open source sviluppata da Meta per l'indicizzazione e la ricerca efficiente di vettori ad alta dimensionalità, utilizzata principalmente per operazioni di similarity search tra embedding.\\
-Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato come database$^G$ vettoriale per memorizzare e confrontare gli embedding generati dai modelli di linguaggio. Questo consente di individuare prodotti simili a partire da descrizioni testuali e migliorare l'accuratezza del matching tra le richieste dell'utente e il catalogo aziendale.
-
-\subsubsection{GPT-5}
-\begin{itemize}
-    \item \textbf{Versione:}
-    \item \textbf{Documentazione:} \url{https://platform.openai.com/docs}
-\end{itemize}
-
-GPT-5 è un Large Language Model basato sull'architettura Transformer, progettato per comprendere e generare testo in linguaggio naturale. Grazie all'addestramento su grandi quantità di dati testuali, è in grado di interpretare il significato delle richieste degli utenti e di estrarre informazioni rilevanti dal testo.\\
-Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per analizzare gli input degli utenti espressi in linguaggio naturale e trasformarli in dati strutturati utilizzabili dal sistema, individuando informazioni come prodotti, quantità e altri dettagli necessari alla generazione degli ordini.
-
-\subsubsection{Docker}
-\begin{itemize}
-    \item \textbf{Versione:}
-    \item \textbf{Documentazione:} \url{https://docs.docker.com}
-\end{itemize}
-
-Docker$^G$ è una piattaforma open source che consente di sviluppare ed eseguire applicazioni all'interno di container, ambienti isolati che includono tutte le dipendenze necessarie al funzionamento del software.\\
-Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per containerizzare i diversi componenti dell'applicazione, come backend$^G$, frontend$^G$ e database$^G$, garantendo un ambiente di esecuzione coerente tra sviluppo$^G$, testing e deployment e semplificando il processo$^G$ di distribuzione$^G$ del sistema.
-
-\subsection{Tecnologie di analisi}
-\subsubsection{Tecnologie di analisi statica}
-
-\subsubsubsection{SonarQube}
-\begin{itemize}
-    \item \textbf{Versione:}
-    \item \textbf{Documentazione:} \url{https://docs.sonarsource.com/sonarqube}
-\end{itemize}
-
-SonarQube è una piattaforma di analisi statica del codice che consente di valutare la qualità del software individuando potenziali errori, vulnerabilità di sicurezza e problemi di manutenibilità.\\
-Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per monitorare automaticamente la qualità del codice prodotto durante lo sviluppo$^G$, permettendo di individuare precocemente eventuali criticità e mantenere elevati standard qualitativi nel progetto.
-
-\subsubsubsection{MyPy}
-\begin{itemize}
-    \item \textbf{Versione:}
-    \item \textbf{Documentazione:} \url{https://mypy.readthedocs.io}
-\end{itemize}
-
-MyPy è uno strumento di analisi statica per Python$^G$ che verifica$^G$ la correttezza delle annotazioni di tipo presenti nel codice sorgente.\\
-Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per controllare la coerenza dei tipi nel backend$^G$ sviluppato in Python$^G$, contribuendo a individuare errori prima dell'esecuzione del programma e migliorando la robustezza del codice.
-
-\subsubsection{Tecnologie di analisi dinamica}
-
-\subsubsubsection{Pytest}
-\begin{itemize}
-    \item \textbf{Versione:}
-    \item \textbf{Documentazione:} \url{https://docs.pytest.org}
-\end{itemize}
-
-Pytest è un framework$^G$ di testing per Python$^G$ che consente di scrivere ed eseguire test$^G$ automatici per verificare il corretto funzionamento del codice.
-
-Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per testare le componenti backend$^G$ sviluppate in Python$^G$, verificando il comportamento delle API$^G$ e delle funzioni di elaborazione per garantire l'affidabilità del sistema.
-
-\subsubsubsection{Vitest}
-\begin{itemize}
-    \item \textbf{Versione:}
-    \item \textbf{Documentazione:} \url{https://vitest.dev}
-\end{itemize}
-
-Vitest è un framework$^G$ di testing per applicazioni JavaScript e TypeScript integrato con l'ecosistema Vite, progettato per eseguire test$^G$ in modo rapido ed efficiente.
-
-Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato per testare il codice frontend$^G$ sviluppato con React$^G$ e TypeScript, verificando il corretto funzionamento delle componenti dell'interfaccia utente e delle logiche di interazione con il backend.
