@@ -1,0 +1,519 @@
+\subsubsection{Test di Unità Frontend}
+
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{|
+		>{\raggedright\arraybackslash}p{0.2\columnwidth} |
+		>{\raggedright\arraybackslash}p{0.5\columnwidth} |
+		>{\centering\arraybackslash}p{0.1\columnwidth} |
+	}
+	\hline
+	\rowcolor[gray]{0.9}
+	\textbf{Codice Test$^G$} & \textbf{Descrizione} & \textbf{Stato} \\
+	\hline
+	\endhead
+	TU-F\_01 & Verifica$^G$ che il componente \vr{App} venga renderizzato senza causare eccezioni o crash & S \\ \hline
+	TU-F\_02 & Verifica$^G$ che il bootstrap in \vr{main.tsx} monti l'applicazione React$^G$ senza crash & S \\ \hline
+	TU-F\_03 & Verifica$^G$ che \vr{ProtectedRoute} mostri il messaggio di loading durante la verifica$^G$ dell'autenticazione & S \\ \hline
+	TU-F\_04 & Verifica$^G$ che \vr{ProtectedRoute} renderizzi i children se la chiamata a \vr{/me} risponde con successo & S \\ \hline
+	TU-F\_05 & Verifica$^G$ che \vr{ProtectedRoute} reindirizzi a \vr{/unauthorized} se \vr{/me} risponde con errore & S \\ \hline
+	TU-F\_06 & Verifica$^G$ che \vr{ProtectedRoute} reindirizzi a \vr{/unauthorized} se la fetch lancia un'eccezione & S \\ \hline
+	TU-F\_07 & Verifica$^G$ che \vr{ProtectedRoute} chiami \vr{setAuth} con lo username corretto dopo una risposta positiva & S \\ \hline
+	TU-F\_08 & Verifica$^G$ che \vr{ProtectedRoute} chiami \vr{clearAuth} in caso di errore & S \\ \hline
+	TU-F\_09 & Verifica$^G$ che \vr{ProtectedRoute} chiami \vr{/auth/me} con l'opzione \vr{credentials: 'include'} & S \\ \hline
+	TU-F\_10 & Verifica$^G$ che \vr{login} restituisca i dati con il token$^G$ quando la risposta ha \vr{ok=true} & S \\ \hline
+	TU-F\_11 & Verifica$^G$ che \vr{login} chiami \vr{fetch} con metodo \vr{POST} su \vr{/auth/login} e il body corretto & S \\ \hline
+	TU-F\_12 & Verifica$^G$ che \vr{login} restituisca il \vr{detail} quando \vr{response.ok=false} con \vr{detail} presente & S \\ \hline
+	TU-F\_13 & Verifica$^G$ che \vr{login} restituisca un errore generico con lo status quando \vr{response.ok=false} senza \vr{detail} & S \\ \hline
+	TU-F\_14 & Verifica$^G$ che \vr{login} restituisca un errore generico quando \vr{response.ok=false} con \vr{detail=null} & S \\ \hline
+	TU-F\_15 & Verifica$^G$ che \vr{login} restituisca "Errore di rete" se \vr{fetch} lancia un'eccezione & S \\ \hline
+	TU-F\_16 & Verifica$^G$ che \vr{register} restituisca il token$^G$ quando la risposta ha \vr{ok=true} & S \\ \hline
+	TU-F\_17 & Verifica$^G$ che \vr{register} chiami \vr{fetch} su \vr{/auth/register} con il payload completo & S \\ \hline
+	TU-F\_18 & Verifica$^G$ che \vr{register} restituisca l'errore dal server quando riceve uno \vr{409} con \vr{detail} & S \\ \hline
+	TU-F\_19 & Verifica$^G$ che \vr{register} restituisca un errore generico quando riceve \vr{500} senza \vr{detail} & S \\ \hline
+	TU-F\_20 & Verifica$^G$ che \vr{register} restituisca "Errore di rete" se \vr{fetch} lancia un'eccezione & S \\ \hline
+	TU-F\_21 & Verifica$^G$ che \vr{register} non restituisca alcun \vr{token$^G$} in caso di errore & S \\ \hline
+	TU-F\_22 & Verifica$^G$ che in \vr{AuthPage} un login con successo chiami \vr{/auth/me}, esegua \vr{setAuth} con username e navighi a \vr{/home} & S \\ \hline
+	TU-F\_23 & Verifica$^G$ che in \vr{AuthPage} un login fallito non esegua la navigazione & S \\ \hline
+	TU-F\_24 & Verifica$^G$ che in \vr{AuthPage} una registrazione con successo torni al tab di login & S \\ \hline
+	TU-F\_25 & Verifica$^G$ che lo stato iniziale di \vr{authStore} abbia \vr{username} uguale a \vr{null} & S \\ \hline
+	TU-F\_26 & Verifica$^G$ che lo stato iniziale di \vr{authStore} abbia \vr{isAuthenticated} uguale a \vr{false} & S \\ \hline
+	TU-F\_27 & Verifica$^G$ che \vr{setAuth} imposti \vr{username} e \vr{isAuthenticated=true} & S \\ \hline
+	TU-F\_28 & Verifica$^G$ che \vr{setAuth} sovrascriva un valore precedente di \vr{username} & S \\ \hline
+	TU-F\_29 & Verifica$^G$ che \vr{clearAuth} azzeri \vr{username} e \vr{isAuthenticated} & S \\ \hline
+	TU-F\_30 & Verifica$^G$ che \vr{clearAuth} sia idempotente & S \\ \hline
+	TU-F\_31 & Verifica$^G$ che dopo un ciclo \vr{setAuth} → \vr{clearAuth} → \vr{setAuth} il secondo login funzioni correttamente & S \\ \hline
+	TU-F\_32 & Verifica$^G$ che \vr{FormErrors} non renderizzi nulla quando \vr{errors} è vuoto & S \\ \hline
+	TU-F\_33 & Verifica$^G$ che \vr{FormErrors} renderizzi un paragrafo per ogni errore quando \vr{errors} non è vuoto & S \\ \hline
+	TU-F\_34 & Verifica$^G$ che \vr{FormView} mostri titolo, label dei campi e pulsante di submit & S \\ \hline
+	TU-F\_35 & Verifica$^G$ che con \vr{loading=true} il pulsante sia disabilitato e mostri il testo "Caricamento" & S \\ \hline
+	TU-F\_36 & Verifica$^G$ che \vr{FormView} mostri un errore inline quando \vr{fieldErrors} è truthy & S \\ \hline
+	TU-F\_37 & Verifica$^G$ che \vr{FormView} non mostri paragrafi di errore quando \vr{fieldErrors} è falsy & S \\ \hline
+	TU-F\_38 & Verifica$^G$ che \vr{handleChange} venga chiamato all'evento \vr{change} & S \\ \hline
+	TU-F\_39 & Verifica$^G$ che \vr{handleBlur} venga chiamato all'evento \vr{blur} & S \\ \hline
+	TU-F\_40 & Verifica$^G$ che \vr{handleSubmit} venga chiamato al click sul pulsante di submit & S \\ \hline
+	TU-F\_41 & Verifica$^G$ che il toggle password cambi il tipo dell'input da \vr{password} a \vr{text} e viceversa al click & S \\ \hline
+	TU-F\_42 & Verifica$^G$ che \vr{FormView} passi correttamente \vr{placeholder} e \vr{autoComplete} agli input & S \\ \hline
+	TU-F\_43 & Verifica$^G$ che il bordo dell'input cambi colore all'evento \vr{focus} e torni normale al \vr{blurCapture} & S \\ \hline
+	TU-F\_44 & Verifica$^G$ che il colore del toggle password cambi al \vr{mouseEnter} e \vr{mouseLeave} & S \\ \hline
+	TU-F\_45 & Verifica$^G$ che il colore e il bordo del pulsante di submit cambino al \vr{mouseEnter} e \vr{mouseLeave} & S \\ \hline
+	TU-F\_46 & Verifica$^G$ che lo stato iniziale di \vr{useFormViewModel} abbia \vr{values} vuoti, \vr{fieldErrors} vuoto, \vr{errors} vuoto e \vr{loading=false} & S \\ \hline
+	TU-F\_47 & Verifica$^G$ che \vr{handleChange} aggiorni il valore e azzeri il \vr{fieldError} del campo modificato & S \\ \hline
+	TU-F\_48 & Verifica$^G$ che \vr{handleChange} non alteri i valori degli altri campi & S \\ \hline
+	TU-F\_49 & Verifica$^G$ che \vr{handleBlur} chiami \vr{validateField} e imposti \vr{fieldErrors} & S \\ \hline
+	TU-F\_50 & Verifica$^G$ che \vr{handleSubmit} non chiami \vr{submit} se ci sono errori di validazione$^G$ & S \\ \hline
+	TU-F\_51 & Verifica$^G$ che con \vr{res.ok=true} \vr{handleSubmit} chiami \vr{onSuccess} con il token$^G$ e imposti \vr{loading=false} & S \\ \hline
+	TU-F\_52 & Verifica$^G$ che con \vr{res.ok=true} senza token$^G$ \vr{handleSubmit} chiami \vr{onSuccess} con \vr{undefined} & S \\ \hline
+	TU-F\_53 & Verifica$^G$ che con \vr{res.ok=false} \vr{handleSubmit} imposti \vr{errors}, non chiami \vr{onSuccess} e imposti \vr{loading=false} & S \\ \hline
+	TU-F\_54 & Verifica$^G$ che se \vr{submit} lancia un'eccezione \vr{handleSubmit} imposti "Errore di connessione" e \vr{loading=false} & S \\ \hline
+	TU-F\_55 & Verifica$^G$ che \vr{Login} mostri il titolo "Accedi" e i campi username e password & S \\ \hline
+	TU-F\_56 & Verifica$^G$ che con \vr{ok=true} il componente \vr{Login} chiami la callback \vr{onLogin} & S \\ \hline
+	TU-F\_57 & Verifica$^G$ che con \vr{ok=false} il componente \vr{Login} mostri l'errore e non chiami \vr{onLogin} & S \\ \hline
+	TU-F\_58 & Verifica$^G$ che \vr{Register} mostri il titolo "Crea account" e i 4 campi del form & S \\ \hline
+	TU-F\_59 & Verifica$^G$ che \vr{Register} mostri un errore inline se lo username ha meno di 4 caratteri & S \\ \hline
+	TU-F\_60 & Verifica$^G$ che \vr{Register} mostri un errore inline se l'email non è valida & S \\ \hline
+	TU-F\_61 & Verifica$^G$ che \vr{Register} mostri un errore inline se la password non rispetta i criteri di validazione$^G$ & S \\ \hline
+	TU-F\_62 & Verifica$^G$ che \vr{Register} mostri un errore se la password e la conferma non coincidono & S \\ \hline
+	TU-F\_63 & Verifica$^G$ che con \vr{ok=true} il componente \vr{Register} chiami la callback \vr{onRegister} & S \\ \hline
+	TU-F\_64 & Verifica$^G$ che con \vr{ok=false} il componente \vr{Register} mostri l'errore restituito dal server & S \\ \hline
+	TU-F\_65 & Verifica$^G$ che \vr{CartSidebar} mostri il titolo "Carrello" & S \\ \hline
+	TU-F\_66 & Verifica$^G$ che \vr{CartSidebar} abbia il ruolo \vr{aside} con \vr{aria-label="Carrello"} & S \\ \hline
+	TU-F\_67 & Verifica$^G$ che \vr{CartSidebar} mostri il messaggio di carrello vuoto quando non ci sono prodotti & S \\ \hline
+	TU-F\_68 & Verifica$^G$ che \vr{CartSidebar} non mostri il badge con il conteggio quando il carrello è vuoto & S \\ \hline
+	TU-F\_69 & Verifica$^G$ che \vr{CartSidebar} non mostri il totale quando il carrello è vuoto & S \\ \hline
+	TU-F\_70 & Verifica$^G$ che \vr{CartSidebar} suggerisca di usare il chatbot quando il carrello è vuoto & S \\ \hline
+	TU-F\_71 & Verifica$^G$ che \vr{CartSidebar} non mostri il pulsante "Invia ordine" quando il carrello è vuoto & S \\ \hline
+	TU-F\_72 & Verifica$^G$ che \vr{CartSidebar} mostri la lista dei prodotti con i nomi corretti & S \\ \hline
+	TU-F\_73 & Verifica$^G$ che \vr{CartSidebar} mostri gli \vr{prod\_id} dei prodotti & S \\ \hline
+	TU-F\_74 & Verifica$^G$ che \vr{CartSidebar} mostri il badge con il numero corretto di prodotti & S \\ \hline
+	TU-F\_75 & Verifica$^G$ che \vr{CartSidebar} mostri le quantità dei prodotti & S \\ \hline
+	TU-F\_76 & Verifica$^G$ che \vr{CartSidebar} mostri la sezione "Totale" & S \\ \hline
+	TU-F\_77 & Verifica$^G$ che \vr{CartSidebar} calcoli il totale correttamente & S \\ \hline
+	TU-F\_78 & Verifica$^G$ che \vr{CartSidebar} mostri la lista prodotti con l'attributo \vr{aria-label} corretto & S \\ \hline
+	TU-F\_79 & Verifica$^G$ che \vr{CartSidebar} formatti i prezzi in formato italiano con valuta EUR & S \\ \hline
+	TU-F\_80 & Verifica$^G$ che \vr{CartSidebar} gestisca prodotti con \vr{price=0} senza crash & S \\ \hline
+	TU-F\_81 & Verifica$^G$ che \vr{CartSidebar} gestisca \vr{price} come \vr{undefined} senza crash & S \\ \hline
+	TU-F\_82 & Verifica$^G$ che \vr{CartSidebar} gestisca \vr{qty} come \vr{undefined} senza crash & S \\ \hline
+	TU-F\_83 & Verifica$^G$ che il pulsante di chiusura di \vr{CartSidebar} chiami \vr{onToggleSelf} al click & S \\ \hline
+	TU-F\_84 & Verifica$^G$ che il pulsante di chiusura di \vr{CartSidebar} abbia l'attributo \vr{title} corretto & S \\ \hline
+	TU-F\_85 & Verifica$^G$ che il pulsante di chiusura di \vr{CartSidebar} abbia \vr{aria-label} o \vr{title} leggibile & S \\ \hline
+	TU-F\_86 & Verifica$^G$ che ogni prodotto in \vr{CartSidebar} sia contenuto in un elemento \vr{li} & S \\ \hline
+	TU-F\_87 & Verifica$^G$ che il click su "Invia ordine" apra il dialog di conferma & S \\ \hline
+	TU-F\_88 & Verifica$^G$ che il dialog di conferma mostri il numero di prodotti e il totale & S \\ \hline
+	TU-F\_89 & Verifica$^G$ che il dialog di conferma mostri "prodotto" al singolare se c'è un solo articolo & S \\ \hline
+	TU-F\_90 & Verifica$^G$ che il pulsante "Annulla" nel dialog chiuda il dialog senza chiamare \vr{onOrdine} & S \\ \hline
+	TU-F\_91 & Verifica$^G$ che il pulsante "Conferma" nel dialog chiuda il dialog e chiami \vr{onOrdine} & S \\ \hline
+	TU-F\_92 & Verifica$^G$ che il click sullo sfondo (backdrop) chiuda il dialog senza chiamare \vr{onOrdine} & S \\ \hline
+	TU-F\_93 & Verifica$^G$ che \vr{ChatArea} abbia il ruolo \vr{main} con \vr{aria-label="Area chat"} & S \\ \hline
+	TU-F\_94 & Verifica$^G$ che \vr{ChatArea} mostri il log dei messaggi con ruolo \vr{log} & S \\ \hline
+	TU-F\_95 & Verifica$^G$ che \vr{ChatArea} mostri tutti i messaggi della lista & S \\ \hline
+	TU-F\_96 & Verifica$^G$ che \vr{ChatArea} mostri il messaggio "Nessun messaggio" se la lista è vuota & S \\ \hline
+	TU-F\_97 & Verifica$^G$ che i messaggi dell'utente in \vr{ChatArea} abbiano l'attributo \vr{aria-label} corretto & S \\ \hline
+	TU-F\_98 & Verifica$^G$ che i messaggi del chatbot in \vr{ChatArea} abbiano l'attributo \vr{aria-label} corretto & S \\ \hline
+	TU-F\_99 & Verifica$^G$ che \vr{ChatArea} mostri lo spinner di caricamento quando \vr{isLoading=true} & S \\ \hline
+	TU-F\_100 & Verifica$^G$ che \vr{ChatArea} non mostri lo spinner di caricamento quando \vr{isLoading=false} & S \\ \hline
+	TU-F\_101 & Verifica$^G$ che \vr{ChatArea} mostri il typing indicator quando \vr{isSending=true} & S \\ \hline
+	TU-F\_102 & Verifica$^G$ che \vr{ChatArea} non mostri il typing indicator quando \vr{isSending=false} & S \\ \hline
+	TU-F\_103 & Verifica$^G$ che \vr{ChatArea} disabiliti textarea e pulsanti durante \vr{isSending=true} & S \\ \hline
+	TU-F\_104 & Verifica$^G$ che \vr{ChatArea} mostri il placeholder "Trascrizione in corso…" durante \vr{isTranscribing=true} & S \\ \hline
+	TU-F\_105 & Verifica$^G$ che la textarea sia disabilitata durante la trascrizione & S \\ \hline
+	TU-F\_106 & Verifica$^G$ che \vr{ChatArea} mostri il banner "Trascrizione in corso…" quando \vr{isTranscribing=true} & S \\ \hline
+	TU-F\_107 & Verifica$^G$ che \vr{ChatArea} non mostri il banner di trascrizione quando \vr{isTranscribing=false} & S \\ \hline
+	TU-F\_108 & Verifica$^G$ che il pulsante Invia rimanga disabilitato durante la trascrizione anche con testo presente & S \\ \hline
+	TU-F\_109 & Verifica$^G$ che \vr{ChatArea} metta il focus sulla textarea quando \vr{isTranscribing} torna \vr{false} e \vr{inputText} è valorizzato & S \\ \hline
+	TU-F\_110 & Verifica$^G$ che \vr{ChatArea} non metta il focus se \vr{inputText} è vuoto quando \vr{isTranscribing=false} & S \\ \hline
+	TU-F\_111 & Verifica$^G$ che \vr{ChatArea} chiami \vr{onInputChange} quando si scrive nella textarea & S \\ \hline
+	TU-F\_112 & Verifica$^G$ che \vr{ChatArea} chiami \vr{onSend} al click del pulsante Invia & S \\ \hline
+	TU-F\_113 & Verifica$^G$ che \vr{ChatArea} chiami \vr{onSend} premendo il tasto Invio nella textarea & S \\ \hline
+	TU-F\_114 & Verifica$^G$ che \vr{ChatArea} non chiami \vr{onSend} premendo Shift+Invio & S \\ \hline
+	TU-F\_115 & Verifica$^G$ che \vr{ChatArea} mostri il contatore dei caratteri & S \\ \hline
+	TU-F\_116 & Verifica$^G$ che \vr{ChatArea} disabiliti il pulsante Invia se si supera il limite di 4096 caratteri & S \\ \hline
+	TU-F\_117 & Verifica$^G$ che il pulsante Invia sia abilitato esattamente a 4096 caratteri & S \\ \hline
+	TU-F\_118 & Verifica$^G$ che \vr{ChatArea} aggiunga la classe \vr{sticky} quando \vr{sidebarOpen=true} & S \\ \hline
+	TU-F\_119 & Verifica$^G$ che \vr{ChatArea} non aggiunga la classe \vr{sticky} quando \vr{sidebarOpen=false} & S \\ \hline
+	TU-F\_120 & Verifica$^G$ che \vr{ChatArea} mostri il pulsante microfono per la registrazione vocale & S \\ \hline
+	TU-F\_121 & Verifica$^G$ che \vr{ChatArea} mostri il pulsante per allegare file audio & S \\ \hline
+	TU-F\_122 & Verifica$^G$ che \vr{handleMicClick} non faccia nulla se \vr{isSending=true} & S \\ \hline
+	TU-F\_123 & Verifica$^G$ che l'avvio della registrazione mostri il banner "Registrazione in corso" & S \\ \hline
+	TU-F\_124 & Verifica$^G$ che dopo l'avvio il pulsante microfono cambi \vr{aria-label} in "Ferma registrazione" & S \\ \hline
+	TU-F\_125 & Verifica$^G$ che \vr{recorder.start()} venga chiamato quando si avvia la registrazione & S \\ \hline
+	TU-F\_126 & Verifica$^G$ che al secondo click sul microfono la registrazione venga fermata chiamando \vr{recorder.stop()} & S \\ \hline
+	TU-F\_127 & Verifica$^G$ che \vr{onstop} chiami \vr{onAudioRecord} con il blob e fermi i track del microfono & S \\ \hline
+	TU-F\_128 & Verifica$^G$ che \vr{ondataavailable} ignori chunk con dimensione zero & S \\ \hline
+	TU-F\_129 & Verifica$^G$ che venga mostrato un alert se \vr{getUserMedia} fallisce & S \\ \hline
+	TU-F\_130 & Verifica$^G$ che la registrazione venga automaticamente fermata dopo 120 secondi mostrando un errore & S \\ \hline
+	TU-F\_131 & Verifica$^G$ che il pulsante per allegare file audio sia disabilitato quando \vr{isSending=true} & S \\ \hline
+	TU-F\_132 & Verifica$^G$ che \vr{handleClipClick} chiami \vr{click()} sull'input file nascosto quando \vr{isSending=false} & S \\ \hline
+	TU-F\_133 & Verifica$^G$ che \vr{handleFileChange} ignori il cambio se non è selezionato nessun file & S \\ \hline
+	TU-F\_134 & Verifica$^G$ che venga mostrato un alert se il file audio supera i 10 MB & S \\ \hline
+	TU-F\_135 & Verifica$^G$ che \vr{handleFileChange} chiami \vr{onAudioAttach} con il file se valido (dimensione e durata ok) & S \\ \hline
+	TU-F\_136 & Verifica$^G$ che venga mostrato un alert se la durata del file audio supera i 120 minuti & S \\ \hline
+	TU-F\_137 & Verifica$^G$ che venga mostrato un alert se il file audio è corrotto (evento \vr{onerror}) & S \\ \hline
+	TU-F\_138 & Verifica$^G$ che la textarea in \vr{ChatArea} abbia l'attributo \vr{aria-label} corretto & S \\ \hline
+	TU-F\_139 & Verifica$^G$ che il pulsante Invia in \vr{ChatArea} abbia l'attributo \vr{aria-label} corretto & S \\ \hline
+	TU-F\_140 & Verifica$^G$ che \vr{ChatArea} mostri l'hint per la shortcut Shift+Invio & S \\ \hline
+	TU-F\_141 & Verifica$^G$ che \vr{ChatModel.getMe} ritorni lo username in caso di successo & S \\ \hline
+	TU-F\_142 & Verifica$^G$ che \vr{ChatModel.getMe} chiami \vr{/auth/me} con \vr{credentials: 'include'} & S \\ \hline
+	TU-F\_143 & Verifica$^G$ che \vr{ChatModel.getMe} lanci un errore HTTP in caso di risposta non ok & S \\ \hline
+	TU-F\_144 & Verifica$^G$ che \vr{ChatModel.getMe} lanci un errore generico se non c'è \vr{detail} & S \\ \hline
+	TU-F\_145 & Verifica$^G$ che \vr{ChatModel.logout} chiami \vr{/auth/logout} con metodo \vr{POST} e \vr{credentials: 'include'} & S \\ \hline
+	TU-F\_146 & Verifica$^G$ che \vr{ChatModel.logout} non lanci eccezioni con risposta 204 & S \\ \hline
+	TU-F\_147 & Verifica$^G$ che \vr{ChatModel.logout} lanci un errore in caso di risposta non ok & S \\ \hline
+	TU-F\_148 & Verifica$^G$ che \vr{ChatModel.getConversations} ritorni le conversazioni dell'utente & S \\ \hline
+	TU-F\_149 & Verifica$^G$ che \vr{ChatModel.getConversations} chiami l'endpoint corretto con \vr{credentials: 'include'} & S \\ \hline
+	TU-F\_150 & Verifica$^G$ che \vr{ChatModel.getConversations} lanci errore in caso di risposta non ok & S \\ \hline
+	TU-F\_151 & Verifica$^G$ che \vr{ChatModel.createConversation} ritorni la nuova conversazione creata & S \\ \hline
+	TU-F\_152 & Verifica$^G$ che \vr{ChatModel.createConversation} chiami l'endpoint con metodo \vr{POST} e body corretto & S \\ \hline
+	TU-F\_153 & Verifica$^G$ che \vr{ChatModel.createConversation} lanci errore in caso di risposta non ok & S \\ \hline
+	TU-F\_154 & Verifica$^G$ che \vr{ChatModel.renameConversation} ritorni la conversazione rinominata & S \\ \hline
+	TU-F\_155 & Verifica$^G$ che \vr{ChatModel.renameConversation} chiami l'endpoint con metodo \vr{PATCH$^G$} e body corretto & S \\ \hline
+	TU-F\_156 & Verifica$^G$ che \vr{ChatModel.renameConversation} lanci errore se la conversazione non esiste & S \\ \hline
+	TU-F\_157 & Verifica$^G$ che \vr{ChatModel.deleteConversation} non lanci eccezioni con risposta 204 & S \\ \hline
+	TU-F\_158 & Verifica$^G$ che \vr{ChatModel.deleteConversation} chiami l'endpoint con metodo \vr{DELETE} & S \\ \hline
+	TU-F\_159 & Verifica$^G$ che \vr{ChatModel.deleteConversation} lanci errore in caso di risposta non ok & S \\ \hline
+	TU-F\_160 & Verifica$^G$ che \vr{ChatModel.getMessages} mappi correttamente i campi raw nei campi di dominio & S \\ \hline
+	TU-F\_161 & Verifica$^G$ che \vr{ChatModel.getMessages} chiami \vr{/chat/:id/all} con \vr{credentials: 'include'} & S \\ \hline
+	TU-F\_162 & Verifica$^G$ che \vr{ChatModel.getMessages} ritorni array vuoto di messaggi se la conversazione è nuova & S \\ \hline
+	TU-F\_163 & Verifica$^G$ che \vr{ChatModel.getMessages} lanci errore in caso di risposta non ok & S \\ \hline
+	TU-F\_164 & Verifica$^G$ che \vr{ChatModel.sendMessage} mappi correttamente il messaggio di risposta & S \\ \hline
+	TU-F\_165 & Verifica$^G$ che \vr{ChatModel.sendMessage} chiami \vr{/chat/:id} con metodo \vr{POST} e body corretto & S \\ \hline
+	TU-F\_166 & Verifica$^G$ che \vr{ChatModel.sendMessage} lanci errore in caso di risposta non ok & S \\ \hline
+	TU-F\_167 & Verifica$^G$ che \vr{ChatModel.sendMessage} lanci errore di rete se la fetch fallisce & S \\ \hline
+	TU-F\_168 & Verifica$^G$ che \vr{ChatModel.getCart} ritorni il carrello dell'utente & S \\ \hline
+	TU-F\_169 & Verifica$^G$ che \vr{ChatModel.getCart} chiami \vr{/cart/:username} con \vr{credentials: 'include'} & S \\ \hline
+	TU-F\_170 & Verifica$^G$ che \vr{ChatModel.getCart} lanci errore in caso di risposta non ok & S \\ \hline
+	TU-F\_171 & Verifica$^G$ che \vr{ChatModel.removeFromCart} non lanci eccezioni con risposta 204 & S \\ \hline
+	TU-F\_172 & Verifica$^G$ che \vr{ChatModel.removeFromCart} chiami l'endpoint con metodo \vr{DELETE} e \vr{prod\_id} nel body & S \\ \hline
+	TU-F\_173 & Verifica$^G$ che \vr{ChatModel.removeFromCart} lanci errore in caso di risposta non ok & S \\ \hline
+	TU-F\_174 & Verifica$^G$ che \vr{ChatModel.sendOrder} non lanci eccezioni con risposta 204 & S \\ \hline
+	TU-F\_175 & Verifica$^G$ che \vr{ChatModel.sendOrder} chiami \vr{/cart/:username/sendOrder} con metodo \vr{POST} e \vr{credentials: 'include'} & S \\ \hline
+	TU-F\_176 & Verifica$^G$ che \vr{ChatModel.sendOrder} lanci errore con \vr{detail} se la risposta non è ok & S \\ \hline
+	TU-F\_177 & Verifica$^G$ che \vr{ChatModel.sendOrder} lanci errore generico HTTP se non c'è \vr{detail} & S \\ \hline
+	TU-F\_178 & Verifica$^G$ che \vr{ChatView} renderizzi la navbar & S \\ \hline
+	TU-F\_179 & Verifica$^G$ che \vr{ChatView} renderizzi la sidebar sinistra & S \\ \hline
+	TU-F\_180 & Verifica$^G$ che \vr{ChatView} renderizzi la \vr{ChatArea} & S \\ \hline
+	TU-F\_181 & Verifica$^G$ che \vr{ChatView} renderizzi la sidebar destra (carrello) & S \\ \hline
+	TU-F\_182 & Verifica$^G$ che \vr{ChatView} non mostri il pannello profilo di default & S \\ \hline
+	TU-F\_183 & Verifica$^G$ che \vr{ChatView} non mostri il toast di errore di default & S \\ \hline
+	TU-F\_184 & Verifica$^G$ che \vr{ChatView} apra il pannello profilo al click su "Apri profilo" & S \\ \hline
+	TU-F\_185 & Verifica$^G$ che \vr{ChatView} chiuda il pannello profilo al click su "Chiudi profilo" & S \\ \hline
+	TU-F\_186 & Verifica$^G$ che di default la sidebar sinistra sia aperta & S \\ \hline
+	TU-F\_187 & Verifica$^G$ che \vr{ChatView} chiuda la sidebar sinistra al click su "chiudi sx" & S \\ \hline
+	TU-F\_188 & Verifica$^G$ che \vr{ChatView} riapra la sidebar sinistra al click su "Apri conversazioni" & S \\ \hline
+	TU-F\_189 & Verifica$^G$ che di default la sidebar destra (carrello) sia aperta & S \\ \hline
+	TU-F\_190 & Verifica$^G$ che \vr{ChatView} chiuda la sidebar destra al click su "chiudi dx" & S \\ \hline
+	TU-F\_191 & Verifica$^G$ che \vr{ChatView} riapra la sidebar destra al click su "Apri carrello" & S \\ \hline
+	TU-F\_192 & Verifica$^G$ che \vr{ChatView} mostri il toast quando \vr{vm.error} è valorizzato & S \\ \hline
+	TU-F\_193 & Verifica$^G$ che \vr{ChatView} non mostri il toast quando \vr{vm.error} è \vr{null} & S \\ \hline
+	TU-F\_194 & Verifica$^G$ che \vr{ChatView} chiami \vr{setError(null)} dopo 4000ms quando \vr{error} è presente & S \\ \hline
+	TU-F\_195 & Verifica$^G$ che il cleanup del \vr{useEffect} cancelli il timer se \vr{error} cambia prima dei 4000ms & S \\ \hline
+	TU-F\_196 & Verifica$^G$ che \vr{ChatView} non avvii il timer se \vr{error} è \vr{null} & S \\ \hline
+	TU-F\_197 & Verifica$^G$ che in modalità narrow \vr{ChatView} chiuda entrambe le sidebar all'avvio & S \\ \hline
+	TU-F\_198 & Verifica$^G$ che \vr{ChatView} apra l'overlay sinistro in modalità narrow & S \\ \hline
+	TU-F\_199 & Verifica$^G$ che \vr{ChatView} chiuda l'overlay sinistro cliccando sul backdrop & S \\ \hline
+	TU-F\_200 & Verifica$^G$ che in modalità narrow aprendo una sidebar si chiuda l'altra & S \\ \hline
+	TU-F\_201 & Verifica$^G$ che \vr{ChatView} apra l'overlay del carrello in modalità narrow & S \\ \hline
+	TU-F\_202 & Verifica$^G$ che \vr{selectConversation} chiuda l'overlay e chiami la ViewModel & S \\ \hline
+	TU-F\_203 & Verifica$^G$ che \vr{onToggleSelf} chiuda l'overlay sinistro in modalità narrow & S \\ \hline
+	TU-F\_204 & Verifica$^G$ che \vr{ChatView} renderizzi l'overlay del carrello in modalità narrow quando aperto & S \\ \hline
+	TU-F\_205 & Verifica$^G$ che il click sul backdrop chiuda l'overlay del carrello & S \\ \hline
+	TU-F\_206 & Verifica$^G$ che \vr{onToggleSelf} chiuda l'overlay del carrello in modalità narrow & S \\ \hline
+	TU-F\_207 & Verifica$^G$ che aprendo il carrello in modalità narrow si chiuda la sidebar sinistra & S \\ \hline
+	TU-F\_208 & Verifica$^G$ che \vr{useChatViewModel} carichi username, conversazioni e carrello all'avvio & S \\ \hline
+	TU-F\_209 & Verifica$^G$ che \vr{useChatViewModel} selezioni la prima conversazione se non c'è un \vr{savedId} & S \\ \hline
+	TU-F\_210 & Verifica$^G$ che \vr{useChatViewModel} ripristini la conversazione salvata in \vr{localStorage} se esiste & S \\ \hline
+	TU-F\_211 & Verifica$^G$ che \vr{useChatViewModel} ignori il \vr{savedId} se non è nella lista delle conversazioni & S \\ \hline
+	TU-F\_213 & Verifica$^G$ che \vr{useChatViewModel} crei una conversazione automatica se la lista è vuota & S \\ \hline
+	TU-F\_214 & Verifica$^G$ che \vr{useChatViewModel} reindirizzi a \vr{/unauthorized} se \vr{getMe} lancia un errore & S \\ \hline
+	TU-F\_215 & Verifica$^G$ che \vr{useChatViewModel} salvi \vr{activeConvId} nel \vr{localStorage} al cambio & S \\ \hline
+	TU-F\_216 & Verifica$^G$ che \vr{useChatViewModel} carichi i messaggi quando cambia la conversazione attiva & S \\ \hline
+	TU-F\_217 & Verifica$^G$ che \vr{useChatViewModel} imposti \vr{isLoadingMsgs=true} durante il caricamento dei messaggi & S \\ \hline
+	TU-F\_218 & Verifica$^G$ che \vr{useChatViewModel} imposti un errore se \vr{getMessages} fallisce & S \\ \hline
+	TU-F\_219 & Verifica$^G$ che \vr{refreshCart} non faccia nulla se \vr{username} è \vr{null} & S \\ \hline
+	TU-F\_220 & Verifica$^G$ che \vr{useChatViewModel} aggiorni il carrello dopo l'invio di un messaggio & S \\ \hline
+	TU-F\_221 & Verifica$^G$ che \vr{selectConversation} aggiorni \vr{activeConvId} & S \\ \hline
+	TU-F\_222 & Verifica$^G$ che \vr{createConversation} aggiunga la nuova conversazione in testa e la selezioni & S \\ \hline
+	TU-F\_223 & Verifica$^G$ che \vr{createConversation} imposti un errore se la chiamata fallisce & S \\ \hline
+	TU-F\_224 & Verifica$^G$ che \vr{createConversation} non faccia nulla se \vr{username} è \vr{null} & S \\ \hline
+	TU-F\_225 & Verifica$^G$ che \vr{renameConversation} aggiorni il titolo della conversazione & S \\ \hline
+	TU-F\_226 & Verifica$^G$ che \vr{renameConversation} non chiami il model se il titolo è vuoto & S \\ \hline
+	TU-F\_227 & Verifica$^G$ che \vr{renameConversation} imposti un errore se la chiamata fallisce & S \\ \hline
+	TU-F\_228 & Verifica$^G$ che \vr{deleteConversation} rimuova la conversazione eliminata dalla lista & S \\ \hline
+	TU-F\_229 & Verifica$^G$ che \vr{deleteConversation} non cambi \vr{activeConvId} se si elimina una conversazione non attiva & S \\ \hline
+	TU-F\_230 & Verifica$^G$ che \vr{deleteConversation} selezioni la prima conversazione rimanente se si elimina quella attiva & S \\ \hline
+	TU-F\_231 & Verifica$^G$ che \vr{deleteConversation} crei una nuova conversazione se si elimina l'ultima & S \\ \hline
+	TU-F\_232 & Verifica$^G$ che \vr{deleteConversation} imposti un errore se la chiamata fallisce & S \\ \hline
+	TU-F\_233 & Verifica$^G$ che \vr{deleteConversation} imposti un errore se \vr{createConversation} fallisce dopo aver eliminato l'ultima & S \\ \hline
+	TU-F\_234 & Verifica$^G$ che \vr{sendMessage} aggiunga subito il messaggio utente in modo ottimistico & S \\ \hline
+	TU-F\_235 & Verifica$^G$ che \vr{sendMessage} non invii se l'input è vuoto & S \\ \hline
+	TU-F\_236 & Verifica$^G$ che \vr{sendMessage} rimuova il messaggio ottimistico in caso di errore di rete & S \\ \hline
+	TU-F\_237 & Verifica$^G$ che \vr{sendMessage} svuoti \vr{inputText} dopo l'invio & S \\ \hline
+	TU-F\_238 & Verifica$^G$ che \vr{handleAudioAttach} imposti \vr{inputText} con la trascrizione del file audio & S \\ \hline
+	TU-F\_239 & Verifica$^G$ che \vr{handleAudioAttach} imposti \vr{isTranscribing=true} durante la trascrizione del file & S \\ \hline
+	TU-F\_240 & Verifica$^G$ che \vr{handleAudioAttach} imposti un errore se la trascrizione del file fallisce (istanza \vr{Error}) & S \\ \hline
+	TU-F\_241 & Verifica$^G$ che \vr{handleAudioAttach} imposti un errore generico se la trascrizione lancia un non-\vr{Error} & S \\ \hline
+	TU-F\_242 & Verifica$^G$ che \vr{handleAudioRecord} imposti \vr{inputText} con la trascrizione del blob audio & S \\ \hline
+	TU-F\_243 & Verifica$^G$ che \vr{handleAudioRecord} imposti \vr{isTranscribing=true} durante la trascrizione del blob & S \\ \hline
+	TU-F\_244 & Verifica$^G$ che \vr{handleAudioRecord} imposti un errore se la trascrizione del blob fallisce (istanza \vr{Error}) & S \\ \hline
+	TU-F\_245 & Verifica$^G$ che \vr{handleAudioRecord} imposti un errore generico se la trascrizione del blob lancia un non-\vr{Error} & S \\ \hline
+	TU-F\_246 & Verifica$^G$ che \vr{handleAudioRecord} converta la risposta di \vr{trascriviAudio} in stringa tramite \vr{String()} & S \\ \hline
+	TU-F\_247 & Verifica$^G$ che \vr{removeFromCart} rimuova il prodotto dal carrello locale & S \\ \hline
+	TU-F\_248 & Verifica$^G$ che \vr{removeFromCart} imposti un errore se la chiamata fallisce & S \\ \hline
+	TU-F\_249 & Verifica$^G$ che \vr{removeFromCart} non faccia nulla se \vr{username} è \vr{null} & S \\ \hline
+	TU-F\_250 & Verifica$^G$ che \vr{cartTotal} calcoli il totale correttamente & S \\ \hline
+	TU-F\_251 & Verifica$^G$ che \vr{cartTotal} sia \vr{0} con carrello vuoto & S \\ \hline
+	TU-F\_252 & Verifica$^G$ che \vr{logout} chiami \vr{ChatModel.logout} e reindirizzi a \vr{/} & S \\ \hline
+	TU-F\_253 & Verifica$^G$ che \vr{logout} reindirizzi a \vr{/} anche se la chiamata lancia un errore & S \\ \hline
+	TU-F\_254 & Verifica$^G$ che \vr{setError} esponga la funzione per pulire manualmente l'errore & S \\ \hline
+	TU-F\_255 & Verifica$^G$ che \vr{invioOrdine} chiami \vr{sendOrder} e svuoti \vr{cartProducts} & S \\ \hline
+	TU-F\_256 & Verifica$^G$ che \vr{invioOrdine} imposti un errore se \vr{sendOrder} lancia un'eccezione & S \\ \hline
+	TU-F\_257 & Verifica$^G$ che \vr{invioOrdine} non chiami \vr{sendOrder} se \vr{username} è \vr{null} & S \\ \hline
+	TU-F\_258 & Verifica$^G$ che \vr{ConversationSidebar} abbia il ruolo \vr{aside} con \vr{aria-label="Conversazioni"} & S \\ \hline
+	TU-F\_259 & Verifica$^G$ che \vr{ConversationSidebar} mostri il titolo "Conversazioni" & S \\ \hline
+	TU-F\_260 & Verifica$^G$ che \vr{ConversationSidebar} abbia il pulsante "Nuova conversazione" & S \\ \hline
+	TU-F\_261 & Verifica$^G$ che \vr{ConversationSidebar} abbia il pulsante di chiusura sidebar & S \\ \hline
+	TU-F\_262 & Verifica$^G$ che \vr{ConversationSidebar} mostri il messaggio di lista vuota & S \\ \hline
+	TU-F\_263 & Verifica$^G$ che \vr{ConversationSidebar} suggerisca di cliccare su \vr{+} per iniziare & S \\ \hline
+	TU-F\_264 & Verifica$^G$ che \vr{ConversationSidebar} mostri tutte le conversazioni & S \\ \hline
+	TU-F\_265 & Verifica$^G$ che \vr{ConversationSidebar} abbia il \vr{nav} con \vr{aria-label="Elenco conversazioni"} & S \\ \hline
+	TU-F\_266 & Verifica$^G$ che \vr{ConversationSidebar} mostri il marker di conversazione attiva & S \\ \hline
+	TU-F\_267 & Verifica$^G$ che \vr{ConversationSidebar} chiami \vr{onSelect} con l'id corretto al click su una conversazione & S \\ \hline
+	TU-F\_268 & Verifica$^G$ che \vr{ConversationSidebar} non chiami \vr{onSelect} quando si sta rinominando la conversazione & S \\ \hline
+	TU-F\_269 & Verifica$^G$ che \vr{ConversationSidebar} chiami \vr{onCreate} al click sul pulsante nuova conversazione & S \\ \hline
+	TU-F\_270 & Verifica$^G$ che \vr{ConversationSidebar} chiami \vr{onToggleSelf} al click sul pulsante di chiusura & S \\ \hline
+	TU-F\_271 & Verifica$^G$ che il menu contestuale di \vr{ConversationSidebar} si apra al click & S \\ \hline
+	TU-F\_272 & Verifica$^G$ che il menu contestuale di \vr{ConversationSidebar} si chiuda al secondo click & S \\ \hline
+	TU-F\_273 & Verifica$^G$ che il menu contestuale di \vr{ConversationSidebar} si chiuda con click fuori & S \\ \hline
+	TU-F\_274 & Verifica$^G$ che \vr{mouseDown} fuori quando il menu è chiuso non produca errori & S \\ \hline
+	TU-F\_275 & Verifica$^G$ che \vr{ConversationSidebar} mostri l'input di rinomina & S \\ \hline
+	TU-F\_276 & Verifica$^G$ che \vr{ConversationSidebar} chiami \vr{onRename} premendo il tasto \vr{Enter} & S \\ \hline
+	TU-F\_277 & Verifica$^G$ che \vr{ConversationSidebar} chiami \vr{onRename} quando l'input perde il focus (\vr{onBlur}) & S \\ \hline
+	TU-F\_278 & Verifica$^G$ che \vr{ConversationSidebar} non chiami \vr{onRename} se il valore è vuoto al \vr{blur} & S \\ \hline
+	TU-F\_279 & Verifica$^G$ che \vr{ConversationSidebar} annulli la rinomina premendo il tasto \vr{Escape} & S \\ \hline
+	TU-F\_280 & Verifica$^G$ che \vr{ConversationSidebar} mostri il dialog di conferma eliminazione & S \\ \hline
+	TU-F\_281 & Verifica$^G$ che \vr{ConversationSidebar} chiami \vr{onDelete} dopo la conferma & S \\ \hline
+	TU-F\_282 & Verifica$^G$ che \vr{ConversationSidebar} chiuda il dialog senza eliminare cliccando "Annulla" & S \\ \hline
+	TU-F\_283 & Verifica$^G$ che \vr{ConversationSidebar} chiuda il dialog cliccando lo sfondo (backdrop) & S \\ \hline
+	TU-F\_284 & Verifica$^G$ che \vr{confirmDeleteConv} non chiami \vr{onDelete} se \vr{confirmDeleteId} è già \vr{null} & S \\ \hline
+	TU-F\_285 & Verifica$^G$ che \vr{NavBar} mostri il brand "SmartOrder" & S \\ \hline
+	TU-F\_286 & Verifica$^G$ che \vr{NavBar} mostri lo username dell'utente & S \\ \hline
+	TU-F\_287 & Verifica$^G$ che \vr{NavBar} mostri l'iniziale dello username come avatar & S \\ \hline
+	TU-F\_288 & Verifica$^G$ che con \vr{username=null} \vr{NavBar} mostri "?" come avatar e testo & S \\ \hline
+	TU-F\_289 & Verifica$^G$ che il dropdown di \vr{NavBar} sia chiuso di default & S \\ \hline
+	TU-F\_290 & Verifica$^G$ che \vr{NavBar} apra il dropdown al click sul bottone utente & S \\ \hline
+	TU-F\_291 & Verifica$^G$ che \vr{NavBar} chiuda il dropdown al secondo click & S \\ \hline
+	TU-F\_292 & Verifica$^G$ che \vr{NavBar} chiuda il dropdown cliccando fuori & S \\ \hline
+	TU-F\_293 & Verifica$^G$ che \vr{NavBar} non chiuda il dropdown cliccando all'interno della navbar & S \\ \hline
+	TU-F\_294 & Verifica$^G$ che \vr{NavBar} mostri la sezione "Account" con lo username nel dropdown & S \\ \hline
+	TU-F\_295 & Verifica$^G$ che \vr{NavBar} mostri "?" nell'header del dropdown quando \vr{username} è \vr{null} & S \\ \hline
+	TU-F\_296 & Verifica$^G$ che \vr{NavBar} chiami \vr{onProfile} e chiuda il dropdown al click su "Profilo" & S \\ \hline
+	TU-F\_297 & Verifica$^G$ che \vr{NavBar} chiami \vr{onLogout} e chiuda il dropdown al click su "Logout" & S \\ \hline
+	TU-F\_298 & Verifica$^G$ che \vr{NavBar} mostri correttamente username con caratteri non ASCII & S \\ \hline
+	TU-F\_299 & Verifica$^G$ che \vr{NavBar} mostri il pulsante "Storico" se il ruolo è "cliente" & S \\ \hline
+	TU-F\_300 & Verifica$^G$ che \vr{NavBar} non mostri il pulsante "Storico" se il ruolo non è "cliente" & S \\ \hline
+	TU-F\_301 & Verifica$^G$ che \vr{NavBar} navighi verso \vr{/history} al click su "Storico" & S \\ \hline
+	TU-F\_302 & Verifica$^G$ che \vr{PasswordResetForm} mostri il titolo "Reimposta password" & S \\ \hline
+	TU-F\_303 & Verifica$^G$ che \vr{PasswordResetForm} mostri i tre campi password & S \\ \hline
+	TU-F\_304 & Verifica$^G$ che i campi di \vr{PasswordResetForm} siano di tipo \vr{password} di default & S \\ \hline
+	TU-F\_305 & Verifica$^G$ che \vr{PasswordResetForm} mostri il bottone di submit & S \\ \hline
+	TU-F\_306 & Verifica$^G$ che \vr{PasswordResetForm} mostri la password attuale al click sull'occhio & S \\ \hline
+	TU-F\_307 & Verifica$^G$ che \vr{PasswordResetForm} nasconda di nuovo la password attuale al secondo click & S \\ \hline
+	TU-F\_308 & Verifica$^G$ che \vr{PasswordResetForm} mostri la nuova password al click sull'occhio & S \\ \hline
+	TU-F\_309 & Verifica$^G$ che \vr{PasswordResetForm} nasconda di nuovo la nuova password al secondo click & S \\ \hline
+	TU-F\_310 & Verifica$^G$ che \vr{PasswordResetForm} mostri la conferma password al click sull'occhio & S \\ \hline
+	TU-F\_311 & Verifica$^G$ che \vr{PasswordResetForm} nasconda di nuovo la conferma password al secondo click & S \\ \hline
+	TU-F\_312 & Verifica$^G$ che \vr{PasswordResetForm} mostri un errore se la password attuale è vuota al submit & S \\ \hline
+	TU-F\_313 & Verifica$^G$ che \vr{PasswordResetForm} non chiami \vr{handleReset} se i campi sono vuoti & S \\ \hline
+	TU-F\_314 & Verifica$^G$ che \vr{PasswordResetForm} mostri un errore se la nuova password non rispetta i requisiti & S \\ \hline
+	TU-F\_315 & Verifica$^G$ che \vr{PasswordResetForm} mostri un errore se la nuova password è uguale a quella vecchia & S \\ \hline
+	TU-F\_316 & Verifica$^G$ che \vr{PasswordResetForm} mostri un errore se le password non coincidono & S \\ \hline
+	TU-F\_317 & Verifica$^G$ che \vr{PasswordResetForm} mostri "Le password coincidono" quando \vr{confirm === new} & S \\ \hline
+	TU-F\_318 & Verifica$^G$ che \vr{PasswordResetForm} mostri "Le password non coincidono" quando \vr{confirm !== new} & S \\ \hline
+	TU-F\_319 & Verifica$^G$ che \vr{PasswordResetForm} non mostri l'indicatore se il campo conferma è vuoto & S \\ \hline
+	TU-F\_320 & Verifica$^G$ che \vr{PasswordResetForm} chiami \vr{handleReset} con le password corrette & S \\ \hline
+	TU-F\_321 & Verifica$^G$ che \vr{PasswordResetForm} non mostri errori dopo un submit valido & S \\ \hline
+	TU-F\_322 & Verifica$^G$ che \vr{PasswordResetForm} mostri il messaggio di errore restituito dal server & S \\ \hline
+	TU-F\_323 & Verifica$^G$ che \vr{PasswordResetForm} cancelli l'errore server quando si modifica$^G$ un campo & S \\ \hline
+	TU-F\_324 & Verifica$^G$ che \vr{Profile} mostri il titolo "Profilo" & S \\ \hline
+	TU-F\_325 & Verifica$^G$ che \vr{Profile} mostri lo stato di caricamento iniziale & S \\ \hline
+	TU-F\_326 & Verifica$^G$ che \vr{Profile} abbia il bottone di chiusura & S \\ \hline
+	TU-F\_327 & Verifica$^G$ che \vr{Profile} mostri username ed email dopo il caricamento & S \\ \hline
+	TU-F\_328 & Verifica$^G$ che \vr{Profile} mostri il pulsante "Reimposta password" & S \\ \hline
+	TU-F\_329 & Verifica$^G$ che \vr{Profile} mostri il pulsante "Cancella account" & S \\ \hline
+	TU-F\_330 & Verifica$^G$ che \vr{Profile} mostri un errore se il fetch fallisce & S \\ \hline
+	TU-F\_331 & Verifica$^G$ che \vr{Profile} non faccia il fetch se \vr{username} è \vr{null} & S \\ \hline
+	TU-F\_332 & Verifica$^G$ che \vr{Profile} chiami \vr{onClose} al click su x & S \\ \hline
+	TU-F\_333 & Verifica$^G$ che \vr{Profile} chiami \vr{onClose} al click sullo sfondo scuro & S \\ \hline
+	TU-F\_334 & Verifica$^G$ che \vr{Profile} apra il dialog di reset password al click sul bottone & S \\ \hline
+	TU-F\_335 & Verifica$^G$ che \vr{Profile} chiuda il dialog reset cliccando lo sfondo del dialog & S \\ \hline
+	TU-F\_336 & Verifica$^G$ che \vr{Profile} mostri il dialog di successo dopo reset ok & S \\ \hline
+	TU-F\_337 & Verifica$^G$ che \vr{Profile} mostri l'errore del server se il reset fallisce & S \\ \hline
+	TU-F\_338 & Verifica$^G$ che \vr{Profile} chiuda il dialog di successo cliccando lo sfondo & S \\ \hline
+	TU-F\_339 & Verifica$^G$ che \vr{Profile} chiuda il dialog di successo cliccando OK & S \\ \hline
+	TU-F\_340 & Verifica$^G$ che \vr{Profile} apra il dialog di conferma cancellazione & S \\ \hline
+	TU-F\_341 & Verifica$^G$ che \vr{Profile} chiuda il dialog al click su "Annulla" & S \\ \hline
+	TU-F\_342 & Verifica$^G$ che \vr{Profile} chiuda il dialog di cancellazione cliccando lo sfondo & S \\ \hline
+	TU-F\_343 & Verifica$^G$ che \vr{Profile} chiami \vr{onLogout} dopo la conferma di cancellazione & S \\ \hline
+	TU-F\_344 & Verifica$^G$ che \vr{Unauthorized} mostri il codice 401 & S \\ \hline
+	TU-F\_345 & Verifica$^G$ che \vr{Unauthorized} mostri il titolo e il messaggio di errore & S \\ \hline
+	TU-F\_346 & Verifica$^G$ che il bottone in \vr{Unauthorized} navighi verso \vr{/} & S \\ \hline
+	TU-F\_347 & Verifica$^G$ che \vr{NotFound} mostri il titolo di errore 404 & S \\ \hline
+	TU-F\_348 & Verifica$^G$ che \vr{NotFound} mostri il messaggio descrittivo & S \\ \hline
+	TU-F\_349 & Verifica$^G$ che il bottone "vai al login" in \vr{NotFound} navighi verso \vr{/} & S \\ \hline
+	TU-F\_350 & Verifica$^G$ che il bottone "torna alla chat" in \vr{NotFound} navighi verso \vr{/home} & S \\ \hline
+	TU-F\_351 & Verifica$^G$ che \vr{NotFound} mostri il bottone per riprovare & S \\ \hline
+	TU-F\_352 & Verifica$^G$ che \vr{ServerError} mostri il titolo di errore & S \\ \hline
+	TU-F\_353 & Verifica$^G$ che \vr{ServerError} mostri il messaggio descrittivo & S \\ \hline
+	TU-F\_354 & Verifica$^G$ che il bottone in \vr{ServerError} chiami \vr{location.reload} & S \\ \hline
+	TU-F\_355 & Verifica$^G$ che \vr{ServerError} mostri il bottone per riprovare & S \\ \hline
+	TU-F\_356 & Verifica$^G$ che \vr{trascriviAudio} chiami \vr{POST /recording/trascrivi} con \vr{credentials: 'include'} & S \\ \hline
+	TU-F\_357 & Verifica$^G$ che \vr{trascriviAudio} invii il blob come campo \vr{file} nel \vr{FormData} & S \\ \hline
+	TU-F\_358 & Verifica$^G$ che \vr{trascriviAudio} usi "audio.webm" come filename di default & S \\ \hline
+	TU-F\_359 & Verifica$^G$ che \vr{trascriviAudio} restituisca il campo \vr{testo} dalla risposta JSON$^G$ in caso di successo & S \\ \hline
+	TU-F\_360 & Verifica$^G$ che \vr{trascriviAudio} restituisca una stringa vuota se \vr{testo} è una stringa vuota & S \\ \hline
+	TU-F\_361 & Verifica$^G$ che \vr{trascriviAudio} lanci errore con il messaggio \vr{detail} dal server se la risposta non è ok & S \\ \hline
+	TU-F\_362 & Verifica$^G$ che \vr{trascriviAudio} lanci errore generico se il body non ha \vr{detail} & S \\ \hline
+	TU-F\_363 & Verifica$^G$ che \vr{trascriviAudio} lanci errore generico se il parsing del body fallisce & S \\ \hline
+	TU-F\_364 & Verifica$^G$ che \vr{trascriviAudio} lanci errore 401 con \vr{detail} dal server & S \\ \hline
+	TU-F\_365 & Verifica$^G$ che \vr{DettaglioModal} chiami \vr{showModal} al mount & S \\ \hline
+	TU-F\_366 & Verifica$^G$ che \vr{DettaglioModal} mostri il codice ordine nell'header & S \\ \hline
+	TU-F\_367 & Verifica$^G$ che \vr{DettaglioModal} mostri la data formattata in italiano & S \\ \hline
+	TU-F\_368 & Verifica$^G$ che \vr{DettaglioModal} mostri la lista dei prodotti & S \\ \hline
+	TU-F\_369 & Verifica$^G$ che \vr{DettaglioModal} mostri la descrizione del prodotto se presente & S \\ \hline
+	TU-F\_370 & Verifica$^G$ che \vr{DettaglioModal} non mostri la descrizione vuota & S \\ \hline
+	TU-F\_371 & Verifica$^G$ che \vr{DettaglioModal} mostri la quantità di ogni prodotto con "× N" & S \\ \hline
+	TU-F\_372 & Verifica$^G$ che \vr{DettaglioModal} abbia il pulsante di chiusura con \vr{aria-label="Chiudi"} & S \\ \hline
+	TU-F\_373 & Verifica$^G$ che \vr{DettaglioModal} mostri il campo "Cliente" con username se \vr{isAdmin=true} e \vr{username} presente & S \\ \hline
+	TU-F\_374 & Verifica$^G$ che \vr{DettaglioModal} non mostri il campo "Cliente" se \vr{isAdmin=false} & S \\ \hline
+	TU-F\_375 & Verifica$^G$ che \vr{DettaglioModal} non mostri il campo "Cliente" se \vr{username} non è presente anche con \vr{isAdmin=true} & S \\ \hline
+	TU-F\_376 & Verifica$^G$ che \vr{DettaglioModal} mostri il pulsante "Duplica ordine" per il cliente & S \\ \hline
+	TU-F\_377 & Verifica$^G$ che \vr{DettaglioModal} non mostri la sezione duplicazione se \vr{isAdmin=true} & S \\ \hline
+	TU-F\_378 & Verifica$^G$ che al click su "Duplica ordine" mostri "Conferma duplicazione" e "Annulla" & S \\ \hline
+	TU-F\_379 & Verifica$^G$ che "Annulla" in \vr{DettaglioModal} riporti al pulsante "Duplica ordine" & S \\ \hline
+	TU-F\_380 & Verifica$^G$ che "Conferma duplicazione" in \vr{DettaglioModal} chiami \vr{onDuplica} con il codice ordine & S \\ \hline
+	TU-F\_381 & Verifica$^G$ che dopo "Conferma duplicazione" torni al pulsante iniziale & S \\ \hline
+	TU-F\_382 & Verifica$^G$ che \vr{DettaglioModal} mostri \vr{erroreDuplica} se presente & S \\ \hline
+	TU-F\_383 & Verifica$^G$ che \vr{DettaglioModal} non mostri sezione errore se \vr{erroreDuplica} è \vr{null} & S \\ \hline
+	TU-F\_384 & Verifica$^G$ che \vr{DettaglioModal} chiami \vr{onChiudi} quando il dialog emette l'evento \vr{close} & S \\ \hline
+	TU-F\_385 & Verifica$^G$ che \vr{DettaglioModal} chiami \vr{dialog.close()} al click sul pulsante X & S \\ \hline
+	TU-F\_386 & Verifica$^G$ che \vr{DettaglioModal} rimuova il listener \vr{close} quando il componente si smonta & S \\ \hline
+	TU-F\_387 & Verifica$^G$ che \vr{OrdineRow} mostri il codice ordine & S \\ \hline
+	TU-F\_388 & Verifica$^G$ che \vr{OrdineRow} mostri la data formattata in italiano & S \\ \hline
+	TU-F\_389 & Verifica$^G$ che \vr{OrdineRow} mostri il badge con il numero di prodotti corretto (plurale) & S \\ \hline
+	TU-F\_390 & Verifica$^G$ che \vr{OrdineRow} mostri il badge con "1 prodotto" al singolare & S \\ \hline
+	TU-F\_391 & Verifica$^G$ che \vr{OrdineRow} abbia il pulsante "Dettaglio →" & S \\ \hline
+	TU-F\_392 & Verifica$^G$ che il pulsante in \vr{OrdineRow} abbia \vr{aria-label} con il codice ordine & S \\ \hline
+	TU-F\_393 & Verifica$^G$ che \vr{OrdineRow} mostri la colonna \vr{username} quando \vr{isAdmin=true} & S \\ \hline
+	TU-F\_394 & Verifica$^G$ che \vr{OrdineRow} mostri "—" se \vr{username} è \vr{undefined} in vista admin & S \\ \hline
+	TU-F\_395 & Verifica$^G$ che \vr{OrdineRow} non mostri la colonna \vr{username} quando \vr{isAdmin=false} & S \\ \hline
+	TU-F\_396 & Verifica$^G$ che \vr{OrdineRow} chiami \vr{onApriDettaglio} con l'ordine corretto al click sul pulsante & S \\ \hline
+	TU-F\_397 & Verifica$^G$ che \vr{OrdineRow} chiami \vr{onApriDettaglio} anche per un ordine admin & S \\ \hline
+	TU-F\_398 & Verifica$^G$ che \vr{Paginazione} non monti nulla se \vr{totalePagine=1} & S \\ \hline
+	TU-F\_399 & Verifica$^G$ che \vr{Paginazione} non monti nulla se \vr{totalePagine=0} & S \\ \hline
+	TU-F\_400 & Verifica$^G$ che \vr{Paginazione} mostri il numero di pagina corrente e il totale & S \\ \hline
+	TU-F\_401 & Verifica$^G$ che \vr{Paginazione} mostri i pulsanti "Precedente" e "Successivo" & S \\ \hline
+	TU-F\_402 & Verifica$^G$ che "Precedente" in \vr{Paginazione} sia disabilitato alla prima pagina & S \\ \hline
+	TU-F\_403 & Verifica$^G$ che "Precedente" in \vr{Paginazione} sia abilitato se \vr{pagina > 1} & S \\ \hline
+	TU-F\_404 & Verifica$^G$ che "Successivo" in \vr{Paginazione} sia disabilitato all'ultima pagina & S \\ \hline
+	TU-F\_405 & Verifica$^G$ che "Successivo" in \vr{Paginazione} sia abilitato se \vr{pagina < totalePagine} & S \\ \hline
+	TU-F\_406 & Verifica$^G$ che entrambi i pulsanti in \vr{Paginazione} siano abilitati quando si è in mezzo alle pagine & S \\ \hline
+	TU-F\_407 & Verifica$^G$ che \vr{Paginazione} chiami \vr{onCambia} con \vr{pagina-1} al click su "Precedente" & S \\ \hline
+	TU-F\_408 & Verifica$^G$ che \vr{Paginazione} chiami \vr{onCambia} con \vr{pagina+1} al click su "Successivo" & S \\ \hline
+	TU-F\_409 & Verifica$^G$ che \vr{Paginazione} non chiami \vr{onCambia} se "Precedente" è disabilitato & S \\ \hline
+	TU-F\_410 & Verifica$^G$ che \vr{Paginazione} non chiami \vr{onCambia} se "Successivo" è disabilitato & S \\ \hline
+	TU-F\_411 & Verifica$^G$ che \vr{Paginazione} chiami \vr{onCambia} esattamente una volta per click & S \\ \hline
+	TU-F\_412 & Verifica$^G$ che \vr{getStoricoCliente} chiami \vr{GET /storico/miei} con i parametri di default & S \\ \hline
+	TU-F\_413 & Verifica$^G$ che \vr{getStoricoCliente} passi \vr{pagina} e \vr{perPagina} personalizzati nella querystring & S \\ \hline
+	TU-F\_414 & Verifica$^G$ che \vr{getStoricoCliente} restituisca il corpo JSON$^G$ in caso di successo & S \\ \hline
+	TU-F\_415 & Verifica$^G$ che \vr{getStoricoCliente} lanci errore con il messaggio \vr{detail} dal server se la risposta non è ok & S \\ \hline
+	TU-F\_416 & Verifica$^G$ che \vr{getStoricoCliente} lanci errore generico "Errore <status>" se il body non ha \vr{detail} & S \\ \hline
+	TU-F\_417 & Verifica$^G$ che \vr{getStoricoCliente} lanci "Errore <status>" se il parsing del body fallisce & S \\ \hline
+	TU-F\_418 & Verifica$^G$ che \vr{getStoricoAdmin} chiami \vr{GET /storico/tutti} con i parametri di default & S \\ \hline
+	TU-F\_419 & Verifica$^G$ che \vr{getStoricoAdmin} passi \vr{pagina} e \vr{perPagina} personalizzati nella querystring & S \\ \hline
+	TU-F\_420 & Verifica$^G$ che \vr{getStoricoAdmin} restituisca il corpo JSON$^G$ in caso di successo & S \\ \hline
+	TU-F\_421 & Verifica$^G$ che \vr{getStoricoAdmin} lanci errore con il messaggio \vr{detail} dal server se la risposta non è ok & S \\ \hline
+	TU-F\_422 & Verifica$^G$ che \vr{getStoricoAdmin} lanci errore generico "Errore <status>" se il body non ha \vr{detail} & S \\ \hline
+	TU-F\_423 & Verifica$^G$ che \vr{getStoricoAdmin} lanci "Errore <status>" se il parsing del body fallisce & S \\ \hline
+	TU-F\_424 & Verifica$^G$ che \vr{duplicaOrdine} chiami \vr{POST /storico/duplica/{codice}} con \vr{credentials: 'include'} & S \\ \hline
+	TU-F\_425 & Verifica$^G$ che \vr{duplicaOrdine} codifichi correttamente caratteri speciali nel codice ordine & S \\ \hline
+	TU-F\_426 & Verifica$^G$ che \vr{duplicaOrdine} non lanci eccezione se la risposta è ok & S \\ \hline
+	TU-F\_427 & Verifica$^G$ che \vr{duplicaOrdine} lanci errore con il messaggio \vr{detail} se la risposta non è ok & S \\ \hline
+	TU-F\_428 & Verifica$^G$ che \vr{duplicaOrdine} lanci "Errore <status>" se il body non ha \vr{detail} & S \\ \hline
+	TU-F\_429 & Verifica$^G$ che \vr{duplicaOrdine} lanci "Errore <status>" se il parsing del body fallisce & S \\ \hline
+	TU-F\_430 & Verifica$^G$ che \vr{StoricoView} renderizzi la \vr{NavBar} & S \\ \hline
+	TU-F\_431 & Verifica$^G$ che \vr{StoricoView} chiami \vr{caricaPagina(1)} all'avvio & S \\ \hline
+	TU-F\_432 & Verifica$^G$ che \vr{StoricoView} non mostri il pannello profilo di default & S \\ \hline
+	TU-F\_433 & Verifica$^G$ che \vr{StoricoView} non mostri il \vr{DettaglioModal} se \vr{ordineScelto} è \vr{null} & S \\ \hline
+	TU-F\_434 & Verifica$^G$ che \vr{StoricoView} mostri "Storico Ordini" come titolo principale & S \\ \hline
+	TU-F\_435 & Verifica$^G$ che \vr{StoricoView} mostri "Area Cliente" per utenti non admin & S \\ \hline
+	TU-F\_436 & Verifica$^G$ che \vr{StoricoView} mostri "Pannello Admin" per admin & S \\ \hline
+	TU-F\_437 & Verifica$^G$ che \vr{StoricoView} mostri il testo "Visualizzazione completa" per admin & S \\ \hline
+	TU-F\_438 & Verifica$^G$ che \vr{StoricoView} non mostri "Visualizzazione completa" per cliente & S \\ \hline
+	TU-F\_439 & Verifica$^G$ che \vr{StoricoView} mostri il badge pag.X/Y solo quando ci sono ordini e \vr{loading=false} & S \\ \hline
+	TU-F\_440 & Verifica$^G$ che \vr{StoricoView} non mostri il badge pag. durante il caricamento & S \\ \hline
+	TU-F\_441 & Verifica$^G$ che \vr{StoricoView} mostri lo spinner di caricamento se \vr{loading=true} & S \\ \hline
+	TU-F\_442 & Verifica$^G$ che \vr{StoricoView} non mostri lo spinner se \vr{loading=false} & S \\ \hline
+	TU-F\_443 & Verifica$^G$ che \vr{StoricoView} mostri il messaggio di errore se \vr{errore} è valorizzato & S \\ \hline
+	TU-F\_444 & Verifica$^G$ che \vr{StoricoView} non mostri il messaggio di errore se \vr{errore} è \vr{null} & S \\ \hline
+	TU-F\_445 & Verifica$^G$ che \vr{StoricoView} mostri "Nessun ordine effettuato" se \vr{ordini=[]}, \vr{loading=false} e \vr{errore=null} & S \\ \hline
+	TU-F\_446 & Verifica$^G$ che \vr{StoricoView} non mostri la tabella se \vr{ordini} è vuoto & S \\ \hline
+	TU-F\_447 & Verifica$^G$ che \vr{StoricoView} renderizzi una \vr{OrdineRow} per ogni ordine & S \\ \hline
+	TU-F\_448 & Verifica$^G$ che \vr{StoricoView} mostri la colonna "Cliente" nell'header per admin & S \\ \hline
+	TU-F\_449 & Verifica$^G$ che \vr{StoricoView} non mostri la colonna "Cliente" per utente normale & S \\ \hline
+	TU-F\_450 & Verifica$^G$ che \vr{StoricoView} mostri le intestazioni di colonna standard & S \\ \hline
+	TU-F\_451 & Verifica$^G$ che \vr{StoricoView} renderizzi il componente \vr{Paginazione} & S \\ \hline
+	TU-F\_452 & Verifica$^G$ che la paginazione in \vr{StoricoView} chiami \vr{caricaPagina} con il numero corretto & S \\ \hline
+	TU-F\_453 & Verifica$^G$ che il click su "Dettaglio" in \vr{StoricoView} chiami \vr{apriDettaglio} con l'ordine & S \\ \hline
+	TU-F\_454 & Verifica$^G$ che \vr{StoricoView} mostri il \vr{DettaglioModal} se \vr{ordineScelto} è valorizzato & S \\ \hline
+	TU-F\_455 & Verifica$^G$ che \vr{StoricoView} chiami \vr{chiudiDettaglio} al click su "chiudi modal" & S \\ \hline
+	TU-F\_456 & Verifica$^G$ che \vr{StoricoView} chiami \vr{duplicaOrdine} al click su "duplica" & S \\ \hline
+	TU-F\_457 & Verifica$^G$ che \vr{StoricoView} passi \vr{erroreDuplica} al \vr{DettaglioModal} & S \\ \hline
+	TU-F\_458 & Verifica$^G$ che \vr{StoricoView} apra il pannello profilo al click su "Apri profilo" & S \\ \hline
+	TU-F\_459 & Verifica$^G$ che \vr{StoricoView} chiuda il pannello profilo al click su "chiudi profilo" & S \\ \hline
+	TU-F\_460 & Verifica$^G$ che \vr{StoricoView} chiami \vr{clearAuth} e reindirizzi a "/" al click su logout nella \vr{NavBar} & S \\ \hline
+	TU-F\_461 & Verifica$^G$ che il logout funzioni anche dal pannello profilo in \vr{StoricoView} & S \\ \hline
+	TU-F\_462 & Verifica$^G$ che il pannello filtro in \vr{StoricoView} sia chiuso di default & S \\ \hline
+	TU-F\_463 & Verifica$^G$ che \vr{StoricoView} apra il pannello filtro al click sull'icona calendario & S \\ \hline
+	TU-F\_464 & Verifica$^G$ che \vr{StoricoView} chiuda il pannello filtro al secondo click sull'icona & S \\ \hline
+	TU-F\_465 & Verifica$^G$ che \vr{StoricoView} chiuda il pannello filtro cliccando fuori & S \\ \hline
+	TU-F\_466 & Verifica$^G$ che il click dentro il pannello filtro non lo chiuda & S \\ \hline
+	TU-F\_467 & Verifica$^G$ che impostare la data "Da" in \vr{StoricoView} chiami \vr{caricaPagina(1, dataInizio, "")} & S \\ \hline
+	TU-F\_468 & Verifica$^G$ che impostare la data "A" in \vr{StoricoView} chiami \vr{caricaPagina(1, "", dataFine)} & S \\ \hline
+	TU-F\_469 & Verifica$^G$ che \vr{StoricoView} mostri il pallino indicatore quando il filtro è attivo & S \\ \hline
+	TU-F\_470 & Verifica$^G$ che \vr{StoricoView} filtri gli ordini per \vr{dataInizio} escludendo quelli precedenti & S \\ \hline
+	TU-F\_471 & Verifica$^G$ che \vr{StoricoView} filtri gli ordini per \vr{dataFine} escludendo quelli successivi & S \\ \hline
+	TU-F\_472 & Verifica$^G$ che \vr{StoricoView} filtri con entrambe le date mostrando solo ordini nell'intervallo & S \\ \hline
+	TU-F\_473 & Verifica$^G$ che \vr{StoricoView} mostri "Nessun ordine corrisponde al filtro" quando lista filtrata è vuota & S \\ \hline
+	TU-F\_474 & Verifica$^G$ che il pulsante "Azzera" sia nascosto in \vr{StoricoView} quando il filtro non è attivo & S \\ \hline
+	TU-F\_475 & Verifica$^G$ che il pulsante "Azzera" compaia in \vr{StoricoView} quando il filtro è attivo & S \\ \hline
+	TU-F\_476 & Verifica$^G$ che cliccando "Azzera" in \vr{StoricoView} reimposti le date e chiami \vr{caricaPagina(1, "", "")} & S \\ \hline
+	TU-F\_477 & Verifica$^G$ che dopo "Azzera" in \vr{StoricoView} il pulsante indicatore torni allo stile inattivo & S \\ \hline
+	TU-F\_478 & Verifica$^G$ che \vr{StoricoView} mostri il testo di aiuto "Lascia A vuoto" nel pannello filtro & S \\ \hline
+	TU-F\_479 & Verifica$^G$ che l'input "Da" in \vr{StoricoView} riceva l'attributo \vr{max} quando \vr{dataFine} è impostata & S \\ \hline
+	TU-F\_480 & Verifica$^G$ che l'input "A" in \vr{StoricoView} riceva l'attributo \vr{min} quando \vr{dataInizio} è impostata & S \\ \hline
+	TU-F\_481 & Verifica$^G$ che \vr{useStoricoViewModel} abbia lo stato iniziale corretto & S \\ \hline
+	TU-F\_482 & Verifica$^G$ che \vr{useStoricoViewModel} abbia \vr{isAdmin=false} quando il ruolo non è "admin" & S \\ \hline
+	TU-F\_483 & Verifica$^G$ che \vr{useStoricoViewModel} abbia \vr{isAdmin=true} quando il ruolo è "admin" & S \\ \hline
+	TU-F\_484 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} chiami \vr{getStoricoCliente} con pagina e \vr{perPagina=10} & S \\ \hline
+	TU-F\_485 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} popoli \vr{ordini}, \vr{totalePagine} e \vr{pagina} dopo il caricamento & S \\ \hline
+	TU-F\_486 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} imposti \vr{loading=true} durante il caricamento, poi \vr{false} alla fine & S \\ \hline
+	TU-F\_487 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} azzeri l'errore prima di ogni caricamento & S \\ \hline
+	TU-F\_488 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} imposti \vr{errore} se \vr{getStoricoCliente} lancia un \vr{Error} & S \\ \hline
+	TU-F\_489 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} imposti messaggio generico se l'errore non è un \vr{Error} & S \\ \hline
+	TU-F\_490 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} carichi pagine diverse passando il numero corretto & S \\ \hline
+	TU-F\_491 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} chiami \vr{getStoricoAdmin} invece di \vr{getStoricoCliente} per admin & S \\ \hline
+	TU-F\_492 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} popoli i dati con i valori admin & S \\ \hline
+	TU-F\_493 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} imposti errore se \vr{getStoricoAdmin} fallisce & S \\ \hline
+	TU-F\_494 & Verifica$^G$ che \vr{apriDettaglio} in \vr{useStoricoViewModel} imposti \vr{ordineScelto} & S \\ \hline
+	TU-F\_495 & Verifica$^G$ che \vr{chiudiDettaglio} in \vr{useStoricoViewModel} azzeri \vr{ordineScelto} & S \\ \hline
+	TU-F\_496 & Verifica$^G$ che \vr{apriDettaglio} in \vr{useStoricoViewModel} sostituisca un ordine precedentemente selezionato & S \\ \hline
+	TU-F\_497 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useStoricoViewModel} chiami l'API$^G$ con il codice corretto & S \\ \hline
+	TU-F\_498 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useStoricoViewModel} azzeri \vr{erroreDuplica} prima della chiamata & S \\ \hline
+	TU-F\_499 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useStoricoViewModel} non imposti \vr{erroreDuplica} se la chiamata ha successo & S \\ \hline
+	TU-F\_500 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useStoricoViewModel} imposti \vr{erroreDuplica} se l'API$^G$ lancia un \vr{Error} & S \\ \hline
+	TU-F\_501 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useStoricoViewModel} imposti messaggio generico se l'errore non è un \vr{Error} & S \\ \hline
+	TU-F\_502 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} abbia \vr{loading=false} anche in caso di errore (branch$^G$ \vr{finally}) & S \\ \hline
+	
+	
+	\caption{Test di Unità Frontend}
+	
+\end{longtable}

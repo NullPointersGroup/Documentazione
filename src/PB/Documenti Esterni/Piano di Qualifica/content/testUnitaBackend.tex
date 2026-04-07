@@ -1,0 +1,896 @@
+\subsubsection{Test di Unità Backend}
+
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{|
+		>{\raggedright\arraybackslash}p{0.2\columnwidth} |
+		>{\raggedright\arraybackslash}p{0.5\columnwidth} |
+		>{\centering\arraybackslash}p{0.1\columnwidth} |
+	}
+	\hline
+	\rowcolor[gray]{0.9}
+	\textbf{Codice Test$^G$} & \textbf{Descrizione} & \textbf{Stato} \\
+	\hline
+	\endhead
+	TU-B\_01 & Implementato da \textit{\seqsplit{test\_registration\_success}}; verifica$^G$ che l'endpoint di registrazione dell'api$^G$ possa essere chiamato e ritorni il valore una risposta positiva & S \\
+	\hline
+	TU-B\_02 & Implementato da \texttt{\seqsplit{test\_register\_user\_twice}}; verifica$^G$ che l'endpoint di registrazione dell'api$^G$ possa essere chiamato e che non ci sia una registrazione duplicata & S \\
+	\hline
+	TU-B\_03 & Implementato da \texttt{\seqsplit{test\_registration\_missing\_fields}}; verifica$^G$ che l'endpoint di registrazione dell'api$^G$ possa essere chiamato e che in caso di campi mancanti restituisce una risposta negativa & S \\
+	\hline
+	TU-B\_04 & Implementato da \texttt{\seqsplit{test\_register\_invalid\_email\_domain}}; verifica$^G$ che l'endpoint di registrazione dell'api$^G$ possa essere chiamato e verifica$^G$ il caso in cui l'utente inserisce una mail in un formato non corretto & S \\
+	\hline
+	TU-B\_05 & Implementato da \texttt{\seqsplit{test\_register\_email\_already\_exists}}; verifica$^G$ che l'endpoint di registrazione dell'api$^G$ possa essere chiamato e verifica$^G$ il caso in cui l'utente inserisce una mail che è già presente nel sistema & S \\
+	\hline
+	TU-B\_07 & Implementato da \texttt{\seqsplit{test\_login\_success}}; verifica$^G$ che l'endpoint di autenticazione dell'api$^G$ possa essere chiamato e verifica$^G$ la presenza di un utente nel sistema & S \\
+	\hline
+	TU-B\_08 & Implementato da \texttt{\seqsplit{test\_login\_failed}}; verifica$^G$ che l'endpoint di autenticazione dell'api$^G$ possa essere chiamato e verifica$^G$ che il sistema restituisca una risposta negativa all'invio delle credenziali di un utente non registrato & S \\
+	\hline
+	TU-B\_09 & Implementato da \texttt{\seqsplit{test\_login\_missing\_fields}}; verifica$^G$ che l'endpoint di autenticazione dell'api$^G$ possa essere chiamato e in caso di campi mancanti restituisce una risposta negativa & S \\
+	\hline
+	TU-B\_10 & Implementato da \texttt{\seqsplit{test\_returns\_users\_service\_instance}}; verifica$^G$ che la funzione \texttt{\seqsplit{get\_user\_service}} restituisca un'istanza della classe UserService & S \\
+	\hline
+	TU-B\_11 & Implementato da \texttt{\seqsplit{test\_user\_service\_wraps\_user\_repo\_adapter}}; verifica$^G$ che l'attributo \texttt{repo} dell'istanza della classe \texttt{UserService} sia correttamente configurato & S \\
+	\hline
+	TU-B\_12 & Implementato da \texttt{\seqsplit{test\_adapter\_receives\_db\_session}}; verifica$^G$ che il db$^G$ iniettato nello \texttt{UserService} sia configurato correttamente & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetCurrentUser} \\
+	\hline
+	TU-B\_13 & Implementato da \texttt{\seqsplit{test\_valid\_token\_returns\_username}}; verifica$^G$ che il recupero dell'identità utente, funzione \texttt{get\_current\_user} tramite cookie di sessione & S \\
+	\hline
+	TU-B\_14 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_raises\_401}}; verifica$^G$ che l'accesso venga negato, con errore HTTP, se il token$^G$ nel cookie è invalido o nullo & S \\
+	\hline
+	TU-B\_15 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_detail\_message}}; verifica$^G$ che l'accesso venga negato, verificando che il messaggio di errore sia corretto, in caso di token$^G$ invalido o nullo & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDeleteAccount} \\
+	\hline
+	TU-B\_16 & Implementato da \texttt{\seqsplit{test\_delete\_account\_success}}; verifica$^G$ che l'endpoint di eliminazione del cliente possa essere chiamato e verifica$^G$ che l'eliminazione vada a buon fine & S \\
+	\hline
+	TU-B\_17 & Implementato da \texttt{\seqsplit{test\_delete\_account\_user\_not\_found}}; verifica$^G$ che l'endpoint di eliminazione del cliente possa essere chiamato e verifica$^G$ che, fornito un utente non valido, il test$^G$ fallisca & S \\
+	\hline
+	TU-B\_18 & Implementato da \texttt{\seqsplit{test\_delete\_account\_deletion\_error}}; verifica$^G$ che l'endpoint di eliminazione del cliente possa essere chiamato e verifica$^G$ che l'endpoint sollevi un'eccezione qualora l'eliminazione non vada a buon fine & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestEmailDomainExists} \\
+	\hline
+	TU-B\_19 & Implementato da \texttt{\seqsplit{test\_returns\_true\_when\_mx\_record\_found}}; verifica$^G$, tramite una simulazione di una risoluzione DNS positiva, che la mail interessata esista nel sistema & S \\
+	\hline
+	TU-B\_20 & Implementato da \texttt{\seqsplit{test\_returns\_false\_when\_mx\_record\_not\_found}}; verifica$^G$, tramite una simulazione di una risoluzione DNS positiva, che la mail interessata non sia esistente nel sistema & S \\
+	\hline
+	TU-B\_21 & Implementato da \texttt{\seqsplit{test\_extracts\_domain\_from\_email}}; verifica$^G$ che il dominio venga correttamente estratto dall'email e passato al resolver DNS con i parametri corretti & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestUsernameAlreadyExistsError} \\
+	\hline
+	TU-B\_22 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica$^G$ che la classe \texttt{\seqsplit{UsernameAlreadyExistsError}} istanzi un oggetto di tipo \texttt{ValueError} & S \\
+	\hline
+	TU-B\_23 & Implementato da \texttt{\seqsplit{test\_message}}; verifica$^G$ che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{UsernameAlreadyExistsError}} sia correttamente configurato & S \\
+	\hline
+	TU-B\_24 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica$^G$ che la classe \texttt{\seqsplit{UsernameAlreadyExistsError}} possa essere lanciata come eccezione & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestInvalidEmailFormatError} \\
+	\hline
+	TU-B\_25 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica$^G$ che la classe \texttt{\seqsplit{InvalidEmailFormatError}} istanzi un oggetto di tipo \texttt{ValueError} & S \\
+	\hline
+	TU-B\_26 & Implementato da \texttt{\seqsplit{test\_message}}; verifica$^G$ che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{InvalidEmailFormatError}} sia correttamente configurato & S \\
+	\hline
+	TU-B\_27 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica$^G$ che la classe \texttt{\seqsplit{InvalidEmailFormatError}} possa essere lanciata come eccezione & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestEmailAlreadyExistsError} \\
+	\hline
+	TU-B\_28 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica$^G$ che la classe \texttt{\seqsplit{EmailAlreadyExistsError}} istanzi un oggetto di tipo \texttt{ValueError} & S \\
+	\hline
+	TU-B\_29 & Implementato da \texttt{\seqsplit{test\_message}}; verifica$^G$ che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{EmailAlreadyExistsError}} sia correttamente configurato & S \\
+	\hline
+	TU-B\_30 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica$^G$ che la classe \texttt{\seqsplit{EmailAlreadyExistsError}} possa essere lanciata come eccezione & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestInvalidCredentialsError} \\
+	\hline
+	TU-B\_31 & Implementato da \texttt{{\seqsplit{test\_is\_value\_error}}}; verifica$^G$ che la classe \texttt{\seqsplit{InvalidCredentialsError}} istanzi un oggetto di tipo \texttt{ValueError} & S \\
+	\hline
+	TU-B\_32 & Implementato da \texttt{\seqsplit{test\_message}}; verifica$^G$ che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{InvalidCredentialsError}} sia correttamente configurato & S \\
+	\hline
+	TU-B\_33 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica$^G$ che la classe \texttt{\seqsplit{InvalidCredentialsError}} possa essere lanciata come eccezione & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestUserCreationError} \\
+	\hline
+	TU-B\_34 & Implementato da \texttt{\seqsplit{test\_is\_exception}}; verifica$^G$ che la classe \texttt{\seqsplit{InvalidCredentialsError}} istanzi un oggetto di tipo \texttt{Exception} & S \\
+	\hline
+	TU-B\_35 & Implementato da \texttt{{\seqsplit{test\_is\_not\_value\_error}}}; verifica$^G$ che la classe \texttt{\seqsplit{UserCreationError}} non istanzi un oggetto di tipo \texttt{ValueError} & S \\
+	\hline
+	TU-B\_36 & Implementato da \texttt{\seqsplit{test\_message}}; verifica$^G$ che il messaggio di errore dell'oggetto di tipo \texttt{\seqsplit{UserCreationError}} sia correttamente configurato & S \\
+	\hline
+	TU-B\_37 & Implementato da \texttt{\seqsplit{test\_can\_be\_raised\_and\_caught}}; verifica$^G$ che la classe \texttt{\seqsplit{UserCreationError}} possa essere lanciata come eccezione & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestHashPassword} \\
+	\hline
+	TU-B\_38 & Implementato da \texttt{\seqsplit{test\_returns\_string}}; verifica$^G$ che la funzione di hashing ritorni un valore di tipo stringa & S \\
+	\hline
+	TU-B\_39 & Implementato da \texttt{\seqsplit{test\_hash\_is\_different\_from\_plain}}; verifica$^G$ che la funzione di hashing ritori un valore diverso dalla password in chiaro & S \\
+	\hline
+	TU-B\_40 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_bcrypt}}; verifica$^G$ che la funzione deleghi correttamente l'operazione di hashing alla libreria \texttt{bcrypt} & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestVerifyPassword} \\
+	\hline
+	TU-B\_41 & Implementato da \texttt{\seqsplit{test\_correct\_password\_returns\_true}}; verifica$^G$ che la funzione di validazione$^G$ password riconosca una password confrontandola con il relativo hash & S \\
+	\hline
+	TU-B\_42 & Implementato da \texttt{\seqsplit{test\_wrong\_password\_returns\_false}}; verifica$^G$ che la funzione di validazione$^G$ non riconosca una password confrontandola con l'hash che dovrebbe assumere & S \\
+	\hline
+	TU-B\_43 & Implementato da \texttt{\seqsplit{test\_none\_hash\_returns\_false\_without\_calling\_bcrypt}}; verifica$^G$ che in caso di hash vuoto, la funzione di verifica$^G$ termina e non viene chiamata la libreria \texttt{bcrypt} & S \\
+	\hline
+	TU-B\_44 & Implementato da \texttt{\seqsplit{test\_empty\_password\_delegates\_to\_bcrypt}}; verifica$^G$ che, anche in caso di password vuota, la libreria \texttt{bcrypt} viene comunque chiamata per il confronto booleano & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestExecute} \\
+	\hline
+	TU-B\_45 & Implementato da \texttt{\seqsplit{test\_returns\_all\_results}}; verifica$^G$ che la query$^G$ eseguita dal database$^G$ ritorni tutti i risultati. & S \\
+	\hline
+	TU-B\_46 & Implementato da \texttt{\seqsplit{test\_calls\_exec\_with\_stmt}}; verifica$^G$ che il database$^G$ esegua esattamente la query$^G$ che gli viene passata nel parametro. \textit{stmt} & S \\
+	\hline
+	TU-B\_47 & Implementato da \texttt{\seqsplit{test\_returns\_empty\_sequence}}; verifica$^G$ che il database$^G$, in caso di risultato privo di tuple, ritorni correttamente una lista vuota.  & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestExecuteOne} \\
+	\hline
+	TU-B\_48 & Implementato da \texttt{\seqsplit{test\_returns\_single\_result}}; verifica$^G$ che il database$^G$, quando viene chiesto di restituire solo un risultato dalla query$^G$, restituisca correttamente il primo risultato. & S \\
+	\hline
+	TU-B\_49 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica$^G$ che il database$^G$, in caso di risultato privo di tuple, quando viene chiesto di restituire un risultato restituisca correttamente \textit{None}. & S \\
+	\hline
+	TU-B\_50 & Implementato da \texttt{\seqsplit{test\_calls\_exec\_with\_stmt}}; verifica$^G$ che il database$^G$, quando viene chiesto di restituire un risultato esegua esattamente la query$^G$ che gli viene passata nel parametro \textit{stmt}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestMutate} \\
+	\hline
+	TU-B\_51 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una query$^G$ che coinvolga una mutazione, restituisca \text{True} in caso di esito positivo. & S \\
+	\hline
+	TU-B\_52 & Implementato da \texttt{\seqsplit{test\_commits\_on\_success}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una query$^G$ che coinvolga una mutazione, in caso di esito positivo chiami il metodo \texttt{commit}.& S \\
+	\hline
+	TU-B\_53 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_integrity\_error}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una query$^G$ che coinvolga una mutazione, in caso di esito negativo restituisca \textit{False}. & S \\
+	\hline
+	TU-B\_54 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_integrity\_error}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una query$^G$ che coinvolga una mutazione, in caso di esito negativo chiami il metodo \texttt{rollback}.& S \\
+	\hline
+	TU-B\_55 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_generic\_exception}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una query$^G$ che coinvolga una mutazione, in caso di una eccezione generica restituisca \textit{False}.& S \\
+	\hline
+	TU-B\_56 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_generic\_exception}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una query$^G$ che coinvolga una mutazione, in caso di una eccezione generica chiami il metodo \texttt{rollback}.& S \\
+	\hline
+	TU-B\_57 & Implementato da \texttt{\seqsplit{test\_no\_commit\_on\_failure}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una query$^G$ che coinvolga una mutazione, in caso di esito negativo non chiami il metodo \texttt{commit}.& S \\
+	\hline
+	TU-B\_58 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_integrity\_error\_raw}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una mutazione diretta, in caso di esito negativo restituisca \textit{False}. & S \\
+	\hline
+	TU-B\_59 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_integrity\_error}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una mutazione diretta, in caso di esito negativo chiami il metodo \texttt{rollback}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestQueryBase} \\
+	\hline
+	TU-B\_60 & Implementato da \texttt{\seqsplit{test\_execute\_raises\_not\_implemented}}; verifica$^G$ la classe \texttt{Query$^G$}, quando viene chiamato il suo metodo \texttt{execute} lanci un'eccezione \texttt{NotImplementedException}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestMutationBase} \\
+	\hline
+	TU-B\_61 & Implementato da \texttt{\seqsplit{test\_execute\_raises\_not\_implemented}}; verifica$^G$ la classe \texttt{Mutation}, quando viene chiamato il suo metodo \texttt{execute} lanci un'eccezione \texttt{NotImplementedException}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestUserSchema} \\
+	\hline
+	TU-B\_62 & Implementato da \texttt{\seqsplit{test\_valid}}; verifica$^G$ che lo schema \texttt{UserSchema} sia valido. & S \\
+	\hline
+	TU-B\_63 & Implementato da \texttt{\seqsplit{test\_missing\_username}}; verifica$^G$ che, se lo schema \texttt{UserSchema} manca del campo \texttt{Username}, venga lanciata una eccezione di tipo \texttt{ValidationError}. & S \\
+	\hline
+	TU-B\_64 & Implementato da \texttt{\seqsplit{test\_missing\_password}}; verifica$^G$ che, se lo schema \texttt{UserSchema} manca del campo \texttt{Password}, venga lanciata una eccezione di tipo \texttt{ValidationError}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestAuthResponse} \\
+	\hline
+	TU-B\_65 & Implementato da \texttt{\seqsplit{test\_ok\_no\_token}}; verifica$^G$ che una \texttt{AuthResponse} possa essere creata anche senza campo \texttt{Token$^G$}. & S \\
+	\hline
+	TU-B\_66 & Implementato da \texttt{\seqsplit{test\_ok\_with\_token}}; verifica$^G$ che una \texttt{AuthResponse} possa essere creata con campo \texttt{Token$^G$}, di tipo \texttt{str}. & S \\
+	\hline
+	TU-B\_67 & Implementato da \texttt{\seqsplit{test\_ok\_no\_token}}; verifica$^G$ che una \texttt{AuthResponse} possa essere creata con campo \texttt{Errors}, di tipo \texttt{str}. In questo caso il campo \texttt{Ok} della response deve essere \texttt{None} e \texttt{r.errors} deve restituire l'errore & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestUsernameValidator} \\
+	\hline
+	TU-B\_68 & Implementato da \texttt{\seqsplit{test\_not\_ok\_with\_errors}}; verifica$^G$ che una \texttt{AuthResponse} possa essere creata con campo \texttt{Errors}, di tipo \texttt{str}. In questo caso il campo \texttt{Ok} della response deve essere \texttt{None} e \texttt{r.errors} deve restituire l'errore & S \\
+	\hline
+	TU-B\_69 & Implementato da \texttt{\seqsplit{test\_valid}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema}  sia valido & S \\
+	\hline
+	TU-B\_70 & Implementato da \texttt{\seqsplit{test\_too\_short}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Username} troppo corto (meno di 4 caratteri), lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
+	\hline
+	TU-B\_71 & Implementato da \texttt{\seqsplit{test\_too\_long}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Username} troppo lungo (più di 24 caratteri), lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
+	\hline
+	TU-B\_72 & Implementato da \texttt{\seqsplit{test\_special\_chars\_not\_allowed}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Username} contenente caratteri speciali, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
+	\hline
+	TU-B\_73 & Implementato da \texttt{\seqsplit{test\_exactly\_4\_chars}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Username} lungo 4 caratteri, contenga un campo \texttt{Username} uguale al valore con la quale è stata creata. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestPasswordValidator} \\
+	\hline
+	TU-B\_74 & Implementato da \texttt{\seqsplit{test\_valid}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema} sia valido e il campo \texttt{Password} corrisponda a quello inserito. & S \\
+	\hline
+	TU-B\_75 & Implementato da \texttt{\seqsplit{test\_too\_short}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} troppo corto, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
+	\hline
+	TU-B\_76 & Implementato da \texttt{\seqsplit{test\_too\_long}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} troppo lungo, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
+	\hline
+	TU-B\_77 & Implementato da \texttt{\seqsplit{test\_missing\_uppercase}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} senza almeno una lettera maiuscola, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
+	\hline
+	TU-B\_78 & Implementato da \texttt{\seqsplit{test\_missing\_lowercase}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} senza almeno una lettera minuscola, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
+	\hline
+	TU-B\_79 & Implementato da \texttt{\seqsplit{test\_missing\_digit}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} senza almeno una cifra, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
+	\hline
+	TU-B\_80 & Implementato da \texttt{\seqsplit{test\_missing\_special\_char}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Password} senza almeno un carattere speciale, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestEmailValidator} \\
+	\hline
+	TU-B\_81 & Implementato da \texttt{\seqsplit{test\_valid}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema} sia valido e il campo \texttt{Email} corrisponda a quello inserito. & S \\
+	\hline
+	TU-B\_82 & Implementato da \texttt{\seqsplit{test\_missing\_at}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Email} senza un simbolo "chiocciola", lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
+	\hline
+	TU-B\_83 & Implementato da \texttt{\seqsplit{test\_missing\_dot\_in\_domain}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Email} senza un simbolo "punto" dopo la sezione di dominio, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
+	\hline
+	TU-B\_84 & Implementato da \texttt{\seqsplit{test\_spaces\_not\_allowed}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema}, quando creato con un campo \texttt{Email} contenente spazi, lanci un'eccezione di tipo \texttt{ValidationError}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestConfirmPasswordValidator} \\
+	\hline
+	TU-B\_85 & Implementato da \texttt{\seqsplit{test\_password\_match}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema} contenga un campo \texttt{confirmPwd} uguale al campo \texttt{Password} inserito. & S \\
+	\hline
+	TU-B\_86 & Implementato da \texttt{\seqsplit{test\_password\_mismatch}}; verifica$^G$ che lo schema \texttt{UserRegistrationSchema} quando presenta un campo \texttt{confirmPwd} non uguale al campo \texttt{Password} inserito, lanci una eccezione di tipo \texttt{ValidationError}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCreateToken} \\
+	\hline
+	TU-B\_87 & Implementato da \texttt{\seqsplit{test\_returns\_string}}; verifica$^G$ che la classe \texttt{TokenUtility}, quando viene chiamato il suo metodo \texttt{create\_token}, restituisca un valore di tipo \texttt{str} & S \\
+	\hline
+	TU-B\_88 & Implementato da \texttt{\seqsplit{test\_token\_contains\_username}}; verifica$^G$ che, quando si decodifica un token$^G$ attraverso il metodo \texttt{decode}, venga resituito un dizionario contenente anche lo username con il quale il token$^G$ è stato generato. & S \\
+	\hline
+	TU-B\_89 & Implementato da \texttt{\seqsplit{test\_token\_has\_expiry}}; verifica$^G$ che, quando si decodifica un token$^G$ attraverso il metodo \texttt{decode}, venga resituito un dizionario contenente anche il valore indicizzato dalla chiave \texttt{exp}. & S \\
+	\hline
+	TU-B\_90 & Implementato da \texttt{\seqsplit{test\_different\_users\_produce\_different\_tokens}}; verifica$^G$ che la classe \texttt{TokenUtility}, quando viene chiamato il suo metodo \texttt{create\_token}, restituisca valori diversi per username diversi. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDecodeToken} \\
+	\hline
+	TU-B\_91 & Implementato da \texttt{\seqsplit{test\_valid\_token\_returns\_username}}; verifica$^G$ che la classe \texttt{TokenUtility}, quando viene chiamato il suo metodo \texttt{decode\_token}, restituisca lo username che è stato usato per creare il token. & S \\
+	\hline
+	TU-B\_92 & Implementato da \texttt{\seqsplit{test\_expired\_token\_returns\_none}}; verifica$^G$ che un token$^G$ scaduto restituisca \texttt{None} quando viene decodificato. & S \\
+	\hline
+	TU-B\_93 & Implementato da \texttt{\seqsplit{test\_invalid\_token\_returns\_none}}; verifica$^G$ che un token$^G$ non valido restituisca \texttt{None} quando viene decodificato. & S \\
+	\hline
+	TU-B\_94 & Implementato da \texttt{\seqsplit{test\_empty\_string\_returns\_none}}; verifica$^G$ che un token$^G$ vuoto restituisca \texttt{None} quando viene decodificato. & S \\
+	\hline
+	TU-B\_95 & Implementato da \texttt{\seqsplit{test\_token\_signed\_with\_wrong\_key\_retunrs\_none}}; verifica$^G$ che un token$^G$ firmato con una chiave sbagliata restituisca \texttt{None} quando viene decodificato. & S \\
+	\hline
+	TU-B\_96 & Implementato da \texttt{\seqsplit{test\_roundtrip\_create\_and\_decode}}; verifica$^G$ che un token$^G$ valido che viene successivamente decodificato restituisca il valore usato per creare il token. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestFindByUsername} \\
+	\hline
+	TU-B\_97 & Implementato da \texttt{\seqsplit{test\_returns\_utente\_when\_found}}; verifica$^G$ che l'adapter, quando presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database$^G$, restituisca un oggetto \texttt{User} relativo a quell'utente. & S \\
+	\hline
+	TU-B\_98 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica$^G$ che l'adapter, quando non presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database$^G$, restituisca \texttt{None}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestUsernameExist} \\
+	\hline
+	TU-B\_99 & Implementato da \texttt{\seqsplit{test\_returns\_true\_when\_found}}; verifica$^G$ che il metodo \texttt{username\_exists} dell'adapter, quando presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database$^G$, restituisca \texttt{True}. & S \\
+	\hline
+	TU-B\_100 & Implementato da \texttt{\seqsplit{test\_returns\_false\_when\_not\_found}}; verifica$^G$ che il metodo \texttt{username\_exists} dell'adapter, quando non presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database$^G$, restituisca \texttt{False}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestEmailExist} \\
+	\hline
+	TU-B\_101 & Implementato da \texttt{\seqsplit{test\_returns\_true\_when\_found}}; verifica$^G$ che il metodo \texttt{email\_exists} dell'adapter, quando presente un \texttt{Utente} con il valore \texttt{email} richiesto nel database$^G$, restituisca \texttt{True}. & S \\
+	\hline
+	TU-B\_102 & Implementato da \texttt{\seqsplit{test\_returns\_false\_when\_not\_found}}; verifica$^G$ che il metodo \texttt{email\_exists} dell'adapter, quando non presente un \texttt{Utente} con il valore \texttt{email} richiesto nel database$^G$, restituisca \texttt{False}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestAddUser} \\
+	\hline
+	TU-B\_103 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica$^G$ che l'adapter, quando viene aggiunto correttamente un valore \texttt{User}, restituisca \texttt{True}. & S \\
+	\hline
+	TU-B\_104 & Implementato da \texttt{\seqsplit{test\_commits\_on\_success}}; verifica$^G$ che l'adapter, quando viene aggiunto correttamente un valore \texttt{User}, chiami il metodo \texttt{commits} del database. & S \\
+	\hline
+	TU-B\_105 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_exception}}; verifica$^G$ che l'adapter, quando non viene aggiunto correttamente un valore \texttt{User}, restituisca \texttt{False}. & S \\
+	\hline
+	TU-B\_106 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_exception}}; verifica$^G$ che l'adapter, quando non viene aggiunto correttamente un valore \texttt{User}, chiami il metodo \texttt{rollback} del database. & S \\
+	\hline
+	TU-B\_107 & Implementato da \texttt{\seqsplit{test\_password\_is\_hashed}}; verifica$^G$ che l'adapter, quando viene aggiunto correttamente un valore \texttt{User}, chiami il metodo \texttt{hash}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDeleteUser} \\
+	\hline
+	TU-B\_108 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica$^G$ che l'adapter, quando viene eliminato correttamente un valore \texttt{User}, restituisca \texttt{True}. & S \\
+	\hline
+	TU-B\_109 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_exception}}; verifica$^G$ che l'adapter, quando non viene eliminato correttamente un valore \texttt{User}, restituisca \texttt{False}. & S \\
+	\hline
+	TU-B\_110 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_exception}}; verifica$^G$ che l'adapter, quando non viene eliminato correttamente un valore \texttt{User}, chiami il metodo \texttt{rollback} del database. & S \\
+	\hline
+	TU-B\_111 & Implementato da \texttt{\seqsplit{test\_commits\_on\_success}}; verifica$^G$ che l'adapter, quando viene eliminato correttamente un valore \texttt{User}, chiami il metodo \texttt{commits} del database. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestFindByUsername} \\
+	\hline
+	TU-B\_112 & Implementato da \texttt{\seqsplit{test\_returns\_utente\_when\_found}}; verifica$^G$ che il metodo \texttt{find\_by\_username} dell'adapter, quando presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database$^G$, restituisca l'oggetto \texttt{User} corrispondente. & S \\
+	\hline
+	TU-B\_113 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica$^G$ che il metodo \texttt{find\_by\_username} dell'adapter, quando non presente un \texttt{Utente} con il valore \texttt{username} richiesto nel database$^G$, restituisca \texttt{None}. & S \\
+	\hline
+	TU-B\_114 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_executor}}; verifica$^G$ che il metodo \texttt{find\_by\_username} dell'adapter, chiami il metodo \texttt{execute\_one\_raw}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestFindByEmail} \\
+	\hline
+	TU-B\_115 & Implementato da \texttt{\seqsplit{test\_returns\_utente\_when\_found}}; verifica$^G$ che il metodo \texttt{find\_by\_email} dell'adapter, quando presente un \texttt{Utente} con il valore \texttt{email} richiesto nel database$^G$, restituisca l'oggetto \texttt{User} corrispondente. & S \\
+	\hline
+	TU-B\_116 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica$^G$ che il metodo \texttt{find\_by\_email} dell'adapter, quando non presente un \texttt{Utente} con il valore \texttt{email} richiesto nel database$^G$, restituisca \texttt{None}. & S \\
+	\hline
+	TU-B\_117 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_executor}}; verifica$^G$ che il metodo \texttt{find\_by\_email} dell'adapter, chiami il metodo \texttt{execute\_one\_raw}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestSave} \\
+	\hline
+	TU-B\_118 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica$^G$ che l'adapter, quando viene salvato correttamente un valore \texttt{User}, restituisca \texttt{True}. & S \\
+	\hline
+	TU-B\_119 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_failure}}; verifica$^G$ che l'adapter, quando non viene salvato correttamente un valore \texttt{User}, restituisca \texttt{False}. & S \\
+	\hline
+	TU-B\_120 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_executor}}; verifica$^G$ che il metodo \texttt{save} dell'adapter, chiami il metodo \texttt{mutate\_one\_raw}. & S \\
+	\hline
+	TU-B\_121 & Implementato da \texttt{\seqsplit{test\_password\_is\_hashed}}; verifica$^G$ che il metodo \texttt{save} dell'adapter, chiami il metodo \texttt{hash}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCheckUser} \\
+	\hline
+	TU-B\_122 & Implementato da \texttt{\seqsplit{test\_returns\_username\_with\_valid\_credentials}}; verifica$^G$ che il metodo \texttt{check\_user} della classe \texttt{UserService} restituisca il valore \texttt{username} dell'oggetto \texttt{User} passato come parametro. & S \\
+	\hline
+	TU-B\_123 & Implementato da \texttt{\seqsplit{test\_raises\_when\_user\_not\_found}}; verifica$^G$ che il metodo \texttt{check\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{InvalidCredentialsError} in caso di utente non trovato nel database. & S \\
+	\hline
+	TU-B\_124 & Implementato da \texttt{\seqsplit{test\_raises\_when\_password\_wrong}}; verifica$^G$ che il metodo \texttt{check\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{InvalidCredentialsError} in caso di password errata. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestRegisterUser} \\
+	\hline
+	TU-B\_125 & Implementato da \texttt{\seqsplit{test\_succeeds\_with\_valid\_data}}; verifica$^G$ che il metodo \texttt{register\_user} della classe \texttt{UserService} non sollevi eccezioni in caso di credenziali valide. & S \\
+	\hline
+	TU-B\_126 & Implementato da \texttt{\seqsplit{test\_raises\_when\_username\_exists}}; verifica$^G$ che il metodo \texttt{register\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UsernameAlreadyExistsError} in caso di username già presente nel database. & S \\
+	\hline
+	TU-B\_127 & Implementato da \texttt{\seqsplit{test\_raises\_when\_email\_domain\_invalid}}; verifica$^G$ che il metodo \texttt{register\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{InvalidEmailFormatError} in caso di email non valida. & S \\
+	\hline
+	TU-B\_128 & Implementato da \texttt{\seqsplit{test\_raises\_when\_email\_exists}}; verifica$^G$ che il metodo \texttt{register\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{EmailAlreadyExistsError} in caso di email già presente nel database. & S \\
+	\hline
+	TU-B\_129 & Implementato da \texttt{\seqsplit{test\_raises\_when\_add\_user\_fails}}; verifica$^G$ che il metodo \texttt{register\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UserCreationError} in caso di errore nella aggiunta dell'utente al database. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDeleteUser} \\
+	\hline
+	TU-B\_130 & Implementato da \texttt{\seqsplit{test\_succeeds\_when\_user\_exists}}; verifica$^G$ che il metodo \texttt{delete\_user} della classe \texttt{UserService} non sollevi eccezioni in caso di eliminazione di un utente andata a buon fine. & S \\
+	\hline
+	TU-B\_131 & Implementato da \texttt{\seqsplit{test\_raises\_when\_user\_not\_found}}; verifica$^G$ che il metodo \texttt{delete\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UserNotFoundError} in caso di richiesta di eliminazione di un utente non presente nel database. & S \\
+	\hline
+	TU-B\_132 & Implementato da \texttt{\seqsplit{test\_raises\_when\_delete\_fails}}; verifica$^G$ che il metodo \texttt{delete\_user} della classe \texttt{UserService} sollevi una eccezione di tipo \texttt{UserDeletionError} in caso di errore nella eliminazione dell'utente dal database. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartAdapter} \\
+	\hline
+	TU-B\_133 & Implementato da \texttt{\seqsplit{test\_get\_products\_calls\_repo}}; verifica$^G$ che il metodo \texttt{get\_products} della classe \texttt{CartAdapter} chiami il database. & S \\
+	\hline
+	TU-B\_134 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_mapped\_products}}; verifica$^G$ che il metodo \texttt{get\_products} della classe \texttt{CartAdapter} restituisca una lista di oggetti di tipo \texttt{CartProduct} con valori mappati correttamente. & S \\
+	\hline
+	TU-B\_135 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_empty\_list}}; verifica$^G$ che il metodo \texttt{get\_products} della classe \texttt{CartAdapter}, in caso di database$^G$ vuoto, restituisca una lista vuota. & S \\
+	\hline
+	TU-B\_136 & Implementato da \texttt{\seqsplit{test\_add\_product\_returns\_cart\_product}}; verifica$^G$ che il metodo \texttt{add\_product} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct}. & S \\
+	\hline
+	TU-B\_137 & Implementato da \texttt{\seqsplit{test\_add\_product\_returns\_mapped\_product}}; verifica$^G$ che il metodo \texttt{add\_product} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct} con i valori mappati correttamente. & S \\
+	\hline
+	TU-B\_138 & Implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_cart\_product}}; verifica$^G$ che il metodo \texttt{remove\_product} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct}. & S \\
+	\hline
+	TU-B\_139 & Implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_mapped\_product}}; verifica$^G$ che il metodo \texttt{remove\_product} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct} con i valori mappati correttamente. & S \\
+	\hline
+	TU-B\_140 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_product}}; verifica$^G$ che il metodo \texttt{update\_quantity} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct}. & S \\
+	\hline
+	TU-B\_141 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_mapped\_product}}; verifica$^G$ che il metodo \texttt{update\_quantity} della classe \texttt{CartAdapter} restituisca un oggetto di tipo \texttt{CartProduct} con i valori mappati correttamente. & S \\
+	\hline
+	TU-B\_142 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_subtract\_calls\_repo}}; verifica$^G$ che il metodo \texttt{update\_quantity} della classe \texttt{CartAdapter} chiami il database$^G$ fornendo correttamente il tipo di operazione \texttt{CartUpdateOperation} richiesto. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartRepoPort} \\
+	\hline
+	TU-B\_143 & Implementato da \texttt{\seqsplit{test\_get\_products\_can\_be\_implemented}}; verifica$^G$ che il metodo \texttt{get\_products} della classe astratta  \texttt{CartRepoPort} possa essere implementato da una sottoclasse. & S \\
+	\hline
+	TU-B\_144 & Implementato da \texttt{\seqsplit{test\_add\_product\_can\_be\_implemented}}; verifica$^G$ che il metodo \texttt{add\_product} della classe astratta  \texttt{CartRepoPort} possa essere implementato da una sottoclasse. & S \\
+	\hline
+	TU-B\_145 & Implementato da \texttt{\seqsplit{test\_remove\_product\_can\_be\_implemented}}; verifica$^G$ che il metodo \texttt{remove\_product} della classe astratta  \texttt{CartRepoPort} possa essere implementato da una sottoclasse. & S \\
+	\hline
+	TU-B\_146 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_can\_be\_implemented}}; verifica$^G$ che il metodo \texttt{update\_quantity} della classe astratta  \texttt{CartRepoPort} possa essere implementato da una sottoclasse. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartRepository} \\
+	\hline
+	TU-B\_147 & Implementato da \texttt{\seqsplit{test\_get\_products\_calls\_db}}; verifica$^G$ che il metodo \texttt{get\_products} della classe \texttt{CartRepository} chiami il database. & S \\
+	\hline
+	TU-B\_148 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_list}}; verifica$^G$ che il metodo \texttt{get\_products} della classe \texttt{CartRepository} restituisca una lista di oggetti di tipo \texttt{UserCartRepository, CatalogProductRepository}. & S \\
+	\hline
+	TU-B\_149 & Implementato da \texttt{\seqsplit{test\_add\_product\_calls\_and\_commit\_refresh}}; verifica$^G$ che il metodo \texttt{add\_product} della classe \texttt{CartRepository} chiami il \texttt{commit} e il \texttt{refresh} del database. & S \\
+	\hline
+	TU-B\_150 & Implementato da \texttt{\seqsplit{test\_add\_product\_returns\_product\_repository}}; verifica$^G$ che il metodo \texttt{add\_product} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository}. & S \\
+	\hline
+	TU-B\_151 & Implementato da \texttt{\seqsplit{test\_add\_product\_correct\_fields}}; verifica$^G$ che il metodo \texttt{add\_product} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository} con i campi dati uguali rispetto ai parametri passati. & S \\
+	\hline
+	TU-B\_152 & Implementato da \texttt{\seqsplit{test\_add\_product\_not\_existing}}; verifica$^G$ che il metodo \texttt{add\_product} della classe \texttt{CartRepository}, in caso di prodotto non presente sul database$^G$, sollevi un'eccezione di tipo \texttt{ProductNotFoundException}. & S \\
+	\hline
+	TU-B\_153 & Implementato da \texttt{\seqsplit{test\_remove\_product\_calls\_and\_commit}}; verifica$^G$ che il metodo \texttt{remove\_product} della classe \texttt{CartRepository} chiami il \texttt{commit} del database. & S \\
+	\hline
+	TU-B\_154 & Implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_product\_repository}}; verifica$^G$ che il metodo \texttt{remove\_product} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository}. & S \\
+	\hline
+	TU-B\_155 & Implementato da \texttt{\seqsplit{test\_remove\_product\_correct\_fields}}; verifica$^G$ che il metodo \texttt{remove\_product} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository} con i campi dati uguali rispetto ai parametri passati. & S \\
+	\hline
+	TU-B\_156 & Implementato da \texttt{\seqsplit{test\_remove\_product\_not\_in\_cart}}; verifica$^G$ che il metodo \texttt{remove\_product} della classe \texttt{CartRepository}, in caso di prodotto non presente nel carrello dell'utente, lanci un'eccezione di tipo \texttt{ProductNotInCartException}. & S \\
+	\hline
+	TU-B\_157 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_calls\_and\_commit\_refresh}}; verifica$^G$ che il metodo \texttt{update\_quantity} della classe \texttt{CartRepository} chiami il \texttt{commit} del database. & S \\
+	\hline
+	TU-B\_158 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_product\_repository}}; verifica$^G$ che il metodo \texttt{update\_quantity} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository}. & S \\
+	\hline
+	TU-B\_159 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_correct\_fields}}; verifica$^G$ che il metodo \texttt{update\_quantity} della classe \texttt{CartRepository} restituisca un oggetto di tipo \texttt{CartProductRepository} con i campi dati uguali rispetto ai parametri passati. & S \\
+	\hline
+	TU-B\_160 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_product\_not\_in\_cart}}; verifica$^G$ che il metodo \texttt{update\_quantity} della classe \texttt{CartRepository}, in caso di prodotto non presente nel carrello dell'utente, lanci un'eccezione di tipo \texttt{ProductNotInCartException}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartApi} \\
+	\hline
+	TU-B\_161 & Implementato da \texttt{\seqsplit{test\_get\_cart\_service\_unit}}; verifica$^G$ che il metodo \texttt{get\_cart\_service} della classe \texttt{CartApi} restituisca l'istanza corrente di \texttt{CartService}. & S \\
+	\hline
+	TU-B\_162 & implementato da \texttt{\seqsplit{test\_get\_user\_cart}}; verifica$^G$ che il metodo \texttt{get\_user\_cart} della classe \texttt{CartApi} restituisca un oggetto di tipo \texttt{CartResponse} con i valori corretti. & S \\
+	\hline
+	TU-B\_163 & implementato da \texttt{\seqsplit{test\_add\_product\_to\_cart}}; verifica$^G$ che il metodo \texttt{add\_product\_to\_cart} della classe \texttt{CartApi} restituisca un oggetto di tipo \texttt{CartProductResponse} con i valori corretti. & S \\
+	\hline
+	TU-B\_164 & implementato da \texttt{\seqsplit{test\_add\_product\_not\_found}}; verifica$^G$ che il metodo \texttt{add\_product\_to\_cart} della classe \texttt{CartApi}, in caso di prodotto non presente nel database$^G$, lanci un'eccezione di tipo \texttt{HTTPException (404)}. & S \\
+	\hline
+	TU-B\_165 & implementato da \texttt{\seqsplit{test\_remove\_product\_from\_cart}}; verifica$^G$ che il metodo \texttt{remove\_product\_from\_cart} della classe \texttt{CartApi} restituisca un oggetto di tipo \texttt{CartProductResponse} con i valori corretti. & S \\
+	\hline
+	TU-B\_166 & implementato da \texttt{\seqsplit{test\_remove\_product\_not\_in\_cart}}; verifica$^G$ che il metodo \texttt{remove\_product\_from\_cart} della classe \texttt{CartApi}, in caso di oggetto non presente nel carrello dell'utente,  restituisca un'eccezione di tipo \texttt{HTTPException(404)}. & S \\
+	\hline
+	TU-B\_167 & implementato da \texttt{\seqsplit{test\_update\_product\_quantity}}; verifica$^G$ che il metodo \texttt{update\_cart\_quantity} della classe \texttt{CartApi}, restituisca un oggetto di tipo \texttt{CartProductResponse} & S \\
+	\hline
+	TU-B\_168 & implementato da \texttt{\seqsplit{test\_update\_product\_not\_in\_cart}}; verifica$^G$ che il metodo \texttt{update\_cart\_quantity} della classe \texttt{CartApi}, in caso di prodotto non presente nel carrello dell'utente, restituisca un'eccezione di tipo \texttt{HTTPException(404)}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartService} \\
+	\hline
+	TU-B\_169 & implementato da \texttt{\seqsplit{test\_get\_products\_returns\_empty\_list}}; verifica$^G$ che il metodo \texttt{get\_cart\_products} della classe \texttt{CartService} restituisca una lista. & S \\
+	\hline
+	TU-B\_170 & implementato da \texttt{\seqsplit{test\_get\_cart\_products\_returns\_list}}; verifica$^G$ che il metodo \texttt{get\_cart\_products} della classe \texttt{CartService} restituisca una lista di oggetti di tipo \texttt{CartProduct}. & S \\
+	\hline
+	TU-B\_171 & implementato da \texttt{\seqsplit{test\_add\_product\_returns\_cart\_product}}; verifica$^G$ che il metodo \texttt{add\_product\_to\_cart} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct}. & S \\
+	\hline
+	TU-B\_172 & implementato da \texttt{\seqsplit{test\_add\_product\_returns\_correct\_product}}; verifica$^G$ che il metodo \texttt{add\_product\_to\_cart} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct} con i campi dati uguali rispetto ai parametri passati. & S \\
+	\hline
+	TU-B\_173 & implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_cart\_product}}; verifica$^G$ che il metodo \texttt{remove\_product\_from\_cart} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct}.  & S \\
+	\hline
+	TU-B\_174 & implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_correct\_product}}; verifica$^G$ che il metodo \texttt{remove\_product\_from\_cart} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct} con i campi dati uguali rispetto ai parametri passati. & S \\
+	\hline
+	TU-B\_175 & implementato da \texttt{\seqsplit{test\_update\_quantity\_calls\_repo\_with\_add}}; verifica$^G$ che il metodo \texttt{update\_quantity} della classe \texttt{CartService} chiami il database$^G$ con la corretta operazione di \texttt{CartUpdateOperation.Add}. & S \\
+	\hline
+	TU-B\_176 & implementato da \texttt{\seqsplit{test\_update\_quantity\_calls\_repo\_with\_subtract}}; verifica$^G$ che il metodo \texttt{update\_quantity} della classe \texttt{CartService} chiami il database$^G$ con la corretta operazione di \texttt{CartUpdateOperation.Subtract}. & S \\
+	\hline
+	TU-B\_177 & implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_cart\_product}}; verifica$^G$ che il metodo \texttt{update\_quantity} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct}. & S \\
+	\hline
+	TU-B\_178 & implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_correct\_product}}; verifica$^G$ che il metodo \texttt{update\_quantity} della classe \texttt{CartService} restituisca un oggetto di tipo \texttt{CartProduct} con i campi dati uguali rispetto ai parametri passati. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCatalogRepoAdapter} \\
+	\hline
+	TU-B\_179 & implementato da \texttt{\seqsplit{test\_get\_product\_return\_mapped\_catalog\_product}}; verifica$^G$ che il metodo \texttt{get\_product} della classe \texttt{CatalogAdapter} restituisca un oggetto di tipo \texttt{CatalogProduct} con i campi dati mappati correttamente dal rispettivo oggetto nel database. & S \\
+	\hline
+	TU-B\_180 & implementato da \texttt{\seqsplit{test\_get\_product\_returns\_none\_when\_missing}}; verifica$^G$ che il metodo \texttt{get\_product} della classe \texttt{CatalogAdapter} restituisca il valore \texttt{None} quando viene cercato un prodotto non presente nel catalogo. & S \\
+	\hline
+	TU-B\_181 & implementato da \texttt{\seqsplit{test\_get\_full\_catalog\_returns\_mapped\_products}}; verifica$^G$ che il metodo \texttt{get\_full\_catalog} della classe \texttt{CatalogAdapter} restituisca una lista di oggetti \texttt{CatalogProduct} con i campi dati mappati correttamente dal rispettivo catalogo nel database. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCatalogRepoPort} \\
+	\hline
+	TU-B\_182 & implementato da \texttt{\seqsplit{test\_get\_product\_can\_be\_implemented}}; verifica$^G$ che il metodo \texttt{get\_product} della classe astratta \texttt{CatalogRepoPort} possa essere implementata da una sottoclasse. & S \\
+	\hline
+	TU-B\_183 & implementato da \texttt{\seqsplit{test\_get\_full\_catalog\_can\_be\_implemented}}; verifica$^G$ che il metodo \texttt{get\_full\_catalog} della classe astratta \texttt{CatalogRepoPort} possa essere implementata da una sottoclasse. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCatalogRepository} \\
+	\hline
+	TU-B\_184 & implementato da \texttt{\seqsplit{test\_catalog\_product\_repository\_maps\_real\_db\_columns\_names}}; verifica$^G$ che la classe \texttt{CatalogProductRepository} sia correttamente mappata sulle colonne della tabella \texttt{anaart} del database. & S \\
+	\hline
+	TU-B\_185 & implementato da \texttt{\seqsplit{test\_get\_product\_calls\_db\_and\_returns\_first\_row}}; verifica$^G$ che il metodo \texttt{get\_product} della classe \texttt{CatalogProductRepository} chiami il database$^G$ e restituisca la prima riga valida di quest'ultimo. & S \\
+	\hline
+	TU-B\_186 & implementato da \texttt{\seqsplit{test\_get\_full\_catalog\_calls\_db\_and\_returns\_all\_rows}}; verifica$^G$ che il metodo \texttt{get\_full\_catalog} della classe \texttt{CatalogProductRepository} chiami il database$^G$ e restituisca tutte le righe valide di quest'ultimo. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestChatRepoAdapter} \\
+	\hline
+	TU-B\_187 & implementato da \texttt{\seqsplit{test\_get\_messages\_returns\_mapped\_messages}}; verifica$^G$ che il metodo \texttt{get\_messages} della classe \texttt{ChatRepoAdapter} restituisca un oggetto di tipo \texttt{Message} con i campi dati mappati correttamente dalla rispettiva tabella nel database. & S \\
+	\hline
+	TU-B\_188 & implementato da \texttt{\seqsplit{test\_get\_messages\_returns\_empty\_list}}; verifica$^G$ che il metodo \texttt{get\_messages} della classe \texttt{ChatRepoAdapter}, in caso di assenza di messaggi corrispondenti nel database$^G$, restituisca una lista vuota. & S \\
+	\hline
+	TU-B\_189 & implementato da \texttt{\seqsplit{test\_add\_message\_returns\_mapped\_message}}; verifica$^G$ che il metodo \texttt{add\_message} della classe \texttt{ChatRepoAdapter} restituisca un oggetto di tipo \texttt{Message} con i campi dati uguali rispetto ai parametri passati. & S \\
+	\hline
+	TU-B\_190 & implementato da \texttt{\seqsplit{test\_add\_message\_chatbot\_sender}}; verifica$^G$ che il metodo \texttt{add\_message} della classe \texttt{ChatRepoAdapter} mantenga correttamente le enumerazione \texttt{SenderEnum}. & S \\
+	\hline
+	TU-B\_191 & implementato da \texttt{\seqsplit{test\_conversation\_exist\_returns\_true}}; verifica$^G$ che il metodo \texttt{conversation\_exist} della classe \texttt{ChatRepoAdapter} restituisca \texttt{True} quando la conversazione è presente nel database. & S \\
+	\hline
+	TU-B\_192 & implementato da \texttt{\seqsplit{test\_conversation\_exist\_returns\_false}}; verifica$^G$ che il metodo \texttt{conversation\_exist} della classe \texttt{ChatRepoAdapter} restituisca \texttt{False} quando la conversazione non è presente nel database. & S \\
+	\hline
+	TU-B\_193 & implementato da \texttt{\seqsplit{test\_create\_conversation}}; verifica$^G$ che il metodo \texttt{create\_conversation} della classe \texttt{ChatRepoAdapter} chiami il metodo \texttt{create\_conversation} del database. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestChatRepoPort} \\
+	\hline
+	TU-B\_194 & implementato da \texttt{\seqsplit{test\_get\_messages\_can\_be\_implemented}}; verifica$^G$ che il metodo \texttt{get\_messages} della classe astratta \texttt{ChatRepoPort} possa essere implementato da una sottoclasse. & S \\
+	\hline
+	TU-B\_195 & implementato da \texttt{\seqsplit{test\_add\_message\_can\_be\_implemented}}; verifica$^G$ che il metodo \texttt{add\_message} della classe astratta \texttt{ChatRepoPort} possa essere implementato da una sottoclasse. & S \\
+	\hline
+	TU-B\_196 & implementato da \texttt{\seqsplit{test\_get\_messages\_returns\_message\_list}}; verifica$^G$ che il metodo \texttt{get\_messages} della classe astratta \texttt{ChatRepoPort} ritorni un oggetto di tipo \texttt{List} quando istanziato da una sottoclasse. & S \\
+	\hline
+	TU-B\_197 & implementato da \texttt{\seqsplit{test\_add\_message\_returns\_message}}; verifica$^G$ che il metodo \texttt{add\_message} della classe astratta \texttt{ChatRepoPort} ritorni un oggetto di tipo \texttt{List} quando istanziato da una sottoclasse. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestChatRepository} \\
+	\hline
+	TU-B\_198 & implementato da \texttt{\seqsplit{test\_get\_messages\_calls\_db}}; verifica$^G$ che il metodo \texttt{get\_messages} della classe \texttt{ChatRepository} chiami correttamente il database. & S \\
+	\hline
+	TU-B\_199 & implementato da \texttt{\seqsplit{test\_get\_messages\_returns\_list}}; verifica$^G$ che il metodo \texttt{get\_messages} della classe \texttt{ChatRepository} ritorni una lista di oggetti di tipo \texttt{ChatMessageRepository}. & S \\
+	\hline
+	TU-B\_200 & implementato da \texttt{\seqsplit{test\_add\_message\_calls\_and\_commit\_refresh}}; verifica$^G$ che il metodo \texttt{add\_message} della classe \texttt{ChatRepository} chiami il \texttt{commit} e il \texttt{refresh} del database. & S \\
+	\hline
+	TU-B\_201 & implementato da \texttt{\seqsplit{test\_add\_message\_returns\_chat\_message\_repository}}; verifica$^G$ che il metodo \texttt{add\_message} della classe \texttt{ChatRepository} ritorni un oggetto di tipo \texttt{ChatMessageRepository}. & S \\
+	\hline
+	TU-B\_202 & implementato da \texttt{\seqsplit{test\_add\_message\_correct\_fields}}; verifica$^G$ che il metodo \texttt{add\_message} della classe \texttt{ChatRepository} ritorni un oggetto di tipo \texttt{ChatMessageRepository} con i campi dati corretti rispetto ai parametri passati. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestChatApi} \\
+	\hline
+	TU-B\_203 & implementato da \texttt{\seqsplit{test\_get\_chat\_service\_unit}}; verifica$^G$ che il metodo \texttt{get\_chat\_service} della classe \texttt{ChatApi} ritorni una istanza di \texttt{ChatService}. & S \\
+	\hline
+	TU-B\_204 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_unit}}; verifica$^G$ che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatApi} ritorni un oggetto di tipo \texttt{ChatResponse}. & S \\
+	\hline
+	TU-B\_205 & implementato da \texttt{\seqsplit{test\_send\_message\_unit}}; verifica$^G$ che il metodo \texttt{send\_message} della classe \texttt{ChatApi} ritorni un oggetto di tipo \texttt{MessageResponse} con i campi dati uguali rispetto ai parametri passati. & S \\
+	\hline
+	TU-B\_206 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_from\_inexistent\_conv}}; verifica$^G$ che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatApi}, in caso di conversazione non presente nel database$^G$, sollevi una eccezione di tipo \texttt{HTTPException(404)}. & S \\
+	\hline
+	TU-B\_207 & implementato da \texttt{\seqsplit{test\_send\_message\_returns\_500\_when\_tool\_is\_missing}}; verifica$^G$ che il metodo \texttt{send\_message} della classe \texttt{ChatApi}, in caso di \texttt{Tool} non presente nel sistema, sollevi una eccezione di tipo \texttt{HTTPException(500)}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestChatService} \\
+	\hline
+	TU-B\_208 & implementato da \texttt{\seqsplit{test\_send\_message\_returns\_llm\_response}}; verifica$^G$ che il metodo \texttt{send\_message} della classe \texttt{ChatService} ritorni un oggetto di tipo \texttt{Message}, e che la risposta del \texttt{LLM$^G$} venga aggiunta al database. & S \\
+	\hline
+	TU-B\_209 & implementato da \texttt{\seqsplit{test\_send\_message\_creates\_conv\_if\_not\_exists}}; verifica$^G$ che il metodo \texttt{send\_message} della classe \texttt{ChatService}, in caso di conversazione non presente nel database$^G$, chiami il metodo \texttt{create\_conversation} della classe \texttt{ChatRepository}. & S \\
+	\hline
+	TU-B\_210 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_returns\_chat\_response}}; verifica$^G$ che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatService} restituisca una lista di oggetti di tipo \texttt{Message}. & S \\
+	\hline
+	TU-B\_211 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_empty\_conversation}}; verifica$^G$ che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatService}, in caso di conversazione vuota, restituisca una lista vuota. & S \\
+	\hline
+	TU-B\_212 & implementato da \texttt{\seqsplit{test\_get\_all\_messages\_conv\_not\_found}}; verifica$^G$ che il metodo \texttt{get\_all\_messages} della classe \texttt{ChatService}, in caso di conversazione non presente nel database$^G$, sollevi una eccezione di tipo \texttt{ConversationNotFoundException}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestChatTools} \\
+	\hline
+	TU-B\_213 & Implementato da \texttt{\seqsplit{test\_get\_cart\_items\_tool\_returns\_empty\_message}}; verifica$^G$ che lo strumento \texttt{GetCartItemsTool}, quando il carrello è vuoto, restituisca il messaggio testuale corretto. & S \\
+	\hline
+	TU-B\_214 & Implementato da \texttt{\seqsplit{test\_get\_cart\_items\_tool\_formats\_products}}; verifica$^G$ che lo strumento \texttt{GetCartItemsTool}, quando il carrello contiene prodotti, li formatti correttamente nel risultato testuale. & S \\
+	\hline
+	TU-B\_215 & Implementato da \texttt{\seqsplit{test\_add\_to\_cart\_tool\_handles\_product\_not\_found}}; verifica$^G$ che lo strumento \texttt{AddToCartTool}, in caso di prodotto non presente nel catalogo, restituisca il messaggio di errore corretto. & S \\
+	\hline
+	TU-B\_216 & Implementato da \texttt{\seqsplit{test\_remove\_from\_cart\_tool\_handles\_missing\_product}}; verifica$^G$ che lo strumento \texttt{RemoveFromCartTool}, in caso di prodotto non presente nel carrello, restituisca il messaggio di errore corretto. & S \\
+	\hline
+	TU-B\_217 & Implementato da \texttt{\seqsplit{test\_update\_cart\_item\_qty\_tool\_handles\_set\_operation}}; verifica$^G$ che lo strumento \texttt{UpdateCartItemQty}, in caso di operazione \texttt{Set}, chiami correttamente il servizio e restituisca il messaggio di conferma. & S \\
+	\hline
+	TU-B\_218 & Implementato da \texttt{\seqsplit{test\_update\_cart\_item\_qty\_tool\_handles\_missing\_product}}; verifica$^G$ che lo strumento \texttt{UpdateCartItemQty}, in caso di prodotto non presente nel carrello, restituisca il messaggio di errore corretto. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestLLMAdapter} \\
+	\hline
+	TU-B\_219 & Implementato da \texttt{\seqsplit{test\_llm\_adapter\_invoke\_delegates\_to\_agent}}; verifica$^G$ che il metodo \texttt{invoke} della classe \texttt{LLMAdapter} deleghi correttamente la chiamata all'agente sottostante e restituisca la risposta attesa. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestLLMAgent} \\
+	\hline
+	TU-B\_220 & Implementato da \texttt{\seqsplit{test\_llm\_agent\_builds\_messages\_from\_history}}; verifica$^G$ che la classe \texttt{LLMAgent} costruisca correttamente la sequenza di messaggi a partire dalla cronologia della conversazione, rispettando i tipi \texttt{HumanMessage}, \texttt{AIMessage} e \texttt{ToolMessage}. & S \\
+	\hline
+	TU-B\_221 & Implementato da \texttt{\seqsplit{test\_llm\_agent\_executes\_tool\_calls\_and\_collects\_metadata}}; verifica$^G$ che la classe \texttt{LLMAgent}, in caso di risposta del modello contenente \texttt{tool\_calls}, esegua il tool corrispondente e raccolga correttamente i metadati della risposta finale. & S \\
+	\hline
+	TU-B\_222 & Implementato da \texttt{\seqsplit{test\_normalize\_content\_returns\_empty\_string\_for\_missing\_content}}; verifica$^G$ che la classe \texttt{LLMAgent}, in caso di contenuto assente nella risposta del modello, restituisca una stringa vuota. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestLLMPort} \\
+	\hline
+	TU-B\_223 & Implementato da \texttt{\seqsplit{test\_llm\_port\_can\_be\_implemented}}; verifica$^G$ che il metodo \texttt{invoke} della classe astratta \texttt{LLMPort} possa essere implementato da una sottoclasse e restituisca un oggetto di tipo \texttt{LLMResponse}. & S \\
+	\hline
+	TU-B\_224 & Implementato da \texttt{\seqsplit{test\_invoke\_agent\_delegates\_to\_invoke}}; verifica$^G$ che il metodo \texttt{invoke\_agent} della classe astratta \texttt{LLMPort} deleghi correttamente al metodo \texttt{invoke} della sottoclasse. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestToolExecutor} \\
+	\hline
+	TU-B\_225 & Implementato da \texttt{\seqsplit{test\_get\_tool\_by\_name\_returns\_matching\_tool}}; verifica$^G$ che il metodo \texttt{get\_tool\_by\_name} della classe \texttt{ToolExecutor} restituisca il tool corretto dato il nome. & S \\
+	\hline
+	TU-B\_226 & Implementato da \texttt{\seqsplit{test\_execute\_invokes\_selected\_tool\_with\_args}}; verifica$^G$ che il metodo \texttt{execute} della classe \texttt{ToolExecutor} invochi il tool selezionato con i parametri corretti e restituisca il risultato atteso. & S \\
+	\hline
+	TU-B\_227 & Implementato da \texttt{\seqsplit{test\_get\_tool\_by\_name\_raises\_when\_missing}}; verifica$^G$ che il metodo \texttt{get\_tool\_by\_name} della classe \texttt{ToolExecutor}, in caso di tool non presente, sollevi un'eccezione di tipo \texttt{ToolNotFoundException}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestToolService} \\
+	\hline
+	TU-B\_228 & Implementato da \texttt{\seqsplit{test\_get\_cart\_items\_delegates\_to\_cart\_service}}; verifica$^G$ che il metodo \texttt{get\_cart\_items} della classe \texttt{ToolService} deleghi correttamente la chiamata al \texttt{CartService} con lo username configurato. & S \\
+	\hline
+	TU-B\_229 & Implementato da \texttt{\seqsplit{test\_search\_cart\_maps\_only\_products\_present\_in\_cart}}; verifica$^G$ che il metodo \texttt{search\_cart} della classe \texttt{ToolService} filtri correttamente i risultati restituiti dal database$^G$ vettoriale, mantenendo solo i prodotti effettivamente presenti nel carrello. & S \\
+	\hline
+	TU-B\_230 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_maps\_only\_existing\_products}}; verifica$^G$ che il metodo \texttt{search\_catalog} della classe \texttt{ToolService} filtri i risultati restituiti dal database$^G$ vettoriale, scartando i prodotti non presenti nel catalogo. & S \\
+	\hline
+	TU-B\_231 & Implementato da \texttt{\seqsplit{test\_update\_cart\_item\_qty\_delegates\_with\_username}}; verifica$^G$ che il metodo \texttt{update\_cart\_item\_qty} della classe \texttt{ToolService} deleghi correttamente la chiamata al \texttt{CartService} includendo lo username e tutti i parametri passati. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestStoricoRepoPort} \\
+	\hline
+	TU-B\_232 & Implementato da \texttt{\seqsplit{test\_adapter\_implementa\_port}}; verifica$^G$ che la classe \texttt{GetOrdiniAdapter} sia una sottoclasse di \texttt{StoricoRepoPort}, soddisfacendo il contratto definito dalla porta. & S \\
+	\hline
+	TU-B\_233 & Implementato da \texttt{\seqsplit{test\_adapter\_non\_e\_astratto}}; verifica$^G$ che la classe \texttt{GetOrdiniAdapter} possa essere istanziata senza errori, confermando che tutti i metodi astratti di \texttt{StoricoRepoPort} siano correttamente implementati. & S \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetOrdiniByUsername} \\
+	\hline
+	TU-B\_234 & Implementato da \texttt{\seqsplit{test\_delega\_al\_repository}}; verifica$^G$ che il metodo \texttt{get\_ordini\_by\_username} della classe \texttt{GetOrdiniAdapter} deleghi correttamente la chiamata al repository$^G$ sottostante e restituisca il risultato atteso. & S \\
+	\hline
+	TU-B\_235 & Implementato da \texttt{\seqsplit{test\_propaga\_paginazione}}; verifica$^G$ che il metodo \texttt{get\_ordini\_by\_username} della classe \texttt{GetOrdiniAdapter} propaghi correttamente i parametri di paginazione al repository. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetAllOrdini} \\
+	\hline
+	TU-B\_236 & Implementato da \texttt{\seqsplit{test\_delega\_al\_repository}}; verifica$^G$ che il metodo \texttt{get\_all\_ordini} della classe \texttt{GetOrdiniAdapter} deleghi correttamente la chiamata al repository$^G$ e restituisca il risultato atteso. & S \\
+	\hline
+	TU-B\_237 & Implementato da \texttt{\seqsplit{test\_propaga\_paginazione}}; verifica$^G$ che il metodo \texttt{get\_all\_ordini} della classe \texttt{GetOrdiniAdapter} propaghi correttamente i parametri di paginazione al repository. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetProdottiByOrdineIds} \\
+	\hline
+	TU-B\_238 & Implementato da \texttt{\seqsplit{test\_delega\_al\_repository}}; verifica$^G$ che il metodo \texttt{get\_prodotti\_by\_ordine\_ids} della classe \texttt{GetOrdiniAdapter} deleghi la chiamata al repository$^G$ con la lista di id corretta e restituisca il risultato atteso. & S \\
+	\hline
+	TU-B\_239 & Implementato da \texttt{\seqsplit{test\_lista\_vuota}}; verifica$^G$ che il metodo \texttt{get\_prodotti\_by\_ordine\_ids} della classe \texttt{GetOrdiniAdapter}, ricevuta una lista di id vuota, la propaghi al repository$^G$ e restituisca una lista vuota. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDuplicaOrdineAdapter} \\
+	\hline
+	TU-B\_240 & Implementato da \texttt{\seqsplit{test\_delega\_al\_repository}}; verifica$^G$ che il metodo \texttt{duplica\_ordine} della classe \texttt{GetOrdiniAdapter} deleghi correttamente la chiamata al repository$^G$ e restituisca il nuovo ordine creato. & S \\
+	\hline
+	TU-B\_241 & Implementato da \texttt{\seqsplit{test\_propaga\_value\_error}}; verifica$^G$ che il metodo \texttt{duplica\_ordine} della classe \texttt{GetOrdiniAdapter} propaghi correttamente un \texttt{ValueError} sollevato dal repository$^G$ senza intercettarlo. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetStoricoCliente} \\
+	\hline
+	TU-B\_242 & Implementato da \texttt{\seqsplit{test\_restituisce\_ordini}}; verifica$^G$ che l'endpoint \texttt{GET /storico/miei} risponda con stato 200 e restituisca la lista degli ordini con i campi di paginazione corretti. & S \\
+	\hline
+	TU-B\_243 & Implementato da \texttt{\seqsplit{test\_chiama\_service\_con\_username\_corretto}}; verifica$^G$ che l'endpoint \texttt{GET /storico/miei} invochi il service passando lo username dell'utente autenticato e i parametri di paginazione presenti nella query$^G$ string. & S \\
+	\hline
+	TU-B\_244 & Implementato da \texttt{\seqsplit{test\_404\_se\_nessun\_ordine}}; verifica$^G$ che l'endpoint \texttt{GET /storico/miei} restituisca HTTP 404 quando il service solleva \texttt{OrdiniUsernameNotFoundException}. & S \\
+	\hline
+	TU-B\_245 & Implementato da \texttt{\seqsplit{test\_pagina\_minima\_1}}; verifica$^G$ che l'endpoint \texttt{GET /storico/miei} restituisca HTTP 422 quando il parametro \texttt{pagina} è inferiore al valore minimo consentito. & S \\
+	\hline
+	TU-B\_246 & Implementato da \texttt{\seqsplit{test\_per\_pagina\_massimo\_50}}; verifica$^G$ che l'endpoint \texttt{GET /storico/miei} restituisca HTTP 422 quando il parametro \texttt{per\_pagina} supera il valore massimo consentito. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetStoricoAdmin} \\
+	\hline
+	TU-B\_247 & Implementato da \texttt{\seqsplit{test\_restituisce\_tutti\_gli\_ordini}}; verifica$^G$ che l'endpoint \texttt{GET /storico/tutti} risponda con stato 200 e restituisca gli ordini di tutti gli utenti, incluso il campo \texttt{username}. & S \\
+	\hline
+	TU-B\_248 & Implementato da \texttt{\seqsplit{test\_chiama\_service\_con\_paginazione}}; verifica$^G$ che l'endpoint \texttt{GET /storico/tutti} invochi il service con i parametri di paginazione corretti forniti nella query$^G$ string. & S \\
+	\hline
+	TU-B\_249 & Implementato da \texttt{\seqsplit{test\_403\_se\_non\_admin}}; verifica$^G$ che l'endpoint \texttt{GET /storico/tutti} restituisca HTTP 403 quando la dipendenza \texttt{require\_admin} nega l'accesso. & S \\
+	\hline
+	TU-B\_250 & Implementato da \texttt{\seqsplit{test\_pagina\_minima\_1}}; verifica$^G$ che l'endpoint \texttt{GET /storico/tutti} restituisca HTTP 422 quando il parametro \texttt{pagina} è inferiore al valore minimo consentito. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDuplicaOrdineAPI} \\
+	\hline
+	TU-B\_251 & Implementato da \texttt{\seqsplit{test\_duplica\_con\_successo}}; verifica$^G$ che l'endpoint \texttt{POST /storico/duplica/\{codice\_ordine\}} risponda con stato 201 e il messaggio di conferma quando la duplicazione ha esito positivo. & S \\
+	\hline
+	TU-B\_252 & Implementato da \texttt{\seqsplit{test\_chiama\_service\_con\_parametri\_corretti}}; verifica$^G$ che l'endpoint \texttt{POST /storico/duplica/\{codice\_ordine\}} invochi il service passando il codice ordine e lo username dell'utente autenticato. & S \\
+	\hline
+	TU-B\_253 & Implementato da \texttt{\seqsplit{test\_404\_se\_ordine\_non\_trovato}}; verifica$^G$ che l'endpoint \texttt{POST /storico/duplica/\{codice\_ordine\}} restituisca HTTP 404 quando il service solleva \texttt{OrdineNotFoundException}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestStoricoRepository} \\
+	\hline
+	TU-B\_254 & Implementato da \texttt{\seqsplit{test\_get\_ordini\_by\_username}}; verifica$^G$ che il metodo \texttt{get\_ordini\_by\_username} del repository$^G$ restituisca gli ordini dell'utente indicato in ordine decrescente di data, rispettando la paginazione, e ritorni una lista vuota per utenti sconosciuti. & S \\
+	\hline
+	TU-B\_255 & Implementato da \texttt{\seqsplit{test\_get\_all\_ordini}}; verifica$^G$ che il metodo \texttt{get\_all\_ordini} del repository$^G$ restituisca tutti gli ordini presenti nel database$^G$ in ordine decrescente di data, rispettando correttamente la paginazione. & S \\
+	\hline
+	TU-B\_256 & Implementato da \texttt{\seqsplit{test\_get\_prodotti\_by\_ordine\_ids}}; verifica$^G$ che il metodo \texttt{get\_prodotti\_by\_ordine\_ids} del repository$^G$ restituisca le coppie \texttt{(OrdCliDet, Anaart)} relative agli id forniti, e una lista vuota per id inesistenti o lista vuota in input. & S \\
+	\hline
+	TU-B\_257 & Implementato da \texttt{\seqsplit{test\_duplica\_ordine\_not\_found}}; verifica$^G$ che il metodo \texttt{duplica\_ordine} del repository$^G$ sollevi un \texttt{ValueError} quando il codice ordine fornito non esiste nel database. & S \\
+	\hline
+	TU-B\_258 & Implementato da \texttt{\seqsplit{test\_duplica\_ordine\_crea\_nuovo\_ordine}}; verifica$^G$ che il metodo \texttt{duplica\_ordine} del repository$^G$ crei un nuovo ordine con un nuovo id, assegnato al nuovo username con la data odierna, e ne copi correttamente i dettagli. & S \\
+	\hline
+	TU-B\_259 & Implementato da \texttt{\seqsplit{test\_duplica\_ordine\_non\_esiste}}; verifica$^G$ che il metodo \texttt{duplica\_ordine} del repository$^G$ sollevi un \texttt{ValueError} con il messaggio atteso quando l'ordine da duplicare non è presente. & S \\
+	\hline
+	TU-B\_260 & Implementato da \texttt{\seqsplit{test\_duplica\_ordine\_piu\_volte\_crea\_id\_unici}}; verifica$^G$ che duplicazioni successive dello stesso ordine producano ogni volta un nuovo ordine con id distinto. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestBuildPage} \\
+	\hline
+	TU-B\_261 & Implementato da \texttt{\seqsplit{test\_mappa\_campi\_ordine}}; verifica$^G$ che \texttt{StoricoService} mappi correttamente i campi dell'ordine (codice, data, username assente) nello schema di risposta. & S \\
+	\hline
+	TU-B\_262 & Implementato da \texttt{\seqsplit{test\_mappa\_prodotti}}; verifica$^G$ che \texttt{StoricoService} mappi correttamente i campi del prodotto (nome, quantità) nello schema di risposta. & S \\
+	\hline
+	TU-B\_263 & Implementato da \texttt{\seqsplit{test\_prodotti\_raggruppati\_per\_ordine}}; verifica$^G$ che \texttt{StoricoService} raggruppi correttamente i prodotti per ordine di appartenenza nella risposta paginata. & S \\
+	\hline
+	TU-B\_264 & Implementato da \texttt{\seqsplit{test\_ordine\_senza\_data}}; verifica$^G$ che \texttt{StoricoService} gestisca correttamente un ordine privo di data, impostando il campo a \texttt{None} nella risposta. & S \\
+	\hline
+	TU-B\_265 & Implementato da \texttt{\seqsplit{test\_ordine\_senza\_prodotti}}; verifica$^G$ che \texttt{StoricoService} restituisca una lista di prodotti vuota per un ordine che non ha dettagli associati. & S \\
+	\hline
+	TU-B\_266 & Implementato da \texttt{\seqsplit{test\_calcolo\_totale\_pagine}}; verifica$^G$ che \texttt{StoricoService} calcoli correttamente il numero totale di pagine come $\lceil \text{totale} / \text{per\_pagina} \rceil$. & S \\
+	\hline
+	TU-B\_267 & Implementato da \texttt{\seqsplit{test\_totale\_pagine\_minimo\_1}}; verifica$^G$ che il numero di pagine totali non scenda mai al di sotto di 1. & S \\
+	\hline
+	TU-B\_268 & Implementato da \texttt{\seqsplit{test\_pagina\_corrente\_propagata}}; verifica$^G$ che il numero di pagina corrente venga correttamente propagato nella risposta del service. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetOrdiniCliente} \\
+	\hline
+	TU-B\_269 & Implementato da \texttt{\seqsplit{test\_chiama\_repo\_con\_parametri\_corretti}}; verifica$^G$ che \texttt{StoricoService} invochi il repository$^G$ con lo username e i parametri di paginazione corretti. & S \\
+	\hline
+	TU-B\_270 & Implementato da \texttt{\seqsplit{test\_lancia\_eccezione\_se\_totale\_zero}}; verifica$^G$ che \texttt{StoricoService} sollevi \texttt{OrdiniUsernameNotFoundException} quando il repository$^G$ non trova ordini per l'utente richiesto. & S \\
+	\hline
+	TU-B\_271 & Implementato da \texttt{\seqsplit{test\_username\_non\_incluso}}; verifica$^G$ che il campo \texttt{username} sia assente (impostato a \texttt{None}) nella risposta restituita da \texttt{get\_ordini\_cliente}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetOrdiniAdmin} \\
+	\hline
+	TU-B\_272 & Implementato da \texttt{\seqsplit{test\_chiama\_repo\_con\_parametri\_corretti}}; verifica$^G$ che \texttt{StoricoService} invochi il repository$^G$ con i parametri di paginazione corretti nella vista amministratore. & S \\
+	\hline
+	TU-B\_273 & Implementato da \texttt{\seqsplit{test\_username\_incluso}}; verifica$^G$ che il campo \texttt{username} sia presente e valorizzato nella risposta restituita da \texttt{get\_ordini\_admin}. & S \\
+	\hline
+	TU-B\_274 & Implementato da \texttt{\seqsplit{test\_lista\_vuota\_lancia\_eccezione}}; verifica$^G$ che \texttt{StoricoService} sollevi \texttt{OrdiniNotFoundException} quando il repository$^G$ non restituisce alcun ordine nella vista amministratore. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDuplicaOrdineService} \\
+	\hline
+	TU-B\_275 & Implementato da \texttt{\seqsplit{test\_chiama\_repo\_con\_parametri\_corretti}}; verifica$^G$ che il metodo \texttt{duplica\_ordine} di \texttt{StoricoService} invochi il repository$^G$ con il codice ordine e lo username corretti. & S \\
+	\hline
+	TU-B\_276 & Implementato da \texttt{\seqsplit{test\_lancia\_eccezione\_se\_ordine\_non\_trovato}}; verifica$^G$ che il metodo \texttt{duplica\_ordine} di \texttt{StoricoService} sollevi \texttt{OrdineNotFoundException} quando il repository$^G$ solleva un \texttt{ValueError}. & S \\
+	\hline
+	TU-B\_277 & Implementato da \texttt{\seqsplit{test\_non\_rilancia\_value\_error\_direttamente}}; verifica$^G$ che l'eccezione sollevata da \texttt{duplica\_ordine} sia di tipo \texttt{OrdineNotFoundException} e non \texttt{ValueError}, e che \texttt{ValueError} sia incatenato come causa. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartVecDbAdapter} \\
+	\hline
+	TU-B\_278 & Implementato da \texttt{\seqsplit{test\_add\_calls\_faiss\_db}}; verifica$^G$ che il metodo \texttt{add} di \texttt{CartVecDbAdapter} chiami correttamente il database$^G$ FAISS$^G$ con prodotto, username e vettore. & S \\
+	\hline
+	TU-B\_279 & Implementato da \texttt{\seqsplit{test\_add\_passes\_correct\_prod\_id}}; verifica$^G$ che il metodo \texttt{add} di \texttt{CartVecDbAdapter} trasmetta al database$^G$ FAISS$^G$ il corretto identificativo del prodotto. & S \\
+	\hline
+	TU-B\_280 & Implementato da \texttt{\seqsplit{test\_add\_passes\_username}}; verifica$^G$ che il metodo \texttt{add} di \texttt{CartVecDbAdapter} trasmetta al database$^G$ FAISS$^G$ lo username corretto. & S \\
+	\hline
+	TU-B\_281 & Implementato da \texttt{\seqsplit{test\_add\_passes\_correct\_vector}}; verifica$^G$ che il metodo \texttt{add} di \texttt{CartVecDbAdapter} trasmetta al database$^G$ FAISS$^G$ il vettore corretto. & S \\
+	\hline
+	TU-B\_282 & Implementato da \texttt{\seqsplit{test\_search\_calls\_faiss\_db}}; verifica$^G$ che il metodo \texttt{search} di \texttt{CartVecDbAdapter} chiami il database$^G$ FAISS$^G$ con i parametri di ricerca e lo username corretti. & S \\
+	\hline
+	TU-B\_283 & Implementato da \texttt{\seqsplit{test\_search\_passes\_username}}; verifica$^G$ che il metodo \texttt{search} di \texttt{CartVecDbAdapter} propaghi lo username al database$^G$ FAISS. & S \\
+	\hline
+	TU-B\_284 & Implementato da \texttt{\seqsplit{test\_search\_returns\_faiss\_results}}; verifica$^G$ che il metodo \texttt{search} di \texttt{CartVecDbAdapter} restituisca i risultati ottenuti dal database$^G$ FAISS. & S \\
+	\hline
+	TU-B\_285 & Implementato da \texttt{\seqsplit{test\_search\_returns\_empty\_list}}; verifica$^G$ che il metodo \texttt{search} di \texttt{CartVecDbAdapter} restituisca una lista vuota quando il database$^G$ FAISS$^G$ non trova risultati. & S \\
+	\hline
+	TU-B\_286 & Implementato da \texttt{\seqsplit{test\_different\_username}}; verifica$^G$ che istanze di \texttt{CartVecDbAdapter} con username diversi trasmettano al database$^G$ FAISS$^G$ lo username corrispondente alla propria istanza. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCatalogVecDbAdapter} \\
+	\hline
+	TU-B\_287 & Implementato da \texttt{\seqsplit{test\_add\_calls\_faiss\_db}}; verifica$^G$ che il metodo \texttt{add} di \texttt{CatalogVecDbAdapter} chiami il database$^G$ FAISS$^G$ con l'identificativo del prodotto e il vettore corretti. & S \\
+	\hline
+	TU-B\_288 & Implementato da \texttt{\seqsplit{test\_add\_passes\_correct\_prod\_id}}; verifica$^G$ che il metodo \texttt{add} di \texttt{CatalogVecDbAdapter} trasmetta al database$^G$ FAISS$^G$ l'identificativo corretto del prodotto. & S \\
+	\hline
+	TU-B\_289 & Implementato da \texttt{\seqsplit{test\_add\_passes\_correct\_vector}}; verifica$^G$ che il metodo \texttt{add} di \texttt{CatalogVecDbAdapter} trasmetta al database$^G$ FAISS$^G$ il vettore corretto. & S \\
+	\hline
+	TU-B\_290 & Implementato da \texttt{\seqsplit{test\_search\_calls\_faiss\_db}}; verifica$^G$ che il metodo \texttt{search} di \texttt{CatalogVecDbAdapter} chiami il database$^G$ FAISS$^G$ con i parametri di ricerca corretti. & S \\
+	\hline
+	TU-B\_291 & Implementato da \texttt{\seqsplit{test\_search\_returns\_faiss\_results}}; verifica$^G$ che il metodo \texttt{search} di \texttt{CatalogVecDbAdapter} restituisca i risultati ottenuti dal database$^G$ FAISS. & S \\
+	\hline
+	TU-B\_292 & Implementato da \texttt{\seqsplit{test\_search\_returns\_empty\_list}}; verifica$^G$ che il metodo \texttt{search} di \texttt{CatalogVecDbAdapter} restituisca una lista vuota quando il database$^G$ FAISS$^G$ non trova risultati. & S \\
+	\hline
+	TU-B\_293 & Implementato da \texttt{\seqsplit{test\_reset\_calls\_faiss\_db\_reset}}; verifica$^G$ che il metodo \texttt{reset} di \texttt{CatalogVecDbAdapter} invochi il corrispondente metodo \texttt{reset} del database$^G$ FAISS. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestFaissCartDb} \\
+	\hline
+	TU-B\_294 & Implementato da \texttt{\seqsplit{test\_add\_single\_product}}; verifica$^G$ che l'inserimento di un singolo prodotto in \texttt{FaissCartDb} aggiorni correttamente la lista degli identificativi indicizzati. & S \\
+	\hline
+	TU-B\_295 & Implementato da \texttt{\seqsplit{test\_add\_updates\_user\_map}}; verifica$^G$ che l'inserimento di prodotti per uno stesso utente aggiorni correttamente la mappa utente–posizioni in \texttt{FaissCartDb}. & S \\
+	\hline
+	TU-B\_296 & Implementato da \texttt{\seqsplit{test\_add\_multiple\_users}}; verifica$^G$ che \texttt{FaissCartDb} gestisca correttamente l'indicizzazione di prodotti appartenenti a utenti distinti. & S \\
+	\hline
+	TU-B\_297 & Implementato da \texttt{\seqsplit{test\_add\_correct\_positions\_in\_user\_map}}; verifica$^G$ che le posizioni memorizzate nella mappa utente di \texttt{FaissCartDb} riflettano correttamente l'ordine di inserimento globale dei vettori. & S \\
+	\hline
+	TU-B\_298 & Implementato da \texttt{\seqsplit{test\_add\_converts\_to\_float32}}; verifica$^G$ che \texttt{FaissCartDb} accetti vettori di tipo diverso da \texttt{float32} senza sollevare eccezioni, convertendoli internamente. & S \\
+	\hline
+	TU-B\_299 & Implementato da \texttt{\seqsplit{test\_search\_returns\_exact\_match}}; verifica$^G$ che la ricerca in \texttt{FaissCartDb} restituisca il prodotto con il vettore esattamente corrispondente alla query. & S \\
+	\hline
+	TU-B\_300 & Implementato da \texttt{\seqsplit{test\_search\_filters\_by\_username}}; verifica$^G$ che la ricerca in \texttt{FaissCartDb} non restituisca prodotti appartenenti a utenti diversi da quello specificato. & S \\
+	\hline
+	TU-B\_301 & Implementato da \texttt{\seqsplit{test\_search\_returns\_only\_user\_products}}; verifica$^G$ che la ricerca in \texttt{FaissCartDb} restituisca esclusivamente i prodotti dell'utente specificato. & S \\
+	\hline
+	TU-B\_302 & Implementato da \texttt{\seqsplit{test\_search\_empty\_db}}; verifica$^G$ che la ricerca su un \texttt{FaissCartDb} vuoto restituisca una lista vuota senza sollevare eccezioni. & S \\
+	\hline
+	TU-B\_303 & Implementato da \texttt{\seqsplit{test\_search\_unknown\_username}}; verifica$^G$ che la ricerca con uno username non presente in \texttt{FaissCartDb} restituisca una lista vuota. & S \\
+	\hline
+	TU-B\_304 & Implementato da \texttt{\seqsplit{test\_search\_n\_greater\_than\_indexed}}; verifica$^G$ che la ricerca con un valore di \texttt{n} superiore al numero di prodotti indicizzati per l'utente non sollevi eccezioni e restituisca i risultati disponibili. & S \\
+	\hline
+	TU-B\_305 & Implementato da \texttt{\seqsplit{test\_search\_returns\_closest\_product}}; verifica$^G$ che la ricerca in \texttt{FaissCartDb} restituisca il prodotto il cui vettore è più vicino alla query$^G$ fornita. & S \\
+	\hline
+	TU-B\_306 & Implementato da \texttt{\seqsplit{test\_reset\_clears\_index\_prod\_ids\_and\_user\_map}}; verifica$^G$ che il metodo \texttt{reset} di \texttt{FaissCartDb} azzeri completamente l'indice, la lista degli identificativi e la mappa utente. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestFaissCatalogDb} \\
+	\hline
+	TU-B\_307 & Implementato da \texttt{\seqsplit{test\_add\_single\_product}}; verifica$^G$ che l'inserimento di un singolo prodotto in \texttt{FaissCatalogDb} aggiorni correttamente la lista degli identificativi indicizzati. & S \\
+	\hline
+	TU-B\_308 & Implementato da \texttt{\seqsplit{test\_add\_multiple\_product}}; verifica$^G$ che l'inserimento di più prodotti in \texttt{FaissCatalogDb} li indicizzi tutti nell'ordine corretto. & S \\
+	\hline
+	TU-B\_309 & Implementato da \texttt{\seqsplit{test\_search\_returns\_exact\_match}}; verifica$^G$ che la ricerca in \texttt{FaissCatalogDb} restituisca il prodotto con il vettore esattamente corrispondente alla query. & S \\
+	\hline
+	TU-B\_310 & Implementato da \texttt{\seqsplit{test\_search\_returns\_multiple\_results}}; verifica$^G$ che la ricerca in \texttt{FaissCatalogDb} possa restituire più risultati rispettando il limite \texttt{n} impostato. & S \\
+	\hline
+	TU-B\_311 & Implementato da \texttt{\seqsplit{test\_search\_empty\_db}}; verifica$^G$ che la ricerca su un \texttt{FaissCatalogDb} vuoto restituisca una lista vuota senza sollevare eccezioni. & S \\
+	\hline
+	TU-B\_312 & Implementato da \texttt{\seqsplit{test\_search\_returns\_closest\_product}}; verifica$^G$ che la ricerca in \texttt{FaissCatalogDb} restituisca il prodotto il cui vettore è più vicino alla query$^G$ fornita. & S \\
+	\hline
+	TU-B\_313 & Implementato da \texttt{\seqsplit{test\_reset\_clears\_index\_and\_prod\_ids}}; verifica$^G$ che il metodo \texttt{reset} di \texttt{FaissCatalogDb} azzeri completamente l'indice e la lista degli identificativi. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestVecDbAdapter} \\
+	\hline
+	TU-B\_314 & Implementato da \texttt{\seqsplit{test\_get\_catalog\_calls\_load\_catalog}}; verifica$^G$ che il metodo \texttt{get\_catalog} di \texttt{VecDbAdapter} invochi \texttt{load\_catalog} sul service sottostante. & S \\
+	\hline
+	TU-B\_315 & Implementato da \texttt{\seqsplit{test\_get\_catalog\_returns\_none}}; verifica$^G$ che il metodo \texttt{get\_catalog} di \texttt{VecDbAdapter} restituisca \texttt{None} al chiamante. & S \\
+	\hline
+	TU-B\_316 & Implementato da \texttt{\seqsplit{test\_get\_cart\_calls\_load\_cart}}; verifica$^G$ che il metodo \texttt{get\_cart} di \texttt{VecDbAdapter} invochi \texttt{load\_cart} sul service con lo username corretto. & S \\
+	\hline
+	TU-B\_317 & Implementato da \texttt{\seqsplit{test\_get\_cart\_passes\_username}}; verifica$^G$ che il metodo \texttt{get\_cart} di \texttt{VecDbAdapter} propaghi correttamente lo username al service. & S \\
+	\hline
+	TU-B\_318 & Implementato da \texttt{\seqsplit{test\_get\_cart\_returns\_none}}; verifica$^G$ che il metodo \texttt{get\_cart} di \texttt{VecDbAdapter} restituisca \texttt{None} al chiamante. & S \\
+	\hline
+	TU-B\_319 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_calls\_service}}; verifica$^G$ che il metodo \texttt{search\_catalog} di \texttt{VecDbAdapter} invochi il service con la query$^G$ e la soglia corrette. & S \\
+	\hline
+	TU-B\_320 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_returns\_results}}; verifica$^G$ che il metodo \texttt{search\_catalog} di \texttt{VecDbAdapter} restituisca i risultati provenienti dal service. & S \\
+	\hline
+	TU-B\_321 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_returns\_empty}}; verifica$^G$ che il metodo \texttt{search\_catalog} di \texttt{VecDbAdapter} restituisca una lista vuota quando il service non trova risultati. & S \\
+	\hline
+	TU-B\_322 & Implementato da \texttt{\seqsplit{test\_search\_cart\_calls\_service}}; verifica$^G$ che il metodo \texttt{search\_cart} di \texttt{VecDbAdapter} invochi il service con username, query$^G$ e soglia corretti. & S \\
+	\hline
+	TU-B\_323 & Implementato da \texttt{\seqsplit{test\_search\_cart\_passes\_username\_and\_query}}; verifica$^G$ che il metodo \texttt{search\_cart} di \texttt{VecDbAdapter} propaghi correttamente username e query$^G$ al service. & S \\
+	\hline
+	TU-B\_324 & Implementato da \texttt{\seqsplit{test\_search\_cart\_returns\_results}}; verifica$^G$ che il metodo \texttt{search\_cart} di \texttt{VecDbAdapter} restituisca i risultati provenienti dal service. & S \\
+	\hline
+	TU-B\_325 & Implementato da \texttt{\seqsplit{test\_search\_cart\_returns\_empty}}; verifica$^G$ che il metodo \texttt{search\_cart} di \texttt{VecDbAdapter} restituisca una lista vuota quando il service non trova risultati. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestVecDbService} \\
+	\hline
+	TU-B\_326 & Implementato da \texttt{\seqsplit{test\_classify\_query\_returns\_generic\_for\_short\_query}}; verifica$^G$ che \texttt{VecDbService} classifichi come \texttt{generic} una query$^G$ composta da una sola parola. & S \\
+	\hline
+	TU-B\_327 & Implementato da \texttt{\seqsplit{test\_classify\_query\_returns\_medium\_for\_two\_word\_query}}; verifica$^G$ che \texttt{VecDbService} classifichi come \texttt{medium} una query$^G$ composta da due parole senza cifre. & S \\
+	\hline
+	TU-B\_328 & Implementato da \texttt{\seqsplit{test\_classify\_query\_returns\_specific\_for\_query\_with\_digits}}; verifica$^G$ che \texttt{VecDbService} classifichi come \texttt{specific} una query$^G$ che contiene cifre numeriche. & S \\
+	\hline
+	TU-B\_329 & Implementato da \texttt{\seqsplit{test\_load\_catalog\_calls\_get\_full\_catalog}}; verifica$^G$ che il metodo \texttt{load\_catalog} di \texttt{VecDbService} invochi \texttt{get\_full\_catalog} sul repository$^G$ del catalogo. & S \\
+	\hline
+	TU-B\_330 & Implementato da \texttt{\seqsplit{test\_load\_catalog\_embeds\_only\_product\_name}}; verifica$^G$ che il metodo \texttt{load\_catalog} di \texttt{VecDbService} esegua l'embedding esclusivamente sul nome del prodotto. & S \\
+	\hline
+	TU-B\_331 & Implementato da \texttt{\seqsplit{test\_load\_catalog\_adds\_to\_catalog\_vect}}; verifica$^G$ che il metodo \texttt{load\_catalog} di \texttt{VecDbService} aggiunga al database$^G$ vettoriale del catalogo un vettore per ciascun prodotto. & S \\
+	\hline
+	TU-B\_332 & Implementato da \texttt{\seqsplit{test\_load\_cart\_resets\_cart\_vect\_before\_reindex}}; verifica$^G$ che il metodo \texttt{load\_cart} di \texttt{VecDbService} azzeri il database$^G$ vettoriale del carrello prima di reindicizzare i prodotti dell'utente. & S \\
+	\hline
+	TU-B\_333 & Implementato da \texttt{\seqsplit{test\_load\_cart\_embeds\_only\_product\_name}}; verifica$^G$ che il metodo \texttt{load\_cart} di \texttt{VecDbService} esegua l'embedding esclusivamente sul nome del prodotto nel carrello. & S \\
+	\hline
+	TU-B\_334 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_embeds\_query\_and\_uses\_given\_threshold}}; verifica$^G$ che il metodo \texttt{search\_catalog} di \texttt{VecDbService} calcoli l'embedding della query$^G$ e invochi la ricerca sul database$^G$ vettoriale con la soglia fornita. & S \\
+	\hline
+	TU-B\_335 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_returns\_results}}; verifica$^G$ che il metodo \texttt{search\_catalog} di \texttt{VecDbService} restituisca i risultati ottenuti dal database$^G$ vettoriale. & S \\
+	\hline
+	TU-B\_336 & Implementato da \texttt{\seqsplit{test\_search\_cart\_reloads\_cart\_and\_uses\_given\_threshold}}; verifica$^G$ che il metodo \texttt{search\_cart} di \texttt{VecDbService} ricarichi il carrello dell'utente e invochi la ricerca con la soglia fornita. & S \\
+	\hline
+	TU-B\_337 & Implementato da \texttt{\seqsplit{test\_search\_cart\_returns\_results}}; verifica$^G$ che il metodo \texttt{search\_cart} di \texttt{VecDbService} restituisca i risultati ottenuti dal database$^G$ vettoriale del carrello. & S \\
+	\hline
+	TU-B\_338 & Implementato da \texttt{\seqsplit{test\_yields\_session}}; verifica$^G$ che \texttt{get\_conn} produca una sessione del database$^G$ & S \\
+	\hline
+	TU-B\_339 & Implementato da \texttt{\seqsplit{test\_closes\_session\_after\_use}}; verifica$^G$ che la sessione venga chiusa (chiamata a \texttt{\_\_exit\_\_}) dopo l'utilizzo del generatore & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetEngine} \\
+	\hline
+	TU-B\_340 & Implementato da \texttt{\seqsplit{test\_raises\_runtime\_error\_if\_missing}}; verifica$^G$ che \texttt{get\_engine} sollevi \texttt{RuntimeError} quando la variabile d'ambiente \texttt{DATABASE\_URL} non è impostata & S \\
+	\hline
+	TU-B\_341 & Implementato da \texttt{\seqsplit{test\_returns\_engine\_if\_present}}; verifica$^G$ che \texttt{get\_engine} restituisca un engine creato con l'URL fornito e con \texttt{echo=True} & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestExecute} \\
+	\hline
+	TU-B\_342 & Implementato da \texttt{\seqsplit{test\_returns\_all\_results}}; verifica$^G$ che la query$^G$ eseguita dal database$^G$ ritorni tutti i risultati. & S \\
+	\hline
+	TU-B\_343 & Implementato da \texttt{\seqsplit{test\_calls\_exec\_with\_stmt}}; verifica$^G$ che il database$^G$ esegua esattamente la query$^G$ che gli viene passata nel parametro \textit{stmt}. & S \\
+	\hline
+	TU-B\_344 & Implementato da \texttt{\seqsplit{test\_returns\_empty\_sequence}}; verifica$^G$ che il database$^G$, in caso di risultato privo di tuple, ritorni correttamente una lista vuota. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestExecuteOne} \\
+	\hline
+	TU-B\_345 & Implementato da \texttt{\seqsplit{test\_returns\_single\_result}}; verifica$^G$ che il database$^G$, quando viene chiesto di restituire solo un risultato dalla query$^G$, restituisca correttamente il primo risultato. & S \\
+	\hline
+	TU-B\_346 & Implementato da \texttt{\seqsplit{test\_returns\_none\_when\_not\_found}}; verifica$^G$ che il database$^G$, in caso di risultato privo di tuple, quando viene chiesto di restituire un risultato restituisca correttamente \textit{None}. & S \\
+	\hline
+	TU-B\_347 & Implementato da \texttt{\seqsplit{test\_calls\_exec\_with\_stmt}}; verifica$^G$ che il database$^G$, quando viene chiesto di restituire un risultato, esegua esattamente la query$^G$ che gli viene passata nel parametro \textit{stmt}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestMutate} \\
+	\hline
+	TU-B\_348 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una query$^G$ che coinvolga una mutazione, restituisca \text{True} in caso di esito positivo. & S \\
+	\hline
+	TU-B\_349 & Implementato da \texttt{\seqsplit{test\_commits\_on\_success}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una query$^G$ che coinvolga una mutazione, in caso di esito positivo chiami il metodo \texttt{commit}. & S \\
+	\hline
+	TU-B\_350 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_integrity\_error}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una query$^G$ che coinvolga una mutazione, in caso di esito negativo restituisca \textit{False}. & S \\
+	\hline
+	TU-B\_351 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_integrity\_error}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una query$^G$ che coinvolga una mutazione, in caso di esito negativo chiami il metodo \texttt{rollback}. & S \\
+	\hline
+	TU-B\_352 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_generic\_exception}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una query$^G$ che coinvolga una mutazione, in caso di una eccezione generica restituisca \textit{False}. & S \\
+	\hline
+	TU-B\_353 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_generic\_exception}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una query$^G$ che coinvolga una mutazione, in caso di una eccezione generica chiami il metodo \texttt{rollback}. & S \\
+	\hline
+	TU-B\_354 & Implementato da \texttt{\seqsplit{test\_no\_commit\_on\_failure}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una query$^G$ che coinvolga una mutazione, in caso di esito negativo non chiami il metodo \texttt{commit}. & S \\
+	\hline
+	TU-B\_355 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_integrity\_error\_raw}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una mutazione diretta, in caso di esito negativo restituisca \textit{False}. & S \\
+	\hline
+	TU-B\_356 & Implementato da \texttt{\seqsplit{test\_rollback\_on\_integrity\_error\_raw}}; verifica$^G$ che il database$^G$, quando viene chiesto di eseguire una mutazione diretta, in caso di esito negativo chiami il metodo \texttt{rollback}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestQueryBase} \\
+	\hline
+	TU-B\_357 & Implementato da \texttt{\seqsplit{test\_execute\_raises\_not\_implemented}}; verifica$^G$ che la classe \texttt{Query$^G$}, quando viene chiamato il suo metodo \texttt{execute}, lanci un'eccezione \texttt{NotImplementedError}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestMutationBase} \\
+	\hline
+	TU-B\_358 & Implementato da \texttt{\seqsplit{test\_execute\_raises\_not\_implemented}}; verifica$^G$ che la classe \texttt{Mutation}, quando viene chiamato il suo metodo \texttt{execute}, lanci un'eccezione \texttt{NotImplementedError}. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartAdapter} \\
+	\hline
+	TU-B\_359 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_set\_calls\_repo}}; verifica$^G$ che il metodo \texttt{update\_quantity} della classe \texttt{CartAdapter}, quando l'operazione è \texttt{Set}, chiami correttamente il repository$^G$ con i parametri attesi e restituisca un oggetto \texttt{CartProduct} con la quantità aggiornata. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestUserService} \\
+	\hline
+	TU-B\_360 & Implementato da \texttt{\seqsplit{test\_verify\_password\_calls\_utility}}  verifica$^G$ che il metodo \texttt{check\_user} della classe \texttt{UserService} utilizzi correttamente \texttt{PasswordUtility.verify\_password} per validare la password, sfruttando un patch$^G$ che simula il valore di ritorno. & S \\
+	\hline
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartService} \\
+	\hline
+	TU-B\_361 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_calls\_repo\_with\_set}}; verifica$^G$ che il metodo \texttt{update\_cart\_quantity} della classe \texttt{CartService}, quando l'operazione è \texttt{Set}, invochi l'adapter passando i parametri corretti. & S \\
+	\hline
+	\caption{Test di Unità Backend}
+\end{longtable}

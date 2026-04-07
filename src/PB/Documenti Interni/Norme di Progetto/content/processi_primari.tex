@@ -1,6 +1,6 @@
 \section{Processi Primari}
 
-    La creazione di un software di qualità non si basa solo sulla scrittura del codice e su test$^G$ isolati. Per realizzare un prodotto duraturo e ampiamente utilizzato, è essenziale adottare un modello di sviluppo$^G$ che definisca processi chiari da seguire. Lo standard ISO/IEC 12207, a tal proposito, identifica tra i processi primari quelli di \textbf{Fornitura} e \textbf{Sviluppo$^G$}.
+    La creazione di un software di qualità non si basa solo sulla scrittura del codice e su test$^G$ isolati. Per realizzare un prodotto duraturo e ampiamente utilizzato, è essenziale adottare un modello di sviluppo$^G$ che definisca processi chiari da seguire. Lo standard ISO/IEC 12207, a tal proposito, identifica tra i Processi Primari quelli di \textbf{Fornitura} e \textbf{Sviluppo$^G$}.
 
 	\subsection{Fornitura}
 	L'attività di fornitura definisce le modalità con cui il gruppo si impegna a realizzare e consegnare il prodotto \textbf{SmartOrder} al proponente$^G$ Ergon Informatica Srl, nel rispetto di tempi, costi, qualità e requisiti concordati. \\
@@ -27,6 +27,7 @@
     \begin{itemize}[itemsep=3pt, parsep=1pt, label=$\scriptstyle\bullet$]
 		\item La \href{https://nullpointersgroup.github.io/Documentazione/output/Candidatura/Lettera_di_Presentazione.pdf}{Lettera di Presentazione} per la candidatura al progetto$^G$;
 		\item La \href{https://nullpointersgroup.github.io/Documentazione/output/RTB/Lettera_di_Presentazione_RTB.pdf}{Lettera di Presentazione per la Requirements and Technology Baseline$^G$} (RTB$^G$);
+		\item La \href{https://nullpointersgroup.github.io/Documentazione/output/PB/Lettera_di_Presentazione_PB.pdf}{Lettera di Presentazione per la Product Baseline$^G$} (RTB$^G$);
 	\end{itemize}
 	Ciascuna lettera ha lo scopo di presentare formalmente il gruppo NullPointers Group, illustrando l’impegno nel rispettare gli obiettivi e i vincoli delle rispettive Baseline.\\[0.5em]
 	\medskip
@@ -71,7 +72,7 @@
 	\subsubsubsection{Verbali Esterni}
 	\textbf{Obiettivo del documento}:\\
 	Il Verbale Esterno è un documento redatto dal gruppo in occasione delle riunioni che coinvolgono soggetti esterni, come i referenti dell’azienda proponente.\\
-	Riporta tutti i contenuti discussi durante l’incontro, incluse richieste, chiarimenti, decisioni, vincoli, feedback e indicazioni fornite dai referenti esterni. Il suo scopo è garantire trasparenza, tracciabilità e un allineamento costante tra il team e la proponente$^G$, riducendo il rischio di fraintendimenti o interpretazioni errate.\\[0.5em]
+	Riporta tutti i contenuti discussi durante l’incontro, incluse richieste, chiarimenti, decisioni, vincoli, feedback$^G$ e indicazioni fornite dai referenti esterni. Il suo scopo è garantire trasparenza, tracciabilità e un allineamento costante tra il team e la proponente$^G$, riducendo il rischio di fraintendimenti o interpretazioni errate.\\[0.5em]
 	\medskip
 	\textbf{Redattore$^G$}: Responsabile\\
 	\medskip
@@ -116,7 +117,7 @@
 
 	\subsubsubsection{Glossario}
 	\textbf{Obiettivo del documento}:\\
-	Il \href{https://nullpointersgroup.github.io/Documentazione/output/PB/Documenti%20Interni/Glossario.pdf}{Glossario} 
+	Il \href{https://nullpointersgroup.github.io/Documentazione/output/PB/Documenti%20Interni/Glossario.pdf}{Glossario$^G$} 
 	definisce in modo univoco i termini tecnici, gli acronimi e i concetti chiave del progetto. È considerato dal team uno strumento fondamentale perché standardizza la terminologia e facilita la comunicazione tra tutti i soggetti coinvolti.\\
 	Le voci sono ordinate alfabeticamente e, quando citate nei documenti, riportano l'apice.\\[0.5em]
 	\medskip
@@ -289,12 +290,16 @@
 	La verifica$^G$ della conformità alle convenzioni di codifica viene effettuata tramite strumenti automatici e revisione manuale durante le Pull Request.\\
 	Per garantire coerenza, leggibilità e manutenibilità del codice in tutto il progetto$^G$, il team adotta le seguenti convenzioni:
 	\begin{itemize}[itemsep=3pt, parsep=1pt, label=\textbullet]
-		\item \textbf{Nomenclatura}: i nomi di variabili, funzioni, metodi e classi devono essere scritti in inglese.
-		\item Per il \textbf{codice di produzione$^G$}: usare \texttt{camelCase$^G$} per variabili, \texttt{PascalCase$^G$} per i nomi delle classi e \texttt{snake\_case$^G$} per metodi e funzioni.
-		\item \textbf{Lingua dei commenti}: i commenti devono essere scritti in italiano. Questo favorisce la comprensione immediata da parte di tutti i membri del team durante le revisioni.
-		\item \textbf{Scope delle Variabili}: limitare al massimo l'uso di variabili globali.
-		\item \textbf{Funzioni}: favorire funzioni concise e monolitiche (che svolgono un unico compito ben definito).
-	\end{itemize}
+    \item \textbf{Python$^G$ (backend$^G$)}: tutti gli identificatori (variabili, funzioni, metodi, classi) devono utilizzare esclusivamente lo \texttt{snake\_case$^G$}.
+    \item \textbf{React$^G$ (frontend$^G$)}:
+    \begin{itemize}
+        \item \texttt{PascalCase$^G$} per i nomi dei componenti React$^G$;
+        \item \texttt{camelCase$^G$} per variabili, funzioni, metodi e hook.
+    \end{itemize}
+    \item \textbf{Lingua dei commenti}: i commenti devono essere scritti in italiano, per favorire la comprensione immediata da parte di tutti i membri del team durante le revisioni.
+    \item \textbf{Scope delle variabili}: limitare al massimo l’uso di variabili globali.
+    \item \textbf{Funzioni}: favorire funzioni concise e monolitiche (che svolgono un unico compito ben definito).
+\end{itemize}
 	
 	\subsubsection{Strumenti a supporto}
 	\phantomsection\label{sec:strumenti-supporto}

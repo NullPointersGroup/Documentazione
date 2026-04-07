@@ -30,6 +30,25 @@
 \usepackage[all]{hypcap}%per puntare ai titoli delle sezioni (titolo inizio finestra)
 \usepackage{amsmath}%per le formule nelle metriche
 
+\usepackage{listings}
+
+\definecolor{lightgray}{rgb}{0.83, 0.83, 0.83}
+\lstdefinestyle{pseudocodice}{
+	language=C++,  % Non importa quale linguaggio di base, lo utilizziamo per la sintassi
+	basicstyle=\ttfamily\footnotesize,  % Font di base
+	keywordstyle=\color{blue}\bfseries,  % Parole chiave in blu e in grassetto, comprende parole chiave c++ e quelle aggiunte
+	commentstyle=\color{red},  % Commenti in rosso, seguiti da //
+	stringstyle=\color{purple},  % Stringhe in viola, racchiuse fra virgolette, es: "ciao"
+	identifierstyle=\color{black},  % Variabili in nero (in generale tutto ciò che è scritto in maniera normale)
+	backgroundcolor=\color{lightgray},  % Colore di sfondo
+	numbers=left,  % Disabilita la numerazione delle righe
+	numberstyle=\tiny\color{black},%imposta stile dei numeri
+	frame=single,  % Bordo intorno al codice
+	breaklines=true,  % Rientro automatico delle linee troppo lunghe
+	morekeywords={then, begin, end, endif, endwhile, elif, endfor, and, or},  % Parole chiave personalizzate per pseudocodice
+	tabsize=3
+}
+
 \setlength{\parindent}{0pt} % Nessun rientro dei paragrafi
 \newcommand{\vr}[1]{\textquotedblleft#1\textquotedblright}% per " "
 \newcommand{\vrs}[1]{\textquoteleft#1\textquoteright}% per ' 
@@ -42,7 +61,7 @@
 \fancyhf{}
 % Intestazione standard
 \fancyhead[L]{NullPointers Group}
-\fancyhead[R]{Specifica Tecnica}
+\fancyhead[R]{Manuale Utente}
 \renewcommand{\headrulewidth}{0.4pt}
 % Piè di pagina
 \fancyfoot[C]{Pagina \thepage{} di \pageref*{LastPage}}
@@ -52,7 +71,7 @@
 \fancypagestyle{plain}{
   \fancyhf{}
   \fancyhead[L]{NullPointers Group}
-  \fancyhead[R]{Specifica Tecnica}
+  \fancyhead[R]{Manuale Utente}
   \fancyfoot[C]{Pagina \thepage{} di \pageref*{LastPage}}
   \renewcommand{\headrulewidth}{0.4pt}
   \renewcommand{\footrulewidth}{0.4pt}
@@ -141,6 +160,13 @@
 	\listoftables
 }
 
+\newpage
+% Indice delle immagini
+\renewcommand{\listfigurename}{Elenco delle Immagini}
+{
+	\hypersetup{linkcolor=black}
+	\listoffigures
+}
 
 %parte variabile
 \newpage
