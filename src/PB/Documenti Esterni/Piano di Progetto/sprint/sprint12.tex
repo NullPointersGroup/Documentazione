@@ -1,22 +1,20 @@
-\subsubsection{Sprint 11}
+\subsubsection{Sprint 12}
 
 \subsubsubsection{Informazioni generali e attività da svolgere}
 
 \begin{tabular}{p{0.25\textwidth} p{0.2\textwidth}}
-	\textbf{Inizio} & 23/03/2026 \\
-	\textbf{Fine prevista} & 30/03/2026 \\
-	\textbf{Fine reale} & 30/03/2026 \\
+	\textbf{Inizio} & 30/03/2026 \\
+	\textbf{Fine prevista} & 07/04/2026 \\
+	\textbf{Fine reale} & 07/04/2026 \\
 	\textbf{Giorni di ritardo} & 0
 \end{tabular}
 \newline \newline 
-Le nostre attività da svolgere, definite nel \href{https://nullpointersgroup.github.io/Documentazione/output/PB/Verbali%20Interni/2026-03-23_verbale_interno.pdf}{Verbale interno del 23/03/2026} sono:
+Le nostre attività da svolgere, definite nel \href{https://nullpointersgroup.github.io/Documentazione/output/PB/Verbali%20Interni/2026-03-30_verbale_interno.pdf}{Verbale interno del 30/03/2026} sono:
 \begin{itemize}[itemsep=5pt, parsep=1pt, label=$\scriptstyle\bullet$]
-	\item Stesura Diario di Bordo del 25 marzo 2026
-	\item Scrivere il consuntivo$^G$ dello sprint$^G$ 10 e il preventivo dello sprint$^G$ 11
-	\item Descrivere i test$^G$ di unità e di integrazione del Piano di Qualifica$^G$
-	\item Continuare la specifica tecnica$^G$
-	\item Risolvere errori dei test$^G$ d'integrazione col DB$^G$
-	\item Integrare LLM$^G$ nella funzionalità$^G$ della chat
+	\item Stesura Diario di Bordo del 01 aprile 2026
+	\item Scrivere il consuntivo$^G$ dello sprint$^G$ 11 e il preventivo dello sprint$^G$ 12
+    \item Modifica nomenclatura nel documento Norme di Progetto
+    \item Implementazione feature di storico ordini
 \end{itemize}
 
 \subsubsubsection{Rischi attesi}
@@ -47,24 +45,24 @@ Si prospetta l'utilizzo delle seguenti risorse:
 			% Seconda tabella con i dati e i bordi
 			\begin{tabular}{|p{0.2\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|}
 				\hline
-				M. Mazzaretto & - & - & - & 4 & 2 & 8 \\ \hline
-				T. Ceron      & - & - & - & 8 & 5 & 2 \\ \hline
-				L. Pieripolli & - & - & - & 8 & 5 & 2 \\ \hline
-				L. Marcuzzo   & - & - & - & 8 & 5 & 2 \\ \hline
-				M. Brunello   & 5 & - & - & - & 2 & - \\ \hline
-				L. Casagrande & - & - & - & 4 & 2 & 8 \\ \hline
+				M. Mazzaretto & - & 0.5 & - & 6 & 4 & 4 \\ \hline
+				T. Ceron      & 5 & - & - & - & - & - \\ \hline
+				L. Pieripolli & - & - & - & 8 & 4 & 5 \\ \hline
+				L. Marcuzzo   & - & - & 1.5 & 8 & 4 & 5 \\ \hline
+				M. Brunello   & - & - & - & 8 & 4 & 5 \\ \hline
+				L. Casagrande & - & - & - & 6 & 4 & 4 \\ \hline
 			\end{tabular}
 		\end{minipage}
 	}
-	\caption{Sprint 11: Preventivo}
+	\caption{Sprint 12: Preventivo}
 \end{table}
 
-Il totale preventivato per lo sprint$^G$ è \textbf{1495€}.\\
+Il totale preventivato per lo sprint$^G$ è \textbf{1612.5€}.\\
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{PianoProgetto/sprint11_preventivo}
-	\caption{Sprint 11: Preventivo}
+	\includegraphics[width=1\textwidth]{PianoProgetto/sprint12_preventivo}
+	\caption{Sprint 12: Preventivo}
 \end{figure}
 
 \subsubsubsection{Consuntivo}
@@ -86,37 +84,38 @@ In questo sprint$^G$ sono state utilizzate le seguenti risorse:
 			% Seconda tabella con i dati e i bordi
 			\begin{tabular}{|p{0.2\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.13\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|}
 				\hline
-				M. Mazzaretto & - & - & - & 6 \textcolor{red}{(+2)} & 3 \textcolor{red}{(+1)} & 8 \\ \hline
-				T. Ceron      & - & - & - & 7 \textcolor{green}{(-1)} & 7 \textcolor{red}{(+2)} & 1 \textcolor{green}{(-1)} \\ \hline
-				L. Pieripolli & - & - & - & 6 \textcolor{green}{(-2)} & 5 & 4 \textcolor{red}{(+2)}  \\ \hline
-				L. Marcuzzo   & - & - & - & 6 \textcolor{green}{(-2)} & 5 & 4 \textcolor{red}{(+2)} \\ \hline
-				M. Brunello   & 5 & - & - & - & 4 \textcolor{red}{(+2)} & - \\ \hline
-				L. Casagrande & - & - & 1 \textcolor{red}{(+1)} & 6 \textcolor{red}{(+2)} & 4 \textcolor{red}{(+2)} & 8 \\ \hline
+				M. Mazzaretto & - & 0.5 & - & 8 \textcolor{red}{(+2)} & 5 \textcolor{red}{(+1)} & \textcolor{green}{(-4)} \\ \hline
+				T. Ceron      & 7 \textcolor{red}{(+2)} & - & - & - & - & - \\ \hline
+				L. Pieripolli & - & - & - & 8 & 4 & 3 \textcolor{green}{(-2)}  \\ \hline
+				L. Marcuzzo   & - & - & 1.5 & 8 & 4 & 4.5 \textcolor{green}{(-0.5)} \\ \hline
+				M. Brunello   & - & - & - & 8 & 4 & 2.5 \textcolor{green}{(-2.5)} \\ \hline
+				L. Casagrande & - & - & - & 6 & 4 & \textcolor{green}{(-4)} \\ \hline
 			\end{tabular}
 		\end{minipage}
 	}
-	\caption{Sprint 11: Consuntivo}
+	\caption{Sprint 12: Consuntivo}
 \end{table}
-Il totale consuntivato per lo sprint$^G$ è \textbf{1685€}.\\
+Il totale consuntivato per lo sprint$^G$ è \textbf{1392.5€}.\\
 
-In questo sprint$^G$, il carico di lavoro effettivo ha superato le aspettative in termini di ore produttive, poiché il gruppo ha dovuto dedicare maggiore impegno di quanto preventivato per la scrittura dei test di unità e di integrazione.
+In questo sprint$^G$, il carico di lavoro effettivo è stato leggermente ridotto alle aspettative in termini di ore produttive, poiché il gruppo ha dovuto dedicare maggiore impegno di quanto preventivato per la codifica dell'MVP e non per la scrittura della Specifica Tecnica.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{PianoProgetto/sprint11_consuntivo}
-	\caption{Sprint 11: Consuntivo}
+	\includegraphics[width=1\textwidth]{PianoProgetto/sprint12_consuntivo}
+	\caption{Sprint 12: Consuntivo}
 \end{figure}
 
 \subsubsubsection{Retrospettiva}
-Il gruppo è riuscito a completare le attività che si era preffisato.
+Il gruppo è riuscito a completare le attività che si era prefissato.
 
 \subsubsubsection{Rischi incontrati}
-Il gruppo ha incontrato il rischio RE2, poiché ancora poco esperto nell'utilizzo di database vettoriali e nella scrittura di test di unità e integrazione.
+Non sono stati incontrati rischi.
 
 \subsubsubsection{Efficacia delle strategie di gestione di mitigazione dei rischi}
-Il gruppo è riuscito a capire velocemente cosa servisse migliorare per la scrittura delle unità mancanti e dei relativi test, ed è riuscito a completare le attività prefissate.
+Il gruppo, non avendo riscontrato rischi analizzati, non ha avuto bisogno di identificare strategie.
 
 \subsubsubsection{Migliorie da attuare per le attività future}
-Nei prossimi sprint, il gruppo dovrà migliorare la modalità di scrittura della Specifica Tecnica.
+Nei prossimi sprint, il gruppo dovrà migliorare la modalità di scrittura della Specifica Tecnica.\\
+Inoltre, siccome ci sarà un ricevimento con il prof. Cardin, il gruppo si predispone al cambiamento di alcune parti del codice.
 
 \subsubsubsection{Aggiornamento delle risorse rimanenti}
 \begin{table}[H]
@@ -127,39 +126,39 @@ Nei prossimi sprint, il gruppo dovrà migliorare la modalità di scrittura della
 		Ruolo & Costo & Ore & Costo \newline effettivo & Ore \newline rimanenti & Budget \newline rimanente \\ \hline
 		
 		Responsabile$^G$
-		& 30(€/h) & 5 & 150
-		& 15 \textcolor{red}{(-5)}
-		& 450 \textcolor{red}{(-150)} \\ \hline
+		& 30(€/h) & 7 & 210
+		& 8 \textcolor{red}{(-7)}
+		& 240 \textcolor{red}{(-210)} \\ \hline
 		
 		Amministratore$^G$
-		& 20(€/h) & - & -
-		& 1
-		& 20 \\ \hline
+		& 20(€/h) & 0.5 & 10
+		& 0.5 \textcolor{red}{(-0.5)}
+		& 10 \textcolor{red}{(-10)} \\ \hline
 		
 		Analista$^G$
-		& 25(€/h) & 1 & 25
-		& 1.5 \textcolor{red}{(-1)}
-		& 37.5 \textcolor{red}{(-25)} \\ \hline
+		& 25(€/h) & 1.5 & 25
+		& 0 \textcolor{red}{(-1,5)}
+		& 0 \textcolor{red}{(-37.5)} \\ \hline
 		
 		Progettista$^G$
-		& 25(€/h) & 25 & 625 
-		& 44 \textcolor{red}{(-25)}
-		& 1100 \textcolor{red}{(-625)}\\ \hline
+		& 25(€/h) & 10 & 250 
+		& 34 \textcolor{red}{(-10)}
+		& 850 \textcolor{red}{(-250)}\\ \hline
 		
 		Verificatore$^G$
-		& 15(€/h) & 28 & 420 
-		& 45 \textcolor{red}{(-28)}
-		& 675 \textcolor{red}{(-420)} \\ \hline
+		& 15(€/h) & 21 & 315
+		& 24 \textcolor{red}{(-21)}
+		& 360 \textcolor{red}{(-315)} \\ \hline
 		
 		Programmatore$^G$
-		& 15(€/h) & 31 & 465 
-		& 44 \textcolor{red}{(-31)}
-		& 660 \textcolor{red}{(-465)} \\ \hline
+		& 15(€/h) & 38 & 570
+		& 6 \textcolor{red}{(-38)}
+		& 90 \textcolor{red}{(-570)} \\ \hline
 		
 		Totale
-		& - & 90 & 1685
-		& 150.5 \textcolor{red}{(-90)}
-		& 2942.5 \newline \textcolor{red}{(-1685)} \\ \hline
+		& - & 78 & 1685
+		& 72.5 \textcolor{red}{(-78)}
+		& 1550 \newline \textcolor{red}{(-1392.5)} \\ \hline
 	\end{tabular}
-	\caption{Sprint 11: Aggiornamento risorse}
+	\caption{Sprint 12: Aggiornamento risorse}
 \end{table}
