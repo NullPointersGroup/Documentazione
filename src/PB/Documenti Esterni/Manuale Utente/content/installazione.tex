@@ -1,14 +1,109 @@
 \section{Installazione}
 
+In questa sezione trovi i passaggi necessari per installare ed eseguire correttamente SmartOrder.\\
+Si consiglia di seguire i passaggi nell'ordine indicato per evitare errori durante la configurazione.
+
+\subsection{Clonare la repository}
+
+Per ottenere il progetto puoi scegliere una delle seguenti modalit\`a:
+
+\textbf{Download manuale}\\
+Dalla pagina ufficiale del progetto \`e possibile scaricare la cartella in formato \texttt{.zip}.\\
+Una volta scaricata, decomprimila in una posizione a tua scelta.
+
+\textbf{Clonazione tramite Git}\\
+Se hai Git installato, puoi clonare la repository direttamente da terminale:
+
+\begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
+	\item Apri il prompt dei comandi
+	\item Spostati nella cartella desiderata
+	\item Esegui il comando seguente
+\end{itemize}
+
 \begin{lstlisting}[style=pseudocodice]
-	CountingSort(A,B,k)
-	
-	C[0...k] riempito di tutti 0
-	for j=1 to A.length
-	C[A[j]]++
-	for i=1 to k
-	C[i]=C[i]+C[i-1]
-	for j=A.length down to 1
-	B[C[A[j]]]=A[j]
-	C[A[j]]--
+git clone https://github.com/NullPointersGroup/SmartOrder.git
+\end{lstlisting}
+
+\subsection{Creare una API Key OpenAI}
+
+Per permettere al sistema di generare le risposte della chat, \`e necessario disporre di una API Key OpenAI.
+
+\begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
+	\item Vai su \url{https://platform.openai.com}
+	\item Accedi o registrati
+	\item Vai nella sezione \vr{API Keys}
+	\item Clicca su \vr{Create new secret key}
+	\item Copia la chiave generata e conservala: ti servir\`a nel passaggio successivo
+\end{itemize}
+
+\subsection{Generare una SECRET\_KEY}
+
+Apri il terminale ed esegui il seguente comando:
+\begin{lstlisting}[style=pseudocodice]
+	python -c "import secrets; print(secrets.token_hex(32))"
+\end{lstlisting}
+Verrà stampata una stringa di 64 caratteri, copiala e conservala per il passo successivo.
+
+\subsection{Configurazione dell'ambiente}
+
+All'interno della cartella del progetto, dove si trova il file \texttt{README.md}, crea un file chiamato \texttt{.env}.\\
+Inserisci al suo interno il seguente contenuto:
+
+\begin{lstlisting}[style=pseudocodice]
+POSTGRES_USER=user
+POSTGRES_PASSWORD=password
+POSTGRES_DB=mydb
+POSTGRES_HOST=db
+POSTGRES_PORT=5432
+DATABASE_URL=postgresql://user:password@db:5432/mydb
+OPENAI_API_KEY=LA_TUA_API_KEY
+SECRET_KEY=
+VITE_API_BASE_URL=http://backend:8000
+\end{lstlisting}
+
+Sostituisci \texttt{LA\_TUA\_API\_KEY} con la chiave generata nel passaggio 3.2 e sostituisci \texttt{LA\_TUA\_CHIAVE\_GENERATA} con la stringa generata nel passaggio 3.3.
+
+\subsection{Avviare l'applicazione}
+
+Assicurati di avere Docker installato sul tuo computer.\\
+In caso contrario, puoi seguire la guida ufficiale:
+
+\begin{center}
+	\url{https://docs.docker.com/engine/install/}
+\end{center}
+
+Una volta pronto:
+
+\begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
+	\item Apri il terminale
+	\item Spostati nella cartella del progetto con il comando seguente
+\end{itemize}
+
+\begin{lstlisting}[style=pseudocodice]
+cd il/proprio/percorso/SmartOrder
+\end{lstlisting}
+
+\begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
+	\item Avvia l'applicazione con il comando seguente
+\end{itemize}
+
+\begin{lstlisting}[style=pseudocodice]
+docker-compose up --build
+\end{lstlisting}
+
+\subsection{Accesso al sistema}
+
+Una volta avviati correttamente i container \texttt{postgres\_test}, \texttt{postgres\_db}, \texttt{react\_frontend} e \texttt{fastapi\_backend}, puoi accedere all'applicazione.\\
+Apri il browser e vai al seguente indirizzo:
+
+\begin{lstlisting}[style=pseudocodice]
+http://localhost:5173
+\end{lstlisting}
+
+\subsection{Riavvio del sistema}
+
+Se hai bisogno di riavviare completamente il sistema e rimuovere i dati salvati, esegui il seguente comando nella cartella del progetto:
+
+\begin{lstlisting}[style=pseudocodice]
+docker-compose down -v
 \end{lstlisting}
