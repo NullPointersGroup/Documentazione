@@ -74,17 +74,6 @@ La sua implementazione concreta è prodotta dall'hook \texttt{useFormViewModel},
 	la chiamata API$^G$ al layer sottostante.
 \end{itemize}
 
-
-
-
-
-
-
-
-
-
-
-
 \subsubsubsection{FormModel}
 
 \begin{figure}[H]
@@ -94,8 +83,7 @@ La sua implementazione concreta è prodotta dall'hook \texttt{useFormViewModel},
 \end{figure}
 
 \paragraph{Descrizione}
-\texttt{FormModel} è una classe astratta TypeScript che costituisce il livello di \textit{Model}
-nel pattern MVVM.\\
+\texttt{FormModel} è una classe astratta TypeScript che costituisce il livello di \textit{Model} nel pattern MVVM.\\
 Incapsula la logica di validazione$^G$ dei campi del form e la logica di invio dei dati al backend$^G$ tramite il modulo \texttt{AuthAPI}.\\
 Le classi concrete \texttt{LoginModel} e \texttt{RegisterModel} la estendono specializzandone il comportamento.\\
 Solo \texttt{fields} e \texttt{submit} sono astratti: \texttt{validate} e \texttt{validateField} hanno invece un'implementazione concreta nella classe base.
@@ -114,17 +102,26 @@ Solo \texttt{fields} e \texttt{submit} sono astratti: \texttt{validate} e \textt
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \texttt{validate(values: Record): Record} - metodo pubblico concreto.
-	Riceve la mappa dei valori correnti del form e restituisce una mappa di errori (\texttt{Record<string, string>}) per tutti i campi.
-	Verifica$^G$ che nessun campo sia vuoto; le sottoclassi possono sovrascriverlo per aggiungere regole di validazione$^G$ specifiche.
+	\item \texttt{validate(values: Record<string, string>): Record<string, string>}\\
+	Metodo pubblico concreto, riceve una mappa dei valori correnti del form e restituisce una mappa di errori.\\
+	Le sottoclassi possono sovrascriverlo per estendere le regole di validazione$^G$ specifiche.
 
-	\item \texttt{validateField(key: string, value: string): string} - metodo pubblico concreto.
-	Valida il singolo campo identificato da \texttt{key} con il valore \texttt{value} invocando \texttt{validate} sull'intero set di valori correnti.
-	Restituisce il messaggio di errore per il campo richiesto, oppure una stringa vuota se la validazione$^G$ ha successo.
+	\item \texttt{validateField(key: string, value: string): string}\\
+	Metodo pubblico concreto, valida il singolo campo identificato da \texttt{key} utilizzando \texttt{validate} sull’intero set di valori aggiornato con \texttt{value}.\\
+	Restituisce il messaggio di errore per il campo richiesto, oppure una stringa vuota se il campo è valido.
 
-	\item \texttt{submit(values: Record): Promise<SubmitResult>} - metodo pubblico astratto asincrono.
-	Riceve la mappa dei valori del form, costruisce il DTO appropriato e delega la chiamata HTTP al modulo \texttt{AuthAPI}.
-	Restituisce una \texttt{Promise<SubmitResult>} che il ViewModel utilizza per aggiornare lo stato della View in base all'esito dell'operazione.
+	\item \texttt{submit(values: Record<string, string>): Promise<SubmitResult>}\\
+	Metodo pubblico astratto asincrono, costruisce il DTO appropriato a partire dai valori del form e delega la chiamata HTTP al modulo \texttt{AuthAPI}.\\ 
+	Restituisce una \texttt{Promise<SubmitResult>} che il ViewModel utilizza per aggiornare lo stato della View in base all’esito.
+
+	\item \texttt{login(dto: LoginDto): Promise<AuthResponse>}\\
+	Metodo privato protetto, invia una richiesta di login tramite \texttt{authFetch}.
+
+	\item \texttt{register(dto: RegisterDto): Promise<AuthResponse>}\\
+	Metodo privato protetto, invia una richiesta di registrazione tramite \texttt{authFetch}.
+
+	\item \texttt{authFetch(endpoint: string, body: object): Promise<AuthResponse>}\\
+	Metodo privato protetto, incapsula la logica comune di chiamata all’API di autenticazione, gestendo eventuali errori di rete o risposte non valide.
 \end{itemize}
 
 
