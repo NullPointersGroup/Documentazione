@@ -6,12 +6,331 @@
 	\caption{Diagramma delle classi per Autenticazione e Registrazione: Backend}
 \end{figure}
 
-%\subsubsubsection{UserService}
 
-%\begin{figure}[H]
-%	\centering 
-%	\includegraphics[width=0.8\textwidth]{SpecificaTecnica/Autenticazione/UserService}
-%	\caption{Autenticazione e Registrazione: UserService}
-%\end{figure}
+\subsubsubsection{UserRepoPort}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Autenticazione/UserRepoPort}
+	\caption{Autenticazione e Registrazione: UserRepoPort}
+\end{figure}
 
-%\paragraph{Descrizione}
+\paragraph{Descrizione}
+\texttt{UserRepoPort} è un'interfaccia che definisce il contratto per l'accesso ai dati degli utenti.\\
+Viene implementata da \texttt{UserRepoAdapter} e utilizzata dai service del dominio, garantendo il disaccoppiamento tra logica di business e layer di persistenza.
+
+\paragraph{Attributi}
+\texttt{UserRepoPort} non definisce attributi, in quanto si tratta di un'interfaccia.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \texttt{find\_by\_username(username: string): Utente} - metodo pubblico che recupera un utente dal repository a partire dal suo username.\\
+	Restituisce l'oggetto \texttt{Utente} corrispondente.
+	\item \texttt{username\_exists(username: string): bool} - metodo pubblico che verifica se un determinato username è già presente nel sistema.\\
+	Restituisce \texttt{true} se l'username esiste, \texttt{false} altrimenti.
+	\item \texttt{email\_exists(email: string): bool} - metodo pubblico che verifica se un determinato indirizzo email è già registrato nel sistema.\\
+	Restituisce \texttt{true} se l'email esiste, \texttt{false} altrimenti.
+	\item \texttt{add\_user(u: UserRegistration): bool} - metodo pubblico che aggiunge un nuovo utente al repository a partire dai dati di registrazione forniti.\\
+	Restituisce \texttt{true} in caso di successo.
+	\item \texttt{delete\_user(username: string)} - metodo pubblico che rimuove dal repository l'utente identificato dall'username fornito.
+	\item \texttt{reset\_password(u: UserReset)} - metodo pubblico che aggiorna la password dell'utente utilizzando i dati contenuti nell'oggetto \texttt{UserReset}.
+\end{itemize}
+
+
+\subsubsubsection{UserRepoAdapter}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Autenticazione/UserRepoAdapter}
+	\caption{Autenticazione e Registrazione: UserRepoAdapter}
+\end{figure}
+
+\paragraph{Descrizione}
+\texttt{UserRepoAdapter} è la classe concreta che implementa l'interfaccia \texttt{UserRepoPort}, fungendo da adattatore tra il dominio applicativo e il layer di persistenza.\\
+Delega le operazioni effettive sul database all'istanza di \texttt{UserRepository} che incapsula al proprio interno.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \texttt{repo: UserRepository} - attributo privato di tipo \texttt{UserRepository}.\\
+	Rappresenta il repository concreto utilizzato per eseguire le query sul database.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \texttt{\_\_init\_\_(db: Session)} - metodo pubblico di inizializzazione.\\
+	Riceve una sessione di database di tipo \texttt{Session} e la utilizza per istanziare il \texttt{UserRepository} interno.
+\end{itemize}
+
+
+\subsubsubsection{UserRepository}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Autenticazione/UserRepository}
+	\caption{Autenticazione e Registrazione: UserRepository}
+\end{figure}
+
+\paragraph{Descrizione}
+\texttt{UserRepository} è la classe che gestisce direttamente le operazioni di accesso e manipolazione dei dati degli utenti sul database.\\
+Utilizza un \texttt{QueryExecutor} interno per eseguire le query in modo centralizzato e uniforme.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \texttt{executor: QueryExecutor} - attributo privato di tipo \texttt{QueryExecutor}.
+	Componente utilizzato per l'esecuzione delle query sul database, centralizzando la gestione delle operazioni di persistenza.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \texttt{\_\_init\_\_(db: Session)} - metodo pubblico di inizializzazione.
+	Riceve una sessione di database e la utilizza per configurare il \texttt{QueryExecutor}.
+	\item \texttt{find\_by\_username(username: string): Utente} - metodo pubblico che esegue una query per recuperare l'utente corrispondente all'username fornito.\\
+	Restituisce l'oggetto \texttt{Utente} trovato.
+	\item \texttt{find\_by\_email(email: string): Utente} - metodo pubblico che esegue una query per recuperare l'utente corrispondente all'indirizzo email fornito.\\
+	Restituisce l'oggetto \texttt{Utente} trovato.
+	\item \texttt{save(u: UserRegistration): bool} - metodo pubblico che persiste un nuovo utente nel database a partire dall'oggetto \texttt{UserRegistration} fornito.\\
+	Restituisce \texttt{true} in caso di successo.
+	\item \texttt{delete(username: string): bool} - metodo pubblico che rimuove dal database l'utente identificato dall'username fornito.\\
+	Restituisce \texttt{true} se l'operazione va a buon fine.
+	\item \texttt{reset\_password(u: UserReset): bool} - metodo pubblico che aggiorna la password dell'utente nel database utilizzando i dati dell'oggetto \texttt{UserReset}.\\
+	Restituisce \texttt{true} in caso di successo.
+\end{itemize}
+
+
+\subsubsubsection{CheckUserService}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Autenticazione/CheckUserService}
+	\caption{Autenticazione e Registrazione: CheckUserService}
+\end{figure}
+
+\paragraph{Descrizione}
+\texttt{CheckUserService} è il service applicativo responsabile della verifica delle credenziali durante il processo di login.\\
+Interagisce con il repository tramite la porta \texttt{UserRepoPort} per recuperare i dati dell'utente e verificarne la password.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \texttt{port: UserRepoPort} - attributo privato di tipo \texttt{UserRepoPort}.
+	Porta utilizzata per accedere ai dati degli utenti nel repository.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \texttt{\_\_init\_\_(port: UserRepoPort)} - metodo pubblico di inizializzazione.
+	Riceve e memorizza la porta di accesso al repository degli utenti.
+	\item \texttt{check\_user(u: User): string} - metodo pubblico che verifica l'esistenza dell'utente e la correttezza della password fornita.\\
+	Restituisce un token di autenticazione in caso di successo, oppure un messaggio di errore in caso di fallimento.
+	\item \texttt{\_verify\_password(plain: str, hashed: str): bool} - metodo privato che confronta una password in chiaro con la corrispondente versione hashata.\\
+	Restituisce \texttt{true} se le due stringhe corrispondono.
+\end{itemize}
+
+
+\subsubsubsection{LoginController}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/LoginController}
+	\caption{Autenticazione e Registrazione: LoginController}
+\end{figure}
+
+\paragraph{Descrizione}
+\texttt{LoginController} è il controller REST responsabile della gestione delle richieste HTTP di autenticazione.\\
+Riceve le credenziali dell'utente, le delega al \texttt{CheckUserService} e restituisce la risposta appropriata al client.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \texttt{create\_token(username: string): string} - attributo privato che rappresenta la funzione utilizzata per generare il token JWT a partire dall'username dell'utente autenticato.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \texttt{login(request: Request, payload: UserSchema, service: \newline CheckUserServiceDep, response: Response): LoginResponse} - \newline metodo pubblico che gestisce la richiesta di login.\\
+	Riceve i dati dell'utente tramite \texttt{payload}, invoca il service per la verifica delle credenziali e restituisce una \texttt{LoginResponse} contenente il token di accesso o un errore.
+\end{itemize}
+
+
+\subsubsubsection{RegisterUserService}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.8\textwidth]{SpecificaTecnica/Autenticazione/RegisterUserService}
+	\caption{Autenticazione e Registrazione: RegisterUserService}
+\end{figure}
+
+\paragraph{Descrizione}
+\texttt{RegisterUserService} è il service applicativo responsabile della registrazione di nuovi utenti.\\
+Verifica la disponibilità di username ed email, valida il dominio dell'indirizzo email tramite \texttt{EmailValidationPort} e persiste il nuovo utente tramite \texttt{UserRepoPort} previa cifratura della password.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \texttt{port: UserRepoPort} - attributo privato di tipo \texttt{UserRepoPort}.\\
+	Porta utilizzata per accedere al repository degli utenti e verificare la disponibilità delle credenziali e salvare il nuovo utente.
+
+	\item \texttt{email\_validator: EmailValidationPort} - attributo pubblico di tipo \texttt{EmailValidationPort}.\\
+	Porta utilizzata per validare l'esistenza del dominio dell'indirizzo email fornito durante la registrazione.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \texttt{\_\_init\_\_(repo: IUserRepoPort, email\_validator: EmailValidationPort)} - metodo pubblico di inizializzazione.\\
+	Riceve e memorizza la porta del repository e il validatore email.
+
+	\item \texttt{register\_user(u: UserRegistration)} - metodo pubblico che gestisce il flusso completo di registrazione: verifica la disponibilità di username ed email, valida il dominio email, cifra la password e salva il nuovo utente tramite il repository.
+
+	\item \texttt{\_hash\_password(password: string): string} - metodo privato che cifra la password in chiaro e restituisce la corrispondente stringa hashata da memorizzare nel database.
+\end{itemize}
+
+
+\subsubsubsection{EmailValidationPort}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Autenticazione/EmailValidationPort}
+	\caption{Autenticazione e Registrazione: EmailValidationPort}
+\end{figure}
+
+\paragraph{Descrizione}
+\texttt{EmailValidationPort} è un'interfaccia che definisce il contratto per la validazione del dominio di un indirizzo email.\\
+Viene implementata da \texttt{EmailValidationAdapter} e utilizzata da \texttt{RegisterUserService} per verificare che il dominio dell'email fornita esista effettivamente.
+
+\paragraph{Attributi}
+\texttt{EmailValidationPort} non definisce attributi.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \texttt{domain\_exists(email: string): bool} - metodo pubblico che verifica l'esistenza del dominio dell'indirizzo email fornito.\\
+	Restituisce \texttt{true} se il dominio risulta valido e raggiungibile, \texttt{false} altrimenti.
+\end{itemize}
+
+
+\subsubsubsection{EmailValidationAdapter}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Autenticazione/EmailValidationAdapter}
+	\caption{Autenticazione e Registrazione: EmailValidationAdapter}
+\end{figure}
+
+\paragraph{Descrizione}
+\texttt{EmailValidationAdapter} è la classe concreta che implementa l'interfaccia \texttt{EmailValidationPort}.\\
+Si occupa di effettuare la verifica effettiva dell'esistenza del dominio di un indirizzo email, incapsulando la logica di interrogazione DNS o di un servizio esterno di validazione.
+
+\paragraph{Attributi}
+\texttt{EmailValidationAdapter} non definisce attributi.
+
+\paragraph{Metodi e funzioni}
+\texttt{EmailValidationAdapter} implementa il metodo \texttt{domain\_exists} definito dalla porta \texttt{EmailValidationPort}, fornendo la logica concreta per la verifica del dominio email.
+
+
+\subsubsubsection{RegisterController}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/RegisterController}
+	\caption{Autenticazione e Registrazione: RegisterController}
+\end{figure}
+
+\paragraph{Descrizione}
+\texttt{RegisterController} è il controller REST responsabile della gestione delle richieste HTTP di registrazione di nuovi utenti.\\
+Riceve i dati di registrazione dal client e li delega al \texttt{RegisterUserService} per l'elaborazione, restituendo la risposta appropriata.
+
+\paragraph{Attributi}
+\texttt{RegisterController} non definisce attributi propri.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \texttt{register(payload: UserRegistrationSchema, service: RegisterUserServiceDep): AuthResponse} - metodo pubblico che gestisce la richiesta di registrazione.\\
+	Riceve i dati del nuovo utente tramite \texttt{payload}, invoca il service per completare la registrazione e restituisce una \texttt{AuthResponse} con l'esito dell'operazione.
+\end{itemize}
+
+
+\subsubsubsection{DeleteUserService}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Autenticazione/DeleteUserService}
+	\caption{Autenticazione e Registrazione: DeleteUserService}
+\end{figure}
+
+\paragraph{Descrizione}
+\texttt{DeleteUserService} è il service applicativo responsabile dell'eliminazione di un account utente.\\
+Recupera i dati dell'utente tramite \texttt{UserRepoPort} e ne richiede la cancellazione dal repository.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \texttt{port: UserRepoPort} - attributo pubblico di tipo \texttt{UserRepoPort}.\\
+	Porta utilizzata per accedere al repository degli utenti e delegare le operazioni di lettura e cancellazione.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \texttt{\_\_init\_\_(port: UserRepoPort)} - metodo pubblico di inizializzazione.\\
+	Riceve e memorizza la porta di accesso al repository degli utenti.
+	\item \texttt{delete\_user(username: string)} - metodo pubblico che gestisce l'eliminazione dell'account corrispondente all'username fornito, delegando l'operazione alla porta del repository.
+	\item \texttt{get\_user(username: string): Utentiweb} - metodo pubblico che recupera i dati dell'utente identificato dall'username fornito.\\
+	Restituisce l'oggetto \texttt{Utentiweb} corrispondente.
+\end{itemize}
+
+
+\subsubsubsection{DeleteController}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/DeleteController}
+	\caption{Autenticazione e Registrazione: DeleteController}
+\end{figure}
+
+\paragraph{Descrizione}
+\texttt{DeleteController} è il controller REST responsabile della gestione delle richieste HTTP di eliminazione di un account utente.\\
+Riceve la richiesta dall'utente autenticato e la delega al \texttt{DeleteUserService} per l'esecuzione.
+
+\paragraph{Attributi}
+\texttt{DeleteController} non definisce attributi propri.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \texttt{delete\_account(service: DeleteUserServiceDep, current\_user: \newline CurrentUserDep): AuthResponse} - metodo pubblico che gestisce la richiesta di eliminazione dell'account.\\
+	Utilizza \texttt{current\_user} per identificare l'utente autenticato, invoca il service per la cancellazione e restituisce una \texttt{AuthResponse} con l'esito dell'operazione.
+\end{itemize}
+
+
+\subsubsubsection{ResetPasswordService}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Autenticazione/ResetPasswordService}
+	\caption{Autenticazione e Registrazione: ResetPasswordService}
+\end{figure}
+
+\paragraph{Descrizione}
+\texttt{ResetPasswordService} è il service applicativo responsabile del reset della password di un utente esistente.\\
+Verifica la correttezza della password attuale, cifra la nuova password e delega l'aggiornamento al repository tramite \texttt{UserRepoPort}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \texttt{port: UserRepoPort} - attributo privato di tipo \texttt{UserRepoPort}.\\
+	Porta utilizzata per accedere al repository degli utenti e delegare l'operazione di aggiornamento della password.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \texttt{\_\_init\_\_(port: UserRepoPort)} - metodo pubblico di inizializzazione.\\
+	Riceve e memorizza la porta di accesso al repository degli utenti.
+
+	\item \texttt{reset\_password(u: UserReset)} - metodo pubblico che gestisce il flusso di reset della password: verifica la password attuale, cifra quella nuova e aggiorna il record nel repository.
+
+	\item \texttt{\_hash\_password(password: string): string} - metodo privato che cifra la nuova password in chiaro e restituisce la corrispondente stringa hashata.
+
+	\item \texttt{\_verify\_password(plain: string, hashed: string): bool} - metodo privato che confronta la password in chiaro fornita dall'utente con quella hashata presente nel database.\\
+	Restituisce \texttt{true} se le due stringhe corrispondono.
+\end{itemize}
+
+
+\subsubsubsection{ResetController}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.8\textwidth]{SpecificaTecnica/Autenticazione/ResetController}
+	\caption{Autenticazione e Registrazione: ResetController}
+\end{figure}
+
+\paragraph{Descrizione}
+\texttt{ResetController} è il controller REST responsabile della gestione delle richieste HTTP di reset della password.\\
+Riceve i dati necessari per il cambio password dall'utente autenticato e li delega al \texttt{ResetPasswordService} per l'elaborazione.
+
+\paragraph{Attributi}
+\texttt{ResetController} non definisce attributi propri.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \texttt{reset\_password(body: ResetPasswordRequest, service: \newline ResetPasswordServiceDep, current\_user: CurrentUserDep): \newline AuthResponse} - metodo pubblico che gestisce la richiesta di reset della password.\\
+	Riceve i dati del reset tramite \texttt{body}, identifica l'utente autenticato tramite \texttt{current\_user}, invoca il service per l'aggiornamento e restituisce una \texttt{AuthResponse} con l'esito dell'operazione.
+\end{itemize}
