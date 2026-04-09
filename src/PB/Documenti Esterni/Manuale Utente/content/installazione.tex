@@ -1,7 +1,7 @@
 \section{Installazione}
 
 In questa sezione trovi i passaggi necessari per installare ed eseguire correttamente SmartOrder.\\
-Si consiglia di seguire i passaggi nell'\hyperlink{glossario:ordine}{ordine} indicato per evitare errori durante la configurazione.
+Si consiglia di seguire i passaggi nell'ordine indicato per evitare errori durante la configurazione.
 
 \subsection{Clonare la repository}
 
@@ -11,8 +11,8 @@ Per ottenere il progetto puoi scegliere una delle seguenti modalit\`a:
 Dalla pagina ufficiale del progetto \`e possibile scaricare la cartella in formato \texttt{.zip}.\\
 Una volta scaricata, decomprimila in una posizione a tua scelta.
 
-\textbf{Clonazione tramite \hyperlink{glossario:git}{Git}}\\
-Se hai \hyperlink{glossario:git}{Git} installato, puoi clonare la \hyperlink{glossario:repository}{repository} direttamente da terminale:
+\textbf{Clonazione tramite Git}\\
+Se hai Git installato, puoi clonare la repository direttamente da terminale:
 
 \begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
 	\item Apri il prompt dei comandi
@@ -26,7 +26,7 @@ git clone https://github.com/NullPointersGroup/SmartOrder.git
 
 \subsection{Creare una API Key OpenAI}
 
-Per permettere al sistema di generare le risposte della \hyperlink{glossario:chat}{chat}, \`e necessario disporre di una \hyperlink{glossario:api-key}{API Key} OpenAI.
+Per permettere al sistema di generare le risposte della chat, \`e necessario disporre di una API Key OpenAI.
 
 \begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
 	\item Vai su \url{https://platform.openai.com}
@@ -69,7 +69,7 @@ Sostituisci \texttt{LA\_TUA\_API\_KEY} con la chiave generata nel passaggio 3.2 
 
 \subsection{Avviare l'applicazione}
 
-Assicurati di avere \hyperlink{glossario:docker}{Docker} installato sul tuo computer.\\
+Assicurati di avere Docker installato sul tuo computer.\\
 In caso contrario, puoi seguire la guida ufficiale:
 
 \begin{center}
@@ -97,8 +97,8 @@ docker compose up --build
 
 \subsection{Accesso al sistema}
 
-Una volta avviati correttamente i \hyperlink{glossario:container}{container} \texttt{postgres\_test}, \texttt{postgres\_db}, \texttt{react\_frontend} e \texttt{fastapi\_backend}, puoi accedere all'applicazione.\\
-Apri il \hyperlink{glossario:browser}{browser} e vai al seguente indirizzo:
+Una volta avviati correttamente i container \texttt{postgres\_test}, \texttt{postgres\_db}, \texttt{react\_frontend} e \texttt{fastapi\_backend}, puoi accedere all'applicazione.\\
+Apri il browser e vai al seguente indirizzo:
 
 \begin{lstlisting}[style=pseudocodice]
 http://localhost:5173
