@@ -179,7 +179,7 @@ Verifica la disponibilità di username ed email, valida il dominio dell'indirizz
 \subsubsubsection{EmailValidationPort}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Autenticazione/EmailValidationPort}
+	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Autenticazione/EmailValidationPort}
 	\caption{Autenticazione e Registrazione: EmailValidationPort}
 \end{figure}
 
@@ -200,7 +200,7 @@ Viene implementata da \texttt{EmailValidationAdapter} e utilizzata da \texttt{Re
 \subsubsubsection{EmailValidationAdapter}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Autenticazione/EmailValidationAdapter}
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Autenticazione/EmailValidationAdapter}
 	\caption{Autenticazione e Registrazione: EmailValidationAdapter}
 \end{figure}
 
@@ -231,7 +231,7 @@ Riceve i dati di registrazione dal client e li delega al \texttt{RegisterUserSer
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \texttt{register(payload: UserRegistrationSchema, service: RegisterUserServiceDep): AuthResponse} - metodo pubblico che gestisce la richiesta di registrazione.\\
+	\item \texttt{register(payload: UserRegistrationSchema, service: \newline RegisterUserServiceDep): AuthResponse} - metodo pubblico che gestisce la richiesta di registrazione.\\
 	Riceve i dati del nuovo utente tramite \texttt{payload}, invoca il service per completare la registrazione e restituisce una \texttt{AuthResponse} con l'esito dell'operazione.
 \end{itemize}
 
@@ -239,12 +239,12 @@ Riceve i dati di registrazione dal client e li delega al \texttt{RegisterUserSer
 \subsubsubsection{DeleteUserService}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Autenticazione/DeleteUserService}
+	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Autenticazione/DeleteUserService}
 	\caption{Autenticazione e Registrazione: DeleteUserService}
 \end{figure}
 
 \paragraph{Descrizione}
-\texttt{DeleteUserService} è il service applicativo responsabile dell'eliminazione di un account utente.\\
+È il service applicativo responsabile dell'eliminazione di un account utente.\\
 Recupera i dati dell'utente tramite \texttt{UserRepoPort} e ne richiede la cancellazione dal repository.
 
 \paragraph{Attributi}
