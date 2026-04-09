@@ -16,8 +16,6 @@ In particolare, puoi:
 	\item Accedere e gestire il tuo profilo personale
 \end{itemize}
 
-% TODO: inserire figura utente standard
-
 \subsubsection{Amministratore}
 
 L'\hyperlink{glossario:amministratore}{amministratore} ha accesso a funzionalit\`a dedicate al controllo e alla consultazione degli ordini.
@@ -30,8 +28,6 @@ In particolare, pu\`o:
 
 A differenza dell'\hyperlink{glossario:utente-standard}{utente standard}, l'\hyperlink{glossario:amministratore}{amministratore} non pu\`o registrarsi autonomamente: questo tipo di account viene creato direttamente dal sistema.
 
-% TODO: inserire figura amministratore
-
 Si precisa che la registrazione \`e disponibile solo per gli utenti standard. Non \`e possibile creare un account \hyperlink{glossario:amministratore}{amministratore} tramite l'applicazione.
 
 \subsection{Accesso al sistema (Autenticazione)}
@@ -40,31 +36,18 @@ Si precisa che la registrazione \`e disponibile solo per gli utenti standard. No
 
 Quando apri l'applicazione, vieni automaticamente portato alla schermata iniziale, da cui puoi accedere al sistema oppure creare un nuovo account.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{ManualeUtente/login}
-	\caption{Schermata iniziale di autenticazione}
-\end{figure}
-
 In questa schermata trovi due opzioni:
 \begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
-	\item Accedi, se hai gi\`a un account
-	\item Registrati, se vuoi crearne uno nuovo
+	\item \textbf{Accedi}, se hai gi\`a un account
+	\item \textbf{Registrati}, se vuoi crearne uno nuovo
 \end{itemize}
 
 Puoi passare facilmente da una modalit\`a all'altra direttamente dalla stessa pagina, senza dover cambiare schermata.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{ManualeUtente/registrazione}
-	\caption{Passaggio alla modalit\`a di registrazione}
-\end{figure}
-
 L'\hyperlink{glossario:interfaccia}{interfaccia} \`e semplice e immediata, cos\`i puoi scegliere rapidamente cosa fare.
 
 \subsubsection{Login (Accesso)}
 
-Se hai gi\`a un account, puoi accedere inserendo:
+Se hai gi\`a un account, puoi accedere selezionando la voce \vr{Accedi} nella schermata iniziale, inserendo nei campi corrispondenti le tue credenziali:
 \begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
 	\item Username
 	\item Password
@@ -72,18 +55,14 @@ Se hai gi\`a un account, puoi accedere inserendo:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{ManualeUtente/login}
-	\caption{Campi richiesti per il login}
+	\includegraphics[width=0.8\textwidth]{ManualeUtente/login_commentato}
+	\caption{Schermata di login}
 \end{figure}
 
 Dopo aver compilato i campi, premi il pulsante \vr{Accedi} per entrare nel sistema.\\
-Se i dati sono corretti, verrai reindirizzato automaticamente alla schermata principale.
+Se i dati sono corretti, verrai reindirizzato automaticamente alla schermata principale.\\
+Nel campo password \`e presente l’icona (1) che ti permette di mostrare o nascondere ci\`o che stai scrivendo, utile per evitare errori durante l'inserimento.
 
-% TODO: inserire figura schermata principale dopo login
-
-Nel campo password \`e presente un'icona che ti permette di mostrare o nascondere ci\`o che stai scrivendo, utile per evitare errori durante l'inserimento.
-
-% TODO: inserire figura icona mostra/nascondi password login
 
 \subsubsection{Gestione errori login}
 
@@ -103,7 +82,6 @@ Ad esempio:
 
 Inoltre, se provi ad accedere senza compilare tutti i campi richiesti, il sistema ti segnala che i dati sono incompleti e ti invita a completarli.
 
-% TODO: inserire figura errore campi mancanti nel login
 
 Questi controlli ti aiutano a capire subito cosa non va e a correggere rapidamente l'errore.
 
@@ -113,7 +91,7 @@ Se non hai ancora un account, puoi crearne uno selezionando la voce \vr{Registra
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{ManualeUtente/registrazione}
+	\includegraphics[height=0.6\textheight,keepaspectratio]{ManualeUtente/registrazione}
 	\caption{Schermata di registrazione}
 \end{figure}
 
@@ -125,72 +103,43 @@ Per completare la registrazione ti verr\`a chiesto di inserire:
 	\item Conferma password
 \end{itemize}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{ManualeUtente/registrazione}
-	\caption{Campi richiesti per la registrazione}
-\end{figure}
-
 Dopo aver compilato tutti i campi, premi il pulsante \vr{Registrati} per creare il tuo account.\\
 Se i dati inseriti sono corretti, la registrazione viene completata e potrai accedere al sistema.
 
-% TODO: inserire figura registrazione completata con successo
-
 Nei campi della password \`e presente un'icona che ti permette di visualizzare ci\`o che stai digitando, cos\`i da controllare pi\`u facilmente eventuali errori.
-
-% TODO: inserire figura icona mostra/nascondi password registrazione
 
 \subsubsection{Validazione dati registrazione}
 
 Durante la registrazione, il sistema controlla automaticamente che i dati inseriti siano corretti.\\
 Se qualcosa non va, viene mostrato un messaggio che ti aiuta a capire cosa correggere.
 
-\begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
-	\item \textbf{Campi obbligatori}: tutti i campi devono essere compilati. Se ne lasci qualcuno vuoto, il sistema ti segnala l'errore.
-\end{itemize}
-
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{ManualeUtente/registrazione_errore_form}
+	\includegraphics[height=0.6\textheight,keepaspectratio]{ManualeUtente/registrazione_errore_form}
 	\caption{Errori dovuti alla compilazione incompleta o non valida del form}
 \end{figure}
 
 \begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
-	\item \textbf{Requisiti della password}: la password deve rispettare alcune regole per garantire la sicurezza dell'account. Deve quindi:
+	\item \textbf{Campi obbligatori}: tutti i campi devono essere compilati. Se ne lasci qualcuno vuoto, il sistema ti segnala l'errore.
 \end{itemize}
 
 \begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
-	\item Avere una lunghezza tra 8 e 24 caratteri
-	\item Contenere almeno una lettera maiuscola
-	\item Contenere almeno una lettera minuscola
-	\item Contenere almeno un numero
-	\item Contenere almeno un carattere speciale
+	\item \textbf{Requisiti della password}: la password deve rispettare alcune regole per garantire la sicurezza dell'account. Deve quindi:
+	\begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
+		\item Avere una lunghezza tra 8 e 24 caratteri
+		\item Contenere almeno una lettera maiuscola
+		\item Contenere almeno una lettera minuscola
+		\item Contenere almeno un numero
+		\item Contenere almeno un carattere speciale
+	\end{itemize}
 \end{itemize}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{ManualeUtente/registrazione_errore_form}
-	\caption{Validazione dei requisiti della password}
-\end{figure}
 
 \begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
 	\item \textbf{Conferma password}: il campo di conferma deve coincidere con la password inserita. Se i due valori sono diversi, il sistema ti chieder\`a di correggerli.
 \end{itemize}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{ManualeUtente/registrazione_errore_form}
-	\caption{Errore nella conferma della password}
-\end{figure}
-
 \begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
 	\item \textbf{Username esistente}: se viene inserito uno username gi\`a esistente, il sistema mostra un messaggio di errore dedicato.
 \end{itemize}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{ManualeUtente/registrazione_username}
-	\caption{Errore di registrazione per username gi\`a esistente}
-\end{figure}
 
 Questi controlli ti guidano passo dopo passo nella compilazione, aiutandoti a creare un account valido senza errori.

@@ -4,25 +4,31 @@ La \hyperlink{glossario:chat}{chat} \`e il cuore di SmartOrder: \`e lo strumento
 Puoi scrivere in modo naturale, come se stessi parlando con un assistente, ad esempio chiedendo di aggiungere un prodotto, modificare una quantit\`a o rimuovere un articolo dal carrello.\\
 Il sistema interpreta la tua richiesta e aggiorna automaticamente l'ordine.
 
-% TODO: inserire figura panoramica della chat in uso
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{ManualeUtente/chat}
+	\caption{Area chat}
+\end{figure}
 
 \subsubsection{Inserimento messaggi}
 
 Per inviare un messaggio, utilizza il campo di \hyperlink{glossario:input}{input} situato nella parte inferiore della chat.
 
-% TODO: inserire figura campo di input della chat
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{ManualeUtente/chat_barra}
+	\caption{Barra di input della chat}
+\end{figure}
 
 Puoi scrivere messaggi fino a un massimo di 4096 caratteri.
 
 Per inviare il messaggio hai due possibilit\`a:
 \begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
 	\item Premere il tasto Invio sulla tastiera
-	\item Cliccare sul pulsante di invio
+	\item Cliccare sul pulsante di invio (1) accanto al campo di input
 \end{itemize}
 
 Se invece vuoi andare a capo senza inviare il messaggio, puoi usare la combinazione \texttt{Shift + Invio}.
-
-% TODO: inserire figura invio messaggio e ritorno a capo
 
 Una volta inviato, il messaggio viene subito visualizzato nella \hyperlink{glossario:chat}{chat} e il sistema inizia ad elaborarlo.
 
@@ -31,10 +37,8 @@ Una volta inviato, il messaggio viene subito visualizzato nella \hyperlink{gloss
 Oltre \hyperlink{glossario:ai}{ai} messaggi di testo, puoi interagire con la \hyperlink{glossario:chat}{chat} anche utilizzando la voce.
 
 \begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
-	\item \textbf{Invio di file audio}: puoi allegare un file audio cliccando sull'apposita icona nel campo di input. Il sistema analizzer\`a il contenuto e lo convertir\`a automaticamente in una richiesta testuale.
+	\item \textbf{Invio di file audio}: puoi allegare un file audio cliccando sull'apposita icona (2) nel campo di input. Il sistema analizzer\`a il contenuto e lo convertir\`a automaticamente in una richiesta testuale.
 \end{itemize}
-
-% TODO: inserire figura allegato file audio
 
 I file supportati devono:
 \begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
@@ -46,10 +50,8 @@ I file supportati devono:
 Se il file non rispetta questi requisiti, ad esempio per formato non valido o dimensione eccessiva, il sistema mostrer\`a un messaggio di errore e l'\hyperlink{glossario:upload}{upload} non verr\`a completato.
 
 \begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
-	\item \textbf{\hyperlink{glossario:input-vocale}{Input vocale} (microfono)}: in alternativa, puoi registrare direttamente un messaggio vocale utilizzando il microfono.
+	\item \textbf{\hyperlink{glossario:input-vocale}{Input vocale} (microfono)}: in alternativa, puoi registrare direttamente un messaggio vocale cliccando sull'icona del microfono (3).
 \end{itemize}
-
-% TODO: inserire figura registrazione tramite microfono
 
 Il sistema trascrive automaticamente ci\`o che dici e lo utilizza come messaggio nella chat.\\
 Anche in questo caso, la registrazione ha una durata massima di 2 minuti.
@@ -66,13 +68,9 @@ Le risposte possono essere di diverso tipo:
 	\item \textbf{Conferme operative}: il sistema ti conferma le azioni eseguite, ad esempio quando un prodotto viene aggiunto o quando la quantit\`a viene aggiornata.
 \end{itemize}
 
-% TODO: inserire figura conferma operativa
-
 \begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
 	\item \textbf{Suggerimenti di prodotti}: se la richiesta \`e generica, ad esempio \vr{acqua}, il sistema ti propone una lista di prodotti tra cui scegliere.
 \end{itemize}
-
-% TODO: inserire figura suggerimenti di prodotti
 
 \begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
 	\item \textbf{Richieste di chiarimento}: se il messaggio non \`e abbastanza preciso, il sistema ti chiede di specificare meglio cosa intendi, guidandoti nella scelta.
@@ -87,8 +85,6 @@ Grazie a queste risposte, la \hyperlink{glossario:chat}{chat} ti accompagna pass
 \subsubsection{Stato del sistema}
 
 Dopo aver inviato un messaggio, potresti notare un indicatore di caricamento nella chat.
-
-% TODO: inserire figura indicatore di caricamento nella chat
 
 Questo significa che il sistema sta elaborando la tua richiesta.\\
 Una volta completata l'elaborazione, l'indicatore scompare e viene mostrata la risposta.

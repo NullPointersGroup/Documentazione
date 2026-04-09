@@ -37,7 +37,11 @@ Per permettere al sistema di generare le risposte della \hyperlink{glossario:cha
 \end{itemize}
 
 \subsection{Generare una SECRET\_KEY}
-
+Assicurati di avere Python installato sul tuo computer. \\
+In caso contrario, puoi scaricarlo dal sito ufficiale:
+\begin{center}
+	\url{https://www.python.org/downloads/}
+\end{center}
 Apri il terminale ed esegui il seguente comando:
 \begin{lstlisting}[style=pseudocodice]
 	python -c "import secrets; print(secrets.token_hex(32))"
@@ -57,11 +61,11 @@ POSTGRES_HOST=db
 POSTGRES_PORT=5432
 DATABASE_URL=postgresql://user:password@db:5432/mydb
 OPENAI_API_KEY=LA_TUA_API_KEY
-SECRET_KEY=
+SECRET_KEY=LA_TUA_CHIAVE_SEGRETA_GENERATA
 VITE_API_BASE_URL=http://backend:8000
 \end{lstlisting}
 
-Sostituisci \texttt{LA\_TUA\_API\_KEY} con la chiave generata nel passaggio 3.2 e sostituisci \texttt{LA\_TUA\_CHIAVE\_GENERATA} con la stringa generata nel passaggio 3.3.
+Sostituisci \texttt{LA\_TUA\_API\_KEY} con la chiave generata nel passaggio 3.2 e sostituisci \texttt{LA\_TUA\_CHIAVE\_SEGRETA\_GENERATA} con la stringa generata nel passaggio 3.3.
 
 \subsection{Avviare l'applicazione}
 
@@ -88,7 +92,7 @@ cd il/proprio/percorso/SmartOrder
 \end{itemize}
 
 \begin{lstlisting}[style=pseudocodice]
-docker-compose up --build
+docker compose up --build
 \end{lstlisting}
 
 \subsection{Accesso al sistema}
@@ -105,5 +109,5 @@ http://localhost:5173
 Se hai bisogno di riavviare completamente il sistema e rimuovere i dati salvati, esegui il seguente comando nella cartella del progetto:
 
 \begin{lstlisting}[style=pseudocodice]
-docker-compose down -v
+docker compose down -v
 \end{lstlisting}
