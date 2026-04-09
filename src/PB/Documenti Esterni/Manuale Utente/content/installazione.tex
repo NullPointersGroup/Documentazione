@@ -5,35 +5,42 @@ Si consiglia di seguire i passaggi nell'ordine indicato per evitare errori duran
 
 \subsection{Clonare la repository}
 
-Per ottenere il progetto puoi scegliere una delle seguenti modalit\`a:
+Il link dal quale puoi reperire il progetto è:
+\begin{center}
+	\url{https://github.com/NullPointersGroup/SmartOrder}
+\end{center}
 
-\textbf{Download manuale}\\
-Dalla pagina ufficiale del progetto \`e possibile scaricare la cartella in formato \texttt{.zip}.\\
-Una volta scaricata, decomprimila in una posizione a tua scelta.
+Per ottenere il progetto puoi scegliere una delle seguenti modalità:
 
-\textbf{Clonazione tramite \hyperlink{glossario:git}{Git}}\\
-Se hai \hyperlink{glossario:git}{Git} installato, puoi clonare la \hyperlink{glossario:repository}{repository} direttamente da terminale:
-
-\begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
-	\item Apri il prompt dei comandi
-	\item Spostati nella cartella desiderata
-	\item Esegui il comando seguente
-\end{itemize}
-
-\begin{lstlisting}[style=pseudocodice]
-git clone https://github.com/NullPointersGroup/SmartOrder.git
-\end{lstlisting}
+\begin{enumerate}
+	\item \textbf{Download manuale}\\
+	Dalla pagina ufficiale del progetto è possibile scaricare la cartella in formato \textit{.zip}.\\
+	Una volta scaricata, decomprimila in una posizione a tua scelta.
+	
+	\item \textbf{Clonazione tramite \hyperlink{glossario:git}{Git}}\\
+	Se hai \hyperlink{glossario:git}{Git} installato, puoi clonare la \hyperlink{glossario:repository}{repository} direttamente da terminale:
+	
+	\begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
+		\item Apri il prompt dei comandi
+		\item Spostati nella cartella desiderata
+		\item Esegui il comando seguente
+	\end{itemize}
+	
+	\begin{lstlisting}[style=pseudocodice]
+		git clone https://github.com/NullPointersGroup/SmartOrder.git
+	\end{lstlisting}
+\end{enumerate}
 
 \subsection{Creare una API Key OpenAI}
 
-Per permettere al sistema di generare le risposte della \hyperlink{glossario:chat}{chat}, \`e necessario disporre di una \hyperlink{glossario:api-key}{API Key} OpenAI.
+Per permettere al sistema di generare le risposte della \hyperlink{glossario:chat}{chat}, è necessario disporre di una \hyperlink{glossario:api-key}{API Key} OpenAI.
 
 \begin{itemize}[itemsep=5pt, parsep=5pt, label=$\scriptstyle\bullet$]
 	\item Vai su \url{https://platform.openai.com}
 	\item Accedi o registrati
 	\item Vai nella sezione \vr{API Keys}
 	\item Clicca su \vr{Create new secret key}
-	\item Copia la chiave generata e conservala: ti servir\`a nel passaggio successivo
+	\item Copia la chiave generata e conservala: ti servirà nel passaggio successivo
 \end{itemize}
 
 \subsection{Generare una SECRET\_KEY}
