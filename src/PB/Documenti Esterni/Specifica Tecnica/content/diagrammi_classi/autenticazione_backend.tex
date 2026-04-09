@@ -14,17 +14,17 @@
 	\caption{Autenticazione e Registrazione: UserService}
 \end{figure}
 
-\subsubsubsubsection{Descrizione}
+\paragraph{Descrizione}
 \texttt{UserService} è il servizio applicativo che orchestra i casi d'uso di autenticazione e registrazione.\\
 Implementa la logica di business orchestrando i servizi di persistenza (\texttt{IUserRepoPort}) e di validazione$^G$ email (\texttt{IEmailValidationPort}), lanciando eccezioni mirate quando vengono violate le regole applicative.
 
-\subsubsubsubsection{Attributi}
+\paragraph{Attributi}
 \begin{itemize}
 	\item \texttt{repo: IUserRepoPort} - porta secondaria verso la persistenza degli utenti; iniettata tramite costruttore.
 	\item \texttt{email\_validator: IEmailValidationPort} - porta secondaria verso la validazione$^G$ DNS del dominio email; iniettata tramite costruttore.
 \end{itemize}
 
-\subsubsubsubsection{Metodi e funzioni}
+\paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \texttt{\_\_init\_\_(repo: IUserRepository, email\_validator: IEmailValidationPort)} - costruttore che riceve le due porte secondarie per dependency injection.
 	\item \texttt{check\_user(u: Utente) -> string} - verifica$^G$ le credenziali di un utente: recupera l'utente dal repository$^G$ tramite username e controlla la password con \texttt{PasswordUtility} restituendo lo username autenticato. Solleva \newline \texttt{InvalidCredentialsError} se l'utente non esiste o la password non corrisponde.
@@ -41,14 +41,14 @@ Implementa la logica di business orchestrando i servizi di persistenza (\texttt{
 	\caption{Autenticazione e Registrazione: AuthRouter}
 \end{figure}
 
-\subsubsubsubsection{Descrizione}
+\paragraph{Descrizione}
 \texttt{AuthRouter} è il modulo FastAPI che espone gli endpoint REST$^G$ del dominio autenticazione sotto il prefisso \texttt{/auth}.\\
 Non è una classe nel senso stretto, ma un insieme di route handler e funzioni di dipendenza che traducono le richieste HTTP in chiamate al \texttt{UserService}, gestendo la serializzazione dei payload e la conversione delle eccezioni dominio in risposte HTTP appropriate.
 
-\subsubsubsubsection{Attributi}
+\paragraph{Attributi}
 Il modulo non definisce una classe e pertanto non possiede attributi di istanza.\\
 La variabile \texttt{router: APIRouter} è definita a livello di modulo e funge da  punto di registrazione degli endpoint.
-\subsubsubsubsection{Metodi e funzioni}
+\paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \texttt{get\_user\_service(db$^G$: Session) -> UserService} - funzione di dipendenza FastAPI che istanzia \texttt{UserService} iniettando \texttt{UserRepoAdapter} e \texttt{EmailValidationAdapter}; riceve la sessione database$^G$ tramite \texttt{get\_conn}.
 	\item \texttt{login(payload: UserSchema) -> LoginResponse} - handler \newline \texttt{POST /auth/login}; riceve un payload \texttt{UserSchema} contenente username e password, e delega la verifica$^G$ a \texttt{UserService.check\_user}. In caso di successo genera e restituisce un \texttt{LoginResponse} contenente il JWT prodotto da \texttt{TokenUtility.create\_token}; in caso di \texttt{InvalidCredentialsError} risponde con \texttt{HTTP 400}.
@@ -66,11 +66,11 @@ La variabile \texttt{router: APIRouter} è definita a livello di modulo e funge 
 	\caption{Autenticazione e Registrazione: TokenUtility}
 \end{figure}
 
-\subsubsubsubsection{Descrizione}
+\paragraph{Descrizione}
 \texttt{TokenUtility} è una classe di utilità che fornisce metodi statici per la generazione e la verifica$^G$ dei JWT.\\
 Utilizza la libreria \texttt{python-jose} con algoritmo \texttt{HS256} e una chiave segreta letta dalla variabile d'ambiente \texttt{SECRET\_KEY}.
 
-\subsubsubsubsection{Attributi}
+\paragraph{Attributi}
 \texttt{TokenUtility} non possiede attributi di istanza.\\
 Sono definite le seguenti costanti a livello di modulo:
 \begin{itemize}
@@ -79,7 +79,7 @@ Sono definite le seguenti costanti a livello di modulo:
 	\item \texttt{TOKEN\_EXPIRY\_HOURS: int} - durata del token$^G$ in ore, impostata a \texttt{24}.
 \end{itemize}
 
-\subsubsubsubsection{Metodi e funzioni}
+\paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \texttt{create\_token(username: str) -> str} - genera un JWT firmato con payload contenente lo username nel campo \texttt{sub} e la scadenza calcolata a partire dal momento corrente. Restituisce il token$^G$ come stringa.
 	\item \texttt{decode\_token(token$^G$: str) -> str | None} - decodifica e verifica$^G$ un JWT; restituisce lo username contenuto nel campo \texttt{sub} se il token$^G$ è valido e non scaduto, \texttt{None} altrimenti.
@@ -93,14 +93,14 @@ Sono definite le seguenti costanti a livello di modulo:
 	\caption{Autenticazione e Registrazione: IEmailValidationPort}
 \end{figure}
 
-\subsubsubsubsection{Descrizione}
+\paragraph{Descrizione}
 \texttt{IEmailValidationPort} è una porta secondaria dell'architettura esagonale$^G$ che definisce il contratto per la validazione$^G$ del dominio email.\\
 È una classe astratta Python$^G$ che disaccoppia il dominio applicativo dalla concreta implementazione della validazione$^G$, permettendo di sostituire o simulare l'adapter in fase di test.
 
-\subsubsubsubsection{Attributi}
+\paragraph{Attributi}
 \texttt{IEmailValidationPort} non possiede attributi.
 
-\subsubsubsubsection{Metodi e funzioni}
+\paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \texttt{domain\_exists(email: str) -> bool} - metodo astratto che verifica$^G$ l'esistenza del dominio dell'email fornita. L'implementazione concreta è demandata all'adapter \texttt{EmailValidationAdapter}.
 \end{itemize}
@@ -113,14 +113,14 @@ Sono definite le seguenti costanti a livello di modulo:
 	\caption{Autenticazione e Registrazione: EmailValidationAdapter}
 \end{figure}
 
-\subsubsubsubsection{Descrizione}
+\paragraph{Descrizione}
 \texttt{EmailValidationAdapter} è l'implementazione concreta di \texttt{IEmailValidationPort}.\\
 Effettua la validazione$^G$ del dominio email tramite una query$^G$ DNS di tipo \texttt{MX}, verificando che il dominio sia effettivamente in grado di ricevere posta elettronica.
 
-\subsubsubsubsection{Attributi}
+\paragraph{Attributi}
 \texttt{EmailValidationAdapter} non possiede attributi.
 
-\subsubsubsubsection{Metodi e funzioni}
+\paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \texttt{domain\_exists(email: str) -> bool} - implementazione concreta del metodo astratto definito in \texttt{IEmailValidationPort}. Estrae il dominio dall'email e tenta di risolvere il relativo record \texttt{MX} tramite la libreria \texttt{dnspython}, con un timeout di 3 secondi. Restituisce \texttt{True} se il record esiste, \texttt{False} in caso di qualsiasi eccezione.
 \end{itemize}
@@ -133,14 +133,14 @@ Effettua la validazione$^G$ del dominio email tramite una query$^G$ DNS di tipo 
 	\caption{Autenticazione e Registrazione: IUserRepoPort}
 \end{figure}
 
-\subsubsubsubsection{Descrizione}
+\paragraph{Descrizione}
 \texttt{IUserRepoPort} è una porta secondaria dell'architettura esagonale$^G$ che definisce il contratto per la persistenza degli utenti.\\
 È una classe astratta Python$^G$ che disaccoppia il dominio applicativo dalla concreta implementazione del repository$^G$, permettendo di sostituire o simulare l'adapter in fase di test.
 
-\subsubsubsubsection{Attributi}
+\paragraph{Attributi}
 \texttt{IUserRepoPort} non possiede attributi.
 
-\subsubsubsubsection{Metodi e funzioni}
+\paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \texttt{find\_by\_username(username: str) -> Utente} - metodo astratto che recupera un utente dal sistema di persistenza tramite username; restituisce \texttt{None} se non trovato.
 	\item \texttt{username\_exists(username: str) -> bool} - metodo astratto che verifica$^G$ se uno username è già presente nel sistema di persistenza.
@@ -158,16 +158,16 @@ Effettua la validazione$^G$ del dominio email tramite una query$^G$ DNS di tipo 
 	\caption{Autenticazione e Registrazione: UserRepoAdapter}
 \end{figure}
 
-\subsubsubsubsection{Descrizione}
+\paragraph{Descrizione}
 \texttt{UserRepoAdapter} è l'implementazione concreta di \texttt{IUserRepoPort}.\\
 Funge da adapter verso il livello di persistenza, delegando tutte le operazioni a \texttt{UserRepository} che gestisce l'interazione con il database$^G$ tramite SQLModel.
 
-\subsubsubsubsection{Attributi}
+\paragraph{Attributi}
 \begin{itemize}
 	\item \texttt{repo: UserRepository} - istanza del repository$^G$ concreto, inizializzata nel costruttore con la sessione database$^G$ ricevuta.
 \end{itemize}
 
-\subsubsubsubsection{Metodi e funzioni}
+\paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \texttt{\_\_init\_\_(db$^G$: Session) -> None} - costruttore che riceve la sessione database$^G$ e istanzia \texttt{UserRepository}.
 	\item \texttt{find\_by\_username(username: str) -> Utente | None} - implementazione concreta che delega la ricerca per username a \texttt{UserRepository.find\_by\_username}.
@@ -185,16 +185,16 @@ Funge da adapter verso il livello di persistenza, delegando tutte le operazioni 
 	\caption{Autenticazione e Registrazione: UserRepository}
 \end{figure}
 
-\subsubsubsubsection{Descrizione}
+\paragraph{Descrizione}
 \texttt{UserRepository} è il repository$^G$ concreto che gestisce le operazioni di persistenza sugli utenti.\\
 Traduce le operazioni di dominio in query$^G$ SQL$^G$ tramite \texttt{QueryExecutor}, utilizzando SQLModel e SQLAlchemy Core per costruire ed eseguire le istruzioni.
 
-\subsubsubsubsection{Attributi}
+\paragraph{Attributi}
 \begin{itemize}
 	\item \texttt{executor: QueryExecutor} - istanza del query$^G$ executor, inizializzata nel costruttore con la sessione database$^G$ ricevuta.
 \end{itemize}
 
-\subsubsubsubsection{Metodi e funzioni}
+\paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \texttt{\_\_init\_\_(db$^G$: Session) -> None} - costruttore che riceve la sessione database$^G$ e istanzia \texttt{QueryExecutor}.
 	\item \texttt{find\_by\_username(username: str) -> Utente} - recupera un utente dal database$^G$ tramite username usando una \texttt{SELECT} con filtro su \texttt{Utente.username}; restituisce \texttt{None} se non trovato.
@@ -212,14 +212,14 @@ Traduce le operazioni di dominio in query$^G$ SQL$^G$ tramite \texttt{QueryExecu
 	\caption{Autenticazione e Registrazione: PasswordUtility}
 \end{figure}
 
-\subsubsubsubsection{Descrizione}
+\paragraph{Descrizione}
 \texttt{PasswordUtility} è una classe di utilità che fornisce metodi statici per l'hashing e la verifica$^G$ delle password tramite la libreria \texttt{bcrypt}.\\
 Non mantiene stato interno e viene utilizzata da \texttt{UserRepository} in fase di registrazione e da \texttt{UserService} in fase di autenticazione.
 
-\subsubsubsubsection{Attributi}
+\paragraph{Attributi}
 \texttt{PasswordUtility} non possiede attributi di istanza.
 
-\subsubsubsubsection{Metodi e funzioni}
+\paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \texttt{hash\_password(password: str) -> str} - genera l'hash bcrypt della password in chiaro tramite \texttt{bcrypt.hashpw} con salt casuale; restituisce l'hash come stringa.
 	\item \texttt{verify\_password(plain: str, hashed: str) -> bool} - verifica$^G$ che la password in chiaro corrisponda all'hash salvato nel database$^G$ tramite \texttt{bcrypt.checkpw}; restituisce \texttt{False} direttamente se \texttt{hashed} è \texttt{None}.

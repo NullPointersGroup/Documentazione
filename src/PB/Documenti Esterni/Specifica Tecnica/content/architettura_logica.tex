@@ -27,14 +27,14 @@ I principali elementi dell'architettura esagonale$^G$ sono:\\
 	\item Autenticazione e registrazione
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{SpecificaTecnica/auth}
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/auth}
 	\caption{Registrazione e autenticazione}
 \end{figure}
 	\begin{itemize}
 		\item \textbf{Core domain}: contiene la logica dedicata alla registrazione di un utente nuovo oppure all'autenticazione di un utente già esistente. Permette di elaborare i dati ricevuti tramite l'inserimento dei dati dell'utente.
-		\item \textbf{Inbound ports}: l’applicazione espone un unico punto di ingresso tramite FastAPI Router, che funge da inbound port. Non sono stati definiti ulteriori livelli di astrazione (es. interfacce dedicate), poiché l’HTTP driver è già sufficiente.
-		\item \textbf{Outbound ports}: definiscono i contratti verso l'infrastruttura esterna. \texttt{IUserRepoPort} espone le operazioni di persistenza sugli utenti, mentre \texttt{IEmailValidationPort} espone la verifica$^G$ del dominio email tramite DNS. Entrambe le interfacce sono definite nel core domain e implementate da adapter dedicati.
-		\item \textbf{Adapters}: implementano l’integrazione con servizi esterni, tra cui la persistenza su database$^G$ (UserRepo), la validazione$^G$ email, la gestione delle password e la generazione dei token.
+        \item \textbf{Inbound ports}: l’applicazione espone un unico punto di ingresso tramite FastAPI Router, che funge da inbound port. Non sono stati definiti ulteriori livelli di astrazione, poiché l’HTTP driver è sufficiente.
+        \item \textbf{Outbound ports}: definiscono i contratti verso l'infrastruttura esterna. \texttt{UserRepoPort} espone le operazioni di persistenza sugli utenti, mentre \texttt{EmailValidationPort} espone la verifica$^G$ del dominio email tramite DNS. Entrambe le interfacce sono definite nel core domain e implementate da adapter dedicati.
+        \item \textbf{Adapters}: implementano l’integrazione con servizi esterni: \texttt{UserAdapter} (gestione password/token), \texttt{UserRepoAdapter} (persistenza su database$^G$), \texttt{EmailValidationAdapter} (validazione$^G$ email).
 	\end{itemize}
 	\item Chatbot e gestione ordine
 	\begin{itemize}
