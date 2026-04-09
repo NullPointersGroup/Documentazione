@@ -1,1 +1,184 @@
 \subsubsection{Frontend}
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Storico/StoricoFrontend}
+	\caption{Diagramma delle classi per Storico Ordini: Frontend}
+\end{figure}
+
+\subsubsubsection{StoricoView}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/StoricoView}
+	\caption{Storico Ordini: StoricoView}
+\end{figure}
+
+\paragraph{Descrizione}
+Componente React che rappresenta la pagina dello storico degli ordini. \\
+Recupera i dati tramite \texttt{useStoricoViewModel} e gestisce la visualizzazione della lista degli ordini con supporto alla paginazione e al filtraggio per data. \\
+Se l'utente è amministratore, vengono mostrati gli ordini di tutti i clienti. \\
+Utilizza i componenti \texttt{ComponentOrdineRow}, \texttt{ComponentDettaglioModal} e \texttt{ComponentPaginazione}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \texttt{profileOpen: boolean} — indica se il pannello profilo utente è aperto.
+	\item \texttt{filtroAperto: boolean} — indica se il pannello di filtraggio per data è aperto.
+	\item \texttt{dataInizio: string} — data di inizio del filtro nel formato \texttt{YYYY-MM-DD}.
+	\item \texttt{dataFine: string} — data di fine del filtro nel formato \texttt{YYYY-MM-DD}.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \texttt{handleLogout(): void} — esegue il logout dell'utente chiamando l'endpoint \texttt{/api/auth/logout} e reindirizza alla pagina principale.
+	\item \texttt{handleProfile(): void} — apre il pannello del profilo utente impostando \texttt{profileOpen} a \texttt{true}.
+	\item \texttt{resetFiltro(): void} — azzera i campi \texttt{dataInizio} e \texttt{dataFine} e ricarica la prima pagina senza filtri.
+	\item \texttt{ordiniFiltrati: Ordine[]} — restituisce la lista degli ordini filtrata in base alle date \texttt{dataInizio} e \texttt{dataFine} correntemente impostate.
+\end{itemize}
+
+\subsubsubsection{ComponentPaginazione}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/ComponentPaginazione}
+	\caption{Storico Ordini: ComponentPaginazione}
+\end{figure}
+
+\paragraph{Descrizione}
+Componente React che renderizza i controlli di paginazione per la lista degli ordini.\\
+Riceve la pagina corrente, il numero totale di pagine e una callback per il cambio pagina.\\
+Non viene renderizzato se il numero totale di pagine è inferiore o uguale a uno.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textit{pagina: number} — indice della pagina correntemente visualizzata.
+	\item \textit{totalePagine: number} — numero totale di pagine disponibili.
+	\item \textit{onCambia: (n: number) => void} — callback invocata al cambio di pagina, riceve il numero della pagina richiesta.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item Il componente non espone metodi propri.\\
+	La navigazione tra le pagine è gestita interamente tramite la callback \textit{onCambia}, invocata con \textit{pagina~-~1} o \textit{pagina~+~1} alla pressione dei pulsanti \textit{Precedente} e \textit{Successivo} rispettivamente.\\
+	I pulsanti vengono disabilitati automaticamente quando ci si trova alla prima o all'ultima pagina.
+\end{itemize}
+
+\subsubsubsection{ComponentDettaglioModal}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/ComponentDettaglioModal}
+	\caption{Storico Ordini: ComponentDettaglioModal}
+\end{figure}
+
+\paragraph{Descrizione}
+Componente React che renderizza una finestra modale con il dettaglio di un ordine selezionato.\\
+Mostra il codice ordine, la data, la lista dei prodotti con le rispettive quantità e, se l'utente è amministratore, il nome del cliente.\\
+Per gli utenti non amministratori è presente un pulsante per duplicare l'ordine, con relativa richiesta di conferma.\\
+La modale si chiude cliccando sul backdrop o sul pulsante di chiusura.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textit{ordine: Ordine} — oggetto contenente i dati dell'ordine da visualizzare.
+	\item \textit{isAdmin: boolean} — indica se l'utente corrente è un amministratore.
+	\item \textit{onChiudi: () => void} — callback invocata alla chiusura della modale.
+	\item \textit{onDuplica: (codice: string) => void} — callback invocata alla conferma della duplicazione dell'ordine.
+	\item \textit{erroreDuplica: string | null} — messaggio di errore da mostrare in caso di duplicazione fallita.
+	\item \textit{onRefresh: () => void} — callback invocata dopo una duplicazione avvenuta con successo per aggiornare la lista.
+	\item \textit{confermaDuplica: boolean} — indica se è in corso la richiesta di conferma della duplicazione.
+	\item \textit{duplicatoOk: boolean} — indica se la duplicazione è avvenuta con successo.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textit{handleBackdropClick(): void} — chiude la modale quando l'utente clicca sul backdrop.
+	\item \textit{contenutoDuplica(): ReactNode} — restituisce il contenuto della sezione duplicazione in base allo stato corrente: il pulsante iniziale, la richiesta di conferma oppure il messaggio di successo.
+\end{itemize}
+
+\subsubsubsection{ComponentOrdineRow}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/ComponentOrdineRow}
+	\caption{Storico Ordini: ComponentOrdineRow}
+\end{figure}
+
+\paragraph{Descrizione}
+Componente React che renderizza una singola riga della tabella degli ordini.\\
+Mostra il codice ordine, la data, il numero di prodotti e un pulsante per aprire il dettaglio.\\
+Se l'utente è amministratore, viene mostrata anche la colonna con il nome del cliente.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textit{ordine: Ordine} — oggetto contenente i dati dell'ordine da visualizzare.
+	\item \textit{isAdmin: boolean} — indica se l'utente corrente è un amministratore.
+	\item \textit{onApriDettaglio: (o: Ordine) => void} — callback invocata alla pressione del pulsante di dettaglio, riceve l'ordine selezionato.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item Il componente non espone metodi propri.\\
+	L'unica interazione è il pulsante \textit{Dettaglio}, che invoca la callback \textit{onApriDettaglio} passando l'ordine corrente.
+\end{itemize}
+
+\subsubsubsection{StoricoViewModel}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/StoricoViewModel}
+	\caption{Storico Ordini: StoricoViewModel}
+\end{figure}
+
+\paragraph{Descrizione}
+Hook React che funge da ViewModel per la gestione dello storico ordini.\\
+Espone stato e azioni per caricare, visualizzare e duplicare ordini, adattando il comportamento al ruolo dell'utente autenticato.\\
+Interagisce con \textit{StoricoModel} per il recupero e la duplicazione dei dati tramite le funzioni \textit{getStoricoCliente}, \textit{getStoricoAdmin} e \textit{duplicaOrdine}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textit{ordini: Ordine[]} — lista degli ordini della pagina corrente.
+	\item \textit{pagina: number} — numero della pagina attualmente visualizzata.
+	\item \textit{totalePagine: number} — numero totale di pagine disponibili.
+	\item \textit{ordineScelto: Ordine | null} — ordine selezionato per il dettaglio, \textit{null} se nessuno è selezionato.
+	\item \textit{loading: boolean} — indica se è in corso il caricamento degli ordini.
+	\item \textit{errore: string | null} — messaggio di errore del caricamento, \textit{null} se assente.
+	\item \textit{erroreDuplica: string | null} — messaggio di errore della duplicazione, \textit{null} se assente.
+	\item \textit{dataInizio: string} — data di inizio del filtro correntemente applicato.
+	\item \textit{dataFine: string} — data di fine del filtro correntemente applicato.
+	\item \textit{isAdmin: boolean} — indica se l'utente autenticato ha ruolo amministratore.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textit{caricaPagina(n: number, di?: string, df?: string): Promise<void>} — carica la pagina \textit{n} degli ordini applicando opzionalmente i filtri per data di inizio e di fine.\\
+	Invoca \textit{getStoricoAdmin} o \textit{getStoricoCliente} in base al ruolo dell'utente.
+	\item \textit{apriDettaglio(ordine: Ordine): void} — imposta \textit{ordineScelto} con l'ordine ricevuto, aprendo il dettaglio.
+	\item \textit{chiudiDettaglio(): void} — reimposta \textit{ordineScelto} a \textit{null}, chiudendo il dettaglio.
+	\item \textit{duplicaOrdine(codice: string): Promise<void>} — richiede la duplicazione dell'ordine identificato da \textit{codice} tramite \textit{apiDuplicaOrdine}.\\
+	In caso di errore aggiorna \textit{erroreDuplica} con il relativo messaggio.
+\end{itemize}
+
+\subsubsubsection{StoricoModel}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/StoricoModel}
+	\caption{Storico Ordini: StoricoModel}
+\end{figure}
+
+\paragraph{Descrizione}
+File TypeScript che definisce le interfacce dati e le funzioni di accesso alle API per lo storico ordini.\\
+Espone i tipi \textit{Ordine}, \textit{Prodotto} e \textit{StoricoPage} utilizzati internamente dai componenti, e i tipi \textit{OrdineSchema}, \textit{ProdottoSchema} e \textit{StoricoPageSchema} che rispecchiano il formato restituito dal backend.\\
+Le funzioni di accesso alle API gestiscono i parametri di paginazione e filtraggio per data.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textit{Prodotto} — interfaccia che rappresenta un prodotto all'interno di un ordine, con campi \textit{nome}, \textit{descrizione} e \textit{quantita}.
+	\item \textit{Ordine} — interfaccia che rappresenta un ordine, con campi \textit{codice\_ordine}, \textit{numero\_ordine}, \textit{data}, \textit{username} opzionale e lista di \textit{Prodotto}.
+	\item \textit{StoricoPage} — interfaccia che rappresenta una pagina di risultati, con campi \textit{ordini}, \textit{pagina\_corrente} e \textit{totale\_pagine}.
+	\item \textit{ProdottoSchema} — interfaccia che rispecchia il formato prodotto restituito dal backend, con campi \textit{nome} e \textit{quantita}.
+	\item \textit{OrdineSchema} — interfaccia che rispecchia il formato ordine restituito dal backend, con campi \textit{codice\_ordine}, \textit{data}, \textit{prodotti} e \textit{cliente} opzionale.
+	\item \textit{StoricoPageSchema} — interfaccia che rispecchia il formato pagina restituito dal backend, con campi \textit{ordini}, \textit{pagina\_corrente} e \textit{totale\_pagine}.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textit{getStoricoCliente(pagina: number, perPagina: number, dataInizio?: string, dataFine?: string): Promise<StoricoPageSchema>} — recupera lo storico ordini dell'utente autenticato tramite \textit{GET /api/storico/miei}, applicando opzionalmente i filtri per data.
+	\item \textit{getStoricoAdmin(pagina: number, perPagina: number, dataInizio?: string, dataFine?: string): Promise<StoricoPageSchema>} — recupera lo storico ordini di tutti gli utenti tramite \textit{GET /api/storico/tutti}, applicando opzionalmente i filtri per data.
+	\item \textit{duplicaOrdine(codiceOrdine: string): Promise<void>} — duplica un ordine esistente tramite \textit{POST /api/storico/duplica/\{codiceOrdine\}}.\\
+	In caso di risposta non positiva lancia un errore con il messaggio restituito dal backend.
+\end{itemize}
