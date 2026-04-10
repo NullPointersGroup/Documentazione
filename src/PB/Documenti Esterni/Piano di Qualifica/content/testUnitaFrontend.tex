@@ -32,7 +32,7 @@
 	TU-F\_19 & Verifica$^G$ che \vr{register} restituisca un errore generico quando riceve \vr{500} senza \vr{detail} & S \\ \hline
 	TU-F\_20 & Verifica$^G$ che \vr{register} restituisca "Errore di rete" se \vr{fetch} lancia un'eccezione & S \\ \hline
 	TU-F\_21 & Verifica$^G$ che \vr{register} non restituisca alcun \vr{token$^G$} in caso di errore & S \\ \hline
-	TU-F\_22 & Verifica$^G$ che in \vr{AuthPage} un login con successo chiami \vr{/auth/me}, esegua \vr{setAuth} con username e navighi a \vr{/home} & S \\ \hline
+	TU-F\_22 & Verifica$^G$ che in \vr{AuthPage} onLogin ok chiama initAuth e naviga a \vr{/home} & S \\ \hline
 	TU-F\_23 & Verifica$^G$ che in \vr{AuthPage} un login fallito non esegua la navigazione & S \\ \hline
 	TU-F\_24 & Verifica$^G$ che in \vr{AuthPage} una registrazione con successo torni al tab di login & S \\ \hline
 	TU-F\_25 & Verifica$^G$ che lo stato iniziale di \vr{authStore} abbia \vr{username} uguale a \vr{null} & S \\ \hline
@@ -153,8 +153,8 @@
 	TU-F\_140 & Verifica$^G$ che \vr{ChatArea} mostri l'hint per la shortcut Shift+Invio & S \\ \hline
 	TU-F\_141 & Verifica$^G$ che \vr{ChatModel.getMe} ritorni lo username in caso di successo & S \\ \hline
 	TU-F\_142 & Verifica$^G$ che \vr{ChatModel.getMe} chiami \vr{/auth/me} con \vr{credentials: 'include'} & S \\ \hline
-	TU-F\_143 & Verifica$^G$ che \vr{ChatModel.getMe} lanci un errore HTTP in caso di risposta non ok & S \\ \hline
-	TU-F\_144 & Verifica$^G$ che \vr{ChatModel.getMe} lanci un errore generico se non c'è \vr{detail} & S \\ \hline
+	TU-F\_143 & Verifica$^G$ che aggiorna lo store a null se la risposta non è ok con detail & S \\ \hline
+	TU-F\_144 & Verifica$^G$ che aggiorna lo store a null se la risposta non è ok senza detail & S \\ \hline
 	TU-F\_145 & Verifica$^G$ che \vr{ChatModel.logout} chiami \vr{/auth/logout} con metodo \vr{POST} e \vr{credentials: 'include'} & S \\ \hline
 	TU-F\_146 & Verifica$^G$ che \vr{ChatModel.logout} non lanci eccezioni con risposta 204 & S \\ \hline
 	TU-F\_147 & Verifica$^G$ che \vr{ChatModel.logout} lanci un errore in caso di risposta non ok & S \\ \hline
@@ -223,7 +223,7 @@
 	TU-F\_210 & Verifica$^G$ che \vr{useChatViewModel} ripristini la conversazione salvata in \vr{localStorage} se esiste & S \\ \hline
 	TU-F\_211 & Verifica$^G$ che \vr{useChatViewModel} ignori il \vr{savedId} se non è nella lista delle conversazioni & S \\ \hline
 	TU-F\_213 & Verifica$^G$ che \vr{useChatViewModel} crei una conversazione automatica se la lista è vuota & S \\ \hline
-	TU-F\_214 & Verifica$^G$ che \vr{useChatViewModel} reindirizzi a \vr{/unauthorized} se \vr{getMe} lancia un errore & S \\ \hline
+	TU-F\_214 & Verifica$^G$ che \vr{useChatViewModel} non carica nulla se username è null & S \\ \hline
 	TU-F\_215 & Verifica$^G$ che \vr{useChatViewModel} salvi \vr{activeConvId} nel \vr{localStorage} al cambio & S \\ \hline
 	TU-F\_216 & Verifica$^G$ che \vr{useChatViewModel} carichi i messaggi quando cambia la conversazione attiva & S \\ \hline
 	TU-F\_217 & Verifica$^G$ che \vr{useChatViewModel} imposti \vr{isLoadingMsgs=true} durante il caricamento dei messaggi & S \\ \hline
@@ -512,7 +512,10 @@
 	TU-F\_500 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useStoricoViewModel} imposti \vr{erroreDuplica} se l'API$^G$ lancia un \vr{Error} & S \\ \hline
 	TU-F\_501 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useStoricoViewModel} imposti messaggio generico se l'errore non è un \vr{Error} & S \\ \hline
 	TU-F\_502 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} abbia \vr{loading=false} anche in caso di errore (branch$^G$ \vr{finally}) & S \\ \hline
-	
+	TU-F\_503 & Verifica che imposta admin=true per un amministratore & S \\ \hline
+	TU-F\_504 & Verifica che fetch ok: imposta username, admin, isAuthenticated=true, loggedOut=false & S \\ \hline
+	TU-F\_505 & Verifica che fetch non ok: azzera lo stato & S \\ \hline
+	TU-F\_506 & Verifica che fetch lancia eccezione: azzera lo stato & S \\ \hline
 	
 	\caption{Test di Unità Frontend}
 	
