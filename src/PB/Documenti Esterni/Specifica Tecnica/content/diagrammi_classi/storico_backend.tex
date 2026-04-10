@@ -22,25 +22,25 @@ Per la definizione di ChatService, vedere \ref{chat_service}
 \paragraph{Descrizione}
 Modulo FastAPI che definisce il router per le API REST dello storico ordini.\\
 Espone gli endpoint per il recupero degli ordini del cliente autenticato, il recupero di tutti gli ordini riservato agli amministratori e la duplicazione di un ordine esistente.\\
-Delega la logica applicativa a \texttt{StoricoService}, ottenuto tramite dependency injection insieme alla sessione del database.
+Delega la logica applicativa a \textit{StoricoService}, ottenuto tramite dependency injection insieme alla sessione del database.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \texttt{router: APIRouter} - router FastAPI con prefisso \texttt{/storico} che raggruppa tutti gli endpoint del modulo.
-	\item \texttt{ServiceDep} - tipo annotato che inietta un'istanza di \texttt{StoricoService} tramite la funzione \texttt{get\_service}.
+	\item \textit{router: APIRouter} - router FastAPI con prefisso \textit{/storico} che raggruppa tutti gli endpoint del modulo.
+	\item \textit{ServiceDep} - tipo annotato che inietta un'istanza di \textit{StoricoService} tramite la funzione \textit{get\_service}.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \texttt{get\_service(db: DBSession): StoricoService} - funzione di dependency injection che istanzia \texttt{GetOrdiniAdapter} e \texttt{StoricoService} a partire dalla sessione del database.
-	\item \texttt{require\_admin(username: Username, db: DBSession): str} - verifica che l'utente autenticato abbia ruolo amministratore.\\
-	Lancia \texttt{HTTPException} con codice 403 in caso contrario.
-	\item \texttt{get\_storico\_cliente(...): StoricoPageSchema} - endpoint \texttt{GET /storico/miei} che recupera gli ordini dell'utente autenticato con supporto a paginazione e filtro per data.\\
-	Lancia \texttt{HTTPException} con codice 404 se l'utente non viene trovato.
-	\item \texttt{get\_storico\_admin(...): StoricoPageSchema} - endpoint \texttt{GET /storico/tutti} che recupera gli ordini di tutti gli utenti, accessibile solo agli amministratori.\\
-	Lancia \texttt{HTTPException} con codice 403 in caso di accesso non consentito.
-	\item \texttt{duplica\_ordine(codice\_ordine: str, username: Username, service: ServiceDep): dict} - endpoint \texttt{POST /storico/duplica/\{codice\_ordine\}} che duplica un ordine esistente.\\
-	Lancia \texttt{HTTPException} con codice 404 se l'ordine non viene trovato.
+	\item \textit{get\_service(db: DBSession): StoricoService} - funzione di dependency injection che istanzia \textit{GetOrdiniAdapter} e \textit{StoricoService} a partire dalla sessione del database.
+	\item \textit{require\_admin(username: Username, db: DBSession): str} - verifica che l'utente autenticato abbia ruolo amministratore.\\
+	Lancia \textit{HTTPException} con codice 403 in caso contrario.
+	\item \textit{get\_storico\_cliente(...): StoricoPageSchema} - endpoint \textit{GET /storico/miei} che recupera gli ordini dell'utente autenticato con supporto a paginazione e filtro per data.\\
+	Lancia \textit{HTTPException} con codice 404 se l'utente non viene trovato.
+	\item \textit{get\_storico\_admin(...): StoricoPageSchema} - endpoint \textit{GET /storico/tutti} che recupera gli ordini di tutti gli utenti, accessibile solo agli amministratori.\\
+	Lancia \textit{HTTPException} con codice 403 in caso di accesso non consentito.
+	\item \textit{duplica\_ordine(codice\_ordine: str, username: Username, service: ServiceDep): dict} - endpoint \textit{POST /storico/duplica/\{codice\_ordine\}} che duplica un ordine esistente.\\
+	Lancia \textit{HTTPException} con codice 404 se l'ordine non viene trovato.
 \end{itemize}
 
 \subsubsubsection{StoricoService}
@@ -52,26 +52,26 @@ Delega la logica applicativa a \texttt{StoricoService}, ottenuto tramite depende
 
 \paragraph{Descrizione}
 Classe Python che implementa la logica applicativa per la gestione dello storico ordini.\\
-Riceve un'istanza di \texttt{StoricoAdapterPort} tramite dependency injection e la utilizza per accedere ai dati.\\
+Riceve un'istanza di \textit{StoricoAdapterPort} tramite dependency injection e la utilizza per accedere ai dati.\\
 Si occupa di costruire le pagine di risposta, applicare i filtri per data e gestire i casi di errore relativi a ordini o utenti non trovati.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \texttt{adapter: StoricoAdapterPort} - istanza del porto di accesso ai dati, iniettata al momento della costruzione.
-	\item \texttt{PER\_PAGINA\_DEFAULT: int} - costante che definisce il numero di ordini per pagina di default, impostata a 10.
+	\item \textit{adapter: StoricoAdapterPort} - istanza del porto di accesso ai dati, iniettata al momento della costruzione.
+	\item \textit{PER\_PAGINA\_DEFAULT: int} - costante che definisce il numero di ordini per pagina di default, impostata a 10.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \texttt{\_build\_page(ordini\_orm, totale, pagina, per\_pagina, include\_username): StoricoPageSchema} - metodo privato che costruisce la pagina di risposta a partire dalla lista di ordini ORM.\\
-	Recupera i prodotti associati e assembla gli schemi \texttt{OrdineSchema} e \texttt{StoricoPageSchema}.
-	\item \texttt{get\_ordini\_cliente(username, pagina, per\_pagina, data\_inizio, data\_fine): StoricoPageSchema} - recupera gli ordini paginati di un cliente specifico.\\
-	Lancia \texttt{OrdiniUsernameNotFoundException} se l'utente non ha ordini.
-	\item \texttt{get\_ordini\_admin(pagina, per\_pagina, data\_inizio, data\_fine): StoricoPageSchema} - recupera tutti gli ordini paginati includendo il nome utente di ciascuno.\\
-	Lancia \texttt{OrdiniNotFoundException} se non è presente alcun ordine.
-	\item \texttt{duplica\_ordine(codice\_ordine, username): None} - duplica un ordine esistente per l'utente indicato.\\
-	Lancia \texttt{OrdineNotFoundException} se il codice ordine non viene trovato.
-	\item \texttt{get\_user\_product\_preferences(username): List[tuple]} - recupera tutti i prodotti acquistati da un utente, utilizzato per la funzionalità di suggerimento.
+	\item \textit{\_build\_page(ordini\_orm, totale, pagina, per\_pagina, include\_username): StoricoPageSchema} - metodo privato che costruisce la pagina di risposta a partire dalla lista di ordini ORM.\\
+	Recupera i prodotti associati e assembla gli schemi \textit{OrdineSchema} e \textit{StoricoPageSchema}.
+	\item \textit{get\_ordini\_cliente(username, pagina, per\_pagina, data\_inizio, data\_fine): StoricoPageSchema} - recupera gli ordini paginati di un cliente specifico.\\
+	Lancia \textit{OrdiniUsernameNotFoundException} se l'utente non ha ordini.
+	\item \textit{get\_ordini\_admin(pagina, per\_pagina, data\_inizio, data\_fine): StoricoPageSchema} - recupera tutti gli ordini paginati includendo il nome utente di ciascuno.\\
+	Lancia \textit{OrdiniNotFoundException} se non è presente alcun ordine.
+	\item \textit{duplica\_ordine(codice\_ordine, username): None} - duplica un ordine esistente per l'utente indicato.\\
+	Lancia \textit{OrdineNotFoundException} se il codice ordine non viene trovato.
+	\item \textit{get\_user\_product\_preferences(username): List[tuple]} - recupera tutti i prodotti acquistati da un utente, utilizzato per la funzionalità di suggerimento.
 \end{itemize}
 
 \subsubsubsection{StoricoAdapterPort}
@@ -83,7 +83,7 @@ Si occupa di costruire le pagine di risposta, applicare i filtri per data e gest
 
 \paragraph{Descrizione}
 Classe astratta Python che definisce il porto di accesso ai dati per lo storico ordini.\\
-Segue il pattern architetturale delle porte e degli adattatori, disaccoppiando la logica applicativa di \texttt{StoricoService} dalla specifica implementazione di accesso al database.\\
+Segue il pattern architetturale delle porte e degli adattatori, disaccoppiando la logica applicativa di \textit{StoricoService} dalla specifica implementazione di accesso al database.\\
 Tutte le classi adapter concrete devono implementare i metodi qui dichiarati.
 
 \paragraph{Attributi}
@@ -93,11 +93,11 @@ Tutte le classi adapter concrete devono implementare i metodi qui dichiarati.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \texttt{get\_ordini\_by\_username(username, pagina, per\_pagina, data\_inizio, data\_fine): Tuple[List[Ordine], int]} - restituisce gli ordini paginati di un utente e il numero totale di ordini corrispondenti.
-	\item \texttt{get\_all\_ordini(pagina, per\_pagina, data\_inizio, data\_fine): Tuple[List[Ordine], int]} - restituisce tutti gli ordini paginati e il numero totale, utilizzato dalla vista amministratore.
-	\item \texttt{get\_prodotti\_by\_ordine\_ids(ordine\_ids: List[int]): List[Tuple[OrdCliDet, Anaart]]} - restituisce i prodotti associati a una lista di identificatori di ordini.
-	\item \texttt{duplica\_ordine(codice\_ordine, username): Ordine} - duplica un ordine esistente per l'utente indicato e restituisce il nuovo ordine creato.
-	\item \texttt{get\_all\_products\_by\_username(username): List[Tuple[str, str, int]]} - restituisce i prodotti acquistati da un utente aggregati per frequenza, con codice, nome e conteggio.
+	\item \textit{get\_ordini\_by\_username(username, pagina, per\_pagina, data\_inizio, data\_fine): Tuple[List[Ordine], int]} - restituisce gli ordini paginati di un utente e il numero totale di ordini corrispondenti.
+	\item \textit{get\_all\_ordini(pagina, per\_pagina, data\_inizio, data\_fine): Tuple[List[Ordine], int]} - restituisce tutti gli ordini paginati e il numero totale, utilizzato dalla vista amministratore.
+	\item \textit{get\_prodotti\_by\_ordine\_ids(ordine\_ids: List[int]): List[Tuple[OrdCliDet, Anaart]]} - restituisce i prodotti associati a una lista di identificatori di ordini.
+	\item \textit{duplica\_ordine(codice\_ordine, username): Ordine} - duplica un ordine esistente per l'utente indicato e restituisce il nuovo ordine creato.
+	\item \textit{get\_all\_products\_by\_username(username): List[Tuple[str, str, int]]} - restituisce i prodotti acquistati da un utente aggregati per frequenza, con codice, nome e conteggio.
 \end{itemize}
 
 \subsubsubsection{GetOrdiniAdapter}
@@ -108,21 +108,21 @@ Tutte le classi adapter concrete devono implementare i metodi qui dichiarati.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che implementa \texttt{StoricoAdapterPort} seguendo il pattern degli adattatori.\\
-Riceve una sessione del database alla costruzione e la utilizza per istanziare \texttt{StoricoRepository}, al quale delega interamente tutte le operazioni di accesso ai dati.
+Classe Python che implementa \textit{StoricoAdapterPort} seguendo il pattern degli adattatori.\\
+Riceve una sessione del database alla costruzione e la utilizza per istanziare \textit{StoricoRepository}, al quale delega interamente tutte le operazioni di accesso ai dati.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \texttt{repository: StoricoRepository} - istanza del repository istanziata a partire dalla sessione del database ricevuta in ingresso.
+	\item \textit{repository: StoricoRepository} - istanza del repository istanziata a partire dalla sessione del database ricevuta in ingresso.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \texttt{get\_ordini\_by\_username(username, pagina, per\_pagina, data\_inizio, data\_fine): Tuple[List[Ordine], int]} - delega a \texttt{StoricoRepository} il recupero degli ordini paginati di un utente specifico.
-	\item \texttt{get\_all\_ordini(pagina, per\_pagina, data\_inizio, data\_fine): Tuple[List[Ordine], int]} - delega a \texttt{StoricoRepository} il recupero di tutti gli ordini paginati.
-	\item \texttt{get\_prodotti\_by\_ordine\_ids(ordine\_ids: List[int]): List[Tuple[OrdCliDet, Anaart]]} - delega a \texttt{StoricoRepository} il recupero dei prodotti associati a una lista di identificatori di ordini.
-	\item \texttt{duplica\_ordine(codice\_ordine, username): Ordine} - delega a \texttt{StoricoRepository} la duplicazione di un ordine esistente.
-	\item \texttt{get\_all\_products\_by\_username(username): List[Tuple[str, str, int]]} - delega a \texttt{StoricoRepository} il recupero dei prodotti acquistati da un utente con relativa frequenza.
+	\item \textit{get\_ordini\_by\_username(username, pagina, per\_pagina, data\_inizio, data\_fine): Tuple[List[Ordine], int]} - delega a \textit{StoricoRepository} il recupero degli ordini paginati di un utente specifico.
+	\item \textit{get\_all\_ordini(pagina, per\_pagina, data\_inizio, data\_fine): Tuple[List[Ordine], int]} - delega a \textit{StoricoRepository} il recupero di tutti gli ordini paginati.
+	\item \textit{get\_prodotti\_by\_ordine\_ids(ordine\_ids: List[int]): List[Tuple[OrdCliDet, Anaart]]} - delega a \textit{StoricoRepository} il recupero dei prodotti associati a una lista di identificatori di ordini.
+	\item \textit{duplica\_ordine(codice\_ordine, username): Ordine} - delega a \textit{StoricoRepository} la duplicazione di un ordine esistente.
+	\item \textit{get\_all\_products\_by\_username(username): List[Tuple[str, str, int]]} - delega a \textit{StoricoRepository} il recupero dei prodotti acquistati da un utente con relativa frequenza.
 \end{itemize}
 
 \subsubsubsection{StoricoRepository}
@@ -134,21 +134,21 @@ Riceve una sessione del database alla costruzione e la utilizza per istanziare \
 
 \paragraph{Descrizione}
 Classe Python che gestisce l'accesso diretto al database per lo storico ordini.\\
-Riceve una sessione SQLModel alla costruzione e la utilizza per eseguire le query tramite i modelli \texttt{Ordine}, \texttt{OrdCliDet} e \texttt{Anaart}.\\
-Rappresenta il livello più basso della catena \texttt{StoricoService} → \texttt{GetOrdiniAdapter} → \texttt{StoricoRepository}.
+Riceve una sessione SQLModel alla costruzione e la utilizza per eseguire le query tramite i modelli \textit{Ordine}, \textit{OrdCliDet} e \textit{Anaart}.\\
+Rappresenta il livello più basso della catena \textit{StoricoService} → \textit{GetOrdiniAdapter} → \textit{StoricoRepository}.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \texttt{db: Session} - sessione SQLModel attiva utilizzata per l'esecuzione delle query.
+	\item \textit{db: Session} - sessione SQLModel attiva utilizzata per l'esecuzione delle query.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \texttt{get\_ordini\_by\_username(username, pagina, per\_pagina, data\_inizio, data\_fine): Tuple[List[Ordine], int]} - recupera gli ordini paginati di un utente specifico applicando opzionalmente i filtri per data, restituisce la lista degli ordini e il totale.
-	\item \texttt{get\_all\_ordini(pagina, per\_pagina, data\_inizio, data\_fine): Tuple[List[Ordine], int]} - recupera tutti gli ordini del sistema con paginazione e filtro per data opzionale, restituisce la lista degli ordini e il totale.
-	\item \texttt{get\_prodotti\_by\_ordine\_ids(ordine\_ids: List[int]): List[Tuple[OrdCliDet, Anaart]]} - recupera i prodotti associati a una lista di identificatori di ordini tramite join tra \texttt{OrdCliDet} e \texttt{Anaart}.\\
+	\item \textit{get\_ordini\_by\_username(username, pagina, per\_pagina, data\_inizio, data\_fine): Tuple[List[Ordine], int]} - recupera gli ordini paginati di un utente specifico applicando opzionalmente i filtri per data, restituisce la lista degli ordini e il totale.
+	\item \textit{get\_all\_ordini(pagina, per\_pagina, data\_inizio, data\_fine): Tuple[List[Ordine], int]} - recupera tutti gli ordini del sistema con paginazione e filtro per data opzionale, restituisce la lista degli ordini e il totale.
+	\item \textit{get\_prodotti\_by\_ordine\_ids(ordine\_ids: List[int]): List[Tuple[OrdCliDet, Anaart]]} - recupera i prodotti associati a una lista di identificatori di ordini tramite join tra \textit{OrdCliDet} e \textit{Anaart}.\\
 	Restituisce una lista vuota se la lista in ingresso è vuota.
-	\item \texttt{duplica\_ordine(codice\_ordine, username): Ordine} - duplica un ordine esistente creando un nuovo record con la data odierna e copiando i relativi prodotti.\\
-	Lancia \texttt{ValueError} se l'ordine con il codice indicato non esiste.
-	\item \texttt{get\_all\_products\_by\_username(username): List[Tuple[str, str, int]]} - recupera i prodotti acquistati da un utente aggregati per frequenza, restituendo una lista di tuple con identificativo, descrizione e conteggio degli acquisti.
+	\item \textit{duplica\_ordine(codice\_ordine, username): Ordine} - duplica un ordine esistente creando un nuovo record con la data odierna e copiando i relativi prodotti.\\
+	Lancia \textit{ValueError} se l'ordine con il codice indicato non esiste.
+	\item \textit{get\_all\_products\_by\_username(username): List[Tuple[str, str, int]]} - recupera i prodotti acquistati da un utente aggregati per frequenza, restituendo una lista di tuple con identificativo, descrizione e conteggio degli acquisti.
 \end{itemize}
