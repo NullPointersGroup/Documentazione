@@ -20,16 +20,16 @@ Si occupa esclusivamente della presentazione grafica del form di autenticazione 
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textit{visibleFields: Record} - attributo privato di tipo \textit{Record<string, boolean>}.
+	\item \textbf{visibleFields: Record} - attributo privato di tipo \textit{Record<string, boolean>}.
 	Gestisce la visibilità dei campi password: per ciascun campo di tipo \textit{password}, traccia se il testo è attualmente visibile o nascosto.
 	Viene aggiornato dalla funzione \textit{toggleVisibility} al click sull'icona dell'occhio.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textit{Form(f: FormProps)} - funzione componente React$^G$ (funzione pubblica).
-	Riceve le props di tipo \textit{FormProps} e restituisce il markup JSX del form.
-	Itera sulla lista \textit{fields} per renderizzare dinamicamente i campi di input, utilizza \textit{vm.values} e \textit{vm.fieldErrors} per il binding dei dati, e collega gli handler \textit{vm.handleChange}, \textit{vm.handleBlur} e \textit{vm.handleSubmit} agli eventi del form. Per i campi di tipo password gestisce la visibilità tramite \textit{visibleFields} e delega la visualizzazione degli errori globali al componente \textit{FormErrors}.
+	\item \textbf{Form(f: FormProps)} - funzione componente React$^G$ (funzione pubblica).
+	Riceve le props di tipo \texttt{FormProps} e restituisce il markup JSX del form.
+	Itera sulla lista \texttt{fields} per renderizzare dinamicamente i campi di input, utilizza \texttt{vm.values} e \textit{vm.fieldErrors} per il binding dei dati, e collega gli handler \textit{vm.handleChange}, \textit{vm.handleBlur} e \textit{vm.handleSubmit} agli eventi del form. Per i campi di tipo password gestisce la visibilità tramite \textit{visibleFields} e delega la visualizzazione degli errori globali al componente \textit{FormErrors}.
 \end{itemize}
 
 
