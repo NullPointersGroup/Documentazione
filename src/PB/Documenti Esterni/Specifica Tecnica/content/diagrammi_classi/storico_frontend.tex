@@ -40,11 +40,9 @@ Riceve la pagina corrente, il numero totale di pagine e una callback per il camb
 Non viene renderizzato se il numero totale di pagine è inferiore o uguale a uno.
 
 \paragraph{Metodi e funzioni}
-\begin{itemize}
-	\item Il componente non espone metodi propri.\\
-	La navigazione tra le pagine è gestita interamente tramite la callback \textit{onCambia}, invocata con \textit{pagina~-~1} o \textit{pagina~+~1} alla pressione dei pulsanti \textit{Precedente} e \textit{Successivo} rispettivamente.\\
-	I pulsanti vengono disabilitati automaticamente quando ci si trova alla prima o all'ultima pagina.
-\end{itemize}
+Il componente non espone metodi propri.\\
+La navigazione tra le pagine è gestita interamente tramite la callback \textit{onCambia}, invocata con \textit{pagina~-~1} o \textit{pagina~+~1} alla pressione dei pulsanti \textit{Precedente} e \textit{Successivo} rispettivamente.\\
+I pulsanti vengono disabilitati automaticamente quando ci si trova alla prima o all'ultima pagina.
 
 \subsubsubsection{ComponentDettaglioModal}
 \begin{figure}[H]
@@ -95,11 +93,11 @@ Interagisce con \textit{StoricoModel} per il recupero e la duplicazione dei dati
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{caricaPagina(n: number, di?: string, df?: string): Promise<void>} - carica la pagina \textit{n} degli ordini applicando opzionalmente i filtri per data di inizio e di fine.\\
+	\item \textbf{caricaPagina(n: int, di: string, df: string)} - carica la pagina \textit{n} degli ordini applicando opzionalmente i filtri per data di inizio e di fine.\\
 	Invoca \textbf{getStoricoAdmin} o \textit{getStoricoCliente} in base al ruolo dell'utente.
-	\item \textbf{apriDettaglio(ordine: Ordine): void} - imposta \textit{ordineScelto} con l'ordine ricevuto, aprendo il dettaglio.
-	\item \textbf{chiudiDettaglio(): void} - reimposta \textit{ordineScelto} a \textit{null}, chiudendo il dettaglio.
-	\item \textbf{duplicaOrdine(codice: string): Promise<void>} - richiede la duplicazione dell'ordine identificato da \textit{codice} tramite \textit{apiDuplicaOrdine}.\\
+	\item \textbf{apriDettaglio(ordine: Ordine)} - imposta \textit{ordineScelto} con l'ordine ricevuto, aprendo il dettaglio.
+	\item \textbf{chiudiDettaglio()} - reimposta \textit{ordineScelto} a \textit{null}, chiudendo il dettaglio.
+	\item \textbf{duplicaOrdine(codice: string)} - richiede la duplicazione dell'ordine identificato da \textit{codice} tramite \textit{apiDuplicaOrdine}.\\
 	In caso di errore aggiorna \textit{erroreDuplica} con il relativo messaggio.
 \end{itemize}
 
@@ -117,8 +115,8 @@ Le funzioni di accesso alle API gestiscono i parametri di paginazione e filtragg
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{getStoricoCliente(pagina: number, perPagina: number, dataInizio?: string, dataFine?: string): Promise<StoricoPageSchema>} - recupera lo storico ordini dell'utente autenticato tramite \textit{GET /api/storico/miei}, applicando opzionalmente i filtri per data.
-	\item \textbf{getStoricoAdmin(pagina: number, perPagina: number, dataInizio?: string, dataFine?: string): Promise<StoricoPageSchema>} - recupera lo storico ordini di tutti gli utenti tramite \textit{GET /api/storico/tutti}, applicando opzionalmente i filtri per data.
-	\item \textbf{duplicaOrdine(codiceOrdine: string): Promise<void>} - duplica un ordine esistente tramite \textit{POST /api/storico/duplica/\{codiceOrdine\}}.\\
+	\item \textbf{getStoricoCliente(pagina: int, perPagina: int, dataInizio?: string, dataFine?: string): StoricoPageSchema} - recupera lo storico ordini dell'utente autenticato tramite \textit{GET /api/storico/miei}, applicando opzionalmente i filtri per data.
+	\item \textbf{getStoricoAdmin(pagina: int, perPagina: int, dataInizio?: string, dataFine?: string): StoricoPageSchema} - recupera lo storico ordini di tutti gli utenti tramite \textit{GET /api/storico/tutti}, applicando opzionalmente i filtri per data.
+	\item \textbf{duplicaOrdine(codiceOrdine: string)} - duplica un ordine esistente tramite \textit{POST /api/storico/duplica/\{codiceOrdine\}}.\\
 	In caso di risposta non positiva lancia un errore con il messaggio restituito dal backend.
 \end{itemize}
