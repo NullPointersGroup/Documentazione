@@ -15,7 +15,7 @@ Per la definizione di ChatService, vedere \ref{chat_service}
 \subsubsubsection{StoricoController}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/StoricoController}
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Storico/StoricoController}
 	\caption{Storico Ordini: StoricoController}
 \end{figure}
 
@@ -46,7 +46,7 @@ Delega la logica applicativa a \textit{StoricoService}, ottenuto tramite depende
 \subsubsubsection{StoricoService}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/StoricoService}
+	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Storico/StoricoService}
 	\caption{Storico Ordini: StoricoService}
 \end{figure}
 
@@ -77,7 +77,7 @@ Si occupa di costruire le pagine di risposta, applicare i filtri per data e gest
 \subsubsubsection{StoricoAdapterPort}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/StoricoAdapterPort}
+	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Storico/StoricoAdapterPort}
 	\caption{Storico Ordini: StoricoAdapterPort}
 \end{figure}
 
@@ -117,17 +117,12 @@ Riceve una sessione del database alla costruzione e la utilizza per istanziare \
 \paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(db: Session)} - si occupa di inizializzare l'adattatore ricevendo la sessione del database e istanziando un'istanza di tipo StoricoRepository
-	\item \textbf{get\_ordini\_by\_username(username: string, pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): List[Ordine]} - delega a \textit{StoricoRepository} il recupero degli ordini paginati di un utente specifico.
-	\item \textbf{get\_all\_ordini(pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): List[Ordine]} - delega a \textit{StoricoRepository} il recupero di tutti gli ordini paginati.
-	\item \textbf{get\_prodotti\_by\_ordine\_ids(ordine\_ids: List[int])} - delega a \textit{StoricoRepository} il recupero dei prodotti associati a una lista di identificatori di ordini.
-	\item \textbf{duplica\_ordine(codice\_ordine: string, username: string): Ordine} - delega a \textit{StoricoRepository} la duplicazione di un ordine esistente.
-	\item \textbf{get\_all\_products\_by\_username(username: string): OrdCliDet} - delega a \textit{StoricoRepository} il recupero dei prodotti acquistati da un utente con relativa frequenza.
-\end{itemize}
+	\end{itemize}
 
 \subsubsubsection{StoricoRepository}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/StoricoRepository}
+	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Storico/StoricoRepository}
 	\caption{Storico Ordini: StoricoRepository}
 \end{figure}
 
