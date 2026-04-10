@@ -21,7 +21,7 @@
 	\hline
 	TU-B\_05 & Implementato da \texttt{\seqsplit{test\_register\_email\_already\_exists}}; verifica$^G$ che l'endpoint di registrazione dell'api$^G$ possa essere chiamato e verifica$^G$ il caso in cui l'utente inserisce una mail che è già presente nel sistema & S \\
 	\hline
-	TU-B\_06 & Implementato da \texttt{\seqsplit{test\_register\_user\_creation\_error}}; verifica che l'endpoint di registrazione dell'API restituisca 500 e un errore strutturato quando il servizio solleva \texttt{UserCreationError} & S \\
+	TU-B\_06 & Implementato da \texttt{\seqsplit{test\_register\_user\_creation\_error}}; verifica$^G$ che l'endpoint di registrazione dell'API$^G$ restituisca 500 e un errore strutturato quando il servizio solleva \texttt{UserCreationError} & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestLogin} \\
 	\hline
@@ -33,11 +33,11 @@
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDependency} \\
 	\hline
-	TU-B\_10 & Implementato da \texttt{\seqsplit{test\_returns\_check\_service}}; verifica che la funzione \texttt{\seqsplit{get\_check\_user\_service}} restituisca un'istanza della classe \texttt{CheckUserService} & S \\
+	TU-B\_10 & Implementato da \texttt{\seqsplit{test\_returns\_check\_service}}; verifica$^G$ che la funzione \texttt{\seqsplit{get\_check\_user\_service}} restituisca un'istanza della classe \texttt{CheckUserService} & S \\
 	\hline
-	TU-B\_11 & Implementato da \texttt{\seqsplit{test\_returns\_register\_service}}; verifica che la funzione \texttt{\seqsplit{get\_register\_user\_service}} restituisca un'istanza della classe \texttt{RegisterUserService} & S \\
+	TU-B\_11 & Implementato da \texttt{\seqsplit{test\_returns\_register\_service}}; verifica$^G$ che la funzione \texttt{\seqsplit{get\_register\_user\_service}} restituisca un'istanza della classe \texttt{RegisterUserService} & S \\
 	\hline
-	TU-B\_12 & Implementato da \texttt{\seqsplit{test\_returns\_delete\_service}}; verifica che la funzione \texttt{\seqsplit{get\_delete\_user\_service}} restituisca un'istanza della classe \texttt{DeleteUserService} & S \\
+	TU-B\_12 & Implementato da \texttt{\seqsplit{test\_returns\_delete\_service}}; verifica$^G$ che la funzione \texttt{\seqsplit{get\_delete\_user\_service}} restituisca un'istanza della classe \texttt{DeleteUserService} & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetCurrentUser} \\
 	\hline
@@ -177,11 +177,11 @@
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestAuthResponse} \\
 	\hline
-	TU-B\_65 & Implementato da \texttt{\seqsplit{test\_ok\_no\_token}}; verifica che una \texttt{AuthResponse} possa essere creata anche senza campo \texttt{token} & S \\
+	TU-B\_65 & Implementato da \texttt{\seqsplit{test\_ok\_no\_token}}; verifica$^G$ che una \texttt{AuthResponse} possa essere creata anche senza campo \texttt{token$^G$} & S \\
 	\hline
-	TU-B\_66 & Implementato da \texttt{\seqsplit{test\_ok\_with\_token}}; verifica che una \texttt{AuthResponse} possa essere creata con campo \texttt{token} di tipo \texttt{str} & S \\
+	TU-B\_66 & Implementato da \texttt{\seqsplit{test\_ok\_with\_token}}; verifica$^G$ che una \texttt{AuthResponse} possa essere creata con campo \texttt{token$^G$} di tipo \texttt{str} & S \\
 	\hline
-	TU-B\_67 & Implementato da \texttt{\seqsplit{test\_not\_ok\_with\_errors}}; verifica che una \texttt{AuthResponse} possa essere creata con \texttt{ok=False} e una lista di errori & S \\
+	TU-B\_67 & Implementato da \texttt{\seqsplit{test\_not\_ok\_with\_errors}}; verifica$^G$ che una \texttt{AuthResponse} possa essere creata con \texttt{ok=False} e una lista di errori & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestUsernameValidator} \\
 	\hline
@@ -291,9 +291,9 @@
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestResetPassword} \\
 	\hline
-	TU-B\_110 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica che il metodo \texttt{reset\_password} restituisca \texttt{True} quando l'operazione di reset riesce & S \\
+	TU-B\_110 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica$^G$ che il metodo \texttt{reset\_password} restituisca \texttt{True} quando l'operazione di reset riesce & S \\
 	\hline
-	TU-B\_111 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_failure}}; verifica che il metodo \texttt{reset\_password} restituisca \texttt{False} quando l'operazione di reset fallisce & S \\
+	TU-B\_111 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_failure}}; verifica$^G$ che il metodo \texttt{reset\_password} restituisca \texttt{False} quando l'operazione di reset fallisce & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestFindByUsername} \\
 	\hline
@@ -321,99 +321,99 @@
 	\hline	
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDelete} \\
 	\hline
-	TU-B\_121 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica che il metodo \texttt{delete} restituisca \texttt{True} quando l'operazione di eliminazione riesce & S \\
+	TU-B\_121 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica$^G$ che il metodo \texttt{delete} restituisca \texttt{True} quando l'operazione di eliminazione riesce & S \\
 	\hline
-	TU-B\_122 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_failure}}; verifica che il metodo \texttt{delete} restituisca \texttt{False} quando l'operazione di eliminazione fallisce & S \\
+	TU-B\_122 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_failure}}; verifica$^G$ che il metodo \texttt{delete} restituisca \texttt{False} quando l'operazione di eliminazione fallisce & S \\
 	\hline
-	TU-B\_123 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_executor}}; verifica che il metodo \texttt{delete} deleghi la chiamata a \texttt{executor.mutate\_raw} & S \\
+	TU-B\_123 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_executor}}; verifica$^G$ che il metodo \texttt{delete} deleghi la chiamata a \texttt{executor.mutate\_raw} & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestResetPassword} \\
 	\hline
-	TU-B\_124 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica che il metodo \texttt{reset\_password} restituisca \texttt{True} quando l'operazione di reset riesce & S \\
+	TU-B\_124 & Implementato da \texttt{\seqsplit{test\_returns\_true\_on\_success}}; verifica$^G$ che il metodo \texttt{reset\_password} restituisca \texttt{True} quando l'operazione di reset riesce & S \\
 	\hline
-	TU-B\_125 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_failure}}; verifica che il metodo \texttt{reset\_password} restituisca \texttt{False} quando l'operazione di reset fallisce & S \\
+	TU-B\_125 & Implementato da \texttt{\seqsplit{test\_returns\_false\_on\_failure}}; verifica$^G$ che il metodo \texttt{reset\_password} restituisca \texttt{False} quando l'operazione di reset fallisce & S \\
 	\hline
-	TU-B\_126 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_executor}}; verifica che il metodo \texttt{reset\_password} deleghi la chiamata a \texttt{executor.mutate\_raw} & S \\
+	TU-B\_126 & Implementato da \texttt{\seqsplit{test\_delegates\_to\_executor}}; verifica$^G$ che il metodo \texttt{reset\_password} deleghi la chiamata a \texttt{executor.mutate\_raw} & S \\
 	\hline
     \multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCheckUser} \\
 	\hline
-	TU-B\_127 & Implementato da \texttt{\seqsplit{test\_returns\_username\_with\_valid\_credentials}}; verifica che con credenziali valide il metodo \texttt{check\_user} restituisca il nome utente & S \\
+	TU-B\_127 & Implementato da \texttt{\seqsplit{test\_returns\_username\_with\_valid\_credentials}}; verifica$^G$ che con credenziali valide il metodo \texttt{check\_user} restituisca il nome utente & S \\
 	\hline
-	TU-B\_128 & Implementato da \texttt{\seqsplit{test\_raises\_when\_user\_not\_found}}; verifica che venga sollevata \texttt{InvalidCredentialsError} se l'utente non viene trovato & S \\
+	TU-B\_128 & Implementato da \texttt{\seqsplit{test\_raises\_when\_user\_not\_found}}; verifica$^G$ che venga sollevata \texttt{InvalidCredentialsError} se l'utente non viene trovato & S \\
 	\hline
-	TU-B\_129 & Implementato da \texttt{\seqsplit{test\_raises\_when\_password\_wrong}}; verifica che venga sollevata \texttt{InvalidCredentialsError} se la password è errata & S \\
+	TU-B\_129 & Implementato da \texttt{\seqsplit{test\_raises\_when\_password\_wrong}}; verifica$^G$ che venga sollevata \texttt{InvalidCredentialsError} se la password è errata & S \\
 	\hline
-	TU-B\_130 & Implementato da \texttt{\seqsplit{test\_raises\_when\_username\_is\_none}}; verifica che venga sollevata \texttt{InvalidCredentialsError} se lo username è \texttt{None} & S \\
+	TU-B\_130 & Implementato da \texttt{\seqsplit{test\_raises\_when\_username\_is\_none}}; verifica$^G$ che venga sollevata \texttt{InvalidCredentialsError} se lo username è \texttt{None} & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestRegisterUser} \\
 	\hline
-	TU-B\_131 & Implementato da \texttt{\seqsplit{test\_succeeds\_with\_valid\_data}}; verifica che la registrazione di un utente con dati validi abbia successo & S \\
+	TU-B\_131 & Implementato da \texttt{\seqsplit{test\_succeeds\_with\_valid\_data}}; verifica$^G$ che la registrazione di un utente con dati validi abbia successo & S \\
 	\hline
-	TU-B\_132 & Implementato da \texttt{\seqsplit{test\_raises\_when\_username\_exists}}; verifica che venga sollevata \texttt{UsernameAlreadyExistsError} se lo username esiste già & S \\
+	TU-B\_132 & Implementato da \texttt{\seqsplit{test\_raises\_when\_username\_exists}}; verifica$^G$ che venga sollevata \texttt{UsernameAlreadyExistsError} se lo username esiste già & S \\
 	\hline
-	TU-B\_133 & Implementato da \texttt{\seqsplit{test\_raises\_when\_email\_domain\_invalid}}; verifica che venga sollevata \texttt{InvalidEmailFormatError} se il dominio dell'email non è valido & S \\
+	TU-B\_133 & Implementato da \texttt{\seqsplit{test\_raises\_when\_email\_domain\_invalid}}; verifica$^G$ che venga sollevata \texttt{InvalidEmailFormatError} se il dominio dell'email non è valido & S \\
 	\hline
-	TU-B\_134 & Implementato da \texttt{\seqsplit{test\_raises\_when\_email\_exists}}; verifica che venga sollevata \texttt{EmailAlreadyExistsError} se l'email esiste già & S \\
+	TU-B\_134 & Implementato da \texttt{\seqsplit{test\_raises\_when\_email\_exists}}; verifica$^G$ che venga sollevata \texttt{EmailAlreadyExistsError} se l'email esiste già & S \\
 	\hline
-	TU-B\_135 & Implementato da \texttt{\seqsplit{test\_raises\_when\_add\_user\_fails}}; verifica che venga sollevata \texttt{UserCreationError} se l'aggiunta dell'utente fallisce & S \\
+	TU-B\_135 & Implementato da \texttt{\seqsplit{test\_raises\_when\_add\_user\_fails}}; verifica$^G$ che venga sollevata \texttt{UserCreationError} se l'aggiunta dell'utente fallisce & S \\
 	\hline
-	TU-B\_136 & Implementato da \texttt{\seqsplit{test\_password\_is\_hashed}}; verifica che la password venga hashata prima di essere salvata & S \\
+	TU-B\_136 & Implementato da \texttt{\seqsplit{test\_password\_is\_hashed}}; verifica$^G$ che la password venga hashata prima di essere salvata & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDeleteUser} \\
 	\hline
-	TU-B\_137 & Implementato da \texttt{\seqsplit{test\_succeeds\_when\_user\_exists}}; verifica che l'eliminazione di un utente esistente abbia successo & S \\
+	TU-B\_137 & Implementato da \texttt{\seqsplit{test\_succeeds\_when\_user\_exists}}; verifica$^G$ che l'eliminazione di un utente esistente abbia successo & S \\
 	\hline
-	TU-B\_138 & Implementato da \texttt{\seqsplit{test\_raises\_when\_user\_not\_found}}; verifica che venga sollevata \texttt{UserNotFoundError} se l'utente non esiste & S \\
+	TU-B\_138 & Implementato da \texttt{\seqsplit{test\_raises\_when\_user\_not\_found}}; verifica$^G$ che venga sollevata \texttt{UserNotFoundError} se l'utente non esiste & S \\
 	\hline
-	TU-B\_139 & Implementato da \texttt{\seqsplit{test\_raises\_when\_delete\_fails}}; verifica che venga sollevata \texttt{UserDeletionError} se l'eliminazione fallisce & S \\
+	TU-B\_139 & Implementato da \texttt{\seqsplit{test\_raises\_when\_delete\_fails}}; verifica$^G$ che venga sollevata \texttt{UserDeletionError} se l'eliminazione fallisce & S \\
 	\hline
-	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large Patch helpers} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large Patch$^G$ helpers} \\
 	\hline
-	TU-B\_140 & Implementato da \texttt{\seqsplit{patch\_verify}}; definisce una patch per il metodo \texttt{\_verify\_password} di \texttt{CheckUserService} & S \\
+	TU-B\_140 & Implementato da \texttt{\seqsplit{patch\_verify}}; definisce una patch$^G$ per il metodo \texttt{\_verify\_password} di \texttt{CheckUserService} & S \\
 	\hline
-	TU-B\_141 & Implementato da \texttt{\seqsplit{patch\_verify\_reset}}; definisce una patch per il metodo \texttt{\_verify\_password} di \texttt{ResetPasswordService} & S \\
+	TU-B\_141 & Implementato da \texttt{\seqsplit{patch\_verify\_reset}}; definisce una patch$^G$ per il metodo \texttt{\_verify\_password} di \texttt{ResetPasswordService} & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetUser} \\
 	\hline
-	TU-B\_142 & Implementato da \texttt{\seqsplit{test\_returns\_user\_when\_exists}}; verifica che \texttt{get\_user} restituisca l'utente se presente & S \\
+	TU-B\_142 & Implementato da \texttt{\seqsplit{test\_returns\_user\_when\_exists}}; verifica$^G$ che \texttt{get\_user} restituisca l'utente se presente & S \\
 	\hline
-	TU-B\_143 & Implementato da \texttt{\seqsplit{test\_raises\_when\_user\_not\_found}}; verifica che venga sollevata \texttt{UserNotFoundError} se l'utente non esiste & S \\
+	TU-B\_143 & Implementato da \texttt{\seqsplit{test\_raises\_when\_user\_not\_found}}; verifica$^G$ che venga sollevata \texttt{UserNotFoundError} se l'utente non esiste & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestResetPassword} \\
 	\hline
-	TU-B\_144 & Implementato da \texttt{\seqsplit{test\_succeeds\_with\_valid\_data}}; verifica che il reset della password con dati validi abbia successo & S \\
+	TU-B\_144 & Implementato da \texttt{\seqsplit{test\_succeeds\_with\_valid\_data}}; verifica$^G$ che il reset della password con dati validi abbia successo & S \\
 	\hline
-	TU-B\_145 & Implementato da \texttt{\seqsplit{test\_raises\_when\_user\_not\_found}}; verifica che venga sollevata \texttt{UserNotFoundError} se l'utente non esiste & S \\
+	TU-B\_145 & Implementato da \texttt{\seqsplit{test\_raises\_when\_user\_not\_found}}; verifica$^G$ che venga sollevata \texttt{UserNotFoundError} se l'utente non esiste & S \\
 	\hline
-	TU-B\_146 & Implementato da \texttt{\seqsplit{test\_raises\_when\_old\_password\_wrong}}; verifica che venga sollevata \texttt{InvalidCredentialsError} se la vecchia password è errata & S \\
+	TU-B\_146 & Implementato da \texttt{\seqsplit{test\_raises\_when\_old\_password\_wrong}}; verifica$^G$ che venga sollevata \texttt{InvalidCredentialsError} se la vecchia password è errata & S \\
 	\hline
-	TU-B\_147 & Implementato da \texttt{\seqsplit{test\_raises\_when\_new\_password\_same}}; verifica che venga sollevata \texttt{UserSamePasswordError} se la nuova password è uguale alla vecchia & S \\
+	TU-B\_147 & Implementato da \texttt{\seqsplit{test\_raises\_when\_new\_password\_same}}; verifica$^G$ che venga sollevata \texttt{UserSamePasswordError} se la nuova password è uguale alla vecchia & S \\
 	\hline
-	TU-B\_148 & Implementato da \texttt{\seqsplit{test\_raises\_when\_reset\_fails}}; verifica che venga sollevata \texttt{UserResetError} se l'operazione di reset fallisce & S \\
+	TU-B\_148 & Implementato da \texttt{\seqsplit{test\_raises\_when\_reset\_fails}}; verifica$^G$ che venga sollevata \texttt{UserResetError} se l'operazione di reset fallisce & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartAdapter} \\
 	\hline
-	TU-B\_149 & Implementato da \texttt{\seqsplit{test\_get\_products\_calls\_repo}}; verifica che il metodo \texttt{get\_products} dell'adapter chiami \texttt{repo.get\_products} con lo username corretto & S \\
+	TU-B\_149 & Implementato da \texttt{\seqsplit{test\_get\_products\_calls\_repo}}; verifica$^G$ che il metodo \texttt{get\_products} dell'adapter chiami \texttt{repo.get\_products} con lo username corretto & S \\
 	\hline
-	TU-B\_150 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_mapped\_products}}; verifica che \texttt{get\_products} restituisca una lista di oggetti \texttt{CartProduct} mappati correttamente dai dati del repository & S \\
+	TU-B\_150 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_mapped\_products}}; verifica$^G$ che \texttt{get\_products} restituisca una lista di oggetti \texttt{CartProduct} mappati correttamente dai dati del repository$^G$ & S \\
 	\hline
-	TU-B\_151 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_empty\_list}}; verifica che \texttt{get\_products} restituisca una lista vuota quando il repository non trova prodotti & S \\
+	TU-B\_151 & Implementato da \texttt{\seqsplit{test\_get\_products\_returns\_empty\_list}}; verifica$^G$ che \texttt{get\_products} restituisca una lista vuota quando il repository$^G$ non trova prodotti & S \\
 	\hline
-	TU-B\_152 & Implementato da \texttt{\seqsplit{test\_add\_product\_returns\_cart\_product}}; verifica che \texttt{add\_product} restituisca un'istanza di \texttt{CartProduct} & S \\
+	TU-B\_152 & Implementato da \texttt{\seqsplit{test\_add\_product\_returns\_cart\_product}}; verifica$^G$ che \texttt{add\_product} restituisca un'istanza di \texttt{CartProduct} & S \\
 	\hline
-	TU-B\_153 & Implementato da \texttt{\seqsplit{test\_add\_product\_returns\_mapped\_product}}; verifica che \texttt{add\_product} restituisca un \texttt{CartProduct} con i campi (\texttt{prod\_id}, \texttt{name}, \texttt{price}, \texttt{qty}) mappati correttamente & S \\
+	TU-B\_153 & Implementato da \texttt{\seqsplit{test\_add\_product\_returns\_mapped\_product}}; verifica$^G$ che \texttt{add\_product} restituisca un \texttt{CartProduct} con i campi (\texttt{prod\_id}, \texttt{name}, \texttt{price}, \texttt{qty}) mappati correttamente & S \\
 	\hline
-	TU-B\_154 & Implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_cart\_product}}; verifica che \texttt{remove\_product} restituisca un'istanza di \texttt{CartProduct} & S \\
+	TU-B\_154 & Implementato da \texttt{\seqsplit{test\_remove\_product\_returns\_cart\_product}}; verifica$^G$ che \texttt{remove\_product} restituisca un'istanza di \texttt{CartProduct} & S \\
 	\hline
-	TU-B\_155 & Implementato da \texttt{\seqsplit{test\_remove\_product\_returnrs\_mapped\_product}}; verifica che \texttt{remove\_product} restituisca un \texttt{CartProduct} mappato correttamente (con \texttt{prod\_id}, \texttt{name}, \texttt{price}, \texttt{qty}) & S \\
+	TU-B\_155 & Implementato da \texttt{\seqsplit{test\_remove\_product\_returnrs\_mapped\_product}}; verifica$^G$ che \texttt{remove\_product} restituisca un \texttt{CartProduct} mappato correttamente (con \texttt{prod\_id}, \texttt{name}, \texttt{price}, \texttt{qty}) & S \\
 	\hline
-	TU-B\_156 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_product}}; verifica che \texttt{update\_quantity} restituisca un \texttt{CartProduct} & S \\
+	TU-B\_156 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_product}}; verifica$^G$ che \texttt{update\_quantity} restituisca un \texttt{CartProduct} & S \\
 	\hline
-	TU-B\_157 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_mapped\_products}}; verifica che \texttt{update\_quantity} restituisca un \texttt{CartProduct} con i campi mappati correttamente (incluso \texttt{measure\_unit}) & S \\
+	TU-B\_157 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_returns\_mapped\_products}}; verifica$^G$ che \texttt{update\_quantity} restituisca un \texttt{CartProduct} con i campi mappati correttamente (incluso \texttt{measure\_unit}) & S \\
 	\hline
-	TU-B\_158 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_subtract\_calls\_repo}}; verifica che con operazione \texttt{Remove} il metodo chiami \texttt{repo.update\_quantity} con i parametri corretti e restituisca la quantità aggiornata & S \\
+	TU-B\_158 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_subtract\_calls\_repo}}; verifica$^G$ che con operazione \texttt{Remove} il metodo chiami \texttt{repo.update\_quantity} con i parametri corretti e restituisca la quantità aggiornata & S \\
 	\hline
-	TU-B\_159 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_set\_calls\_repo}}; verifica che con operazione \texttt{Set} il metodo chiami \texttt{repo.update\_quantity} con i parametri corretti e restituisca la quantità impostata & S \\
+	TU-B\_159 & Implementato da \texttt{\seqsplit{test\_update\_quantity\_set\_calls\_repo}}; verifica$^G$ che con operazione \texttt{Set} il metodo chiami \texttt{repo.update\_quantity} con i parametri corretti e restituisca la quantità impostata & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartRepoPort} \\
 	\hline
@@ -475,31 +475,31 @@
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartRouterUnit} \\
 	\hline
-	TU-B\_169 & Implementato da \texttt{\seqsplit{test\_get\_cart\_service\_unit}}; verifica che la funzione \texttt{get\_cart\_service} restituisca un'istanza della classe \texttt{CartService} & S \\
+	TU-B\_169 & Implementato da \texttt{\seqsplit{test\_get\_cart\_service\_unit}}; verifica$^G$ che la funzione \texttt{get\_cart\_service} restituisca un'istanza della classe \texttt{CartService} & S \\
 	\hline
-	TU-B\_170 & Implementato da \texttt{\seqsplit{test\_get\_user\_cart}}; verifica che \texttt{get\_user\_cart} restituisca un \texttt{CartResponse} con lo username corretto e chiami \texttt{get\_cart\_products} del servizio & S \\
+	TU-B\_170 & Implementato da \texttt{\seqsplit{test\_get\_user\_cart}}; verifica$^G$ che \texttt{get\_user\_cart} restituisca un \texttt{CartResponse} con lo username corretto e chiami \texttt{get\_cart\_products} del servizio & S \\
 	\hline
-	TU-B\_171 & Implementato da \texttt{\seqsplit{test\_get\_current\_user\_no\_token}}; verifica che senza token venga sollevata un'eccezione HTTP 401 con messaggio "Non autenticato" & S \\
+	TU-B\_171 & Implementato da \texttt{\seqsplit{test\_get\_current\_user\_no\_token}}; verifica$^G$ che senza token$^G$ venga sollevata un'eccezione HTTP 401 con messaggio "Non autenticato" & S \\
 	\hline
-	TU-B\_172 & Implementato da \texttt{\seqsplit{test\_get\_current\_user\_invalid\_token}}; verifica che con token non valido venga sollevata un'eccezione HTTP 401 con messaggio "Token non valido" & S \\
+	TU-B\_172 & Implementato da \texttt{\seqsplit{test\_get\_current\_user\_invalid\_token}}; verifica$^G$ che con token$^G$ non valido venga sollevata un'eccezione HTTP 401 con messaggio "Token$^G$ non valido" & S \\
 	\hline
-	TU-B\_173 & Implementato da \texttt{\seqsplit{test\_get\_current\_user\_valid\_token}}; verifica che con token valido la funzione restituisca lo username dell'utente & S \\
+	TU-B\_173 & Implementato da \texttt{\seqsplit{test\_get\_current\_user\_valid\_token}}; verifica$^G$ che con token$^G$ valido la funzione restituisca lo username dell'utente & S \\
 	\hline
-	TU-B\_174 & Implementato da \texttt{\seqsplit{test\_send\_order\_calls\_service}}; verifica che \texttt{send\_order} chiami \texttt{send\_order} del servizio con lo username corretto & S \\
+	TU-B\_174 & Implementato da \texttt{\seqsplit{test\_send\_order\_calls\_service}}; verifica$^G$ che \texttt{send\_order} chiami \texttt{send\_order} del servizio con lo username corretto & S \\
 	\hline
-	TU-B\_175 & Implementato da \texttt{\seqsplit{test\_send\_order\_unauthorized}}; verifica che se l'utente corrente non corrisponde allo username venga sollevata un'eccezione HTTP 401 con messaggio "Non autorizzato" & S \\
+	TU-B\_175 & Implementato da \texttt{\seqsplit{test\_send\_order\_unauthorized}}; verifica$^G$ che se l'utente corrente non corrisponde allo username venga sollevata un'eccezione HTTP 401 con messaggio "Non autorizzato" & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCartService} \\
 	\hline
-	TU-B\_176 & Implementato da \texttt{\seqsplit{test\_get\_cart\_products\_returns\_empty\_list}}; verifica che il metodo \texttt{get\_cart\_products} della classe \texttt{CartService} restituisca una lista vuota. & S \\
+	TU-B\_176 & Implementato da \texttt{\seqsplit{test\_get\_cart\_products\_returns\_empty\_list}}; verifica$^G$ che il metodo \texttt{get\_cart\_products} della classe \texttt{CartService} restituisca una lista vuota. & S \\
 	\hline
-	TU-B\_177 & Implementato da \texttt{\seqsplit{test\_get\_cart\_products\_returns\_list}}; verifica che il metodo \texttt{get\_cart\_products} della classe \texttt{CartService} restituisca una lista di oggetti di tipo \texttt{CartProduct}. & S \\
+	TU-B\_177 & Implementato da \texttt{\seqsplit{test\_get\_cart\_products\_returns\_list}}; verifica$^G$ che il metodo \texttt{get\_cart\_products} della classe \texttt{CartService} restituisca una lista di oggetti di tipo \texttt{CartProduct}. & S \\
 	\hline
-	TU-B\_178 & Implementato da \texttt{\seqsplit{test\_send\_order\_delegates\_to\_adapter}}; verifica che il metodo \texttt{send\_order} del servizio deleghi la chiamata all'adapter & S \\
+	TU-B\_178 & Implementato da \texttt{\seqsplit{test\_send\_order\_delegates\_to\_adapter}}; verifica$^G$ che il metodo \texttt{send\_order} del servizio deleghi la chiamata all'adapter & S \\
 	\hline
-	TU-B\_179 & Implementato da \texttt{\seqsplit{test\_send\_order\_propagates\_success\_without\_return\_value}}; verifica che \texttt{send\_order} restituisca \texttt{None} in caso di successo & S \\
+	TU-B\_179 & Implementato da \texttt{\seqsplit{test\_send\_order\_propagates\_success\_without\_return\_value}}; verifica$^G$ che \texttt{send\_order} restituisca \texttt{None} in caso di successo & S \\
 	\hline
-	TU-B\_180 & Implementato da \texttt{\seqsplit{test\_send\_order\_raises\_cart\_empty\_exception}}; verifica che venga sollevata \texttt{CartEmptyException} se il carrello è vuoto, e che l'eccezione contenga lo username & S \\
+	TU-B\_180 & Implementato da \texttt{\seqsplit{test\_send\_order\_raises\_cart\_empty\_exception}}; verifica$^G$ che venga sollevata \texttt{CartEmptyException} se il carrello è vuoto, e che l'eccezione contenga lo username & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestCatalogRepoAdapter} \\
 	\hline
@@ -635,7 +635,7 @@
 	\hline
 	TU-B\_233 & Implementato da \texttt{\seqsplit{test\_update\_cart\_item\_qty\_delegates\_with\_username}}; verifica$^G$ che il metodo \texttt{update\_cart\_item\_qty} della classe \texttt{ToolService} deleghi correttamente la chiamata al \texttt{CartService} includendo lo username e tutti i parametri passati. & S \\
 	\hline
-	TU-B\_234 & Implementato da \texttt{\seqsplit{test\_get\_ordini\_delegates\_to\_storico\_service\_with\_default\_page\_size}}; verifica che \texttt{get\_ordini} deleghi a \texttt{storico\_service.get\_ordini\_cliente} con i parametri corretti (username, pagina, per\_pagina=10, data\_inizio=None, data\_fine=None) e restituisca il risultato & S \\
+	TU-B\_234 & Implementato da \texttt{\seqsplit{test\_get\_ordini\_delegates\_to\_storico\_service\_with\_default\_page\_size}}; verifica$^G$ che \texttt{get\_ordini} deleghi a \texttt{storico\_service.get\_ordini\_cliente} con i parametri corretti (username, pagina, per\_pagina=10, data\_inizio=None, data\_fine=None) e restituisca il risultato & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestStoricoAdapterPort} \\
 	\hline
@@ -793,31 +793,31 @@
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestEmbeddedCartService} \\
 	\hline
-	TU-B\_297 & Implementato da \texttt{\seqsplit{test\_load\_cart\_calls\_repo\_with\_username}}; verifica che \texttt{load\_cart} chiami \texttt{repo.get\_products} con lo username fornito & S \\
+	TU-B\_297 & Implementato da \texttt{\seqsplit{test\_load\_cart\_calls\_repo\_with\_username}}; verifica$^G$ che \texttt{load\_cart} chiami \texttt{repo.get\_products} con lo username fornito & S \\
 	\hline
-	TU-B\_298 & Implementato da \texttt{\seqsplit{test\_load\_cart\_passes\_username}}; verifica che \texttt{load\_cart} passi correttamente lo username al repository (es. "luigi") & S \\
+	TU-B\_298 & Implementato da \texttt{\seqsplit{test\_load\_cart\_passes\_username}}; verifica$^G$ che \texttt{load\_cart} passi correttamente lo username al repository$^G$ (es. "luigi") & S \\
 	\hline
-	TU-B\_299 & Implementato da \texttt{\seqsplit{test\_load\_cart\_returns\_none}}; verifica che \texttt{load\_cart} restituisca \texttt{None} dopo aver caricato i prodotti & S \\
+	TU-B\_299 & Implementato da \texttt{\seqsplit{test\_load\_cart\_returns\_none}}; verifica$^G$ che \texttt{load\_cart} restituisca \texttt{None} dopo aver caricato i prodotti & S \\
 	\hline
-	TU-B\_300 & Implementato da \texttt{\seqsplit{test\_search\_cart\_calls\_vect}}; verifica che \texttt{search\_cart} chiami il metodo \texttt{search} del vettore & S \\
+	TU-B\_300 & Implementato da \texttt{\seqsplit{test\_search\_cart\_calls\_vect}}; verifica$^G$ che \texttt{search\_cart} chiami il metodo \texttt{search} del vettore & S \\
 	\hline
-	TU-B\_301 & Implementato da \texttt{\seqsplit{test\_search\_cart\_passes\_username\_and\_query}}; verifica che \texttt{search\_cart} chiami \texttt{vect.search} con i parametri corretti (username, query, soglia) & S \\
+	TU-B\_301 & Implementato da \texttt{\seqsplit{test\_search\_cart\_passes\_username\_and\_query}}; verifica$^G$ che \texttt{search\_cart} chiami \texttt{vect.search} con i parametri corretti (username, query$^G$, soglia) & S \\
 	\hline
-	TU-B\_302 & Implementato da \texttt{\seqsplit{test\_search\_cart\_returns\_results}}; verifica che \texttt{search\_cart} restituisca la lista di ID prodotti restituita dal vettore & S \\
+	TU-B\_302 & Implementato da \texttt{\seqsplit{test\_search\_cart\_returns\_results}}; verifica$^G$ che \texttt{search\_cart} restituisca la lista di ID prodotti restituita dal vettore & S \\
 	\hline
-	TU-B\_303 & Implementato da \texttt{\seqsplit{test\_search\_cart\_returns\_empty}}; verifica che \texttt{search\_cart} restituisca una lista vuota quando il vettore non trova risultati & S \\
+	TU-B\_303 & Implementato da \texttt{\seqsplit{test\_search\_cart\_returns\_empty}}; verifica$^G$ che \texttt{search\_cart} restituisca una lista vuota quando il vettore non trova risultati & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestEmbeddedCatalogService} \\
 	\hline
-	TU-B\_304 & Implementato da \texttt{\seqsplit{test\_load\_catalog\_calls\_repo}}; verifica che \texttt{load\_catalog} chiami \texttt{repo.get\_full\_catalog} & S \\
+	TU-B\_304 & Implementato da \texttt{\seqsplit{test\_load\_catalog\_calls\_repo}}; verifica$^G$ che \texttt{load\_catalog} chiami \texttt{repo.get\_full\_catalog} & S \\
 	\hline
-	TU-B\_305 & Implementato da \texttt{\seqsplit{test\_load\_catalog\_returns\_none}}; verifica che \texttt{load\_catalog} restituisca \texttt{None} & S \\
+	TU-B\_305 & Implementato da \texttt{\seqsplit{test\_load\_catalog\_returns\_none}}; verifica$^G$ che \texttt{load\_catalog} restituisca \texttt{None} & S \\
 	\hline
-	TU-B\_306 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_calls\_vect}}; verifica che \texttt{search\_catalog} chiami il metodo \texttt{search} del vettore & S \\
+	TU-B\_306 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_calls\_vect}}; verifica$^G$ che \texttt{search\_catalog} chiami il metodo \texttt{search} del vettore & S \\
 	\hline
-	TU-B\_307 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_returns\_results}}; verifica che \texttt{search\_catalog} restituisca la lista di ID prodotti restituita dal vettore & S \\
+	TU-B\_307 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_returns\_results}}; verifica$^G$ che \texttt{search\_catalog} restituisca la lista di ID prodotti restituita dal vettore & S \\
 	\hline
-	TU-B\_308 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_returns\_empty}}; verifica che \texttt{search\_catalog} restituisca una lista vuota quando il vettore non trova risultati & S \\
+	TU-B\_308 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_returns\_empty}}; verifica$^G$ che \texttt{search\_catalog} restituisca una lista vuota quando il vettore non trova risultati & S \\
 	\hline
     \multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestFaissCartDb} \\
 	\hline
@@ -865,25 +865,25 @@
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestVecDbService} \\
 	\hline
-	TU-B\_329 & Implementato da \texttt{\seqsplit{test\_load\_catalog\_calls\_get\_full\_catalog}}; verifica che \texttt{load\_catalog} chiami \texttt{repo.get\_full\_catalog} & S \\
+	TU-B\_329 & Implementato da \texttt{\seqsplit{test\_load\_catalog\_calls\_get\_full\_catalog}}; verifica$^G$ che \texttt{load\_catalog} chiami \texttt{repo.get\_full\_catalog} & S \\
 	\hline
-	TU-B\_330 & Implementato da \texttt{\seqsplit{test\_load\_catalog\_embeds\_only\_product\_name}}; verifica che \texttt{load\_catalog} embeddi solo il nome del prodotto, non l'intero oggetto & S \\
+	TU-B\_330 & Implementato da \texttt{\seqsplit{test\_load\_catalog\_embeds\_only\_product\_name}}; verifica$^G$ che \texttt{load\_catalog} embeddi solo il nome del prodotto, non l'intero oggetto & S \\
 	\hline
-	TU-B\_331 & Implementato da \texttt{\seqsplit{test\_load\_catalog\_adds\_to\_catalog\_vect}}; verifica che \texttt{load\_catalog} aggiunga tutti i prodotti al vettore del catalogo & S \\
+	TU-B\_331 & Implementato da \texttt{\seqsplit{test\_load\_catalog\_adds\_to\_catalog\_vect}}; verifica$^G$ che \texttt{load\_catalog} aggiunga tutti i prodotti al vettore del catalogo & S \\
 	\hline
-	TU-B\_332 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_embeds\_query\_and\_uses\_given\_threshold}}; verifica che \texttt{search\_catalog} embeddi la query e chiami la ricerca con la soglia specificata & S \\
+	TU-B\_332 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_embeds\_query\_and\_uses\_given\_threshold}}; verifica$^G$ che \texttt{search\_catalog} embeddi la query$^G$ e chiami la ricerca con la soglia specificata & S \\
 	\hline
-	TU-B\_333 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_returns\_results}}; verifica che \texttt{search\_catalog} restituisca la lista degli ID prodotti trovati & S \\
+	TU-B\_333 & Implementato da \texttt{\seqsplit{test\_search\_catalog\_returns\_results}}; verifica$^G$ che \texttt{search\_catalog} restituisca la lista degli ID prodotti trovati & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large cart} \\
 	\hline
-	TU-B\_334 & Implementato da \texttt{\seqsplit{test\_load\_cart\_resets\_cart\_vect\_before\_reindex}}; verifica che \texttt{load\_cart} resetti il vettore del carrello prima di ricaricare i prodotti & S \\
+	TU-B\_334 & Implementato da \texttt{\seqsplit{test\_load\_cart\_resets\_cart\_vect\_before\_reindex}}; verifica$^G$ che \texttt{load\_cart} resetti il vettore del carrello prima di ricaricare i prodotti & S \\
 	\hline
-	TU-B\_335 & Implementato da \texttt{\seqsplit{test\_load\_cart\_embeds\_only\_product\_name}}; verifica che \texttt{load\_cart} embeddi solo il nome del prodotto nel carrello & S \\
+	TU-B\_335 & Implementato da \texttt{\seqsplit{test\_load\_cart\_embeds\_only\_product\_name}}; verifica$^G$ che \texttt{load\_cart} embeddi solo il nome del prodotto nel carrello & S \\
 	\hline
-	TU-B\_336 & Implementato da \texttt{\seqsplit{test\_search\_cart\_reloads\_cart\_and\_uses\_given\_threshold}}; verifica che \texttt{search\_cart} ricarichi il carrello e usi la soglia specificata per la ricerca & S \\
+	TU-B\_336 & Implementato da \texttt{\seqsplit{test\_search\_cart\_reloads\_cart\_and\_uses\_given\_threshold}}; verifica$^G$ che \texttt{search\_cart} ricarichi il carrello e usi la soglia specificata per la ricerca & S \\
 	\hline
-	TU-B\_337 & Implementato da \texttt{\seqsplit{test\_search\_cart\_returns\_results}}; verifica che \texttt{search\_cart} restituisca la lista degli ID prodotti trovati nel carrello & S \\
+	TU-B\_337 & Implementato da \texttt{\seqsplit{test\_search\_cart\_returns\_results}}; verifica$^G$ che \texttt{search\_cart} restituisca la lista degli ID prodotti trovati nel carrello & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDBConnection} \\
 	\hline
