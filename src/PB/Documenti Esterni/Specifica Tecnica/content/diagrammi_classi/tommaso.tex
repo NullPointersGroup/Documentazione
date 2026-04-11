@@ -96,6 +96,7 @@ Riceve i parametri di filtro dall'agente, li valida e li delega alla porta \text
 	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Tool/BaseTool}
 	\caption{Tool orders: BaseTool}
 \end{figure}
+\label{baseTool}
 
 \paragraph{Descrizione}
 \textit{BaseTool} è la classe astratta di base da cui ereditano tutti i tool utilizzati dall'agente LLM.\\
@@ -121,8 +122,7 @@ Definisce l'interfaccia comune che ogni tool deve implementare per essere esegui
 \end{figure}
 
 Il diagramma mostra l'architettura completa del tool per la ricerca nel catalogo prodotti.\\
-\textit{ToolCatalogService} espone la logica di ricerca semantica, \textit{ToolCatalogAdapter} implementa la porta \textit{ToolCatalogPortIn}, e \textit{SearchCatalog} estende \textit{BaseTool} per l'integrazione con l'agente LLM.
-
+Per la definizione di BaseTool, vedere sezione \ref{baseTool}
 
 \subsubsubsection{ToolCatalogService}
 \begin{figure}[H]
@@ -235,8 +235,7 @@ Per la descrizione completa si rimanda alla sezione Tool ordini.
 \end{figure}
 
 Il diagramma mostra l'architettura completa del tool per la gestione del carrello.\\
-\textit{ToolCartService} espone le operazioni sul carrello, \textit{ToolCartAdapter} implementa la porta \textit{ToolCartPortIn}, e i tool concreti (\textit{AddToCart}, \textit{RemoveFromCart}, \textit{UpdateCartItemQty}, \textit{SearchCart}, \textit{GetCartItems}) estendono \textit{BaseTool} per l'integrazione con l'agente LLM.
-
+Per la definizione di BaseTool, vedere sezione \ref{baseTool}
 
 \subsubsubsection{ToolCartService}
 \begin{figure}[H]
@@ -426,9 +425,8 @@ Per la descrizione completa si rimanda alla sezione Tool ordini.
 \end{figure}
 
 Il diagramma mostra l'architettura completa dell'agente LLM.\\
-\textit{LLMAgent} coordina l'intero ciclo agente: costruisce la cronologia dei messaggi, esegue il loop agentico tramite \textit{ToolExecutor} e produce una \textit{LLMResponse}.\\
-\textit{LLMAdapter} implementa la porta \textit{LLMPort} ed espone il metodo \textit{invoke} utilizzato da \textit{ChatService} per avviare l'elaborazione.
-
+Per la definizione di BaseTool, vedere sezione \ref{baseTool}
+Per la definizione di ChatService, vedere sezione\ref{ChatService}
 
 \subsubsubsection{BaseTool}
 \begin{figure}[H]
@@ -545,20 +543,3 @@ Viene implementata da \textit{LLMAdapter} e utilizzata da \textit{ChatService} p
 	\item \textbf{invoke(request: LLMRequest): LLMResponse} - metodo pubblico che riceve la richiesta e restituisce la risposta elaborata dall'agente LLM.\\
 	Viene concretizzato dalla sua implementazione \textit{LLMAdapter}.
 \end{itemize}
-
-\subsubsubsection{ChatService}
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=0.3\textwidth]{SpecificaTecnica/Tool/ChatService}
-	\caption{LLM Agent: ChatService}
-\end{figure}
-
-\paragraph{Descrizione}
-\textit{ChatService} è il service applicativo responsabile della gestione delle conversazioni con l'agente LLM.\\
-Riceve i messaggi dell'utente, costruisce la richiesta appropriata e la inoltra all'agente tramite la porta \textit{LLMPort}, restituendo la risposta al layer superiore.
-
-\paragraph{Attributi}
-\textit{ChatService} non definisce attributi propri.
-
-\paragraph{Metodi e funzioni}
-\textit{ChatService} non espone metodi pubblici aggiuntivi rispetto a quelli ereditati, delegando interamente l'elaborazione alla porta \textit{LLMPort}.
