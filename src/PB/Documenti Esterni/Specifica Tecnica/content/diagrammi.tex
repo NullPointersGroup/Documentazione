@@ -13,12 +13,35 @@ Le password degli utenti sono invece cifrate tramite \textbf{bcrypt}, algoritmo 
 
 \input{content/diagrammi_classi/autenticazione_frontend}
 
-\input{content/diagrammi_classi/recording}
-
 \newpage
 \input{content/diagrammi_classi/autenticazione_backend}
 
 \newpage
 \subsection{Chat}
+
+\input{content/diagrammi_classi/chat_frontend}
+
+\subsubsection{Backend}
+
+\input{content/diagrammi_classi/recording}
+
+\input{content/diagrammi_classi/laura}
+
+\input{content/diagrammi_classi/luca}
+
+\newpage
+\subsection{LlmTool}
+Questa parte si occupa di descrivere tutti i tool utilizzati dal nostro modello di intelligenza artificiale (gpt-5-mini) per elaborare le richieste ricevute da un'utente e ottenere un output adeguato rispetto alle richieste dell'utente stesso e alle richieste della proponente
+
+\input{content/diagrammi_classi/tommaso}
+
+\newpage
+\subsection{Storico ordini}
+
+Questa parte si occupa di mostrare lo storico ordini di un Cliente oppure lo storico ordini di tutti i Clienti nel caso di un admin.\\
+Oltretutto si occupa della logica di duplicazione ordine.
+
+\input{content/diagrammi_classi/storico_frontend}
+
 \newpage
 \input{content/diagrammi_classi/storico_backend}
