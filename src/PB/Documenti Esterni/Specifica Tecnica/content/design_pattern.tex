@@ -27,7 +27,7 @@ L'approccio risulta inoltre vantaggioso per il testing, poich\'e consente di sos
 \subsubsection{Utilizzo del pattern nel progetto}
 L'utilizzo del pattern \`e evidente soprattutto nel backend$^G$, dove i controller FastAPI ricevono i servizi applicativi tramite funzioni dedicate di costruzione.\\
 Ad esempio, nei moduli \textit{RecordingController} e \textit{StoricoController} le funzioni \textit{get\_service} istanziano e collegano repository, adapter e service, per poi fornire al router un oggetto gi\`a configurato.\\
-Anche i service applicativi, come \textit{RecordingService}, \textit{StoricoService}, \textit{ChatService} e i servizi di gestione del carrello, ricevono tramite costruttore le rispettive porte o dipendenze infrastrutturali, senza crearle autonomamente.\\
+Anche i service applicativi, come \textit{RecordingService}, \textit{HistoryService}, \textit{ChatService} e i servizi di gestione del carrello, ricevono tramite costruttore le rispettive porte o dipendenze infrastrutturali, senza crearle autonomamente.\\
 Questo consente di preservare l'indipendenza della logica applicativa rispetto ai dettagli tecnologici e di mantenere una composizione del sistema centralizzata e controllata.
 
 \subsection{Adapter}
@@ -41,6 +41,6 @@ L'introduzione degli adapter consente di evitare che il dominio o i service appl
 Questa scelta migliora la manutenibilit\`a del sistema, favorisce la sostituzione di una tecnologia con un'altra e rende pi\`u chiara la distinzione tra logica di business e logica di integrazione.
 \subsubsection{Utilizzo del pattern nel progetto}
 Il pattern \`e utilizzato in modo sistematico nel backend$^G$ in coerenza con l'architettura esagonale$^G$.\\
-Esempi significativi sono \textit{RecordingAdapter}, che implementa \textit{RecordingPort} delegando la trascrizione a \textit{RecordingRepository}; \textit{GetOrdiniAdapter}, che implementa \textit{StoricoAdapterPort} per l'accesso allo storico ordini; \textit{ChatRepoAdapter}, che collega \textit{ChatService} al repository delle conversazioni; e \textit{CartRepoAdapter}, che media tra i servizi del carrello e il layer di persistenza.\\
+Esempi significativi sono \textit{RecordingAdapter}, che implementa \textit{RecordingPort} delegando la trascrizione a \textit{RecordingRepository}; \textit{GetOrdersAdapter}, che implementa \textit{StoricoAdapterPort} per l'accesso allo storico ordini; \textit{ChatRepoAdapter}, che collega \textit{ChatService} al repository delle conversazioni; e \textit{CartRepoAdapter}, che media tra i servizi del carrello e il layer di persistenza.\\
 In tutti questi casi l'adapter riceve richieste formulate secondo il linguaggio del dominio applicativo e le traduce in chiamate concrete verso repository o servizi esterni.\\
 Il risultato \`e una struttura pi\`u modulare, in cui le componenti centrali del sistema restano indipendenti dalle scelte tecnologiche adottate.

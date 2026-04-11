@@ -26,8 +26,8 @@ Viene invocato dall'adapter e si occupa di interrogare il layer di persistenza p
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{get\_ordini(self, pagina: int, data\_inizio: date, data\_fine: date): StoricoPageSchema} - metodo pubblico che recupera una pagina dello storico ordini dell'utente autenticato, filtrata nell'intervallo di date specificato.\\
-	Restituisce un oggetto \textit{StoricoPageSchema} contenente la lista degli ordini e le informazioni di paginazione.
+	\item \textbf{get\_ordini(self, pagina: int, data\_inizio: date, data\_fine: date): HistoryPageSchema} - metodo pubblico che recupera una pagina dello storico ordini dell'utente autenticato, filtrata nell'intervallo di date specificato.\\
+	Restituisce un oggetto \textit{HistoryPageSchema} contenente la lista degli ordini e le informazioni di paginazione.
 \end{itemize}
 
 \subsubsubsection{ToolOrderAdapter}

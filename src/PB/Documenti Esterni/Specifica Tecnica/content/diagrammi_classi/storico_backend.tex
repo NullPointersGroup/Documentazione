@@ -22,32 +22,32 @@ Per la definizione di ChatService, vedere \ref{chat_service}
 \paragraph{Descrizione}
 Modulo FastAPI che definisce il router per le API REST dello storico ordini.\\
 Espone gli endpoint per il recupero degli ordini del cliente autenticato, il recupero di tutti gli ordini riservato agli amministratori e la duplicazione di un ordine esistente.\\
-Delega la logica applicativa a \textit{StoricoService}, ottenuto tramite dependency injection insieme alla sessione del database.
+Delega la logica applicativa a \textit{HistoryService}, ottenuto tramite dependency injection insieme alla sessione del database.
 
 \paragraph{Attributi}
 \begin{itemize}
 	\item \textbf{router: APIRouter} - router FastAPI con prefisso \textit{/storico} che raggruppa tutti gli endpoint del modulo.
-	\item \textbf{ServiceDep} - tipo annotato che inietta un'istanza di \textit{StoricoService} tramite la funzione \textit{get\_service}.
+	\item \textbf{ServiceDep} - tipo annotato che inietta un'istanza di \textit{HistoryService} tramite la funzione \textit{get\_service}.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{get\_service(db: DBSession): StoricoService} - funzione di dependency injection che istanzia \textit{GetOrdiniAdapter} e \textit{StoricoService} a partire dalla sessione del database.
+	\item \textbf{get\_service(db: DBSession): HistoryService} - funzione di dependency injection che istanzia \textit{GetOrdersAdapter} e \textit{HistoryService} a partire dalla sessione del database.
 	\item \textbf{require\_admin(username: Username, db: DBSession): string} - verifica che l'utente autenticato abbia ruolo amministratore.\\
 	Lancia \textit{HTTPException} con codice 403 in caso contrario.
-	\item \textbf{get\_storico\_cliente(username: Username, service: ServiceDep, pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): StoricoPageSchema} - endpoint \textit{GET /storico/miei} che recupera gli ordini dell'utente autenticato con supporto a paginazione e filtro per data.\\
+	\item \textbf{get\_storico\_cliente(username: Username, service: ServiceDep, pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): HistoryPageSchema} - endpoint \textit{GET /storico/miei} che recupera gli ordini dell'utente autenticato con supporto a paginazione e filtro per data.\\
 	Lancia \textit{HTTPException} con codice 404 se l'utente non viene trovato.
-	\item \textbf{get\_storico\_admin(service: ServiceDep, pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): StoricoPageSchema} - endpoint \textit{GET /storico/tutti} che recupera gli ordini di tutti gli utenti, accessibile solo agli amministratori.\\
+	\item \textbf{get\_storico\_admin(service: ServiceDep, pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): HistoryPageSchema} - endpoint \textit{GET /storico/tutti} che recupera gli ordini di tutti gli utenti, accessibile solo agli amministratori.\\
 	Lancia \textit{HTTPException} con codice 403 in caso di accesso non consentito.
 	\item \textbf{duplica\_ordine(codice\_ordine: string, username: Username, service: ServiceDep): dict[string, string]} - endpoint \textit{POST /storico/duplica/\{codice\_ordine\}} che duplica un ordine esistente.\\
 	Lancia \textit{HTTPException} con codice 404 se l'ordine non viene trovato.
 \end{itemize}
 
-\subsubsubsection{StoricoService}
+\subsubsubsection{HistoryService}
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Storico/StoricoService}
-	\caption{Storico Ordini: StoricoService}
+	\caption{Storico Ordini: HistoryService}
 \end{figure}
 
 \paragraph{Descrizione}
@@ -63,11 +63,11 @@ Si occupa di costruire le pagine di risposta, applicare i filtri per data e gest
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_build\_page(ordini\_orm: Ordine*, totale: int, pagina: int, per\_pagina: int, include\_username: bool): StoricoPageSchema} - metodo privato che costruisce la pagina di risposta a partire dalla lista di ordini ORM.\\
-	Recupera i prodotti associati e assembla gli schemi \textit{OrdineSchema} e \textit{StoricoPageSchema}.
-	\item \textbf{get\_ordini\_cliente(username: string, pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): StoricoPageSchema} - recupera gli ordini paginati di un cliente specifico.\\
+	\item \textbf{\_build\_page(ordini\_orm: Order*, totale: int, pagina: int, per\_pagina: int, include\_username: bool): HistoryPageSchema} - metodo privato che costruisce la pagina di risposta a partire dalla lista di ordini ORM.\\
+	Recupera i prodotti associati e assembla gli schemi \textit{OrderSchema} e \textit{HistoryPageSchema}.
+	\item \textbf{get\_ordini\_cliente(username: string, pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): HistoryPageSchema} - recupera gli ordini paginati di un cliente specifico.\\
 	Lancia \textit{OrdiniUsernameNotFoundException} se l'utente non ha ordini.
-	\item \textbf{get\_ordini\_admin(pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): StoricoPageSchema} - recupera tutti gli ordini paginati includendo il nome utente di ciascuno.\\
+	\item \textbf{get\_ordini\_admin(pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): HistoryPageSchema} - recupera tutti gli ordini paginati includendo il nome utente di ciascuno.\\
 	Lancia \textit{OrdiniNotFoundException} se non è presente alcun ordine.
 	\item \textbf{duplica\_ordine(codice\_ordine: string, username: string)} - duplica un ordine esistente per l'utente indicato.\\
 	Lancia \textit{OrdineNotFoundException} se il codice ordine non viene trovato.
@@ -83,7 +83,7 @@ Si occupa di costruire le pagine di risposta, applicare i filtri per data e gest
 
 \paragraph{Descrizione}
 Classe astratta Python che definisce il porto di accesso ai dati per lo storico ordini.\\
-Segue il pattern architetturale delle porte e degli adattatori, disaccoppiando la logica applicativa di \textit{StoricoService} dalla specifica implementazione di accesso al database.\\
+Segue il pattern architetturale delle porte e degli adattatori, disaccoppiando la logica applicativa di \textit{HistoryService} dalla specifica implementazione di accesso al database.\\
 Tutte le classi adapter concrete devono implementare i metodi qui dichiarati.
 
 \paragraph{Attributi}
@@ -91,45 +91,45 @@ Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{get\_ordini\_by\_username(username: string, pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): List[Ordine]} - restituisce gli ordini paginati di un utente e il numero totale di ordini corrispondenti.
-	\item \textbf{get\_all\_ordini(pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): List[Ordine]} - restituisce tutti gli ordini paginati e il numero totale, utilizzato dalla vista amministratore.
+	\item \textbf{get\_ordini\_by\_username(username: string, pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): List[Order]} - restituisce gli ordini paginati di un utente e il numero totale di ordini corrispondenti.
+	\item \textbf{get\_all\_ordini(pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): List[Order]} - restituisce tutti gli ordini paginati e il numero totale, utilizzato dalla vista amministratore.
 	\item \textbf{get\_prodotti\_by\_ordine\_ids(ordine\_ids: List[int])} - restituisce i prodotti associati a una lista di identificatori di ordini.
-	\item \textbf{duplica\_ordine(codice\_ordine: string, username: string): Ordine} - duplica un ordine esistente per l'utente indicato e restituisce il nuovo ordine creato.
+	\item \textbf{duplica\_ordine(codice\_ordine: string, username: string): Order} - duplica un ordine esistente per l'utente indicato e restituisce il nuovo ordine creato.
 	\item \textbf{get\_all\_products\_by\_username(username: string): OrdCliDet} - restituisce i prodotti acquistati da un utente aggregati per frequenza, con codice, nome e conteggio.
 \end{itemize}
 
-\subsubsubsection{GetOrdiniAdapter}
+\subsubsubsection{GetOrdersAdapter}
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/GetOrdiniAdapter}
-	\caption{Storico Ordini: GetOrdiniAdapter}
+	\caption{Storico Ordini: GetOrdersAdapter}
 \end{figure}
 
 \paragraph{Descrizione}
 Classe Python che implementa \textit{StoricoAdapterPort} seguendo il pattern degli adattatori.\\
-Riceve una sessione del database alla costruzione e la utilizza per istanziare \textit{StoricoRepository}, al quale delega interamente tutte le operazioni di accesso ai dati.
+Riceve una sessione del database alla costruzione e la utilizza per istanziare \textit{HistoryRepository}, al quale delega interamente tutte le operazioni di accesso ai dati.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{repository: StoricoRepository} - istanza del repository istanziata a partire dalla sessione del database ricevuta in ingresso.
+	\item \textbf{repository: HistoryRepository} - istanza del repository istanziata a partire dalla sessione del database ricevuta in ingresso.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(db: Session)} - si occupa di inizializzare l'adattatore ricevendo la sessione del database e istanziando un'istanza di tipo StoricoRepository
+	\item \textbf{\_\_init\_\_(db: Session)} - si occupa di inizializzare l'adattatore ricevendo la sessione del database e istanziando un'istanza di tipo HistoryRepository
 	\end{itemize}
 
-\subsubsubsection{StoricoRepository}
+\subsubsubsection{HistoryRepository}
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Storico/StoricoRepository}
-	\caption{Storico Ordini: StoricoRepository}
+	\caption{Storico Ordini: HistoryRepository}
 \end{figure}
 
 \paragraph{Descrizione}
 Classe Python che gestisce l'accesso diretto al database per lo storico ordini.\\
-Riceve una sessione SQLModel alla costruzione e la utilizza per eseguire le query tramite i modelli \textit{Ordine}, \textit{OrdCliDet} e \textit{Anaart}.\\
-Rappresenta il livello più basso della catena \textit{StoricoService} → \textit{GetOrdiniAdapter} → \textit{StoricoRepository}.
+Riceve una sessione SQLModel alla costruzione e la utilizza per eseguire le query tramite i modelli \textit{Order}, \textit{OrdCliDet} e \textit{Anaart}.\\
+Rappresenta il livello più basso della catena \textit{HistoryService} → \textit{GetOrdersAdapter} → \textit{HistoryRepository}.
 
 \paragraph{Attributi}
 \begin{itemize}
@@ -142,7 +142,7 @@ Rappresenta il livello più basso della catena \textit{StoricoService} → \text
 	\item \textbf{get\_all\_ordini(pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date)} - recupera tutti gli ordini del sistema con paginazione e filtro per data opzionale, restituisce la lista degli ordini e il totale.
 	\item \textbf{get\_prodotti\_by\_ordine\_ids(ordine\_ids: List[int])} - recupera i prodotti associati a una lista di identificatori di ordini tramite join tra \textit{OrdCliDet} e \textit{Anaart}.\\
 	Restituisce una lista vuota se la lista in ingresso è vuota.
-	\item \textbf{duplica\_ordine(codice\_ordine: string, username: string): Ordine} - duplica un ordine esistente creando un nuovo record con la data odierna e copiando i relativi prodotti.\\
+	\item \textbf{duplica\_ordine(codice\_ordine: string, username: string): Order} - duplica un ordine esistente creando un nuovo record con la data odierna e copiando i relativi prodotti.\\
 	Lancia \textit{ValueError} se l'ordine con il codice indicato non esiste.
 	\item \textbf{get\_all\_products\_by\_username(username: string)} - recupera i prodotti acquistati da un utente aggregati per frequenza, restituendo una lista di tuple con identificativo, descrizione e conteggio degli acquisti.
 \end{itemize}

@@ -181,8 +181,8 @@ Recupera i dati dell'utente tramite \textit{UserRepoPort} e ne richiede la cance
 	\item \textbf{\_\_init\_\_(port: UserRepoPort)} - metodo pubblico di inizializzazione.\\
 	Riceve e memorizza la porta di accesso al repository degli utenti.
 	\item \textbf{delete\_user(username: string)} - metodo pubblico che gestisce l'eliminazione dell'account corrispondente all'username fornito, delegando l'operazione alla porta del repository.
-	\item \textbf{get\_user(username: string): Utentiweb} - metodo pubblico che recupera i dati dell'utente identificato dall'username fornito.\\
-	Restituisce l'oggetto \textit{Utentiweb} corrispondente.
+	\item \textbf{get\_user(username: string): WebUser} - metodo pubblico che recupera i dati dell'utente identificato dall'username fornito.\\
+	Restituisce l'oggetto \textit{WebUser} corrispondente.
 \end{itemize}
 
 \subsubsubsection{ResetController}

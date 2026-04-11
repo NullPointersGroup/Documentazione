@@ -26,7 +26,7 @@ Utilizza i componenti \textit{ComponentOrdineRow}, \textit{ComponentDettaglioMod
 	\item \textbf{handleLogout()} - esegue il logout dell'utente chiamando l'endpoint \textit{/api/auth/logout} e reindirizza alla pagina principale.
 	\item \textbf{handleProfile()} - apre il pannello del profilo utente impostando \textit{profileOpen} a \textit{true}.
 	\item \textbf{resetFiltro()} - azzera i campi \textit{dataInizio} e \textit{dataFine} e ricarica la prima pagina senza filtri.
-	\item \textbf{ordiniFiltrati: Ordine} - restituisce la lista degli ordini filtrata in base alle date \textit{dataInizio} e \textit{dataFine} correntemente impostate.
+	\item \textbf{ordiniFiltrati: Order} - restituisce la lista degli ordini filtrata in base alle date \textit{dataInizio} e \textit{dataFine} correntemente impostate.
 \end{itemize}
 
 \subsubsubsection{ComponentPaginazione}
@@ -97,7 +97,7 @@ Interagisce con \textit{StoricoModel} per il recupero e la duplicazione dei dati
 \begin{itemize}
 	\item \textbf{caricaPagina(n: number, di: string, df: string)} - carica la pagina \textit{n} degli ordini applicando opzionalmente i filtri per data di inizio e di fine.\\
 	Invoca \textbf{getStoricoAdmin} o \textit{getStoricoCliente} in base al ruolo dell'utente.
-	\item \textbf{apriDettaglio(ordine: Ordine)} - imposta \textit{ordineScelto} con l'ordine ricevuto, aprendo il dettaglio.
+	\item \textbf{apriDettaglio(ordine: Order)} - imposta \textit{ordineScelto} con l'ordine ricevuto, aprendo il dettaglio.
 	\item \textbf{chiudiDettaglio()} - reimposta \textit{ordineScelto} a \textit{null}, chiudendo il dettaglio.
 	\item \textbf{duplicaOrdine(codice: string)} - richiede la duplicazione dell'ordine identificato da \textit{codice} tramite \textit{apiDuplicaOrdine}.\\
 	In caso di errore aggiorna \textit{erroreDuplica} con il relativo messaggio.
@@ -112,13 +112,13 @@ Interagisce con \textit{StoricoModel} per il recupero e la duplicazione dei dati
 
 \paragraph{Descrizione}
 File TypeScript che definisce le interfacce dati e le funzioni di accesso alle API per lo storico ordini.\\
-Espone i tipi \textit{Ordine}, \textit{Prodotto} e \textit{StoricoPage} utilizzati internamente dai componenti, e i tipi \textit{OrdineSchema}, \textit{ProdottoSchema} e \textit{StoricoPageSchema} che rispecchiano il formato restituito dal backend.\\
+Espone i tipi \textit{Order}, \textit{Product} e \textit{StoricoPage} utilizzati internamente dai componenti, e i tipi \textit{OrderSchema}, \textit{ProductSchema} e \textit{HistoryPageSchema} che rispecchiano il formato restituito dal backend.\\
 Le funzioni di accesso alle API gestiscono i parametri di paginazione e filtraggio per data.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{getStoricoCliente(pagina: number, perPagina: number, dataInizio?: string, dataFine?: string): StoricoPageSchema} - recupera lo storico ordini dell'utente autenticato tramite \textit{GET /api/storico/miei}, applicando opzionalmente i filtri per data.
-	\item \textbf{getStoricoAdmin(pagina: number, perPagina: number, dataInizio?: string, dataFine?: string): StoricoPageSchema} - recupera lo storico ordini di tutti gli utenti tramite \textit{GET /api/storico/tutti}, applicando opzionalmente i filtri per data.
+	\item \textbf{getStoricoCliente(pagina: number, perPagina: number, dataInizio?: string, dataFine?: string): HistoryPageSchema} - recupera lo storico ordini dell'utente autenticato tramite \textit{GET /api/storico/miei}, applicando opzionalmente i filtri per data.
+	\item \textbf{getStoricoAdmin(pagina: number, perPagina: number, dataInizio?: string, dataFine?: string): HistoryPageSchema} - recupera lo storico ordini di tutti gli utenti tramite \textit{GET /api/storico/tutti}, applicando opzionalmente i filtri per data.
 	\item \textbf{duplicaOrdine(codiceOrdine: string)} - duplica un ordine esistente tramite \textit{POST /api/storico/duplica/\{codiceOrdine\}}.\\
 	In caso di risposta non positiva lancia un errore con il messaggio restituito dal backend.
 \end{itemize}

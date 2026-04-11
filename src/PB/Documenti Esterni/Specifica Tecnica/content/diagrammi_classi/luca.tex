@@ -218,13 +218,13 @@ Coordina l'accesso ai dati tramite \textit{ChatRepoPort} e integra eventuali dip
 	Porta utilizzata per accedere ai dati delle conversazioni e dei messaggi.
 	\item \textbf{llm: LLMPort} - attributo privato di tipo \textit{LLMPort}.\\
 	Porta utilizzata per interagire con il modello linguistico durante la gestione della conversazione.
-	\item \textbf{storico\_service: StoricoService | Null} - attributo privato che rappresenta un eventuale riferimento al servizio di gestione dello storico ordini.\\
+	\item \textbf{storico\_service: HistoryService | Null} - attributo privato che rappresenta un eventuale riferimento al servizio di gestione dello storico ordini.\\
 	Viene utilizzato nei casi in cui la conversazione debba integrarsi con funzionalit\`a legate allo storico.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(repo: ChatRepoPort, llm: LLMPort, storico\_service: StoricoService | Null)} - metodo pubblico di inizializzazione.\\
+	\item \textbf{\_\_init\_\_(repo: ChatRepoPort, llm: LLMPort, storico\_service: HistoryService | Null)} - metodo pubblico di inizializzazione.\\
 	Riceve e memorizza le dipendenze necessarie alla gestione della chat.
 	\item \textbf{get\_all\_messages(conv\_id: int): Message*} - metodo pubblico che recupera tutti i messaggi associati alla conversazione identificata da \textit{conv\_id}.\\
 	Restituisce una collezione di oggetti di tipo \textit{Message}.
@@ -305,7 +305,7 @@ Utilizza una sessione di database per creare nuove conversazioni, recuperare i m
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(db: Session)} - metodo pubblico di inizializzazione.\\
 	Riceve una sessione di database e la memorizza per l'esecuzione delle operazioni sulle conversazioni.
-	\item \textbf{get\_conversation(conv\_id: int): Conversazioni | Null} - metodo pubblico che recupera la conversazione identificata da \textit{conv\_id}.\\
+	\item \textbf{get\_conversation(conv\_id: int): Conversations | Null} - metodo pubblico che recupera la conversazione identificata da \textit{conv\_id}.\\
 	Restituisce la conversazione trovata oppure \textit{Null} nel caso in cui non esista.
 	\item \textbf{create\_conversation(username: string): Conversation} - metodo pubblico che crea e persiste una nuova conversazione associata allo username fornito.\\
 	Restituisce l'entit\`a relativa alla conversazione creata.
