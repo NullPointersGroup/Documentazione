@@ -6,6 +6,8 @@
 	\caption{Diagramma delle classi per Storico Ordini: Frontend}
 \end{figure}
 
+Per la definizione di ComponentNavBar, vedere sezione \ref{navbar}
+
 \subsubsubsection{StoricoView}
 \begin{figure}[H]
 	\centering 
@@ -93,7 +95,7 @@ Interagisce con \textit{StoricoModel} per il recupero e la duplicazione dei dati
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{caricaPagina(n: int, di: string, df: string)} - carica la pagina \textit{n} degli ordini applicando opzionalmente i filtri per data di inizio e di fine.\\
+	\item \textbf{caricaPagina(n: number, di: string, df: string)} - carica la pagina \textit{n} degli ordini applicando opzionalmente i filtri per data di inizio e di fine.\\
 	Invoca \textbf{getStoricoAdmin} o \textit{getStoricoCliente} in base al ruolo dell'utente.
 	\item \textbf{apriDettaglio(ordine: Ordine)} - imposta \textit{ordineScelto} con l'ordine ricevuto, aprendo il dettaglio.
 	\item \textbf{chiudiDettaglio()} - reimposta \textit{ordineScelto} a \textit{null}, chiudendo il dettaglio.
@@ -115,8 +117,8 @@ Le funzioni di accesso alle API gestiscono i parametri di paginazione e filtragg
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{getStoricoCliente(pagina: int, perPagina: int, dataInizio?: string, dataFine?: string): StoricoPageSchema} - recupera lo storico ordini dell'utente autenticato tramite \textit{GET /api/storico/miei}, applicando opzionalmente i filtri per data.
-	\item \textbf{getStoricoAdmin(pagina: int, perPagina: int, dataInizio?: string, dataFine?: string): StoricoPageSchema} - recupera lo storico ordini di tutti gli utenti tramite \textit{GET /api/storico/tutti}, applicando opzionalmente i filtri per data.
+	\item \textbf{getStoricoCliente(pagina: number, perPagina: number, dataInizio?: string, dataFine?: string): StoricoPageSchema} - recupera lo storico ordini dell'utente autenticato tramite \textit{GET /api/storico/miei}, applicando opzionalmente i filtri per data.
+	\item \textbf{getStoricoAdmin(pagina: number, perPagina: number, dataInizio?: string, dataFine?: string): StoricoPageSchema} - recupera lo storico ordini di tutti gli utenti tramite \textit{GET /api/storico/tutti}, applicando opzionalmente i filtri per data.
 	\item \textbf{duplicaOrdine(codiceOrdine: string)} - duplica un ordine esistente tramite \textit{POST /api/storico/duplica/\{codiceOrdine\}}.\\
 	In caso di risposta non positiva lancia un errore con il messaggio restituito dal backend.
 \end{itemize}
