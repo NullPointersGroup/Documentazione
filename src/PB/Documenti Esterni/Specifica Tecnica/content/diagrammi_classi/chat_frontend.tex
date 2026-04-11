@@ -2,27 +2,6 @@
 
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Autenticazione/UMLAutenticazioneBackend}
+	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Chat/ChatFrontend}
 	\caption{Diagramma delle classi per Autenticazione e Registrazione: Backend}
 \end{figure}
-
-\subsubsubsection{CheckUserController}
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/CheckUserController}
-	\caption{Autenticazione e Registrazione: CheckUserController}
-\end{figure}
-
-\paragraph{Descrizione}
-\textit{CheckUserController} è il controller REST responsabile della gestione delle richieste HTTP di autenticazione.\\
-Riceve le credenziali dell'utente, le delega al \textit{CheckUserService} e restituisce la risposta appropriata al client.
-
-\paragraph{Attributi}
-Questa classe non ha attributi propri.
-
-\paragraph{Metodi e funzioni}
-\begin{itemize}
-	\item \textbf{create\_token(username: string): string} - attributo privato che rappresenta la funzione utilizzata per generare il token JWT a partire dall'username dell'utente autenticato.
-	\item \textbf{login(request: Request, payload: UserSchema, service: \newline CheckUserServiceDep, response: Response): LoginResponse} - \newline metodo pubblico che gestisce la richiesta di login.\\
-	Riceve i dati dell'utente tramite \textit{payload}, invoca il service per la verifica delle credenziali e restituisce una \textit{LoginResponse} contenente il token di accesso o un errore.
-\end{itemize}
