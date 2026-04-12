@@ -6,10 +6,9 @@
 	\caption{Schema ER della base di dati}
 \end{figure}
 
-Il database$^G$ relazionale utilizzato per il progetto$^G$ SmartOrder non è molto complesso.\\
-In esso vengono salvati:
+Nel database$^G$ relazionale utilizzato per il progetto$^G$ SmartOrder vengono salvati:
 \begin{itemize}
-	\item \textbf{anaart}: l'anagrafica degli articoli. È composto da:
+	\item \textbf{AnaArt}: l'anagrafica degli articoli. È composto da:
 	\begin{itemize}
 		\item \textbf{cod\_art}: il codice articolo, è la primary key della tabella
 		\item \textbf{des\_art}: rappresenta la descrizione dell'articolo
@@ -19,7 +18,7 @@ In esso vengono salvati:
 		\item \textbf{conf\_collo}: rappresenta quante confezioni sono presenti all'interno di un collo
 		\item \textbf{pezzi\_conf}: rappresenta quanti pezzi sono presenti all'interno di una confezione
 		\item \textbf{grammatura}: rappresenta il peso
-		\item \textbf{prezzo}: rappresenta il pezzo in euro del prodotto
+		\item \textbf{prezzo}: rappresenta il prezzo in euro del prodotto
 	\end{itemize}
 	\item \textbf{UtentiWeb}: la tabella che tiene salvati gli utenti di SmartOrder. Contiene:
 	\begin{itemize}
@@ -38,6 +37,7 @@ In esso vengono salvati:
 	\begin{itemize}
 		\item \textbf{id\_ord}: rappresenta l'id dell'ordine associato. Viene utilizzato come primary key assieme all'attributo \textbf{cod\_art}. È una chiave esterna
 		\item \textbf{cod\_art}: rappresenta il codice dell'articolo in oggetto. Viene utilizzato come primary key assieme all'attributo \textbf{id\_ord}. è una chiave esterna 
+		\item \textbf{qta\_ordinata}: rappresenta quante unità di articolo \vr{cod\_art} è stato ordinato nell'ordine \vr{id\_ord}
 	\end{itemize}
 	\item \textbf{Conversazione}: rappresenta una chat di un utente. È composta da:
 	\begin{itemize}
@@ -51,6 +51,12 @@ In esso vengono salvati:
 		\item \textbf{id\_messaggio}: rappresenta l'id di un messaggio all'interno di una conversazione. È una primary key assieme all'attributo \textbf{id\_conv}
 		\item \textbf{mittente}: rappresenta chi ha inviato il messaggio. È rappresentato da un enum e può essere solo utente oppure chatbot
 		\item \textbf{contenuto}: rappresenta il testo del messaggio
+	\end{itemize}
+	\item \textbf{Carrello}: rappresenta la tabella che indica quali articoli sono presenti in un determinato momento nel carrello di un UtenteWeb. È composto da:
+	\begin{itemize}
+		\item \textbf{username}: rappresenta lo username dell'UtenteWeb a cui è associato il carrello. È la primary key della tabella assieme all'attributo \textbf{cod\_art}, è una chiave esterna
+		\item \textbf{cod\_art}: rappresenta il codice dell'articolo associato al carrello. È la primary key della tabella assieme all'attributo \textbf{username}, è una chiave esterna
+		\item \textbf{quantita}: rappresenta la quantità di \vr{cod\_art} presente in un determinato momento nel carrello dell'UtenteWeb associato
 	\end{itemize}
 	
 \end{itemize}

@@ -18,11 +18,11 @@
 Riceve le credenziali dell'utente, le delega al \textit{CheckUserService} e restituisce la risposta appropriata al client.
 
 \paragraph{Attributi}
-Questa classe non ha attributi propri.
+\textit{CheckUserController} non definisce attributi propri.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{create\_token(username: string): string} - attributo privato che rappresenta la funzione utilizzata per generare il token JWT a partire dall'username dell'utente autenticato.
+	\item \textbf{create\_token(username: string): string} - rappresenta la funzione utilizzata per generare il token JWT a partire dall'username dell'utente autenticato.
 	\item \textbf{login(request: Request, payload: UserSchema, service: \newline CheckUserServiceDep, response: Response): LoginResponse} - \newline metodo pubblico che gestisce la richiesta di login.\\
 	Riceve i dati dell'utente tramite \textit{payload}, invoca il service per la verifica delle credenziali e restituisce una \textit{LoginResponse} contenente il token di accesso o un errore.
 \end{itemize}
@@ -94,7 +94,7 @@ Verifica la disponibilità di username ed email, valida il dominio dell'indirizz
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(repo: IUserRepoPort, email\_validator: EmailValidationPort)} - metodo pubblico di inizializzazione.\\
+	\item \textbf{\_\_init\_\_(port: IUserRepoPort, email\_validator: EmailValidationPort)} - metodo pubblico di inizializzazione.\\
 	Riceve e memorizza la porta del repository e il validatore email.
 	\item \textbf{register\_user(u: UserRegistration)} - metodo pubblico che gestisce il flusso completo di registrazione: verifica la disponibilità di username ed email, valida il dominio email, cifra la password e salva il nuovo utente tramite il repository.
 	\item \textbf{\_hash\_password(password: string): string} - metodo privato che cifra la password in chiaro e restituisce la corrispondente stringa hashata da memorizzare nel database.
@@ -113,7 +113,7 @@ Verifica la disponibilità di username ed email, valida il dominio dell'indirizz
 Viene implementata da \textit{EmailValidationAdapter} e utilizzata da \textit{RegisterUserService} per verificare che il dominio dell'email fornita esista effettivamente.
 
 \paragraph{Attributi}
-\textit{EmailValidationPort} non definisce attributi.
+Essendo un'interfaccia, non definisce attributi.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
@@ -244,12 +244,12 @@ Verifica la correttezza della password attuale, cifra la nuova password e delega
 Viene implementata da \textit{UserRepoAdapter} e utilizzata dai service del dominio, garantendo il disaccoppiamento tra logica di business e layer di persistenza.
 
 \paragraph{Attributi}
-\textit{UserRepoPort} non definisce attributi.
+Essendo un'interfaccia, non definisce attributi.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{find\_by\_username(username: string): Utente} - metodo pubblico che recupera un utente dal repository a partire dal suo username.\\
-	Restituisce l'oggetto \textit{Utente} corrispondente.
+	\item \textbf{find\_by\_username(username: string): WebUser} - metodo pubblico che recupera un utente dal repository a partire dal suo username.\\
+	Restituisce l'oggetto \textit{WebUser} corrispondente.
 	\item \textbf{username\_exists(username: string): bool} - metodo pubblico che verifica se un determinato username è già presente nel sistema.\\
 	Restituisce \textit{true} se l'username esiste, \textit{false} altrimenti.
 	\item \textbf{email\_exists(email: string): bool} - metodo pubblico che verifica se un determinato indirizzo email è già registrato nel sistema.\\
@@ -307,10 +307,10 @@ Utilizza un \textit{QueryExecutor} interno per eseguire le query in modo central
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(db: Session)} - metodo pubblico di inizializzazione.
 	Riceve una sessione di database e la utilizza per configurare il \textit{QueryExecutor}.
-	\item \textbf{find\_by\_username(username: string): Utente} - metodo pubblico che esegue una query per recuperare l'utente corrispondente all'username fornito.\\
-	Restituisce l'oggetto \textit{Utente} trovato.
-	\item \textbf{find\_by\_email(email: string): Utente} - metodo pubblico che esegue una query per recuperare l'utente corrispondente all'indirizzo email fornito.\\
-	Restituisce l'oggetto \textit{Utente} trovato.
+	\item \textbf{find\_by\_username(username: string): WebUser} - metodo pubblico che esegue una query per recuperare l'utente corrispondente all'username fornito.\\
+	Restituisce l'oggetto \textit{WebUser} trovato.
+	\item \textbf{find\_by\_email(email: string): WebUser} - metodo pubblico che esegue una query per recuperare l'utente corrispondente all'indirizzo email fornito.\\
+	Restituisce l'oggetto \textit{WebUser} trovato.
 	\item \textbf{save(u: UserRegistration): bool} - metodo pubblico che persiste un nuovo utente nel database a partire dall'oggetto \textit{UserRegistration} fornito.\\
 	Restituisce \textit{true} in caso di successo.
 	\item \textbf{delete(username: string): bool} - metodo pubblico che rimuove dal database l'utente identificato dall'username fornito.\\

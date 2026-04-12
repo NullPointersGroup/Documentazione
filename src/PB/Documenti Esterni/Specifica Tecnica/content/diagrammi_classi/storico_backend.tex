@@ -21,7 +21,7 @@ Delega la logica applicativa a \textit{HistoryService}, ottenuto tramite depende
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{router: APIRouter} - router FastAPI con prefisso \textit{/storico} che raggruppa tutti gli endpoint del modulo.
+	\item \textbf{router: APIRouter} - router FastAPI con prefisso \textit{/history} che raggruppa tutti gli endpoint del modulo.
 	\item \textbf{ServiceDep} - tipo annotato che inietta un'istanza di \textit{HistoryService} tramite la funzione \textit{get\_service}.
 \end{itemize}
 
@@ -30,11 +30,11 @@ Delega la logica applicativa a \textit{HistoryService}, ottenuto tramite depende
 	\item \textbf{get\_service(db: DBSession): HistoryService} - funzione di dependency injection che istanzia \textit{GetOrdersAdapter} e \textit{HistoryService} a partire dalla sessione del database.
 	\item \textbf{require\_admin(username: Username, db: DBSession): string} - verifica che l'utente autenticato abbia ruolo amministratore.\\
 	Lancia \textit{HTTPException} con codice 403 in caso contrario.
-	\item \textbf{get\_storico\_cliente(username: Username, service: ServiceDep, pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): HistoryPageSchema} - endpoint \textit{GET /storico/miei} che recupera gli ordini dell'utente autenticato con supporto a paginazione e filtro per data.\\
+	\item \textbf{get\_history\_customer(username: Username, service: ServiceDep, page: Page, per\_page: PerPage, start\_date: date, end\_date: date): HistoryPageSchema} - endpoint \textit{GET /api/history/miei} che recupera gli ordini dell'utente autenticato con supporto a paginazione e filtro per data.\\
 	Lancia \textit{HTTPException} con codice 404 se l'utente non viene trovato.
-	\item \textbf{get\_storico\_admin(service: ServiceDep, pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): HistoryPageSchema} - endpoint \textit{GET /storico/tutti} che recupera gli ordini di tutti gli utenti, accessibile solo agli amministratori.\\
+	\item \textbf{get\_history\_admin(service: ServiceDep, page: Page, per\_page: PerPage, start\_date: date, end\_date: date): HistoryPageSchema} - endpoint \textit{GET /api/history/tutti} che recupera gli ordini di tutti gli utenti, accessibile solo agli amministratori.\\
 	Lancia \textit{HTTPException} con codice 403 in caso di accesso non consentito.
-	\item \textbf{duplica\_ordine(codice\_ordine: string, username: Username, service: ServiceDep): dict[string, string]} - endpoint \textit{POST /storico/duplica/\{codice\_ordine\}} che duplica un ordine esistente.\\
+	\item \textbf{duplicate\_order(code\_order: string, username: Username, service: ServiceDep): dict[string, string]} - endpoint \textit{POST /history/duplicate\_order/\{code\_order\}} che duplica un ordine esistente.\\
 	Lancia \textit{HTTPException} con codice 404 se l'ordine non viene trovato.
 \end{itemize}
 
@@ -46,26 +46,26 @@ Delega la logica applicativa a \textit{HistoryService}, ottenuto tramite depende
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che implementa la logica applicativa per la gestione dello storico ordini.\\
-Riceve un'istanza di \textit{StoricoAdapterPort} tramite dependency injection e la utilizza per accedere ai dati.\\
+Classe che implementa la logica applicativa per la gestione dello storico ordini.\\
+Riceve un'istanza di \textit{HistoryAdapterPort} tramite dependency injection e la utilizza per accedere ai dati.\\
 Si occupa di costruire le pagine di risposta, applicare i filtri per data e gestire i casi di errore relativi a ordini o utenti non trovati.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{adapter: StoricoAdapterPort} - istanza del porto di accesso ai dati, iniettata al momento della costruzione.
-	\item \textbf{PER\_PAGINA\_DEFAULT: int} - costante che definisce il numero di ordini per pagina di default, impostata a 10.
+	\item \textbf{adapter: HistoryAdapterPort} - istanza del porto di accesso ai dati, iniettata al momento della costruzione.
+	\item \textbf{PER\_PAGE\_DEFAULT: int} - costante che definisce il numero di ordini per pagina di default, impostata a 10.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_build\_page(ordini\_orm: Order*, totale: int, pagina: int, per\_pagina: int, include\_username: bool): HistoryPageSchema} - metodo privato che costruisce la pagina di risposta a partire dalla lista di ordini ORM.\\
+	\item \textbf{\_build\_page(orders: Order*, total: int, page: int, per\_page: int, include\_username: bool): HistoryPageSchema} - metodo privato che costruisce la pagina di risposta a partire dalla lista di ordini ORM.\\
 	Recupera i prodotti associati e assembla gli schemi \textit{OrderSchema} e \textit{HistoryPageSchema}.
-	\item \textbf{get\_ordini\_cliente(username: string, pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): HistoryPageSchema} - recupera gli ordini paginati di un cliente specifico.\\
-	Lancia \textit{OrdiniUsernameNotFoundException} se l'utente non ha ordini.
-	\item \textbf{get\_ordini\_admin(pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): HistoryPageSchema} - recupera tutti gli ordini paginati includendo il nome utente di ciascuno.\\
-	Lancia \textit{OrdiniNotFoundException} se non è presente alcun ordine.
-	\item \textbf{duplica\_ordine(codice\_ordine: string, username: string)} - duplica un ordine esistente per l'utente indicato.\\
-	Lancia \textit{OrdineNotFoundException} se il codice ordine non viene trovato.
+	\item \textbf{get\_orders\_customer(username: string, page: int, per\_page: int, start\_date: date, end\_date: date): HistoryPageSchema} - recupera gli ordini paginati di un cliente specifico.\\
+	Lancia \textit{UserOrdersNotFoundException} se l'utente non ha ordini.
+	\item \textbf{get\_orders\_admin(page: int, per\_page: int, start\_date: date, end\_date: date): HistoryPageSchema} - recupera tutti gli ordini paginati includendo il nome utente di ciascuno.\\
+	Lancia \textit{OrdersNotFoundException} se non è presente alcun ordine.
+	\item \textbf{duplicate\_order(code\_order: string, username: string)} - duplica un ordine esistente per l'utente indicato.\\
+	Lancia \textit{OrderNotFoundException} se il codice ordine non viene trovato.
 	\item \textbf{get\_user\_product\_preferences(username: string)} - recupera tutti i prodotti acquistati da un utente, utilizzato per la funzionalità di suggerimento.
 \end{itemize}
 
@@ -77,19 +77,18 @@ Si occupa di costruire le pagine di risposta, applicare i filtri per data e gest
 \end{figure}
 
 \paragraph{Descrizione}
-Classe astratta Python che definisce il porto di accesso ai dati per lo storico ordini.\\
+Classe astratta che definisce la porta di accesso ai dati per lo storico ordini.\\
 Segue il pattern architetturale delle porte e degli adattatori, disaccoppiando la logica applicativa di \textit{HistoryService} dalla specifica implementazione di accesso al database.\\
-Tutte le classi adapter concrete devono implementare i metodi qui dichiarati.
 
 \paragraph{Attributi}
 Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{get\_ordini\_by\_username(username: string, pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): List[Order]} - restituisce gli ordini paginati di un utente e il numero totale di ordini corrispondenti.
-	\item \textbf{get\_all\_ordini(pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date): List[Order]} - restituisce tutti gli ordini paginati e il numero totale, utilizzato dalla vista amministratore.
-	\item \textbf{get\_prodotti\_by\_ordine\_ids(ordine\_ids: List[int])} - restituisce i prodotti associati a una lista di identificatori di ordini.
-	\item \textbf{duplica\_ordine(codice\_ordine: string, username: string): Order} - duplica un ordine esistente per l'utente indicato e restituisce il nuovo ordine creato.
+	\item \textbf{get\_orders\_by\_username(username: string, page: int, per\_page: int, start\_date: date, end\_date: date): List[Order]} - restituisce gli ordini paginati di un utente.
+	\item \textbf{get\_all\_orders(page: int, per\_page: int, start\_date: date, end\_date: date): List[Order]} - restituisce tutti gli ordini paginati, utilizzato dalla vista amministratore.
+	\item \textbf{get\_products\_by\_order\_ids(order\_ids: List[int])} - restituisce i prodotti associati a una lista di identificatori di ordini.
+	\item \textbf{duplicate\_order(code\_order: string, username: string): Order} - duplica un ordine esistente per l'utente indicato e restituisce il nuovo ordine creato.
 	\item \textbf{get\_all\_products\_by\_username(username: string): OrdCliDet} - restituisce i prodotti acquistati da un utente aggregati per frequenza, con codice, nome e conteggio.
 \end{itemize}
 
@@ -101,7 +100,7 @@ Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che implementa \textit{StoricoAdapterPort} seguendo il pattern degli adattatori.\\
+Classe che implementa \textit{HistoryAdapterPort} seguendo il pattern degli adattatori.\\
 Riceve una sessione del database alla costruzione e la utilizza per istanziare \textit{HistoryRepository}, al quale delega interamente tutte le operazioni di accesso ai dati.
 
 \paragraph{Attributi}
@@ -122,7 +121,7 @@ Riceve una sessione del database alla costruzione e la utilizza per istanziare \
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che gestisce l'accesso diretto al database per lo storico ordini.\\
+Classe che gestisce l'accesso diretto al database per lo storico ordini.\\
 Riceve una sessione SQLModel alla costruzione e la utilizza per eseguire le query tramite i modelli \textit{Order}, \textit{OrdCliDet} e \textit{Anaart}.\\
 Rappresenta il livello più basso della catena \textit{HistoryService} → \textit{GetOrdersAdapter} → \textit{HistoryRepository}.
 
@@ -133,11 +132,11 @@ Rappresenta il livello più basso della catena \textit{HistoryService} → \text
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{get\_ordini\_by\_username(username: string, pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date)} - recupera gli ordini paginati di un utente specifico applicando opzionalmente i filtri per data, restituisce la lista degli ordini e il totale.
-	\item \textbf{get\_all\_ordini(pagina: int, per\_pagina: int, data\_inizio: date, data\_fine: date)} - recupera tutti gli ordini del sistema con paginazione e filtro per data opzionale, restituisce la lista degli ordini e il totale.
-	\item \textbf{get\_prodotti\_by\_ordine\_ids(ordine\_ids: List[int])} - recupera i prodotti associati a una lista di identificatori di ordini tramite join tra \textit{OrdCliDet} e \textit{Anaart}.\\
+	\item \textbf{get\_orders\_by\_username(username: string, page: int, per\_page: int, start\_date: date, end\_date: date)} - recupera gli ordini paginati di un utente specifico applicando opzionalmente i filtri per data, restituisce la lista degli ordini e il totale.
+	\item \textbf{get\_all\_orders(page: int, per\_page: int, start\_date: date, end\_date: date)} - recupera tutti gli ordini del sistema con paginazione e filtro per data opzionale, restituisce la lista degli ordini e il totale.
+	\item \textbf{get\_products\_by\_order\_ids(order\_ids: List[int])} - recupera i prodotti associati a una lista di identificatori di ordini tramite join tra \textit{OrdCliDet} e \textit{Anaart}.\\
 	Restituisce una lista vuota se la lista in ingresso è vuota.
-	\item \textbf{duplica\_ordine(codice\_ordine: string, username: string): Order} - duplica un ordine esistente creando un nuovo record con la data odierna e copiando i relativi prodotti.\\
+	\item \textbf{duplicate\_order(code\_order: string, username: string): Order} - duplica un ordine esistente creando un nuovo record con la data odierna e copiando i relativi prodotti.\\
 	Lancia \textit{ValueError} se l'ordine con il codice indicato non esiste.
 	\item \textbf{get\_all\_products\_by\_username(username: string)} - recupera i prodotti acquistati da un utente aggregati per frequenza, restituendo una lista di tuple con identificativo, descrizione e conteggio degli acquisti.
 \end{itemize}

@@ -22,7 +22,7 @@ Si occupa esclusivamente della presentazione grafica del form di autenticazione 
 \begin{itemize}
 	\item \textbf{Form(f: FormProps)} - funzione componente React$^G$ (funzione pubblica).
 	Riceve le props di tipo \textit{FormProps} e restituisce il markup JSX del form.
-	Itera sulla lista \textit{fields} per renderizzare dinamicamente i campi di input, utilizza \textit{vm.values} e \textit{vm.fieldErrors} per il binding dei dati, e collega gli handler \textit{vm.handleChange}, \textit{vm.handleBlur} e \textit{vm.handleSubmit} agli eventi del form. Per i campi di tipo password gestisce la visibilità tramite \textit{visibleFields} e delega la visualizzazione degli errori globali al componente \textit{FormErrors}.
+	Itera sulla lista \textit{fields} per renderizzare dinamicamente i campi di input, utilizza \textit{vm.values} e \textit{vm.fieldErrors} per il binding dei dati, e collega gli handler \textit{vm.handleChange}, \textit{vm.handleBlur} e \textit{vm.handleSubmit} agli eventi del form. Per i campi di tipo password gestisce la visibilità tramite \textit{visibleFields} e delega la visualizzazione degli errori globali.
 \end{itemize}
 
 
@@ -37,7 +37,6 @@ Si occupa esclusivamente della presentazione grafica del form di autenticazione 
 \paragraph{Descrizione}
 \textit{FormViewModel} è un'interfaccia TypeScript che definisce il contratto del ViewModel nel pattern MVVM.\\
 Espone lo stato del form e gli handler degli eventi che la View deve utilizzare.\\
-La sua implementazione concreta è prodotta dall'hook \textit{useFormViewModel}, che gestisce lo stato React$^G$ e la comunicazione con il Model.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
@@ -72,7 +71,7 @@ Solo \textit{fields} e \textit{submit} sono astratti: \textit{validate} e \texti
 	Metodo pubblico concreto, valida il singolo campo identificato da \textit{key} utilizzando \textit{validate} sull’intero set di valori aggiornato con \textit{value}.\\
 	Restituisce il messaggio di errore per il campo richiesto, oppure una stringa vuota se il campo è valido.
 	\item \textbf{submit(values: Record<string, string>): SubmitResult}\\
-	Metodo pubblico astratto asincrono, costruisce il DTO appropriato a partire dai valori del form e delega la chiamata HTTP al modulo \textit{AuthAPI}.\\ 
+	Metodo pubblico astratto asincrono, costruisce il DTO appropriato a partire dai valori del form e costruisce la chiamata HTTP.\\ 
 	Restituisce una \textit{SubmitResult} che il ViewModel utilizza per aggiornare lo stato della View in base all’esito.
 	\item \textbf{login(dto: LoginDto): AuthResponse}\\
 	Metodo privato protetto, invia una richiesta di login tramite \textit{authFetch}.
@@ -92,7 +91,7 @@ Solo \textit{fields} e \textit{submit} sono astratti: \textit{validate} e \texti
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{RegisterModel} è una classe concreta che estende \textit{FormModel}, specializzandone il comportamento per il caso d'uso$^G$ della registrazione di un nuovo utente.\\
+\textit{RegisterModel} è una classe concreta che estende \textit{FormModel}, specializzandone il comportamento per la registrazione di un nuovo utente.\\
 Inizializza i campi del form con la configurazione specifica per la registrazione (username, email, password, conferma password) e sovrascrive \textit{validate} per aggiungere la validazione$^G$ del formato email e la verifica$^G$ della corrispondenza delle due password.
 
 \paragraph{Metodi e funzioni}
@@ -108,7 +107,7 @@ Inizializza i campi del form con la configurazione specifica per la registrazion
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{LoginModel} è una classe concreta che estende \textit{FormModel}, specializzandone il comportamento per il caso d'uso$^G$ dell'autenticazione di un utente esistente.\\
+\textit{LoginModel} è una classe concreta che estende \textit{FormModel}, specializzandone il comportamento per l'autenticazione di un utente esistente.\\
 Inizializza i campi del form con la configurazione specifica per il login (username e password) e utilizza le regole di validazione$^G$ ereditate da \textit{FormModel} senza aggiungerne di nuove.
 
 \paragraph{Metodi e funzioni}

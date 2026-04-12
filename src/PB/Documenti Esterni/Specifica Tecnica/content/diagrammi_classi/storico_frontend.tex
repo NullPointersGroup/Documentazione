@@ -8,25 +8,25 @@
 
 Per la definizione di ComponentNavBar, vedere sezione \ref{navbar}
 
-\subsubsubsection{History}
+\subsubsubsection{HistoryView}
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/HistoryView}
-	\caption{Storico Ordini: History}
+	\caption{Storico Ordini: HistoryView}
 \end{figure}
 
 \paragraph{Descrizione}
 Componente React che rappresenta la pagina dello storico degli ordini. \\
 Recupera i dati tramite \textit{useHistoryViewModel} e gestisce la visualizzazione della lista degli ordini con supporto alla paginazione e al filtraggio per data. \\
 Se l'utente è amministratore, vengono mostrati gli ordini di tutti i clienti. \\
-Utilizza i componenti \textit{ComponentOrderRow}, \textit{ComponentOrderDetailsModal} e \textit{ComponentPagination}.
+Utilizza i componenti \textit{ComponentOrderRow}, \textit{ComponentOrderDetailsModal} e \textit{ComponentPagination}, oltre a \textit{ComponentNavBar}.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{handleLogout()} - esegue il logout dell'utente chiamando l'endpoint \textit{/api/auth/logout} e reindirizza alla pagina principale.
+	\item \textbf{handleLogout()} - esegue il logout dell'utente delegando la chiamata all'endpoint \textit{/api/auth/logout} e reindirizzando alla pagina principale.
 	\item \textbf{handleProfile()} - apre il pannello del profilo utente impostando \textit{profileOpen} a \textit{true}.
-	\item \textbf{resetFiltro()} - azzera i campi \textit{dataInizio} e \textit{dataFine} e ricarica la prima pagina senza filtri.
-	\item \textbf{ordiniFiltrati: Order} - restituisce la lista degli ordini filtrata in base alle date \textit{dataInizio} e \textit{dataFine} correntemente impostate.
+	\item \textbf{resetFilter()} - azzera i campi \textit{dataInizio} e \textit{dataFine} e ricarica la pagina senza filtri.
+	\item \textbf{filterOrders(): Order} - restituisce la lista degli ordini filtrata in base alle date \textit{dataInizio} e \textit{dataFine} correntemente impostate.
 \end{itemize}
 
 \subsubsubsection{ComponentPagination}
@@ -62,7 +62,7 @@ La modale si chiude cliccando sul backdrop o sul pulsante di chiusura.
 \paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \textbf{handleBackdropClick()} - chiude la modale quando l'utente clicca sul backdrop.
-	\item \textbf{contenutoDuplica(): ReactNode} - restituisce il contenuto della sezione duplicazione in base allo stato corrente: il pulsante iniziale, la richiesta di conferma oppure il messaggio di successo.
+	\item \textbf{duplicateContent(): ReactNode} - restituisce il contenuto della sezione duplicazione in base allo stato corrente: il pulsante iniziale, la richiesta di conferma oppure il messaggio di successo.
 \end{itemize}
 
 \subsubsubsection{ComponentOrderRow}
@@ -95,12 +95,12 @@ Interagisce con \textit{HistoryModel} per il recupero e la duplicazione dei dati
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{caricaPagina(n: number, di: string, df: string)} - carica la pagina \textit{n} degli ordini applicando opzionalmente i filtri per data di inizio e di fine.\\
+	\item \textbf{loadPage(n: number, di: string, df: string)} - carica la pagina \textit{n} degli ordini applicando opzionalmente i filtri per data di inizio e di fine.\\
 	Invoca \textbf{getStoricoAdmin} o \textit{getStoricoCliente} in base al ruolo dell'utente.
-	\item \textbf{apriDettaglio(ordine: Order)} - imposta \textit{ordineScelto} con l'ordine ricevuto, aprendo il dettaglio.
-	\item \textbf{chiudiDettaglio()} - reimposta \textit{ordineScelto} a \textit{null}, chiudendo il dettaglio.
-	\item \textbf{duplicaOrdine(codice: string)} - richiede la duplicazione dell'ordine identificato da \textit{codice} tramite \textit{apiDuplicaOrdine}.\\
-	In caso di errore aggiorna \textit{erroreDuplica} con il relativo messaggio.
+	\item \textbf{openDetail(order: Order)} - imposta \textit{ordineScelto} con l'ordine ricevuto, aprendo il dettaglio.
+	\item \textbf{closeDetail()} - reimposta \textit{ordineScelto} a \textit{null}, chiudendo il dettaglio.
+	\item \textbf{duplicateOrder(codeOrder: string)} - richiede la duplicazione dell'ordine identificato da \textit{codice} tramite \textit{duplicateOrder} di \textit{HistoryModel}.\\
+	In caso di errore aggiorna l'errore con il relativo messaggio.
 \end{itemize}
 
 \subsubsubsection{HistoryModel}
@@ -117,8 +117,8 @@ Le funzioni di accesso alle API gestiscono i parametri di paginazione e filtragg
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{getStoricoCliente(pagina: number, perPagina: number, dataInizio?: string, dataFine?: string): HistoryPageSchema} - recupera lo storico ordini dell'utente autenticato tramite \textit{GET /api/storico/miei}, applicando opzionalmente i filtri per data.
-	\item \textbf{getStoricoAdmin(pagina: number, perPagina: number, dataInizio?: string, dataFine?: string): HistoryPageSchema} - recupera lo storico ordini di tutti gli utenti tramite \textit{GET /api/storico/tutti}, applicando opzionalmente i filtri per data.
-	\item \textbf{duplicaOrdine(codiceOrdine: string)} - duplica un ordine esistente tramite \textit{POST /api/storico/duplica/\{codiceOrdine\}}.\\
+	\item \textbf{getHistoryCustomer(page: number, perPage: number, startDate: string, endDate: string): HistoryPageSchema} - recupera lo storico ordini dell'utente autenticato tramite \textit{GET /api/history/miei}, applicando opzionalmente i filtri per data.
+	\item \textbf{getHistoryAdmin(page: number, perPage: number, startDate: string, endDate: string): HistoryPageSchema} - recupera lo storico ordini di tutti gli utenti tramite \textit{GET /api/history/tutti}, applicando opzionalmente i filtri per data.
+	\item \textbf{duplicateOrder(codeOrder: string)} - duplica un ordine esistente tramite \textit{POST /api/history/duplica/\{codiceOrdine\}}.\\
 	In caso di risposta non positiva lancia un errore con il messaggio restituito dal backend.
 \end{itemize}
