@@ -1,36 +1,36 @@
 \section{Design Pattern}
 \subsection{MVVM: ModelViewViewModel}
 \subsubsection{Descrizione del pattern}
-Il pattern \textit{Model-View-ViewModel} separa la componente di presentazione dall'interfaccia grafica e dalla logica che governa lo stato della vista.\\
-La \textit{View} si occupa esclusivamente della resa grafica e dell'interazione con l'utente, il \textit{Model} incapsula dati e regole di dominio o di validazione, mentre il \textit{ViewModel} media tra i due livelli esponendo alla vista uno stato gi\`a pronto per essere utilizzato.\\
-Questa suddivisione consente di evitare che la logica applicativa venga distribuita nei componenti grafici, favorendo una struttura pi\`u chiara e mantenibile.
+Il pattern \textit{Model-View-ViewModel} separa la logica di presentazione dall'interfaccia grafica e dalla gestione dei dati.\\
+La \textit{View} si occupa esclusivamente della resa grafica e dell'interazione con l'utente, il \textit{Model} incapsula dati e regole di dominio o di validazione$^G$, mentre il \textit{ViewModel} media tra i due livelli esponendo alla vista uno stato gi\`a pronto per essere utilizzato.\\
+Questa suddivisione evita che la logica applicativa venga distribuita nei componenti grafici, favorendo una struttura pi\`u chiara, modulare e manutenibile.
 \subsubsection{Motivazioni dell'utilizzo del pattern}
-Nel progetto$^G$ SmartOrder questo pattern \`e stato adottato nel frontend$^G$ per isolare la logica di gestione delle interazioni utente dalla parte puramente visuale.\\
+Nel progetto$^G$ SmartOrder questo pattern \`e stato adottato nel frontend$^G$ per isolare la logica di gestione delle interazioni utente dalla componente puramente visuale.\\
 La scelta risulta particolarmente adatta in presenza di componenti che devono gestire stato locale, validazione$^G$ dei campi, messaggi di errore e invocazioni alle API$^G$ backend$^G$, poich\'e evita di concentrare tali responsabilit\`a direttamente nei componenti React$^G$.\\
 L'adozione di MVVM migliora inoltre la testabilit\`a delle funzionalit\`a lato client, permette di riutilizzare la logica di presentazione e rende pi\`u semplice evolvere l'interfaccia senza modificare le regole sottostanti.
 \subsubsection{Utilizzo del pattern nel progetto}
-Il pattern viene impiegato in ogni sezione del progetto:
+Nel progetto il pattern viene applicato nelle principali funzionalit\`a del frontend$^G$:
 \begin{itemize}
-	\item Autenticazione
-	\item Chat
-	\item Storico Ordini
+	\item \textbf{Autenticazione}: la vista gestisce la resa dei form, mentre il \textit{ViewModel} coordina validazione$^G$, invio dei dati e aggiornamento dello stato.
+	\item \textbf{Chat}: la componente grafica mostra i messaggi e raccoglie l'input dell'utente, mentre il \textit{ViewModel} governa il flusso conversazionale e le chiamate ai servizi.
+	\item \textbf{Storico ordini}: la vista presenta l'elenco e i dettagli degli ordini, mentre il \textit{ViewModel} gestisce caricamento, trasformazione dei dati e stato di errore o attesa.
 \end{itemize}
-In questo modo la componente grafica rimane semplice e dichiarativa, mentre la logica di presentazione e quella di dominio applicativo restano correttamente separate.
+In questo modo la componente grafica rimane semplice e dichiarativa, mentre la logica di presentazione resta centralizzata in moduli dedicati e separata dalle regole applicative.
 
 \subsection{Dependency Injection}
 \subsubsection{Descrizione del pattern}
-La \textit{Dependency Injection} è un pattern che prevede che le dipendenze necessarie a una classe o a un modulo non vengano create internamente, ma fornite dall'esterno al momento dell'inizializzazione o dell'invocazione.\\
+La \textit{Dependency Injection} \`e un pattern che prevede che le dipendenze necessarie a una classe o a un modulo non vengano create internamente, ma fornite dall'esterno al momento dell'inizializzazione o dell'invocazione.\\
 In questo modo un componente dipende da astrazioni o contratti ben definiti, invece che da implementazioni concrete istanziate direttamente al proprio interno.\\
-Il risultato è un accoppiamento minore tra le parti del sistema e una maggiore facilità nella sostituzione, configurazione e verifica$^G$ delle dipendenze.
+Il risultato \`e un accoppiamento minore tra le parti del sistema e una maggiore facilit\`a nella sostituzione, configurazione e verifica$^G$ delle dipendenze.
 \subsubsection{Motivazioni dell'utilizzo del pattern}
-Nel progetto$^G$ SmartOrder la dependency injection è stata adottata per mantenere coerente l'architettura esagonale$^G$ e ridurre la dipendenza diretta tra servizi applicativi, adapter e repository.\\
-Questa scelta permette di costruire catene di componenti in cui ogni elemento riceve solo le collaborazioni di cui ha bisogno, rendendo più chiaro il flusso delle responsabilità.\\
-L'approccio risulta inoltre vantaggioso per il testing, poiché consente di sostituire facilmente implementazioni reali con mock o stub, e semplifica l'evoluzione del sistema quando una tecnologia esterna cambia.
+Nel progetto$^G$ SmartOrder la \textit{dependency injection} \`e stata adottata per mantenere coerente l'architettura esagonale$^G$ e ridurre la dipendenza diretta tra servizi applicativi, adapter e repository.\\
+Questa scelta permette di costruire catene di componenti in cui ogni elemento riceve solo le collaborazioni di cui ha bisogno, rendendo pi\`u chiaro il flusso delle responsabilit\`a.\\
+L'approccio risulta inoltre vantaggioso per il testing, poich\'e consente di sostituire facilmente implementazioni reali con mock o stub, e semplifica l'evoluzione del sistema quando una tecnologia esterna cambia.
 \subsubsection{Utilizzo del pattern nel progetto}
 L'utilizzo del pattern è evidente soprattutto nel backend$^G$, dove i controller FastAPI ricevono i servizi applicativi tramite funzioni dedicate di costruzione.\\
 Ad esempio, nei moduli \textit{RecordingController} e \textit{StoricoController} le funzioni \textit{get\_service} istanziano e collegano repository, adapter e service, per poi fornire al router un oggetto gi\`a configurato.\\
 Anche i service applicativi, come \textit{RecordingService}, \textit{HistoryService}, \textit{ChatService} e i servizi di gestione del carrello, ricevono tramite costruttore le rispettive porte o dipendenze infrastrutturali, senza crearle autonomamente.\\
-Questo consente di preservare l'indipendenza della logica applicativa rispetto ai dettagli tecnologici e di mantenere una composizione del sistema centralizzata e controllata.
+Questo consente di preservare l'indipendenza della logica applicativa rispetto ai dettagli tecnologici e di mantenere la composizione del sistema centralizzata e controllata.
 
 \subsection{Adapter}
 \subsubsection{Descrizione del pattern}
@@ -43,5 +43,6 @@ L'introduzione degli adapter consente di evitare che il dominio o i service appl
 Questa scelta migliora la manutenibilità del sistema, favorisce la sostituzione di una tecnologia con un'altra e rende più chiara la distinzione tra logica di business e logica di integrazione.
 \subsubsection{Utilizzo del pattern nel progetto}
 Il pattern è utilizzato in modo sistematico nel backend$^G$ in coerenza con l'architettura esagonale$^G$.\\
+Ad esempio, gli adapter di persistenza implementano le porte verso il database$^G$, mentre altri adapter collegano il sistema ai servizi impiegati per trascrizione, conversazione e validazione$^G$.\\
 In tutti i casi l'adapter riceve richieste formulate secondo il linguaggio del dominio applicativo e le traduce in chiamate concrete verso repository o servizi esterni.\\
-Il risultato è una struttura più modulare, in cui le componenti centrali del sistema restano indipendenti dalle scelte tecnologiche adottate.
+Il risultato \`e una struttura pi\`u modulare, in cui le componenti centrali del sistema restano indipendenti dalle scelte tecnologiche adottate.
