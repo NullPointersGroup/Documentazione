@@ -7,39 +7,36 @@
 \paragraph{Descrizione generale}
 Questa parte si occupa della gestione del carrello associato a uno specifico utente.\\
 Le classi descritte consentono di recuperare i prodotti presenti nel carrello, aggiungere nuovi articoli, rimuoverli, modificarne la quantit\`a e inviare l'ordine finale.\\
-L'architettura segue il pattern Ports and Adapters, separando la logica applicativa dai dettagli di persistenza e integrando un servizio dedicato alla ricerca semantica dei prodotti presenti nel carrello.
+L'architettura segue il pattern Ports and Adapters, separando la logica applicativa dai dettagli di persistenza e integrando un servizio dedicato alla ricerca semantica dei prodotti presenti nel carrello.\\
+Per la definizione di \textit{EmbeddedCartService}, vedere \ref{EmbeddedCartService}.
 
-\subsubsubsection{EmbeddedCartService}
-\label{EmbeddedCartService}
+\subsubsubsection{CartService}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Chat/EmbeddedCartService.png}
-	\caption{Gestione del carrello: EmbeddedCartService}
+	\includegraphics[width=0.7\textwidth]{SpecificaTecnica/Chat/CartService.png}
+	\caption{Gestione del carrello: CartService}
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{EmbeddedCartService} \`e il service applicativo responsabile del caricamento del contenuto del carrello in forma vettoriale e della successiva ricerca semantica.\\
-Recupera i prodotti del carrello tramite la porta \textit{CartRepoPort}, ne costruisce una rappresentazione vettoriale tramite \textit{EmbedderPort} e interroga il database vettoriale attraverso \textit{VecDbPortOut}.
+\textit{CartService} \`e il service applicativo dedicato alle operazioni tradizionali di gestione del carrello e all'invio dell'ordine.\\
+Rappresenta un punto di accesso semplificato alle funzionalit\`a di lettura e modifica del carrello, delegando le operazioni alla porta \textit{CartRepoPort}.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{cart\_vect: VecDbPortOut} - attributo privato di tipo \textit{VecDbPortOut}.\\
-	Porta utilizzata per memorizzare e interrogare la rappresentazione vettoriale dei prodotti presenti nel carrello.
-	\item \textbf{cart\_repo: CartRepoPort} - attributo privato di tipo \textit{CartRepoPort}.\\
-	Porta utilizzata per recuperare i prodotti presenti nel carrello dell'utente.
-	\item \textbf{embedder: EmbedderPort} - attributo privato di tipo \textit{EmbedderPort}.\\
-	Porta utilizzata per generare gli embedding dei prodotti da indicizzare nel database vettoriale.
+	\item \textbf{adapter: CartRepoPort} - attributo privato di tipo \textit{CartRepoPort}.\\
+	Porta utilizzata per accedere alle operazioni di persistenza del carrello.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(cart\_vect: VecDbPortOut, cart\_repo: CartRepoPort, embedder: EmbedderPort)} - metodo pubblico di inizializzazione.\\
-	Riceve e memorizza le dipendenze necessarie per il recupero dei dati del carrello, la generazione degli embedding e l'interrogazione vettoriale.
-	\item \textbf{load\_cart(username: string)} - metodo pubblico che recupera dal repository i prodotti presenti nel carrello dell'utente identificato da \textit{username} e li carica nel sistema di ricerca vettoriale.\\
-	Questo passaggio prepara i dati necessari per successive ricerche semantiche.
-	\item \textbf{search\_cart(username: string, query: string, threshold: float): string*} - metodo pubblico che esegue una ricerca semantica all'interno del carrello dell'utente, utilizzando la query fornita e una soglia di similarit\`a.\\
-	Restituisce gli identificativi o i riferimenti ai prodotti che soddisfano i criteri di ricerca.
+	\item \textbf{\_\_init\_\_(adapter: CartRepoPort)} - metodo pubblico di inizializzazione.\\
+	Riceve e memorizza la porta di accesso al repository del carrello.
+	\item \textbf{get\_cart\_products(username: string): CartProduct*} - metodo pubblico che recupera tutti i prodotti presenti nel carrello dell'utente identificato da \textit{username}.\\
+	Restituisce una collezione di oggetti di tipo \textit{CartProduct}.
+	\item \textbf{send\_order(username: string)} - metodo pubblico che avvia l'invio dell'ordine relativo al carrello dell'utente specificato.\\
+	Delega la persistenza finale dell'operazione alla porta \textit{CartRepoPort}.
 \end{itemize}
+
 
 \subsubsubsection{ToolCartService}
 \begin{figure}[H]
@@ -76,33 +73,6 @@ Si occupa di coordinare l'accesso ai dati tramite \textit{CartRepoPort} e di sfr
 	Restituisce il prodotto rimosso o il relativo stato aggiornato.
 	\item \textbf{update\_cart\_item\_qty(prod\_id: string, qty: int, operation: CartUpdateOperation): CartProduct} - metodo pubblico che aggiorna la quantit\`a di un prodotto gi\`a presente nel carrello.\\
 	L'aggiornamento viene effettuato in base all'operazione specificata da \textit{CartUpdateOperation}.
-\end{itemize}
-
-\subsubsubsection{CartService}
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=0.7\textwidth]{SpecificaTecnica/Chat/CartService.png}
-	\caption{Gestione del carrello: CartService}
-\end{figure}
-
-\paragraph{Descrizione}
-\textit{CartService} \`e il service applicativo dedicato alle operazioni tradizionali di gestione del carrello e all'invio dell'ordine.\\
-Rappresenta un punto di accesso semplificato alle funzionalit\`a di lettura e modifica del carrello, delegando le operazioni alla porta \textit{CartRepoPort}.
-
-\paragraph{Attributi}
-\begin{itemize}
-	\item \textbf{adapter: CartRepoPort} - attributo privato di tipo \textit{CartRepoPort}.\\
-	Porta utilizzata per accedere alle operazioni di persistenza del carrello.
-\end{itemize}
-
-\paragraph{Metodi e funzioni}
-\begin{itemize}
-	\item \textbf{\_\_init\_\_(adapter: CartRepoPort)} - metodo pubblico di inizializzazione.\\
-	Riceve e memorizza la porta di accesso al repository del carrello.
-	\item \textbf{get\_cart\_products(username: string): CartProduct*} - metodo pubblico che recupera tutti i prodotti presenti nel carrello dell'utente identificato da \textit{username}.\\
-	Restituisce una collezione di oggetti di tipo \textit{CartProduct}.
-	\item \textbf{send\_order(username: string)} - metodo pubblico che avvia l'invio dell'ordine relativo al carrello dell'utente specificato.\\
-	Delega la persistenza finale dell'operazione alla porta \textit{CartRepoPort}.
 \end{itemize}
 
 \subsubsubsection{CartRepoPort}
@@ -188,7 +158,7 @@ Utilizza una sessione di database per eseguire il recupero dei prodotti, l'aggiu
 	\item \textbf{send\_order(username: string)} - metodo pubblico che conclude il processo di acquisto inviando l'ordine associato al carrello dell'utente.
 \end{itemize}
 
-\subsubsubsection{Boh, parte separata non so come volete dividere}
+%----------------------------------------------------------------------------------
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Chat/UMLChatService.png}

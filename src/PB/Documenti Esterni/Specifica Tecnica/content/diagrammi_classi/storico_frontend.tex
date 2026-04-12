@@ -8,18 +8,18 @@
 
 Per la definizione di ComponentNavBar, vedere sezione \ref{navbar}
 
-\subsubsubsection{StoricoView}
+\subsubsubsection{History}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/StoricoView}
-	\caption{Storico Ordini: StoricoView}
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/HistoryView}
+	\caption{Storico Ordini: History}
 \end{figure}
 
 \paragraph{Descrizione}
 Componente React che rappresenta la pagina dello storico degli ordini. \\
-Recupera i dati tramite \textit{useStoricoViewModel} e gestisce la visualizzazione della lista degli ordini con supporto alla paginazione e al filtraggio per data. \\
+Recupera i dati tramite \textit{useHistoryViewModel} e gestisce la visualizzazione della lista degli ordini con supporto alla paginazione e al filtraggio per data. \\
 Se l'utente è amministratore, vengono mostrati gli ordini di tutti i clienti. \\
-Utilizza i componenti \textit{ComponentOrdineRow}, \textit{ComponentDettaglioModal} e \textit{ComponentPaginazione}.
+Utilizza i componenti \textit{ComponentOrderRow}, \textit{ComponentOrderDetailsModal} e \textit{ComponentPagination}.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
@@ -29,11 +29,11 @@ Utilizza i componenti \textit{ComponentOrdineRow}, \textit{ComponentDettaglioMod
 	\item \textbf{ordiniFiltrati: Order} - restituisce la lista degli ordini filtrata in base alle date \textit{dataInizio} e \textit{dataFine} correntemente impostate.
 \end{itemize}
 
-\subsubsubsection{ComponentPaginazione}
+\subsubsubsection{ComponentPagination}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/ComponentPaginazione}
-	\caption{Storico Ordini: ComponentPaginazione}
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/ComponentPagination}
+	\caption{Storico Ordini: ComponentPagination}
 \end{figure}
 
 \paragraph{Descrizione}
@@ -46,11 +46,11 @@ Il componente non espone metodi propri.\\
 La navigazione tra le pagine è gestita interamente tramite la callback \textit{onCambia}, invocata con \textit{pagina~-~1} o \textit{pagina~+~1} alla pressione dei pulsanti \textit{Precedente} e \textit{Successivo} rispettivamente.\\
 I pulsanti vengono disabilitati automaticamente quando ci si trova alla prima o all'ultima pagina.
 
-\subsubsubsection{ComponentDettaglioModal}
+\subsubsubsection{ComponentOrderDetailsModal}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/ComponentDettaglioModal}
-	\caption{Storico Ordini: ComponentDettaglioModal}
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/ComponentOrderDetailsModal}
+	\caption{Storico Ordini: ComponentOrderDetailsModal}
 \end{figure}
 
 \paragraph{Descrizione}
@@ -65,11 +65,11 @@ La modale si chiude cliccando sul backdrop o sul pulsante di chiusura.
 	\item \textbf{contenutoDuplica(): ReactNode} - restituisce il contenuto della sezione duplicazione in base allo stato corrente: il pulsante iniziale, la richiesta di conferma oppure il messaggio di successo.
 \end{itemize}
 
-\subsubsubsection{ComponentOrdineRow}
+\subsubsubsection{ComponentOrderRow}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/ComponentOrdineRow}
-	\caption{Storico Ordini: ComponentOrdineRow}
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/ComponentOrderRow}
+	\caption{Storico Ordini: ComponentOrderRow}
 \end{figure}
 
 \paragraph{Descrizione}
@@ -81,17 +81,17 @@ Se l'utente è amministratore, viene mostrata anche la colonna con il nome del c
 Il componente non espone metodi propri.\\
 L'unica interazione è il pulsante \textit{Dettaglio}, che invoca la callback \textit{onApriDettaglio} passando l'ordine corrente.
 
-\subsubsubsection{StoricoViewModel}
+\subsubsubsection{HistoryViewModel}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Storico/StoricoViewModel}
-	\caption{Storico Ordini: StoricoViewModel}
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Storico/HistoryViewModel}
+	\caption{Storico Ordini: HistoryViewModel}
 \end{figure}
 
 \paragraph{Descrizione}
 Hook React che funge da ViewModel per la gestione dello storico ordini.\\
 Espone stato e azioni per caricare, visualizzare e duplicare ordini, adattando il comportamento al ruolo dell'utente autenticato.\\
-Interagisce con \textit{StoricoModel} per il recupero e la duplicazione dei dati tramite le funzioni \textit{getStoricoCliente}, \textit{getStoricoAdmin} e \textit{duplicaOrdine}.
+Interagisce con \textit{HistoryModel} per il recupero e la duplicazione dei dati tramite le funzioni \textit{getStoricoCliente}, \textit{getStoricoAdmin} e \textit{duplicaOrdine}.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
@@ -103,11 +103,11 @@ Interagisce con \textit{StoricoModel} per il recupero e la duplicazione dei dati
 	In caso di errore aggiorna \textit{erroreDuplica} con il relativo messaggio.
 \end{itemize}
 
-\subsubsubsection{StoricoModel}
+\subsubsubsection{HistoryModel}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=1\textwidth]{SpecificaTecnica/Storico/StoricoModel}
-	\caption{Storico Ordini: StoricoModel}
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Storico/HistoryModel}
+	\caption{Storico Ordini: HistoryModel}
 \end{figure}
 
 \paragraph{Descrizione}

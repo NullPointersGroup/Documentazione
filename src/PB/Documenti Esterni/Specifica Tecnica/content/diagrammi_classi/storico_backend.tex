@@ -5,18 +5,13 @@
 	\includegraphics[width=1\textwidth]{SpecificaTecnica/Storico/StoricoBackend}
 	\caption{Diagramma delle classi per Storico Ordini: Backend}
 \end{figure}
+Per la definizione di ChatService, vedere \ref{ChatService}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%TODO%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Per la definizione di ChatService, vedere \ref{chat_service}
-
-\subsubsubsection{StoricoController}
+\subsubsubsection{HistoryController}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=1\textwidth]{SpecificaTecnica/Storico/StoricoController}
-	\caption{Storico Ordini: StoricoController}
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Storico/HistoryController}
+	\caption{Storico Ordini: HistoryController}
 \end{figure}
 
 \paragraph{Descrizione}
@@ -46,7 +41,7 @@ Delega la logica applicativa a \textit{HistoryService}, ottenuto tramite depende
 \subsubsubsection{HistoryService}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Storico/StoricoService}
+	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Storico/HistoryService}
 	\caption{Storico Ordini: HistoryService}
 \end{figure}
 
@@ -74,11 +69,11 @@ Si occupa di costruire le pagine di risposta, applicare i filtri per data e gest
 	\item \textbf{get\_user\_product\_preferences(username: string)} - recupera tutti i prodotti acquistati da un utente, utilizzato per la funzionalità di suggerimento.
 \end{itemize}
 
-\subsubsubsection{StoricoAdapterPort}
+\subsubsubsection{HistoryAdapterPort}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Storico/StoricoAdapterPort}
-	\caption{Storico Ordini: StoricoAdapterPort}
+	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Storico/HistoryAdapterPort}
+	\caption{Storico Ordini: HistoryAdapterPort}
 \end{figure}
 
 \paragraph{Descrizione}
@@ -101,7 +96,7 @@ Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
 \subsubsubsection{GetOrdersAdapter}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/GetOrdiniAdapter}
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Storico/GetOrdersAdapter}
 	\caption{Storico Ordini: GetOrdersAdapter}
 \end{figure}
 
@@ -122,7 +117,7 @@ Riceve una sessione del database alla costruzione e la utilizza per istanziare \
 \subsubsubsection{HistoryRepository}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Storico/StoricoRepository}
+	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Storico/HistoryRepository}
 	\caption{Storico Ordini: HistoryRepository}
 \end{figure}
 
