@@ -635,73 +635,73 @@
 	\hline
 	TU-B\_233 & Implementato da \texttt{\seqsplit{test\_update\_cart\_item\_qty\_delegates\_with\_username}}; verifica$^G$ che il metodo \texttt{update\_cart\_item\_qty} della classe \texttt{ToolService} deleghi correttamente la chiamata al \texttt{CartService} includendo lo username e tutti i parametri passati. & S \\
 	\hline
-	TU-B\_234 & Implementato da \texttt{\seqsplit{test\_get\_ordini\_delegates\_to\_storico\_service\_with\_default\_page\_size}}; verifica$^G$ che \texttt{get\_ordini} deleghi a \texttt{storico\_service.get\_ordini\_cliente} con i parametri corretti (username, pagina, per\_pagina=10, data\_inizio=None, data\_fine=None) e restituisca il risultato & S \\
+	TU-B\_234 & Implementato da \texttt{\seqsplit{test\_get\_orders\_delegates\_to\_history\_service\_with\_default\_page\_size}}; verifica$^G$ che \texttt{get\_orders} deleghi a \texttt{history\_service.get\_orders\_cliente} con i parametri corretti (username, pagina, per\_pagina=10, data\_inizio=None, data\_fine=None) e restituisca il risultato & S \\
 	\hline
-	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestStoricoAdapterPort} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestHistoryAdapterPort} \\
 	\hline
-	TU-B\_235 & Implementato da \texttt{\seqsplit{test\_adapter\_implementa\_port}}; verifica$^G$ che la classe \texttt{GetOrdiniAdapter} sia una sottoclasse di \texttt{StoricoRepoPort}, soddisfacendo il contratto definito dalla porta. & S \\
+	TU-B\_235 & Implementato da \texttt{\seqsplit{test\_adapter\_implementa\_port}}; verifica$^G$ che la classe \texttt{GetOrdersAdapter} sia una sottoclasse di \texttt{HistoryRepoPort}, soddisfacendo il contratto definito dalla porta. & S \\
 	\hline
-	TU-B\_236 & Implementato da \texttt{\seqsplit{test\_adapter\_non\_e\_astratto}}; verifica$^G$ che la classe \texttt{GetOrdiniAdapter} possa essere istanziata senza errori, confermando che tutti i metodi astratti di \texttt{StoricoRepoPort} siano correttamente implementati. & S \\
+	TU-B\_236 & Implementato da \texttt{\seqsplit{test\_adapter\_non\_e\_astratto}}; verifica$^G$ che la classe \texttt{GetOrdersAdapter} possa essere istanziata senza errori, confermando che tutti i metodi astratti di \texttt{HistoryRepoPort} siano correttamente implementati. & S \\
 	\hline
-	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetOrdiniByUsername} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetOrdersByUsername} \\
 	\hline
-	TU-B\_237 & Implementato da \texttt{\seqsplit{test\_delega\_al\_repository}}; verifica$^G$ che il metodo \texttt{get\_ordini\_by\_username} della classe \texttt{GetOrdiniAdapter} deleghi correttamente la chiamata al repository$^G$ sottostante e restituisca il risultato atteso. & S \\
+	TU-B\_237 & Implementato da \texttt{\seqsplit{test\_delega\_al\_repository}}; verifica$^G$ che il metodo \texttt{get\_orders\_by\_username} della classe \texttt{GetOrdersAdapter} deleghi correttamente la chiamata al repository$^G$ sottostante e restituisca il risultato atteso. & S \\
 	\hline
-	TU-B\_238 & Implementato da \texttt{\seqsplit{test\_propaga\_paginazione}}; verifica$^G$ che il metodo \texttt{get\_ordini\_by\_username} della classe \texttt{GetOrdiniAdapter} propaghi correttamente i parametri di paginazione al repository. & S \\
+	TU-B\_238 & Implementato da \texttt{\seqsplit{test\_propaga\_paginazione}}; verifica$^G$ che il metodo \texttt{get\_orders\_by\_username} della classe \texttt{GetOrdersAdapter} propaghi correttamente i parametri di paginazione al repository. & S \\
 	\hline
-	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetAllOrdini} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetAllOrders} \\
 	\hline
-	TU-B\_239 & Implementato da \texttt{\seqsplit{test\_delega\_al\_repository}}; verifica$^G$ che il metodo \texttt{get\_all\_ordini} della classe \texttt{GetOrdiniAdapter} deleghi correttamente la chiamata al repository$^G$ e restituisca il risultato atteso. & S \\
+	TU-B\_239 & Implementato da \texttt{\seqsplit{test\_delega\_al\_repository}}; verifica$^G$ che il metodo \texttt{get\_all\_orders} della classe \texttt{GetOrdersAdapter} deleghi correttamente la chiamata al repository$^G$ e restituisca il risultato atteso. & S \\
 	\hline
-	TU-B\_240 & Implementato da \texttt{\seqsplit{test\_propaga\_paginazione}}; verifica$^G$ che il metodo \texttt{get\_all\_ordini} della classe \texttt{GetOrdiniAdapter} propaghi correttamente i parametri di paginazione al repository. & S \\
+	TU-B\_240 & Implementato da \texttt{\seqsplit{test\_propaga\_paginazione}}; verifica$^G$ che il metodo \texttt{get\_all\_orders} della classe \texttt{GetOrdersAdapter} propaghi correttamente i parametri di paginazione al repository. & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetProdottiByOrdineIds} \\
 	\hline
-	TU-B\_241 & Implementato da \texttt{\seqsplit{test\_delega\_al\_repository}}; verifica$^G$ che il metodo \texttt{get\_prodotti\_by\_ordine\_ids} della classe \texttt{GetOrdiniAdapter} deleghi la chiamata al repository$^G$ con la lista di id corretta e restituisca il risultato atteso. & S \\
+	TU-B\_241 & Implementato da \texttt{\seqsplit{test\_delega\_al\_repository}}; verifica$^G$ che il metodo \texttt{get\_prodotti\_by\_ordine\_ids} della classe \texttt{GetOrdersAdapter} deleghi la chiamata al repository$^G$ con la lista di id corretta e restituisca il risultato atteso. & S \\
 	\hline
-	TU-B\_242 & Implementato da \texttt{\seqsplit{test\_lista\_vuota}}; verifica$^G$ che il metodo \texttt{get\_prodotti\_by\_ordine\_ids} della classe \texttt{GetOrdiniAdapter}, ricevuta una lista di id vuota, la propaghi al repository$^G$ e restituisca una lista vuota. & S \\
+	TU-B\_242 & Implementato da \texttt{\seqsplit{test\_lista\_vuota}}; verifica$^G$ che il metodo \texttt{get\_prodotti\_by\_ordine\_ids} della classe \texttt{GetOrdersAdapter}, ricevuta una lista di id vuota, la propaghi al repository$^G$ e restituisca una lista vuota. & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDuplicaOrdineAdapter} \\
 	\hline
-	TU-B\_243 & Implementato da \texttt{\seqsplit{test\_delega\_al\_repository}}; verifica$^G$ che il metodo \texttt{duplica\_ordine} della classe \texttt{GetOrdiniAdapter} deleghi correttamente la chiamata al repository$^G$ e restituisca il nuovo ordine creato. & S \\
+	TU-B\_243 & Implementato da \texttt{\seqsplit{test\_delega\_al\_repository}}; verifica$^G$ che il metodo \texttt{duplica\_ordine} della classe \texttt{GetOrdersAdapter} deleghi correttamente la chiamata al repository$^G$ e restituisca il nuovo ordine creato. & S \\
 	\hline
-	TU-B\_244 & Implementato da \texttt{\seqsplit{test\_propaga\_value\_error}}; verifica$^G$ che il metodo \texttt{duplica\_ordine} della classe \texttt{GetOrdiniAdapter} propaghi correttamente un \texttt{ValueError} sollevato dal repository$^G$ senza intercettarlo. & S \\
+	TU-B\_244 & Implementato da \texttt{\seqsplit{test\_propaga\_value\_error}}; verifica$^G$ che il metodo \texttt{duplica\_ordine} della classe \texttt{GetOrdersAdapter} propaghi correttamente un \texttt{ValueError} sollevato dal repository$^G$ senza intercettarlo. & S \\
 	\hline
-	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetStoricoCliente} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetHistoryCliente} \\
 	\hline
-	TU-B\_245 & Implementato da \texttt{\seqsplit{test\_restituisce\_ordini}}; verifica$^G$ che l'endpoint \texttt{GET /storico/miei} risponda con stato 200 e restituisca la lista degli ordini con i campi di paginazione corretti. & S \\
+	TU-B\_245 & Implementato da \texttt{\seqsplit{test\_restituisce\_orders}}; verifica$^G$ che l'endpoint \texttt{GET /history/miei} risponda con stato 200 e restituisca la lista degli orders con i campi di paginazione corretti. & S \\
 	\hline
-	TU-B\_246 & Implementato da \texttt{\seqsplit{test\_chiama\_service\_con\_username\_corretto}}; verifica$^G$ che l'endpoint \texttt{GET /storico/miei} invochi il service passando lo username dell'utente autenticato e i parametri di paginazione presenti nella query$^G$ string. & S \\
+	TU-B\_246 & Implementato da \texttt{\seqsplit{test\_chiama\_service\_con\_username\_corretto}}; verifica$^G$ che l'endpoint \texttt{GET /history/miei} invochi il service passando lo username dell'utente autenticato e i parametri di paginazione presenti nella query$^G$ string. & S \\
 	\hline
-	TU-B\_247 & Implementato da \texttt{\seqsplit{test\_404\_se\_nessun\_ordine}}; verifica$^G$ che l'endpoint \texttt{GET /storico/miei} restituisca HTTP 404 quando il service solleva \texttt{OrdiniUsernameNotFoundException}. & S \\
+	TU-B\_247 & Implementato da \texttt{\seqsplit{test\_404\_se\_nessun\_ordine}}; verifica$^G$ che l'endpoint \texttt{GET /history/miei} restituisca HTTP 404 quando il service solleva \texttt{ordersUsernameNotFoundException}. & S \\
 	\hline
-	TU-B\_248 & Implementato da \texttt{\seqsplit{test\_pagina\_minima\_1}}; verifica$^G$ che l'endpoint \texttt{GET /storico/miei} restituisca HTTP 422 quando il parametro \texttt{pagina} è inferiore al valore minimo consentito. & S \\
+	TU-B\_248 & Implementato da \texttt{\seqsplit{test\_pagina\_minima\_1}}; verifica$^G$ che l'endpoint \texttt{GET /history/miei} restituisca HTTP 422 quando il parametro \texttt{pagina} è inferiore al valore minimo consentito. & S \\
 	\hline
-	TU-B\_249 & Implementato da \texttt{\seqsplit{test\_per\_pagina\_massimo\_50}}; verifica$^G$ che l'endpoint \texttt{GET /storico/miei} restituisca HTTP 422 quando il parametro \texttt{per\_pagina} supera il valore massimo consentito. & S \\
+	TU-B\_249 & Implementato da \texttt{\seqsplit{test\_per\_pagina\_massimo\_50}}; verifica$^G$ che l'endpoint \texttt{GET /history/miei} restituisca HTTP 422 quando il parametro \texttt{per\_pagina} supera il valore massimo consentito. & S \\
 	\hline
-	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetStoricoAdmin} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetHistoryAdmin} \\
 	\hline
-	TU-B\_250 & Implementato da \texttt{\seqsplit{test\_restituisce\_tutti\_gli\_ordini}}; verifica$^G$ che l'endpoint \texttt{GET /storico/tutti} risponda con stato 200 e restituisca gli ordini di tutti gli utenti, incluso il campo \texttt{username}. & S \\
+	TU-B\_250 & Implementato da \texttt{\seqsplit{test\_restituisce\_tutti\_gli\_orders}}; verifica$^G$ che l'endpoint \texttt{GET /history/tutti} risponda con stato 200 e restituisca gli ordini di tutti gli utenti, incluso il campo \texttt{username}. & S \\
 	\hline
-	TU-B\_251 & Implementato da \texttt{\seqsplit{test\_chiama\_service\_con\_paginazione}}; verifica$^G$ che l'endpoint \texttt{GET /storico/tutti} invochi il service con i parametri di paginazione corretti forniti nella query$^G$ string. & S \\
+	TU-B\_251 & Implementato da \texttt{\seqsplit{test\_chiama\_service\_con\_paginazione}}; verifica$^G$ che l'endpoint \texttt{GET /history/tutti} invochi il service con i parametri di paginazione corretti forniti nella query$^G$ string. & S \\
 	\hline
-	TU-B\_252 & Implementato da \texttt{\seqsplit{test\_403\_se\_non\_admin}}; verifica$^G$ che l'endpoint \texttt{GET /storico/tutti} restituisca HTTP 403 quando la dipendenza \texttt{require\_admin} nega l'accesso. & S \\
+	TU-B\_252 & Implementato da \texttt{\seqsplit{test\_403\_se\_non\_admin}}; verifica$^G$ che l'endpoint \texttt{GET /history/tutti} restituisca HTTP 403 quando la dipendenza \texttt{require\_admin} nega l'accesso. & S \\
 	\hline
-	TU-B\_253 & Implementato da \texttt{\seqsplit{test\_pagina\_minima\_1}}; verifica$^G$ che l'endpoint \texttt{GET /storico/tutti} restituisca HTTP 422 quando il parametro \texttt{pagina} è inferiore al valore minimo consentito. & S \\
+	TU-B\_253 & Implementato da \texttt{\seqsplit{test\_pagina\_minima\_1}}; verifica$^G$ che l'endpoint \texttt{GET /history/tutti} restituisca HTTP 422 quando il parametro \texttt{pagina} è inferiore al valore minimo consentito. & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDuplicaOrdineAPI} \\
 	\hline
-	TU-B\_254 & Implementato da \texttt{\seqsplit{test\_duplica\_con\_successo}}; verifica$^G$ che l'endpoint \texttt{POST /storico/duplica/\{codice\_ordine\}} risponda con stato 201 e il messaggio di conferma quando la duplicazione ha esito positivo. & S \\
+	TU-B\_254 & Implementato da \texttt{\seqsplit{test\_duplica\_con\_successo}}; verifica$^G$ che l'endpoint \texttt{POST /history/duplica/\{codice\_ordine\}} risponda con stato 201 e il messaggio di conferma quando la duplicazione ha esito positivo. & S \\
 	\hline
-	TU-B\_255 & Implementato da \texttt{\seqsplit{test\_chiama\_service\_con\_parametri\_corretti}}; verifica$^G$ che l'endpoint \texttt{POST /storico/duplica/\{codice\_ordine\}} invochi il service passando il codice ordine e lo username dell'utente autenticato. & S \\
+	TU-B\_255 & Implementato da \texttt{\seqsplit{test\_chiama\_service\_con\_parametri\_corretti}}; verifica$^G$ che l'endpoint \texttt{POST /history/duplica/\{codice\_ordine\}} invochi il service passando il codice ordine e lo username dell'utente autenticato. & S \\
 	\hline
-	TU-B\_256 & Implementato da \texttt{\seqsplit{test\_404\_se\_ordine\_non\_trovato}}; verifica$^G$ che l'endpoint \texttt{POST /storico/duplica/\{codice\_ordine\}} restituisca HTTP 404 quando il service solleva \texttt{OrdineNotFoundException}. & S \\
+	TU-B\_256 & Implementato da \texttt{\seqsplit{test\_404\_se\_ordine\_non\_trovato}}; verifica$^G$ che l'endpoint \texttt{POST /history/duplica/\{codice\_ordine\}} restituisca HTTP 404 quando il service solleva \texttt{OrdineNotFoundException}. & S \\
 	\hline
-	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestStoricoRepository} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestHistoryRepository} \\
 	\hline
-	TU-B\_257 & Implementato da \texttt{\seqsplit{test\_get\_ordini\_by\_username}}; verifica$^G$ che il metodo \texttt{get\_ordini\_by\_username} del repository$^G$ restituisca gli ordini dell'utente indicato in ordine decrescente di data, rispettando la paginazione, e ritorni una lista vuota per utenti sconosciuti. & S \\
+	TU-B\_257 & Implementato da \texttt{\seqsplit{test\_get\_orders\_by\_username}}; verifica$^G$ che il metodo \texttt{get\_orders\_by\_username} del repository$^G$ restituisca gli ordini dell'utente indicato in ordine decrescente di data, rispettando la paginazione, e ritorni una lista vuota per utenti sconosciuti. & S \\
 	\hline
-	TU-B\_258 & Implementato da \texttt{\seqsplit{test\_get\_all\_ordini}}; verifica$^G$ che il metodo \texttt{get\_all\_ordini} del repository$^G$ restituisca tutti gli ordini presenti nel database$^G$ in ordine decrescente di data, rispettando correttamente la paginazione. & S \\
+	TU-B\_258 & Implementato da \texttt{\seqsplit{test\_get\_all\_orders}}; verifica$^G$ che il metodo \texttt{get\_all\_orders} del repository$^G$ restituisca tutti gli ordini presenti nel database$^G$ in ordine decrescente di data, rispettando correttamente la paginazione. & S \\
 	\hline
 	TU-B\_259 & Implementato da \texttt{\seqsplit{test\_get\_prodotti\_by\_ordine\_ids}}; verifica$^G$ che il metodo \texttt{get\_prodotti\_by\_ordine\_ids} del repository$^G$ restituisca le coppie \texttt{(OrdCliDet, Anaart)} relative agli id forniti, e una lista vuota per id inesistenti o lista vuota in input. & S \\
 	\hline
@@ -715,43 +715,43 @@
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestBuildPage} \\
 	\hline
-	TU-B\_264 & Implementato da \texttt{\seqsplit{test\_mappa\_campi\_ordine}}; verifica$^G$ che \texttt{StoricoService} mappi correttamente i campi dell'ordine (codice, data, username assente) nello schema di risposta. & S \\
+	TU-B\_264 & Implementato da \texttt{\seqsplit{test\_mappa\_campi\_ordine}}; verifica$^G$ che \texttt{HistoryService} mappi correttamente i campi dell'ordine (codice, data, username assente) nello schema di risposta. & S \\
 	\hline
-	TU-B\_265 & Implementato da \texttt{\seqsplit{test\_mappa\_prodotti}}; verifica$^G$ che \texttt{StoricoService} mappi correttamente i campi del prodotto (nome, quantità) nello schema di risposta. & S \\
+	TU-B\_265 & Implementato da \texttt{\seqsplit{test\_mappa\_prodotti}}; verifica$^G$ che \texttt{HistoryService} mappi correttamente i campi del prodotto (nome, quantità) nello schema di risposta. & S \\
 	\hline
-	TU-B\_266 & Implementato da \texttt{\seqsplit{test\_prodotti\_raggruppati\_per\_ordine}}; verifica$^G$ che \texttt{StoricoService} raggruppi correttamente i prodotti per ordine di appartenenza nella risposta paginata. & S \\
+	TU-B\_266 & Implementato da \texttt{\seqsplit{test\_prodotti\_raggruppati\_per\_ordine}}; verifica$^G$ che \texttt{HistoryService} raggruppi correttamente i prodotti per ordine di appartenenza nella risposta paginata. & S \\
 	\hline
-	TU-B\_267 & Implementato da \texttt{\seqsplit{test\_ordine\_senza\_data}}; verifica$^G$ che \texttt{StoricoService} gestisca correttamente un ordine privo di data, impostando il campo a \texttt{None} nella risposta. & S \\
+	TU-B\_267 & Implementato da \texttt{\seqsplit{test\_ordine\_senza\_data}}; verifica$^G$ che \texttt{HistoryService} gestisca correttamente un ordine privo di data, impostando il campo a \texttt{None} nella risposta. & S \\
 	\hline
-	TU-B\_268 & Implementato da \texttt{\seqsplit{test\_ordine\_senza\_prodotti}}; verifica$^G$ che \texttt{StoricoService} restituisca una lista di prodotti vuota per un ordine che non ha dettagli associati. & S \\
+	TU-B\_268 & Implementato da \texttt{\seqsplit{test\_ordine\_senza\_prodotti}}; verifica$^G$ che \texttt{HistoryService} restituisca una lista di prodotti vuota per un ordine che non ha dettagli associati. & S \\
 	\hline
-	TU-B\_269 & Implementato da \texttt{\seqsplit{test\_calcolo\_totale\_pagine}}; verifica$^G$ che \texttt{StoricoService} calcoli correttamente il numero totale di pagine come $\lceil \text{totale} / \text{per\_pagina} \rceil$. & S \\
+	TU-B\_269 & Implementato da \texttt{\seqsplit{test\_calcolo\_totale\_pagine}}; verifica$^G$ che \texttt{HistoryService} calcoli correttamente il numero totale di pagine come $\lceil \text{totale} / \text{per\_pagina} \rceil$. & S \\
 	\hline
 	TU-B\_270 & Implementato da \texttt{\seqsplit{test\_totale\_pagine\_minimo\_1}}; verifica$^G$ che il numero di pagine totali non scenda mai al di sotto di 1. & S \\
 	\hline
 	TU-B\_271 & Implementato da \texttt{\seqsplit{test\_pagina\_corrente\_propagata}}; verifica$^G$ che il numero di pagina corrente venga correttamente propagato nella risposta del service. & S \\
 	\hline
-	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetOrdiniCliente} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetOrdersCliente} \\
 	\hline
-	TU-B\_272 & Implementato da \texttt{\seqsplit{test\_chiama\_repo\_con\_parametri\_corretti}}; verifica$^G$ che \texttt{StoricoService} invochi il repository$^G$ con lo username e i parametri di paginazione corretti. & S \\
+	TU-B\_272 & Implementato da \texttt{\seqsplit{test\_chiama\_repo\_con\_parametri\_corretti}}; verifica$^G$ che \texttt{HistoryService} invochi il repository$^G$ con lo username e i parametri di paginazione corretti. & S \\
 	\hline
-	TU-B\_273 & Implementato da \texttt{\seqsplit{test\_lancia\_eccezione\_se\_totale\_zero}}; verifica$^G$ che \texttt{StoricoService} sollevi \texttt{OrdiniUsernameNotFoundException} quando il repository$^G$ non trova ordini per l'utente richiesto. & S \\
+	TU-B\_273 & Implementato da \texttt{\seqsplit{test\_lancia\_eccezione\_se\_totale\_zero}}; verifica$^G$ che \texttt{HistoryService} sollevi \texttt{OrdersUsernameNotFoundException} quando il repository$^G$ non trova ordini per l'utente richiesto. & S \\
 	\hline
-	TU-B\_274 & Implementato da \texttt{\seqsplit{test\_username\_non\_incluso}}; verifica$^G$ che il campo \texttt{username} sia assente (impostato a \texttt{None}) nella risposta restituita da \texttt{get\_ordini\_cliente}. & S \\
+	TU-B\_274 & Implementato da \texttt{\seqsplit{test\_username\_non\_incluso}}; verifica$^G$ che il campo \texttt{username} sia assente (impostato a \texttt{None}) nella risposta restituita da \texttt{get\_orders\_client}. & S \\
 	\hline
-	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetOrdiniAdmin} \\
+	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestGetOrdersAdmin} \\
 	\hline
-	TU-B\_275 & Implementato da \texttt{\seqsplit{test\_chiama\_repo\_con\_parametri\_corretti}}; verifica$^G$ che \texttt{StoricoService} invochi il repository$^G$ con i parametri di paginazione corretti nella vista amministratore. & S \\
+	TU-B\_275 & Implementato da \texttt{\seqsplit{test\_chiama\_repo\_con\_parametri\_corretti}}; verifica$^G$ che \texttt{HistoryService} invochi il repository$^G$ con i parametri di paginazione corretti nella vista amministratore. & S \\
 	\hline
-	TU-B\_276 & Implementato da \texttt{\seqsplit{test\_username\_incluso}}; verifica$^G$ che il campo \texttt{username} sia presente e valorizzato nella risposta restituita da \texttt{get\_ordini\_admin}. & S \\
+	TU-B\_276 & Implementato da \texttt{\seqsplit{test\_username\_incluso}}; verifica$^G$ che il campo \texttt{username} sia presente e valorizzato nella risposta restituita da \texttt{get\_orders\_admin}. & S \\
 	\hline
-	TU-B\_277 & Implementato da \texttt{\seqsplit{test\_lista\_vuota\_lancia\_eccezione}}; verifica$^G$ che \texttt{StoricoService} sollevi \texttt{OrdiniNotFoundException} quando il repository$^G$ non restituisce alcun ordine nella vista amministratore. & S \\
+	TU-B\_277 & Implementato da \texttt{\seqsplit{test\_lista\_vuota\_lancia\_eccezione}}; verifica$^G$ che \texttt{HistoryService} sollevi \texttt{OrdersNotFoundException} quando il repository$^G$ non restituisce alcun ordine nella vista amministratore. & S \\
 	\hline
 	\multicolumn{3}{|c|}{\rule{0pt}{15pt}\large TestDuplicaOrdineService} \\
 	\hline
-	TU-B\_278 & Implementato da \texttt{\seqsplit{test\_chiama\_repo\_con\_parametri\_corretti}}; verifica$^G$ che il metodo \texttt{duplica\_ordine} di \texttt{StoricoService} invochi il repository$^G$ con il codice ordine e lo username corretti. & S \\
+	TU-B\_278 & Implementato da \texttt{\seqsplit{test\_chiama\_repo\_con\_parametri\_corretti}}; verifica$^G$ che il metodo \texttt{duplica\_ordine} di \texttt{HistoryService} invochi il repository$^G$ con il codice ordine e lo username corretti. & S \\
 	\hline
-	TU-B\_279 & Implementato da \texttt{\seqsplit{test\_lancia\_eccezione\_se\_ordine\_non\_trovato}}; verifica$^G$ che il metodo \texttt{duplica\_ordine} di \texttt{StoricoService} sollevi \texttt{OrdineNotFoundException} quando il repository$^G$ solleva un \texttt{ValueError}. & S \\
+	TU-B\_279 & Implementato da \texttt{\seqsplit{test\_lancia\_eccezione\_se\_ordine\_non\_trovato}}; verifica$^G$ che il metodo \texttt{duplica\_ordine} di \texttt{HistoryService} sollevi \texttt{OrdineNotFoundException} quando il repository$^G$ solleva un \texttt{ValueError}. & S \\
 	\hline
 	TU-B\_280 & Implementato da \texttt{\seqsplit{test\_non\_rilancia\_value\_error\_direttamente}}; verifica$^G$ che l'eccezione sollevata da \texttt{duplica\_ordine} sia di tipo \texttt{OrdineNotFoundException} e non \texttt{ValueError}, e che \texttt{ValueError} sia incatenato come causa. & S \\
 	\hline

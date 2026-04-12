@@ -421,97 +421,97 @@
 	TU-F\_409 & Verifica$^G$ che \vr{Paginazione} non chiami \vr{onCambia} se "Precedente" è disabilitato & S \\ \hline
 	TU-F\_410 & Verifica$^G$ che \vr{Paginazione} non chiami \vr{onCambia} se "Successivo" è disabilitato & S \\ \hline
 	TU-F\_411 & Verifica$^G$ che \vr{Paginazione} chiami \vr{onCambia} esattamente una volta per click & S \\ \hline
-	TU-F\_412 & Verifica$^G$ che \vr{getStoricoCliente} chiami \vr{GET /storico/miei} con i parametri di default & S \\ \hline
-	TU-F\_413 & Verifica$^G$ che \vr{getStoricoCliente} passi \vr{pagina} e \vr{perPagina} personalizzati nella querystring & S \\ \hline
-	TU-F\_414 & Verifica$^G$ che \vr{getStoricoCliente} restituisca il corpo JSON$^G$ in caso di successo & S \\ \hline
-	TU-F\_415 & Verifica$^G$ che \vr{getStoricoCliente} lanci errore con il messaggio \vr{detail} dal server se la risposta non è ok & S \\ \hline
-	TU-F\_416 & Verifica$^G$ che \vr{getStoricoCliente} lanci errore generico "Errore <status>" se il body non ha \vr{detail} & S \\ \hline
-	TU-F\_417 & Verifica$^G$ che \vr{getStoricoCliente} lanci "Errore <status>" se il parsing del body fallisce & S \\ \hline
-	TU-F\_418 & Verifica$^G$ che \vr{getStoricoAdmin} chiami \vr{GET /storico/tutti} con i parametri di default & S \\ \hline
-	TU-F\_419 & Verifica$^G$ che \vr{getStoricoAdmin} passi \vr{pagina} e \vr{perPagina} personalizzati nella querystring & S \\ \hline
-	TU-F\_420 & Verifica$^G$ che \vr{getStoricoAdmin} restituisca il corpo JSON$^G$ in caso di successo & S \\ \hline
-	TU-F\_421 & Verifica$^G$ che \vr{getStoricoAdmin} lanci errore con il messaggio \vr{detail} dal server se la risposta non è ok & S \\ \hline
-	TU-F\_422 & Verifica$^G$ che \vr{getStoricoAdmin} lanci errore generico "Errore <status>" se il body non ha \vr{detail} & S \\ \hline
-	TU-F\_423 & Verifica$^G$ che \vr{getStoricoAdmin} lanci "Errore <status>" se il parsing del body fallisce & S \\ \hline
-	TU-F\_424 & Verifica$^G$ che \vr{duplicaOrdine} chiami \vr{POST /storico/duplica/{codice}} con \vr{credentials: 'include'} & S \\ \hline
+	TU-F\_412 & Verifica$^G$ che \vr{getHistoryCliente} chiami \vr{GET /history/client} con i parametri di default & S \\ \hline
+	TU-F\_413 & Verifica$^G$ che \vr{getHistoryCliente} passi \vr{pagina} e \vr{perPagina} personalizzati nella querystring & S \\ \hline
+	TU-F\_414 & Verifica$^G$ che \vr{getHistoryCliente} restituisca il corpo JSON$^G$ in caso di successo & S \\ \hline
+	TU-F\_415 & Verifica$^G$ che \vr{getHistoryCliente} lanci errore con il messaggio \vr{detail} dal server se la risposta non è ok & S \\ \hline
+	TU-F\_416 & Verifica$^G$ che \vr{getHistoryCliente} lanci errore generico "Errore <status>" se il body non ha \vr{detail} & S \\ \hline
+	TU-F\_417 & Verifica$^G$ che \vr{getHistoryCliente} lanci "Errore <status>" se il parsing del body fallisce & S \\ \hline
+	TU-F\_418 & Verifica$^G$ che \vr{getHistoryAdmin} chiami \vr{GET /history/admin} con i parametri di default & S \\ \hline
+	TU-F\_419 & Verifica$^G$ che \vr{getHistoryAdmin} passi \vr{pagina} e \vr{perPagina} personalizzati nella querystring & S \\ \hline
+	TU-F\_420 & Verifica$^G$ che \vr{getHistoryAdmin} restituisca il corpo JSON$^G$ in caso di successo & S \\ \hline
+	TU-F\_421 & Verifica$^G$ che \vr{getHistoryAdmin} lanci errore con il messaggio \vr{detail} dal server se la risposta non è ok & S \\ \hline
+	TU-F\_422 & Verifica$^G$ che \vr{getHistoryAdmin} lanci errore generico "Errore <status>" se il body non ha \vr{detail} & S \\ \hline
+	TU-F\_423 & Verifica$^G$ che \vr{getHistoryAdmin} lanci "Errore <status>" se il parsing del body fallisce & S \\ \hline
+	TU-F\_424 & Verifica$^G$ che \vr{duplicaOrdine} chiami \vr{POST /history/duplica/{codice}} con \vr{credentials: 'include'} & S \\ \hline
 	TU-F\_425 & Verifica$^G$ che \vr{duplicaOrdine} codifichi correttamente caratteri speciali nel codice ordine & S \\ \hline
 	TU-F\_426 & Verifica$^G$ che \vr{duplicaOrdine} non lanci eccezione se la risposta è ok & S \\ \hline
 	TU-F\_427 & Verifica$^G$ che \vr{duplicaOrdine} lanci errore con il messaggio \vr{detail} se la risposta non è ok & S \\ \hline
 	TU-F\_428 & Verifica$^G$ che \vr{duplicaOrdine} lanci "Errore <status>" se il body non ha \vr{detail} & S \\ \hline
 	TU-F\_429 & Verifica$^G$ che \vr{duplicaOrdine} lanci "Errore <status>" se il parsing del body fallisce & S \\ \hline
-	TU-F\_430 & Verifica$^G$ che \vr{StoricoView} renderizzi la \vr{NavBar} & S \\ \hline
-	TU-F\_431 & Verifica$^G$ che \vr{StoricoView} chiami \vr{caricaPagina(1)} all'avvio & S \\ \hline
-	TU-F\_432 & Verifica$^G$ che \vr{StoricoView} non mostri il pannello profilo di default & S \\ \hline
-	TU-F\_433 & Verifica$^G$ che \vr{StoricoView} non mostri il \vr{DettaglioModal} se \vr{ordineScelto} è \vr{null} & S \\ \hline
-	TU-F\_434 & Verifica$^G$ che \vr{StoricoView} mostri "Storico Ordini" come titolo principale & S \\ \hline
-	TU-F\_435 & Verifica$^G$ che \vr{StoricoView} mostri "Area Cliente" per utenti non admin & S \\ \hline
-	TU-F\_436 & Verifica$^G$ che \vr{StoricoView} mostri "Pannello Admin" per admin & S \\ \hline
-	TU-F\_437 & Verifica$^G$ che \vr{StoricoView} mostri il testo "Visualizzazione completa" per admin & S \\ \hline
-	TU-F\_438 & Verifica$^G$ che \vr{StoricoView} non mostri "Visualizzazione completa" per cliente & S \\ \hline
-	TU-F\_439 & Verifica$^G$ che \vr{StoricoView} mostri il badge pag.X/Y solo quando ci sono ordini e \vr{loading=false} & S \\ \hline
-	TU-F\_440 & Verifica$^G$ che \vr{StoricoView} non mostri il badge pag. durante il caricamento & S \\ \hline
-	TU-F\_441 & Verifica$^G$ che \vr{StoricoView} mostri lo spinner di caricamento se \vr{loading=true} & S \\ \hline
-	TU-F\_442 & Verifica$^G$ che \vr{StoricoView} non mostri lo spinner se \vr{loading=false} & S \\ \hline
-	TU-F\_443 & Verifica$^G$ che \vr{StoricoView} mostri il messaggio di errore se \vr{errore} è valorizzato & S \\ \hline
-	TU-F\_444 & Verifica$^G$ che \vr{StoricoView} non mostri il messaggio di errore se \vr{errore} è \vr{null} & S \\ \hline
-	TU-F\_445 & Verifica$^G$ che \vr{StoricoView} mostri "Nessun ordine effettuato" se \vr{ordini=[]}, \vr{loading=false} e \vr{errore=null} & S \\ \hline
-	TU-F\_446 & Verifica$^G$ che \vr{StoricoView} non mostri la tabella se \vr{ordini} è vuoto & S \\ \hline
-	TU-F\_447 & Verifica$^G$ che \vr{StoricoView} renderizzi una \vr{OrdineRow} per ogni ordine & S \\ \hline
-	TU-F\_448 & Verifica$^G$ che \vr{StoricoView} mostri la colonna "Cliente" nell'header per admin & S \\ \hline
-	TU-F\_449 & Verifica$^G$ che \vr{StoricoView} non mostri la colonna "Cliente" per utente normale & S \\ \hline
-	TU-F\_450 & Verifica$^G$ che \vr{StoricoView} mostri le intestazioni di colonna standard & S \\ \hline
-	TU-F\_451 & Verifica$^G$ che \vr{StoricoView} renderizzi il componente \vr{Paginazione} & S \\ \hline
-	TU-F\_452 & Verifica$^G$ che la paginazione in \vr{StoricoView} chiami \vr{caricaPagina} con il numero corretto & S \\ \hline
-	TU-F\_453 & Verifica$^G$ che il click su "Dettaglio" in \vr{StoricoView} chiami \vr{apriDettaglio} con l'ordine & S \\ \hline
-	TU-F\_454 & Verifica$^G$ che \vr{StoricoView} mostri il \vr{DettaglioModal} se \vr{ordineScelto} è valorizzato & S \\ \hline
-	TU-F\_455 & Verifica$^G$ che \vr{StoricoView} chiami \vr{chiudiDettaglio} al click su "chiudi modal" & S \\ \hline
-	TU-F\_456 & Verifica$^G$ che \vr{StoricoView} chiami \vr{duplicaOrdine} al click su "duplica" & S \\ \hline
-	TU-F\_457 & Verifica$^G$ che \vr{StoricoView} passi \vr{erroreDuplica} al \vr{DettaglioModal} & S \\ \hline
-	TU-F\_458 & Verifica$^G$ che \vr{StoricoView} apra il pannello profilo al click su "Apri profilo" & S \\ \hline
-	TU-F\_459 & Verifica$^G$ che \vr{StoricoView} chiuda il pannello profilo al click su "chiudi profilo" & S \\ \hline
-	TU-F\_460 & Verifica$^G$ che \vr{StoricoView} chiami \vr{clearAuth} e reindirizzi a "/" al click su logout nella \vr{NavBar} & S \\ \hline
-	TU-F\_461 & Verifica$^G$ che il logout funzioni anche dal pannello profilo in \vr{StoricoView} & S \\ \hline
-	TU-F\_462 & Verifica$^G$ che il pannello filtro in \vr{StoricoView} sia chiuso di default & S \\ \hline
-	TU-F\_463 & Verifica$^G$ che \vr{StoricoView} apra il pannello filtro al click sull'icona calendario & S \\ \hline
-	TU-F\_464 & Verifica$^G$ che \vr{StoricoView} chiuda il pannello filtro al secondo click sull'icona & S \\ \hline
-	TU-F\_465 & Verifica$^G$ che \vr{StoricoView} chiuda il pannello filtro cliccando fuori & S \\ \hline
+	TU-F\_430 & Verifica$^G$ che \vr{HistoryView} renderizzi la \vr{NavBar} & S \\ \hline
+	TU-F\_431 & Verifica$^G$ che \vr{HistoryView} chiami \vr{caricaPagina(1)} all'avvio & S \\ \hline
+	TU-F\_432 & Verifica$^G$ che \vr{HistoryView} non mostri il pannello profilo di default & S \\ \hline
+	TU-F\_433 & Verifica$^G$ che \vr{HistoryView} non mostri il \vr{DettaglioModal} se \vr{ordineScelto} è \vr{null} & S \\ \hline
+	TU-F\_434 & Verifica$^G$ che \vr{HistoryView} mostri "Storico Ordini" come titolo principale & S \\ \hline
+	TU-F\_435 & Verifica$^G$ che \vr{HistoryView} mostri "Area Cliente" per utenti non admin & S \\ \hline
+	TU-F\_436 & Verifica$^G$ che \vr{HistoryView} mostri "Pannello Admin" per admin & S \\ \hline
+	TU-F\_437 & Verifica$^G$ che \vr{HistoryView} mostri il testo "Visualizzazione completa" per admin & S \\ \hline
+	TU-F\_438 & Verifica$^G$ che \vr{HistoryView} non mostri "Visualizzazione completa" per cliente & S \\ \hline
+	TU-F\_439 & Verifica$^G$ che \vr{HistoryView} mostri il badge pag.X/Y solo quando ci sono ordini e \vr{loading=false} & S \\ \hline
+	TU-F\_440 & Verifica$^G$ che \vr{HistoryView} non mostri il badge pag. durante il caricamento & S \\ \hline
+	TU-F\_441 & Verifica$^G$ che \vr{HistoryView} mostri lo spinner di caricamento se \vr{loading=true} & S \\ \hline
+	TU-F\_442 & Verifica$^G$ che \vr{HistoryView} non mostri lo spinner se \vr{loading=false} & S \\ \hline
+	TU-F\_443 & Verifica$^G$ che \vr{HistoryView} mostri il messaggio di errore se \vr{errore} è valorizzato & S \\ \hline
+	TU-F\_444 & Verifica$^G$ che \vr{HistoryView} non mostri il messaggio di errore se \vr{errore} è \vr{null} & S \\ \hline
+	TU-F\_445 & Verifica$^G$ che \vr{HistoryView} mostri "Nessun ordine effettuato" se \vr{ordini=[]}, \vr{loading=false} e \vr{errore=null} & S \\ \hline
+	TU-F\_446 & Verifica$^G$ che \vr{HistoryView} non mostri la tabella se \vr{ordini} è vuoto & S \\ \hline
+	TU-F\_447 & Verifica$^G$ che \vr{HistoryView} renderizzi una \vr{OrdineRow} per ogni ordine & S \\ \hline
+	TU-F\_448 & Verifica$^G$ che \vr{HistoryView} mostri la colonna "Cliente" nell'header per admin & S \\ \hline
+	TU-F\_449 & Verifica$^G$ che \vr{HistoryView} non mostri la colonna "Cliente" per utente normale & S \\ \hline
+	TU-F\_450 & Verifica$^G$ che \vr{HistoryView} mostri le intestazioni di colonna standard & S \\ \hline
+	TU-F\_451 & Verifica$^G$ che \vr{HistoryView} renderizzi il componente \vr{Paginazione} & S \\ \hline
+	TU-F\_452 & Verifica$^G$ che la paginazione in \vr{HistoryView} chiami \vr{caricaPagina} con il numero corretto & S \\ \hline
+	TU-F\_453 & Verifica$^G$ che il click su "Dettaglio" in \vr{HistoryView} chiami \vr{apriDettaglio} con l'ordine & S \\ \hline
+	TU-F\_454 & Verifica$^G$ che \vr{HistoryView} mostri il \vr{DettaglioModal} se \vr{ordineScelto} è valorizzato & S \\ \hline
+	TU-F\_455 & Verifica$^G$ che \vr{HistoryView} chiami \vr{chiudiDettaglio} al click su "chiudi modal" & S \\ \hline
+	TU-F\_456 & Verifica$^G$ che \vr{HistoryView} chiami \vr{duplicaOrdine} al click su "duplica" & S \\ \hline
+	TU-F\_457 & Verifica$^G$ che \vr{HistoryView} passi \vr{erroreDuplica} al \vr{DettaglioModal} & S \\ \hline
+	TU-F\_458 & Verifica$^G$ che \vr{HistoryView} apra il pannello profilo al click su "Apri profilo" & S \\ \hline
+	TU-F\_459 & Verifica$^G$ che \vr{HistoryView} chiuda il pannello profilo al click su "chiudi profilo" & S \\ \hline
+	TU-F\_460 & Verifica$^G$ che \vr{HistoryView} chiami \vr{clearAuth} e reindirizzi a "/" al click su logout nella \vr{NavBar} & S \\ \hline
+	TU-F\_461 & Verifica$^G$ che il logout funzioni anche dal pannello profilo in \vr{HistoryView} & S \\ \hline
+	TU-F\_462 & Verifica$^G$ che il pannello filtro in \vr{HistoryView} sia chiuso di default & S \\ \hline
+	TU-F\_463 & Verifica$^G$ che \vr{HistoryView} apra il pannello filtro al click sull'icona calendario & S \\ \hline
+	TU-F\_464 & Verifica$^G$ che \vr{HistoryView} chiuda il pannello filtro al secondo click sull'icona & S \\ \hline
+	TU-F\_465 & Verifica$^G$ che \vr{HistoryView} chiuda il pannello filtro cliccando fuori & S \\ \hline
 	TU-F\_466 & Verifica$^G$ che il click dentro il pannello filtro non lo chiuda & S \\ \hline
-	TU-F\_467 & Verifica$^G$ che impostare la data "Da" in \vr{StoricoView} chiami \vr{caricaPagina(1, dataInizio, "")} & S \\ \hline
-	TU-F\_468 & Verifica$^G$ che impostare la data "A" in \vr{StoricoView} chiami \vr{caricaPagina(1, "", dataFine)} & S \\ \hline
-	TU-F\_469 & Verifica$^G$ che \vr{StoricoView} mostri il pallino indicatore quando il filtro è attivo & S \\ \hline
-	TU-F\_470 & Verifica$^G$ che \vr{StoricoView} filtri gli ordini per \vr{dataInizio} escludendo quelli precedenti & S \\ \hline
-	TU-F\_471 & Verifica$^G$ che \vr{StoricoView} filtri gli ordini per \vr{dataFine} escludendo quelli successivi & S \\ \hline
-	TU-F\_472 & Verifica$^G$ che \vr{StoricoView} filtri con entrambe le date mostrando solo ordini nell'intervallo & S \\ \hline
-	TU-F\_473 & Verifica$^G$ che \vr{StoricoView} mostri "Nessun ordine corrisponde al filtro" quando lista filtrata è vuota & S \\ \hline
-	TU-F\_474 & Verifica$^G$ che il pulsante "Azzera" sia nascosto in \vr{StoricoView} quando il filtro non è attivo & S \\ \hline
-	TU-F\_475 & Verifica$^G$ che il pulsante "Azzera" compaia in \vr{StoricoView} quando il filtro è attivo & S \\ \hline
-	TU-F\_476 & Verifica$^G$ che cliccando "Azzera" in \vr{StoricoView} reimposti le date e chiami \vr{caricaPagina(1, "", "")} & S \\ \hline
-	TU-F\_477 & Verifica$^G$ che dopo "Azzera" in \vr{StoricoView} il pulsante indicatore torni allo stile inattivo & S \\ \hline
-	TU-F\_478 & Verifica$^G$ che \vr{StoricoView} mostri il testo di aiuto "Lascia A vuoto" nel pannello filtro & S \\ \hline
-	TU-F\_479 & Verifica$^G$ che l'input "Da" in \vr{StoricoView} riceva l'attributo \vr{max} quando \vr{dataFine} è impostata & S \\ \hline
-	TU-F\_480 & Verifica$^G$ che l'input "A" in \vr{StoricoView} riceva l'attributo \vr{min} quando \vr{dataInizio} è impostata & S \\ \hline
-	TU-F\_481 & Verifica$^G$ che \vr{useStoricoViewModel} abbia lo stato iniziale corretto & S \\ \hline
-	TU-F\_482 & Verifica$^G$ che \vr{useStoricoViewModel} abbia \vr{isAdmin=false} quando il ruolo non è "admin" & S \\ \hline
-	TU-F\_483 & Verifica$^G$ che \vr{useStoricoViewModel} abbia \vr{isAdmin=true} quando il ruolo è "admin" & S \\ \hline
-	TU-F\_484 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} chiami \vr{getStoricoCliente} con pagina e \vr{perPagina=10} & S \\ \hline
-	TU-F\_485 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} popoli \vr{ordini}, \vr{totalePagine} e \vr{pagina} dopo il caricamento & S \\ \hline
-	TU-F\_486 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} imposti \vr{loading=true} durante il caricamento, poi \vr{false} alla fine & S \\ \hline
-	TU-F\_487 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} azzeri l'errore prima di ogni caricamento & S \\ \hline
-	TU-F\_488 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} imposti \vr{errore} se \vr{getStoricoCliente} lancia un \vr{Error} & S \\ \hline
-	TU-F\_489 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} imposti messaggio generico se l'errore non è un \vr{Error} & S \\ \hline
-	TU-F\_490 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} carichi pagine diverse passando il numero corretto & S \\ \hline
-	TU-F\_491 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} chiami \vr{getStoricoAdmin} invece di \vr{getStoricoCliente} per admin & S \\ \hline
-	TU-F\_492 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} popoli i dati con i valori admin & S \\ \hline
-	TU-F\_493 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} imposti errore se \vr{getStoricoAdmin} fallisce & S \\ \hline
-	TU-F\_494 & Verifica$^G$ che \vr{apriDettaglio} in \vr{useStoricoViewModel} imposti \vr{ordineScelto} & S \\ \hline
-	TU-F\_495 & Verifica$^G$ che \vr{chiudiDettaglio} in \vr{useStoricoViewModel} azzeri \vr{ordineScelto} & S \\ \hline
-	TU-F\_496 & Verifica$^G$ che \vr{apriDettaglio} in \vr{useStoricoViewModel} sostituisca un ordine precedentemente selezionato & S \\ \hline
-	TU-F\_497 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useStoricoViewModel} chiami l'API$^G$ con il codice corretto & S \\ \hline
-	TU-F\_498 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useStoricoViewModel} azzeri \vr{erroreDuplica} prima della chiamata & S \\ \hline
-	TU-F\_499 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useStoricoViewModel} non imposti \vr{erroreDuplica} se la chiamata ha successo & S \\ \hline
-	TU-F\_500 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useStoricoViewModel} imposti \vr{erroreDuplica} se l'API$^G$ lancia un \vr{Error} & S \\ \hline
-	TU-F\_501 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useStoricoViewModel} imposti messaggio generico se l'errore non è un \vr{Error} & S \\ \hline
-	TU-F\_502 & Verifica$^G$ che \vr{caricaPagina} in \vr{useStoricoViewModel} abbia \vr{loading=false} anche in caso di errore (branch$^G$ \vr{finally}) & S \\ \hline
+	TU-F\_467 & Verifica$^G$ che impostare la data "Da" in \vr{HistoryView} chiami \vr{caricaPagina(1, dataInizio, "")} & S \\ \hline
+	TU-F\_468 & Verifica$^G$ che impostare la data "A" in \vr{HistoryView} chiami \vr{caricaPagina(1, "", dataFine)} & S \\ \hline
+	TU-F\_469 & Verifica$^G$ che \vr{HistoryView} mostri il pallino indicatore quando il filtro è attivo & S \\ \hline
+	TU-F\_470 & Verifica$^G$ che \vr{HistoryView} filtri gli ordini per \vr{dataInizio} escludendo quelli precedenti & S \\ \hline
+	TU-F\_471 & Verifica$^G$ che \vr{HistoryView} filtri gli ordini per \vr{dataFine} escludendo quelli successivi & S \\ \hline
+	TU-F\_472 & Verifica$^G$ che \vr{HistoryView} filtri con entrambe le date mostrando solo ordini nell'intervallo & S \\ \hline
+	TU-F\_473 & Verifica$^G$ che \vr{HistoryView} mostri "Nessun ordine corrisponde al filtro" quando lista filtrata è vuota & S \\ \hline
+	TU-F\_474 & Verifica$^G$ che il pulsante "Azzera" sia nascosto in \vr{HistoryView} quando il filtro non è attivo & S \\ \hline
+	TU-F\_475 & Verifica$^G$ che il pulsante "Azzera" compaia in \vr{HistoryView} quando il filtro è attivo & S \\ \hline
+	TU-F\_476 & Verifica$^G$ che cliccando "Azzera" in \vr{HistoryView} reimposti le date e chiami \vr{caricaPagina(1, "", "")} & S \\ \hline
+	TU-F\_477 & Verifica$^G$ che dopo "Azzera" in \vr{HistoryView} il pulsante indicatore torni allo stile inattivo & S \\ \hline
+	TU-F\_478 & Verifica$^G$ che \vr{HistoryView} mostri il testo di aiuto "Lascia A vuoto" nel pannello filtro & S \\ \hline
+	TU-F\_479 & Verifica$^G$ che l'input "Da" in \vr{HistoryView} riceva l'attributo \vr{max} quando \vr{dataFine} è impostata & S \\ \hline
+	TU-F\_480 & Verifica$^G$ che l'input "A" in \vr{HistoryView} riceva l'attributo \vr{min} quando \vr{dataInizio} è impostata & S \\ \hline
+	TU-F\_481 & Verifica$^G$ che \vr{useHistoryViewModel} abbia lo stato iniziale corretto & S \\ \hline
+	TU-F\_482 & Verifica$^G$ che \vr{useHistoryViewModel} abbia \vr{isAdmin=false} quando il ruolo non è "admin" & S \\ \hline
+	TU-F\_483 & Verifica$^G$ che \vr{useHistoryViewModel} abbia \vr{isAdmin=true} quando il ruolo è "admin" & S \\ \hline
+	TU-F\_484 & Verifica$^G$ che \vr{caricaPagina} in \vr{useHistoryViewModel} chiami \vr{getHistoryCliente} con pagina e \vr{perPagina=10} & S \\ \hline
+	TU-F\_485 & Verifica$^G$ che \vr{caricaPagina} in \vr{useHistoryViewModel} popoli \vr{ordini}, \vr{totalePagine} e \vr{pagina} dopo il caricamento & S \\ \hline
+	TU-F\_486 & Verifica$^G$ che \vr{caricaPagina} in \vr{useHistoryViewModel} imposti \vr{loading=true} durante il caricamento, poi \vr{false} alla fine & S \\ \hline
+	TU-F\_487 & Verifica$^G$ che \vr{caricaPagina} in \vr{useHistoryViewModel} azzeri l'errore prima di ogni caricamento & S \\ \hline
+	TU-F\_488 & Verifica$^G$ che \vr{caricaPagina} in \vr{useHistoryViewModel} imposti \vr{errore} se \vr{getHistoryCliente} lancia un \vr{Error} & S \\ \hline
+	TU-F\_489 & Verifica$^G$ che \vr{caricaPagina} in \vr{useHistoryViewModel} imposti messaggio generico se l'errore non è un \vr{Error} & S \\ \hline
+	TU-F\_490 & Verifica$^G$ che \vr{caricaPagina} in \vr{useHistoryViewModel} carichi pagine diverse passando il numero corretto & S \\ \hline
+	TU-F\_491 & Verifica$^G$ che \vr{caricaPagina} in \vr{useHistoryViewModel} chiami \vr{getHistoryAdmin} invece di \vr{getHistoryCliente} per admin & S \\ \hline
+	TU-F\_492 & Verifica$^G$ che \vr{caricaPagina} in \vr{useHistoryViewModel} popoli i dati con i valori admin & S \\ \hline
+	TU-F\_493 & Verifica$^G$ che \vr{caricaPagina} in \vr{useHistoryViewModel} imposti errore se \vr{getHistoryAdmin} fallisce & S \\ \hline
+	TU-F\_494 & Verifica$^G$ che \vr{apriDettaglio} in \vr{useHistoryViewModel} imposti \vr{ordineScelto} & S \\ \hline
+	TU-F\_495 & Verifica$^G$ che \vr{chiudiDettaglio} in \vr{useHistoryViewModel} azzeri \vr{ordineScelto} & S \\ \hline
+	TU-F\_496 & Verifica$^G$ che \vr{apriDettaglio} in \vr{useHistoryViewModel} sostituisca un ordine precedentemente selezionato & S \\ \hline
+	TU-F\_497 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useHistoryViewModel} chiami l'API$^G$ con il codice corretto & S \\ \hline
+	TU-F\_498 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useHistoryViewModel} azzeri \vr{erroreDuplica} prima della chiamata & S \\ \hline
+	TU-F\_499 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useHistoryViewModel} non imposti \vr{erroreDuplica} se la chiamata ha successo & S \\ \hline
+	TU-F\_500 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useHistoryViewModel} imposti \vr{erroreDuplica} se l'API$^G$ lancia un \vr{Error} & S \\ \hline
+	TU-F\_501 & Verifica$^G$ che \vr{duplicaOrdine} in \vr{useHistoryViewModel} imposti messaggio generico se l'errore non è un \vr{Error} & S \\ \hline
+	TU-F\_502 & Verifica$^G$ che \vr{caricaPagina} in \vr{useHistoryViewModel} abbia \vr{loading=false} anche in caso di errore (branch$^G$ \vr{finally}) & S \\ \hline
 	TU-F\_503 & Verifica$^G$ che imposta admin=true per un amministratore$^G$ & S \\ \hline
 	TU-F\_504 & Verifica$^G$ che fetch ok: imposta username, admin, isAuthenticated=true, loggedOut=false & S \\ \hline
 	TU-F\_505 & Verifica$^G$ che fetch non ok: azzera lo stato & S \\ \hline
