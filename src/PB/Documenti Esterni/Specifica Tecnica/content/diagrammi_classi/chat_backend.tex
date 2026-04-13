@@ -4,6 +4,9 @@
 	\caption{Diagramma delle classi per il modulo di ricerca vettoriale: Backend}
 \end{figure}
 
+Per la definizione di ToolCatalogService, vedere la sezione \ref{ToolCatalogService}.\\
+Per la definizione di \textit{EmbeddedCartService}, vedere \ref{EmbeddedCartService}.\\
+
 \subsubsubsection{FaissCartDb}
 
 \begin{figure}[H]
@@ -242,39 +245,6 @@ Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
 		corrispondente al testo passato in ingresso.
 \end{itemize}
 
-
-\subsubsubsection{EmbeddedCartService}
-\label{EmbeddedCartService}
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Chat/EmbeddedCartService.png}
-	\caption{Gestione del carrello: EmbeddedCartService}
-\end{figure}
-
-\paragraph{Descrizione}
-\textit{EmbeddedCartService} \`e il service applicativo responsabile del caricamento del contenuto del carrello in forma vettoriale e della successiva ricerca semantica.\\
-Recupera i prodotti del carrello tramite la porta \textit{CartRepoPort}, ne costruisce una rappresentazione vettoriale tramite \textit{EmbedderPort} e interroga il database vettoriale attraverso \textit{VecDbPortOut}.
-
-\paragraph{Attributi}
-\begin{itemize}
-	\item \textbf{cart\_vect: VecDbPortOut} - attributo privato di tipo \textit{VecDbPortOut}.\\
-	Porta utilizzata per memorizzare e interrogare la rappresentazione vettoriale dei prodotti presenti nel carrello.
-	\item \textbf{cart\_repo: CartRepoPort} - attributo privato di tipo \textit{CartRepoPort}.\\
-	Porta utilizzata per recuperare i prodotti presenti nel carrello dell'utente.
-	\item \textbf{embedder: EmbedderPort} - attributo privato di tipo \textit{EmbedderPort}.\\
-	Porta utilizzata per generare gli embedding dei prodotti da indicizzare nel database vettoriale.
-\end{itemize}
-
-\paragraph{Metodi e funzioni}
-\begin{itemize}
-	\item \textbf{\_\_init\_\_(cart\_vect: VecDbPortOut, cart\_repo: CartRepoPort, embedder: EmbedderPort)} - metodo pubblico di inizializzazione.\\
-	Riceve e memorizza le dipendenze necessarie per il recupero dei dati del carrello, la generazione degli embedding e l'interrogazione vettoriale.
-	\item \textbf{load\_cart(username: string)} - metodo pubblico che recupera dal repository i prodotti presenti nel carrello dell'utente identificato da \textit{username} e li carica nel sistema di ricerca vettoriale.\\
-	Questo passaggio prepara i dati necessari per successive ricerche semantiche.
-	\item \textbf{search\_cart(username: string, query: string, threshold: float): string*} - metodo pubblico che esegue una ricerca semantica all'interno del carrello dell'utente, utilizzando la query fornita e una soglia di similarit\`a.\\
-	Restituisce gli identificativi o i riferimenti ai prodotti che soddisfano i criteri di ricerca.
-\end{itemize}
-
 \subsubsubsection{EmbeddedCatalogService}
 
 \begin{figure}[H]
@@ -311,6 +281,13 @@ semanticamente simili a una query testuale.
 		catalogo semanticamente simili entro la soglia indicata.
 \end{itemize}
 
+%-------------------------------------------------------------------------------------------------------------
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Chat/CatalogBackend}
+	\caption{Diagramma delle classi per il catalogo: Backend}
+\end{figure}
+
 \subsubsubsection{ToolCatalogService}
 \label{ToolCatalogService}
 \begin{figure}[H]
@@ -329,36 +306,28 @@ preferenze.
 \paragraph{Attributi}
 \begin{itemize}
 	\item \textbf{embedded\_catalog: EmbeddedCatalogService} - istanza del servizio di
-		ricerca vettoriale sul catalogo.
+	ricerca vettoriale sul catalogo.
 	\item \textbf{catalog\_repo: CatalogRepoPort} - istanza del porto di accesso ai dati
-		del catalogo, utilizzata per recuperare i dettagli dei prodotti trovati.
+	del catalogo, utilizzata per recuperare i dettagli dei prodotti trovati.
 	\item \textbf{preferred\_product\_frequency: dict[string, int]} - dizionario che
-		mappa gli identificativi di prodotto alla frequenza di acquisto dell'utente
-		corrente; valore di default è un dizionario vuoto.
+	mappa gli identificativi di prodotto alla frequenza di acquisto dell'utente
+	corrente; valore di default è un dizionario vuoto.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(embedded\_catalog: EmbeddedCatalogService, catalog\_repo:
 		CatalogRepoPort, preferred\_product\_frequency: dict[string, int] | None)} -
-		inizializza il servizio ricevendo le dipendenze; se
-		\textit{preferred\_product\_frequency} è \textit{None}, viene sostituito con un
-		dizionario vuoto.
+	inizializza il servizio ricevendo le dipendenze; se
+	\textit{preferred\_product\_frequency} è \textit{None}, viene sostituito con un
+	dizionario vuoto.
 	\item \textbf{search\_catalog(query: string, threshold: float): list[CatalogProduct]}
-		- ricerca i prodotti semanticamente simili alla query tramite
-		\textit{embedded\_catalog}, ne recupera i dettagli tramite
-		\textit{catalog\_repo} e, se sono disponibili le preferenze utente, riordina i
-		risultati privilegiando i prodotti con frequenza di acquisto maggiore, mantenendo
-		l'ordine di similarità come criterio secondario.
+	- ricerca i prodotti semanticamente simili alla query tramite
+	\textit{embedded\_catalog}, ne recupera i dettagli tramite
+	\textit{catalog\_repo} e, se sono disponibili le preferenze utente, riordina i
+	risultati privilegiando i prodotti con frequenza di acquisto maggiore, mantenendo
+	l'ordine di similarità come criterio secondario.
 \end{itemize}
-
-%-------------------------------------------------------------------------------------------------------------
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{SpecificaTecnica/Chat/CatalogBackend}
-	\caption{Diagramma delle classi per il catalogo: Backend}
-\end{figure}
-Per la definizione di \textit{ToolCatalogService}, vedere \ref{ToolCatalogService}.
 
 \subsubsubsection{CatalogRepoPort}
 
@@ -468,7 +437,38 @@ Rappresenta il livello più basso della catena
 Questa parte si occupa della gestione del carrello associato a uno specifico utente.\\
 Le classi descritte consentono di recuperare i prodotti presenti nel carrello, aggiungere nuovi articoli, rimuoverli, modificarne la quantit\`a e inviare l'ordine finale.\\
 L'architettura segue il pattern Ports and Adapters, separando la logica applicativa dai dettagli di persistenza e integrando un servizio dedicato alla ricerca semantica dei prodotti presenti nel carrello.\\
-Per la definizione di \textit{EmbeddedCartService}, vedere \ref{EmbeddedCartService}.
+
+\subsubsubsection{EmbeddedCartService}
+\label{EmbeddedCartService}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Chat/EmbeddedCartService.png}
+	\caption{Gestione del carrello: EmbeddedCartService}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{EmbeddedCartService} \`e il service applicativo responsabile del caricamento del contenuto del carrello in forma vettoriale e della successiva ricerca semantica.\\
+Recupera i prodotti del carrello tramite la porta \textit{CartRepoPort}, ne costruisce una rappresentazione vettoriale tramite \textit{EmbedderPort} e interroga il database vettoriale attraverso \textit{VecDbPortOut}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{cart\_vect: VecDbPortOut} - attributo privato di tipo \textit{VecDbPortOut}.\\
+	Porta utilizzata per memorizzare e interrogare la rappresentazione vettoriale dei prodotti presenti nel carrello.
+	\item \textbf{cart\_repo: CartRepoPort} - attributo privato di tipo \textit{CartRepoPort}.\\
+	Porta utilizzata per recuperare i prodotti presenti nel carrello dell'utente.
+	\item \textbf{embedder: EmbedderPort} - attributo privato di tipo \textit{EmbedderPort}.\\
+	Porta utilizzata per generare gli embedding dei prodotti da indicizzare nel database vettoriale.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(cart\_vect: VecDbPortOut, cart\_repo: CartRepoPort, embedder: EmbedderPort)} - metodo pubblico di inizializzazione.\\
+	Riceve e memorizza le dipendenze necessarie per il recupero dei dati del carrello, la generazione degli embedding e l'interrogazione vettoriale.
+	\item \textbf{load\_cart(username: string)} - metodo pubblico che recupera dal repository i prodotti presenti nel carrello dell'utente identificato da \textit{username} e li carica nel sistema di ricerca vettoriale.\\
+	Questo passaggio prepara i dati necessari per successive ricerche semantiche.
+	\item \textbf{search\_cart(username: string, query: string, threshold: float): string*} - metodo pubblico che esegue una ricerca semantica all'interno del carrello dell'utente, utilizzando la query fornita e una soglia di similarit\`a.\\
+	Restituisce gli identificativi o i riferimenti ai prodotti che soddisfano i criteri di ricerca.
+\end{itemize}
 
 \subsubsubsection{CartService}
 \begin{figure}[H]
@@ -619,16 +619,47 @@ Utilizza una sessione di database per eseguire il recupero dei prodotti, l'aggiu
 \end{itemize}
 
 %----------------------------------------------------------------------------------
+
+\paragraph{Descrizione generale}
+Questa parte si occupa della gestione delle conversazioni tra utente e sistema.\\
+Le classi descritte consentono di recuperare i messaggi di una conversazione, accedere allo storico delle chat, creare nuove conversazioni e aggiungere nuovi messaggi.\\
+Anche in questo caso l'architettura segue il pattern Ports and Adapters, mantenendo separata la logica applicativa dalla persistenza dei dati.
+
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Chat/UMLChatService.png}
 	\caption{Diagramma delle classi per la gestione della chat}
 \end{figure}
 
-\paragraph{Descrizione generale}
-Questa parte si occupa della gestione delle conversazioni tra utente e sistema.\\
-Le classi descritte consentono di recuperare i messaggi di una conversazione, accedere allo storico delle chat, creare nuove conversazioni e aggiungere nuovi messaggi.\\
-Anche in questo caso l'architettura segue il pattern Ports and Adapters, mantenendo separata la logica applicativa dalla persistenza dei dati.
+\subsubsubsection{ChatController}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Chat/ChatController}
+	\caption{Gestione della chat: ChatController}
+\end{figure}
+
+\paragraph{Descrizione}
+Modulo FastAPI che definisce il router per le API REST della chat.\\
+Espone gli endpoint per il recupero di tutti i messaggi di una conversazione e per l'invio di un nuovo messaggio.\\
+Alla ricezione di un messaggio, costruisce l'intero stack applicativo tramite dependency injection, includendo gli strumenti dell'agente LLM, il servizio del carrello, il catalogo e lo storico ordini.\\
+Delega la logica applicativa a \textit{ChatService}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{router: APIRouter} - router FastAPI con prefisso \textit{/chat} che raggruppa gli endpoint del modulo.
+	\item \textbf{ChatServiceDep} - tipo annotato che inietta un'istanza di \textit{ChatService} tramite la funzione \textit{get\_chat\_service}.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{get\_cart\_service(): CartService} - istanzia e restituisce il service del carrello.
+	\item \textbf{build\_tools(username: string, db: Session): list[BaseTool]} - costruisce la lista degli strumenti disponibili per l'agente LLM, tra cui la ricerca nel catalogo, la gestione del carrello e la consultazione dello storico ordini.
+	\item \textbf{get\_chat\_service(username: string, db: Session): ChatService} - funzione di dependency injection che assembla l'intero stack applicativo, istanziando \textit{ToolExecutor}, \textit{LLMAgent}, \textit{LLMAdapter} e \textit{ChatService}.
+	\item \textbf{get\_all\_messages(conv\_id: int, chat\_service: ChatService): ChatResponse} - endpoint \textit{GET /chat/\{conv\_id\}/all} che recupera tutti i messaggi di una conversazione.\\
+	Lancia \textit{HTTPException} con codice 404 se la conversazione non viene trovata.
+	\item \textbf{send\_message(conv\_id: int, message: MessageRequest, chat\_service: ChatService, current\_user: string): MessageResponse} - endpoint \textit{POST /chat/\{conv\_id\}} che invia un messaggio e restituisce la risposta dell'agente.\\
+	Lancia \textit{HTTPException} con codice 500 in caso di errore interno.
+\end{itemize}
 
 \subsubsubsection{ChatService}
 \label{ChatService}
