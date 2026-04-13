@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(levelname)s | %(message)s')
 
 SRC_DIR: Path = Path("src")
 EXCLUDE_DIRS: Set[str] = {"Candidatura", "Diario Di Bordo", "Glossario", "Manuale Utente"}
-IGNORE_FILENAMES: Set[str] = {"heading.tex", "table.tex", "title.tex", "modifiche.tex", "Lettera_di_Presentazione_RTB.tex"}
+IGNORE_FILENAMES: Set[str] = {"heading.tex", "table.tex", "title.tex", "modifiche.tex", "Lettera_di_Presentazione_RTB.tex", "Lettera_di_Presentazione_PB.tex"}
 
 
 def find_glossary() -> Optional[Path]:
@@ -165,7 +165,6 @@ def apply_tags_to_text(text: str, patterns: List[Tuple[str, Pattern]], tex_file:
 
     for pos, insert_text, matched in sorted(inserts, key=lambda x: x[0], reverse=True):
         text = text[:pos] + insert_text + text[pos:]
-        logging.debug(f"Aggiunto $^G$ a '{matched}' in file {tex_file}")
 
     return text
 
@@ -178,6 +177,15 @@ def process_all_tex(root_dir: Path, patterns: List[Tuple[str, Pattern]]) -> None
         if modified_text != original_text:
             tex_file.write_text(modified_text, encoding="utf-8")
             logging.info(f"Modificato: {tex_file}")
+            
+def cleanup_ignored_tex(root_dir: Path) -> None:
+    for tex_file in root_dir.rglob("*.tex"):
+        if not should_skip(tex_file):
+            continue
+        original = tex_file.read_text(encoding="utf-8")
+        cleaned = original.replace('$^G$', '')
+        if cleaned != original:
+            tex_file.write_text(cleaned, encoding="utf-8")
 
 
 if __name__ == "__main__":
@@ -197,5 +205,5 @@ if __name__ == "__main__":
     logging.info(f"Pattern creati per {len(patterns)} termini")
     print(termini_filtered)
 
+    cleanup_ignored_tex(SRC_DIR)
     process_all_tex(SRC_DIR, patterns)
-    logging.info("Elaborazione completata")
