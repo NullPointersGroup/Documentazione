@@ -13,7 +13,7 @@
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che gestisce un indice FAISS per la ricerca vettoriale nel carrello.\\
+Classe Python$^G$ che gestisce un indice FAISS$^G$ per la ricerca vettoriale nel carrello.\\
 Mantiene una mappa \textit{user\_map} che associa ogni username alle posizioni dei propri
 prodotti nell'indice, in modo da filtrare i risultati in fase di ricerca.
 
@@ -21,7 +21,7 @@ prodotti nell'indice, in modo da filtrare i risultati in fase di ricerca.
 \begin{itemize}
 	\item \textbf{dimension: int} - dimensione dei vettori dell'indice, impostata a 384
 		per default.
-	\item \textbf{index: faiss.IndexFlatL2} - indice FAISS basato sulla distanza
+	\item \textbf{index: faiss.IndexFlatL2} - indice FAISS$^G$ basato sulla distanza
 		euclidea L2.
 	\item \textbf{prod\_ids: list[string]} - lista degli identificativi di prodotto
 		ordinata per posizione nell'indice.
@@ -31,10 +31,10 @@ prodotti nell'indice, in modo da filtrare i risultati in fase di ricerca.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(dimension: int = 384)} - inizializza il database FAISS
+	\item \textbf{\_\_init\_\_(dimension: int = 384)} - inizializza il database$^G$ FAISS$^G$
 		con la dimensione specificata, creando l'indice e le strutture dati necessarie.
 	\item \textbf{add(prod\_id: string, username: string, vector: np.ndarray)} -
-		aggiunge al database vettoriale il prodotto identificato da \textit{prod\_id}
+		aggiunge al database$^G$ vettoriale il prodotto identificato da \textit{prod\_id}
 		per l'utente \textit{username} con il relativo vettore.
 	\item \textbf{search(vector: np.ndarray, n: int, threshold: float, username: string):
 		list[string]} - ricerca nell'indice i vettori più vicini a \textit{vector},
@@ -52,15 +52,15 @@ prodotti nell'indice, in modo da filtrare i risultati in fase di ricerca.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che implementa \textit{VecDbPortOut} seguendo il pattern degli adattatori,
-specializzandosi per la gestione del database vettoriale del carrello.\\
+Classe Python$^G$ che implementa \textit{VecDbPortOut} seguendo il pattern degli adattatori,
+specializzandosi per la gestione del database$^G$ vettoriale del carrello.\\
 Riceve alla costruzione un'istanza di \textit{FaissCartDb} e il nome utente corrente, e
-trasparisce le operazioni sul database delegando a \textit{FaissCartDb} includendo il
+trasparisce le operazioni sul database$^G$ delegando a \textit{FaissCartDb} includendo il
 contesto utente.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{faiss\_db: FaissCartDb} - istanza del database vettoriale FAISS
+	\item \textbf{faiss\_db: FaissCartDb} - istanza del database$^G$ vettoriale FAISS$^G$
 		dedicato al carrello.
 	\item \textbf{username: string} - nome utente associato alla sessione corrente,
 		utilizzato per filtrare i risultati della ricerca.
@@ -69,7 +69,7 @@ contesto utente.
 \paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(faiss\_db: FaissCartDb, username: string)} -
-		inizializza l'adattatore ricevendo il database FAISS e il nome utente.
+		inizializza l'adattatore ricevendo il database$^G$ FAISS$^G$ e il nome utente.
 \end{itemize}
 
 \subsubsubsection{FaissCatalogDb}
@@ -81,7 +81,7 @@ contesto utente.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che gestisce un indice FAISS per la ricerca vettoriale sul catalogo
+Classe Python$^G$ che gestisce un indice FAISS$^G$ per la ricerca vettoriale sul catalogo
 prodotti.\\
 A differenza di \textit{FaissCartDb} non mantiene una mappa per utente, in quanto il
 catalogo è condiviso tra tutti gli utenti del sistema.
@@ -90,7 +90,7 @@ catalogo è condiviso tra tutti gli utenti del sistema.
 \begin{itemize}
 	\item \textbf{dimension: int} - dimensione dei vettori dell'indice, impostata a 284
 		per default.
-	\item \textbf{index: faiss.IndexFlatL2} - indice FAISS basato sulla distanza
+	\item \textbf{index: faiss.IndexFlatL2} - indice FAISS$^G$ basato sulla distanza
 		euclidea L2.
 	\item \textbf{prod\_ids: list[string]} - lista degli identificativi di prodotto
 		ordinata per posizione nell'indice.
@@ -98,7 +98,7 @@ catalogo è condiviso tra tutti gli utenti del sistema.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(dimension: int = 284)} - inizializza il database FAISS
+	\item \textbf{\_\_init\_\_(dimension: int = 284)} - inizializza il database$^G$ FAISS$^G$
 		con la dimensione specificata, creando l'indice e le strutture dati necessarie.
 	\item \textbf{search(vector: np.ndarray, n: int, threshold: float): list[string]} -
 		ricerca nell'indice i vettori più vicini a \textit{vector} e restituisce gli
@@ -114,21 +114,21 @@ catalogo è condiviso tra tutti gli utenti del sistema.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che implementa \textit{VecDbPortOut} seguendo il pattern degli adattatori,
-specializzandosi per la gestione del database vettoriale del catalogo.\\
+Classe Python$^G$ che implementa \textit{VecDbPortOut} seguendo il pattern degli adattatori,
+specializzandosi per la gestione del database$^G$ vettoriale del catalogo.\\
 Riceve alla costruzione un'istanza di \textit{FaissCatalogDb} e delega ad essa tutte le
 operazioni senza aggiungere il contesto utente, in quanto il catalogo è condiviso.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{faiss\_db: FaissCatalogDb} - istanza del database vettoriale FAISS
+	\item \textbf{faiss\_db: FaissCatalogDb} - istanza del database$^G$ vettoriale FAISS$^G$
 		dedicato al catalogo.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(faiss\_db: FaissCatalogDb)} - inizializza l'adattatore
-		ricevendo il database FAISS del catalogo.
+		ricevendo il database$^G$ FAISS$^G$ del catalogo.
 \end{itemize}
 
 \subsubsubsection{VecDbPortOut}
@@ -140,9 +140,9 @@ operazioni senza aggiungere il contesto utente, in quanto il catalogo è condivi
 \end{figure}
 
 \paragraph{Descrizione}
-Classe astratta Python che definisce la porta di output verso il database vettoriale.\\
+Classe astratta Python$^G$ che definisce la porta di output verso il database$^G$ vettoriale.\\
 Disaccoppia i servizi applicativi (\textit{EmbeddedCartService},
-\textit{EmbeddedCatalogService}) dalla specifica implementazione del database vettoriale.\\
+\textit{EmbeddedCatalogService}) dalla specifica implementazione del database$^G$ vettoriale.\\
 Le classi adapter concrete (\textit{CartVecDbAdapter}, \textit{CatalogVecDbAdapter})
 devono implementare tutti i metodi qui dichiarati.
 
@@ -151,12 +151,12 @@ Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{reset()} - svuota completamente il database vettoriale, eliminando tutti
+	\item \textbf{reset()} - svuota completamente il database$^G$ vettoriale, eliminando tutti
 		i vettori e le associazioni precedentemente inserite.
 	\item \textbf{search(v: np.ndarray, n: int, threshold: float): list[string]} -
-		ricerca nel database vettoriale i prodotti il cui vettore è simile a \textit{v}
+		ricerca nel database$^G$ vettoriale i prodotti il cui vettore è simile a \textit{v}
 		entro la soglia indicata, restituendo al massimo \textit{n} identificativi.
-	\item \textbf{add(prod\_id: string, vector: np.ndarray)} - aggiunge al database
+	\item \textbf{add(prod\_id: string, vector: np.ndarray)} - aggiunge al database$^G$
 		vettoriale il prodotto identificato da \textit{prod\_id} con il relativo vettore.
 \end{itemize}
 
@@ -169,7 +169,7 @@ Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che incapsula il modello \textit{all-MiniLM-L6-v2} di
+Classe Python$^G$ che incapsula il modello \textit{all-MiniLM-L6-v2} di
 \textit{sentence-transformers} per la generazione di embedding testuali normalizzati.\\
 Viene istanziata una sola volta e condivisa tramite \textit{EmbedderAdapter}.\\
 Non implementa direttamente \textit{EmbedderPort}: tale responsabilità è delegata ad
@@ -196,7 +196,7 @@ Non implementa direttamente \textit{EmbedderPort}: tale responsabilità è deleg
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che implementa \textit{EmbedderPort} seguendo il pattern degli adattatori.\\
+Classe Python$^G$ che implementa \textit{EmbedderPort} seguendo il pattern degli adattatori.\\
 Riceve un'istanza di \textit{SentenceTransformerEmbedder} alla costruzione e delega
 interamente ad essa la generazione degli embedding.\\
 Permette di sostituire la libreria di embedding sottostante senza modificare i servizi
@@ -227,7 +227,7 @@ applicativi.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe astratta Python che definisce la porta per la generazione di embedding testuali.\\
+Classe astratta Python$^G$ che definisce la porta per la generazione di embedding testuali.\\
 Segue il pattern architetturale delle porte e degli adattatori, disaccoppiando la logica
 applicativa di \textit{EmbeddedCartService} ed \textit{EmbeddedCatalogService} dalla
 specifica libreria di embedding utilizzata.\\
@@ -252,8 +252,8 @@ Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{EmbeddedCartService} \`e il service applicativo responsabile del caricamento del contenuto del carrello in forma vettoriale e della successiva ricerca semantica.\\
-Recupera i prodotti del carrello tramite la porta \textit{CartRepoPort}, ne costruisce una rappresentazione vettoriale tramite \textit{EmbedderPort} e interroga il database vettoriale attraverso \textit{VecDbPortOut}.
+\textit{EmbeddedCartService} \`e il service applicativo responsabile$^G$ del caricamento del contenuto del carrello in forma vettoriale e della successiva ricerca semantica.\\
+Recupera i prodotti del carrello tramite la porta \textit{CartRepoPort}, ne costruisce una rappresentazione vettoriale tramite \textit{EmbedderPort} e interroga il database$^G$ vettoriale attraverso \textit{VecDbPortOut}.
 
 \paragraph{Attributi}
 \begin{itemize}
@@ -262,16 +262,16 @@ Recupera i prodotti del carrello tramite la porta \textit{CartRepoPort}, ne cost
 	\item \textbf{cart\_repo: CartRepoPort} - attributo privato di tipo \textit{CartRepoPort}.\\
 	Porta utilizzata per recuperare i prodotti presenti nel carrello dell'utente.
 	\item \textbf{embedder: EmbedderPort} - attributo privato di tipo \textit{EmbedderPort}.\\
-	Porta utilizzata per generare gli embedding dei prodotti da indicizzare nel database vettoriale.
+	Porta utilizzata per generare gli embedding dei prodotti da indicizzare nel database$^G$ vettoriale.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(cart\_vect: VecDbPortOut, cart\_repo: CartRepoPort, embedder: EmbedderPort)} - metodo pubblico di inizializzazione.\\
 	Riceve e memorizza le dipendenze necessarie per il recupero dei dati del carrello, la generazione degli embedding e l'interrogazione vettoriale.
-	\item \textbf{load\_cart(username: string)} - metodo pubblico che recupera dal repository i prodotti presenti nel carrello dell'utente identificato da \textit{username} e li carica nel sistema di ricerca vettoriale.\\
+	\item \textbf{load\_cart(username: string)} - metodo pubblico che recupera dal repository$^G$ i prodotti presenti nel carrello dell'utente identificato da \textit{username} e li carica nel sistema di ricerca vettoriale.\\
 	Questo passaggio prepara i dati necessari per successive ricerche semantiche.
-	\item \textbf{search\_cart(username: string, query: string, threshold: float): string*} - metodo pubblico che esegue una ricerca semantica all'interno del carrello dell'utente, utilizzando la query fornita e una soglia di similarit\`a.\\
+	\item \textbf{search\_cart(username: string, query$^G$: string, threshold: float): string*} - metodo pubblico che esegue una ricerca semantica all'interno del carrello dell'utente, utilizzando la query$^G$ fornita e una soglia di similarit\`a.\\
 	Restituisce gli identificativi o i riferimenti ai prodotti che soddisfano i criteri di ricerca.
 \end{itemize}
 
@@ -284,14 +284,14 @@ Recupera i prodotti del carrello tramite la porta \textit{CartRepoPort}, ne cost
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che coordina la ricerca vettoriale sull'intero catalogo prodotti.\\
-Espone i metodi per caricare il catalogo nel database vettoriale e per cercare prodotti
-semanticamente simili a una query testuale.
+Classe Python$^G$ che coordina la ricerca vettoriale sull'intero catalogo prodotti.\\
+Espone i metodi per caricare il catalogo nel database$^G$ vettoriale e per cercare prodotti
+semanticamente simili a una query$^G$ testuale.
 
 \paragraph{Attributi}
 \begin{itemize}
 	\item \textbf{catalog\_vect: VecDbPortOut} - istanza del porto di output verso il
-		database vettoriale del catalogo.
+		database$^G$ vettoriale del catalogo.
 	\item \textbf{catalog\_repo: CatalogRepoPort} - istanza del porto di accesso ai
 		dati del catalogo.
 	\item \textbf{embedder: EmbedderPort} - istanza del porto per la generazione degli
@@ -305,9 +305,9 @@ semanticamente simili a una query testuale.
 		tramite iniezione.
 	\item \textbf{load\_catalog()} - recupera l'intero catalogo tramite
 		\textit{catalog\_repo}, genera l'embedding di ciascun prodotto e lo aggiunge al
-		database vettoriale.
-	\item \textbf{search\_catalog(query: string, threshold: float): list[string]} -
-		genera l'embedding della query e restituisce gli identificativi dei prodotti del
+		database$^G$ vettoriale.
+	\item \textbf{search\_catalog(query$^G$: string, threshold: float): list[string]} -
+		genera l'embedding della query$^G$ e restituisce gli identificativi dei prodotti del
 		catalogo semanticamente simili entro la soglia indicata.
 \end{itemize}
 
@@ -320,7 +320,7 @@ semanticamente simili a una query testuale.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che orchestra la ricerca semantica sul catalogo integrando la ricerca
+Classe Python$^G$ che orchestra la ricerca semantica sul catalogo integrando la ricerca
 vettoriale con le preferenze di acquisto dell'utente.\\
 Recupera i prodotti tramite \textit{EmbeddedCatalogService} e li riordina privilegiando
 quelli acquistati con maggiore frequenza dall'utente, qualora siano disponibili le
@@ -344,8 +344,8 @@ preferenze.
 		inizializza il servizio ricevendo le dipendenze; se
 		\textit{preferred\_product\_frequency} è \textit{None}, viene sostituito con un
 		dizionario vuoto.
-	\item \textbf{search\_catalog(query: string, threshold: float): list[CatalogProduct]}
-		- ricerca i prodotti semanticamente simili alla query tramite
+	\item \textbf{search\_catalog(query$^G$: string, threshold: float): list[CatalogProduct]}
+		- ricerca i prodotti semanticamente simili alla query$^G$ tramite
 		\textit{embedded\_catalog}, ne recupera i dettagli tramite
 		\textit{catalog\_repo} e, se sono disponibili le preferenze utente, riordina i
 		risultati privilegiando i prodotti con frequenza di acquisto maggiore, mantenendo
@@ -369,7 +369,7 @@ Per la definizione di \textit{ToolCatalogService}, vedere \ref{ToolCatalogServic
 \end{figure}
 
 \paragraph{Descrizione}
-Classe astratta Python che definisce la porta di accesso ai dati del catalogo prodotti.\\
+Classe astratta Python$^G$ che definisce la porta di accesso ai dati del catalogo prodotti.\\
 Disaccoppia i servizi applicativi (\textit{EmbeddedCatalogService},
 \textit{ToolCatalogService}) dalla specifica implementazione del repository.\\
 Tutte le classi adapter concrete devono implementare i metodi qui dichiarati.
@@ -395,7 +395,7 @@ Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che implementa \textit{CatalogRepoPort} seguendo il pattern degli
+Classe Python$^G$ che implementa \textit{CatalogRepoPort} seguendo il pattern degli
 adattatori.\\
 Riceve alla costruzione un'istanza di \textit{CatalogRepository} e si occupa di
 convertire i modelli ORM \textit{Anaart} negli schemi applicativi \textit{CatalogProduct},
@@ -403,7 +403,7 @@ mappando in particolare l'unità di misura tramite \textit{MeasureUnitEnum}.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{repo: CatalogRepository} - istanza del repository che accede
+	\item \textbf{repo: CatalogRepository} - istanza del repository$^G$ che accede
 		direttamente al database.
 \end{itemize}
 
@@ -435,21 +435,21 @@ mappando in particolare l'unità di misura tramite \textit{MeasureUnitEnum}.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che gestisce l'accesso diretto al database per il catalogo prodotti.\\
-Riceve una sessione SQLModel alla costruzione e la utilizza per eseguire le query tramite
+Classe Python$^G$ che gestisce l'accesso diretto al database$^G$ per il catalogo prodotti.\\
+Riceve una sessione SQLModel alla costruzione e la utilizza per eseguire le query$^G$ tramite
 il modello ORM \textit{Anaart}.\\
 Rappresenta il livello più basso della catena
 \textit{EmbeddedCatalogService} → \textit{CatalogRepoAdapter} → \textit{CatalogRepository}.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{db: Session} - sessione SQLModel attiva utilizzata per l'esecuzione
+	\item \textbf{db$^G$: Session} - sessione SQLModel attiva utilizzata per l'esecuzione
 		delle query.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(db: Session)} - inizializza il repository ricevendo la
+	\item \textbf{\_\_init\_\_(db$^G$: Session)} - inizializza il repository$^G$ ricevendo la
 		sessione del database.
 	\item \textbf{get\_product(prod\_id: string): Anaart | None} - recupera il prodotto
 		corrispondente all'identificativo indicato, restituendo \textit{None} se non

@@ -58,7 +58,7 @@ Espone lo stato del form e gli handler degli eventi che la View deve utilizzare.
 
 \paragraph{Descrizione}
 \textit{FormModel} è una classe astratta TypeScript che costituisce il livello di \textit{Model} nel pattern MVVM.\\
-Incapsula la logica di validazione$^G$ dei campi del form e la logica di invio dei dati al backend$^G$.\\
+Incapsula la logica di validazione$^G$ dei campi del form e la logica di invio dei dati al backend.\\
 Le classi concrete \textit{LoginModel} e \textit{RegisterModel} la estendono specializzandone il comportamento.\\
 Solo \textit{fields} e \textit{submit} sono astratti: \textit{validate} e \textit{validateField} hanno invece un'implementazione concreta nella classe base.
 
@@ -78,7 +78,7 @@ Solo \textit{fields} e \textit{submit} sono astratti: \textit{validate} e \texti
 	\item \textbf{register(dto: RegisterDto): AuthResponse}\\
 	Metodo privato protetto, invia una richiesta di registrazione tramite \textit{authFetch}.
 	\item \textbf{authFetch(endpoint: string, body: object): AuthResponse}\\
-	Metodo privato protetto, incapsula la logica comune di chiamata all’API di autenticazione, gestendo eventuali errori di rete o risposte non valide.
+	Metodo privato protetto, incapsula la logica comune di chiamata all’API$^G$ di autenticazione, gestendo eventuali errori di rete o risposte non valide.
 \end{itemize}
 
 
