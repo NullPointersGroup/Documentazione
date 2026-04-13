@@ -12,3 +12,4 @@
 /src/**/*.lof
 /src/**/*.lot
 /src/**/*.pdf
+/src/**/*.synctex*

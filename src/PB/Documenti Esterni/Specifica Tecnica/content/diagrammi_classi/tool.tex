@@ -1,0 +1,503 @@
+\subsubsection{Tool orders}
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Tool/ToolOrdineCompleto}
+	\caption{Tool orders: ToolOrdineCompleto}
+\end{figure}
+
+Il diagramma mostra l'architettura completa del tool per la gestione degli ordini.\\
+Segue il pattern esagonale: \textit{ToolOrderService} espone la logica applicativa, \textit{ToolOrderAdapter} implementa la porta in ingresso \textit{ToolOrderPortIn}, e \textit{GetOrders} estende \textit{BaseTool} per l'esecuzione effettiva della richiesta all'LLM.
+
+
+\subsubsubsection{ToolOrderService}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.8\textwidth]{SpecificaTecnica/Tool/ToolOrderService}
+	\caption{Tool orders: ToolOrderService}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ToolOrderService} è il service applicativo che espone la logica di recupero dello storico ordini.\\
+Viene invocato dall'adapter e si occupa di interrogare il layer di persistenza per restituire una pagina di ordini filtrata per intervallo di date.
+
+\paragraph{Attributi}
+\textit{ToolOrderService} non definisce attributi propri.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(username: string, storico\_service: HistoryService)} - metodo di inizializzazione del service.
+	\item \textbf{get\_ordini(pagina: int, data\_inizio: date, data\_fine: date): HistoryPageSchema} - metodo pubblico che recupera una pagina dello storico ordini dell'utente autenticato, filtrata nell'intervallo di date specificato.\\
+	Restituisce un oggetto \textit{HistoryPageSchema} contenente la lista degli ordini e le informazioni di paginazione.
+\end{itemize}
+
+\subsubsubsection{ToolOrderAdapter}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Tool/ToolOrderAdapter}
+	\caption{Tool orders: ToolOrderAdapter}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ToolOrderAdapter} è la classe concreta che implementa l'interfaccia \textit{ToolOrderPortIn}.\\
+Funge da adattatore tra il tool LLM e il service applicativo, delegando le operazioni effettive a \textit{ToolOrderService}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{tool\_order\_service: ToolOrderService} - attributo privato di tipo \textit{ToolOrderService}.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(tool\_order\_service: ToolOrderService)} - metodo di inizializzazione dell'adapter.
+\end{itemize}
+
+\subsubsubsection{ToolOrderPortIn}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Tool/ToolOrderPortIn}
+	\caption{Tool orders: ToolOrderPortIn}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ToolOrderPortIn} è l'interfaccia che definisce il contratto per l'accesso allo storico degli ordini da parte dei tool LLM.\\
+Viene implementata da \textit{ToolOrderAdapter} e utilizzata da \textit{GetOrders} per disaccoppiare il tool dalla logica applicativa.
+
+\paragraph{Attributi}
+\textit{ToolOrderPortIn} non definisce attributi.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{get\_ordini(): HistoryPageSchema} - metodo pubblico che recupera la lista degli ordini.\\
+	Viene concretizzato dalla sua implementazione \textit{ToolOrderAdapter}.
+\end{itemize}
+
+\subsubsubsection{GetOrders}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Tool/GetOrders}
+	\caption{Tool orders: GetOrders}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{GetOrders} è il tool concreto che estende \textit{BaseTool} e si occupa di recuperare lo storico degli ordini dell'utente su richiesta del modello LLM.\\
+Riceve i parametri di filtro dall'agente, li valida e li delega alla porta \textit{ToolOrderPortIn} per ottenere i dati.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{tool\_adapter: ToolOrderPortIn} - attributo privato di tipo \textit{ToolOrderPortIn}.\\
+	Porta utilizzata per accedere ai dati degli ordini tramite il service applicativo.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_run(data\_inizio: string, data\_fine: string, pagina: int): string} - metodo pubblico che contiene la logica effettiva di esecuzione: invoca la porta con i parametri ricevuti e formatta la risposta.
+	\item \textbf{\_arun(data\_inizio: string, data\_fine: string, pagina: int): string} - versione asincrona di \textit{\_run}.
+\end{itemize}
+
+\subsubsubsection{BaseTool}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.3\textwidth]{SpecificaTecnica/Tool/BaseTool}
+	\caption{Tool orders: BaseTool}
+\end{figure}
+\label{baseTool}
+
+\paragraph{Descrizione}
+\textit{BaseTool} è la classe astratta di base da cui ereditano tutti i tool utilizzati dall'agente LLM.\\
+Definisce l'interfaccia comune che ogni tool deve implementare per essere eseguito dall'agente tramite il \textit{ToolExecutor}.
+
+\paragraph{Attributi}
+\textit{BaseTool} non definisce attributi propri.
+
+\paragraph{Metodi e funzioni}
+\textit{BaseTool} è una classe del framework esterno e viene inclusa nel diagramma solo per rappresentare la relazione di ereditarietà. I suoi metodi non sono mostrati perché non rilevanti per la logica del dominio applicativo.
+
+
+%-----------------------------------------------------------Tool Catalogo ----------------------
+
+\subsubsection{Tool catalog}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Tool/ToolCatalogoCompleto}
+	\caption{Tool catalog: ToolCatalogoCompleto}
+\end{figure}
+
+Il diagramma mostra l'architettura completa del tool per la ricerca nel catalogo prodotti.\\
+Per la definizione di BaseTool, vedere sezione \ref{baseTool}
+
+\subsubsubsection{ToolCatalogService}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Tool/ToolCatalogService}
+	\caption{Tool catalog: ToolCatalogService}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ToolCatalogService} è il service applicativo responsabile della ricerca di prodotti nel catalogo.\\
+Espone un metodo di ricerca semantica basato su una soglia di similarità, restituendo i prodotti più pertinenti alla query dell'utente.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{embedded\_catalog: EmbeddedCatalogService} - attributo privato di tipo \textit{EmbeddedCatalogService}.
+	\item \textbf{catalog\_repo: CatalogRepoPort} - attributo privato di tipo \textit{CatalogRepoPort}.
+	\item \textbf{preferred\_product\_frequency} - attributo privato che rappresenta la frequenza dei prodotti preferiti.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(embedded\_catalog: EmbeddedCatalogService, catalog\_repo: CatalogRepoPort, preferred\_product\_frequency)} - metodo di inizializzazione del service.
+	\item \textbf{search\_catalog(query: string, threshold: float): CatalogProduct*} - metodo pubblico che effettua una ricerca nel catalogo prodotti in base alla query fornita e alla soglia di similarità specificata.\\
+	Restituisce la lista dei prodotti che superano la soglia.
+\end{itemize}
+
+\subsubsubsection{ToolCatalogAdapter}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Tool/ToolCatalogAdapter}
+	\caption{Tool catalog: ToolCatalogAdapter}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ToolCatalogAdapter} è la classe concreta che implementa l'interfaccia \textit{ToolCatalogPortIn}.\\
+Funge da adattatore tra il tool LLM e il service applicativo, delegando le operazioni di ricerca a \textit{ToolCatalogService}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{tool\_catalog\_service: ToolCatalogService} - attributo privato di tipo \textit{ToolCatalogService}.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(tool\_catalog\_service: ToolCatalogService)} - metodo di inizializzazione dell'adapter.
+\end{itemize}
+
+\subsubsubsection{ToolCatalogPortIn}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.7\textwidth]{SpecificaTecnica/Tool/ToolCatalogPortIn}
+	\caption{Tool catalog: ToolCatalogPortIn}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ToolCatalogPortIn} è l'interfaccia che definisce il contratto per la ricerca nel catalogo prodotti da parte dei tool LLM.\\
+Viene implementata da \textit{ToolCatalogAdapter} e utilizzata da \textit{SearchCatalog} per disaccoppiare il tool dalla logica applicativa.
+
+\paragraph{Attributi}
+\textit{ToolCatalogPortIn} non definisce attributi.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{search\_catalog(query: string, threshold: float): CatalogProduct*} - metodo pubblico che effettua la ricerca nel catalogo.\\
+	Viene concretizzato dalla sua implementazione \textit{ToolCatalogAdapter}.
+\end{itemize}
+
+\subsubsubsection{SearchCatalog}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Tool/SearchCatalog}
+	\caption{Tool catalog: SearchCatalog}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{SearchCatalog} è il tool concreto che estende \textit{BaseTool} e consente all'agente LLM di ricercare prodotti nel catalogo.\\
+Riceve la query dall'agente, la delega alla porta \textit{ToolCatalogPortIn} e restituisce i risultati serializzati.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{tool\_adapter: ToolCatalogPortIn} - attributo privato di tipo \textit{ToolCatalogPortIn}.\\
+	Porta utilizzata per accedere alla logica di ricerca nel catalogo tramite il service applicativo.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_run(query: string, threshold: float): string} - metodo pubblico che contiene la logica effettiva di esecuzione: invoca la porta con la query ricevuta e formatta la risposta.
+	\item \textbf{\_arun(query: string, threshold: float): string} - versione asincrona di \textit{\_run}.
+\end{itemize}
+
+
+%-----------------------------------------------------------Tool Cart ----------------------
+\subsubsection{Tool cart}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Tool/ToolCartCompleto}
+	\caption{Tool cart: ToolCartCompleto}
+\end{figure}
+
+Il diagramma mostra l'architettura completa del tool per la gestione del carrello.\\
+Per la definizione di BaseTool, vedere sezione \ref{baseTool}
+
+\subsubsubsection{ToolCartService}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Tool/ToolCartService}
+	\caption{Tool cart: ToolCartService}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ToolCartService} è il service applicativo che espone tutte le operazioni disponibili sul carrello dell'utente.\\
+Viene invocato dall'adapter e si occupa di delegare le operazioni al layer di persistenza.
+
+\paragraph{Attributi}
+\textit{ToolCartService} non definisce attributi propri.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(username: string, cart\_repo: CartRepoPort, embedded\_cart: EmbeddedCartService)} - metodo di inizializzazione del service.
+	\item \textbf{get\_cart\_items(): CartProduct*} - metodo pubblico che recupera la lista di tutti i prodotti presenti nel carrello dell'utente corrente.
+	\item \textbf{search\_cart(query: string, threshold: float): CartProduct*} - metodo pubblico che effettua una ricerca semantica tra i prodotti nel carrello in base alla query e alla soglia di similarità specificate.\\
+	Restituisce la lista dei prodotti che superano la soglia.
+	\item \textbf{add\_to\_cart(prod\_id: string, qty: int): CartProduct} - metodo pubblico che aggiunge al carrello il prodotto identificato da \textit{prod\_id} con la quantità specificata.\\
+	Restituisce il prodotto aggiunto al carrello.
+	\item \textbf{remove\_from\_cart(prod\_id: string): CartProduct} - metodo pubblico che rimuove dal carrello il prodotto identificato da \textit{prod\_id}.\\
+	Restituisce il prodotto rimosso.
+	\item \textbf{update\_cart\_qty(prod\_id: string, qty: int, operation: UpdateCartOperation): CartProduct} - metodo pubblico che aggiorna la quantità del prodotto identificato da \textit{prod\_id} nel carrello, applicando l'operazione specificata.\\
+	Restituisce il prodotto aggiornato.
+\end{itemize}
+
+\subsubsubsection{ToolCartAdapter}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Tool/ToolCartAdapter}
+	\caption{Tool cart: ToolCartAdapter}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ToolCartAdapter} è la classe concreta che implementa l'interfaccia \textit{ToolCartPortIn}.\\
+Funge da adattatore tra i tool LLM e il service applicativo, delegando tutte le operazioni sul carrello a \textit{ToolCartService}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{tool\_cart\_service: ToolCartService} - attributo privato di tipo \textit{ToolCartService}.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(tool\_cart\_service: ToolCartService)} - metodo di inizializzazione dell'adapter.
+\end{itemize}
+
+\subsubsubsection{ToolCartPortIn}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Tool/ToolCartPortIn}
+	\caption{Tool cart: ToolCartPortIn}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ToolCartPortIn} è l'interfaccia che definisce il contratto per tutte le operazioni sul carrello da parte dei tool LLM.\\
+Viene implementata da \textit{ToolCartAdapter} e utilizzata dai tool concreti per disaccoppiare la logica di esecuzione dal layer applicativo.
+
+\paragraph{Attributi}
+\textit{ToolCartPortIn} non definisce attributi.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{add\_to\_cart(prod\_id: string, qty: int): string} - metodo pubblico che aggiunge un prodotto al carrello.
+	\item \textbf{remove\_from\_cart(prod\_id: string): string} - metodo pubblico che rimuove un prodotto dal carrello.
+	\item \textbf{update\_cart\_item\_qty(prod\_id: string, qty: int, operation: CartUpdateOperation): string} - metodo pubblico che aggiorna la quantità di un prodotto nel carrello.
+	\item \textbf{get\_cart\_items(): CartProduct*} - metodo pubblico che recupera la lista dei prodotti nel carrello.
+	\item \textbf{search\_cart(query: string, threshold: float): CartProduct*} - metodo pubblico che effettua una ricerca semantica tra i prodotti nel carrello.
+\end{itemize}
+
+\subsubsubsection{AddToCart}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.7\textwidth]{SpecificaTecnica/Tool/AddToCart}
+	\caption{Tool cart: AddToCart}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{AddToCart} è il tool concreto che estende \textit{BaseTool} e consente all'agente LLM di aggiungere un prodotto al carrello dell'utente.\\
+Riceve l'identificativo del prodotto e la quantità dall'agente e delega l'operazione alla porta \textit{ToolCartPortIn}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{tool\_adapter: ToolCartPortIn} - attributo privato di tipo \textit{ToolCartPortIn}.\\
+	Porta utilizzata per accedere alle operazioni sul carrello tramite il service applicativo.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_run(prod\_id: string, qty: int): string} - metodo pubblico che contiene la logica effettiva di esecuzione: invoca la porta per aggiungere il prodotto specificato al carrello dell'utente.
+	\item \textbf{\_arun(prod\_id: string, qty: int): string} - versione asincrona di \textit{\_run}.
+\end{itemize}
+
+\subsubsubsection{RemoveFromCart}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Tool/RemoveFromCart}
+	\caption{Tool cart: RemoveFromCart}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{RemoveFromCart} è il tool concreto che estende \textit{BaseTool} e consente all'agente LLM di rimuovere un prodotto dal carrello dell'utente.\\
+Riceve l'identificativo del prodotto dall'agente e delega la rimozione alla porta \textit{ToolCartPortIn}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{tool\_adapter: ToolCartPortIn} - attributo privato di tipo \textit{ToolCartPortIn}.\\
+	Porta utilizzata per accedere alle operazioni sul carrello tramite il service applicativo.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_run(prod\_id: string): string} - metodo pubblico che contiene la logica effettiva di esecuzione: invoca la porta per rimuovere il prodotto specificato dal carrello dell'utente.
+	\item \textbf{\_arun(prod\_id: string): string} - versione asincrona di \textit{\_run}.
+\end{itemize}
+
+\subsubsubsection{UpdateCartItemQty}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.7\textwidth]{SpecificaTecnica/Tool/UpdateCartItemQty}
+	\caption{Tool cart: UpdateCartItemQty}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{UpdateCartItemQty} è il tool concreto che estende \textit{BaseTool} e consente all'agente LLM di aggiornare la quantità di un prodotto presente nel carrello dell'utente.\\
+Riceve l'identificativo del prodotto, la nuova quantità e il tipo di operazione dall'agente, delegando l'aggiornamento alla porta \textit{ToolCartPortIn}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{tool\_adapter: ToolCartPortIn} - attributo privato di tipo \textit{ToolCartPortIn}.\\
+	Porta utilizzata per accedere alle operazioni sul carrello tramite il service applicativo.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_run(prod\_id: string, qty: int, operation: CartUpdateOperation): string} - metodo pubblico che contiene la logica effettiva di esecuzione: invoca la porta per aggiornare la quantità del prodotto specificato nel carrello dell'utente.
+	\item \textbf{\_arun(prod\_id: string, qty: int, operation: CartUpdateOperation): string} - versione asincrona di \textit{\_run}.
+\end{itemize}
+
+\subsubsubsection{SearchCart}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Tool/SearchCart}
+	\caption{Tool cart: SearchCart}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{SearchCart} è il tool concreto che estende \textit{BaseTool} e consente all'agente LLM di effettuare una ricerca semantica tra i prodotti presenti nel carrello dell'utente.\\
+Riceve la query dall'agente e delega la ricerca alla porta \textit{ToolCartPortIn}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{tool\_adapter: ToolCartPortIn} - attributo privato di tipo \textit{ToolCartPortIn}.\\
+	Porta utilizzata per accedere alle operazioni sul carrello tramite il service applicativo.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_run(query: string, threshold: float): string} - metodo pubblico che contiene la logica effettiva di esecuzione: invoca la porta con la query ricevuta e formatta la risposta.
+	\item \textbf{\_arun(query: string, threshold: float): string} - versione asincrona di \textit{\_run}.
+\end{itemize}
+
+%-----------------------------------------------------------LLMAgent ----------------------
+\subsubsection{LLM Agent}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Tool/AgentCompleto}
+	\caption{LLM Agent}
+\end{figure}
+
+Il diagramma mostra l'architettura completa dell'agente LLM.\\
+Per la definizione di BaseTool, vedere sezione \ref{baseTool}\\
+Per la definizione di ChatService, vedere sezione\ref{ChatService}
+
+\subsubsubsection{ToolExecutor}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Tool/ToolExecutor}
+	\caption{LLM Agent: ToolExecutor}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ToolExecutor} è la classe responsabile della selezione e dell'esecuzione dei tool disponibili per l'agente LLM.\\
+Mantiene internamente la lista di tutti i \textit{BaseTool} registrati e, dato il nome di un tool e i relativi argomenti, ne esegue il metodo \textit{run}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{tools: BaseTool*} - attributo privato che rappresenta la lista di tutti i tool disponibili per l'agente.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(tools: BaseTool*)} - metodo di inizializzazione dell'executor.
+	\item \textbf{execute(tool\_name: string, args: Map): string} - metodo pubblico che individua il tool corrispondente al nome fornito e ne invoca il metodo \textit{run} con gli argomenti specificati.\\
+	Restituisce il risultato dell'esecuzione come stringa.
+	\item \textbf{get\_tool\_by\_name(tool\_name: string): BaseTool} - metodo pubblico che restituisce il \textit{BaseTool} registrato corrispondente al nome fornito.
+\end{itemize}
+
+\subsubsubsection{LLMAgent}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.7\textwidth]{SpecificaTecnica/Tool/LLMAgent}
+	\caption{LLM Agent: LLMAgent}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{LLMAgent} è il componente centrale dell'architettura agente.\\
+Si occupa di gestire l'intero ciclo di elaborazione: costruisce il blocco di preferenze utente, esegue il loop agentico interagendo con il modello LLM e i tool disponibili tramite \textit{ToolExecutor}, normalizza il contenuto della risposta e produce un oggetto \textit{LLMResponse} da restituire al chiamante.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{model: ChatOpenAI} - attributo privato di tipo \textit{ChatOpenAI}.\\
+	Rappresenta il client del modello di linguaggio utilizzato per generare le risposte.
+	\item \textbf{toolExecutor: ToolExecutor} - attributo privato di tipo \textit{ToolExecutor}.\\
+	Componente utilizzato per selezionare ed eseguire i tool richiesti dal modello durante il loop agentico.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(tool\_executor: ToolExecutor)} - metodo di inizializzazione dell'agente.
+	\item \textbf{\_build\_user\_pref\_block(preferences: UserPreferences*): string} - metodo privato che costruisce il blocco testuale delle preferenze utente da includere nel prompt di sistema.
+	\item \textbf{\_run\_agentic\_loop(messages: BaseMessage*): AgenticLoopResult*} - metodo privato che esegue il loop agentico: invia i messaggi al modello, intercetta le richieste di tool call, le esegue tramite \textit{ToolExecutor} e ripete finché il modello non produce una risposta finale.
+	\item \textbf{\_build\_response(result: AgenticLoopResult*): LLMResponse} - metodo privato che trasforma il risultato del loop agentico in un oggetto \textit{LLMResponse} strutturato.
+	\item \textbf{\_normalize\_content(content: NormalizableContent): string} - metodo privato che normalizza il contenuto della risposta del modello, convertendolo in una stringa uniforme indipendentemente dal tipo originale.
+	\item \textbf{\_build\_history(request: LLMRequest): BaseMessage*} - metodo privato che costruisce la cronologia dei messaggi da inviare al modello a partire dalla richiesta ricevuta.
+	\item \textbf{\_clean(text: string): string} - metodo privato che effettua operazioni di pulizia sul testo prodotto dal modello, rimuovendo artefatti o formattazioni indesiderate.
+	\item \textbf{invoke(request: LLMRequest): LLMResponse} - metodo pubblico che avvia l'elaborazione della richiesta: costruisce la cronologia, esegue il loop agentico e restituisce la risposta finale.
+\end{itemize}
+
+\subsubsubsection{LLMAdapter}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Tool/LLMAdapter}
+	\caption{LLM Agent: LLMAdapter}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{LLMAdapter} è la classe concreta che implementa l'interfaccia \textit{LLMPort}.\\
+Funge da adattatore tra il layer applicativo e l'agente LLM, delegando l'elaborazione delle richieste all'istanza di \textit{LLMAgent} che incapsula al proprio interno.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{agent: LLMAgent} - attributo privato di tipo \textit{LLMAgent}.\\
+	Rappresenta l'agente LLM utilizzato per elaborare le richieste ricevute.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(agent: LLMAgent)} - metodo di inizializzazione dell'adapter.
+	\item \textbf{invoke(request: LLMRequest): LLMResponse} - metodo pubblico che riceve la richiesta dal layer applicativo e la delega all'agente per l'elaborazione.\\
+	Restituisce la risposta prodotta dall'agente.
+\end{itemize}
+
+\subsubsubsection{LLMPort}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Tool/LLMPort}
+	\caption{LLM Agent: LLMPort}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{LLMPort} è l'interfaccia che definisce il contratto per l'invocazione dell'agente LLM da parte del layer applicativo.\\
+Viene implementata da \textit{LLMAdapter} e utilizzata da \textit{ChatService} per disaccoppiare la logica di business dall'implementazione concreta dell'agente.
+
+\paragraph{Attributi}
+\textit{LLMPort} non definisce attributi.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{invoke(request: LLMRequest): LLMResponse} - metodo pubblico che riceve la richiesta e restituisce la risposta elaborata dall'agente LLM.\\
+	Viene concretizzato dalla sua implementazione \textit{LLMAdapter}.
+\end{itemize}

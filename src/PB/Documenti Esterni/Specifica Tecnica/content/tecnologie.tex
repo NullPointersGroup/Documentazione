@@ -41,8 +41,6 @@ Per ciascuna tecnologia vengono riportate la versione di riferimento e il ruolo 
 		Vite & 7.3.1 & Utilizzato come strumento di build$^G$ e server di sviluppo$^G$ \\
 		TypeScript & 5.9.3 & Impiegato per migliorare la robustezza del codice tramite tipizzazione statica \\
 		Tailwind CSS & 4.2.1 & Utilizzato per lo styling dell’interfaccia tramite classi utility-first \\
-		PostCSS & 8.5.8 & Permette la trasformazione e ottimizzazione del codice CSS \\
-		Autoprefixer & 10.4.27 & Aggiunge automaticamente prefissi CSS per garantire compatibilità tra browser \\
 		\hline
 		
 		\multicolumn{3}{c}{\rule{0pt}{15pt} \textbf{Linting}} \\
@@ -130,3 +128,11 @@ Per ciascuna tecnologia vengono riportate la versione di riferimento e il ruolo 
 PostgreSQL$^G$ è un sistema di gestione di basi di dati relazionali conforme agli standard SQL$^G$, noto per la sua affidabilità e robustezza nella gestione dei dati.\\
 La versione utilizzata nel progetto$^G$ è la versione 16.13 \\
 Nel progetto$^G$ \textbf{SmartOrder} viene utilizzato come database$^G$ principale per la memorizzazione persistente delle informazioni dell'applicazione, tra cui il catalogo dei prodotti, gli ordini generati dal sistema e i dati associati agli input elaborati. L'utilizzo di PostgreSQL$^G$ consente di garantire integrità, consistenza e affidabilità nella gestione dei dati e si integra facilmente con il backend$^G$ sviluppato in Python.
+
+\subsection{Analisi statica dell'intero progetto}
+
+\subsubsection{SonarQube}
+SonarQube è una piattaforma open-source per l'analisi statica del codice sorgente, progettata per individuare automaticamente bug, vulnerabilità di sicurezza e \textit{code smells} all'interno di un progetto software.\\
+La versione utilizzata nel progetto è la versione 26.3.\\
+Nel progetto \textbf{SmartOrder} viene utilizzato per eseguire analisi continuativa della qualità del codice, integrandosi con la pipeline CI/CD al fine di garantire il rispetto di soglie di qualità predefinite (\textit{Quality Gates}). \\
+SonarQube supporta molteplici linguaggi di programmazione e fornisce metriche dettagliate su copertura dei test, duplicazioni del codice, complessità ciclomatica e rispetto delle \textit{best practice}, contribuendo al mantenimento di elevati standard qualitativi durante l'intero ciclo di sviluppo.

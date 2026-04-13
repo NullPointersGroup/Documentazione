@@ -1,0 +1,209 @@
+\subsubsection{Frontend}
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Chat/ChatFrontend}
+	\caption{Diagramma delle classi per Chat: Frontend}
+\end{figure}
+
+\subsubsubsection{ChatView}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.3\textwidth]{SpecificaTecnica/Chat/ChatView}
+	\caption{Chat: ChatView}
+\end{figure}
+
+\paragraph{Descrizione}
+Componente React principale della chat, responsabile del layout generale e della composizione degli altri componenti.\\
+Gestisce l'apertura e la chiusura delle sidebar laterali, adattando il comportamento in base alla larghezza della viewport: sopra i 960px le sidebar sono integrate nel layout, al di sotto diventano overlay.\\
+In modalità stretta è garantita la mutua esclusione tra le due sidebar, in modo che solo una possa essere aperta alla volta.\\
+Recupera stato e azioni tramite \textit{useChatViewModel} e utilizza i componenti \textit{ComponentConversationSidebar}, \textit{ComponentCartSidebar}, \textit{ComponentChatArea}, \textit{ComponentNavBar} e \textit{ComponentProfile}.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{openLeft()} - apre la sidebar sinistra delle conversazioni, chiudendo quella destra se la viewport è in modalità stretta.
+	\item \textbf{openRight()} - apre la sidebar destra del carrello, chiudendo quella sinistra se la viewport è in modalità stretta.
+\end{itemize}
+
+\subsubsubsection{ComponentChatArea}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.8\textwidth]{SpecificaTecnica/Chat/ComponentChatArea}
+	\caption{Chat: ComponentChatArea}
+\end{figure}
+
+\paragraph{Descrizione}
+Componente React che renderizza l'area principale della chat, composta dalla lista dei messaggi e dalla barra di input.\\
+Visualizza i messaggi tramite il sottocomponente \textit{MessageBubble}, distinguendo visivamente i messaggi dell'utente da quelli dell'AI.\\
+Durante l'elaborazione della risposta viene mostrato il sottocomponente \textit{TypingIndicator}.\\
+La barra di input supporta l'invio di testo, l'allegato di file audio e la registrazione vocale diretta dal microfono, con un limite di 4096 caratteri per i messaggi testuali e di 120 secondi per le registrazioni.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{handleMicClick()} - avvia o interrompe la registrazione audio dal microfono.\\
+	Al termine della registrazione invoca la callback \textit{onAudioRecord} con il blob audio prodotto.
+	\item \textbf{handleClipClick()} - apre il selettore di file per allegare un file audio, se non è in corso un invio.
+	\item \textbf{handleFileChange(e: React.ChangeEvent<HTMLInputElement>)} - verifica che il file selezionato non superi i 10 MB e i 120 secondi di durata, poi invoca la callback \textit{onAudioAttach}.
+	\item \textbf{handleKeyDown(e: KeyboardEvent<HTMLTextAreaElement>)} - intercetta la pressione del tasto Invio senza Shift per inviare il messaggio tramite la callback \textit{onSend}.
+	\item \textbf{handleInput(e: React.ChangeEvent<HTMLTextAreaElement>)} - aggiorna il testo dell'input tramite \textit{onInputChange} e ridimensiona dinamicamente la textarea in base al contenuto.
+\end{itemize}
+
+\subsubsubsection{ComponentProfile}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.8\textwidth]{SpecificaTecnica/Chat/ComponentProfile}
+	\caption{Chat: ComponentProfile}
+\end{figure}
+
+\paragraph{Descrizione}
+Componente React che renderizza il pannello laterale del profilo utente.\\
+Recupera le informazioni dell'utente autenticato tramite \textit{GET /api/auth/retrieve} e le mostra in un pannello overlay.\\
+Permette di reimpostare la password tramite il sottocomponente \textit{ComponentPasswordReset} e di eliminare l'account previa conferma.\\
+La chiusura del pannello avviene cliccando sul backdrop o sul pulsante di chiusura.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{handleDelete()} - invia una richiesta \textit{DELETE /api/auth/delete} per eliminare l'account e invoca la callback \textit{onLogout} al completamento.
+	\item \textbf{handleReset(oldPassword: string, newPassword: string): string} - invia una richiesta \textit{POST /api/auth/reset} con la vecchia e la nuova password.\\
+	Restituisce \textit{null} in caso di successo oppure il messaggio di errore restituito dal backend.
+\end{itemize}
+
+\subsubsubsection{ComponentPasswordReset}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.8\textwidth]{SpecificaTecnica/Chat/ComponentPasswordReset}
+	\caption{Chat: ComponentPasswordReset}
+\end{figure}
+
+\paragraph{Descrizione}
+Componente React che gestisce il flusso di reimpostazione della password tramite una finestra modale.\\
+È composto da \textit{PasswordResetDialog}, che gestisce lo stato del flusso e mostra un messaggio di successo al completamento, e dal sottocomponente \textit{PasswordResetForm}, che renderizza il form con i campi per la password attuale, la nuova password e la conferma.\\
+La validazione avviene lato client verificando che la nuova password rispetti i requisiti di complessità, che sia diversa da quella attuale e che i campi di conferma coincidano.\\
+In caso di errore restituito dal backend, il messaggio viene mostrato direttamente nel form.\\
+La chiusura avviene cliccando sul backdrop o sul pulsante di conferma dopo il successo.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{handleResetInternal(oldPassword: string, newPassword: string): string} - invoca la callback \textit{handleReset} ricevuta come prop e, in caso di successo, aggiorna lo stato per mostrare il messaggio di avvenuta reimpostazione.
+	\item \textbf{onSubmit(e: FormSubmitEvent)} - gestisce l'invio del form, esegue la validazione lato client e invoca \textit{handleReset} solo se tutti i campi sono validi.
+\end{itemize}
+
+\subsubsubsection{ComponentConversationSidebar}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Chat/ComponentConversationSidebar}
+	\caption{Chat: ComponentConversationSidebar}
+\end{figure}
+
+\paragraph{Descrizione}
+Componente React che renderizza la sidebar sinistra con l'elenco delle conversazioni.\\
+Permette di selezionare, creare, rinominare ed eliminare conversazioni, con richiesta di conferma prima dell'eliminazione.\\
+La rinomina avviene inline direttamente sulla riga della conversazione, confermando con Invio o perdendo il focus.\\
+Ogni conversazione mostra un menu contestuale con le azioni disponibili, visibile al passaggio del mouse.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{openMenu(e: React.MouseEvent, convId: number)} - apre o chiude il menu contestuale della conversazione identificata da \textit{convId}.
+	\item \textbf{startRename(conv: Conversation)} - chiude il menu contestuale e attiva la modalità di rinomina inline per la conversazione indicata.
+	\item \textbf{commitRename(convId: number)} - conferma la rinomina invocando la callback \textit{onRename} se il nuovo titolo non è vuoto, poi chiude la modalità di modifica.
+	\item \textbf{handleRenameKey(e: KeyboardEvent<HTMLInputElement>, convId: number)} - gestisce i tasti Invio e Escape durante la rinomina, confermando o annullando la modifica.
+	\item \textbf{handleDelete(convId: number)} - chiude il menu contestuale e apre la modale di conferma eliminazione per la conversazione indicata.
+	\item \textbf{confirmDeleteConv()} - invoca la callback \textit{onDelete} con l'identificativo della conversazione da eliminare e chiude la modale di conferma.
+\end{itemize}
+
+\subsubsubsection{ComponentNavBar}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Chat/ComponentNavBar}
+	\caption{Chat: ComponentNavBar}
+\end{figure}
+\label{navbar}
+
+\paragraph{Descrizione}
+Componente React che renderizza la barra di navigazione superiore dell'applicazione.\\
+Mostra il logo e un menu dropdown accessibile tramite il pulsante con l'iniziale e il nome dell'utente autenticato.\\
+Il menu espone le voci di navigazione disponibili per il ruolo dell'utente corrente, definite dalla configurazione \textit{NAV\_LINKS}, oltre alle voci fisse \textit{Profilo} e \textit{Logout}.\\
+Il menu si chiude cliccando fuori dal componente o premendo il tasto Escape.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{handleNav(path: string)} - chiude il menu dropdown e naviga verso il percorso indicato tramite \textit{useNavigate}.
+\end{itemize}
+
+\subsubsubsection{ComponentCartSidebar}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Chat/ComponentCartSidebar}
+	\caption{Chat: ComponentCartSidebar}
+\end{figure}
+
+\paragraph{Descrizione}
+Componente React che renderizza la sidebar destra del carrello.\\
+Mostra la lista dei prodotti aggiunti dall'AI durante la conversazione, con quantità, prezzo unitario e totale per prodotto.\\
+Permette di inviare l'ordine previa conferma tramite una modale dedicata, e mostra un messaggio di successo al completamento dell'operazione.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{fmt(n: number): string} - formatta un valore numerico come valuta in euro con localizzazione italiana.
+	\item \textbf{handleConferma()} - chiude la modale di conferma, invoca la callback \textit{onOrdine} e gestisce lo stato di invio, mostrando il popup di successo al completamento.
+\end{itemize}
+
+\subsubsubsection{ChatViewModel}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Chat/ChatViewModel}
+	\caption{Chat: ChatViewModel}
+\end{figure}
+
+\paragraph{Descrizione}
+Hook React che funge da ViewModel per la gestione della chat.\\
+Espone stato e azioni per la gestione delle conversazioni, dei messaggi, del carrello e dell'invio degli ordini.\\
+Interagisce con \textit{ChatModel} per il recupero e l'aggiornamento dei dati tramite chiamate API, e con \textit{trascriviAudio} per la trascrizione dei messaggi audio.\\
+All'inizializzazione carica le conversazioni e il carrello, ripristinando l'ultima conversazione attiva salvata nel \textit{localStorage}.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{refreshCart()} - aggiorna la lista dei prodotti nel carrello recuperandola tramite \textit{ChatModel.getCart}.
+	\item \textbf{selectConversation(conv\_id: number)} - imposta la conversazione attiva in base all'identificativo ricevuto.
+	\item \textbf{createConversation()} - crea una nuova conversazione con titolo predefinito tramite \textit{ChatModel.createConversation} e la imposta come attiva.
+	\item \textbf{renameConversation(conv\_id: number, titolo: string)} - rinomina la conversazione identificata da \textit{conv\_id} tramite \textit{ChatModel.renameConversation} e aggiorna la lista locale.
+	\item \textbf{deleteConversation(conv\_id: number)} - elimina la conversazione indicata tramite \textit{ChatModel.deleteConversation}.\\
+	Se non rimangono conversazioni, ne crea automaticamente una nuova.
+	\item \textbf{\_send(content: string)} - invia un messaggio con ottimistic update, aggiunge temporaneamente il messaggio alla lista locale, poi lo sostituisce con la risposta del server e aggiorna il carrello.
+	\item \textbf{sendMessage()} - legge il testo dall'input, lo svuota e invoca \textit{\_send} per l'invio.
+	\item \textbf{handleAudioAttach(file: File)} - trascrive un file audio allegato tramite \textit{trascriviAudio} e inserisce il testo risultante nell'input.
+	\item \textbf{handleAudioRecord(blob: Blob)} - trascrive un audio registrato tramite \textit{trascriviAudio} e inserisce il testo risultante nell'input.
+	\item \textbf{removeFromCart(cod\_art: string)} - rimuove il prodotto identificato da \textit{cod\_art} dal carrello tramite \textit{ChatModel.removeFromCart} e aggiorna la lista locale.
+	\item \textbf{logout()} - esegue il logout tramite \textit{ChatModel.logout} e pulisce lo stato di autenticazione.
+	\item \textbf{invioOrdine()} - invia l'ordine corrente tramite \textit{ChatModel.sendOrder} e svuota il carrello locale a conferma.
+\end{itemize}
+
+\subsubsubsection{ChatModel}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.8\textwidth]{SpecificaTecnica/Chat/ChatModel}
+	\caption{Chat: ChatModel}
+\end{figure}
+
+\paragraph{Descrizione}
+File TypeScript che definisce le interfacce dati e le funzioni di accesso alle API per la chat.\\
+Espone i tipi di dominio \textit{Message}, \textit{Conversation}, \textit{CartProduct}, \textit{CartApiResponse}, \textit{ChatApiResponse} e \textit{MessageApiResponse} utilizzati nel resto dell'applicazione.\\
+I tipi raw del backend vengono convertiti nel formato di dominio tramite la funzione \textit{toMessage} prima di essere esposti al ViewModel.\\
+Tutte le chiamate API  gestiscono gli errori HTTP tramite la funzione \textit{handleResponse}.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{toMessage(m: RawMessage): Message} - converte un messaggio dal formato raw del backend al formato di dominio dell'applicazione.
+	\item \textbf{handleResponse(res: Response)} - gestisce la risposta HTTP, restituisce il body parsato come JSON oppure lancia un errore in caso di risposta non positiva.
+	\item \textbf{initAuth()} - recupera le informazioni dell'utente autenticato tramite \textit{GET /api/auth/me} e aggiorna lo store di autenticazione. Questa funzione viene eseguita solo per la prima volta dopo l'autenticazione, successivamente i dati rimangono salvati in chiaro.
+	\item \textbf{logout()} - effettua il logout tramite \textit{POST /api/auth/logout}.
+	\item \textbf{getConversations(username: string): Conversation[]} - recupera tutte le conversazioni dell'utente tramite \textit{GET /api/conversations/\{username\}}.
+	\item \textbf{createConversation(username: string, titolo: string): Conversation} - crea una nuova conversazione tramite \textit{POST /api/conversations/\{username\}}.
+	\item \textbf{renameConversation(conv\_id: number, titolo: string): Conversation} - rinomina una conversazione esistente tramite \textit{PATCH /api/conversations/\{conv\_id\}}.
+	\item \textbf{deleteConversation(conv\_id: number)} - elimina una conversazione tramite \textit{DELETE /api/conversations/\{conv\_id\}}.
+	\item \textbf{getMessages(conv\_id: number): ChatApiResponse} - recupera tutti i messaggi di una conversazione tramite \textit{GET /api/chat/\{conv\_id\}/all}, convertendoli nel formato di dominio.
+	\item \textbf{sendMessage(conv\_id: number, content: string): MessageApiResponse} - invia un nuovo messaggio tramite \textit{POST /api/chat/\{conv\_id\}} e restituisce il messaggio convertito nel formato di dominio.
+	\item \textbf{getCart(username: string): CartApiResponse} - recupera il carrello dell'utente tramite \textit{GET /api/cart/\{username\}}.
+	\item \textbf{removeFromCart(username: string, prod\_id: string)} - rimuove un prodotto dal carrello tramite \textit{DELETE /api/cart/\{username\}}.
+	\item \textbf{sendOrder(username: string)} - invia l'ordine corrente tramite \textit{POST /api/cart/\{username\}/sendOrder}.
+\end{itemize}

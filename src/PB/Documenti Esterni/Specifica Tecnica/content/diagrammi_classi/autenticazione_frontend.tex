@@ -1,0 +1,114 @@
+\subsubsection{Frontend}
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/UMLAutenticazioneFrontend}
+	\caption{Diagramma delle classi per Autenticazione e Registrazione: Frontend}
+\end{figure}
+
+\subsubsubsection{FormView}
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Autenticazione/FormView}
+	\caption{Autenticazione e Registrazione: FormView}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{FormView} è il componente React$^G$ che costituisce il livello di \textit{View} nel pattern MVVM.\\
+Si occupa esclusivamente della presentazione grafica del form di autenticazione o registrazione, delegando tutta la logica al \textit{FormViewModel} ricevuto tramite \textit{FormProps}.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{Form(f: FormProps)} - funzione componente React$^G$ (funzione pubblica).
+	Riceve le props di tipo \textit{FormProps} e restituisce il markup JSX del form.
+	Itera sulla lista \textit{fields} per renderizzare dinamicamente i campi di input, utilizza \textit{vm.values} e \textit{vm.fieldErrors} per il binding dei dati, e collega gli handler \textit{vm.handleChange}, \textit{vm.handleBlur} e \textit{vm.handleSubmit} agli eventi del form. Per i campi di tipo password gestisce la visibilità tramite \textit{visibleFields} e delega la visualizzazione degli errori globali.
+\end{itemize}
+
+
+\subsubsubsection{FormViewModel}
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Autenticazione/FormViewModel}
+	\caption{Autenticazione e Registrazione: FormViewModel}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{FormViewModel} è un'interfaccia TypeScript che definisce il contratto del ViewModel nel pattern MVVM.\\
+Espone lo stato del form e gli handler degli eventi che la View deve utilizzare.\\
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{handleChange(key: string, value: string)} - metodo pubblico che aggiorna il valore del campo identificato da \textit{key} all'interno di \textit{values}.
+	Viene invocato dalla View ad ogni evento \textit{onChange} degli input.
+	\item \textbf{handleBlur(key: string)} - metodo pubblico che innesca la validazione$^G$ del singolo campo identificato da \textit{key} nel momento in cui l'utente abbandona il campo.
+	Aggiorna \textit{fieldErrors} con l'eventuale errore riscontrato.
+	\item \textbf{handleSubmit(e: React.SyntheticEvent)} - metodo pubblico che gestisce la sottomissione del form intercettando l'evento del browser. Innesca la validazione$^G$ completa di tutti i campi e, se non ci sono errori, invoca il metodo \textit{submit} del Model delegando
+	la chiamata API$^G$ al layer sottostante.
+\end{itemize}
+
+\subsubsubsection{FormModel}
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.7\textwidth]{SpecificaTecnica/Autenticazione/FormModel}
+	\caption{Autenticazione e Registrazione: FormModel}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{FormModel} è una classe astratta TypeScript che costituisce il livello di \textit{Model} nel pattern MVVM.\\
+Incapsula la logica di validazione$^G$ dei campi del form e la logica di invio dei dati al backend$^G$.\\
+Le classi concrete \textit{LoginModel} e \textit{RegisterModel} la estendono specializzandone il comportamento.\\
+Solo \textit{fields} e \textit{submit} sono astratti: \textit{validate} e \textit{validateField} hanno invece un'implementazione concreta nella classe base.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{validate(values: Record<string, string>): Record<string, string>}\\
+	Metodo pubblico concreto, riceve una mappa dei valori correnti del form e restituisce una mappa di errori.\\
+	Le sottoclassi possono sovrascriverlo per estendere le regole di validazione$^G$ specifiche.
+	\item \textbf{validateField(key: string, value: string): string}\\
+	Metodo pubblico concreto, valida il singolo campo identificato da \textit{key} utilizzando \textit{validate} sull’intero set di valori aggiornato con \textit{value}.\\
+	Restituisce il messaggio di errore per il campo richiesto, oppure una stringa vuota se il campo è valido.
+	\item \textbf{submit(values: Record<string, string>): SubmitResult}\\
+	Metodo pubblico astratto asincrono, costruisce il DTO appropriato a partire dai valori del form e costruisce la chiamata HTTP.\\ 
+	Restituisce una \textit{SubmitResult} che il ViewModel utilizza per aggiornare lo stato della View in base all’esito.
+	\item \textbf{login(dto: LoginDto): AuthResponse}\\
+	Metodo privato protetto, invia una richiesta di login tramite \textit{authFetch}.
+	\item \textbf{register(dto: RegisterDto): AuthResponse}\\
+	Metodo privato protetto, invia una richiesta di registrazione tramite \textit{authFetch}.
+	\item \textbf{authFetch(endpoint: string, body: object): AuthResponse}\\
+	Metodo privato protetto, incapsula la logica comune di chiamata all’API di autenticazione, gestendo eventuali errori di rete o risposte non valide.
+\end{itemize}
+
+
+\subsubsubsection{RegisterModel}
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Autenticazione/RegisterModel}
+	\caption{Autenticazione e Registrazione: RegisterModel}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{RegisterModel} è una classe concreta che estende \textit{FormModel}, specializzandone il comportamento per la registrazione di un nuovo utente.\\
+Inizializza i campi del form con la configurazione specifica per la registrazione (username, email, password, conferma password) e sovrascrive \textit{validate} per aggiungere la validazione$^G$ del formato email e la verifica$^G$ della corrispondenza delle due password.
+
+\paragraph{Metodi e funzioni}
+\textit{RegisterModel} sovrascrive il metodo \textit{validate} ereditato da \textit{FormModel}, estendendolo con la validazione$^G$ del formato username tramite \textit{USERNAME\_REGEX}, del formato email tramite \textit{EMAIL\_REGEX}, della complessità della password tramite \textit{PASSWORD\_REGEX} e della corrispondenza tra i campi \textit{password} e \textit{confirmPwd}.
+
+
+\subsubsubsection{LoginModel}
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.3\textwidth]{SpecificaTecnica/Autenticazione/LoginModel}
+	\caption{Autenticazione e Registrazione: LoginModel}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{LoginModel} è una classe concreta che estende \textit{FormModel}, specializzandone il comportamento per l'autenticazione di un utente esistente.\\
+Inizializza i campi del form con la configurazione specifica per il login (username e password) e utilizza le regole di validazione$^G$ ereditate da \textit{FormModel} senza aggiungerne di nuove.
+
+\paragraph{Metodi e funzioni}
+\textit{LoginModel} eredita senza modifiche i metodi \textit{validate} e \textit{validateField} da \textit{FormModel}. Il metodo \textit{submit} viene specializzato per costruire un oggetto \textit{LoginDto} con i campi username e password.

@@ -1,0 +1,123 @@
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Recording/Diagramma}
+	\caption{Diagramma delle classi per Recording}
+\end{figure}
+
+\subsubsubsection{RecordingController}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Recording/RecordingController}
+	\caption{Recording: RecordingController}
+\end{figure}
+
+\paragraph{Descrizione}
+Modulo FastAPI che definisce il router per le API REST della trascrizione audio.\\
+Espone un unico endpoint per la ricezione di file audio e la restituzione della trascrizione testuale.\\
+Delega la logica applicativa a \textit{RecordingService}, ottenuto tramite dependency injection insieme al client OpenAI.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{router: APIRouter} - router FastAPI con prefisso \textit{/recording} che raggruppa gli endpoint del modulo.
+	\item \textbf{ServiceDep} - tipo annotato che inietta un'istanza di \textit{RecordingService} tramite la funzione \textit{get\_service}.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{get\_service(): RecordingService} - funzione di dependency injection che istanzia \textit{AsyncOpenAI}, \textit{RecordingRepository}, \textit{RecordingAdapter} e \textit{RecordingService}.
+	\item \textbf{trascrivi\_audio(file: UploadFile, service: RecordingService): Dict[string, string]} - endpoint \textit{POST /recording/trascrivi} che riceve un file audio e restituisce la trascrizione testuale nel campo \textit{testo}.\\
+	Lancia \textit{HTTPException} con codice 400 se il file è vuoto, con codice 500 se la trascrizione fallisce.
+\end{itemize}
+
+\subsubsubsection{RecordingService}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Recording/RecordingService}
+	\caption{Recording: RecordingService}
+\end{figure}
+
+\paragraph{Descrizione}
+Classe Python che implementa la logica applicativa per la gestione della trascrizione audio.\\
+Prima di invocare la trascrizione, valida il file ricevuto verificando che non sia vuoto, che non superi i 10 MB e che la durata non ecceda i 120 secondi.\\
+La validazione della durata viene saltata per i formati non supportati da \textit{mutagen}, come webm/opus.\\
+Delega la trascrizione effettiva all'istanza di \textit{RecordingPort} ricevuta alla costruzione.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{adapter: RecordingPort} - istanza della porta di trascrizione iniettata alla costruzione.
+	\item \textbf{MAX\_DURATION\_SEC: int} - costante che definisce la durata massima consentita per il file audio, impostata a 120 secondi.
+	\item \textbf{MAX\_SIZE\_BYTES: int} - costante che definisce la dimensione massima consentita per il file audio, impostata a 10 MB.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(adapter: RecordingPort)} - inizializza il service con l'istanza della porta di trascrizione ricevuta.
+	\item \textbf{trascrivi\_audio(audio\_bytes: bytes, filename: string): string} - valida il file audio e, se i controlli sono superati, invoca \textit{adapter.trascrivi} per ottenere il testo trascritto.\\
+	Lancia \textit{ValueError} se il file è vuoto, supera i 10 MB o supera i 120 secondi di durata.
+\end{itemize}
+
+\subsubsubsection{RecordingPort}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Recording/RecordingPort}
+	\caption{Recording: RecordingPort}
+\end{figure}
+
+\paragraph{Descrizione}
+Classe astratta Python che definisce la porta per la trascrizione audio tramite servizio esterno.\\
+Segue il pattern architetturale delle porte e degli adattatori, disaccoppiando la logica applicativa di \textit{RecordingService} dalla specifica implementazione del servizio di trascrizione.
+
+\paragraph{Attributi}
+Essendo un'interfaccia, non definisce attributi propri.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{trascrivi(audio\_bytes: bytes, filename: string): string} - trascrive un file audio in testo a partire dal contenuto binario e dal nome del file.\\
+	Lancia un'eccezione se la trascrizione fallisce.\\
+	Viene implementato concretamente dalla sua implementazione RecordingAdapter.
+\end{itemize}
+
+\subsubsubsection{RecordingAdapter}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Recording/RecordingAdapter}
+	\caption{Recording: RecordingAdapter}
+\end{figure}
+
+\paragraph{Descrizione}
+Classe Python che implementa \textit{RecordingPort} seguendo il pattern degli adattatori.\\
+Riceve un'istanza di \textit{RecordingRepository} alla costruzione e delega interamente la trascrizione audio.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(repo: RecordingRepository)} - inizializza l'adapter con l'istanza del repository ricevuta.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{trascrivi(audio\_bytes: bytes, filename: string): string} - delega a \textit{RecordingRepository} la trascrizione del file audio.
+\end{itemize}
+
+\subsubsubsection{RecordingRepository}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Recording/RecordingRepository}
+	\caption{Recording: RecordingRepository}
+\end{figure}
+
+\paragraph{Descrizione}
+Classe Python che gestisce l'accesso diretto al servizio di trascrizione audio Whisper tramite il client \textit{AsyncOpenAI}.\\
+Riceve il client alla costruzione e lo utilizza per inviare il file audio e recuperare il testo trascritto.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{client: AsyncOpenAI} - istanza del client OpenAI asincrono utilizzata per le chiamate al modello Whisper.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(client: AsyncOpenAI)} - inizializza il repository con il client OpenAI asincrono ricevuto.
+	\item \textbf{trascrivi(audio\_bytes: bytes, filename: string): string} - invia il contenuto binario del file audio al modello Whisper tramite il client OpenAI e restituisce il testo trascritto.\\
+	Lancia un'eccezione se la chiamata al servizio fallisce.
+\end{itemize}

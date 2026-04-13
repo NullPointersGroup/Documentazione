@@ -1,13 +1,54 @@
 \section{Diagrammi delle classi}
 
+Dato che nelle tecnologie React e FastAPI le classi non sono una convenzione delle tecnologie, queste nel diagramma vengono mostrate come classi ma nella \vr{Descrizione} di ogni singola classe viene specificato il loro utilizzo.\\
+Nelle classi di tipo frontend verranno omessi volutamente gli attributi, escluso ove necessario, in quanto non sono rilevanti nella scrittura del presente documento.\\
+Ad esempio, nel caso di un componente React, verrà scritto nella descrizione che quella classe è da intendersi come componente.\\
+Ad esempio, nel caso di endpoint FastAPI, verrà scritto nella descrizione che quella classe  è responsabile delle richieste HTTP e, più in generale, delle operazioni di tipo API REST.
+
 \subsection{Autenticazione e Registrazione}
 
 Questa parte si occupa di ricevere le richieste di ottenimento Token$^G$, controllarne i valori e restituire un Token$^G$ valido e temporaneo (24 ore di validità), affinché il Client possa utilizzare il Sistema.\\
 I Token$^G$ sono firmati tramite l'algoritmo \textbf{HS256} (HMAC-SHA256), che utilizza una chiave segreta condivisa sia per la firma che per la verifica.\\
 Le password degli utenti sono invece cifrate tramite \textbf{bcrypt}, algoritmo appositamente progettato per l'hashing.
 
-\input{content/autenticazione_frontend}
+\input{content/diagrammi_classi/autenticazione_frontend}
 
 \newpage
+\input{content/diagrammi_classi/autenticazione_backend}
 
-\input{content/autenticazione_backend}
+\newpage
+\subsection{Chat}
+
+Questa parte è il cuore dell'applicazione, si occupa di gestire la chat dell'utente con il nostro modello di intelligenza artificiale (per maggiori dettagli vedere sezione \ref{tool}).\\
+In questa sezione l'utente può inviare richieste al modello, visualizzare il carrello, le conversazioni disponibili e i messaggi.
+
+\input{content/diagrammi_classi/chat_frontend}
+
+\newpage
+\subsubsection{Backend}
+
+Essendo il backend della chat diviso in diverse parti, ci siamo occupati della divisione dividendo la parte che si occupa di registrare gli audio e le parti che si occupano di gestire le classi di business.
+
+\input{content/diagrammi_classi/recording}
+
+\input{content/diagrammi_classi/chat_backend1}
+
+\input{content/diagrammi_classi/chat_backend2}
+
+\newpage
+\subsection{LlmTool}
+\label{tool}
+Questa parte si occupa di descrivere tutti i tool utilizzati dal nostro modello di intelligenza artificiale (gpt-5-mini) per elaborare le richieste ricevute da un'utente e ottenere un output adeguato rispetto alle richieste dell'utente stesso e alle richieste della proponente.
+
+\input{content/diagrammi_classi/tool}
+
+\newpage
+\subsection{Storico ordini}
+
+Questa parte si occupa di mostrare lo storico ordini di un Cliente oppure lo storico ordini di tutti i Clienti nel caso di un admin.\\
+Oltretutto si occupa della logica di duplicazione ordine, in quanto è fattibile per un Cliente farlo direttamente da interfaccia.
+
+\input{content/diagrammi_classi/storico_frontend}
+
+\newpage
+\input{content/diagrammi_classi/storico_backend}

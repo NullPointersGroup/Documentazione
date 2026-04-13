@@ -13,7 +13,7 @@
 	linkcolor=blue,
 	citecolor=blue,
 	urlcolor=blue
-]{hyperref}
+]{hyperref} 
 \usepackage{colortbl} % Per colorare le celle delle tabelle
 \usepackage{lipsum} % Per generare lorem ipsum
 \usepackage[normalem]{ulem} % Per sottolineare il testo
@@ -124,8 +124,17 @@
 \newcommand{\l@subsubsubsubsection}{\@dottedtocline{5}{10em}{4.5em}}
 \makeatother
 
+\makeatletter
+\renewcommand{\l@paragraph}[2]{}
+\makeatother
+
 \setcounter{secnumdepth}{5}
 \setcounter{tocdepth}{5}
+
+\titleformat{\paragraph}[block]
+{\normalfont\normalsize\bfseries}
+{}{0pt}{}
+\titlespacing*{\paragraph}{0pt}{1ex}{0.5ex}
 
 
 %struttura
