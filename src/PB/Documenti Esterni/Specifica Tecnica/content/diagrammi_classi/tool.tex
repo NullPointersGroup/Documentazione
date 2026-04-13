@@ -453,7 +453,7 @@ Si occupa di gestire l'intero ciclo di elaborazione: costruisce il blocco di pre
 	\item \textbf{\_run\_agentic\_loop(messages: list[BaseMessage]): AgenticLoopResult} - metodo privato che esegue il loop agentico: invia i messaggi al modello, intercetta le richieste di tool call, le esegue tramite \textit{ToolExecutor} e ripete finché il modello non produce una risposta finale.
 	\item \textbf{\_build\_response(result: AgenticLoopResult): LLMResponse} - metodo privato che trasforma il risultato del loop agentico in un oggetto \textit{LLMResponse} strutturato.
 	\item \textbf{\_normalize\_content(content: NormalizableContent): string} - metodo privato che normalizza il contenuto della risposta del modello, convertendolo in una stringa uniforme indipendentemente dal tipo originale.
-	\item \textbf{\_build\_history(request: LLMRequest): BaseMessage*} - metodo privato che costruisce la cronologia dei messaggi da inviare al modello a partire dalla richiesta ricevuta.
+	\item \textbf{\_build\_history(request: LLMRequest): List[BaseMessage]} - metodo privato che costruisce la cronologia dei messaggi da inviare al modello a partire dalla richiesta ricevuta.
 	\item \textbf{\_clean(text: string): string} - metodo privato che effettua operazioni di pulizia sul testo prodotto dal modello, rimuovendo artefatti o formattazioni indesiderate.
 	\item \textbf{invoke(request: LLMRequest): LLMResponse} - metodo pubblico che avvia l'elaborazione della richiesta: costruisce la cronologia, esegue il loop agentico e restituisce la risposta finale.
 \end{itemize}
