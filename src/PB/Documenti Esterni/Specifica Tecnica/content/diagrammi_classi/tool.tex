@@ -41,7 +41,7 @@ Viene invocato dall'adapter e si occupa di interrogare il layer di persistenza p
 
 \paragraph{Descrizione}
 \textit{ToolOrderAdapter} è la classe concreta che implementa l'interfaccia \textit{ToolOrderPortIn}.\\
-Funge da adattatore tra il tool LLM e il service applicativo, delegando le operazioni effettive a \textit{ToolOrderService}.
+Funge da adattatore tra il tool LLM$^G$ e il service applicativo, delegando le operazioni effettive a \textit{ToolOrderService}.
 
 \paragraph{Attributi}
 \begin{itemize}
@@ -112,7 +112,7 @@ Definisce l'interfaccia comune che ogni tool deve implementare per essere esegui
 \textit{BaseTool} non definisce attributi propri.
 
 \paragraph{Metodi e funzioni}
-\textit{BaseTool} è una classe del framework esterno e viene inclusa nel diagramma solo per rappresentare la relazione di ereditarietà. I suoi metodi non sono mostrati perché non rilevanti per la logica del dominio applicativo.
+\textit{BaseTool} è una classe del framework$^G$ esterno e viene inclusa nel diagramma solo per rappresentare la relazione di ereditarietà. I suoi metodi non sono mostrati perché non rilevanti per la logica del dominio applicativo.
 
 
 %-----------------------------------------------------------Tool Catalogo ----------------------
@@ -135,8 +135,8 @@ Per la definizione di BaseTool, vedere sezione \ref{baseTool}
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{ToolCatalogService} è il service applicativo responsabile della ricerca di prodotti nel catalogo.\\
-Espone un metodo di ricerca semantica basato su una soglia di similarità, restituendo i prodotti più pertinenti alla query dell'utente.
+\textit{ToolCatalogService} è il service applicativo responsabile$^G$ della ricerca di prodotti nel catalogo.\\
+Espone un metodo di ricerca semantica basato su una soglia di similarità, restituendo i prodotti più pertinenti alla query$^G$ dell'utente.
 
 \paragraph{Attributi}
 \begin{itemize}
@@ -160,7 +160,7 @@ Espone un metodo di ricerca semantica basato su una soglia di similarità, resti
 
 \paragraph{Descrizione}
 \textit{ToolCatalogAdapter} è la classe concreta che implementa l'interfaccia \textit{ToolCatalogPortIn}.\\
-Funge da adattatore tra il tool LLM e il service applicativo, delegando le operazioni di ricerca a \textit{ToolCatalogService}.
+Funge da adattatore tra il tool LLM$^G$ e il service applicativo, delegando le operazioni di ricerca a \textit{ToolCatalogService}.
 
 \paragraph{Attributi}
 \begin{itemize}
@@ -200,8 +200,8 @@ Viene implementata da \textit{ToolCatalogAdapter} e utilizzata da \textit{Search
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{SearchCatalog} è il tool concreto che estende \textit{BaseTool} e consente all'agente LLM di ricercare prodotti nel catalogo.\\
-Riceve la query dall'agente, la delega alla porta \textit{ToolCatalogPortIn} e restituisce i risultati serializzati.
+\textit{SearchCatalog} è il tool concreto che estende \textit{BaseTool} e consente all'agente LLM$^G$ di ricercare prodotti nel catalogo.\\
+Riceve la query$^G$ dall'agente, la delega alla porta \textit{ToolCatalogPortIn} e restituisce i risultati serializzati.
 
 \paragraph{Attributi}
 \begin{itemize}
@@ -211,8 +211,8 @@ Riceve la query dall'agente, la delega alla porta \textit{ToolCatalogPortIn} e r
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_run(query: string, threshold: float): string} - metodo pubblico che contiene la logica effettiva di esecuzione: invoca la porta con la query ricevuta e formatta la risposta.
-	\item \textbf{\_arun(query: string, threshold: float): string} - versione asincrona di \textit{\_run}.
+	\item \textbf{\_run(query$^G$: string, threshold: float): string} - metodo pubblico che contiene la logica effettiva di esecuzione: invoca la porta con la query$^G$ ricevuta e formatta la risposta.
+	\item \textbf{\_arun(query$^G$: string, threshold: float): string} - versione asincrona di \textit{\_run}.
 \end{itemize}
 
 
@@ -264,7 +264,7 @@ Viene invocato dall'adapter e si occupa di delegare le operazioni al layer di pe
 
 \paragraph{Descrizione}
 \textit{ToolCartAdapter} è la classe concreta che implementa l'interfaccia \textit{ToolCartPortIn}.\\
-Funge da adattatore tra i tool LLM e il service applicativo, delegando tutte le operazioni sul carrello a \textit{ToolCartService}.
+Funge da adattatore tra i tool LLM$^G$ e il service applicativo, delegando tutte le operazioni sul carrello a \textit{ToolCartService}.
 
 \paragraph{Attributi}
 \begin{itemize}
@@ -307,7 +307,7 @@ Viene implementata da \textit{ToolCartAdapter} e utilizzata dai tool concreti pe
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{AddToCart} è il tool concreto che estende \textit{BaseTool} e consente all'agente LLM di aggiungere un prodotto al carrello dell'utente.\\
+\textit{AddToCart} è il tool concreto che estende \textit{BaseTool} e consente all'agente LLM$^G$ di aggiungere un prodotto al carrello dell'utente.\\
 Riceve l'identificativo del prodotto e la quantità dall'agente e delega l'operazione alla porta \textit{ToolCartPortIn}.
 
 \paragraph{Attributi}
@@ -330,7 +330,7 @@ Riceve l'identificativo del prodotto e la quantità dall'agente e delega l'opera
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{RemoveFromCart} è il tool concreto che estende \textit{BaseTool} e consente all'agente LLM di rimuovere un prodotto dal carrello dell'utente.\\
+\textit{RemoveFromCart} è il tool concreto che estende \textit{BaseTool} e consente all'agente LLM$^G$ di rimuovere un prodotto dal carrello dell'utente.\\
 Riceve l'identificativo del prodotto dall'agente e delega la rimozione alla porta \textit{ToolCartPortIn}.
 
 \paragraph{Attributi}
@@ -353,7 +353,7 @@ Riceve l'identificativo del prodotto dall'agente e delega la rimozione alla port
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{UpdateCartItemQty} è il tool concreto che estende \textit{BaseTool} e consente all'agente LLM di aggiornare la quantità di un prodotto presente nel carrello dell'utente.\\
+\textit{UpdateCartItemQty} è il tool concreto che estende \textit{BaseTool} e consente all'agente LLM$^G$ di aggiornare la quantità di un prodotto presente nel carrello dell'utente.\\
 Riceve l'identificativo del prodotto, la nuova quantità e il tipo di operazione dall'agente, delegando l'aggiornamento alla porta \textit{ToolCartPortIn}.
 
 \paragraph{Attributi}
@@ -376,8 +376,8 @@ Riceve l'identificativo del prodotto, la nuova quantità e il tipo di operazione
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{SearchCart} è il tool concreto che estende \textit{BaseTool} e consente all'agente LLM di effettuare una ricerca semantica tra i prodotti presenti nel carrello dell'utente.\\
-Riceve la query dall'agente e delega la ricerca alla porta \textit{ToolCartPortIn}.
+\textit{SearchCart} è il tool concreto che estende \textit{BaseTool} e consente all'agente LLM$^G$ di effettuare una ricerca semantica tra i prodotti presenti nel carrello dell'utente.\\
+Riceve la query$^G$ dall'agente e delega la ricerca alla porta \textit{ToolCartPortIn}.
 
 \paragraph{Attributi}
 \begin{itemize}
@@ -387,8 +387,8 @@ Riceve la query dall'agente e delega la ricerca alla porta \textit{ToolCartPortI
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_run(query: string, threshold: float): string} - metodo pubblico che contiene la logica effettiva di esecuzione: invoca la porta con la query ricevuta e formatta la risposta.
-	\item \textbf{\_arun(query: string, threshold: float): string} - versione asincrona di \textit{\_run}.
+	\item \textbf{\_run(query$^G$: string, threshold: float): string} - metodo pubblico che contiene la logica effettiva di esecuzione: invoca la porta con la query$^G$ ricevuta e formatta la risposta.
+	\item \textbf{\_arun(query$^G$: string, threshold: float): string} - versione asincrona di \textit{\_run}.
 \end{itemize}
 
 %-----------------------------------------------------------LLMAgent ----------------------
@@ -411,7 +411,7 @@ Per la definizione di ChatService, vedere sezione \ref{ChatService}
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{ToolExecutor} è la classe responsabile della selezione e dell'esecuzione dei tool disponibili per l'agente LLM.\\
+\textit{ToolExecutor} è la classe responsabile$^G$ della selezione e dell'esecuzione dei tool disponibili per l'agente LLM.\\
 Mantiene internamente la lista di tutti i \textit{BaseTool} registrati e, dato il nome di un tool e i relativi argomenti, ne esegue il metodo \textit{run}.
 
 \paragraph{Attributi}
@@ -436,7 +436,7 @@ Mantiene internamente la lista di tutti i \textit{BaseTool} registrati e, dato i
 
 \paragraph{Descrizione}
 \textit{LLMAgent} è il componente centrale dell'architettura agente.\\
-Si occupa di gestire l'intero ciclo di elaborazione: costruisce il blocco di preferenze utente, esegue il loop agentico interagendo con il modello LLM e i tool disponibili tramite \textit{ToolExecutor}, normalizza il contenuto della risposta e produce un oggetto \textit{LLMResponse} da restituire al chiamante.
+Si occupa di gestire l'intero ciclo di elaborazione: costruisce il blocco di preferenze utente, esegue il loop agentico interagendo con il modello LLM$^G$ e i tool disponibili tramite \textit{ToolExecutor}, normalizza il contenuto della risposta e produce un oggetto \textit{LLMResponse} da restituire al chiamante.
 
 \paragraph{Attributi}
 \begin{itemize}
@@ -467,12 +467,12 @@ Si occupa di gestire l'intero ciclo di elaborazione: costruisce il blocco di pre
 
 \paragraph{Descrizione}
 \textit{LLMAdapter} è la classe concreta che implementa l'interfaccia \textit{LLMPort}.\\
-Funge da adattatore tra il layer applicativo e l'agente LLM, delegando l'elaborazione delle richieste all'istanza di \textit{LLMAgent} che incapsula al proprio interno.
+Funge da adattatore tra il layer applicativo e l'agente LLM$^G$, delegando l'elaborazione delle richieste all'istanza di \textit{LLMAgent} che incapsula al proprio interno.
 
 \paragraph{Attributi}
 \begin{itemize}
 	\item \textbf{agent: LLMAgent} - attributo privato di tipo \textit{LLMAgent}.\\
-	Rappresenta l'agente LLM utilizzato per elaborare le richieste ricevute.
+	Rappresenta l'agente LLM$^G$ utilizzato per elaborare le richieste ricevute.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
@@ -490,7 +490,7 @@ Funge da adattatore tra il layer applicativo e l'agente LLM, delegando l'elabora
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{LLMPort} è l'interfaccia che definisce il contratto per l'invocazione dell'agente LLM da parte del layer applicativo.\\
+\textit{LLMPort} è l'interfaccia che definisce il contratto per l'invocazione dell'agente LLM$^G$ da parte del layer applicativo.\\
 Viene implementata da \textit{LLMAdapter} e utilizzata da \textit{ChatService} per disaccoppiare la logica di business dall'implementazione concreta dell'agente.
 
 \paragraph{Attributi}

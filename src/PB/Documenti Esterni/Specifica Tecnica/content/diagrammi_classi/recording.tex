@@ -13,7 +13,7 @@
 \end{figure}
 
 \paragraph{Descrizione}
-Modulo FastAPI che definisce il router per le API REST della trascrizione audio.\\
+Modulo FastAPI che definisce il router per le API$^G$ REST$^G$ della trascrizione audio.\\
 Espone un unico endpoint per la ricezione di file audio e la restituzione della trascrizione testuale.\\
 Delega la logica applicativa a \textit{RecordingService}, ottenuto tramite dependency injection insieme al client OpenAI.
 
@@ -38,9 +38,9 @@ Delega la logica applicativa a \textit{RecordingService}, ottenuto tramite depen
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che implementa la logica applicativa per la gestione della trascrizione audio.\\
+Classe Python$^G$ che implementa la logica applicativa per la gestione della trascrizione audio.\\
 Prima di invocare la trascrizione, valida il file ricevuto verificando che non sia vuoto, che non superi i 10 MB e che la durata non ecceda i 120 secondi.\\
-La validazione della durata viene saltata per i formati non supportati da \textit{mutagen}, come webm/opus.\\
+La validazione$^G$ della durata viene saltata per i formati non supportati da \textit{mutagen}, come webm/opus.\\
 Delega la trascrizione effettiva all'istanza di \textit{RecordingPort} ricevuta alla costruzione.
 
 \paragraph{Attributi}
@@ -65,7 +65,7 @@ Delega la trascrizione effettiva all'istanza di \textit{RecordingPort} ricevuta 
 \end{figure}
 
 \paragraph{Descrizione}
-Classe astratta Python che definisce la porta per la trascrizione audio tramite servizio esterno.\\
+Classe astratta Python$^G$ che definisce la porta per la trascrizione audio tramite servizio esterno.\\
 Segue il pattern architetturale delle porte e degli adattatori, disaccoppiando la logica applicativa di \textit{RecordingService} dalla specifica implementazione del servizio di trascrizione.
 
 \paragraph{Attributi}
@@ -86,12 +86,12 @@ Essendo un'interfaccia, non definisce attributi propri.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che implementa \textit{RecordingPort} seguendo il pattern degli adattatori.\\
+Classe Python$^G$ che implementa \textit{RecordingPort} seguendo il pattern degli adattatori.\\
 Riceve un'istanza di \textit{RecordingRepository} alla costruzione e delega interamente la trascrizione audio.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(repo: RecordingRepository)} - inizializza l'adapter con l'istanza del repository ricevuta.
+	\item \textbf{\_\_init\_\_(repo: RecordingRepository)} - inizializza l'adapter con l'istanza del repository$^G$ ricevuta.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
@@ -107,17 +107,17 @@ Riceve un'istanza di \textit{RecordingRepository} alla costruzione e delega inte
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che gestisce l'accesso diretto al servizio di trascrizione audio Whisper tramite il client \textit{AsyncOpenAI}.\\
+Classe Python$^G$ che gestisce l'accesso diretto al servizio di trascrizione audio Whisper$^G$ tramite il client \textit{AsyncOpenAI}.\\
 Riceve il client alla costruzione e lo utilizza per inviare il file audio e recuperare il testo trascritto.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{client: AsyncOpenAI} - istanza del client OpenAI asincrono utilizzata per le chiamate al modello Whisper.
+	\item \textbf{client: AsyncOpenAI} - istanza del client OpenAI$^G$ asincrono utilizzata per le chiamate al modello Whisper.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(client: AsyncOpenAI)} - inizializza il repository con il client OpenAI asincrono ricevuto.
-	\item \textbf{trascrivi(audio\_bytes: bytes, filename: string): string} - invia il contenuto binario del file audio al modello Whisper tramite il client OpenAI e restituisce il testo trascritto.\\
+	\item \textbf{\_\_init\_\_(client: AsyncOpenAI)} - inizializza il repository$^G$ con il client OpenAI$^G$ asincrono ricevuto.
+	\item \textbf{trascrivi(audio\_bytes: bytes, filename: string): string} - invia il contenuto binario del file audio al modello Whisper$^G$ tramite il client OpenAI$^G$ e restituisce il testo trascritto.\\
 	Lancia un'eccezione se la chiamata al servizio fallisce.
 \end{itemize}

@@ -16,9 +16,9 @@ Per la definizione di ComponentNavBar, vedere sezione \ref{navbar}
 \end{figure}
 
 \paragraph{Descrizione}
-Componente React che rappresenta la pagina dello storico degli ordini. \\
+Componente React$^G$ che rappresenta la pagina dello storico degli ordini. \\
 Recupera i dati tramite \textit{useHistoryViewModel} e gestisce la visualizzazione della lista degli ordini con supporto alla paginazione e al filtraggio per data. \\
-Se l'utente è amministratore, vengono mostrati gli ordini di tutti i clienti. \\
+Se l'utente è amministratore$^G$, vengono mostrati gli ordini di tutti i clienti. \\
 Utilizza i componenti \textit{ComponentOrderRow}, \textit{ComponentOrderDetailsModal} e \textit{ComponentPagination}, oltre a \textit{ComponentNavBar}.
 
 \paragraph{Metodi e funzioni}
@@ -37,7 +37,7 @@ Utilizza i componenti \textit{ComponentOrderRow}, \textit{ComponentOrderDetailsM
 \end{figure}
 
 \paragraph{Descrizione}
-Componente React che renderizza i controlli di paginazione per la lista degli ordini.\\
+Componente React$^G$ che renderizza i controlli di paginazione per la lista degli ordini.\\
 Riceve la pagina corrente, il numero totale di pagine e una callback per il cambio pagina.\\
 Non viene renderizzato se il numero totale di pagine è inferiore o uguale a uno.
 
@@ -54,8 +54,8 @@ I pulsanti vengono disabilitati automaticamente quando ci si trova alla prima o 
 \end{figure}
 
 \paragraph{Descrizione}
-Componente React che renderizza una finestra modale con il dettaglio di un ordine selezionato.\\
-Mostra il codice ordine, la data, la lista dei prodotti con le rispettive quantità e, se l'utente è amministratore, il nome del cliente.\\
+Componente React$^G$ che renderizza una finestra modale con il dettaglio di un ordine selezionato.\\
+Mostra il codice ordine, la data, la lista dei prodotti con le rispettive quantità e, se l'utente è amministratore$^G$, il nome del cliente.\\
 Per gli utenti non amministratori è presente un pulsante per duplicare l'ordine, con relativa richiesta di conferma.\\
 La modale si chiude cliccando sul backdrop o sul pulsante di chiusura.
 
@@ -73,9 +73,9 @@ La modale si chiude cliccando sul backdrop o sul pulsante di chiusura.
 \end{figure}
 
 \paragraph{Descrizione}
-Componente React che renderizza una singola riga della tabella degli ordini.\\
+Componente React$^G$ che renderizza una singola riga della tabella degli ordini.\\
 Mostra il codice ordine, la data, il numero di prodotti e un pulsante per aprire il dettaglio.\\
-Se l'utente è amministratore, viene mostrata anche la colonna con il nome del cliente.
+Se l'utente è amministratore$^G$, viene mostrata anche la colonna con il nome del cliente.
 
 \paragraph{Metodi e funzioni}
 Il componente non espone metodi propri.\\
@@ -89,7 +89,7 @@ L'unica interazione è il pulsante \textit{Dettaglio}, che invoca la callback \t
 \end{figure}
 
 \paragraph{Descrizione}
-Hook React che funge da ViewModel per la gestione dello storico ordini.\\
+Hook React$^G$ che funge da ViewModel per la gestione dello storico ordini.\\
 Espone stato e azioni per caricare, visualizzare e duplicare ordini, adattando il comportamento al ruolo dell'utente autenticato.\\
 Interagisce con \textit{HistoryModel} per il recupero e la duplicazione dei dati tramite le funzioni \textit{getStoricoCliente}, \textit{getStoricoAdmin} e \textit{duplicaOrdine}.
 
@@ -111,9 +111,9 @@ Interagisce con \textit{HistoryModel} per il recupero e la duplicazione dei dati
 \end{figure}
 
 \paragraph{Descrizione}
-File TypeScript che definisce le interfacce dati e le funzioni di accesso alle API per lo storico ordini.\\
+File TypeScript che definisce le interfacce dati e le funzioni di accesso alle API$^G$ per lo storico ordini.\\
 Espone i tipi \textit{Order}, \textit{Product} e \textit{StoricoPage} utilizzati internamente dai componenti, e i tipi \textit{OrderSchema}, \textit{ProductSchema} e \textit{HistoryPageSchema} che rispecchiano il formato restituito dal backend.\\
-Le funzioni di accesso alle API gestiscono i parametri di paginazione e filtraggio per data.
+Le funzioni di accesso alle API$^G$ gestiscono i parametri di paginazione e filtraggio per data.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}

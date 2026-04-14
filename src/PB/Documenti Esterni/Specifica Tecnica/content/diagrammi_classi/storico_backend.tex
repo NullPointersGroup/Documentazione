@@ -15,7 +15,7 @@ Per la definizione di ChatService, vedere \ref{ChatService}
 \end{figure}
 
 \paragraph{Descrizione}
-Modulo FastAPI che definisce il router per le API REST dello storico ordini.\\
+Modulo FastAPI che definisce il router per le API$^G$ REST$^G$ dello storico ordini.\\
 Espone gli endpoint per il recupero degli ordini del cliente autenticato, il recupero di tutti gli ordini riservato agli amministratori e la duplicazione di un ordine esistente.\\
 Delega la logica applicativa a \textit{HistoryService}, ottenuto tramite dependency injection insieme alla sessione del database.
 
@@ -27,8 +27,8 @@ Delega la logica applicativa a \textit{HistoryService}, ottenuto tramite depende
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{get\_service(db: DBSession): HistoryService} - funzione di dependency injection che istanzia \textit{GetOrdersAdapter} e \textit{HistoryService} a partire dalla sessione del database.
-	\item \textbf{require\_admin(username: Username, db: DBSession): string} - verifica che l'utente autenticato abbia ruolo amministratore.\\
+	\item \textbf{get\_service(db$^G$: DBSession): HistoryService} - funzione di dependency injection che istanzia \textit{GetOrdersAdapter} e \textit{HistoryService} a partire dalla sessione del database.
+	\item \textbf{require\_admin(username: Username, db$^G$: DBSession): string} - verifica$^G$ che l'utente autenticato abbia ruolo amministratore.\\
 	Lancia \textit{HTTPException} con codice 403 in caso contrario.
 	\item \textbf{get\_history\_customer(username: Username, service: ServiceDep, page: Page, per\_page: PerPage, start\_date: date, end\_date: date): HistoryPageSchema} - endpoint \textit{GET /api/history/miei} che recupera gli ordini dell'utente autenticato con supporto a paginazione e filtro per data.\\
 	Lancia \textit{HTTPException} con codice 404 se l'utente non viene trovato.
@@ -66,7 +66,7 @@ Si occupa di costruire le pagine di risposta, applicare i filtri per data e gest
 	Lancia \textit{OrdersNotFoundException} se non è presente alcun ordine.
 	\item \textbf{duplicate\_order(code\_order: string, username: string)} - duplica un ordine esistente per l'utente indicato.\\
 	Lancia \textit{OrderNotFoundException} se il codice ordine non viene trovato.
-	\item \textbf{get\_user\_product\_preferences(username: string)} - recupera tutti i prodotti acquistati da un utente, utilizzato per la funzionalità di suggerimento.
+	\item \textbf{get\_user\_product\_preferences(username: string)} - recupera tutti i prodotti acquistati da un utente, utilizzato per la funzionalità$^G$ di suggerimento.
 \end{itemize}
 
 \subsubsubsection{HistoryAdapterPort}
@@ -101,16 +101,16 @@ Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
 
 \paragraph{Descrizione}
 Classe che implementa \textit{HistoryAdapterPort} seguendo il pattern degli adattatori.\\
-Riceve una sessione del database alla costruzione e la utilizza per istanziare \textit{HistoryRepository}, al quale delega interamente tutte le operazioni di accesso ai dati.
+Riceve una sessione del database$^G$ alla costruzione e la utilizza per istanziare \textit{HistoryRepository}, al quale delega interamente tutte le operazioni di accesso ai dati.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{repository: HistoryRepository} - istanza del repository istanziata a partire dalla sessione del database ricevuta in ingresso.
+	\item \textbf{repository$^G$: HistoryRepository} - istanza del repository$^G$ istanziata a partire dalla sessione del database$^G$ ricevuta in ingresso.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(db: Session)} - si occupa di inizializzare l'adattatore ricevendo la sessione del database e istanziando un'istanza di tipo HistoryRepository
+	\item \textbf{\_\_init\_\_(db$^G$: Session)} - si occupa di inizializzare l'adattatore ricevendo la sessione del database$^G$ e istanziando un'istanza di tipo HistoryRepository
 	\end{itemize}
 
 \subsubsubsection{HistoryRepository}
@@ -121,13 +121,13 @@ Riceve una sessione del database alla costruzione e la utilizza per istanziare \
 \end{figure}
 
 \paragraph{Descrizione}
-Classe che gestisce l'accesso diretto al database per lo storico ordini.\\
-Riceve una sessione SQLModel alla costruzione e la utilizza per eseguire le query tramite i modelli \textit{Order}, \textit{OrdCliDet} e \textit{Anaart}.\\
+Classe che gestisce l'accesso diretto al database$^G$ per lo storico ordini.\\
+Riceve una sessione SQLModel alla costruzione e la utilizza per eseguire le query$^G$ tramite i modelli \textit{Order}, \textit{OrdCliDet} e \textit{Anaart}.\\
 Rappresenta il livello più basso della catena \textit{HistoryService} → \textit{GetOrdersAdapter} → \textit{HistoryRepository}.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{db: Session} - sessione SQLModel attiva utilizzata per l'esecuzione delle query.
+	\item \textbf{db$^G$: Session} - sessione SQLModel attiva utilizzata per l'esecuzione delle query.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
