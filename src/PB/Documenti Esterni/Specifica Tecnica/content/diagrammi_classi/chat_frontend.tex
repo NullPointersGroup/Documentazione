@@ -78,8 +78,8 @@ La chiusura del pannello avviene cliccando sul backdrop o sul pulsante di chiusu
 \paragraph{Descrizione}
 Componente React$^G$ che gestisce il flusso di reimpostazione della password tramite una finestra modale.\\
 È composto da \textit{PasswordResetDialog}, che gestisce lo stato del flusso e mostra un messaggio di successo al completamento, e dal sottocomponente \textit{PasswordResetForm}, che renderizza il form con i campi per la password attuale, la nuova password e la conferma.\\
-La validazione$^G$ avviene lato client verificando che la nuova password rispetti i requisiti di complessità, che sia diversa da quella attuale e che i campi di conferma coincidano.\\
-In caso di errore restituito dal backend$^G$, il messaggio viene mostrato direttamente nel form.\\
+La validazione$^G$ avviene lato client verificando che la nuova password rispetti i requisiti di complessità e che i campi di conferma coincidano.\\
+In caso di errore restituito dal backend$^G$, come il caso in cui la password attuale inserita sia sbagliata, il messaggio viene mostrato direttamente nel form.\\
 La chiusura avviene cliccando sul backdrop o sul pulsante di conferma dopo il successo.
 
 \paragraph{Metodi e funzioni}
@@ -195,7 +195,7 @@ Tutte le chiamate API$^G$  gestiscono gli errori HTTP tramite la funzione \texti
 \begin{itemize}
 	\item \textbf{toMessage(m: RawMessage): Message} - converte un messaggio dal formato raw del backend$^G$ al formato di dominio dell'applicazione.
 	\item \textbf{handleResponse(res: Response)} - gestisce la risposta HTTP, restituisce il body parsato come JSON$^G$ oppure lancia un errore in caso di risposta non positiva.
-	\item \textbf{initAuth()} - recupera le informazioni dell'utente autenticato tramite \textit{GET /api/auth/me} e aggiorna lo store di autenticazione. Questa funzione viene eseguita solo per la prima volta dopo l'autenticazione, successivamente i dati rimangono salvati in chiaro.
+	\item \textbf{initAuth()} - recupera le informazioni dell'utente autenticato tramite \textit{GET /api/auth/retrieve\_info} e aggiorna lo store di autenticazione. Questa funzione viene eseguita solo per la prima volta dopo l'autenticazione, successivamente i dati rimangono salvati in chiaro.
 	\item \textbf{logout()} - effettua il logout tramite \textit{POST /api/auth/logout}.
 	\item \textbf{getConversations(username: string): Conversation[]} - recupera tutte le conversazioni dell'utente tramite \textit{GET /api/conversations/\{username\}}.
 	\item \textbf{createConversation(username: string, titolo: string): Conversation} - crea una nuova conversazione tramite \textit{POST /api/conversations/\{username\}}.

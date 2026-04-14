@@ -32,27 +32,6 @@ Viene invocato dall'adapter e si occupa di interrogare il layer di persistenza p
 	Restituisce un oggetto \textit{HistoryPageSchema} contenente la lista degli ordini e le informazioni di paginazione.
 \end{itemize}
 
-\subsubsubsection{ToolOrderAdapter}
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Tool/ToolOrderAdapter}
-	\caption{ToolOrders: ToolOrderAdapter}
-\end{figure}
-
-\paragraph{Descrizione}
-\textit{ToolOrderAdapter} è la classe concreta che implementa l'interfaccia \textit{ToolOrderPortIn}.\\
-Funge da adattatore tra il tool LLM$^G$ e il service applicativo, delegando le operazioni effettive a \textit{ToolOrderService}.
-
-\paragraph{Attributi}
-\begin{itemize}
-	\item \textbf{tool\_order\_service: ToolOrderService} - attributo privato di tipo \textit{ToolOrderService}.
-\end{itemize}
-
-\paragraph{Metodi e funzioni}
-\begin{itemize}
-	\item \textbf{\_\_init\_\_(tool\_order\_service: ToolOrderService)} - metodo di inizializzazione dell'adapter.
-\end{itemize}
-
 \subsubsubsection{ToolOrderPortIn}
 \begin{figure}[H]
 	\centering 
@@ -71,6 +50,28 @@ Viene implementata da \textit{ToolOrderAdapter} e utilizzata da \textit{GetOrder
 \begin{itemize}
 	\item \textbf{get\_ordini(): HistoryPageSchema} - metodo pubblico che recupera la lista degli ordini.\\
 	Viene concretizzato dalla sua implementazione \textit{ToolOrderAdapter}.
+\end{itemize}
+
+\subsubsubsection{ToolOrderAdapter}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Tool/ToolOrderAdapter}
+	\caption{ToolOrders: ToolOrderAdapter}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ToolOrderAdapter} è la classe concreta che implementa l'interfaccia \textit{ToolOrderPortIn}.\\
+Funge da adattatore tra il tool LLM$^G$ e il service applicativo, delegando le operazioni effettive a \textit{ToolOrderService}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{tool\_order\_service: ToolOrderService} - attributo privato di tipo \textit{ToolOrderService}.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+Oltre alle implementazioni concrete di \textit{ToolOrderPortIn}, è disponibile la seguente funzione:
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(tool\_order\_service: ToolOrderService)} - metodo di inizializzazione dell'adapter.
 \end{itemize}
 
 \subsubsubsection{GetOrders}
@@ -115,68 +116,63 @@ Definisce l'interfaccia comune che ogni tool deve implementare per essere esegui
 \textit{BaseTool} è una classe del framework$^G$ esterno e viene inclusa nel diagramma solo per rappresentare la relazione di ereditarietà. I suoi metodi non sono mostrati perché non rilevanti per la logica del dominio applicativo.
 
 
-%-----------------------------------------------------------Tool Catalogo ----------------------
+%-----------------------------------------------------------ToolCatalogo ----------------------
 
-\subsubsection{Tool catalog}
+\subsubsection{ToolCatalog}
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=1\textwidth]{SpecificaTecnica/Tool/ToolCatalogoCompleto}
-	\caption{Tool catalog: ToolCatalogoCompleto}
+	\caption{ToolCatalog: ToolCatalogoCompleto}
 \end{figure}
 
 Il diagramma mostra l'architettura completa del tool per la ricerca nel catalogo prodotti.\\
 Per la definizione di BaseTool, vedere sezione \ref{baseTool}
 
 \subsubsubsection{ToolCatalogService}
+\label{ToolCatalogService}
 \begin{figure}[H]
-	\centering 
-	\includegraphics[width=1\textwidth]{SpecificaTecnica/Tool/ToolCatalogService}
-	\caption{Tool catalog: ToolCatalogService}
+	\centering
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Chat/ToolCatalogService}
+	\caption{Catalogo: ToolCatalogService}
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{ToolCatalogService} è il service applicativo responsabile$^G$ della ricerca di prodotti nel catalogo.\\
-Espone un metodo di ricerca semantica basato su una soglia di similarità, restituendo i prodotti più pertinenti alla query$^G$ dell'utente.
+Classe che orchestra la ricerca semantica sul catalogo integrando la ricerca
+vettoriale con le preferenze di acquisto dell'utente.\\
+Recupera i prodotti tramite \textit{EmbeddedCatalogService} e li riordina privilegiando
+quelli acquistati con maggiore frequenza dall'utente, qualora siano disponibili le
+preferenze.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{embedded\_catalog: EmbeddedCatalogService} - attributo privato di tipo \textit{EmbeddedCatalogService}.
-	\item \textbf{catalog\_repo: CatalogRepoPort} - attributo privato di tipo \textit{CatalogRepoPort}.
+	\item \textbf{embedded\_catalog: EmbeddedCatalogService} - istanza del servizio di
+	ricerca vettoriale sul catalogo.
+	\item \textbf{catalog\_repo: CatalogRepoPort} - istanza del porto di accesso ai dati
+	del catalogo, utilizzata per recuperare i dettagli dei prodotti trovati.
+	\item \textbf{preferred\_product\_frequency: Dict[string, int]} - dizionario che
+	mappa gli identificativi di prodotto alla frequenza di acquisto dell'utente
+	corrente; valore di default è un dizionario vuoto.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(embedded\_catalog: EmbeddedCatalogService, catalog\_repo: CatalogRepoPort)} - metodo di inizializzazione del service.
-	\item \textbf{search\_catalog(query: string, threshold: float): List[CatalogProduct]} - metodo pubblico che effettua una ricerca nel catalogo prodotti in base alla query fornita e alla soglia di similarità specificata.\\
-	Restituisce la lista dei prodotti che superano la soglia.
-\end{itemize}
-
-\subsubsubsection{ToolCatalogAdapter}
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Tool/ToolCatalogAdapter}
-	\caption{Tool catalog: ToolCatalogAdapter}
-\end{figure}
-
-\paragraph{Descrizione}
-\textit{ToolCatalogAdapter} è la classe concreta che implementa l'interfaccia \textit{ToolCatalogPortIn}.\\
-Funge da adattatore tra il tool LLM$^G$ e il service applicativo, delegando le operazioni di ricerca a \textit{ToolCatalogService}.
-
-\paragraph{Attributi}
-\begin{itemize}
-	\item \textbf{tool\_catalog\_service: ToolCatalogService} - attributo privato di tipo \textit{ToolCatalogService}.
-\end{itemize}
-
-\paragraph{Metodi e funzioni}
-\begin{itemize}
-	\item \textbf{\_\_init\_\_(tool\_catalog\_service: ToolCatalogService)} - metodo di inizializzazione dell'adapter.
+	\item \textbf{\_\_init\_\_(embedded\_catalog: EmbeddedCatalogService, catalog\_repo:
+		CatalogRepoPort, preferred\_product\_frequency: Dict[string, int])} - inizializza il servizio ricevendo le dipendenze; se
+	\textit{preferred\_product\_frequency} è \textit{None}, viene sostituito con un
+	dizionario vuoto.
+	\item \textbf{search\_catalog(query: string, threshold: float): List[CatalogProduct]}
+	- ricerca i prodotti semanticamente simili alla query tramite
+	\textit{embedded\_catalog}, ne recupera i dettagli tramite
+	\textit{catalog\_repo} e, se sono disponibili le preferenze utente, riordina i
+	risultati privilegiando i prodotti con frequenza di acquisto maggiore, mantenendo
+	l'ordine di similarità come criterio secondario.
 \end{itemize}
 
 \subsubsubsection{ToolCatalogPortIn}
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=0.7\textwidth]{SpecificaTecnica/Tool/ToolCatalogPortIn}
-	\caption{Tool catalog: ToolCatalogPortIn}
+	\caption{ToolCatalog: ToolCatalogPortIn}
 \end{figure}
 
 \paragraph{Descrizione}
@@ -192,11 +188,33 @@ Viene implementata da \textit{ToolCatalogAdapter} e utilizzata da \textit{Search
 	Viene concretizzato dalla sua implementazione \textit{ToolCatalogAdapter}.
 \end{itemize}
 
+\subsubsubsection{ToolCatalogAdapter}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Tool/ToolCatalogAdapter}
+	\caption{ToolCatalog: ToolCatalogAdapter}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ToolCatalogAdapter} è la classe concreta che implementa l'interfaccia \textit{ToolCatalogPortIn}.\\
+Funge da adattatore tra il tool LLM$^G$ e il service applicativo, delegando le operazioni di ricerca a \textit{ToolCatalogService}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{tool\_catalog\_service: ToolCatalogService} - attributo privato di tipo \textit{ToolCatalogService}.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+Oltre alle implementazioni concrete di \textit{ToolCatalogPortIn}, è disponibile la seguente funzione:
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(tool\_catalog\_service: ToolCatalogService)} - metodo di inizializzazione dell'adapter.
+\end{itemize}
+
 \subsubsubsection{SearchCatalogTool}
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Tool/SearchCatalog}
-	\caption{Tool catalog: SearchCatalog}
+	\caption{ToolCatalog: SearchCatalog}
 \end{figure}
 
 \paragraph{Descrizione}
@@ -233,6 +251,7 @@ Per la definizione di BaseTool, vedere sezione \ref{baseTool}
 	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Tool/ToolCartService}
 	\caption{ToolCart: ToolCartService}
 \end{figure}
+\label{ToolCartService}
 
 \paragraph{Descrizione}
 \textit{ToolCartService} è il service applicativo che espone tutte le operazioni disponibili sul carrello dell'utente.\\
@@ -253,27 +272,6 @@ Viene invocato dall'adapter e si occupa di delegare le operazioni al layer di pe
 	Restituisce il prodotto rimosso.
 	\item \textbf{update\_cart\_qty(prod\_id: string, qty: int, operation: UpdateCartOperation): CartProduct} - metodo pubblico che aggiorna la quantità del prodotto identificato da \textit{prod\_id} nel carrello, applicando l'operazione specificata.\\
 	Restituisce il prodotto aggiornato.
-\end{itemize}
-
-\subsubsubsection{ToolCartAdapter}
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Tool/ToolCartAdapter}
-	\caption{ToolCart: ToolCartAdapter}
-\end{figure}
-
-\paragraph{Descrizione}
-\textit{ToolCartAdapter} è la classe concreta che implementa l'interfaccia \textit{ToolCartPortIn}.\\
-Funge da adattatore tra i tool LLM$^G$ e il service applicativo, delegando tutte le operazioni sul carrello a \textit{ToolCartService}.
-
-\paragraph{Attributi}
-\begin{itemize}
-	\item \textbf{tool\_cart\_service: ToolCartService} - attributo privato di tipo \textit{ToolCartService}.
-\end{itemize}
-
-\paragraph{Metodi e funzioni}
-\begin{itemize}
-	\item \textbf{\_\_init\_\_(tool\_cart\_service: ToolCartService)} - metodo di inizializzazione dell'adapter.
 \end{itemize}
 
 \subsubsubsection{ToolCartPortIn}
@@ -297,6 +295,28 @@ Viene implementata da \textit{ToolCartAdapter} e utilizzata dai tool concreti pe
 	\item \textbf{update\_cart\_item\_qty(prod\_id: string, qty: int, operation: CartUpdateOperation): string} - metodo pubblico che aggiorna la quantità di un prodotto nel carrello.
 	\item \textbf{get\_cart\_items(): List[CartProduct]} - metodo pubblico che recupera la lista dei prodotti nel carrello.
 	\item \textbf{search\_cart(query: string, threshold: float): List[CartProduct]} - metodo pubblico che effettua una ricerca semantica tra i prodotti nel carrello.
+\end{itemize}
+
+\subsubsubsection{ToolCartAdapter}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Tool/ToolCartAdapter}
+	\caption{ToolCart: ToolCartAdapter}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ToolCartAdapter} è la classe concreta che implementa l'interfaccia \textit{ToolCartPortIn}.\\
+Funge da adattatore tra i tool LLM$^G$ e il service applicativo, delegando tutte le operazioni sul carrello a \textit{ToolCartService}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{tool\_cart\_service: ToolCartService} - attributo privato di tipo \textit{ToolCartService}.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+Oltre alle implementazioni concrete di \textit{ToolCartPortIn}, è disponibile la seguente funzione:
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(tool\_cart\_service: ToolCartService)} - metodo di inizializzazione dell'adapter.
 \end{itemize}
 
 \subsubsubsection{AddToCart}
@@ -450,36 +470,12 @@ Si occupa di gestire l'intero ciclo di elaborazione: costruisce il blocco di pre
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(tool\_executor: ToolExecutor)} - metodo di inizializzazione dell'agente.
 	\item \textbf{\_build\_user\_pref\_block(preferences: List[UserPreferences]): string} - metodo privato che costruisce il blocco testuale delle preferenze utente da includere nel prompt di sistema.
-	\item \textbf{\_run\_agentic\_loop(messages: list[BaseMessage]): AgenticLoopResult} - metodo privato che esegue il loop agentico: invia i messaggi al modello, intercetta le richieste di tool call, le esegue tramite \textit{ToolExecutor} e ripete finché il modello non produce una risposta finale.
+	\item \textbf{\_run\_agentic\_loop(messages: List[BaseMessage]): AgenticLoopResult} - metodo privato che esegue il loop agentico: invia i messaggi al modello, intercetta le richieste di tool call, le esegue tramite \textit{ToolExecutor} e ripete finché il modello non produce una risposta finale.
 	\item \textbf{\_build\_response(result: AgenticLoopResult): LLMResponse} - metodo privato che trasforma il risultato del loop agentico in un oggetto \textit{LLMResponse} strutturato.
 	\item \textbf{\_normalize\_content(content: NormalizableContent): string} - metodo privato che normalizza il contenuto della risposta del modello, convertendolo in una stringa uniforme indipendentemente dal tipo originale.
 	\item \textbf{\_build\_history(request: LLMRequest): List[BaseMessage]} - metodo privato che costruisce la cronologia dei messaggi da inviare al modello a partire dalla richiesta ricevuta.
 	\item \textbf{\_clean(text: string): string} - metodo privato che effettua operazioni di pulizia sul testo prodotto dal modello, rimuovendo artefatti o formattazioni indesiderate.
 	\item \textbf{invoke(request: LLMRequest): LLMResponse} - metodo pubblico che avvia l'elaborazione della richiesta: costruisce la cronologia, esegue il loop agentico e restituisce la risposta finale.
-\end{itemize}
-
-\subsubsubsection{LLMAdapter}
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Tool/LLMAdapter}
-	\caption{LLM Agent: LLMAdapter}
-\end{figure}
-
-\paragraph{Descrizione}
-\textit{LLMAdapter} è la classe concreta che implementa l'interfaccia \textit{LLMPort}.\\
-Funge da adattatore tra il layer applicativo e l'agente LLM$^G$, delegando l'elaborazione delle richieste all'istanza di \textit{LLMAgent} che incapsula al proprio interno.
-
-\paragraph{Attributi}
-\begin{itemize}
-	\item \textbf{agent: LLMAgent} - attributo privato di tipo \textit{LLMAgent}.\\
-	Rappresenta l'agente LLM$^G$ utilizzato per elaborare le richieste ricevute.
-\end{itemize}
-
-\paragraph{Metodi e funzioni}
-\begin{itemize}
-	\item \textbf{\_\_init\_\_(agent: LLMAgent)} - metodo di inizializzazione dell'adapter.
-	\item \textbf{invoke(request: LLMRequest): LLMResponse} - metodo pubblico che riceve la richiesta dal layer applicativo e la delega all'agente per l'elaborazione.\\
-	Restituisce la risposta prodotta dall'agente.
 \end{itemize}
 
 \subsubsubsection{LLMPort}
@@ -500,4 +496,27 @@ Viene implementata da \textit{LLMAdapter} e utilizzata da \textit{ChatService} p
 \begin{itemize}
 	\item \textbf{invoke(request: LLMRequest): LLMResponse} - metodo pubblico che riceve la richiesta e restituisce la risposta elaborata dall'agente LLM.\\
 	Viene concretizzato dalla sua implementazione \textit{LLMAdapter}.
+\end{itemize}
+
+\subsubsubsection{LLMAdapter}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Tool/LLMAdapter}
+	\caption{LLM Agent: LLMAdapter}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{LLMAdapter} è la classe concreta che implementa l'interfaccia \textit{LLMPort}.\\
+Funge da adattatore tra il layer applicativo e l'agente LLM$^G$, delegando l'elaborazione delle richieste all'istanza di \textit{LLMAgent} che incapsula al proprio interno.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{agent: LLMAgent} - attributo privato di tipo \textit{LLMAgent}.\\
+	Rappresenta l'agente LLM$^G$ utilizzato per elaborare le richieste ricevute.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+Oltre alle implementazioni concrete di \textit{LLMPort}, è disponibile la seguente funzione:
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(agent: LLMAgent)} - metodo di inizializzazione dell'adapter.
 \end{itemize}

@@ -16,34 +16,51 @@ Per la definizione di \textit{EmbeddedCartService}, vedere \ref{EmbeddedCartServ
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che gestisce un indice FAISS per la ricerca vettoriale nel carrello.\\
-Mantiene una mappa \textit{user\_map} che associa ogni username alle posizioni dei propri
-prodotti nell'indice, in modo da filtrare i risultati in fase di ricerca.
+Classe che gestisce un indice FAISS per la ricerca vettoriale nel carrello.\\
+Mantiene una mappa \textit{user\_map} che associa ogni username alle posizioni dei propri prodotti nell'indice, in modo da filtrare i risultati in fase di ricerca.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{dimension: int} - dimensione dei vettori dell'indice, impostata a 384
-		per default.
-	\item \textbf{index: faiss.IndexFlatL2} - indice FAISS basato sulla distanza
-		euclidea L2.
-	\item \textbf{prod\_ids: list[string]} - lista degli identificativi di prodotto
-		ordinata per posizione nell'indice.
-	\item \textbf{user\_map: dict[string, list[int]]} - dizionario che mappa ogni
-		username alla lista delle posizioni nell'indice occupate dai suoi prodotti.
+	\item \textbf{dimension: int} - dimensione dei vettori dell'indice.
+	\item \textbf{index: faiss.IndexFlatL2} - indice FAISS basato sulla distanza euclidea L2.
+	\item \textbf{prod\_ids: List[string]} - lista degli identificativi di prodotto ordinata per posizione nell'indice.
+	\item \textbf{user\_map: Dict[string, List[int]]} - dizionario che mappa ogni username alla lista delle posizioni nell'indice occupate dai suoi prodotti.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(dimension: int = 384)} - inizializza il database FAISS
-		con la dimensione specificata, creando l'indice e le strutture dati necessarie.
-	\item \textbf{add(prod\_id: string, username: string, vector: np.ndarray)} -
-		aggiunge al database vettoriale il prodotto identificato da \textit{prod\_id}
-		per l'utente \textit{username} con il relativo vettore.
-	\item \textbf{search(vector: np.ndarray, n: int, threshold: float, username: string):
-		list[string]} - ricerca nell'indice i vettori più vicini a \textit{vector},
-		filtrando i risultati per le sole posizioni associate a \textit{username} e
-		restituendo gli identificativi con distanza L2 inferiore o uguale a
-		\textit{threshold}.
+	\item \textbf{\_\_init\_\_(dimension: int)} - inizializza il database FAISS con la dimensione specificata, creando l'indice e le strutture dati necessarie.
+	\item \textbf{add(prod\_id: string, username: string, vector: np.ndarray)} - aggiunge al database vettoriale il prodotto identificato da \textit{prod\_id} per l'utente \textit{username} con il relativo vettore.
+	\item \textbf{search(vector: np.ndarray, n: int, threshold: float, username: string): List[string]} - ricerca nell'indice i vettori più vicini a \textit{vector}, filtrando i risultati per le sole posizioni associate a \textit{username} e restituendo gli identificativi con distanza L2 inferiore o uguale a \textit{threshold}.
+\end{itemize}
+
+\subsubsubsection{VecDbPortOut}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Chat/VecDbPortOut}
+	\caption{Ricerca Vettoriale: VecDbPortOut}
+\end{figure}
+
+\paragraph{Descrizione}
+Classe astratta che definisce la porta di output verso il database vettoriale.\\
+Disaccoppia i servizi applicativi (\textit{EmbeddedCartService},
+\textit{EmbeddedCatalogService}) dalla specifica implementazione del database vettoriale.\\
+Le classi adapter concrete (\textit{CartVecDbAdapter}, \textit{CatalogVecDbAdapter})
+devono implementare tutti i metodi qui dichiarati.
+
+\paragraph{Attributi}
+Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{reset()} - svuota completamente il database vettoriale, eliminando tutti
+	i vettori e le associazioni precedentemente inserite.
+	\item \textbf{search(v: np.ndarray, n: int, threshold: float): List[string]} -
+	ricerca nel database vettoriale i prodotti il cui vettore è simile a \textit{v}
+	entro la soglia indicata, restituendo al massimo \textit{n} identificativi.
+	\item \textbf{add(prod\_id: string, vector: np.ndarray)} - aggiunge al database
+	vettoriale il prodotto identificato da \textit{prod\_id} con il relativo vettore.
 \end{itemize}
 
 \subsubsubsection{CartVecDbAdapter}
@@ -55,7 +72,7 @@ prodotti nell'indice, in modo da filtrare i risultati in fase di ricerca.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che implementa \textit{VecDbPortOut} seguendo il pattern degli adattatori,
+Classe che implementa \textit{VecDbPortOut} seguendo il pattern degli adattatori,
 specializzandosi per la gestione del database vettoriale del carrello.\\
 Riceve alla costruzione un'istanza di \textit{FaissCartDb} e il nome utente corrente, e
 trasparisce le operazioni sul database delegando a \textit{FaissCartDb} includendo il
@@ -70,6 +87,7 @@ contesto utente.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
+Oltre alle implementazioni concrete di \textit{VecDbPortOut}, è disponibile la seguente funzione:
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(faiss\_db: FaissCartDb, username: string)} -
 		inizializza l'adattatore ricevendo il database FAISS e il nome utente.
@@ -84,7 +102,7 @@ contesto utente.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che gestisce un indice FAISS per la ricerca vettoriale sul catalogo
+Classe che gestisce un indice FAISS per la ricerca vettoriale sul catalogo
 prodotti.\\
 A differenza di \textit{FaissCartDb} non mantiene una mappa per utente, in quanto il
 catalogo è condiviso tra tutti gli utenti del sistema.
@@ -95,15 +113,14 @@ catalogo è condiviso tra tutti gli utenti del sistema.
 		per default.
 	\item \textbf{index: faiss.IndexFlatL2} - indice FAISS basato sulla distanza
 		euclidea L2.
-	\item \textbf{prod\_ids: list[string]} - lista degli identificativi di prodotto
+	\item \textbf{prod\_ids: List[string]} - lista degli identificativi di prodotto
 		ordinata per posizione nell'indice.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(dimension: int = 284)} - inizializza il database FAISS
-		con la dimensione specificata, creando l'indice e le strutture dati necessarie.
-	\item \textbf{search(vector: np.ndarray, n: int, threshold: float): list[string]} -
+	\item \textbf{\_\_init\_\_(dimension: int)} - inizializza il database FAISS con la dimensione specificata, creando l'indice e le strutture dati necessarie.
+	\item \textbf{search(vector: np.ndarray, n: int, threshold: float): List[string]} -
 		ricerca nell'indice i vettori più vicini a \textit{vector} e restituisce gli
 		identificativi con distanza L2 inferiore o uguale a \textit{threshold}.
 \end{itemize}
@@ -117,7 +134,7 @@ catalogo è condiviso tra tutti gli utenti del sistema.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che implementa \textit{VecDbPortOut} seguendo il pattern degli adattatori,
+Classe che implementa \textit{VecDbPortOut} seguendo il pattern degli adattatori,
 specializzandosi per la gestione del database vettoriale del catalogo.\\
 Riceve alla costruzione un'istanza di \textit{FaissCatalogDb} e delega ad essa tutte le
 operazioni senza aggiungere il contesto utente, in quanto il catalogo è condiviso.
@@ -129,65 +146,34 @@ operazioni senza aggiungere il contesto utente, in quanto il catalogo è condivi
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
+Oltre alle implementazioni concrete di \textit{VecDbPortOut}, è disponibile la seguente funzione:
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(faiss\_db: FaissCatalogDb)} - inizializza l'adattatore
 		ricevendo il database FAISS del catalogo.
 \end{itemize}
 
-\subsubsubsection{VecDbPortOut}
+\subsubsubsection{EmbedderPort}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Chat/VecDbPortOut}
-	\caption{Ricerca Vettoriale: VecDbPortOut}
+	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Chat/EmbedderPort}
+	\caption{Ricerca Vettoriale: EmbedderPort}
 \end{figure}
 
 \paragraph{Descrizione}
-Classe astratta Python che definisce la porta di output verso il database vettoriale.\\
-Disaccoppia i servizi applicativi (\textit{EmbeddedCartService},
-\textit{EmbeddedCatalogService}) dalla specifica implementazione del database vettoriale.\\
-Le classi adapter concrete (\textit{CartVecDbAdapter}, \textit{CatalogVecDbAdapter})
-devono implementare tutti i metodi qui dichiarati.
+Classe astratta che definisce la porta per la generazione di embedding testuali.\\
+Segue il pattern architetturale delle porte e degli adattatori, disaccoppiando la logica
+applicativa di \textit{EmbeddedCartService} ed \textit{EmbeddedCatalogService} dalla
+specifica libreria di embedding utilizzata.\\
+Tutte le classi adapter concrete devono implementare il metodo qui dichiarato.
 
 \paragraph{Attributi}
 Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{reset()} - svuota completamente il database vettoriale, eliminando tutti
-		i vettori e le associazioni precedentemente inserite.
-	\item \textbf{search(v: np.ndarray, n: int, threshold: float): list[string]} -
-		ricerca nel database vettoriale i prodotti il cui vettore è simile a \textit{v}
-		entro la soglia indicata, restituendo al massimo \textit{n} identificativi.
-	\item \textbf{add(prod\_id: string, vector: np.ndarray)} - aggiunge al database
-		vettoriale il prodotto identificato da \textit{prod\_id} con il relativo vettore.
-\end{itemize}
-
-\subsubsubsection{SentenceTransformerEmbedder}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Chat/SentenceTransformerEmbedder}
-	\caption{Ricerca Vettoriale: SentenceTransformerEmbedder}
-\end{figure}
-
-\paragraph{Descrizione}
-Classe Python che incapsula il modello \textit{all-MiniLM-L6-v2} di
-\textit{sentence-transformers} per la generazione di embedding testuali normalizzati.\\
-Viene istanziata una sola volta e condivisa tramite \textit{EmbedderAdapter}.\\
-Non implementa direttamente \textit{EmbedderPort}: tale responsabilità è delegata ad
-\textit{EmbedderAdapter}.
-
-\paragraph{Attributi}
-\begin{itemize}
-	\item \textbf{embedder: SentenceTransformer} - istanza del modello
-		\textit{all-MiniLM-L6-v2} caricata al momento della costruzione.
-\end{itemize}
-
-\paragraph{Metodi e funzioni}
-\begin{itemize}
-	\item \textbf{embed(text: string): NDArray[np.float32]} - genera l'embedding
-		normalizzato del testo, convertito in un array NumPy di tipo \textit{float32}.
+	\item \textbf{embed(text: string): np.ndarray} - restituisce il vettore di embedding
+	corrispondente al testo passato in ingresso.
 \end{itemize}
 
 \subsubsubsection{EmbedderAdapter}
@@ -199,7 +185,7 @@ Non implementa direttamente \textit{EmbedderPort}: tale responsabilità è deleg
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che implementa \textit{EmbedderPort} seguendo il pattern degli adattatori.\\
+Classe che implementa \textit{EmbedderPort} seguendo il pattern degli adattatori.\\
 Riceve un'istanza di \textit{SentenceTransformerEmbedder} alla costruzione e delega
 interamente ad essa la generazione degli embedding.\\
 Permette di sostituire la libreria di embedding sottostante senza modificare i servizi
@@ -212,37 +198,38 @@ applicativi.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
+Oltre alle implementazioni concrete di \textit{EmbedderPort}, è disponibile la seguente funzione:
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(sentence\_transformer\_embedder: SentenceTransformerEmbedder)}
 		- inizializza l'adattatore ricevendo l'istanza di
 		\textit{SentenceTransformerEmbedder}.
-	\item \textbf{embed(text: string): NDArray[np.float32]} - delega la generazione
-		dell'embedding a \textit{sentence\_transformer\_embedder} e ne restituisce il
-		risultato.
 \end{itemize}
 
-\subsubsubsection{EmbedderPort}
+\subsubsubsection{SentenceTransformerEmbedder}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Chat/EmbedderPort}
-	\caption{Ricerca Vettoriale: EmbedderPort}
+	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Chat/SentenceTransformerEmbedder}
+	\caption{Ricerca Vettoriale: SentenceTransformerEmbedder}
 \end{figure}
 
 \paragraph{Descrizione}
-Classe astratta Python che definisce la porta per la generazione di embedding testuali.\\
-Segue il pattern architetturale delle porte e degli adattatori, disaccoppiando la logica
-applicativa di \textit{EmbeddedCartService} ed \textit{EmbeddedCatalogService} dalla
-specifica libreria di embedding utilizzata.\\
-Tutte le classi adapter concrete devono implementare il metodo qui dichiarato.
+Classe che incapsula il modello \textit{all-MiniLM-L6-v2} di
+\textit{sentence-transformers} per la generazione di embedding testuali normalizzati.\\
+Viene istanziata una sola volta e condivisa tramite \textit{EmbedderAdapter}.\\
+Non implementa direttamente \textit{EmbedderPort}: tale responsabilità è delegata ad
+\textit{EmbedderAdapter}.
 
 \paragraph{Attributi}
-Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
+\begin{itemize}
+	\item \textbf{embedder: SentenceTransformer} - istanza del modello
+	\textit{all-MiniLM-L6-v2} caricata al momento della costruzione.
+\end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{embed(text: string): np.ndarray} - restituisce il vettore di embedding
-		corrispondente al testo passato in ingresso.
+	\item \textbf{embed(text: string): NDArray[np.float32]} - genera l'embedding
+	normalizzato del testo, convertito in un array NumPy di tipo \textit{float32}.
 \end{itemize}
 
 \subsubsubsection{EmbeddedCatalogService}
@@ -254,7 +241,7 @@ Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che coordina la ricerca vettoriale sull'intero catalogo prodotti.\\
+Classe che coordina la ricerca vettoriale sull'intero catalogo prodotti.\\
 Espone i metodi per caricare il catalogo nel database vettoriale e per cercare prodotti
 semanticamente simili a una query testuale.
 
@@ -270,64 +257,18 @@ semanticamente simili a una query testuale.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(catalog\_vect: VecDbPortOut, catalog\_repo: CatalogRepoPort,
-		embedder: EmbedderPort)} - inizializza il servizio ricevendo le dipendenze
-		tramite iniezione.
-	\item \textbf{load\_catalog()} - recupera l'intero catalogo tramite
-		\textit{catalog\_repo}, genera l'embedding di ciascun prodotto e lo aggiunge al
-		database vettoriale.
-	\item \textbf{search\_catalog(query: string, threshold: float): list[string]} -
-		genera l'embedding della query e restituisce gli identificativi dei prodotti del
-		catalogo semanticamente simili entro la soglia indicata.
+	\item \textbf{\_\_init\_\_(catalog\_vect: VecDbPortOut, catalog\_repo: CatalogRepoPort, embedder: EmbedderPort)} - inizializza il servizio ricevendo le dipendenze tramite iniezione.
+	\item \textbf{search\_catalog(query: string, threshold: float): List[string]} - genera l'embedding della query e restituisce gli identificativi dei prodotti del catalogo semanticamente simili entro la soglia indicata.
+	\item \textbf{load\_catalog()} - recupera l'intero catalogo tramite \textit{catalog\_repo}, genera l'embedding di ciascun prodotto e lo aggiunge al database vettoriale.
 \end{itemize}
 
 %-------------------------------------------------------------------------------------------------------------
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{SpecificaTecnica/Chat/CatalogBackend}
+	\includegraphics[width=0.7\textwidth]{SpecificaTecnica/Chat/CatalogBackend}
 	\caption{Diagramma delle classi per il catalogo: Backend}
 \end{figure}
-
-\subsubsubsection{ToolCatalogService}
-\label{ToolCatalogService}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{SpecificaTecnica/Chat/ToolCatalogService}
-	\caption{Catalogo: ToolCatalogService}
-\end{figure}
-
-\paragraph{Descrizione}
-Classe Python che orchestra la ricerca semantica sul catalogo integrando la ricerca
-vettoriale con le preferenze di acquisto dell'utente.\\
-Recupera i prodotti tramite \textit{EmbeddedCatalogService} e li riordina privilegiando
-quelli acquistati con maggiore frequenza dall'utente, qualora siano disponibili le
-preferenze.
-
-\paragraph{Attributi}
-\begin{itemize}
-	\item \textbf{embedded\_catalog: EmbeddedCatalogService} - istanza del servizio di
-	ricerca vettoriale sul catalogo.
-	\item \textbf{catalog\_repo: CatalogRepoPort} - istanza del porto di accesso ai dati
-	del catalogo, utilizzata per recuperare i dettagli dei prodotti trovati.
-	\item \textbf{preferred\_product\_frequency: dict[string, int]} - dizionario che
-	mappa gli identificativi di prodotto alla frequenza di acquisto dell'utente
-	corrente; valore di default è un dizionario vuoto.
-\end{itemize}
-
-\paragraph{Metodi e funzioni}
-\begin{itemize}
-	\item \textbf{\_\_init\_\_(embedded\_catalog: EmbeddedCatalogService, catalog\_repo:
-		CatalogRepoPort, preferred\_product\_frequency: dict[string, int] | None)} -
-	inizializza il servizio ricevendo le dipendenze; se
-	\textit{preferred\_product\_frequency} è \textit{None}, viene sostituito con un
-	dizionario vuoto.
-	\item \textbf{search\_catalog(query: string, threshold: float): list[CatalogProduct]}
-	- ricerca i prodotti semanticamente simili alla query tramite
-	\textit{embedded\_catalog}, ne recupera i dettagli tramite
-	\textit{catalog\_repo} e, se sono disponibili le preferenze utente, riordina i
-	risultati privilegiando i prodotti con frequenza di acquisto maggiore, mantenendo
-	l'ordine di similarità come criterio secondario.
-\end{itemize}
+Per la definizione di ToolCatalogService, vedere \ref{ToolCatalogService}
 
 \subsubsubsection{CatalogRepoPort}
 
@@ -338,7 +279,7 @@ preferenze.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe astratta Python che definisce la porta di accesso ai dati del catalogo prodotti.\\
+Classe astratta che definisce la porta di accesso ai dati del catalogo prodotti.\\
 Disaccoppia i servizi applicativi (\textit{EmbeddedCatalogService},
 \textit{ToolCatalogService}) dalla specifica implementazione del repository.\\
 Tutte le classi adapter concrete devono implementare i metodi qui dichiarati.
@@ -348,10 +289,10 @@ Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{get\_product(prod\_id: string): CatalogProduct | None} -
+	\item \textbf{get\_product(prod\_id: string): CatalogProduct} -
 		restituisce il prodotto corrispondente all'identificativo indicato, oppure
 		\textit{None} se non trovato.
-	\item \textbf{get\_full\_catalog(): list[CatalogProduct]} - restituisce la lista
+	\item \textbf{get\_full\_catalog(): List[CatalogProduct]} - restituisce la lista
 		completa dei prodotti presenti nel catalogo.
 \end{itemize}
 
@@ -364,7 +305,7 @@ Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che implementa \textit{CatalogRepoPort} seguendo il pattern degli
+Classe che implementa \textit{CatalogRepoPort} seguendo il pattern degli
 adattatori.\\
 Riceve alla costruzione un'istanza di \textit{CatalogRepository} e si occupa di
 convertire i modelli ORM \textit{Anaart} negli schemi applicativi \textit{CatalogProduct},
@@ -377,6 +318,7 @@ mappando in particolare l'unità di misura tramite \textit{MeasureUnitEnum}.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
+Oltre alle implementazioni concrete di \textit{CatalogRepoPort}, sono disponibili le seguenti funzioni:
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(repo: CatalogRepository)} - inizializza l'adattatore
 		ricevendo il repository.
@@ -387,12 +329,6 @@ mappando in particolare l'unità di misura tramite \textit{MeasureUnitEnum}.
 		converte un record ORM \textit{Anaart} nello schema applicativo
 		\textit{CatalogProduct}, delegando la mappatura dell'unità di misura a
 		\textit{\_map\_measure\_unit}.
-	\item \textbf{get\_product(prod\_id: string): CatalogProduct | None} - recupera il
-		prodotto tramite \textit{repo} e, se presente, lo converte tramite
-		\textit{\_map\_product}.
-	\item \textbf{get\_full\_catalog(): list[CatalogProduct]} - recupera l'intero
-		catalogo tramite \textit{repo} e converte ciascun record tramite
-		\textit{\_map\_product}.
 \end{itemize}
 
 \subsubsubsection{CatalogRepository}
@@ -404,11 +340,9 @@ mappando in particolare l'unità di misura tramite \textit{MeasureUnitEnum}.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python che gestisce l'accesso diretto al database per il catalogo prodotti.\\
-Riceve una sessione SQLModel alla costruzione e la utilizza per eseguire le query tramite
-il modello ORM \textit{Anaart}.\\
-Rappresenta il livello più basso della catena
-\textit{EmbeddedCatalogService} → \textit{CatalogRepoAdapter} → \textit{CatalogRepository}.
+Classe che gestisce l'accesso diretto al database per il catalogo prodotti.\\
+Riceve una sessione SQLModel alla costruzione e la utilizza per eseguire le query tramite il modello ORM \textit{Anaart}.\\
+Rappresenta il livello più basso della catena \textit{EmbeddedCatalogService} → \textit{CatalogRepoAdapter} → \textit{CatalogRepository}.
 
 \paragraph{Attributi}
 \begin{itemize}
@@ -420,18 +354,19 @@ Rappresenta il livello più basso della catena
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(db: Session)} - inizializza il repository ricevendo la
 		sessione del database.
-	\item \textbf{get\_product(prod\_id: string): Anaart | None} - recupera il prodotto
+	\item \textbf{get\_product(prod\_id: string): Anaart} - recupera il prodotto
 		corrispondente all'identificativo indicato, restituendo \textit{None} se non
 		trovato.
-	\item \textbf{get\_full\_catalog(): list[Anaart]} - recupera tutti i prodotti
+	\item \textbf{get\_full\_catalog(): List[Anaart]} - recupera tutti i prodotti
 		presenti nella tabella \textit{Anaart}.
 \end{itemize}
 
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Chat/ChatBackend.png}
+	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Chat/ChatBackend}
 	\caption{Diagramma delle classi per la gestione del carrello}
 \end{figure}
+Per la definizione di \textit{ToolCartService}, vedere \ref{ToolCartService}
 
 \paragraph{Descrizione generale}
 Questa parte si occupa della gestione del carrello associato a uno specifico utente.\\
@@ -442,7 +377,7 @@ L'architettura segue il pattern Ports and Adapters, separando la logica applicat
 \label{EmbeddedCartService}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Chat/EmbeddedCartService.png}
+	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Chat/EmbeddedCartService}
 	\caption{Gestione del carrello: EmbeddedCartService}
 \end{figure}
 
@@ -466,14 +401,14 @@ Recupera i prodotti del carrello tramite la porta \textit{CartRepoPort}, ne cost
 	Riceve e memorizza le dipendenze necessarie per il recupero dei dati del carrello, la generazione degli embedding e l'interrogazione vettoriale.
 	\item \textbf{load\_cart(username: string)} - metodo pubblico che recupera dal repository i prodotti presenti nel carrello dell'utente identificato da \textit{username} e li carica nel sistema di ricerca vettoriale.\\
 	Questo passaggio prepara i dati necessari per successive ricerche semantiche.
-	\item \textbf{search\_cart(username: string, query: string, threshold: float): string*} - metodo pubblico che esegue una ricerca semantica all'interno del carrello dell'utente, utilizzando la query fornita e una soglia di similarit\`a.\\
+	\item \textbf{search\_cart(username: string, query: string, threshold: float): List[string]} - metodo pubblico che esegue una ricerca semantica all'interno del carrello dell'utente, utilizzando la query fornita e una soglia di similarità.\\
 	Restituisce gli identificativi o i riferimenti ai prodotti che soddisfano i criteri di ricerca.
 \end{itemize}
 
 \subsubsubsection{CartService}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.7\textwidth]{SpecificaTecnica/Chat/CartService.png}
+	\includegraphics[width=0.7\textwidth]{SpecificaTecnica/Chat/CartService}
 	\caption{Gestione del carrello: CartService}
 \end{figure}
 
@@ -491,54 +426,16 @@ Rappresenta un punto di accesso semplificato alle funzionalit\`a di lettura e mo
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(adapter: CartRepoPort)} - metodo pubblico di inizializzazione.\\
 	Riceve e memorizza la porta di accesso al repository del carrello.
-	\item \textbf{get\_cart\_products(username: string): CartProduct*} - metodo pubblico che recupera tutti i prodotti presenti nel carrello dell'utente identificato da \textit{username}.\\
+	\item \textbf{get\_cart\_products(username: string): List[CartProduct]} - metodo pubblico che recupera tutti i prodotti presenti nel carrello dell'utente identificato da \textit{username}.\\
 	Restituisce una collezione di oggetti di tipo \textit{CartProduct}.
 	\item \textbf{send\_order(username: string)} - metodo pubblico che avvia l'invio dell'ordine relativo al carrello dell'utente specificato.\\
 	Delega la persistenza finale dell'operazione alla porta \textit{CartRepoPort}.
 \end{itemize}
 
-
-\subsubsubsection{ToolCartService}
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Chat/ToolCartService.png}
-	\caption{Gestione del carrello: ToolCartService}
-\end{figure}
-
-\paragraph{Descrizione}
-\textit{ToolCartService} \`e il service applicativo che espone le principali operazioni di business sul carrello dell'utente.\\
-Si occupa di coordinare l'accesso ai dati tramite \textit{CartRepoPort} e di sfruttare \textit{EmbeddedCartService} per le ricerche semantiche sui prodotti gi\`a presenti.
-
-\paragraph{Attributi}
-\begin{itemize}
-	\item \textbf{username: string} - attributo privato di tipo \textit{string}.\\
-	Rappresenta lo username dell'utente a cui il carrello \`e associato.
-	\item \textbf{cart\_repo: CartRepoPort} - attributo privato di tipo \textit{CartRepoPort}.\\
-	Porta utilizzata per eseguire le operazioni di lettura e aggiornamento del carrello.
-	\item \textbf{embedded\_cart: EmbeddedCartService} - attributo privato di tipo \textit{EmbeddedCartService}.\\
-	Service utilizzato per effettuare ricerche semantiche tra i prodotti gi\`a presenti nel carrello.
-\end{itemize}
-
-\paragraph{Metodi e funzioni}
-\begin{itemize}
-	\item \textbf{\_\_init\_\_(username: string, cart\_repo: CartRepoPort, embedded\_cart: EmbeddedCartService)} - metodo pubblico di inizializzazione.\\
-	Riceve lo username dell'utente e le dipendenze necessarie alla gestione del carrello.
-	\item \textbf{get\_cart\_items(): CartProducts*} - metodo pubblico che recupera l'insieme dei prodotti attualmente presenti nel carrello dell'utente.\\
-	Restituisce una collezione di oggetti di tipo \textit{CartProduct}.
-	\item \textbf{search\_cart(query: string, threshold: float): CartProduct*} - metodo pubblico che ricerca prodotti nel carrello in base a una query semantica.\\
-	Delega la ricerca a \textit{EmbeddedCartService} e restituisce i prodotti corrispondenti.
-	\item \textbf{add\_to\_cart(prod\_id: string, qty: int): CartProduct} - metodo pubblico che aggiunge al carrello il prodotto identificato da \textit{prod\_id} nella quantit\`a indicata.\\
-	Restituisce il prodotto aggiornato nel carrello.
-	\item \textbf{remove\_from\_cart(prod\_id: string): CartProduct} - metodo pubblico che rimuove dal carrello il prodotto identificato da \textit{prod\_id}.\\
-	Restituisce il prodotto rimosso o il relativo stato aggiornato.
-	\item \textbf{update\_cart\_item\_qty(prod\_id: string, qty: int, operation: CartUpdateOperation): CartProduct} - metodo pubblico che aggiorna la quantit\`a di un prodotto gi\`a presente nel carrello.\\
-	L'aggiornamento viene effettuato in base all'operazione specificata da \textit{CartUpdateOperation}.
-\end{itemize}
-
 \subsubsubsection{CartRepoPort}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Chat/CartRepoPort.png}
+	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Chat/CartRepoPort}
 	\caption{Gestione del carrello: CartRepoPort}
 \end{figure}
 
@@ -551,7 +448,7 @@ Viene implementata da \textit{CartRepoAdapter} e utilizzata dai service applicat
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{get\_products(username: string): CartProduct*} - metodo pubblico che recupera i prodotti presenti nel carrello dell'utente identificato da \textit{username}.\\
+	\item \textbf{get\_products(username: string): List[CartProduct]} - metodo pubblico che recupera i prodotti presenti nel carrello dell'utente identificato da \textit{username}.\\
 	Restituisce una collezione di oggetti di tipo \textit{CartProduct}.
 	\item \textbf{add\_product(prod\_id: string, username: string, qty: int): CartProduct} - metodo pubblico che aggiunge al carrello dell'utente il prodotto identificato da \textit{prod\_id} nella quantit\`a indicata.\\
 	Restituisce il prodotto aggiunto o aggiornato.
@@ -565,7 +462,7 @@ Viene implementata da \textit{CartRepoAdapter} e utilizzata dai service applicat
 \subsubsubsection{CartRepoAdapter}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Chat/CartRepoAdapter.png}
+	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Chat/CartRepoAdapter}
 	\caption{Gestione del carrello: CartRepoAdapter}
 \end{figure}
 
@@ -589,7 +486,7 @@ Oltre ad essere implementate tutte le funzioni di \textit{CartRepoPort}, \`e dis
 \subsubsubsection{CartRepository}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Chat/CartRepository.png}
+	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Chat/CartRepository}
 	\caption{Gestione del carrello: CartRepository}
 \end{figure}
 
@@ -607,7 +504,7 @@ Utilizza una sessione di database per eseguire il recupero dei prodotti, l'aggiu
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(db: Session)} - metodo pubblico di inizializzazione.\\
 	Riceve una sessione di database e la memorizza per l'esecuzione delle operazioni sul carrello.
-	\item \textbf{get\_products(username: string): CartProductRepository*} - metodo pubblico che recupera dal database i prodotti presenti nel carrello dell'utente indicato.\\
+	\item \textbf{get\_products(username: string): List[CartProductRepository]} - metodo pubblico che recupera dal database i prodotti presenti nel carrello dell'utente indicato.\\
 	Restituisce una collezione di entit\`a repository associate ai prodotti del carrello.
 	\item \textbf{add\_product(prod\_id: string, username: string, qty: int): CartProductRepository} - metodo pubblico che inserisce nel database un nuovo prodotto nel carrello dell'utente oppure ne aggiorna la presenza secondo la logica prevista.\\
 	Restituisce l'entit\`a repository risultante.
@@ -616,164 +513,4 @@ Utilizza una sessione di database per eseguire il recupero dei prodotti, l'aggiu
 	\item \textbf{update\_quantity(username: string, prod\_id: string, qty: int, operation: CartUpdateOperation): CartProductRepository} - metodo pubblico che aggiorna nel database la quantit\`a del prodotto indicato nel carrello dell'utente.\\
 	La modifica viene applicata in accordo all'operazione specificata.
 	\item \textbf{send\_order(username: string)} - metodo pubblico che conclude il processo di acquisto inviando l'ordine associato al carrello dell'utente.
-\end{itemize}
-
-%----------------------------------------------------------------------------------
-
-\paragraph{Descrizione generale}
-Questa parte si occupa della gestione delle conversazioni tra utente e sistema.\\
-Le classi descritte consentono di recuperare i messaggi di una conversazione, accedere allo storico delle chat, creare nuove conversazioni e aggiungere nuovi messaggi.\\
-Anche in questo caso l'architettura segue il pattern Ports and Adapters, mantenendo separata la logica applicativa dalla persistenza dei dati.
-
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Chat/UMLChatService.png}
-	\caption{Diagramma delle classi per la gestione della chat}
-\end{figure}
-
-\subsubsubsection{ChatController}
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Chat/ChatController}
-	\caption{Gestione della chat: ChatController}
-\end{figure}
-
-\paragraph{Descrizione}
-Modulo FastAPI che definisce il router per le API REST della chat.\\
-Espone gli endpoint per il recupero di tutti i messaggi di una conversazione e per l'invio di un nuovo messaggio.\\
-Alla ricezione di un messaggio, costruisce l'intero stack applicativo tramite dependency injection, includendo gli strumenti dell'agente LLM, il servizio del carrello, il catalogo e lo storico ordini.\\
-Delega la logica applicativa a \textit{ChatService}.
-
-\paragraph{Attributi}
-\begin{itemize}
-	\item \textbf{router: APIRouter} - router FastAPI con prefisso \textit{/chat} che raggruppa gli endpoint del modulo.
-	\item \textbf{ChatServiceDep} - tipo annotato che inietta un'istanza di \textit{ChatService} tramite la funzione \textit{get\_chat\_service}.
-\end{itemize}
-
-\paragraph{Metodi e funzioni}
-\begin{itemize}
-	\item \textbf{get\_cart\_service(): CartService} - istanzia e restituisce il service del carrello.
-	\item \textbf{build\_tools(username: string, db: Session): list[BaseTool]} - costruisce la lista degli strumenti disponibili per l'agente LLM, tra cui la ricerca nel catalogo, la gestione del carrello e la consultazione dello storico ordini.
-	\item \textbf{get\_chat\_service(username: string, db: Session): ChatService} - funzione di dependency injection che assembla l'intero stack applicativo, istanziando \textit{ToolExecutor}, \textit{LLMAgent}, \textit{LLMAdapter} e \textit{ChatService}.
-	\item \textbf{get\_all\_messages(conv\_id: int, chat\_service: ChatService): ChatResponse} - endpoint \textit{GET /chat/\{conv\_id\}/all} che recupera tutti i messaggi di una conversazione.\\
-	Lancia \textit{HTTPException} con codice 404 se la conversazione non viene trovata.
-	\item \textbf{send\_message(conv\_id: int, message: MessageRequest, chat\_service: ChatService, current\_user: string): MessageResponse} - endpoint \textit{POST /chat/\{conv\_id\}} che invia un messaggio e restituisce la risposta dell'agente.\\
-	Lancia \textit{HTTPException} con codice 500 in caso di errore interno.
-\end{itemize}
-
-\subsubsubsection{ChatService}
-\label{ChatService}
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Chat/ChatService.png}
-	\caption{Gestione della chat: ChatService}
-\end{figure}
-
-\paragraph{Descrizione}
-\textit{ChatService} \`e il service applicativo responsabile della gestione delle conversazioni e dei messaggi scambiati nella chat.\\
-Coordina l'accesso ai dati tramite \textit{ChatRepoPort} e integra eventuali dipendenze aggiuntive, come il componente LLM e il servizio di storico, per supportare il flusso conversazionale.
-
-\paragraph{Attributi}
-\begin{itemize}
-	\item \textbf{repo: ChatRepoPort} - attributo privato di tipo \textit{ChatRepoPort}.\\
-	Porta utilizzata per accedere ai dati delle conversazioni e dei messaggi.
-	\item \textbf{llm: LLMPort} - attributo privato di tipo \textit{LLMPort}.\\
-	Porta utilizzata per interagire con il modello linguistico durante la gestione della conversazione.
-	\item \textbf{storico\_service: HistoryService | Null} - attributo privato che rappresenta un eventuale riferimento al servizio di gestione dello storico ordini.\\
-	Viene utilizzato nei casi in cui la conversazione debba integrarsi con funzionalit\`a legate allo storico.
-\end{itemize}
-
-\paragraph{Metodi e funzioni}
-\begin{itemize}
-	\item \textbf{\_\_init\_\_(repo: ChatRepoPort, llm: LLMPort, storico\_service: HistoryService | Null)} - metodo pubblico di inizializzazione.\\
-	Riceve e memorizza le dipendenze necessarie alla gestione della chat.
-	\item \textbf{get\_all\_messages(conv\_id: int): Message*} - metodo pubblico che recupera tutti i messaggi associati alla conversazione identificata da \textit{conv\_id}.\\
-	Restituisce una collezione di oggetti di tipo \textit{Message}.
-	\item \textbf{send\_message(conv\_id: int, username: string, content: string): Message} - metodo pubblico che gestisce l'invio di un nuovo messaggio all'interno della conversazione specificata.\\
-	Il metodo coordina il salvataggio del messaggio e la produzione della risposta associata al flusso conversazionale.
-\end{itemize}
-
-\subsubsubsection{ChatRepoPort}
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Chat/ChatRepoPort.png}
-	\caption{Gestione della chat: ChatRepoPort}
-\end{figure}
-
-\paragraph{Descrizione}
-\textit{ChatRepoPort} \`e un'interfaccia che definisce il contratto per l'accesso ai dati relativi alle conversazioni e ai messaggi della chat.\\
-Viene implementata da \textit{ChatRepoAdapter} e utilizzata da \textit{ChatService} per garantire il disaccoppiamento tra logica applicativa e persistenza.
-
-\paragraph{Attributi}
-\textit{ChatRepoPort} non definisce attributi.
-
-\paragraph{Metodi e funzioni}
-\begin{itemize}
-	\item \textbf{get\_messages(conv\_id: int): Message*} - metodo pubblico che recupera i messaggi della conversazione identificata da \textit{conv\_id}.\\
-	Restituisce una collezione di oggetti di tipo \textit{Message}.
-	\item \textbf{get\_chat\_history(conv\_id: int, max\_messages: int): Message*} - metodo pubblico che recupera una porzione dello storico della conversazione, limitata al numero massimo di messaggi indicato.\\
-	Restituisce una collezione di oggetti di tipo \textit{Message}.
-	\item \textbf{add\_message(conv\_id: int, text: string, sender: SenderEnum): Message} - metodo pubblico che aggiunge un nuovo messaggio alla conversazione specificata.\\
-	Restituisce il messaggio appena salvato.
-	\item \textbf{create\_conversation(username: string): Conversation} - metodo pubblico che crea una nuova conversazione associata all'utente indicato.\\
-	Restituisce l'oggetto \textit{Conversation} creato.
-	\item \textbf{conversation\_exist(conv\_id: int): bool} - metodo pubblico che verifica l'esistenza di una conversazione identificata da \textit{conv\_id}.\\
-	Restituisce \textit{true} se la conversazione esiste, \textit{false} altrimenti.
-\end{itemize}
-
-\subsubsubsection{ChatRepoAdapter}
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Chat/ChatRepoAdapter.png}
-	\caption{Gestione della chat: ChatRepoAdapter}
-\end{figure}
-
-\paragraph{Descrizione}
-\textit{ChatRepoAdapter} \`e la classe concreta che implementa l'interfaccia \textit{ChatRepoPort}.\\
-Funge da adattatore tra il livello applicativo e il repository concreto \textit{ChatRepository}, delegando a quest'ultimo l'esecuzione delle operazioni di persistenza.
-
-\paragraph{Attributi}
-\begin{itemize}
-	\item \textbf{repo: ChatRepository} - attributo privato di tipo \textit{ChatRepository}.\\
-	Rappresenta il repository concreto utilizzato per la gestione dei dati della chat.
-\end{itemize}
-
-\paragraph{Metodi e funzioni}
-Oltre ad essere implementate tutte le funzioni di \textit{ChatRepoPort}, \`e disponibile anche la seguente funzione:
-\begin{itemize}
-	\item \textbf{\_\_init\_\_(repo: ChatRepository)} - metodo pubblico di inizializzazione.\\
-	Riceve e memorizza il repository concreto utilizzato per accedere ai dati delle conversazioni.
-\end{itemize}
-
-\subsubsubsection{ChatRepository}
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Chat/ChatRepository.png}
-	\caption{Gestione della chat: ChatRepository}
-\end{figure}
-
-\paragraph{Descrizione}
-\textit{ChatRepository} \`e la classe che gestisce direttamente le operazioni di lettura e scrittura delle conversazioni e dei messaggi sul database.\\
-Utilizza una sessione di database per creare nuove conversazioni, recuperare i messaggi associati e salvare i nuovi contenuti prodotti durante l'interazione in chat.
-
-\paragraph{Attributi}
-\begin{itemize}
-	\item \textbf{db: Session} - attributo privato di tipo \textit{Session}.\\
-	Rappresenta la sessione di database utilizzata per eseguire le operazioni di persistenza della chat.
-\end{itemize}
-
-\paragraph{Metodi e funzioni}
-\begin{itemize}
-	\item \textbf{\_\_init\_\_(db: Session)} - metodo pubblico di inizializzazione.\\
-	Riceve una sessione di database e la memorizza per l'esecuzione delle operazioni sulle conversazioni.
-	\item \textbf{get\_conversation(conv\_id: int): Conversations | Null} - metodo pubblico che recupera la conversazione identificata da \textit{conv\_id}.\\
-	Restituisce la conversazione trovata oppure \textit{Null} nel caso in cui non esista.
-	\item \textbf{create\_conversation(username: string): Conversation} - metodo pubblico che crea e persiste una nuova conversazione associata allo username fornito.\\
-	Restituisce l'entit\`a relativa alla conversazione creata.
-	\item \textbf{get\_messages(conv\_id: int): Message*} - metodo pubblico che recupera tutti i messaggi della conversazione indicata.\\
-	Restituisce una collezione di messaggi.
-	\item \textbf{get\_chat\_history(conv\_id: int, text: string, sender: SenderEnum): Message*} - metodo pubblico che recupera lo storico della chat secondo i criteri previsti dall'implementazione.\\
-	Restituisce una collezione di messaggi utile alla ricostruzione del contesto conversazionale.
-	\item \textbf{add\_message(conv\_id: int, text: string, sender: SenderEnum): Message} - metodo pubblico che salva un nuovo messaggio nella conversazione indicata.\\
-	Restituisce il messaggio persistito.
 \end{itemize}

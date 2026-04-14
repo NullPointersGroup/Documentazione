@@ -53,19 +53,19 @@ Interagisce con il repository$^G$ tramite la porta \textit{UserRepoPort} per rec
 	Restituisce \textit{true} se le due stringhe corrispondono.
 \end{itemize}
 
-\subsubsubsection{RegisterController}
+\subsubsubsection{RegisterUserController}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/RegisterController}
-	\caption{Autenticazione e Registrazione: RegisterController}
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/RegisterUserController}
+	\caption{Autenticazione e Registrazione: RegisterUserController}
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{RegisterController} è il controller REST$^G$ responsabile$^G$ della gestione delle richieste HTTP di registrazione di nuovi utenti.\\
+\textit{RegisterUserController} è il controller REST$^G$ responsabile$^G$ della gestione delle richieste HTTP di registrazione di nuovi utenti.\\
 Riceve i dati di registrazione dal client e li delega al \textit{RegisterUserService} per l'elaborazione, restituendo la risposta appropriata.
 
 \paragraph{Attributi}
-\textit{RegisterController} non definisce attributi propri.
+\textit{RegisterUserController} non definisce attributi propri.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
@@ -139,19 +139,19 @@ Si occupa di effettuare la verifica$^G$ effettiva dell'esistenza del dominio di 
 \paragraph{Metodi e funzioni}
 \textit{EmailValidationAdapter} implementa il metodo \textit{domain\_exists} definito dalla porta \textit{EmailValidationPort}, fornendo la logica concreta per la verifica$^G$ del dominio email.
 
-\subsubsubsection{DeleteController}
+\subsubsubsection{DeleteUserController}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/DeleteController}
-	\caption{Autenticazione e Registrazione: DeleteController}
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/DeleteUserController}
+	\caption{Autenticazione e Registrazione: DeleteUserController}
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{DeleteController} è il controller REST$^G$ responsabile$^G$ della gestione delle richieste HTTP di eliminazione di un account utente.\\
+\textit{DeleteUserController} è il controller REST$^G$ responsabile$^G$ della gestione delle richieste HTTP di eliminazione di un account utente.\\
 Riceve la richiesta dall'utente autenticato e la delega al \textit{DeleteUserService} per l'esecuzione.
 
 \paragraph{Attributi}
-\textit{DeleteController} non definisce attributi propri.
+\textit{DeleteUserController} non definisce attributi propri.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
@@ -185,19 +185,19 @@ Recupera i dati dell'utente tramite \textit{UserRepoPort} e ne richiede la cance
 	Restituisce l'oggetto \textit{WebUser} corrispondente.
 \end{itemize}
 
-\subsubsubsection{ResetController}
+\subsubsubsection{ResetUserController}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/ResetController}
-	\caption{Autenticazione e Registrazione: ResetController}
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/ResetUserController}
+	\caption{Autenticazione e Registrazione: ResetUserController}
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{ResetController} è il controller REST$^G$ responsabile$^G$ della gestione delle richieste HTTP di reset della password.\\
+\textit{ResetUserController} è il controller REST$^G$ responsabile$^G$ della gestione delle richieste HTTP di reset della password.\\
 Riceve i dati necessari per il cambio password dall'utente autenticato e li delega al \textit{ResetPasswordService} per l'elaborazione.
 
 \paragraph{Attributi}
-\textit{ResetController} non definisce attributi propri.
+\textit{ResetUserController} non definisce attributi propri.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
