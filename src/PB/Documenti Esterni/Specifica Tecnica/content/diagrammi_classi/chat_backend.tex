@@ -16,21 +16,21 @@ Per la definizione di \textit{EmbeddedCartService}, vedere \ref{EmbeddedCartServ
 \end{figure}
 
 \paragraph{Descrizione}
-Classe che gestisce un indice FAISS per la ricerca vettoriale nel carrello.\\
+Classe che gestisce un indice FAISS$^G$ per la ricerca vettoriale nel carrello.\\
 Mantiene una mappa \textit{user\_map} che associa ogni username alle posizioni dei propri prodotti nell'indice, in modo da filtrare i risultati in fase di ricerca.
 
 \paragraph{Attributi}
 \begin{itemize}
 	\item \textbf{dimension: int} - dimensione dei vettori dell'indice.
-	\item \textbf{index: faiss.IndexFlatL2} - indice FAISS basato sulla distanza euclidea L2.
+	\item \textbf{index: faiss.IndexFlatL2} - indice FAISS$^G$ basato sulla distanza euclidea L2.
 	\item \textbf{prod\_ids: List[string]} - lista degli identificativi di prodotto ordinata per posizione nell'indice.
 	\item \textbf{user\_map: Dict[string, List[int]]} - dizionario che mappa ogni username alla lista delle posizioni nell'indice occupate dai suoi prodotti.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(dimension: int)} - inizializza il database FAISS con la dimensione specificata, creando l'indice e le strutture dati necessarie.
-	\item \textbf{add(prod\_id: string, username: string, vector: np.ndarray)} - aggiunge al database vettoriale il prodotto identificato da \textit{prod\_id} per l'utente \textit{username} con il relativo vettore.
+	\item \textbf{\_\_init\_\_(dimension: int)} - inizializza il database$^G$ FAISS$^G$ con la dimensione specificata, creando l'indice e le strutture dati necessarie.
+	\item \textbf{add(prod\_id: string, username: string, vector: np.ndarray)} - aggiunge al database$^G$ vettoriale il prodotto identificato da \textit{prod\_id} per l'utente \textit{username} con il relativo vettore.
 	\item \textbf{search(vector: np.ndarray, n: int, threshold: float, username: string): List[string]} - ricerca nell'indice i vettori più vicini a \textit{vector}, filtrando i risultati per le sole posizioni associate a \textit{username} e restituendo gli identificativi con distanza L2 inferiore o uguale a \textit{threshold}.
 \end{itemize}
 
@@ -43,9 +43,9 @@ Mantiene una mappa \textit{user\_map} che associa ogni username alle posizioni d
 \end{figure}
 
 \paragraph{Descrizione}
-Classe astratta che definisce la porta di output verso il database vettoriale.\\
+Classe astratta che definisce la porta di output verso il database$^G$ vettoriale.\\
 Disaccoppia i servizi applicativi (\textit{EmbeddedCartService},
-\textit{EmbeddedCatalogService}) dalla specifica implementazione del database vettoriale.\\
+\textit{EmbeddedCatalogService}) dalla specifica implementazione del database$^G$ vettoriale.\\
 Le classi adapter concrete (\textit{CartVecDbAdapter}, \textit{CatalogVecDbAdapter})
 devono implementare tutti i metodi qui dichiarati.
 
@@ -54,12 +54,12 @@ Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{reset()} - svuota completamente il database vettoriale, eliminando tutti
+	\item \textbf{reset()} - svuota completamente il database$^G$ vettoriale, eliminando tutti
 	i vettori e le associazioni precedentemente inserite.
 	\item \textbf{search(v: np.ndarray, n: int, threshold: float): List[string]} -
-	ricerca nel database vettoriale i prodotti il cui vettore è simile a \textit{v}
+	ricerca nel database$^G$ vettoriale i prodotti il cui vettore è simile a \textit{v}
 	entro la soglia indicata, restituendo al massimo \textit{n} identificativi.
-	\item \textbf{add(prod\_id: string, vector: np.ndarray)} - aggiunge al database
+	\item \textbf{add(prod\_id: string, vector: np.ndarray)} - aggiunge al database$^G$
 	vettoriale il prodotto identificato da \textit{prod\_id} con il relativo vettore.
 \end{itemize}
 
@@ -73,14 +73,14 @@ Non definisce attributi propri, in quanto funge esclusivamente da interfaccia.
 
 \paragraph{Descrizione}
 Classe che implementa \textit{VecDbPortOut} seguendo il pattern degli adattatori,
-specializzandosi per la gestione del database vettoriale del carrello.\\
+specializzandosi per la gestione del database$^G$ vettoriale del carrello.\\
 Riceve alla costruzione un'istanza di \textit{FaissCartDb} e il nome utente corrente, e
-trasparisce le operazioni sul database delegando a \textit{FaissCartDb} includendo il
+trasparisce le operazioni sul database$^G$ delegando a \textit{FaissCartDb} includendo il
 contesto utente.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{faiss\_db: FaissCartDb} - istanza del database vettoriale FAISS
+	\item \textbf{faiss\_db: FaissCartDb} - istanza del database$^G$ vettoriale FAISS$^G$
 		dedicato al carrello.
 	\item \textbf{username: string} - nome utente associato alla sessione corrente,
 		utilizzato per filtrare i risultati della ricerca.
@@ -90,7 +90,7 @@ contesto utente.
 Oltre alle implementazioni concrete di \textit{VecDbPortOut}, è disponibile la seguente funzione:
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(faiss\_db: FaissCartDb, username: string)} -
-		inizializza l'adattatore ricevendo il database FAISS e il nome utente.
+		inizializza l'adattatore ricevendo il database$^G$ FAISS$^G$ e il nome utente.
 \end{itemize}
 
 \subsubsubsection{FaissCatalogDb}
@@ -102,7 +102,7 @@ Oltre alle implementazioni concrete di \textit{VecDbPortOut}, è disponibile la 
 \end{figure}
 
 \paragraph{Descrizione}
-Classe che gestisce un indice FAISS per la ricerca vettoriale sul catalogo
+Classe che gestisce un indice FAISS$^G$ per la ricerca vettoriale sul catalogo
 prodotti.\\
 A differenza di \textit{FaissCartDb} non mantiene una mappa per utente, in quanto il
 catalogo è condiviso tra tutti gli utenti del sistema.
@@ -111,7 +111,7 @@ catalogo è condiviso tra tutti gli utenti del sistema.
 \begin{itemize}
 	\item \textbf{dimension: int} - dimensione dei vettori dell'indice, impostata a 284
 		per default.
-	\item \textbf{index: faiss.IndexFlatL2} - indice FAISS basato sulla distanza
+	\item \textbf{index: faiss.IndexFlatL2} - indice FAISS$^G$ basato sulla distanza
 		euclidea L2.
 	\item \textbf{prod\_ids: List[string]} - lista degli identificativi di prodotto
 		ordinata per posizione nell'indice.
@@ -119,7 +119,7 @@ catalogo è condiviso tra tutti gli utenti del sistema.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(dimension: int)} - inizializza il database FAISS con la dimensione specificata, creando l'indice e le strutture dati necessarie.
+	\item \textbf{\_\_init\_\_(dimension: int)} - inizializza il database$^G$ FAISS$^G$ con la dimensione specificata, creando l'indice e le strutture dati necessarie.
 	\item \textbf{search(vector: np.ndarray, n: int, threshold: float): List[string]} -
 		ricerca nell'indice i vettori più vicini a \textit{vector} e restituisce gli
 		identificativi con distanza L2 inferiore o uguale a \textit{threshold}.
@@ -135,13 +135,13 @@ catalogo è condiviso tra tutti gli utenti del sistema.
 
 \paragraph{Descrizione}
 Classe che implementa \textit{VecDbPortOut} seguendo il pattern degli adattatori,
-specializzandosi per la gestione del database vettoriale del catalogo.\\
+specializzandosi per la gestione del database$^G$ vettoriale del catalogo.\\
 Riceve alla costruzione un'istanza di \textit{FaissCatalogDb} e delega ad essa tutte le
 operazioni senza aggiungere il contesto utente, in quanto il catalogo è condiviso.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{faiss\_db: FaissCatalogDb} - istanza del database vettoriale FAISS
+	\item \textbf{faiss\_db: FaissCatalogDb} - istanza del database$^G$ vettoriale FAISS$^G$
 		dedicato al catalogo.
 \end{itemize}
 
@@ -149,7 +149,7 @@ operazioni senza aggiungere il contesto utente, in quanto il catalogo è condivi
 Oltre alle implementazioni concrete di \textit{VecDbPortOut}, è disponibile la seguente funzione:
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(faiss\_db: FaissCatalogDb)} - inizializza l'adattatore
-		ricevendo il database FAISS del catalogo.
+		ricevendo il database$^G$ FAISS$^G$ del catalogo.
 \end{itemize}
 
 \subsubsubsection{EmbedderPort}
@@ -243,13 +243,13 @@ Non implementa direttamente \textit{EmbedderPort}: tale responsabilità è deleg
 
 \paragraph{Descrizione}
 Classe che coordina la ricerca vettoriale sull'intero catalogo prodotti.\\
-Espone i metodi per caricare il catalogo nel database vettoriale e per cercare prodotti
-semanticamente simili a una query testuale.
+Espone i metodi per caricare il catalogo nel database$^G$ vettoriale e per cercare prodotti
+semanticamente simili a una query$^G$ testuale.
 
 \paragraph{Attributi}
 \begin{itemize}
 	\item \textbf{catalog\_vect: VecDbPortOut} - istanza del porto di output verso il
-		database vettoriale del catalogo.
+		database$^G$ vettoriale del catalogo.
 	\item \textbf{catalog\_repo: CatalogRepoPort} - istanza del porto di accesso ai
 		dati del catalogo.
 	\item \textbf{embedder: EmbedderPort} - istanza del porto per la generazione degli
@@ -259,8 +259,8 @@ semanticamente simili a una query testuale.
 \paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(catalog\_vect: VecDbPortOut, catalog\_repo: CatalogRepoPort, embedder: EmbedderPort)} - inizializza il servizio ricevendo le dipendenze tramite iniezione.
-	\item \textbf{search\_catalog(query: string, threshold: float): List[string]} - genera l'embedding della query e restituisce gli identificativi dei prodotti del catalogo semanticamente simili entro la soglia indicata.
-	\item \textbf{load\_catalog()} - recupera l'intero catalogo tramite \textit{catalog\_repo}, genera l'embedding di ciascun prodotto e lo aggiunge al database vettoriale.
+	\item \textbf{search\_catalog(query$^G$: string, threshold: float): List[string]} - genera l'embedding della query$^G$ e restituisce gli identificativi dei prodotti del catalogo semanticamente simili entro la soglia indicata.
+	\item \textbf{load\_catalog()} - recupera l'intero catalogo tramite \textit{catalog\_repo}, genera l'embedding di ciascun prodotto e lo aggiunge al database$^G$ vettoriale.
 \end{itemize}
 
 %-------------------------------------------------------------------------------------------------------------
@@ -315,7 +315,7 @@ mappando in particolare l'unità di misura tramite \textit{MeasureUnitEnum}.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{repo: CatalogRepository} - istanza del repository che accede
+	\item \textbf{repo: CatalogRepository} - istanza del repository$^G$ che accede
 		direttamente al database.
 \end{itemize}
 
@@ -342,19 +342,19 @@ Oltre alle implementazioni concrete di \textit{CatalogRepoPort}, sono disponibil
 \end{figure}
 
 \paragraph{Descrizione}
-Classe che gestisce l'accesso diretto al database per il catalogo prodotti.\\
-Riceve una sessione SQLModel alla costruzione e la utilizza per eseguire le query tramite il modello ORM \textit{Anaart}.\\
+Classe che gestisce l'accesso diretto al database$^G$ per il catalogo prodotti.\\
+Riceve una sessione SQLModel alla costruzione e la utilizza per eseguire le query$^G$ tramite il modello ORM \textit{Anaart}.\\
 Rappresenta il livello più basso della catena \textit{EmbeddedCatalogService} → \textit{CatalogRepoAdapter} → \textit{CatalogRepository}.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{db: Session} - sessione SQLModel attiva utilizzata per l'esecuzione
+	\item \textbf{db$^G$: Session} - sessione SQLModel attiva utilizzata per l'esecuzione
 		delle query.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(db: Session)} - inizializza il repository ricevendo la
+	\item \textbf{\_\_init\_\_(db$^G$: Session)} - inizializza il repository$^G$ ricevendo la
 		sessione del database.
 	\item \textbf{get\_product(prod\_id: string): Anaart} - recupera il prodotto
 		corrispondente all'identificativo indicato, restituendo \textit{None} se non
@@ -384,8 +384,8 @@ L'architettura segue il pattern Ports and Adapters, separando la logica applicat
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{EmbeddedCartService} \`e il service applicativo responsabile del caricamento del contenuto del carrello in forma vettoriale e della successiva ricerca semantica.\\
-Recupera i prodotti del carrello tramite la porta \textit{CartRepoPort}, ne costruisce una rappresentazione vettoriale tramite \textit{EmbedderPort} e interroga il database vettoriale attraverso \textit{VecDbPortOut}.
+\textit{EmbeddedCartService} \`e il service applicativo responsabile$^G$ del caricamento del contenuto del carrello in forma vettoriale e della successiva ricerca semantica.\\
+Recupera i prodotti del carrello tramite la porta \textit{CartRepoPort}, ne costruisce una rappresentazione vettoriale tramite \textit{EmbedderPort} e interroga il database$^G$ vettoriale attraverso \textit{VecDbPortOut}.
 
 \paragraph{Attributi}
 \begin{itemize}
@@ -394,16 +394,16 @@ Recupera i prodotti del carrello tramite la porta \textit{CartRepoPort}, ne cost
 	\item \textbf{cart\_repo: CartRepoPort} - attributo privato di tipo \textit{CartRepoPort}.\\
 	Porta utilizzata per recuperare i prodotti presenti nel carrello dell'utente.
 	\item \textbf{embedder: EmbedderPort} - attributo privato di tipo \textit{EmbedderPort}.\\
-	Porta utilizzata per generare gli embedding dei prodotti da indicizzare nel database vettoriale.
+	Porta utilizzata per generare gli embedding dei prodotti da indicizzare nel database$^G$ vettoriale.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(cart\_vect: VecDbPortOut, cart\_repo: CartRepoPort, embedder: EmbedderPort)} - metodo pubblico di inizializzazione.\\
 	Riceve e memorizza le dipendenze necessarie per il recupero dei dati del carrello, la generazione degli embedding e l'interrogazione vettoriale.
-	\item \textbf{load\_cart(username: string)} - metodo pubblico che recupera dal repository i prodotti presenti nel carrello dell'utente identificato da \textit{username} e li carica nel sistema di ricerca vettoriale.\\
+	\item \textbf{load\_cart(username: string)} - metodo pubblico che recupera dal repository$^G$ i prodotti presenti nel carrello dell'utente identificato da \textit{username} e li carica nel sistema di ricerca vettoriale.\\
 	Questo passaggio prepara i dati necessari per successive ricerche semantiche.
-	\item \textbf{search\_cart(username: string, query: string, threshold: float): List[string]} - metodo pubblico che esegue una ricerca semantica all'interno del carrello dell'utente, utilizzando la query fornita e una soglia di similarità.\\
+	\item \textbf{search\_cart(username: string, query$^G$: string, threshold: float): List[string]} - metodo pubblico che esegue una ricerca semantica all'interno del carrello dell'utente, utilizzando la query$^G$ fornita e una soglia di similarità.\\
 	Restituisce gli identificativi o i riferimenti ai prodotti che soddisfano i criteri di ricerca.
 \end{itemize}
 
@@ -416,7 +416,7 @@ Recupera i prodotti del carrello tramite la porta \textit{CartRepoPort}, ne cost
 
 \paragraph{Descrizione}
 \textit{CartService} \`e il service applicativo dedicato alle operazioni tradizionali di gestione del carrello e all'invio dell'ordine.\\
-Rappresenta un punto di accesso semplificato alle funzionalit\`a di lettura e modifica del carrello, delegando le operazioni alla porta \textit{CartRepoPort}.
+Rappresenta un punto di accesso semplificato alle funzionalit\`a di lettura e modifica$^G$ del carrello, delegando le operazioni alla porta \textit{CartRepoPort}.
 
 \paragraph{Attributi}
 \begin{itemize}
@@ -427,7 +427,7 @@ Rappresenta un punto di accesso semplificato alle funzionalit\`a di lettura e mo
 \paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(adapter: CartRepoPort)} - metodo pubblico di inizializzazione.\\
-	Riceve e memorizza la porta di accesso al repository del carrello.
+	Riceve e memorizza la porta di accesso al repository$^G$ del carrello.
 	\item \textbf{get\_cart\_products(username: string): List[CartProduct]} - metodo pubblico che recupera tutti i prodotti presenti nel carrello dell'utente identificato da \textit{username}.\\
 	Restituisce una collezione di oggetti di tipo \textit{CartProduct}.
 	\item \textbf{send\_order(username: string)} - metodo pubblico che avvia l'invio dell'ordine relativo al carrello dell'utente specificato.\\
@@ -443,7 +443,7 @@ Rappresenta un punto di accesso semplificato alle funzionalit\`a di lettura e mo
 \label{CartRepoPort}
 
 \paragraph{Descrizione}
-\textit{CartRepoPort} \`e un'interfaccia che definisce il contratto per l'accesso e la modifica dei dati relativi al carrello.\\
+\textit{CartRepoPort} \`e un'interfaccia che definisce il contratto per l'accesso e la modifica$^G$ dei dati relativi al carrello.\\
 Viene implementata da \textit{CartRepoAdapter} e utilizzata dai service applicativi per mantenere il disaccoppiamento tra logica di business e persistenza.
 
 \paragraph{Attributi}
@@ -471,19 +471,19 @@ Viene implementata da \textit{CartRepoAdapter} e utilizzata dai service applicat
 
 \paragraph{Descrizione}
 \textit{CartRepoAdapter} \`e la classe concreta che implementa l'interfaccia \textit{CartRepoPort}.\\
-Agisce da adattatore tra i service applicativi e il repository concreto \textit{CartRepository}, traducendo le operazioni richieste dal dominio in chiamate al layer di persistenza.
+Agisce da adattatore tra i service applicativi e il repository$^G$ concreto \textit{CartRepository}, traducendo le operazioni richieste dal dominio in chiamate al layer di persistenza.
 
 \paragraph{Attributi}
 \begin{itemize}
 	\item \textbf{repo: CartRepository} - attributo privato di tipo \textit{CartRepository}.\\
-	Rappresenta il repository concreto utilizzato per eseguire le operazioni sul database.
+	Rappresenta il repository$^G$ concreto utilizzato per eseguire le operazioni sul database.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 Oltre ad essere implementate tutte le funzioni di \textit{CartRepoPort}, \`e disponibile anche la seguente funzione:
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(repo: CartRepository)} - metodo pubblico di inizializzazione.\\
-	Riceve e memorizza il repository concreto utilizzato per l'accesso ai dati del carrello.
+	Riceve e memorizza il repository$^G$ concreto utilizzato per l'accesso ai dati del carrello.
 \end{itemize}
 
 \subsubsubsection{CartRepository}
@@ -495,25 +495,25 @@ Oltre ad essere implementate tutte le funzioni di \textit{CartRepoPort}, \`e dis
 
 \paragraph{Descrizione}
 \textit{CartRepository} \`e la classe che gestisce direttamente le operazioni di lettura e scrittura dei dati del carrello sul database.\\
-Utilizza una sessione di database per eseguire il recupero dei prodotti, l'aggiunta di nuovi articoli, la rimozione di elementi, l'aggiornamento delle quantit\`a e l'invio finale dell'ordine.
+Utilizza una sessione di database$^G$ per eseguire il recupero dei prodotti, l'aggiunta di nuovi articoli, la rimozione di elementi, l'aggiornamento delle quantit\`a e l'invio finale dell'ordine.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{db: Session} - attributo privato di tipo \textit{Session}.\\
-	Rappresenta la sessione di database utilizzata per eseguire le operazioni di persistenza.
+	\item \textbf{db$^G$: Session} - attributo privato di tipo \textit{Session}.\\
+	Rappresenta la sessione di database$^G$ utilizzata per eseguire le operazioni di persistenza.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(db: Session)} - metodo pubblico di inizializzazione.\\
-	Riceve una sessione di database e la memorizza per l'esecuzione delle operazioni sul carrello.
-	\item \textbf{get\_products(username: string): List[CartProductRepository]} - metodo pubblico che recupera dal database i prodotti presenti nel carrello dell'utente indicato.\\
-	Restituisce una collezione di entit\`a repository associate ai prodotti del carrello.
-	\item \textbf{add\_product(prod\_id: string, username: string, qty: int): CartProductRepository} - metodo pubblico che inserisce nel database un nuovo prodotto nel carrello dell'utente oppure ne aggiorna la presenza secondo la logica prevista.\\
-	Restituisce l'entit\`a repository risultante.
-	\item \textbf{remove\_product(username: string, prod\_id: string): CartProductRepository} - metodo pubblico che rimuove dal database il prodotto indicato dal carrello dell'utente.\\
-	Restituisce l'entit\`a repository coinvolta nell'operazione.
-	\item \textbf{update\_quantity(username: string, prod\_id: string, qty: int, operation: CartUpdateOperation): CartProductRepository} - metodo pubblico che aggiorna nel database la quantit\`a del prodotto indicato nel carrello dell'utente.\\
-	La modifica viene applicata in accordo all'operazione specificata.
-	\item \textbf{send\_order(username: string)} - metodo pubblico che conclude il processo di acquisto inviando l'ordine associato al carrello dell'utente.
+	\item \textbf{\_\_init\_\_(db$^G$: Session)} - metodo pubblico di inizializzazione.\\
+	Riceve una sessione di database$^G$ e la memorizza per l'esecuzione delle operazioni sul carrello.
+	\item \textbf{get\_products(username: string): List[CartProductRepository]} - metodo pubblico che recupera dal database$^G$ i prodotti presenti nel carrello dell'utente indicato.\\
+	Restituisce una collezione di entit\`a repository$^G$ associate ai prodotti del carrello.
+	\item \textbf{add\_product(prod\_id: string, username: string, qty: int): CartProductRepository} - metodo pubblico che inserisce nel database$^G$ un nuovo prodotto nel carrello dell'utente oppure ne aggiorna la presenza secondo la logica prevista.\\
+	Restituisce l'entit\`a repository$^G$ risultante.
+	\item \textbf{remove\_product(username: string, prod\_id: string): CartProductRepository} - metodo pubblico che rimuove dal database$^G$ il prodotto indicato dal carrello dell'utente.\\
+	Restituisce l'entit\`a repository$^G$ coinvolta nell'operazione.
+	\item \textbf{update\_quantity(username: string, prod\_id: string, qty: int, operation: CartUpdateOperation): CartProductRepository} - metodo pubblico che aggiorna nel database$^G$ la quantit\`a del prodotto indicato nel carrello dell'utente.\\
+	La modifica$^G$ viene applicata in accordo all'operazione specificata.
+	\item \textbf{send\_order(username: string)} - metodo pubblico che conclude il processo$^G$ di acquisto inviando l'ordine associato al carrello dell'utente.
 \end{itemize}

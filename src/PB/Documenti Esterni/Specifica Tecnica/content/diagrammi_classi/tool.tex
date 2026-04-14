@@ -158,8 +158,8 @@ preferenze.
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(embedded\_catalog: EmbeddedCatalogService, catalog\_repo: CatalogRepoPort, preferred\_product\_frequency: Dict[string, int])} - inizializza il servizio ricevendo le dipendenze; se \textit{preferred\_product\_frequency} è \textit{None}, viene sostituito con un dizionario vuoto.\\
 	Per la definizione di CatalogRepoPort, vedere \ref{CatalogRepoPort}.
-	\item \textbf{search\_catalog(query: string, threshold: float): List[CatalogProduct]}
-	- ricerca i prodotti semanticamente simili alla query tramite
+	\item \textbf{search\_catalog(query$^G$: string, threshold: float): List[CatalogProduct]}
+	- ricerca i prodotti semanticamente simili alla query$^G$ tramite
 	\textit{embedded\_catalog}, ne recupera i dettagli tramite
 	\textit{catalog\_repo} e, se sono disponibili le preferenze utente, riordina i
 	risultati privilegiando i prodotti con frequenza di acquisto maggiore, mantenendo
@@ -182,7 +182,7 @@ Viene implementata da \textit{ToolCatalogAdapter} e utilizzata da \textit{Search
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{search\_catalog(query: string, threshold: float): List[CatalogProduct]} - metodo pubblico che effettua la ricerca nel catalogo.\\
+	\item \textbf{search\_catalog(query$^G$: string, threshold: float): List[CatalogProduct]} - metodo pubblico che effettua la ricerca nel catalogo.\\
 	Viene concretizzato dalla sua implementazione \textit{ToolCatalogAdapter}.
 \end{itemize}
 
@@ -263,7 +263,7 @@ Viene invocato dall'adapter e si occupa di delegare le operazioni al layer di pe
 	\item \textbf{\_\_init\_\_(username: string, cart\_repo: CartRepoPort, embedded\_cart: EmbeddedCartService)} - metodo di inizializzazione del service. Per la definizione di CartRepoPort vedere \ref{CartRepoPort}.\\
 	Per la definizione di EmbeddedCartService, vedere \ref{EmbeddedCartService}
 	\item \textbf{get\_cart\_items(): List[CartProduct]} - metodo pubblico che recupera la lista di tutti i prodotti presenti nel carrello dell'utente corrente.
-	\item \textbf{search\_cart(query: string, threshold: float): List[CartProduct]} - metodo pubblico che effettua una ricerca semantica tra i prodotti nel carrello in base alla query e alla soglia di similarità specificate.\\
+	\item \textbf{search\_cart(query$^G$: string, threshold: float): List[CartProduct]} - metodo pubblico che effettua una ricerca semantica tra i prodotti nel carrello in base alla query$^G$ e alla soglia di similarità specificate.\\
 	Restituisce la lista dei prodotti che superano la soglia.
 	\item \textbf{add\_to\_cart(prod\_id: string, qty: int): CartProduct} - metodo pubblico che aggiunge al carrello il prodotto identificato da \textit{prod\_id} con la quantità specificata.\\
 	Restituisce il prodotto aggiunto al carrello.
@@ -293,7 +293,7 @@ Viene implementata da \textit{ToolCartAdapter} e utilizzata dai tool concreti pe
 	\item \textbf{remove\_from\_cart(prod\_id: string): string} - metodo pubblico che rimuove un prodotto dal carrello.
 	\item \textbf{update\_cart\_item\_qty(prod\_id: string, qty: int, operation: CartUpdateOperation): string} - metodo pubblico che aggiorna la quantità di un prodotto nel carrello.
 	\item \textbf{get\_cart\_items(): List[CartProduct]} - metodo pubblico che recupera la lista dei prodotti nel carrello.
-	\item \textbf{search\_cart(query: string, threshold: float): List[CartProduct]} - metodo pubblico che effettua una ricerca semantica tra i prodotti nel carrello.
+	\item \textbf{search\_cart(query$^G$: string, threshold: float): List[CartProduct]} - metodo pubblico che effettua una ricerca semantica tra i prodotti nel carrello.
 \end{itemize}
 
 \subsubsubsection{ToolCartAdapter}
@@ -470,7 +470,7 @@ Si occupa di gestire l'intero ciclo di elaborazione: costruisce il blocco di pre
 \paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(tool\_executor: ToolExecutor)} - metodo di inizializzazione dell'agente.
-	\item \textbf{\_build\_user\_pref\_block(preferences: List[UserPreferences]): string} - metodo privato che costruisce il blocco testuale delle preferenze utente da includere nel prompt di sistema.
+	\item \textbf{\_build\_user\_pref\_block(preferences: List[UserPreferences]): string} - metodo privato che costruisce il blocco testuale delle preferenze utente da includere nel prompt$^G$ di sistema.
 	\item \textbf{\_run\_agentic\_loop(messages: List[BaseMessage]): AgenticLoopResult} - metodo privato che esegue il loop agentico: invia i messaggi al modello, intercetta le richieste di tool call, le esegue tramite \textit{ToolExecutor} e ripete finché il modello non produce una risposta finale.
 	\item \textbf{\_build\_response(result: AgenticLoopResult): LLMResponse} - metodo privato che trasforma il risultato del loop agentico in un oggetto \textit{LLMResponse} strutturato.
 	\item \textbf{\_normalize\_content(content: NormalizableContent): string} - metodo privato che normalizza il contenuto della risposta del modello, convertendolo in una stringa uniforme indipendentemente dal tipo originale.

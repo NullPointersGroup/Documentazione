@@ -37,7 +37,7 @@ Delega la logica applicativa a \textit{RecordingService}, ottenuto tramite depen
 \end{figure}
 
 \paragraph{Descrizione}
-Classe$^G$ che implementa la logica applicativa per la gestione della trascrizione audio.\\
+Classe che implementa la logica applicativa per la gestione della trascrizione audio.\\
 Prima di invocare la trascrizione, valida il file ricevuto verificando che non sia vuoto, che non superi i 10 MB e che la durata non ecceda i 120 secondi.\\
 La validazione$^G$ della durata viene saltata per i formati non supportati da \textit{mutagen}, come webm/opus.\\
 Delega la trascrizione effettiva all'istanza di \textit{RecordingPort} ricevuta alla costruzione.
@@ -64,7 +64,7 @@ Delega la trascrizione effettiva all'istanza di \textit{RecordingPort} ricevuta 
 \end{figure}
 
 \paragraph{Descrizione}
-Classe astratta$^G$ che definisce la porta per la trascrizione audio tramite servizio esterno.\\
+Classe astratta che definisce la porta per la trascrizione audio tramite servizio esterno.\\
 Segue il pattern architetturale delle porte e degli adattatori, disaccoppiando la logica applicativa di \textit{RecordingService} dalla specifica implementazione del servizio di trascrizione.
 
 \paragraph{Attributi}
@@ -84,7 +84,7 @@ Essendo un'interfaccia, non definisce attributi propri.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe$^G$ che implementa \textit{RecordingPort} seguendo il pattern degli adattatori.\\
+Classe che implementa \textit{RecordingPort} seguendo il pattern degli adattatori.\\
 Riceve un'istanza di \textit{RecordingRepository} alla costruzione e delega interamente la trascrizione audio.
 
 \paragraph{Attributi}
@@ -106,7 +106,7 @@ Oltre all'implementazione concreta della funzione di \textit{RecordingPort}, è 
 \end{figure}
 
 \paragraph{Descrizione}
-Classe$^G$ che gestisce l'accesso diretto al servizio di trascrizione audio Whisper$^G$ tramite il client \textit{AsyncOpenAI}.\\
+Classe che gestisce l'accesso diretto al servizio di trascrizione audio Whisper$^G$ tramite il client \textit{AsyncOpenAI}.\\
 Riceve il client alla costruzione e lo utilizza per inviare il file audio e recuperare il testo trascritto.
 
 \paragraph{Attributi}
