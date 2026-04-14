@@ -30,9 +30,12 @@ Delega la logica applicativa a \textit{ChatService}.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{get\_cart\_service(): CartService} - istanzia e restituisce il service del carrello.
+	\item \textbf{get\_cart\_service(): CartService} - istanzia e restituisce il service del carrello. Per la definizione di CartService vedere \ref{CartService}
 	\item \textbf{build\_tools(username: string, db: Session): List[BaseTool]} - costruisce la lista degli strumenti disponibili per l'agente LLM, tra cui la ricerca nel catalogo, la gestione del carrello e la consultazione dello storico ordini.
-	\item \textbf{get\_chat\_service(username: string, db: Session): ChatService} - funzione di dependency injection che assembla l'intero stack applicativo, istanziando \textit{ToolExecutor}, \textit{LLMAgent}, \textit{LLMAdapter} e \textit{ChatService}.
+	\item \textbf{get\_chat\_service(username: string, db: Session): ChatService} - funzione di dependency injection che assembla l'intero stack applicativo, istanziando \textit{ToolExecutor}, \textit{LLMAgent}, \textit{LLMAdapter} e \textit{ChatService}.\\
+	Per la definizione di LLMAgent, vedere \ref{LLMAgent}.
+	Per la definizione di ToolExecutor, vedere \ref{ToolExecutor}.
+	Per la definizione di LLMAdapter, vedere \ref{LLMAdapter}.
 	\item \textbf{get\_all\_messages(conv\_id: int, chat\_service: ChatService): ChatResponse} - endpoint \textit{GET /chat/\{conv\_id\}/all} che recupera tutti i messaggi di una conversazione.\\
 	Lancia \textit{HTTPException} con codice 404 se la conversazione non viene trovata.
 	\item \textbf{send\_message(conv\_id: int, message: MessageRequest, chat\_service: ChatService, current\_user: string): MessageResponse} - endpoint \textit{POST /chat/\{conv\_id\}} che invia un messaggio e restituisce la risposta dell'agente.\\
@@ -56,7 +59,8 @@ Coordina l'accesso ai dati tramite \textit{ChatRepoPort} e integra eventuali dip
 	\item \textbf{repo: ChatRepoPort} - attributo privato di tipo \textit{ChatRepoPort}.\\
 	Porta utilizzata per accedere ai dati delle conversazioni e dei messaggi.
 	\item \textbf{llm: LLMPort} - attributo privato di tipo \textit{LLMPort}.\\
-	Porta utilizzata per interagire con il modello linguistico durante la gestione della conversazione.
+	Porta utilizzata per interagire con il modello linguistico durante la gestione della conversazione.\\
+	Per la definizione di LLMPort, vedere \ref{LLMPort}.
 	\item \textbf{history\_adapter: HistoryAdapterPort} - attributo privato che rappresenta un eventuale riferimento al servizio di gestione dello storico ordini.\\
 	Viene utilizzato nei casi in cui la conversazione debba integrarsi con funzionalit\`a legate allo storico.
 \end{itemize}

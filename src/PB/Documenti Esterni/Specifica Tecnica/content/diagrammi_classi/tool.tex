@@ -132,7 +132,7 @@ Per la definizione di BaseTool, vedere sezione \ref{baseTool}
 \label{ToolCatalogService}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{SpecificaTecnica/Chat/ToolCatalogService}
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Tool/ToolCatalogService}
 	\caption{Catalogo: ToolCatalogService}
 \end{figure}
 
@@ -145,10 +145,10 @@ preferenze.
 
 \paragraph{Attributi}
 \begin{itemize}
-	\item \textbf{embedded\_catalog: EmbeddedCatalogService} - istanza del servizio di
-	ricerca vettoriale sul catalogo.
-	\item \textbf{catalog\_repo: CatalogRepoPort} - istanza del porto di accesso ai dati
-	del catalogo, utilizzata per recuperare i dettagli dei prodotti trovati.
+	\item \textbf{embedded\_catalog: EmbeddedCatalogService} - istanza del servizio di ricerca vettoriale sul catalogo.\\
+	Per la definizione di EmbeddedCatalogService, vedere \ref{EmbeddedCartService}.
+	\item \textbf{catalog\_repo: CatalogRepoPort} - istanza del porto di accesso ai dati del catalogo, utilizzata per recuperare i dettagli dei prodotti trovati.
+	Per la definizione di CatalogRepoPort, vedere \ref{CatalogRepoPort}.
 	\item \textbf{preferred\_product\_frequency: Dict[string, int]} - dizionario che
 	mappa gli identificativi di prodotto alla frequenza di acquisto dell'utente
 	corrente; valore di default è un dizionario vuoto.
@@ -156,10 +156,8 @@ preferenze.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(embedded\_catalog: EmbeddedCatalogService, catalog\_repo:
-		CatalogRepoPort, preferred\_product\_frequency: Dict[string, int])} - inizializza il servizio ricevendo le dipendenze; se
-	\textit{preferred\_product\_frequency} è \textit{None}, viene sostituito con un
-	dizionario vuoto.
+	\item \textbf{\_\_init\_\_(embedded\_catalog: EmbeddedCatalogService, catalog\_repo: CatalogRepoPort, preferred\_product\_frequency: Dict[string, int])} - inizializza il servizio ricevendo le dipendenze; se \textit{preferred\_product\_frequency} è \textit{None}, viene sostituito con un dizionario vuoto.\\
+	Per la definizione di CatalogRepoPort, vedere \ref{CatalogRepoPort}.
 	\item \textbf{search\_catalog(query: string, threshold: float): List[CatalogProduct]}
 	- ricerca i prodotti semanticamente simili alla query tramite
 	\textit{embedded\_catalog}, ne recupera i dettagli tramite
@@ -262,7 +260,8 @@ Viene invocato dall'adapter e si occupa di delegare le operazioni al layer di pe
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(username: string, cart\_repo: CartRepoPort, embedded\_cart: EmbeddedCartService)} - metodo di inizializzazione del service.
+	\item \textbf{\_\_init\_\_(username: string, cart\_repo: CartRepoPort, embedded\_cart: EmbeddedCartService)} - metodo di inizializzazione del service. Per la definizione di CartRepoPort vedere \ref{CartRepoPort}.\\
+	Per la definizione di EmbeddedCartService, vedere \ref{EmbeddedCartService}
 	\item \textbf{get\_cart\_items(): List[CartProduct]} - metodo pubblico che recupera la lista di tutti i prodotti presenti nel carrello dell'utente corrente.
 	\item \textbf{search\_cart(query: string, threshold: float): List[CartProduct]} - metodo pubblico che effettua una ricerca semantica tra i prodotti nel carrello in base alla query e alla soglia di similarità specificate.\\
 	Restituisce la lista dei prodotti che superano la soglia.
@@ -429,6 +428,7 @@ Per la definizione di ChatService, vedere sezione \ref{ChatService}
 	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Tool/ToolExecutor}
 	\caption{LLM Agent: ToolExecutor}
 \end{figure}
+\label{ToolExecutor}
 
 \paragraph{Descrizione}
 \textit{ToolExecutor} è la classe responsabile$^G$ della selezione e dell'esecuzione dei tool disponibili per l'agente LLM.\\
@@ -453,6 +453,7 @@ Mantiene internamente la lista di tutti i \textit{BaseTool} registrati e, dato i
 	\includegraphics[width=0.7\textwidth]{SpecificaTecnica/Tool/LLMAgent}
 	\caption{LLM Agent: LLMAgent}
 \end{figure}
+\label{LLMAgent}
 
 \paragraph{Descrizione}
 \textit{LLMAgent} è il componente centrale dell'architettura agente.\\
@@ -484,6 +485,7 @@ Si occupa di gestire l'intero ciclo di elaborazione: costruisce il blocco di pre
 	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Tool/LLMPort}
 	\caption{LLM Agent: LLMPort}
 \end{figure}
+\label{LLMPort}
 
 \paragraph{Descrizione}
 \textit{LLMPort} è l'interfaccia che definisce il contratto per l'invocazione dell'agente LLM$^G$ da parte del layer applicativo.\\
@@ -504,6 +506,7 @@ Viene implementata da \textit{LLMAdapter} e utilizzata da \textit{ChatService} p
 	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Tool/LLMAdapter}
 	\caption{LLM Agent: LLMAdapter}
 \end{figure}
+\label{LLMAdapter}
 
 \paragraph{Descrizione}
 \textit{LLMAdapter} è la classe concreta che implementa l'interfaccia \textit{LLMPort}.\\
