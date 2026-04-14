@@ -93,7 +93,7 @@ Verifica$^G$ la disponibilità di username ed email, valida il dominio dell'indi
 \paragraph{Metodi e funzioni}
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(port: IUserRepoPort)} - metodo pubblico di inizializzazione.\\
-	Riceve e memorizza la porta del repository$^G$.
+	Riceve e memorizza la porta del repository.
 	\item \textbf{register\_user(u: UserRegistration)} - metodo pubblico che gestisce il flusso completo di registrazione: verifica$^G$ la disponibilità di username ed email, valida il dominio email, cifra la password e salva il nuovo utente tramite il repository.
 	\item \textbf{\_hash\_password(password: string): string} - metodo privato che cifra la password in chiaro e restituisce la corrispondente stringa hashata da memorizzare nel database.
 	\item \textbf{domain\_exists(email: string): bool} - metodo pubblico che verifica$^G$ l'esistenza del dominio dell'indirizzo email fornito.\\
