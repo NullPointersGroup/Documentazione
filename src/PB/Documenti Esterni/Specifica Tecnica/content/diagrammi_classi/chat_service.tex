@@ -1,0 +1,161 @@
+\paragraph{Descrizione generale}
+Questa parte si occupa della gestione delle conversazioni tra utente e sistema.\\
+Le classi descritte consentono di recuperare i messaggi di una conversazione, accedere allo storico delle chat, creare nuove conversazioni e aggiungere nuovi messaggi.\\
+Anche in questo caso l'architettura segue il pattern Ports and Adapters, mantenendo separata la logica applicativa dalla persistenza dei dati.
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.7\textwidth]{SpecificaTecnica/Chat/UMLChatService}
+	\caption{Diagramma delle classi per la gestione della chat}
+\end{figure}
+
+\subsubsubsection{ChatController}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Chat/ChatController}
+	\caption{Gestione della chat: ChatController}
+\end{figure}
+
+\paragraph{Descrizione}
+Modulo FastAPI che definisce il router per le API REST della chat.\\
+Espone gli endpoint per il recupero di tutti i messaggi di una conversazione e per l'invio di un nuovo messaggio.\\
+Alla ricezione di un messaggio, costruisce l'intero stack applicativo tramite dependency injection, includendo gli strumenti dell'agente LLM, il servizio del carrello, il catalogo e lo storico ordini.\\
+Delega la logica applicativa a \textit{ChatService}.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{router: APIRouter} - router FastAPI con prefisso \textit{/chat} che raggruppa gli endpoint del modulo.
+	\item \textbf{ChatServiceDep} - tipo annotato che inietta un'istanza di \textit{ChatService} tramite la funzione \textit{get\_chat\_service}.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{get\_cart\_service(): CartService} - istanzia e restituisce il service del carrello. Per la definizione di CartService vedere \ref{CartService}
+	\item \textbf{build\_tools(username: string, db: Session): List[BaseTool]} - costruisce la lista degli strumenti disponibili per l'agente LLM, tra cui la ricerca nel catalogo, la gestione del carrello e la consultazione dello storico ordini.
+	\item \textbf{get\_chat\_service(username: string, db: Session): ChatService} - funzione di dependency injection che assembla l'intero stack applicativo, istanziando \textit{ToolExecutor}, \textit{LLMAgent}, \textit{LLMAdapter} e \textit{ChatService}.\\
+	Per la definizione di LLMAgent, vedere \ref{LLMAgent}.
+	Per la definizione di ToolExecutor, vedere \ref{ToolExecutor}.
+	Per la definizione di LLMAdapter, vedere \ref{LLMAdapter}.
+	\item \textbf{get\_all\_messages(conv\_id: int, chat\_service: ChatService): ChatResponse} - endpoint \textit{GET /chat/\{conv\_id\}/all} che recupera tutti i messaggi di una conversazione.\\
+	Lancia \textit{HTTPException} con codice 404 se la conversazione non viene trovata.
+	\item \textbf{send\_message(conv\_id: int, message: MessageRequest, chat\_service: ChatService, current\_user: string): MessageResponse} - endpoint \textit{POST /chat/\{conv\_id\}} che invia un messaggio e restituisce la risposta dell'agente.\\
+	Lancia \textit{HTTPException} con codice 500 in caso di errore interno.
+\end{itemize}
+
+\subsubsubsection{ChatService}
+\label{ChatService}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Chat/ChatService}
+	\caption{Gestione della chat: ChatService}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ChatService} \`e il service applicativo responsabile della gestione delle conversazioni e dei messaggi scambiati nella chat.\\
+Coordina l'accesso ai dati tramite \textit{ChatRepoPort} e integra eventuali dipendenze aggiuntive, come il componente LLM e il servizio di storico, per supportare il flusso conversazionale.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{repo: ChatRepoPort} - attributo privato di tipo \textit{ChatRepoPort}.\\
+	Porta utilizzata per accedere ai dati delle conversazioni e dei messaggi.
+	\item \textbf{llm: LLMPort} - attributo privato di tipo \textit{LLMPort}.\\
+	Porta utilizzata per interagire con il modello linguistico durante la gestione della conversazione.\\
+	Per la definizione di LLMPort, vedere \ref{LLMPort}.
+	\item \textbf{history\_adapter: HistoryAdapterPort} - attributo privato che rappresenta un eventuale riferimento al servizio di gestione dello storico ordini.\\
+	Viene utilizzato nei casi in cui la conversazione debba integrarsi con funzionalit\`a legate allo storico.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(repo: ChatRepoPort, llm: LLMPort, history\_adapter: HistoryAdapterPort)} - metodo pubblico di inizializzazione.\\
+	Riceve e memorizza le dipendenze necessarie alla gestione della chat.
+	\item \textbf{get\_all\_messages(conv\_id: int): Message*} - metodo pubblico che recupera tutti i messaggi associati alla conversazione identificata da \textit{conv\_id}.\\
+	Restituisce una collezione di oggetti di tipo \textit{Message}.
+	\item \textbf{send\_message(conv\_id: int, username: string, content: string): Message} - metodo pubblico che gestisce l'invio di un nuovo messaggio all'interno della conversazione specificata.\\
+	Il metodo coordina il salvataggio del messaggio e la produzione della risposta associata al flusso conversazionale.
+\end{itemize}
+
+\subsubsubsection{ChatRepoPort}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Chat/ChatRepoPort}
+	\caption{Gestione della chat: ChatRepoPort}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ChatRepoPort} \`e un'interfaccia che definisce il contratto per l'accesso ai dati relativi alle conversazioni e ai messaggi della chat.\\
+Viene implementata da \textit{ChatRepoAdapter} e utilizzata da \textit{ChatService} per garantire il disaccoppiamento tra logica applicativa e persistenza.
+
+\paragraph{Attributi}
+\textit{ChatRepoPort} non definisce attributi.
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{get\_messages(conv\_id: int): Message*} - metodo pubblico che recupera i messaggi della conversazione identificata da \textit{conv\_id}.\\
+	Restituisce una collezione di oggetti di tipo \textit{Message}.
+	\item \textbf{get\_chat\_history(conv\_id: int, max\_messages: int): Message*} - metodo pubblico che recupera una porzione dello storico della conversazione, limitata al numero massimo di messaggi indicato.\\
+	Restituisce una collezione di oggetti di tipo \textit{Message}.
+	\item \textbf{add\_message(conv\_id: int, text: string, sender: SenderEnum): Message} - metodo pubblico che aggiunge un nuovo messaggio alla conversazione specificata.\\
+	Restituisce il messaggio appena salvato.
+	\item \textbf{create\_conversation(username: string): Conversation} - metodo pubblico che crea una nuova conversazione associata all'utente indicato.\\
+	Restituisce l'oggetto \textit{Conversation} creato.
+	\item \textbf{conversation\_exist(conv\_id: int): bool} - metodo pubblico che verifica l'esistenza di una conversazione identificata da \textit{conv\_id}.\\
+	Restituisce \textit{true} se la conversazione esiste, \textit{false} altrimenti.
+\end{itemize}
+
+\subsubsubsection{ChatRepoAdapter}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.9\textwidth]{SpecificaTecnica/Chat/ChatRepoAdapter}
+	\caption{Gestione della chat: ChatRepoAdapter}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ChatRepoAdapter} \`e la classe concreta che implementa l'interfaccia \textit{ChatRepoPort}.\\
+Funge da adattatore tra il livello applicativo e il repository concreto \textit{ChatRepository}, delegando a quest'ultimo l'esecuzione delle operazioni di persistenza.
+
+\paragraph{Attributi}
+Oltre alle implementazioni concrete di \textit{ChatRepoPort}, è disponibile la seguente funzione:
+\begin{itemize}
+	\item \textbf{repo: ChatRepository} - attributo privato di tipo \textit{ChatRepository}.\\
+	Rappresenta il repository concreto utilizzato per la gestione dei dati della chat.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+Oltre ad essere implementate tutte le funzioni di \textit{ChatRepoPort}, \`e disponibile anche la seguente funzione:
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(repo: ChatRepository)} - metodo pubblico di inizializzazione.\\
+	Riceve e memorizza il repository concreto utilizzato per accedere ai dati delle conversazioni.
+\end{itemize}
+
+\subsubsubsection{ChatRepository}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Chat/ChatRepository}
+	\caption{Gestione della chat: ChatRepository}
+\end{figure}
+
+\paragraph{Descrizione}
+\textit{ChatRepository} \`e la classe che gestisce direttamente le operazioni di lettura e scrittura delle conversazioni e dei messaggi sul database.\\
+Utilizza una sessione di database per creare nuove conversazioni, recuperare i messaggi associati e salvare i nuovi contenuti prodotti durante l'interazione in chat.
+
+\paragraph{Attributi}
+\begin{itemize}
+	\item \textbf{db: Session} - attributo privato di tipo \textit{Session}.\\
+	Rappresenta la sessione di database utilizzata per eseguire le operazioni di persistenza della chat.
+\end{itemize}
+
+\paragraph{Metodi e funzioni}
+\begin{itemize}
+	\item \textbf{\_\_init\_\_(db: Session)} - metodo pubblico di inizializzazione.\\
+	Riceve una sessione di database e la memorizza per l'esecuzione delle operazioni sulle conversazioni.
+	\item \textbf{get\_conversation(conv\_id: int): Conversation} - metodo pubblico che recupera la conversazione identificata da \textit{conv\_id}.\\
+	\item \textbf{create\_conversation(username: string): Conversation} - metodo pubblico che crea e persiste una nuova conversazione associata allo username fornito.\\
+	Restituisce l'entit\`a relativa alla conversazione creata.
+	\item \textbf{get\_messages(conv\_id: int): List[Messages]} - metodo pubblico che recupera tutti i messaggi della conversazione indicata.\\
+	Restituisce una collezione di messaggi.
+	\item \textbf{get\_chat\_history(conv\_id: int, max\_messages: int): List[Messages]} - metodo pubblico che recupera lo storico della chat secondo i criteri previsti dall'implementazione.\\
+	Restituisce una collezione di messaggi utile alla ricostruzione del contesto conversazionale.
+	\item \textbf{add\_message(conv\_id: int, text: string, sender: SenderEnum): Messages} - metodo pubblico che salva un nuovo messaggio nella conversazione indicata.\\
+	Restituisce il messaggio persistito.
+\end{itemize}

@@ -34,7 +34,7 @@ Delega la logica applicativa a \textit{HistoryService}, ottenuto tramite depende
 	Lancia \textit{HTTPException} con codice 404 se l'utente non viene trovato.
 	\item \textbf{get\_history\_admin(service: ServiceDep, page: Page, per\_page: PerPage, start\_date: date, end\_date: date): HistoryPageSchema} - endpoint \textit{GET /api/history/tutti} che recupera gli ordini di tutti gli utenti, accessibile solo agli amministratori.\\
 	Lancia \textit{HTTPException} con codice 403 in caso di accesso non consentito.
-	\item \textbf{duplicate\_order(code\_order: string, username: Username, service: ServiceDep): dict[string, string]} - endpoint \textit{POST /history/duplicate\_order/\{code\_order\}} che duplica un ordine esistente.\\
+	\item \textbf{duplicate\_order(code\_order: string, username: Username, service: ServiceDep): Dict[string, string]} - endpoint \textit{POST /history/duplicate\_order/\{code\_order\}} che duplica un ordine esistente.\\
 	Lancia \textit{HTTPException} con codice 404 se l'ordine non viene trovato.
 \end{itemize}
 
@@ -109,9 +109,10 @@ Riceve una sessione del database$^G$ alla costruzione e la utilizza per istanzia
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
+Oltre alle implementazioni concrete di \textit{HistoryAdapterPort}, è disponibile la seguente funzione:
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(db$^G$: Session)} - si occupa di inizializzare l'adattatore ricevendo la sessione del database$^G$ e istanziando un'istanza di tipo HistoryRepository
-	\end{itemize}
+\end{itemize}
 
 \subsubsubsection{HistoryRepository}
 \begin{figure}[H]

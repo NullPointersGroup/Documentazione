@@ -21,35 +21,3 @@ I principali elementi dell'architettura esagonale$^G$ sono:\\
 		\item \textbf{Outbound adapters}: adattori che implementano le interfacce di uscita collegandole a tecnologie specifiche.
 	\end{itemize}
 \end{itemize}
-
-\newpage
-
-\section{Servizi principali}
-\begin{itemize}
-	\item Autenticazione e registrazione
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{SpecificaTecnica/auth}
-	\caption{Autenticazione e Registrazione}
-\end{figure}
-	\begin{itemize}
-		\item \textbf{Core domain}: contiene la logica dedicata alla registrazione di un utente nuovo oppure all'autenticazione di un utente già esistente. Permette di elaborare i dati ricevuti tramite l'inserimento dei dati dell'utente.
-        \item \textbf{Inbound ports}: l’applicazione espone un unico punto di ingresso tramite FastAPI Router, che funge da inbound port. Non sono stati definiti ulteriori livelli di astrazione, poiché l’HTTP driver è sufficiente.
-        \item \textbf{Outbound ports}: definiscono i contratti verso l'infrastruttura esterna. \textit{UserRepoPort} espone le operazioni di persistenza sugli utenti, mentre \textit{EmailValidationPort} espone la verifica$^G$ del dominio email tramite DNS. Entrambe le interfacce sono definite nel core domain e implementate da adapter dedicati.
-        \item \textbf{Adapters}: implementano l’integrazione con servizi esterni: \textit{UserAdapter} (gestione password/token$^G$), \textit{UserRepoAdapter} (persistenza su database$^G$), \textit{EmailValidationAdapter} (validazione$^G$ email).
-	\end{itemize}
-	\item Chatbot e gestione ordine
-	\begin{itemize}
-		\item \textbf{Core domain}:
-		\item \textbf{Inbound ports}:
-		\item \textbf{Outbound ports}:
-		\item \textbf{Adapters}:
-	\end{itemize}
-	\item Visualizzazione storico ordini
-	\begin{itemize}
-		\item \textbf{Core domain}:
-		\item \textbf{Inbound ports}:
-		\item \textbf{Outbound ports}:
-		\item \textbf{Adapters}:
-	\end{itemize}
-\end{itemize}

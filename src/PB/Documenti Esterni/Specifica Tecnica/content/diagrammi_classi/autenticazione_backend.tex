@@ -53,19 +53,19 @@ Interagisce con il repository$^G$ tramite la porta \textit{UserRepoPort} per rec
 	Restituisce \textit{true} se le due stringhe corrispondono.
 \end{itemize}
 
-\subsubsubsection{RegisterController}
+\subsubsubsection{RegisterUserController}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/RegisterController}
-	\caption{Autenticazione e Registrazione: RegisterController}
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/RegisterUserController}
+	\caption{Autenticazione e Registrazione: RegisterUserController}
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{RegisterController} è il controller REST$^G$ responsabile$^G$ della gestione delle richieste HTTP di registrazione di nuovi utenti.\\
+\textit{RegisterUserController} è il controller REST$^G$ responsabile$^G$ della gestione delle richieste HTTP di registrazione di nuovi utenti.\\
 Riceve i dati di registrazione dal client e li delega al \textit{RegisterUserService} per l'elaborazione, restituendo la risposta appropriata.
 
 \paragraph{Attributi}
-\textit{RegisterController} non definisce attributi propri.
+\textit{RegisterUserController} non definisce attributi propri.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
@@ -82,76 +82,36 @@ Riceve i dati di registrazione dal client e li delega al \textit{RegisterUserSer
 
 \paragraph{Descrizione}
 \textit{RegisterUserService} è il service applicativo responsabile$^G$ della registrazione di nuovi utenti.\\
-Verifica$^G$ la disponibilità di username ed email, valida il dominio dell'indirizzo email tramite \textit{EmailValidationPort} e persiste il nuovo utente tramite \textit{UserRepoPort} previa cifratura della password.
+Verifica$^G$ la disponibilità di username ed email, valida il dominio dell'indirizzo email e persiste il nuovo utente tramite \textit{UserRepoPort} previa cifratura della password.
 
 \paragraph{Attributi}
 \begin{itemize}
 	\item \textbf{port: UserRepoPort} - attributo privato di tipo \textit{UserRepoPort}.\\
 	Porta utilizzata per accedere al repository$^G$ degli utenti e verificare la disponibilità delle credenziali e salvare il nuovo utente.
-	\item \textbf{email\_validator: EmailValidationPort} - attributo pubblico di tipo \textit{EmailValidationPort}.\\
-	Porta utilizzata per validare l'esistenza del dominio dell'indirizzo email fornito durante la registrazione.
 \end{itemize}
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
-	\item \textbf{\_\_init\_\_(port: IUserRepoPort, email\_validator: EmailValidationPort)} - metodo pubblico di inizializzazione.\\
+	\item \textbf{\_\_init\_\_(port: IUserRepoPort)} - metodo pubblico di inizializzazione.\\
 	Riceve e memorizza la porta del repository$^G$ e il validatore email.
 	\item \textbf{register\_user(u: UserRegistration)} - metodo pubblico che gestisce il flusso completo di registrazione: verifica$^G$ la disponibilità di username ed email, valida il dominio email, cifra la password e salva il nuovo utente tramite il repository.
 	\item \textbf{\_hash\_password(password: string): string} - metodo privato che cifra la password in chiaro e restituisce la corrispondente stringa hashata da memorizzare nel database.
-\end{itemize}
-
-
-\subsubsubsection{EmailValidationPort}
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Autenticazione/EmailValidationPort}
-	\caption{Autenticazione e Registrazione: EmailValidationPort}
-\end{figure}
-
-\paragraph{Descrizione}
-\textit{EmailValidationPort} è un'interfaccia che definisce il contratto per la validazione$^G$ del dominio di un indirizzo email.\\
-Viene implementata da \textit{EmailValidationAdapter} e utilizzata da \textit{RegisterUserService} per verificare che il dominio dell'email fornita esista effettivamente.
-
-\paragraph{Attributi}
-Essendo un'interfaccia, non definisce attributi.
-
-\paragraph{Metodi e funzioni}
-\begin{itemize}
 	\item \textbf{domain\_exists(email: string): bool} - metodo pubblico che verifica$^G$ l'esistenza del dominio dell'indirizzo email fornito.\\
-	Viene concretizzato dalla sua implementazione EmailValidationAdapter.
 \end{itemize}
 
-
-\subsubsubsection{EmailValidationAdapter}
+\subsubsubsection{DeleteUserController}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Autenticazione/EmailValidationAdapter}
-	\caption{Autenticazione e Registrazione: EmailValidationAdapter}
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/DeleteUserController}
+	\caption{Autenticazione e Registrazione: DeleteUserController}
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{EmailValidationAdapter} è la classe concreta che implementa l'interfaccia \textit{EmailValidationPort}.\\
-Si occupa di effettuare la verifica$^G$ effettiva dell'esistenza del dominio di un indirizzo email, incapsulando la logica di interrogazione DNS o di un servizio esterno di validazione.
-
-\paragraph{Attributi}
-\textit{EmailValidationAdapter} non definisce attributi.
-
-\paragraph{Metodi e funzioni}
-\textit{EmailValidationAdapter} implementa il metodo \textit{domain\_exists} definito dalla porta \textit{EmailValidationPort}, fornendo la logica concreta per la verifica$^G$ del dominio email.
-
-\subsubsubsection{DeleteController}
-\begin{figure}[H]
-	\centering 
-	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/DeleteController}
-	\caption{Autenticazione e Registrazione: DeleteController}
-\end{figure}
-
-\paragraph{Descrizione}
-\textit{DeleteController} è il controller REST$^G$ responsabile$^G$ della gestione delle richieste HTTP di eliminazione di un account utente.\\
+\textit{DeleteUserController} è il controller REST$^G$ responsabile$^G$ della gestione delle richieste HTTP di eliminazione di un account utente.\\
 Riceve la richiesta dall'utente autenticato e la delega al \textit{DeleteUserService} per l'esecuzione.
 
 \paragraph{Attributi}
-\textit{DeleteController} non definisce attributi propri.
+\textit{DeleteUserController} non definisce attributi propri.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}
@@ -185,19 +145,19 @@ Recupera i dati dell'utente tramite \textit{UserRepoPort} e ne richiede la cance
 	Restituisce l'oggetto \textit{WebUser} corrispondente.
 \end{itemize}
 
-\subsubsubsection{ResetController}
+\subsubsubsection{ResetUserController}
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/ResetController}
-	\caption{Autenticazione e Registrazione: ResetController}
+	\includegraphics[width=1\textwidth]{SpecificaTecnica/Autenticazione/ResetUserController}
+	\caption{Autenticazione e Registrazione: ResetUserController}
 \end{figure}
 
 \paragraph{Descrizione}
-\textit{ResetController} è il controller REST$^G$ responsabile$^G$ della gestione delle richieste HTTP di reset della password.\\
+\textit{ResetUserController} è il controller REST$^G$ responsabile$^G$ della gestione delle richieste HTTP di reset della password.\\
 Riceve i dati necessari per il cambio password dall'utente autenticato e li delega al \textit{ResetPasswordService} per l'elaborazione.
 
 \paragraph{Attributi}
-\textit{ResetController} non definisce attributi propri.
+\textit{ResetUserController} non definisce attributi propri.
 
 \paragraph{Metodi e funzioni}
 \begin{itemize}

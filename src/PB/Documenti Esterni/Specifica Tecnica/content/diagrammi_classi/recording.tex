@@ -1,4 +1,3 @@
-
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=1.0\textwidth]{SpecificaTecnica/Recording/Diagramma}
@@ -38,7 +37,7 @@ Delega la logica applicativa a \textit{RecordingService}, ottenuto tramite depen
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python$^G$ che implementa la logica applicativa per la gestione della trascrizione audio.\\
+Classe$^G$ che implementa la logica applicativa per la gestione della trascrizione audio.\\
 Prima di invocare la trascrizione, valida il file ricevuto verificando che non sia vuoto, che non superi i 10 MB e che la durata non ecceda i 120 secondi.\\
 La validazione$^G$ della durata viene saltata per i formati non supportati da \textit{mutagen}, come webm/opus.\\
 Delega la trascrizione effettiva all'istanza di \textit{RecordingPort} ricevuta alla costruzione.
@@ -65,7 +64,7 @@ Delega la trascrizione effettiva all'istanza di \textit{RecordingPort} ricevuta 
 \end{figure}
 
 \paragraph{Descrizione}
-Classe astratta Python$^G$ che definisce la porta per la trascrizione audio tramite servizio esterno.\\
+Classe astratta$^G$ che definisce la porta per la trascrizione audio tramite servizio esterno.\\
 Segue il pattern architetturale delle porte e degli adattatori, disaccoppiando la logica applicativa di \textit{RecordingService} dalla specifica implementazione del servizio di trascrizione.
 
 \paragraph{Attributi}
@@ -75,7 +74,6 @@ Essendo un'interfaccia, non definisce attributi propri.
 \begin{itemize}
 	\item \textbf{trascrivi(audio\_bytes: bytes, filename: string): string} - trascrive un file audio in testo a partire dal contenuto binario e dal nome del file.\\
 	Lancia un'eccezione se la trascrizione fallisce.\\
-	Viene implementato concretamente dalla sua implementazione RecordingAdapter.
 \end{itemize}
 
 \subsubsubsection{RecordingAdapter}
@@ -86,10 +84,11 @@ Essendo un'interfaccia, non definisce attributi propri.
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python$^G$ che implementa \textit{RecordingPort} seguendo il pattern degli adattatori.\\
+Classe$^G$ che implementa \textit{RecordingPort} seguendo il pattern degli adattatori.\\
 Riceve un'istanza di \textit{RecordingRepository} alla costruzione e delega interamente la trascrizione audio.
 
 \paragraph{Attributi}
+Oltre all'implementazione concreta della funzione di \textit{RecordingPort}, è disponibile la seguente funzione:
 \begin{itemize}
 	\item \textbf{\_\_init\_\_(repo: RecordingRepository)} - inizializza l'adapter con l'istanza del repository$^G$ ricevuta.
 \end{itemize}
@@ -107,7 +106,7 @@ Riceve un'istanza di \textit{RecordingRepository} alla costruzione e delega inte
 \end{figure}
 
 \paragraph{Descrizione}
-Classe Python$^G$ che gestisce l'accesso diretto al servizio di trascrizione audio Whisper$^G$ tramite il client \textit{AsyncOpenAI}.\\
+Classe$^G$ che gestisce l'accesso diretto al servizio di trascrizione audio Whisper$^G$ tramite il client \textit{AsyncOpenAI}.\\
 Riceve il client alla costruzione e lo utilizza per inviare il file audio e recuperare il testo trascritto.
 
 \paragraph{Attributi}
