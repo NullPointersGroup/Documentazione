@@ -1,9 +1,9 @@
-\subsubsection{Tool orders}
+\subsubsection{ToolOrders}
 
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=1\textwidth]{SpecificaTecnica/Tool/ToolOrdineCompleto}
-	\caption{Diagramma delle classi per Tool orders}
+	\caption{Diagramma delle classi per ToolOrders}
 \end{figure}
 
 Il diagramma mostra l'architettura completa del tool per la gestione degli ordini.\\
@@ -15,7 +15,7 @@ Per la definizione di BaseTool, vedere \ref{baseTool}
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=0.8\textwidth]{SpecificaTecnica/Tool/ToolOrderService}
-	\caption{Tool orders: ToolOrderService}
+	\caption{ToolOrders: ToolOrderService}
 \end{figure}
 
 \paragraph{Descrizione}
@@ -36,7 +36,7 @@ Viene invocato dall'adapter e si occupa di interrogare il layer di persistenza p
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=0.5\textwidth]{SpecificaTecnica/Tool/ToolOrderAdapter}
-	\caption{Tool orders: ToolOrderAdapter}
+	\caption{ToolOrders: ToolOrderAdapter}
 \end{figure}
 
 \paragraph{Descrizione}
@@ -57,7 +57,7 @@ Funge da adattatore tra il tool LLM$^G$ e il service applicativo, delegando le o
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=0.4\textwidth]{SpecificaTecnica/Tool/ToolOrderPortIn}
-	\caption{Tool orders: ToolOrderPortIn}
+	\caption{ToolOrders: ToolOrderPortIn}
 \end{figure}
 
 \paragraph{Descrizione}
@@ -77,7 +77,7 @@ Viene implementata da \textit{ToolOrderAdapter} e utilizzata da \textit{GetOrder
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=0.6\textwidth]{SpecificaTecnica/Tool/GetOrders}
-	\caption{Tool orders: GetOrders}
+	\caption{ToolOrders: GetOrders}
 \end{figure}
 
 \paragraph{Descrizione}
@@ -100,7 +100,7 @@ Riceve i parametri di filtro dall'agente, li valida e li delega alla porta \text
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=0.3\textwidth]{SpecificaTecnica/Tool/BaseTool}
-	\caption{Tool orders: BaseTool}
+	\caption{ToolOrders: BaseTool}
 \end{figure}
 \label{baseTool}
 
